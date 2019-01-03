@@ -1,0 +1,4 @@
+#Tue Dec 25 18:32:27 CST 2018
+base.0=D\:\\unity3d\\dotaNet\\androidpro\\dotaNet\\build\\intermediates\\transforms\\dexMerger\\debug\\5
+path.0=classes.dex
+renamed.0=classes.dex

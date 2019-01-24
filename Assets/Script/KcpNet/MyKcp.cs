@@ -41,14 +41,14 @@ namespace cocosocket4unity
 
             if( p1.MsgType == "SC_Heart")
             {
-                UnityEngine.Debug.Log("heart");
+                //UnityEngine.Debug.Log("heart");
                 //this.SendHeartMsg();
                 return;
             }
             
             
            MsgManager.Instance.AddMessage(p1);
-            UnityEngine.Debug.Log("MsgType:" + p1.MsgType+ "ModeType:" + p1.ModeType + "ConnectId:" + p1.ConnectId + "Uid:" + p1.Uid);
+          //  UnityEngine.Debug.Log("MsgType:" + p1.MsgType+ "ModeType:" + p1.ModeType + "ConnectId:" + p1.ConnectId + "Uid:" + p1.Uid);
             //this.Send(bb.Copy());
         }
         /// <summary>
@@ -114,7 +114,7 @@ namespace cocosocket4unity
             Protomsg.MsgBase msg1 = new Protomsg.MsgBase();
             msg1.ModeType = modetype;
             msg1.MsgType = msgtype;
-            if( msg != null)
+            if ( msg != null)
             {
                 msg1.Datas = ByteString.CopyFrom(msg.ToByteArray());
             }

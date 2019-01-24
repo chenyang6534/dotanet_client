@@ -52,7 +52,10 @@ namespace cocosocket4unity
                 {
                     return;
                 }
-                DoMessage(msgobj.MsgType, msgobj);
+                if( DoMessage(msgobj.MsgType, msgobj) == false)
+                {
+                    return;
+                }
             }
         }
 
@@ -60,9 +63,9 @@ namespace cocosocket4unity
         {
             if (m_Handler.ContainsKey(key))
             {
-                m_Handler[key](msg);
+                return m_Handler[key](msg);
             }
-            return false;
+            return true;
         }
 
         public void AddMessage(Protomsg.MsgBase data)

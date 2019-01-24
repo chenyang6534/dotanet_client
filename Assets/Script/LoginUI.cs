@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using cocosocket4unity;
 using FairyGUI;
+using UnityEngine.SceneManagement;
 
 public class LoginUI : MonoBehaviour {
-
+    public static int UID;
     protected GComponent mRoot;
     public string aa;
 	// Use this for initialization
@@ -25,21 +26,32 @@ public class LoginUI : MonoBehaviour {
         });
         
 
-        MsgManager.Instance.AddListener("LoginMsg", new HandleMsg(this.HandleT1));
+        MsgManager.Instance.AddListener("SC_Logined", new HandleMsg(this.Logined));
         
     }
 	
 	// Update is called once per frame
 	void Update () {
+        //Debug.Log("update:");
         MsgManager.Instance.UpdateMessage();
+        
 
+    }
+    void OnDestroy()
+    {
+        //Debug.Log("OnDestroy:");
+        MsgManager.Instance.RemoveListener("SC_Logined");
     }
 
 
-    public bool HandleT1(Protomsg.MsgBase d1)
+    public bool Logined(Protomsg.MsgBase d1)
     {
-        Debug.Log("HandleT1:" + aa);
-        return true;
+        Debug.Log("Logined:" + aa);
+        Google.Protobuf.IMessage IMperson = new Protomsg.SC_Logined();
+        Protomsg.SC_Logined p1 = (Protomsg.SC_Logined)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
+        UID = p1.Uid;
+        SceneManager.LoadScene(1);
+        return false; //中断解析数据
     }
 
 

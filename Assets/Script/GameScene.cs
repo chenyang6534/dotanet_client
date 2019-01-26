@@ -12,9 +12,11 @@ public class GameScene : MonoBehaviour {
     protected Plane m_PlaneScene;
     protected int m_CurFrame;
     protected int m_LogicFps;
-    protected float m_GameServerStartTime;//游戏场景服务器第0帧的时候的本地时间
+    protected double m_GameServerStartTime;//游戏场景服务器第0帧的时候的本地时间
     protected float m_LogicDelayTime;//逻辑延时
     protected string m_ServerName;
+
+    protected Dictionary<int,Protomsg.SC_Update> m_LogicFrameData;//逻辑帧数据
 
 
     protected List<int> m_MyControlUnit;
@@ -27,33 +29,30 @@ public class GameScene : MonoBehaviour {
 
     void Init()
     {
-        m_LogicDelayTime = 0.05f;//延时0.05s
+        m_LogicDelayTime = 0.02f;//延时0.02s
         MsgManager.Instance.AddListener("SC_Update", new HandleMsg(this.SC_Update));
         MsgManager.Instance.AddListener("SC_NewScene", new HandleMsg(this.SC_NewScene));
+        m_LogicFrameData = new Dictionary<int, Protomsg.SC_Update>();
 
     }
-
+    void OnDestroy()
+    {
+        MsgManager.Instance.RemoveListener("SC_Update");
+        MsgManager.Instance.RemoveListener("SC_NewScene");
+        MyKcp.Instance.Stop();
+        Debug.Log("OnDestroy");
+    }
+    public int MaxFrame = 0;
     public bool SC_Update(Protomsg.MsgBase d1)
     {
         //Debug.Log("SC_Update:");
         IMessage IMperson = new Protomsg.SC_Update();
         Protomsg.SC_Update p1 = (Protomsg.SC_Update)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
 
-        //new
-        foreach (var item in p1.NewUnits)
-        {
-            UnityEntityManager.Instance.CreateUnityEntity(this, item);
-        }
-        foreach (var item in p1.OldUnits)
-        {
-            UnityEntityManager.Instance.ChangeUnityEntity(item);
-        }
-        foreach (var item in p1.RemoveUnits)
-        {
-            UnityEntityManager.Instance.DestroyUnityEntity(item);
-        }
+        m_LogicFrameData[p1.CurFrame] = p1;
+        MaxFrame = p1.CurFrame;
 
-        FreshControl();
+        //Debug.Log("SC_Update:"+p1.CurFrame);
 
         return true;
     }
@@ -67,8 +66,8 @@ public class GameScene : MonoBehaviour {
         m_CurFrame = p1.CurFrame;
         m_LogicFps = p1.LogicFps;
         m_ServerName = p1.ServerName;
-        m_GameServerStartTime = Time.realtimeSinceStartup-1/p1.LogicFps* p1.CurFrame;
-
+        m_GameServerStartTime = Tool.GetTime() - 1.0f/p1.LogicFps* p1.CurFrame;
+        Debug.Log("starttime:"+ m_GameServerStartTime+ " LogicFps: "+ p1.LogicFps+"  curframe:"+m_CurFrame+"  time:"+ Time.realtimeSinceStartup);
         CleanScene();
 
         LoadScene(p1.Name);
@@ -84,7 +83,9 @@ public class GameScene : MonoBehaviour {
         }
 
         m_GameScene = (GameObject)Instantiate(Resources.Load(name));
-        m_PlaneScene.SetNormalAndPosition(m_GameScene.transform.up, m_GameScene.transform.position);
+
+        var pos = new Vector3(m_GameScene.transform.position.x, 0, m_GameScene.transform.position.z);
+        m_PlaneScene.SetNormalAndPosition(m_GameScene.transform.up, pos);
 
         Debug.Log("SC_NewScene:"+name);
     }
@@ -110,20 +111,80 @@ public class GameScene : MonoBehaviour {
             if (item.Value.ControlID == LoginUI.UID)
             {
                 m_MyControlUnit.Add(item.Key);
+                if (true)
+                {
+                    DHCameraManager.SetFollowingTarget(item.Value);
+                }
             }
+            
         }
+
             
     }
 
 
 
+    void LogicUpdate()
+    {
+        //m_GameServerStartTime = Tool.GetTime() - 1.0f / p1.LogicFps * p1.CurFrame;
+        var frame = (Tool.GetTime() - m_GameServerStartTime-m_LogicDelayTime) * m_LogicFps;
+        //Debug.Log("frame:" + frame+"     curframe:"+ m_CurFrame+ " MaxFrame: " + MaxFrame+" time:"+ Tool.GetTime());
+        for (var i = m_CurFrame; i <= frame; i++)
+        {
+            //帧数据存在
+            if (m_LogicFrameData.ContainsKey(i))
+            {
+                var p1 = m_LogicFrameData[i];
+                //new
+                foreach (var item in p1.NewUnits)
+                {
+                    UnityEntityManager.Instance.CreateUnityEntity(this, item);
+                }
+                foreach (var item in p1.OldUnits)
+                {
+                    UnityEntityManager.Instance.ChangeUnityEntity(item);
+                }
+                foreach (var item in p1.RemoveUnits)
+                {
+                    UnityEntityManager.Instance.DestroyUnityEntity(item);
+                }
+                m_CurFrame = i+1;//下一帧序号
+                FreshControl();
 
+                //删除上上帧数据
+                m_LogicFrameData.Remove(i - 1);
+            }
+            else
+            {
+                Debug.Log("no data-------------------------------");
+            }
+        }
+
+        //位置进行线性插值计算
+        if (frame - (m_CurFrame - 1) > 0.001)
+        {
+            float scale = (float)(frame - (m_CurFrame - 1));
+            if (m_LogicFrameData.ContainsKey(m_CurFrame))
+            {
+                var p1 = m_LogicFrameData[m_CurFrame];
+                foreach (var item in p1.OldUnits)
+                {
+                    UnityEntityManager.Instance.ChangeShowPos(item, scale);
+                }
+            }
+        }
+
+    }
 
 
 
     // Update is called once per frame
     void Update () {
         MsgManager.Instance.UpdateMessage();
+
+        LogicUpdate();
+
+        //Debug.Log("frame:"+Time.deltaTime);
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -151,5 +212,7 @@ public class GameScene : MonoBehaviour {
 
         }
     }
+
+    
     
 }

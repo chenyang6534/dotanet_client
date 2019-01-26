@@ -50,7 +50,15 @@ public class LoginUI : MonoBehaviour {
         Google.Protobuf.IMessage IMperson = new Protomsg.SC_Logined();
         Protomsg.SC_Logined p1 = (Protomsg.SC_Logined)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
         UID = p1.Uid;
-        SceneManager.LoadScene(1);
+        if(p1.Code != 1)
+        {
+            Debug.Log("login fail");
+        }
+        else
+        {
+            SceneManager.LoadScene(1);
+        }
+        
         return false; //中断解析数据
     }
 

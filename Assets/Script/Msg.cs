@@ -36,21 +36,21 @@ namespace Protomsg {
             "CCI0Cg9DU19QbGF5ZXJBdHRhY2sSCwoDSURzGAEgAygFEhQKDFRhcmdldFVu",
             "aXRJRBgCIAEoBSJaCg5DU19QbGF5ZXJTa2lsbBILCgNJRHMYASABKAUSDwoH",
             "U2tpbGxJRBgCIAEoBRIJCgFYGAMgASgCEgkKAVkYBCABKAISFAoMVGFyZ2V0",
-            "VW5pdElEGAUgASgFItABCglVbml0RGF0YXMSDAoETmFtZRgBIAEoCRINCgVM",
+            "VW5pdElEGAUgASgFIucBCglVbml0RGF0YXMSDAoETmFtZRgBIAEoCRINCgVM",
             "ZXZlbBgCIAEoBRIKCgJIUBgDIAEoBRIKCgJNUBgEIAEoBRIJCgFYGAUgASgC",
             "EgkKAVkYBiABKAISCgoCSUQYByABKAUSEAoITW9kZVR5cGUYCCABKAkSDQoF",
             "TWF4SFAYCSABKAUSDQoFTWF4TVAYCiABKAUSEgoKRXhwZXJpZW5jZRgLIAEo",
-            "BRIVCg1NYXhFeHBlcmllbmNlGAwgASgFEhEKCUNvbnRyb2xJRBgNIAEoBSKE",
-            "AQoRTXNnVXNlckVudGVyU2NlbmUSCwoDVWlkGAEgASgFEhEKCUNvbm5lY3RJ",
-            "ZBgCIAEoBRIVCg1TcmNTZXJ2ZXJOYW1lGAMgASgJEhYKDkRlc3RTZXJ2ZXJO",
-            "YW1lGAQgASgJEhEKCVNjZW5lTmFtZRgFIAEoCRINCgVEYXRhcxgGIAEoDCKA",
-            "AQoJU0NfVXBkYXRlEhAKCEN1ckZyYW1lGAEgASgFEiUKCE5ld1VuaXRzGAIg",
-            "AygLMhMucHJvdG9tc2cuVW5pdERhdGFzEiUKCE9sZFVuaXRzGAMgAygLMhMu",
-            "cHJvdG9tc2cuVW5pdERhdGFzEhMKC1JlbW92ZVVuaXRzGAQgAygFIlMKC1ND",
-            "X05ld1NjZW5lEgwKBE5hbWUYASABKAkSEAoITG9naWNGcHMYAiABKAUSEAoI",
-            "Q3VyRnJhbWUYAyABKAUSEgoKU2VydmVyTmFtZRgEIAEoCSI2CgpTQ19Mb2dp",
-            "bmVkEgwKBENvZGUYASABKAUSCwoDVWlkGAIgASgFEg0KBUVycm9yGAMgASgJ",
-            "YgZwcm90bzM="));
+            "BRIVCg1NYXhFeHBlcmllbmNlGAwgASgFEhEKCUNvbnRyb2xJRBgNIAEoBRIV",
+            "Cg1Bbmltb3RvclN0YXRlGA4gASgFIoQBChFNc2dVc2VyRW50ZXJTY2VuZRIL",
+            "CgNVaWQYASABKAUSEQoJQ29ubmVjdElkGAIgASgFEhUKDVNyY1NlcnZlck5h",
+            "bWUYAyABKAkSFgoORGVzdFNlcnZlck5hbWUYBCABKAkSEQoJU2NlbmVOYW1l",
+            "GAUgASgJEg0KBURhdGFzGAYgASgMIoABCglTQ19VcGRhdGUSEAoIQ3VyRnJh",
+            "bWUYASABKAUSJQoITmV3VW5pdHMYAiADKAsyEy5wcm90b21zZy5Vbml0RGF0",
+            "YXMSJQoIT2xkVW5pdHMYAyADKAsyEy5wcm90b21zZy5Vbml0RGF0YXMSEwoL",
+            "UmVtb3ZlVW5pdHMYBCADKAUiUwoLU0NfTmV3U2NlbmUSDAoETmFtZRgBIAEo",
+            "CRIQCghMb2dpY0ZwcxgCIAEoBRIQCghDdXJGcmFtZRgDIAEoBRISCgpTZXJ2",
+            "ZXJOYW1lGAQgASgJIjYKClNDX0xvZ2luZWQSDAoEQ29kZRgBIAEoBRILCgNV",
+            "aWQYAiABKAUSDQoFRXJyb3IYAyABKAliBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -61,7 +61,7 @@ namespace Protomsg {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_PlayerMove), global::Protomsg.CS_PlayerMove.Parser, new[]{ "IDs", "X", "Y", "IsStart" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_PlayerAttack), global::Protomsg.CS_PlayerAttack.Parser, new[]{ "IDs", "TargetUnitID" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_PlayerSkill), global::Protomsg.CS_PlayerSkill.Parser, new[]{ "IDs", "SkillID", "X", "Y", "TargetUnitID" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.UnitDatas), global::Protomsg.UnitDatas.Parser, new[]{ "Name", "Level", "HP", "MP", "X", "Y", "ID", "ModeType", "MaxHP", "MaxMP", "Experience", "MaxExperience", "ControlID" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.UnitDatas), global::Protomsg.UnitDatas.Parser, new[]{ "Name", "Level", "HP", "MP", "X", "Y", "ID", "ModeType", "MaxHP", "MaxMP", "Experience", "MaxExperience", "ControlID", "AnimotorState" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.MsgUserEnterScene), global::Protomsg.MsgUserEnterScene.Parser, new[]{ "Uid", "ConnectId", "SrcServerName", "DestServerName", "SceneName", "Datas" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_Update), global::Protomsg.SC_Update.Parser, new[]{ "CurFrame", "NewUnits", "OldUnits", "RemoveUnits" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_NewScene), global::Protomsg.SC_NewScene.Parser, new[]{ "Name", "LogicFps", "CurFrame", "ServerName" }, null, null, null),
@@ -1548,6 +1548,7 @@ namespace Protomsg {
       experience_ = other.experience_;
       maxExperience_ = other.maxExperience_;
       controlID_ = other.controlID_;
+      animotorState_ = other.animotorState_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1705,6 +1706,20 @@ namespace Protomsg {
       }
     }
 
+    /// <summary>Field number for the "AnimotorState" field.</summary>
+    public const int AnimotorStateFieldNumber = 14;
+    private int animotorState_;
+    /// <summary>
+    ///动画状态 1:idle 2:walk 3:attack 4:skill 5:death
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int AnimotorState {
+      get { return animotorState_; }
+      set {
+        animotorState_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as UnitDatas);
@@ -1731,6 +1746,7 @@ namespace Protomsg {
       if (Experience != other.Experience) return false;
       if (MaxExperience != other.MaxExperience) return false;
       if (ControlID != other.ControlID) return false;
+      if (AnimotorState != other.AnimotorState) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1750,6 +1766,7 @@ namespace Protomsg {
       if (Experience != 0) hash ^= Experience.GetHashCode();
       if (MaxExperience != 0) hash ^= MaxExperience.GetHashCode();
       if (ControlID != 0) hash ^= ControlID.GetHashCode();
+      if (AnimotorState != 0) hash ^= AnimotorState.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1815,6 +1832,10 @@ namespace Protomsg {
         output.WriteRawTag(104);
         output.WriteInt32(ControlID);
       }
+      if (AnimotorState != 0) {
+        output.WriteRawTag(112);
+        output.WriteInt32(AnimotorState);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1861,6 +1882,9 @@ namespace Protomsg {
       }
       if (ControlID != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(ControlID);
+      }
+      if (AnimotorState != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(AnimotorState);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1911,6 +1935,9 @@ namespace Protomsg {
       }
       if (other.ControlID != 0) {
         ControlID = other.ControlID;
+      }
+      if (other.AnimotorState != 0) {
+        AnimotorState = other.AnimotorState;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1973,6 +2000,10 @@ namespace Protomsg {
           }
           case 104: {
             ControlID = input.ReadInt32();
+            break;
+          }
+          case 112: {
+            AnimotorState = input.ReadInt32();
             break;
           }
         }

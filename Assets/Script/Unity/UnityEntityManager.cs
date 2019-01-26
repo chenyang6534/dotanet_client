@@ -43,6 +43,14 @@ public class UnityEntityManager  {
             unity.Change(data);
         }
     }
+    public void ChangeShowPos(Protomsg.UnitDatas data, float scale)
+    {
+        UnityEntity unity = m_UnityEntitys[data.ID];
+        if (unity != null)
+        {
+            unity.ChangeShowPos(scale,data.X,data.Y);
+        }
+    }
 
     public void Clear()
     {

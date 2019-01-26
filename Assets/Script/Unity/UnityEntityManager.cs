@@ -52,6 +52,11 @@ public class UnityEntityManager  {
         }
     }
 
+    public UnityEntity GetUnityEntity(int id)
+    {
+        return m_UnityEntitys[id];
+    }
+
     public void Clear()
     {
         foreach (var item in m_UnityEntitys)

@@ -1,4 +1,5 @@
 ﻿
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,8 +9,13 @@ public class UnityEntity {
 
     protected GameScene m_Scene;
 
+    protected float RotateSpeed;
+
     public UnityEntity(Protomsg.UnitDatas data, GameScene scene)
     {
+
+        RotateSpeed = 360;
+
         m_Scene = scene;
         Name = data.Name;
         Level = data.Level;
@@ -42,6 +48,50 @@ public class UnityEntity {
         }
     }
 
+    //提前更新方向
+    public void PreLookAtPos(float x, float y)
+    {
+        if (m_Mode == null)
+        {
+            return;
+        }
+        var pos = new Vector3(x, 0, y);
+
+        var dir = pos - m_Mode.transform.position;
+        ChangeDirection(dir);
+
+
+    }
+
+    //更新方向动画
+    public void ChangeDirection(Vector3 dir)
+    {
+        if (m_Mode == null)
+        {
+            return;
+        }
+        if (dir != Vector3.zero)
+        {
+            var endv = new Vector3(0.0f, 0.0f, 0.0f);
+
+            var angle1 = m_Mode.transform.rotation.eulerAngles.y;
+            var angle2 = Quaternion.LookRotation(dir, Vector3.up).eulerAngles.y;
+
+            if (angle2 - angle1 > 180)
+            {
+                angle2 -= 360;
+            }
+            if (angle1 - angle2 > 180)
+            {
+                angle2 += 360;
+            }
+
+            var t = Math.Abs(angle1 - angle2) / RotateSpeed;
+            endv.y = angle2;
+            m_Mode.transform.DORotate(endv, t);
+        }
+    }
+
     public void Change(Protomsg.UnitDatas data)
     {
         // 更新位置
@@ -55,11 +105,11 @@ public class UnityEntity {
             //更新动画
             FreshAnim(data.AnimotorState);
             //更新方向
-            //transform.rotation = Quaternion.LookRotation(new Vector3(2, 2, 2));
             var dir = new Vector3(data.X, 0, data.Y);
-            if(dir != Vector3.zero)
+            //var dir = new Vector3(1, 0, 1);
+            if (dir != Vector3.zero)
             {
-                m_Mode.transform.rotation = Quaternion.LookRotation(dir);
+                ChangeDirection(dir);
             }
             
         }

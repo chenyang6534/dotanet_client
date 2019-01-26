@@ -209,6 +209,12 @@ public class GameScene : MonoBehaviour {
             Debug.Log(" id:"+ msg1.IDs[0]);
 
             MyKcp.Instance.SendMsg(m_ServerName, "CS_PlayerMove", msg1);
+            //操作提前旋转
+            foreach( var item in m_MyControlUnit)
+            {
+                UnityEntityManager.Instance.GetUnityEntity(item).PreLookAtPos(_vec3Target.x, _vec3Target.z);
+            }
+            
 
         }
     }

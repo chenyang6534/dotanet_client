@@ -16,6 +16,7 @@ public class GameScene : MonoBehaviour {
     protected float m_LogicDelayTime;//逻辑延时
     protected string m_ServerName;
 
+    public int m_MaxFrame = 0;//当前收到的逻辑帧数据 帧号
     protected Dictionary<int,Protomsg.SC_Update> m_LogicFrameData;//逻辑帧数据
 
 
@@ -29,7 +30,7 @@ public class GameScene : MonoBehaviour {
 
     void Init()
     {
-        m_LogicDelayTime = 0.02f;//延时0.02s
+        m_LogicDelayTime = 0.05f;//延时0.02s
         MsgManager.Instance.AddListener("SC_Update", new HandleMsg(this.SC_Update));
         MsgManager.Instance.AddListener("SC_NewScene", new HandleMsg(this.SC_NewScene));
         m_LogicFrameData = new Dictionary<int, Protomsg.SC_Update>();
@@ -42,7 +43,7 @@ public class GameScene : MonoBehaviour {
         MyKcp.Instance.Stop();
         Debug.Log("OnDestroy");
     }
-    public int MaxFrame = 0;
+    
     public bool SC_Update(Protomsg.MsgBase d1)
     {
         //Debug.Log("SC_Update:");
@@ -50,7 +51,7 @@ public class GameScene : MonoBehaviour {
         Protomsg.SC_Update p1 = (Protomsg.SC_Update)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
 
         m_LogicFrameData[p1.CurFrame] = p1;
-        MaxFrame = p1.CurFrame;
+        m_MaxFrame = p1.CurFrame;
 
         //Debug.Log("SC_Update:"+p1.CurFrame);
 
@@ -122,13 +123,34 @@ public class GameScene : MonoBehaviour {
             
     }
 
+    //动态处理延时 使过程平滑
+    void DoDelay(double frame)
+    {
+        //动态处理延时 使过程平滑
+        if (m_MaxFrame - frame > 1.3)
+        {
+            //超过2帧缓存数据 降低延时
+            m_LogicDelayTime -= 0.01f;//10毫秒
+            Debug.Log("m_LogicDelayTime+:" + m_LogicDelayTime);
+        }
+        else if (frame - m_MaxFrame >= 0)
+        {
+            //缓存中没有需要执行的数据 增加延时
+            m_LogicDelayTime += 0.01f;//10毫秒
+            Debug.Log("m_LogicDelayTime-:" + m_LogicDelayTime);
+        }
+    }
 
-
+    //处理游戏逻辑
     void LogicUpdate()
     {
         //m_GameServerStartTime = Tool.GetTime() - 1.0f / p1.LogicFps * p1.CurFrame;
         var frame = (Tool.GetTime() - m_GameServerStartTime-m_LogicDelayTime) * m_LogicFps;
-        //Debug.Log("frame:" + frame+"     curframe:"+ m_CurFrame+ " MaxFrame: " + MaxFrame+" time:"+ Tool.GetTime());
+        //Debug.Log("frame:" + frame+"     curframe:"+ m_CurFrame+ " MaxFrame: " + m_MaxFrame);
+
+        DoDelay(frame);
+        
+
         for (var i = m_CurFrame; i <= frame; i++)
         {
             //帧数据存在
@@ -196,9 +218,9 @@ public class GameScene : MonoBehaviour {
             m_PlaneScene.Raycast(ray, out dis);
             ////根据距离获得鼠标点击的目标点三维坐标
             Vector3 _vec3Target = ray.GetPoint(dis);
-            Debug.Log(" hit point " + _vec3Target);
+            //Debug.Log(" hit point " + _vec3Target);
 
-            Debug.Log(" idaa:" + m_MyControlUnit[0]);
+            //Debug.Log(" idaa:" + m_MyControlUnit[0]);
 
             Protomsg.CS_PlayerMove msg1 = new Protomsg.CS_PlayerMove();
             msg1.IDs.AddRange(m_MyControlUnit);

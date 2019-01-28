@@ -18,9 +18,11 @@ namespace cocosocket4unity
         public string Name { get; set; }
         public int Age { get; set; }
     }
+
     public class MyKcp : KcpClient
 	{
-
+        public static int PingValue = 0;
+        protected double m_SendHeartTime = 0;
         private static readonly MyKcp _instance = new MyKcp();
         public static MyKcp Instance
         {
@@ -43,6 +45,9 @@ namespace cocosocket4unity
             {
                 //UnityEngine.Debug.Log("heart");
                 //this.SendHeartMsg();
+                var time = Tool.GetTime();
+                PingValue = (int)Math.Floor((time - m_SendHeartTime) * 1000);
+                //UnityEngine.Debug.Log("ping:"+ PingValue);
                 return;
             }
             
@@ -150,6 +155,8 @@ namespace cocosocket4unity
             ByteBuf bb = new ByteBuf(msg1.ToByteArray());
 
             this.Send(bb);
+
+            m_SendHeartTime = Tool.GetTime();
 
         }
 

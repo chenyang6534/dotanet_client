@@ -14,7 +14,7 @@ public class UnityEntity {
     public UnityEntity(Protomsg.UnitDatas data, GameScene scene)
     {
 
-        RotateSpeed = 360;
+        RotateSpeed = 180;
 
         m_Scene = scene;
         Name = data.Name;
@@ -42,25 +42,22 @@ public class UnityEntity {
         {
             if (anim != 0)
             {
-                //Debug.Log("AniState: "+ anim);
+                Debug.Log("AniState: "+ anim);
                 m_Mode.GetComponent<Animator>().SetInteger("AniState", anim);
             }
         }
     }
 
-    //提前更新方向
-    public void PreLookAtPos(float x, float y)
+    //提前更新方向(关闭预判)
+    public void PreLookAtDir(float x, float y)
     {
         if (m_Mode == null)
         {
             return;
         }
-        var pos = new Vector3(x, 0, y);
-
-        var dir = pos - m_Mode.transform.position;
-        ChangeDirection(dir);
-
-
+        var dir = new Vector3(x, 0, y);
+        //ChangeDirection(dir);
+        
     }
 
     //更新方向动画

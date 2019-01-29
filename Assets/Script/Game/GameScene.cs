@@ -21,6 +21,18 @@ public class GameScene : MonoBehaviour {
 
 
     protected List<int> m_MyControlUnit;
+    private static GameScene singleton = null;
+    public static GameScene Singleton
+    {
+        get
+        {
+            return singleton;
+        }
+    }
+    void Awake()
+    {
+        singleton = this;
+    }
 
     void Start () {
         
@@ -199,6 +211,35 @@ public class GameScene : MonoBehaviour {
     }
 
 
+    private float m_LastDegree = 0;
+    private double m_LastControlTime = 0;
+    public void SendControlData(float degree,bool isstart)
+    {
+        if(isstart == true && (Mathf.Abs(m_LastDegree-degree) <= 10 || Tool.GetTime()- m_LastControlTime <= 1/m_LogicFps))
+        {
+            return;
+        }
+        m_LastControlTime = Tool.GetTime();
+        m_LastDegree = degree;
+        var dir = Tool.Vec2Rotate(new Vector2(0, 1), degree);
+
+        Protomsg.CS_PlayerMove msg1 = new Protomsg.CS_PlayerMove();
+        msg1.IDs.AddRange(m_MyControlUnit);
+        msg1.IsStart = isstart;
+        msg1.X = dir.x;
+        msg1.Y = dir.y;
+
+        //Debug.Log(" id:" + msg1.IDs[0]);
+
+        MyKcp.Instance.SendMsg(m_ServerName, "CS_PlayerMove", msg1);
+        //操作提前旋转
+        foreach (var item in m_MyControlUnit)
+        {
+            UnityEntityManager.Instance.GetUnityEntity(item).PreLookAtDir(dir.x, dir.y);
+        }
+    }
+
+
 
     // Update is called once per frame
     void Update () {
@@ -222,20 +263,7 @@ public class GameScene : MonoBehaviour {
 
             //Debug.Log(" idaa:" + m_MyControlUnit[0]);
 
-            Protomsg.CS_PlayerMove msg1 = new Protomsg.CS_PlayerMove();
-            msg1.IDs.AddRange(m_MyControlUnit);
-            msg1.IsStart = true;
-            msg1.X = _vec3Target.x;
-            msg1.Y = _vec3Target.z;
-
-            Debug.Log(" id:"+ msg1.IDs[0]);
-
-            MyKcp.Instance.SendMsg(m_ServerName, "CS_PlayerMove", msg1);
-            //操作提前旋转
-            foreach( var item in m_MyControlUnit)
-            {
-                UnityEntityManager.Instance.GetUnityEntity(item).PreLookAtPos(_vec3Target.x, _vec3Target.z);
-            }
+            
             
 
         }

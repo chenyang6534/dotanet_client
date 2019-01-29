@@ -26,14 +26,20 @@ public class GameUI : MonoBehaviour {
     private void JoystickMove(EventContext context)
     {
         float degree = (float)context.data;
-        Debug.Log(Tool.Vec2Rotate(new Vector2(0, 1), degree).ToString());
+        //var dir = Tool.Vec2Rotate(new Vector2(0, 1), degree);
+        //Debug.Log(Tool.Vec2Rotate(new Vector2(0, 1), degree).ToString());
         //gPing.text = Tool.Vec2Rotate(new Vector2(0,1), degree).ToString();
-        
+
+        GameScene.Singleton.SendControlData(degree, true);
+
+
     }
     private void JoystickEnd(EventContext context)
     {
         float degree = (float)context.data;
         Debug.Log("JoystickEnd");
+
+        GameScene.Singleton.SendControlData(degree, false);
 
     }
 

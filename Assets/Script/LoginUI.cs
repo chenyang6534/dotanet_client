@@ -13,6 +13,7 @@ public class LoginUI : MonoBehaviour {
 	void Start () {
 
 
+        //MyKcp.Instance.Create("119.23.8.72", 1118);
         MyKcp.Instance.Create("127.0.0.1", 1118);
         mRoot = GetComponent<UIPanel>().ui;
         mRoot.GetChild("n6").asButton.onClick.Add(()=> {

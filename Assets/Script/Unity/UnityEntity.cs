@@ -32,6 +32,13 @@ public class UnityEntity {
 
 
         m_Mode.transform.position = new Vector3(data.X, 0, data.Y);
+
+        //if(ControlID == LoginUI.UID)
+        //{
+        //    var fogwar = m_Mode.AddComponent<FogOfWarExplorer>();
+        //    fogwar.radius = 8;
+        //}
+
         FreshAnim(data.AnimotorState);
 
 
@@ -158,6 +165,7 @@ public class UnityEntity {
                 GameObject.Destroy(m_Mode);
             }
             m_Mode = (GameObject)(GameObject.Instantiate(Resources.Load(m_ModeType)));
+            
             m_Mode.transform.parent = m_Scene.transform.parent;
 
 

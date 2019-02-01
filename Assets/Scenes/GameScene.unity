@@ -189,7 +189,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 239870036}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.682043, y: -5, z: 0}
+  m_LocalPosition: {x: 9.692556, y: -5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -247,7 +247,7 @@ Transform:
   m_GameObject: {fileID: 1379871870}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.013020833, y: 0.013020833, z: 0.013020833}
+  m_LocalScale: {x: 0.013020834, y: 0.013020834, z: 0.013020834}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -293,6 +293,7 @@ GameObject:
   - component: {fileID: 1526690796}
   - component: {fileID: 1526690795}
   - component: {fileID: 1526690798}
+  - component: {fileID: 1526690799}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -315,7 +316,7 @@ Camera:
   m_GameObject: {fileID: 1526690794}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 3
+  m_ClearFlags: 1
   m_BackGroundColor: {r: 0.27647737, g: 0.37807786, b: 0.5377358, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
@@ -371,6 +372,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f4b6e0fb285b9942bb5b2c5152b2a5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1526690799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1526690794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d74b28aa2932c6c4188a8f9749aaf8a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FogMaskType: 1
+  m_FogColor: {r: 0.043137256, g: 0.043137256, b: 0.043137256, a: 0.50980395}
+  m_XSize: 100
+  m_ZSize: 100
+  m_TexWidth: 10
+  m_TexHeight: 10
+  m_CenterPosition: {x: 0, y: 0, z: 0}
+  m_HeightRange: 10
+  m_BlurOffset: 0.01
+  m_BlurInteration: 1
+  effectShader: {fileID: 4800000, guid: de59591eb7a71f742a1a396afaf86032, type: 3}
+  blurShader: {fileID: 0}
+  minimapRenderShader: {fileID: 0}
 --- !u!1 &2002430993
 GameObject:
   m_ObjectHideFlags: 0

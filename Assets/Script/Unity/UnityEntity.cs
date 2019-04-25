@@ -28,6 +28,8 @@ public class UnityEntity {
         ControlID = data.ControlID;
         X = data.X;
         Y = data.Y;
+        DirectionX = data.DirectionX;
+        DirectionY = data.DirectionY;
 
 
 
@@ -39,11 +41,11 @@ public class UnityEntity {
         //    fogwar.radius = 8;
         //}
 
-        FreshAnim(data.AnimotorState);
+        FreshAnim(data.AnimotorState, data.AttackTime);
 
 
     }
-    public void FreshAnim(int anim)
+    public void FreshAnim(int anim,float time)
     {
         if (m_Mode != null)
         {
@@ -51,6 +53,28 @@ public class UnityEntity {
             {
                 Debug.Log("AniState: "+ anim);
                 m_Mode.GetComponent<Animator>().SetInteger("AniState", anim);
+                
+                //攻击动画
+                if (anim == 3)
+                {
+                    float animtime = Tool.GetClipLength(m_Mode.GetComponent<Animator>(), "attack");
+                    if(time <= 0)
+                    {
+                        time = 1;
+                    }
+                    float speed = animtime / time;
+                    m_Mode.GetComponent<Animator>().speed = speed;
+                    Debug.Log("animlen: attack " + speed);
+                    //Debug.Log("animlen: walk " + Tool.GetClipLength(m_Mode.GetComponent<Animator>(), "walk"));
+                    //Debug.Log("animlen: idle1t " + Tool.GetClipLength(m_Mode.GetComponent<Animator>(), "idle1t"));
+                    //Debug.Log("animlen: idle2 " + Tool.GetClipLength(m_Mode.GetComponent<Animator>(), "idle2"));
+                    //m_Mode.GetComponent<Animator>().speed = 0.2f;
+                }
+                else
+                {
+                    m_Mode.GetComponent<Animator>().speed = 1.0f;
+                }
+                
             }
         }
     }
@@ -90,7 +114,8 @@ public class UnityEntity {
                 angle2 += 360;
             }
 
-            var t = Math.Abs(angle1 - angle2) / RotateSpeed;
+            //var t = Math.Abs(angle1 - angle2) / RotateSpeed;
+            var t = 0.025f;
             endv.y = angle2;
             m_Mode.transform.DORotate(endv, t);
         }
@@ -107,9 +132,11 @@ public class UnityEntity {
             //更新位置
             m_Mode.transform.position = new Vector3(X,0,Y);
             //更新动画
-            FreshAnim(data.AnimotorState);
+            FreshAnim(data.AnimotorState,data.AttackTime);
             //更新方向
-            var dir = new Vector3(data.X, 0, data.Y);
+            DirectionX += data.DirectionX;
+            DirectionY += data.DirectionY;
+            var dir = new Vector3(DirectionX, 0, DirectionY);
             //var dir = new Vector3(1, 0, 1);
             if (dir != Vector3.zero)
             {
@@ -306,7 +333,33 @@ public class UnityEntity {
             m_Y = value;
         }
     }
-
+    // x
+    protected float m_DirectionX;
+    public float DirectionX
+    {
+        get
+        {
+            return m_DirectionX;
+        }
+        set
+        {
+            m_DirectionX = value;
+        }
+    }
+    // x
+    protected float m_DirectionY;
+    public float DirectionY
+    {
+        get
+        {
+            return m_DirectionY;
+        }
+        set
+        {
+            m_DirectionY = value;
+        }
+    }
+    //
 
 
 }

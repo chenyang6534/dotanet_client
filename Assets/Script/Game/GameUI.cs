@@ -9,6 +9,8 @@ public class GameUI : MonoBehaviour {
     private GComponent mainUI;
     private GTextField gPing;
     private Joystick joystick;
+
+    private Btnstick attackstick;
     // Use this for initialization
     void Start () {
         mainUI = GetComponent<UIPanel>().ui;
@@ -16,19 +18,42 @@ public class GameUI : MonoBehaviour {
         //Debug.Log("ui pos:"+(new Vector2(mainUI.GetChild("n1").x, mainUI.GetChild("n1").y)));
 
         gPing = mainUI.GetChild("n3").asTextField;
-        mainUI.GetChild("n1").SetXY(mainUI.GetChild("n1").x + 100, mainUI.GetChild("n1").y - 100);
+        //mainUI.GetChild("n1").SetXY(mainUI.GetChild("n1").x + 100, mainUI.GetChild("n1").y - 100);
         joystick = new Joystick(mainUI.GetChild("n1").asCom);
         joystick.onMove.Add(JoystickMove);
-
-        //joystick.SetTouchSize(100, 100);
         joystick.onEnd.Add(JoystickEnd);
+
+        attackstick = new Btnstick(mainUI.GetChild("n5").asCom);
+        attackstick.onMove.Add(AttackstickMove);
+        attackstick.onEnd.Add(AttackstickEnd);
     }
+
+
+    private void AttackstickMove(EventContext context)
+    {
+        float degree = (float)context.data;
+
+        Debug.Log("AttackstickMove:"+ degree);
+
+        //GameScene.Singleton.SendControlData(degree, true);
+
+
+    }
+    private void AttackstickEnd(EventContext context)
+    {
+        float degree = (float)context.data;
+        Debug.Log("AttackstickEnd");
+
+        GameScene.Singleton.PressAttackBtn();
+
+        //GameScene.Singleton.SendControlData(degree, false);
+
+    }
+
+
     private void JoystickMove(EventContext context)
     {
         float degree = (float)context.data;
-        //var dir = Tool.Vec2Rotate(new Vector2(0, 1), degree);
-        //Debug.Log(Tool.Vec2Rotate(new Vector2(0, 1), degree).ToString());
-        //gPing.text = Tool.Vec2Rotate(new Vector2(0,1), degree).ToString();
 
         GameScene.Singleton.SendControlData(degree, true);
 

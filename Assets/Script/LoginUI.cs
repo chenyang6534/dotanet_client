@@ -12,7 +12,13 @@ public class LoginUI : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-
+        //UnityEngine.Debug.Log("Start-------------------------");
+        //var dict = new Dictionary<string, string>();
+        //dict.Add("abc", "1");
+        //dict.Add("abcd", "2");
+        //dict.Add("abcf", "3");
+        //dict.Add("abc", "10");
+        //UnityEngine.Debug.Log("end-------------------------");
         //MyKcp.Instance.Create("119.23.8.72", 1118);
         MyKcp.Instance.Create("127.0.0.1", 1118);
         mRoot = GetComponent<UIPanel>().ui;

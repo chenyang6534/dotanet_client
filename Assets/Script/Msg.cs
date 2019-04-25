@@ -36,21 +36,23 @@ namespace Protomsg {
             "CCI0Cg9DU19QbGF5ZXJBdHRhY2sSCwoDSURzGAEgAygFEhQKDFRhcmdldFVu",
             "aXRJRBgCIAEoBSJaCg5DU19QbGF5ZXJTa2lsbBILCgNJRHMYASABKAUSDwoH",
             "U2tpbGxJRBgCIAEoBRIJCgFYGAMgASgCEgkKAVkYBCABKAISFAoMVGFyZ2V0",
-            "VW5pdElEGAUgASgFIucBCglVbml0RGF0YXMSDAoETmFtZRgBIAEoCRINCgVM",
+            "VW5pdElEGAUgASgFIqMCCglVbml0RGF0YXMSDAoETmFtZRgBIAEoCRINCgVM",
             "ZXZlbBgCIAEoBRIKCgJIUBgDIAEoBRIKCgJNUBgEIAEoBRIJCgFYGAUgASgC",
             "EgkKAVkYBiABKAISCgoCSUQYByABKAUSEAoITW9kZVR5cGUYCCABKAkSDQoF",
             "TWF4SFAYCSABKAUSDQoFTWF4TVAYCiABKAUSEgoKRXhwZXJpZW5jZRgLIAEo",
             "BRIVCg1NYXhFeHBlcmllbmNlGAwgASgFEhEKCUNvbnRyb2xJRBgNIAEoBRIV",
-            "Cg1Bbmltb3RvclN0YXRlGA4gASgFIoQBChFNc2dVc2VyRW50ZXJTY2VuZRIL",
-            "CgNVaWQYASABKAUSEQoJQ29ubmVjdElkGAIgASgFEhUKDVNyY1NlcnZlck5h",
-            "bWUYAyABKAkSFgoORGVzdFNlcnZlck5hbWUYBCABKAkSEQoJU2NlbmVOYW1l",
-            "GAUgASgJEg0KBURhdGFzGAYgASgMIoABCglTQ19VcGRhdGUSEAoIQ3VyRnJh",
-            "bWUYASABKAUSJQoITmV3VW5pdHMYAiADKAsyEy5wcm90b21zZy5Vbml0RGF0",
-            "YXMSJQoIT2xkVW5pdHMYAyADKAsyEy5wcm90b21zZy5Vbml0RGF0YXMSEwoL",
-            "UmVtb3ZlVW5pdHMYBCADKAUiUwoLU0NfTmV3U2NlbmUSDAoETmFtZRgBIAEo",
-            "CRIQCghMb2dpY0ZwcxgCIAEoBRIQCghDdXJGcmFtZRgDIAEoBRISCgpTZXJ2",
-            "ZXJOYW1lGAQgASgJIjYKClNDX0xvZ2luZWQSDAoEQ29kZRgBIAEoBRILCgNV",
-            "aWQYAiABKAUSDQoFRXJyb3IYAyABKAliBnByb3RvMw=="));
+            "Cg1Bbmltb3RvclN0YXRlGA4gASgFEhIKCkF0dGFja1RpbWUYDyABKAISEgoK",
+            "RGlyZWN0aW9uWBgQIAEoAhISCgpEaXJlY3Rpb25ZGBEgASgCIoQBChFNc2dV",
+            "c2VyRW50ZXJTY2VuZRILCgNVaWQYASABKAUSEQoJQ29ubmVjdElkGAIgASgF",
+            "EhUKDVNyY1NlcnZlck5hbWUYAyABKAkSFgoORGVzdFNlcnZlck5hbWUYBCAB",
+            "KAkSEQoJU2NlbmVOYW1lGAUgASgJEg0KBURhdGFzGAYgASgMIoABCglTQ19V",
+            "cGRhdGUSEAoIQ3VyRnJhbWUYASABKAUSJQoITmV3VW5pdHMYAiADKAsyEy5w",
+            "cm90b21zZy5Vbml0RGF0YXMSJQoIT2xkVW5pdHMYAyADKAsyEy5wcm90b21z",
+            "Zy5Vbml0RGF0YXMSEwoLUmVtb3ZlVW5pdHMYBCADKAUiUwoLU0NfTmV3U2Nl",
+            "bmUSDAoETmFtZRgBIAEoCRIQCghMb2dpY0ZwcxgCIAEoBRIQCghDdXJGcmFt",
+            "ZRgDIAEoBRISCgpTZXJ2ZXJOYW1lGAQgASgJIjYKClNDX0xvZ2luZWQSDAoE",
+            "Q29kZRgBIAEoBRILCgNVaWQYAiABKAUSDQoFRXJyb3IYAyABKAliBnByb3Rv",
+            "Mw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -61,7 +63,7 @@ namespace Protomsg {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_PlayerMove), global::Protomsg.CS_PlayerMove.Parser, new[]{ "IDs", "X", "Y", "IsStart" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_PlayerAttack), global::Protomsg.CS_PlayerAttack.Parser, new[]{ "IDs", "TargetUnitID" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_PlayerSkill), global::Protomsg.CS_PlayerSkill.Parser, new[]{ "IDs", "SkillID", "X", "Y", "TargetUnitID" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.UnitDatas), global::Protomsg.UnitDatas.Parser, new[]{ "Name", "Level", "HP", "MP", "X", "Y", "ID", "ModeType", "MaxHP", "MaxMP", "Experience", "MaxExperience", "ControlID", "AnimotorState" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.UnitDatas), global::Protomsg.UnitDatas.Parser, new[]{ "Name", "Level", "HP", "MP", "X", "Y", "ID", "ModeType", "MaxHP", "MaxMP", "Experience", "MaxExperience", "ControlID", "AnimotorState", "AttackTime", "DirectionX", "DirectionY" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.MsgUserEnterScene), global::Protomsg.MsgUserEnterScene.Parser, new[]{ "Uid", "ConnectId", "SrcServerName", "DestServerName", "SceneName", "Datas" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_Update), global::Protomsg.SC_Update.Parser, new[]{ "CurFrame", "NewUnits", "OldUnits", "RemoveUnits" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_NewScene), global::Protomsg.SC_NewScene.Parser, new[]{ "Name", "LogicFps", "CurFrame", "ServerName" }, null, null, null),
@@ -1549,6 +1551,9 @@ namespace Protomsg {
       maxExperience_ = other.maxExperience_;
       controlID_ = other.controlID_;
       animotorState_ = other.animotorState_;
+      attackTime_ = other.attackTime_;
+      directionX_ = other.directionX_;
+      directionY_ = other.directionY_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1720,6 +1725,48 @@ namespace Protomsg {
       }
     }
 
+    /// <summary>Field number for the "AttackTime" field.</summary>
+    public const int AttackTimeFieldNumber = 15;
+    private float attackTime_;
+    /// <summary>
+    ///攻击动画时间
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float AttackTime {
+      get { return attackTime_; }
+      set {
+        attackTime_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "DirectionX" field.</summary>
+    public const int DirectionXFieldNumber = 16;
+    private float directionX_;
+    /// <summary>
+    ///方向x
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float DirectionX {
+      get { return directionX_; }
+      set {
+        directionX_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "DirectionY" field.</summary>
+    public const int DirectionYFieldNumber = 17;
+    private float directionY_;
+    /// <summary>
+    ///方向y
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float DirectionY {
+      get { return directionY_; }
+      set {
+        directionY_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as UnitDatas);
@@ -1747,6 +1794,9 @@ namespace Protomsg {
       if (MaxExperience != other.MaxExperience) return false;
       if (ControlID != other.ControlID) return false;
       if (AnimotorState != other.AnimotorState) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(AttackTime, other.AttackTime)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(DirectionX, other.DirectionX)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(DirectionY, other.DirectionY)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1767,6 +1817,9 @@ namespace Protomsg {
       if (MaxExperience != 0) hash ^= MaxExperience.GetHashCode();
       if (ControlID != 0) hash ^= ControlID.GetHashCode();
       if (AnimotorState != 0) hash ^= AnimotorState.GetHashCode();
+      if (AttackTime != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(AttackTime);
+      if (DirectionX != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(DirectionX);
+      if (DirectionY != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(DirectionY);
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1836,6 +1889,18 @@ namespace Protomsg {
         output.WriteRawTag(112);
         output.WriteInt32(AnimotorState);
       }
+      if (AttackTime != 0F) {
+        output.WriteRawTag(125);
+        output.WriteFloat(AttackTime);
+      }
+      if (DirectionX != 0F) {
+        output.WriteRawTag(133, 1);
+        output.WriteFloat(DirectionX);
+      }
+      if (DirectionY != 0F) {
+        output.WriteRawTag(141, 1);
+        output.WriteFloat(DirectionY);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1885,6 +1950,15 @@ namespace Protomsg {
       }
       if (AnimotorState != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(AnimotorState);
+      }
+      if (AttackTime != 0F) {
+        size += 1 + 4;
+      }
+      if (DirectionX != 0F) {
+        size += 2 + 4;
+      }
+      if (DirectionY != 0F) {
+        size += 2 + 4;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1938,6 +2012,15 @@ namespace Protomsg {
       }
       if (other.AnimotorState != 0) {
         AnimotorState = other.AnimotorState;
+      }
+      if (other.AttackTime != 0F) {
+        AttackTime = other.AttackTime;
+      }
+      if (other.DirectionX != 0F) {
+        DirectionX = other.DirectionX;
+      }
+      if (other.DirectionY != 0F) {
+        DirectionY = other.DirectionY;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -2004,6 +2087,18 @@ namespace Protomsg {
           }
           case 112: {
             AnimotorState = input.ReadInt32();
+            break;
+          }
+          case 125: {
+            AttackTime = input.ReadFloat();
+            break;
+          }
+          case 133: {
+            DirectionX = input.ReadFloat();
+            break;
+          }
+          case 141: {
+            DirectionY = input.ReadFloat();
             break;
           }
         }

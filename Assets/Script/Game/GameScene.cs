@@ -143,13 +143,13 @@ public class GameScene : MonoBehaviour {
         {
             //超过2帧缓存数据 降低延时
             m_LogicDelayTime -= 0.01f;//10毫秒
-            Debug.Log("m_LogicDelayTime+:" + m_LogicDelayTime);
+            //Debug.Log("m_LogicDelayTime+:" + m_LogicDelayTime);
         }
         else if (frame - m_MaxFrame >= 0)
         {
             //缓存中没有需要执行的数据 增加延时
             m_LogicDelayTime += 0.01f;//10毫秒
-            Debug.Log("m_LogicDelayTime-:" + m_LogicDelayTime);
+            //Debug.Log("m_LogicDelayTime-:" + m_LogicDelayTime);
         }
     }
 
@@ -233,9 +233,23 @@ public class GameScene : MonoBehaviour {
 
         MyKcp.Instance.SendMsg(m_ServerName, "CS_PlayerMove", msg1);
         //操作提前旋转
-        foreach (var item in m_MyControlUnit)
+        //foreach (var item in m_MyControlUnit)
+        //{
+        //    UnityEntityManager.Instance.GetUnityEntity(item).PreLookAtDir(dir.x, dir.y);
+        //}
+    }
+
+    public void PressAttackBtn()
+    {
+        UnityEntity nearestUnit = UnityEntityManager.Instance.GetNearestUnityEntity(m_MyControlUnit[0]);
+        if(nearestUnit != null)
         {
-            UnityEntityManager.Instance.GetUnityEntity(item).PreLookAtDir(dir.x, dir.y);
+            Protomsg.CS_PlayerAttack msg1 = new Protomsg.CS_PlayerAttack();
+            msg1.IDs.AddRange(m_MyControlUnit);
+            msg1.TargetUnitID = nearestUnit.ID;
+            MyKcp.Instance.SendMsg(m_ServerName, "CS_PlayerAttack", msg1);
+
+            Debug.Log("PressAttackBtn");
         }
     }
 

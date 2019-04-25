@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Joystick : EventDispatcher
+public class Btnstick : EventDispatcher
 {
     //事件的监听者
     public EventListener onMove { get; private set; }//设置了一个安全权限
@@ -26,7 +26,7 @@ public class Joystick : EventDispatcher
     public int radius { get; set; }
     private Tweener tweener;
 
-    public Joystick(GComponent UI)
+    public Btnstick(GComponent UI)
     {
         onMove = new EventListener(this, "onMove");
         onEnd = new EventListener(this, "onEnd");

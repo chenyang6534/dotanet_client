@@ -51,7 +51,7 @@ public class UnityEntity {
         {
             if (anim != 0)
             {
-                Debug.Log("AniState: "+ anim);
+                //Debug.Log("AniState: "+ anim);
                 m_Mode.GetComponent<Animator>().SetInteger("AniState", anim);
                 
                 //攻击动画
@@ -64,7 +64,7 @@ public class UnityEntity {
                     }
                     float speed = animtime / time;
                     m_Mode.GetComponent<Animator>().speed = speed;
-                    Debug.Log("animlen: attack " + speed);
+                    //Debug.Log("animlen: attack " + speed);
                     //Debug.Log("animlen: walk " + Tool.GetClipLength(m_Mode.GetComponent<Animator>(), "walk"));
                     //Debug.Log("animlen: idle1t " + Tool.GetClipLength(m_Mode.GetComponent<Animator>(), "idle1t"));
                     //Debug.Log("animlen: idle2 " + Tool.GetClipLength(m_Mode.GetComponent<Animator>(), "idle2"));
@@ -79,14 +79,46 @@ public class UnityEntity {
         }
     }
 
+    //显示 箭头指示器
+    public void IndicateShow(float len)
+    {
+
+    }
+    //隐藏 箭头指示器
+    public void IndicateHide()
+    {
+
+    }
+
+
+    //目标红色高亮显示
+    public void TargetShow(bool isshow)
+    {
+        //Debug.Log("TargetShow:"+isshow);
+        var hlob = m_Mode.GetComponent<HighlightableObject>();
+        if (hlob == null)
+        {
+            hlob = m_Mode.AddComponent<HighlightableObject>();
+        }
+        if (isshow)
+        {
+            //红色
+            hlob.FlashingOn(new Color(0.9f, 0.3f, 0.3f), new Color(0.9f, 0.3f, 0.3f), 1);
+        }
+        else
+        {
+            hlob.FlashingOff();
+        }
+    }
+
     //提前更新方向(关闭预判)
     public void PreLookAtDir(float x, float y)
     {
-        if (m_Mode == null)
-        {
-            return;
-        }
-        var dir = new Vector3(x, 0, y);
+        //if (m_Mode == null)
+        //{
+        //    return;
+        //}
+        //var dir = new Vector3(x, 0, y);
         //ChangeDirection(dir);
         
     }

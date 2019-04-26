@@ -9,6 +9,7 @@ public class Btnstick : EventDispatcher
     //事件的监听者
     public EventListener onMove { get; private set; }//设置了一个安全权限
     public EventListener onEnd { get; private set; }
+    public EventListener onDown { get; private set; }//设置了一个安全权限
 
     //UI里的对象
     //private GButton joystickButton;
@@ -30,7 +31,9 @@ public class Btnstick : EventDispatcher
     {
         onMove = new EventListener(this, "onMove");
         onEnd = new EventListener(this, "onEnd");
+        onDown = new EventListener(this, "onDown");
         
+
         thumb = UI.GetChild("thumb");
         thumb.visible = false;
         touchArea = UI.GetChild("toucharea");
@@ -80,6 +83,8 @@ public class Btnstick : EventDispatcher
             center.SetXY(localPos.x, localPos.y);
             thumb.SetXY(localPos.x, localPos.y);
             context.CaptureTouch();
+            onDown.Call(1);
+            
         }
     }
 

@@ -7,6 +7,7 @@ using UnityEngine;
 public class GameScene : MonoBehaviour {
 
     // Use this for initialization
+    protected UnityEntity m_TargetUnit;
     protected GameObject hero;
     protected GameObject m_GameScene;
     protected Plane m_PlaneScene;
@@ -239,17 +240,37 @@ public class GameScene : MonoBehaviour {
         //}
     }
 
-    public void PressAttackBtn()
+    //1:down 2:move 3:end
+    public void PressAttackBtn(int touchstate)
     {
         UnityEntity nearestUnit = UnityEntityManager.Instance.GetNearestUnityEntity(m_MyControlUnit[0]);
         if(nearestUnit != null)
         {
-            Protomsg.CS_PlayerAttack msg1 = new Protomsg.CS_PlayerAttack();
-            msg1.IDs.AddRange(m_MyControlUnit);
-            msg1.TargetUnitID = nearestUnit.ID;
-            MyKcp.Instance.SendMsg(m_ServerName, "CS_PlayerAttack", msg1);
 
-            Debug.Log("PressAttackBtn");
+            if(touchstate == 1)
+            {
+                if(m_TargetUnit != null)
+                {
+                    m_TargetUnit.TargetShow(false);
+                }
+                m_TargetUnit = nearestUnit;
+
+                m_TargetUnit.TargetShow(true);
+
+            }
+            else if(touchstate == 3)
+            {
+                Protomsg.CS_PlayerAttack msg1 = new Protomsg.CS_PlayerAttack();
+                msg1.IDs.AddRange(m_MyControlUnit);
+                msg1.TargetUnitID = nearestUnit.ID;
+                MyKcp.Instance.SendMsg(m_ServerName, "CS_PlayerAttack", msg1);
+
+                //Debug.Log("PressAttackBtn");
+            }
+
+            
+
+           
         }
     }
 

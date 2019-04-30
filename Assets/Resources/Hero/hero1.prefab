@@ -517,6 +517,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4713807334016330}
   - component: {fileID: 95677705725313018}
+  - component: {fileID: 65663839933609638}
   m_Layer: 0
   m_Name: hero1
   m_TagString: Untagged
@@ -1178,6 +1179,18 @@ Transform:
   m_Father: {fileID: 4890133096201454}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &65663839933609638
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1858108791549430}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.06000619, y: 0.138942, z: 0.09894981}
+  m_Center: {x: -0.002167511, y: 0.07481783, z: -0.0005250916}
 --- !u!95 &95677705725313018
 Animator:
   serializedVersion: 3

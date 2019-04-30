@@ -13,6 +13,8 @@ public class UnityEntity {
 
     protected Vector3 TargetRotation;
 
+    protected float m_MeshHeight;
+
     public UnityEntity(Protomsg.UnitDatas data, GameScene scene)
     {
 
@@ -297,8 +299,15 @@ public class UnityEntity {
             m_Mode = (GameObject)(GameObject.Instantiate(Resources.Load(m_ModeType)));
             
             m_Mode.transform.parent = m_Scene.transform.parent;
+            //m_MeshHeight = 2;
 
+            //Debug.Log("sizey:" + m_Mode.GetComponent<Collider>().bounds.size.y);
+            //Debug.Log("scaley:" + m_Mode.transform.localScale.y);
 
+            m_MeshHeight = m_Mode.GetComponent<Collider>().bounds.size.y;
+            //m_Mode.renderer
+            //m_MeshHeight = m_Mode.renderer.bounds.size;
+            Debug.Log("m_MeshHeight:" + m_MeshHeight);
         }
     }
     
@@ -534,6 +543,8 @@ public class UnityEntity {
 
                 m_TopBar.transform.parent = m_Mode.transform;
 
+                m_TopBar.transform.position = new Vector3(m_TopBar.transform.position.x, m_MeshHeight, m_TopBar.transform.position.z) ;
+                //m_MeshHeight
             }
             else
             {
@@ -541,6 +552,8 @@ public class UnityEntity {
                 //m_Mode.
 
                 m_TopBar.transform.parent = m_Mode.transform;
+
+                m_TopBar.transform.position = new Vector3(m_TopBar.transform.position.x, m_MeshHeight, m_TopBar.transform.position.z);
 
             }
 

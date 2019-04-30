@@ -25,6 +25,8 @@ public class Btnstick : EventDispatcher
     private Vector2 lastStagePos;
     private int touchID;
     public int radius { get; set; }
+    public float m_MoveCallNeedDir; //move回调需要移动的距离
+    public bool m_IsMoved;//是否已经开始移动
     private Tweener tweener;
 
     public Btnstick(GComponent UI)
@@ -45,7 +47,9 @@ public class Btnstick : EventDispatcher
 
        
         touchID = -1;
-        radius = 150;
+        radius = 120;
+        m_MoveCallNeedDir = 20;//
+        m_IsMoved = false;
 
         touchArea.onTouchBegin.Add(OnTouchBegin);
         touchArea.onTouchMove.Add(OnTouchMove);
@@ -84,7 +88,9 @@ public class Btnstick : EventDispatcher
             thumb.SetXY(localPos.x, localPos.y);
             context.CaptureTouch();
             onDown.Call(1);
-            
+            m_IsMoved = false;
+
+
         }
     }
 
@@ -115,7 +121,16 @@ public class Btnstick : EventDispatcher
 
             thumb.rotation = Vector2.SignedAngle(new Vector2(0,-1),dir);
 
-            onMove.Call(Vector2.SignedAngle(new Vector2(0, 1), new Vector2(dir.x,-dir.y)));
+            if(len >= m_MoveCallNeedDir)
+            {
+                m_IsMoved = true;
+                
+            }
+            if (m_IsMoved)
+            {
+                onMove.Call(dir);
+            }
+            
         }
     }
 

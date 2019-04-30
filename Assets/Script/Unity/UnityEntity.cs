@@ -11,10 +11,12 @@ public class UnityEntity {
 
     protected float RotateSpeed;
 
+    protected Vector3 TargetRotation;
+
     public UnityEntity(Protomsg.UnitDatas data, GameScene scene)
     {
 
-        RotateSpeed = 180;
+        RotateSpeed = 480;
 
         m_Scene = scene;
         Name = data.Name;
@@ -30,6 +32,13 @@ public class UnityEntity {
         Y = data.Y;
         DirectionX = data.DirectionX;
         DirectionY = data.DirectionY;
+
+        AttackMode = data.AttackMode;//攻击模式(1:和平模式 2:组队模式 3:全体模式 4:阵营模式(玩家,NPC) 5:行会模式)
+        UnitType = data.UnitType; //需要数据 ModeType 
+        AttackAcpabilities = data.AttackAcpabilities;
+        IsMain = data.IsMain;
+
+
 
 
 
@@ -146,11 +155,37 @@ public class UnityEntity {
                 angle2 += 360;
             }
 
+            
+
             //var t = Math.Abs(angle1 - angle2) / RotateSpeed;
-            var t = 0.025f;
+            //var t = 0.025f;
             endv.y = angle2;
-            m_Mode.transform.DORotate(endv, t);
+
+            this.TargetRotation = endv;
+            //m_Mode.transform.rotation.eulerAngles.y
+
+            //m_Mode.transform.DORotate(endv, t);
+            //m_Mode.transform.Rotate(endv- m_Mode.transform.rotation.eulerAngles);
         }
+    }
+    public void UpdateDirection(float dt)
+    {
+        float sub = this.TargetRotation.y - m_Mode.transform.rotation.eulerAngles.y;
+        if(RotateSpeed * dt > Math.Abs(sub))
+        {
+            m_Mode.transform.Rotate(new Vector3(0.0f, sub, 0.0f));
+        }
+        else
+        {
+            m_Mode.transform.Rotate(new Vector3(0.0f, sub / Math.Abs(sub) * RotateSpeed * dt, 0.0f));
+        }
+        
+
+
+    }
+    public void Update(float dt)
+    {
+        UpdateDirection(dt);
     }
 
     public void Change(Protomsg.UnitDatas data)
@@ -174,7 +209,38 @@ public class UnityEntity {
             {
                 ChangeDirection(dir);
             }
+
+            //-----更新其他数据----
+            //Name = data.Name;
+            Level += data.Level;
+            HP += data.HP;
+            MP += data.MP;
+            MaxHP += data.MaxHP;
+            MaxMP += data.MaxMP;
+
+
+            if(data.ModeType != "")
+            {
+                ModeType = data.ModeType;
+            }
+            if (data.Name != "")
+            {
+                Name = data.Name;
+            }
+
+            ControlID += data.ControlID;
+            AttackMode += data.AttackMode;
+            UnitType += data.UnitType; //需要数据 ModeType 
+            AttackAcpabilities += data.AttackAcpabilities;
+            IsMain += data.IsMain;
+
+            UpdateTopBar();
+
             
+
+
+
+
         }
     }
     public void ChangeShowPos(float scale,float nextx,float nexty)
@@ -207,6 +273,8 @@ public class UnityEntity {
 
     protected GameObject m_Mode;//模型
 
+    
+
     // 模型名字
     protected string m_ModeType;
     public string ModeType
@@ -217,7 +285,10 @@ public class UnityEntity {
         }
         set
         {
-            
+            if (m_ModeType == value)
+            {
+                return;
+            }
             m_ModeType = value;
             if( m_Mode != null)
             {
@@ -336,6 +407,171 @@ public class UnityEntity {
         set
         {
             m_ControlID = value;
+        }
+    }
+    // IsMain
+    protected int m_IsMain;
+    public int IsMain
+    {
+        get
+        {
+            return m_IsMain;
+        }
+        set
+        {
+            m_IsMain = value;
+        }
+    }
+
+    protected GameObject m_SkillAreaLookAt;//技能效果 箭头
+    //float outerRadius = 6;      // 外圆半径
+    //float innerRadius = 2f;     // 内圆半径
+    float cubeWidth = 1f;       // 矩形宽度 （矩形长度使用的外圆半径）
+    int angle = 60;             // 扇形角度
+    public void ShowSkillAreaLookAt(bool isshow,Vector2 targetPos)
+    {
+        float len = Vector2.Distance(targetPos, new Vector2(X, Y));
+        float angle = Vector2.SignedAngle(new Vector2(0, 1),
+                new Vector2(targetPos.x - X, targetPos.y - Y));
+
+        if (m_SkillAreaLookAt == null)
+        {
+            m_SkillAreaLookAt = (GameObject)(GameObject.Instantiate(Resources.Load("SkillAreaEffect/Prefabs/Hero_skillarea/chang_hero")));
+            //m_Mode.
+            m_SkillAreaLookAt.transform.parent = m_Mode.transform;
+            //m_SkillAreaLookAt.transform.localEulerAngles = new Vector3(0,,0);
+
+        }
+
+        //m_SkillAreaLookAt.transform.localEulerAngles = new Vector3(0, angle, 0);
+        Debug.Log("position:" + m_SkillAreaLookAt.transform.localPosition);
+        m_SkillAreaLookAt.transform.localPosition = Vector3.zero;
+
+        Debug.Log("scale:"+ m_Mode.transform.localScale.x);
+        m_SkillAreaLookAt.transform.localScale = new Vector3(cubeWidth / m_Mode.transform.localScale.x, 1, len / m_Mode.transform.localScale.x) ;
+        m_SkillAreaLookAt.transform.LookAt(new Vector3(targetPos.x, 0, targetPos.y));
+        if (isshow)
+        {
+            m_SkillAreaLookAt.gameObject.SetActive(true);
+        }
+        else
+        {
+            m_SkillAreaLookAt.gameObject.SetActive(false);
+        }
+    }
+    //显示外径圆
+    protected GameObject m_SkillAreaOutCircle;//外径圆
+    public void ShowOutCircle(bool isshow,float r)
+    {
+        if (m_SkillAreaOutCircle == null)
+        {
+            m_SkillAreaOutCircle = (GameObject)(GameObject.Instantiate(Resources.Load("SkillAreaEffect/Prefabs/Hero_skillarea/quan_hero")));
+            //m_Mode.
+            m_SkillAreaOutCircle.transform.parent = m_Mode.transform;
+
+        }
+        m_SkillAreaOutCircle.transform.localScale = new Vector3(r * 2, 1, r * 2) / m_Mode.transform.localScale.x;
+
+        if (isshow)
+        {
+            m_SkillAreaOutCircle.gameObject.SetActive(true);
+        }
+        else
+        {
+            m_SkillAreaOutCircle.gameObject.SetActive(false);
+        }
+    }
+
+
+    protected GameObject m_TopBar;//头顶血条
+    //单位类型(1:英雄 2:普通单位 3:远古 4:boss)
+    // UnitType
+
+    public void UpdateTopBar()
+    {
+        //头顶条显示
+        if (m_TopBar != null)
+        {
+            m_TopBar.GetComponent<UnityEntityTopBar>().SetHP(HP / MaxHP*100);
+            m_TopBar.GetComponent<UnityEntityTopBar>().SetMP(MP / MaxMP * 100);
+            m_TopBar.GetComponent<UnityEntityTopBar>().SetName(Name);
+            m_TopBar.GetComponent<UnityEntityTopBar>().SetLevel(Level);
+
+            if (UnityEntityManager.Instance.CheckIsEnemy(this, GameScene.Singleton.GetMyMainUnit()))
+            {
+                m_TopBar.GetComponent<UnityEntityTopBar>().SetIsEnemy(true);
+            }
+            else
+            {
+                m_TopBar.GetComponent<UnityEntityTopBar>().SetIsEnemy(false);
+            }
+        }
+    }
+    protected int m_UnitType;
+    public int UnitType
+    {
+        get
+        {
+            return m_UnitType;
+        }
+        set
+        {
+            if (m_UnitType == value)
+            {
+                return;
+            }
+
+            m_UnitType = value;
+            Debug.Log("m_UnitType-:" + m_UnitType);
+            if (m_TopBar != null)
+            {
+                GameObject.Destroy(m_TopBar);
+            }
+            if (m_UnitType == 1)
+            {
+                m_TopBar = (GameObject)(GameObject.Instantiate(Resources.Load("UIPref/HeroTopBar")));
+                //m_Mode.
+
+                m_TopBar.transform.parent = m_Mode.transform;
+
+            }
+            else
+            {
+                m_TopBar = (GameObject)(GameObject.Instantiate(Resources.Load("UIPref/NpcTopBar")));
+                //m_Mode.
+
+                m_TopBar.transform.parent = m_Mode.transform;
+
+            }
+
+            UpdateTopBar();
+        }
+    }
+    // AttackAcpabilities
+    protected int m_AttackAcpabilities;
+    public int AttackAcpabilities
+    {
+        get
+        {
+            return m_AttackAcpabilities;
+        }
+        set
+        {
+            m_AttackAcpabilities = value;
+        }
+    }
+
+    // AttackMode
+    protected int m_AttackMode;
+    public int AttackMode
+    {
+        get
+        {
+            return m_AttackMode;
+        }
+        set
+        {
+            m_AttackMode = value;
         }
     }
 

@@ -3,9 +3,9 @@ using System.Collections;
 
 public class FlashingController : HighlightingController
 {
-    public Color flashingStartColor = new Color(1, 0.6f, 0.1f);
-	public Color flashingEndColor = new Color(1, 0.6f, 0.1f);
-    public float flashingDelay = 2.5f;
+	public Color flashingStartColor = Color.blue;
+	public Color flashingEndColor = Color.cyan;
+	public float flashingDelay = 2.5f;
 	public float flashingFrequency = 2f;
 	
 	void Start()

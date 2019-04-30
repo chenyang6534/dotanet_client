@@ -33,10 +33,10 @@ public class GameUI : MonoBehaviour {
     //1:down 2:move 3:end
     private void AttackstickMove(EventContext context)
     {
-        float degree = (float)context.data;
-
-        Debug.Log("AttackstickMove:"+ degree);
-        GameScene.Singleton.PressAttackBtn(2);
+        Vector2 dir = (Vector2)context.data;
+        dir.y = -dir.y;
+        Debug.Log("AttackstickMove:"+ dir);
+        GameScene.Singleton.PressAttackBtn(2, dir);
         //GameScene.Singleton.SendControlData(degree, true);
 
 
@@ -45,7 +45,7 @@ public class GameUI : MonoBehaviour {
     {
         Debug.Log("AttackstickDown");
 
-        GameScene.Singleton.PressAttackBtn(1);
+        GameScene.Singleton.PressAttackBtn(1,Vector2.zero);
 
         //GameScene.Singleton.SendControlData(degree, false);
 
@@ -55,7 +55,7 @@ public class GameUI : MonoBehaviour {
         float degree = (float)context.data;
         Debug.Log("AttackstickEnd");
 
-        GameScene.Singleton.PressAttackBtn(3);
+        GameScene.Singleton.PressAttackBtn(3,Vector2.zero);
 
         //GameScene.Singleton.SendControlData(degree, false);
 

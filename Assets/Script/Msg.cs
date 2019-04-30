@@ -36,23 +36,24 @@ namespace Protomsg {
             "CCI0Cg9DU19QbGF5ZXJBdHRhY2sSCwoDSURzGAEgAygFEhQKDFRhcmdldFVu",
             "aXRJRBgCIAEoBSJaCg5DU19QbGF5ZXJTa2lsbBILCgNJRHMYASABKAUSDwoH",
             "U2tpbGxJRBgCIAEoBRIJCgFYGAMgASgCEgkKAVkYBCABKAISFAoMVGFyZ2V0",
-            "VW5pdElEGAUgASgFIqMCCglVbml0RGF0YXMSDAoETmFtZRgBIAEoCRINCgVM",
+            "VW5pdElEGAUgASgFIvUCCglVbml0RGF0YXMSDAoETmFtZRgBIAEoCRINCgVM",
             "ZXZlbBgCIAEoBRIKCgJIUBgDIAEoBRIKCgJNUBgEIAEoBRIJCgFYGAUgASgC",
             "EgkKAVkYBiABKAISCgoCSUQYByABKAUSEAoITW9kZVR5cGUYCCABKAkSDQoF",
             "TWF4SFAYCSABKAUSDQoFTWF4TVAYCiABKAUSEgoKRXhwZXJpZW5jZRgLIAEo",
             "BRIVCg1NYXhFeHBlcmllbmNlGAwgASgFEhEKCUNvbnRyb2xJRBgNIAEoBRIV",
             "Cg1Bbmltb3RvclN0YXRlGA4gASgFEhIKCkF0dGFja1RpbWUYDyABKAISEgoK",
-            "RGlyZWN0aW9uWBgQIAEoAhISCgpEaXJlY3Rpb25ZGBEgASgCIoQBChFNc2dV",
-            "c2VyRW50ZXJTY2VuZRILCgNVaWQYASABKAUSEQoJQ29ubmVjdElkGAIgASgF",
-            "EhUKDVNyY1NlcnZlck5hbWUYAyABKAkSFgoORGVzdFNlcnZlck5hbWUYBCAB",
-            "KAkSEQoJU2NlbmVOYW1lGAUgASgJEg0KBURhdGFzGAYgASgMIoABCglTQ19V",
-            "cGRhdGUSEAoIQ3VyRnJhbWUYASABKAUSJQoITmV3VW5pdHMYAiADKAsyEy5w",
-            "cm90b21zZy5Vbml0RGF0YXMSJQoIT2xkVW5pdHMYAyADKAsyEy5wcm90b21z",
-            "Zy5Vbml0RGF0YXMSEwoLUmVtb3ZlVW5pdHMYBCADKAUiUwoLU0NfTmV3U2Nl",
-            "bmUSDAoETmFtZRgBIAEoCRIQCghMb2dpY0ZwcxgCIAEoBRIQCghDdXJGcmFt",
-            "ZRgDIAEoBRISCgpTZXJ2ZXJOYW1lGAQgASgJIjYKClNDX0xvZ2luZWQSDAoE",
-            "Q29kZRgBIAEoBRILCgNVaWQYAiABKAUSDQoFRXJyb3IYAyABKAliBnByb3Rv",
-            "Mw=="));
+            "RGlyZWN0aW9uWBgQIAEoAhISCgpEaXJlY3Rpb25ZGBEgASgCEhAKCFVuaXRU",
+            "eXBlGBIgASgFEhoKEkF0dGFja0FjcGFiaWxpdGllcxgTIAEoBRISCgpBdHRh",
+            "Y2tNb2RlGBQgASgFEg4KBklzTWFpbhgVIAEoBSKEAQoRTXNnVXNlckVudGVy",
+            "U2NlbmUSCwoDVWlkGAEgASgFEhEKCUNvbm5lY3RJZBgCIAEoBRIVCg1TcmNT",
+            "ZXJ2ZXJOYW1lGAMgASgJEhYKDkRlc3RTZXJ2ZXJOYW1lGAQgASgJEhEKCVNj",
+            "ZW5lTmFtZRgFIAEoCRINCgVEYXRhcxgGIAEoDCKAAQoJU0NfVXBkYXRlEhAK",
+            "CEN1ckZyYW1lGAEgASgFEiUKCE5ld1VuaXRzGAIgAygLMhMucHJvdG9tc2cu",
+            "VW5pdERhdGFzEiUKCE9sZFVuaXRzGAMgAygLMhMucHJvdG9tc2cuVW5pdERh",
+            "dGFzEhMKC1JlbW92ZVVuaXRzGAQgAygFIlMKC1NDX05ld1NjZW5lEgwKBE5h",
+            "bWUYASABKAkSEAoITG9naWNGcHMYAiABKAUSEAoIQ3VyRnJhbWUYAyABKAUS",
+            "EgoKU2VydmVyTmFtZRgEIAEoCSI2CgpTQ19Mb2dpbmVkEgwKBENvZGUYASAB",
+            "KAUSCwoDVWlkGAIgASgFEg0KBUVycm9yGAMgASgJYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -63,7 +64,7 @@ namespace Protomsg {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_PlayerMove), global::Protomsg.CS_PlayerMove.Parser, new[]{ "IDs", "X", "Y", "IsStart" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_PlayerAttack), global::Protomsg.CS_PlayerAttack.Parser, new[]{ "IDs", "TargetUnitID" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_PlayerSkill), global::Protomsg.CS_PlayerSkill.Parser, new[]{ "IDs", "SkillID", "X", "Y", "TargetUnitID" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.UnitDatas), global::Protomsg.UnitDatas.Parser, new[]{ "Name", "Level", "HP", "MP", "X", "Y", "ID", "ModeType", "MaxHP", "MaxMP", "Experience", "MaxExperience", "ControlID", "AnimotorState", "AttackTime", "DirectionX", "DirectionY" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.UnitDatas), global::Protomsg.UnitDatas.Parser, new[]{ "Name", "Level", "HP", "MP", "X", "Y", "ID", "ModeType", "MaxHP", "MaxMP", "Experience", "MaxExperience", "ControlID", "AnimotorState", "AttackTime", "DirectionX", "DirectionY", "UnitType", "AttackAcpabilities", "AttackMode", "IsMain" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.MsgUserEnterScene), global::Protomsg.MsgUserEnterScene.Parser, new[]{ "Uid", "ConnectId", "SrcServerName", "DestServerName", "SceneName", "Datas" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_Update), global::Protomsg.SC_Update.Parser, new[]{ "CurFrame", "NewUnits", "OldUnits", "RemoveUnits" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_NewScene), global::Protomsg.SC_NewScene.Parser, new[]{ "Name", "LogicFps", "CurFrame", "ServerName" }, null, null, null),
@@ -1554,6 +1555,10 @@ namespace Protomsg {
       attackTime_ = other.attackTime_;
       directionX_ = other.directionX_;
       directionY_ = other.directionY_;
+      unitType_ = other.unitType_;
+      attackAcpabilities_ = other.attackAcpabilities_;
+      attackMode_ = other.attackMode_;
+      isMain_ = other.isMain_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1767,6 +1772,62 @@ namespace Protomsg {
       }
     }
 
+    /// <summary>Field number for the "UnitType" field.</summary>
+    public const int UnitTypeFieldNumber = 18;
+    private int unitType_;
+    /// <summary>
+    ///单位类型(1:英雄 2:普通单位 3:远古 4:boss)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int UnitType {
+      get { return unitType_; }
+      set {
+        unitType_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "AttackAcpabilities" field.</summary>
+    public const int AttackAcpabilitiesFieldNumber = 19;
+    private int attackAcpabilities_;
+    /// <summary>
+    ///(1:近程攻击 2:远程攻击)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int AttackAcpabilities {
+      get { return attackAcpabilities_; }
+      set {
+        attackAcpabilities_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "AttackMode" field.</summary>
+    public const int AttackModeFieldNumber = 20;
+    private int attackMode_;
+    /// <summary>
+    ///攻击模式(1:和平模式 2:组队模式 3:全体模式 4:阵营模式(玩家,NPC) 5:行会模式)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int AttackMode {
+      get { return attackMode_; }
+      set {
+        attackMode_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "IsMain" field.</summary>
+    public const int IsMainFieldNumber = 21;
+    private int isMain_;
+    /// <summary>
+    ///是否是主单位
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int IsMain {
+      get { return isMain_; }
+      set {
+        isMain_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as UnitDatas);
@@ -1797,6 +1858,10 @@ namespace Protomsg {
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(AttackTime, other.AttackTime)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(DirectionX, other.DirectionX)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(DirectionY, other.DirectionY)) return false;
+      if (UnitType != other.UnitType) return false;
+      if (AttackAcpabilities != other.AttackAcpabilities) return false;
+      if (AttackMode != other.AttackMode) return false;
+      if (IsMain != other.IsMain) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1820,6 +1885,10 @@ namespace Protomsg {
       if (AttackTime != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(AttackTime);
       if (DirectionX != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(DirectionX);
       if (DirectionY != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(DirectionY);
+      if (UnitType != 0) hash ^= UnitType.GetHashCode();
+      if (AttackAcpabilities != 0) hash ^= AttackAcpabilities.GetHashCode();
+      if (AttackMode != 0) hash ^= AttackMode.GetHashCode();
+      if (IsMain != 0) hash ^= IsMain.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1901,6 +1970,22 @@ namespace Protomsg {
         output.WriteRawTag(141, 1);
         output.WriteFloat(DirectionY);
       }
+      if (UnitType != 0) {
+        output.WriteRawTag(144, 1);
+        output.WriteInt32(UnitType);
+      }
+      if (AttackAcpabilities != 0) {
+        output.WriteRawTag(152, 1);
+        output.WriteInt32(AttackAcpabilities);
+      }
+      if (AttackMode != 0) {
+        output.WriteRawTag(160, 1);
+        output.WriteInt32(AttackMode);
+      }
+      if (IsMain != 0) {
+        output.WriteRawTag(168, 1);
+        output.WriteInt32(IsMain);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1959,6 +2044,18 @@ namespace Protomsg {
       }
       if (DirectionY != 0F) {
         size += 2 + 4;
+      }
+      if (UnitType != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(UnitType);
+      }
+      if (AttackAcpabilities != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(AttackAcpabilities);
+      }
+      if (AttackMode != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(AttackMode);
+      }
+      if (IsMain != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(IsMain);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -2021,6 +2118,18 @@ namespace Protomsg {
       }
       if (other.DirectionY != 0F) {
         DirectionY = other.DirectionY;
+      }
+      if (other.UnitType != 0) {
+        UnitType = other.UnitType;
+      }
+      if (other.AttackAcpabilities != 0) {
+        AttackAcpabilities = other.AttackAcpabilities;
+      }
+      if (other.AttackMode != 0) {
+        AttackMode = other.AttackMode;
+      }
+      if (other.IsMain != 0) {
+        IsMain = other.IsMain;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -2099,6 +2208,22 @@ namespace Protomsg {
           }
           case 141: {
             DirectionY = input.ReadFloat();
+            break;
+          }
+          case 144: {
+            UnitType = input.ReadInt32();
+            break;
+          }
+          case 152: {
+            AttackAcpabilities = input.ReadInt32();
+            break;
+          }
+          case 160: {
+            AttackMode = input.ReadInt32();
+            break;
+          }
+          case 168: {
+            IsMain = input.ReadInt32();
             break;
           }
         }

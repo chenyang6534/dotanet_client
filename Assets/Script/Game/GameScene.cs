@@ -7,7 +7,7 @@ using UnityEngine;
 public class GameScene : MonoBehaviour {
 
     // Use this for initialization
-    protected UnityEntity m_TargetUnit;
+    protected UnityEntity m_TargetUnit; //目标单位
     protected GameObject hero;
     protected GameObject m_GameScene;
     protected Plane m_PlaneScene;
@@ -21,7 +21,9 @@ public class GameScene : MonoBehaviour {
     protected Dictionary<int,Protomsg.SC_Update> m_LogicFrameData;//逻辑帧数据
 
 
-    protected List<int> m_MyControlUnit;
+    protected List<int> m_MyControlUnit;//我自己控制的单位的ID
+    protected UnityEntity m_MyMainUnit;//我自己的主单位
+
     private static GameScene singleton = null;
     public static GameScene Singleton
     {
@@ -55,6 +57,11 @@ public class GameScene : MonoBehaviour {
         MsgManager.Instance.RemoveListener("SC_NewScene");
         MyKcp.Instance.Stop();
         Debug.Log("OnDestroy");
+    }
+
+    public UnityEntity GetMyMainUnit()
+    {
+        return m_MyMainUnit;
     }
     
     public bool SC_Update(Protomsg.MsgBase d1)
@@ -125,8 +132,12 @@ public class GameScene : MonoBehaviour {
             if (item.Value.ControlID == LoginUI.UID)
             {
                 m_MyControlUnit.Add(item.Key);
-                if (true)
+
+                
+
+                if (item.Value.IsMain == 1)
                 {
+                    m_MyMainUnit = item.Value;
                     DHCameraManager.SetFollowingTarget(item.Value);
                 }
             }
@@ -241,37 +252,112 @@ public class GameScene : MonoBehaviour {
     }
 
     //1:down 2:move 3:end
-    public void PressAttackBtn(int touchstate)
+    float AttackSelectTargetDis = 8;//攻击目标选择范围
+    public void PressAttackBtn(int touchstate,Vector2 dir)
     {
-        UnityEntity nearestUnit = UnityEntityManager.Instance.GetNearestUnityEntity(m_MyControlUnit[0]);
-        if(nearestUnit != null)
+        if(m_MyMainUnit == null)
         {
+            return;
+        }
 
-            if(touchstate == 1)
+        if (touchstate == 1)
+        {
+            if (m_TargetUnit == null)
+            {
+                m_TargetUnit = UnityEntityManager.Instance.GetNearestEnemy(m_MyMainUnit);
+
+            }
+            m_TargetUnit.TargetShow(true);
+            //float angle = Vector2.SignedAngle(new Vector2(0, 1),
+            //    new Vector2(m_TargetUnit.X - m_MyMainUnit.X, m_TargetUnit.Y - m_MyMainUnit.Y));
+            m_MyMainUnit.ShowSkillAreaLookAt(true, new Vector2(m_TargetUnit.X, m_TargetUnit.Y));
+            m_MyMainUnit.ShowOutCircle(true, AttackSelectTargetDis);
+
+        }
+        else if (touchstate == 2)
+        {
+            var target = UnityEntityManager.Instance.GetMinAngleEnemy(m_MyMainUnit, dir, AttackSelectTargetDis);
+            if( target != null)
             {
                 if(m_TargetUnit != null)
                 {
                     m_TargetUnit.TargetShow(false);
                 }
-                m_TargetUnit = nearestUnit;
-
+                m_TargetUnit = target;
                 m_TargetUnit.TargetShow(true);
 
-            }
-            else if(touchstate == 3)
-            {
-                Protomsg.CS_PlayerAttack msg1 = new Protomsg.CS_PlayerAttack();
-                msg1.IDs.AddRange(m_MyControlUnit);
-                msg1.TargetUnitID = nearestUnit.ID;
-                MyKcp.Instance.SendMsg(m_ServerName, "CS_PlayerAttack", msg1);
+                var targetpos = new Vector2(m_MyMainUnit.X, m_MyMainUnit.Y) + (dir.normalized * AttackSelectTargetDis);
 
-                //Debug.Log("PressAttackBtn");
+                //m_MyMainUnit.ShowSkillAreaLookAt(true, new Vector2(m_TargetUnit.X, m_TargetUnit.Y));
+                m_MyMainUnit.ShowSkillAreaLookAt(true, targetpos);
+
             }
+            else
+            {
+                if(m_TargetUnit != null)
+                {
+                    m_TargetUnit.TargetShow(true);
+                    var targetpos = new Vector2(m_MyMainUnit.X, m_MyMainUnit.Y) + (dir.normalized * AttackSelectTargetDis);
+                    m_MyMainUnit.ShowSkillAreaLookAt(true, targetpos);
+                }
+            }
+            
+        }
+        else if(touchstate == 3)
+        {
+            if(m_TargetUnit == null)
+            {
+                return;
+            }
+
+            Protomsg.CS_PlayerAttack msg1 = new Protomsg.CS_PlayerAttack();
+            msg1.IDs.AddRange(m_MyControlUnit);
+            msg1.TargetUnitID = m_TargetUnit.ID;
+            MyKcp.Instance.SendMsg(m_ServerName, "CS_PlayerAttack", msg1);
+
+            //Debug.Log("PressAttackBtn");
+
+            m_TargetUnit.TargetShow(false);
+            //m_MyMainUnit.ShowOutCircle(false, 10);
+            m_MyMainUnit.ShowSkillAreaLookAt(false, Vector2.zero);
+        }
+
+
+
+
+
+        return;
+        //UnityEntity nearestUnit = UnityEntityManager.Instance.GetNearestUnityEntity(m_MyMainUnit.ID);
+        //if(nearestUnit != null)
+        //{
+
+        //    if(touchstate == 1)
+        //    {
+        //        if(m_TargetUnit != null)
+        //        {
+        //            m_TargetUnit.TargetShow(false);
+        //        }
+        //        m_TargetUnit = nearestUnit;
+
+        //        m_TargetUnit.TargetShow(true);
+        //        m_MyMainUnit.ShowSkillAreaLookAt(true, 0);
+
+        //    }
+        //    else if(touchstate == 3)
+        //    {
+        //        Protomsg.CS_PlayerAttack msg1 = new Protomsg.CS_PlayerAttack();
+        //        msg1.IDs.AddRange(m_MyControlUnit);
+        //        msg1.TargetUnitID = nearestUnit.ID;
+        //        MyKcp.Instance.SendMsg(m_ServerName, "CS_PlayerAttack", msg1);
+
+        //        //Debug.Log("PressAttackBtn");
+        //        m_MyMainUnit.ShowSkillAreaLookAt(false, 0);
+        //    }
 
             
 
            
-        }
+        //}
     }
 
 
@@ -281,6 +367,8 @@ public class GameScene : MonoBehaviour {
         MsgManager.Instance.UpdateMessage();
 
         LogicUpdate();
+
+        UnityEntityManager.Instance.Update(Time.deltaTime);
 
         //Debug.Log("frame:"+Time.deltaTime);
 

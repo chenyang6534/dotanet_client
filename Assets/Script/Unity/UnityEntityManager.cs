@@ -119,6 +119,18 @@ public class UnityEntityManager  {
             item.Value.Update(dt);
         }
     }
+    //通过gameobject获取单位
+    public UnityEntity GetUnityEntityFromObject(GameObject go)
+    {
+        foreach (var item in m_UnityEntitys)
+        {
+            if (item.Value.Mode == go)
+            {
+                return item.Value;
+            }
+        }
+        return null;
+    }
 
     //获取所有单位
     public Dictionary<int, UnityEntity> GetAllUnity()

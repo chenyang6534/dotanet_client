@@ -274,8 +274,14 @@ public class UnityEntity {
     }
 
     protected GameObject m_Mode;//模型
+    public GameObject Mode
+    {
+        get
+        {
+            return m_Mode;
+        }
+    }
 
-    
 
     // 模型名字
     protected string m_ModeType;
@@ -297,7 +303,7 @@ public class UnityEntity {
                 GameObject.Destroy(m_Mode);
             }
             m_Mode = (GameObject)(GameObject.Instantiate(Resources.Load(m_ModeType)));
-            
+
             m_Mode.transform.parent = m_Scene.transform.parent;
             //m_MeshHeight = 2;
 

@@ -322,42 +322,31 @@ public class GameScene : MonoBehaviour {
             m_MyMainUnit.ShowSkillAreaLookAt(false, Vector2.zero);
         }
 
-
-
-
-
         return;
-        //UnityEntity nearestUnit = UnityEntityManager.Instance.GetNearestUnityEntity(m_MyMainUnit.ID);
-        //if(nearestUnit != null)
-        //{
+        
+    }
 
-        //    if(touchstate == 1)
-        //    {
-        //        if(m_TargetUnit != null)
-        //        {
-        //            m_TargetUnit.TargetShow(false);
-        //        }
-        //        m_TargetUnit = nearestUnit;
+    public void ClickPos(Vector2 pos)
+    {
+        Debug.Log("click pos:"+pos);
+        Ray ray = Camera.main.ScreenPointToRay(pos);
+        RaycastHit hit;
 
-        //        m_TargetUnit.TargetShow(true);
-        //        m_MyMainUnit.ShowSkillAreaLookAt(true, 0);
+        if (Physics.Raycast(ray, out hit))
+        {
+            Debug.Log("Raycast:");
+            //测试
+            //UnityEntity unit = UnityEntityManager.Instance.GetUnityEntityFromObject(hit.transform.gameObject);
+            //if(unit != null && unit != m_MyMainUnit)
+            //{
+            //    Protomsg.CS_PlayerAttack msg1 = new Protomsg.CS_PlayerAttack();
+            //    msg1.IDs.AddRange(m_MyControlUnit);
+            //    msg1.TargetUnitID = unit.ID;
+            //    MyKcp.Instance.SendMsg(m_ServerName, "CS_PlayerAttack", msg1);
+            //}
 
-        //    }
-        //    else if(touchstate == 3)
-        //    {
-        //        Protomsg.CS_PlayerAttack msg1 = new Protomsg.CS_PlayerAttack();
-        //        msg1.IDs.AddRange(m_MyControlUnit);
-        //        msg1.TargetUnitID = nearestUnit.ID;
-        //        MyKcp.Instance.SendMsg(m_ServerName, "CS_PlayerAttack", msg1);
-
-        //        //Debug.Log("PressAttackBtn");
-        //        m_MyMainUnit.ShowSkillAreaLookAt(false, 0);
-        //    }
-
-            
-
-           
-        //}
+            //Debug.Log(hit.collider.gameObject);
+        }
     }
 
 
@@ -367,29 +356,41 @@ public class GameScene : MonoBehaviour {
         MsgManager.Instance.UpdateMessage();
 
         LogicUpdate();
+        Input.multiTouchEnabled = true;
 
         UnityEntityManager.Instance.Update(Time.deltaTime);
+        //if(Input.touchCount > 0)
+        //{
+        //    Debug.Log("Input.touchCount:" + Input.touchCount);
+        //    Debug.Log("TouchPhase:" + Input.GetTouch(0).phase);
+        //}
 
-        //Debug.Log("frame:"+Time.deltaTime);
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            Debug.Log("GetMouseButtonDown:"+ Input.mousePosition);
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);  //摄像机需要设置MainCamera的Tag这里才能找到
-            //RaycastHit hitInfo;
-            float dis;
+        //if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved) //[color=Red]如果点击手指touch了  并且手指touch的状态为移动的[/color]
+        //{
+        //    Debug.Log("TouchPhase.Moved:" + Input.GetTouch(0).deltaPosition);//[color=Red]获取手指touch最后一帧移动的xy轴距离[/color]
 
-            m_PlaneScene.Raycast(ray, out dis);
-            ////根据距离获得鼠标点击的目标点三维坐标
-            Vector3 _vec3Target = ray.GetPoint(dis);
-            //Debug.Log(" hit point " + _vec3Target);
 
-            //Debug.Log(" idaa:" + m_MyControlUnit[0]);
+        //}
 
-            
-            
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    Debug.Log("GetMouseButtonDown:" + Input.mousePosition);
+        //    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);  //摄像机需要设置MainCamera的Tag这里才能找到
+        //    //RaycastHit hitInfo;
+        //    float dis;
 
-        }
+        //    m_PlaneScene.Raycast(ray, out dis);
+        //    ////根据距离获得鼠标点击的目标点三维坐标
+        //    Vector3 _vec3Target = ray.GetPoint(dis);
+        //    //Debug.Log(" hit point " + _vec3Target);
+
+        //    //Debug.Log(" idaa:" + m_MyControlUnit[0]);
+
+
+
+
+        //}
     }
 
     

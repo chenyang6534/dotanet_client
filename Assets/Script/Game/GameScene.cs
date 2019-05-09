@@ -318,7 +318,7 @@ public class GameScene : MonoBehaviour {
             //Debug.Log("PressAttackBtn");
 
             m_TargetUnit.TargetShow(false);
-            //m_MyMainUnit.ShowOutCircle(false, 10);
+            m_MyMainUnit.ShowOutCircle(false, 10);
             m_MyMainUnit.ShowSkillAreaLookAt(false, Vector2.zero);
         }
 
@@ -359,6 +359,12 @@ public class GameScene : MonoBehaviour {
         Input.multiTouchEnabled = true;
 
         UnityEntityManager.Instance.Update(Time.deltaTime);
+        if(Time.deltaTime >= 0.025)
+        {
+            Debug.Log("deltaTime:" + Time.deltaTime);
+        }
+        
+
         //if(Input.touchCount > 0)
         //{
         //    Debug.Log("Input.touchCount:" + Input.touchCount);

@@ -62,7 +62,7 @@ public class UnityEntity {
         {
             if (anim != 0)
             {
-                //Debug.Log("AniState: "+ anim);
+                Debug.Log("AniState: "+ anim);
                 m_Mode.GetComponent<Animator>().SetInteger("AniState", anim);
                 
                 //攻击动画
@@ -459,10 +459,10 @@ public class UnityEntity {
         }
 
         //m_SkillAreaLookAt.transform.localEulerAngles = new Vector3(0, angle, 0);
-        Debug.Log("position:" + m_SkillAreaLookAt.transform.localPosition);
+        //Debug.Log("position:" + m_SkillAreaLookAt.transform.localPosition);
         m_SkillAreaLookAt.transform.localPosition = Vector3.zero;
 
-        Debug.Log("scale:"+ m_Mode.transform.localScale.x);
+        //Debug.Log("scale:"+ m_Mode.transform.localScale.x);
         m_SkillAreaLookAt.transform.localScale = new Vector3(cubeWidth / m_Mode.transform.localScale.x, 1, len / m_Mode.transform.localScale.x) ;
         m_SkillAreaLookAt.transform.LookAt(new Vector3(targetPos.x, 0, targetPos.y));
         if (isshow)

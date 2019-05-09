@@ -7,19 +7,12 @@ using UnityEngine.SceneManagement;
 
 public class LoginUI : MonoBehaviour {
     public static int UID;
+    public static int Characterid;
     protected GComponent mRoot;
-    public string aa;
 	// Use this for initialization
 	void Start () {
 
-        //UnityEngine.Debug.Log("Start-------------------------");
-        //var dict = new Dictionary<string, string>();
-        //dict.Add("abc", "1");
-        //dict.Add("abcd", "2");
-        //dict.Add("abcf", "3");
-        //dict.Add("abc", "10");
-        //UnityEngine.Debug.Log("end-------------------------");
-        //MyKcp.Instance.Create("119.23.8.72", 1118);
+       
         MyKcp.Instance.Create("127.0.0.1", 1118);
         mRoot = GetComponent<UIPanel>().ui;
         mRoot.GetChild("n6").asButton.onClick.Add(()=> {
@@ -34,7 +27,11 @@ public class LoginUI : MonoBehaviour {
         
 
         MsgManager.Instance.AddListener("SC_Logined", new HandleMsg(this.Logined));
+
+        MsgManager.Instance.AddListener("SC_SelectCharacterResult", new HandleMsg(this.SelectCharacterResult));
         
+
+
     }
 	
 	// Update is called once per frame
@@ -53,7 +50,6 @@ public class LoginUI : MonoBehaviour {
 
     public bool Logined(Protomsg.MsgBase d1)
     {
-        Debug.Log("Logined:" + aa);
         Google.Protobuf.IMessage IMperson = new Protomsg.SC_Logined();
         Protomsg.SC_Logined p1 = (Protomsg.SC_Logined)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
         UID = p1.Uid;
@@ -63,11 +59,49 @@ public class LoginUI : MonoBehaviour {
         }
         else
         {
-            SceneManager.LoadScene(1);
+            Protomsg.CS_SelectCharacter msg1 = new Protomsg.CS_SelectCharacter();
+            msg1.SelectCharacter = new Protomsg.CharacterBaseDatas();
+            //foreach (var item in p1.NewUnits)
+            if (p1.Characters.Count <= 0)
+            {
+                msg1.SelectCharacter.Characterid = -1;
+                msg1.SelectCharacter.Typeid = 1;
+                msg1.SelectCharacter.Name = "test1234";
+
+                Debug.Log("create");
+            }
+            else
+            {
+                msg1.SelectCharacter = p1.Characters[0];
+
+                Debug.Log("select");
+            }
+            MyKcp.Instance.SendMsg("Login", "CS_SelectCharacter", msg1);
+            
+            //SceneManager.LoadScene(1);
         }
         
         return false; //中断解析数据
     }
 
+    public bool SelectCharacterResult(Protomsg.MsgBase d1)
+    {
+        Google.Protobuf.IMessage IMperson = new Protomsg.SC_SelectCharacterResult();
+        Protomsg.SC_SelectCharacterResult p1 = (Protomsg.SC_SelectCharacterResult)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
+        Characterid = p1.Characterid;
 
+        Debug.Log("SelectCharacterid :"+ Characterid);
+        if (p1.Code != 1)
+        {
+            Debug.Log("SelectCharacterResult fail");
+        }
+        else
+        {
+            SceneManager.LoadScene(1);
+        }
+
+        return false; //中断解析数据
+    }
+
+    
 }

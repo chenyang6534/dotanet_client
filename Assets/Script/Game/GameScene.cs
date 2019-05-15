@@ -117,6 +117,7 @@ public class GameScene : MonoBehaviour {
         Destroy(m_GameScene);
         m_GameScene = null;
         UnityEntityManager.Instance.Clear();
+        UnityEntityManager.Instance.Clear();
 
 
     }
@@ -194,6 +195,22 @@ public class GameScene : MonoBehaviour {
                 {
                     UnityEntityManager.Instance.DestroyUnityEntity(item);
                 }
+
+                foreach (var item in p1.NewBullets)
+                {
+                    BulletEntityManager.Instance.CreateBulletEntity(this, item);
+                }
+                foreach (var item in p1.OldBullets)
+                {
+                    BulletEntityManager.Instance.ChangeBulletEntity(item);
+                }
+                foreach (var item in p1.RemoveBullets)
+                {
+                    BulletEntityManager.Instance.DestroyBulletEntity(item);
+                }
+
+                //UnityEntityManager
+
                 m_CurFrame = i+1;//下一帧序号
                 FreshControl();
 
@@ -217,6 +234,11 @@ public class GameScene : MonoBehaviour {
                 {
                     UnityEntityManager.Instance.ChangeShowPos(item, scale);
                 }
+                foreach (var item in p1.OldBullets)
+                {
+                    BulletEntityManager.Instance.ChangeShowPos(item, scale);
+                }
+                //BulletEntityManager.Instance.DestroyBulletEntity(item);
             }
         }
 

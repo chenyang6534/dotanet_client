@@ -219,9 +219,13 @@ public class UnityEntity {
             MP += data.MP;
             MaxHP += data.MaxHP;
             MaxMP += data.MaxMP;
+            if( data.HP != 0)
+            {
+                //Debug.Log("hp:" + HP + "  maxhp:" + MaxHP);
+            }
+            //
 
-
-            if(data.ModeType != "")
+            if (data.ModeType != "")
             {
                 ModeType = data.ModeType;
             }
@@ -507,8 +511,8 @@ public class UnityEntity {
         //头顶条显示
         if (m_TopBar != null)
         {
-            m_TopBar.GetComponent<UnityEntityTopBar>().SetHP(HP / MaxHP*100);
-            m_TopBar.GetComponent<UnityEntityTopBar>().SetMP(MP / MaxMP * 100);
+            m_TopBar.GetComponent<UnityEntityTopBar>().SetHP( (int)((float)HP / MaxHP * 100));
+            m_TopBar.GetComponent<UnityEntityTopBar>().SetMP((int)((float)MP / MaxMP * 100));
             m_TopBar.GetComponent<UnityEntityTopBar>().SetName(Name);
             m_TopBar.GetComponent<UnityEntityTopBar>().SetLevel(Level);
 

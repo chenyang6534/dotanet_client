@@ -46,21 +46,27 @@ namespace Protomsg {
             "dGUYDiABKAUSEgoKQXR0YWNrVGltZRgPIAEoAhISCgpEaXJlY3Rpb25YGBAg",
             "ASgCEhIKCkRpcmVjdGlvblkYESABKAISEAoIVW5pdFR5cGUYEiABKAUSGgoS",
             "QXR0YWNrQWNwYWJpbGl0aWVzGBMgASgFEhIKCkF0dGFja01vZGUYFCABKAUS",
-            "DgoGSXNNYWluGBUgASgFIoQBChFNc2dVc2VyRW50ZXJTY2VuZRILCgNVaWQY",
-            "ASABKAUSEQoJQ29ubmVjdElkGAIgASgFEhUKDVNyY1NlcnZlck5hbWUYAyAB",
-            "KAkSFgoORGVzdFNlcnZlck5hbWUYBCABKAkSEQoJU2NlbmVOYW1lGAUgASgJ",
-            "Eg0KBURhdGFzGAYgASgMIoABCglTQ19VcGRhdGUSEAoIQ3VyRnJhbWUYASAB",
-            "KAUSJQoITmV3VW5pdHMYAiADKAsyEy5wcm90b21zZy5Vbml0RGF0YXMSJQoI",
-            "T2xkVW5pdHMYAyADKAsyEy5wcm90b21zZy5Vbml0RGF0YXMSEwoLUmVtb3Zl",
-            "VW5pdHMYBCADKAUiUwoLU0NfTmV3U2NlbmUSDAoETmFtZRgBIAEoCRIQCghM",
-            "b2dpY0ZwcxgCIAEoBRIQCghDdXJGcmFtZRgDIAEoBRISCgpTZXJ2ZXJOYW1l",
-            "GAQgASgJIlYKEkNoYXJhY3RlckJhc2VEYXRhcxITCgtDaGFyYWN0ZXJpZBgB",
-            "IAEoBRIMCgROYW1lGAIgASgJEg4KBlR5cGVpZBgDIAEoBRINCgVMZXZlbBgE",
-            "IAEoBSJoCgpTQ19Mb2dpbmVkEgwKBENvZGUYASABKAUSCwoDVWlkGAIgASgF",
-            "Eg0KBUVycm9yGAMgASgJEjAKCkNoYXJhY3RlcnMYBCADKAsyHC5wcm90b21z",
-            "Zy5DaGFyYWN0ZXJCYXNlRGF0YXMiTAoYU0NfU2VsZWN0Q2hhcmFjdGVyUmVz",
-            "dWx0EgwKBENvZGUYASABKAUSEwoLQ2hhcmFjdGVyaWQYAiABKAUSDQoFRXJy",
-            "b3IYAyABKAliBnByb3RvMw=="));
+            "DgoGSXNNYWluGBUgASgFIrUBCgtCdWxsZXREYXRhcxIKCgJJRBgBIAEoBRIQ",
+            "CghNb2RlVHlwZRgCIAEoCRIJCgFYGAMgASgCEgkKAVkYBCABKAISCQoBWhgF",
+            "IAEoAhINCgVTdGF0ZRgGIAEoBRIOCgZTdGFydFgYByABKAISDgoGU3RhcnRZ",
+            "GAggASgCEg4KBlN0YXJ0WhgJIAEoAhIMCgRFbmRYGAogASgCEgwKBEVuZFkY",
+            "CyABKAISDAoERW5kWhgMIAEoAiKEAQoRTXNnVXNlckVudGVyU2NlbmUSCwoD",
+            "VWlkGAEgASgFEhEKCUNvbm5lY3RJZBgCIAEoBRIVCg1TcmNTZXJ2ZXJOYW1l",
+            "GAMgASgJEhYKDkRlc3RTZXJ2ZXJOYW1lGAQgASgJEhEKCVNjZW5lTmFtZRgF",
+            "IAEoCRINCgVEYXRhcxgGIAEoDCLtAQoJU0NfVXBkYXRlEhAKCEN1ckZyYW1l",
+            "GAEgASgFEiUKCE5ld1VuaXRzGAIgAygLMhMucHJvdG9tc2cuVW5pdERhdGFz",
+            "EiUKCE9sZFVuaXRzGAMgAygLMhMucHJvdG9tc2cuVW5pdERhdGFzEhMKC1Jl",
+            "bW92ZVVuaXRzGAQgAygFEikKCk5ld0J1bGxldHMYBSADKAsyFS5wcm90b21z",
+            "Zy5CdWxsZXREYXRhcxIpCgpPbGRCdWxsZXRzGAYgAygLMhUucHJvdG9tc2cu",
+            "QnVsbGV0RGF0YXMSFQoNUmVtb3ZlQnVsbGV0cxgHIAMoBSJTCgtTQ19OZXdT",
+            "Y2VuZRIMCgROYW1lGAEgASgJEhAKCExvZ2ljRnBzGAIgASgFEhAKCEN1ckZy",
+            "YW1lGAMgASgFEhIKClNlcnZlck5hbWUYBCABKAkiVgoSQ2hhcmFjdGVyQmFz",
+            "ZURhdGFzEhMKC0NoYXJhY3RlcmlkGAEgASgFEgwKBE5hbWUYAiABKAkSDgoG",
+            "VHlwZWlkGAMgASgFEg0KBUxldmVsGAQgASgFImgKClNDX0xvZ2luZWQSDAoE",
+            "Q29kZRgBIAEoBRILCgNVaWQYAiABKAUSDQoFRXJyb3IYAyABKAkSMAoKQ2hh",
+            "cmFjdGVycxgEIAMoCzIcLnByb3RvbXNnLkNoYXJhY3RlckJhc2VEYXRhcyJM",
+            "ChhTQ19TZWxlY3RDaGFyYWN0ZXJSZXN1bHQSDAoEQ29kZRgBIAEoBRITCgtD",
+            "aGFyYWN0ZXJpZBgCIAEoBRINCgVFcnJvchgDIAEoCWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -73,8 +79,9 @@ namespace Protomsg {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_PlayerAttack), global::Protomsg.CS_PlayerAttack.Parser, new[]{ "IDs", "TargetUnitID" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_PlayerSkill), global::Protomsg.CS_PlayerSkill.Parser, new[]{ "IDs", "SkillID", "X", "Y", "TargetUnitID" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.UnitDatas), global::Protomsg.UnitDatas.Parser, new[]{ "Name", "Level", "HP", "MP", "X", "Y", "ID", "ModeType", "MaxHP", "MaxMP", "Experience", "MaxExperience", "ControlID", "AnimotorState", "AttackTime", "DirectionX", "DirectionY", "UnitType", "AttackAcpabilities", "AttackMode", "IsMain" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.BulletDatas), global::Protomsg.BulletDatas.Parser, new[]{ "ID", "ModeType", "X", "Y", "Z", "State", "StartX", "StartY", "StartZ", "EndX", "EndY", "EndZ" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.MsgUserEnterScene), global::Protomsg.MsgUserEnterScene.Parser, new[]{ "Uid", "ConnectId", "SrcServerName", "DestServerName", "SceneName", "Datas" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_Update), global::Protomsg.SC_Update.Parser, new[]{ "CurFrame", "NewUnits", "OldUnits", "RemoveUnits" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_Update), global::Protomsg.SC_Update.Parser, new[]{ "CurFrame", "NewUnits", "OldUnits", "RemoveUnits", "NewBullets", "OldBullets", "RemoveBullets" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_NewScene), global::Protomsg.SC_NewScene.Parser, new[]{ "Name", "LogicFps", "CurFrame", "ServerName" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CharacterBaseDatas), global::Protomsg.CharacterBaseDatas.Parser, new[]{ "Characterid", "Name", "Typeid", "Level" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_Logined), global::Protomsg.SC_Logined.Parser, new[]{ "Code", "Uid", "Error", "Characters" }, null, null, null),
@@ -2383,6 +2390,452 @@ namespace Protomsg {
 
   }
 
+  public sealed partial class BulletDatas : pb::IMessage<BulletDatas> {
+    private static readonly pb::MessageParser<BulletDatas> _parser = new pb::MessageParser<BulletDatas>(() => new BulletDatas());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<BulletDatas> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[9]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public BulletDatas() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public BulletDatas(BulletDatas other) : this() {
+      iD_ = other.iD_;
+      modeType_ = other.modeType_;
+      x_ = other.x_;
+      y_ = other.y_;
+      z_ = other.z_;
+      state_ = other.state_;
+      startX_ = other.startX_;
+      startY_ = other.startY_;
+      startZ_ = other.startZ_;
+      endX_ = other.endX_;
+      endY_ = other.endY_;
+      endZ_ = other.endZ_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public BulletDatas Clone() {
+      return new BulletDatas(this);
+    }
+
+    /// <summary>Field number for the "ID" field.</summary>
+    public const int IDFieldNumber = 1;
+    private int iD_;
+    /// <summary>
+    ///子弹唯一ID
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ID {
+      get { return iD_; }
+      set {
+        iD_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "ModeType" field.</summary>
+    public const int ModeTypeFieldNumber = 2;
+    private string modeType_ = "";
+    /// <summary>
+    ///弹道特效模型 (客户端使用的模型名字)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string ModeType {
+      get { return modeType_; }
+      set {
+        modeType_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "X" field.</summary>
+    public const int XFieldNumber = 3;
+    private float x_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float X {
+      get { return x_; }
+      set {
+        x_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Y" field.</summary>
+    public const int YFieldNumber = 4;
+    private float y_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float Y {
+      get { return y_; }
+      set {
+        y_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Z" field.</summary>
+    public const int ZFieldNumber = 5;
+    private float z_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float Z {
+      get { return z_; }
+      set {
+        z_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "State" field.</summary>
+    public const int StateFieldNumber = 6;
+    private int state_;
+    /// <summary>
+    ///状态 子弹状态(1:创建 需要创建特效,2:移动,3:到达后计算结果(伤害和回血) 4:完成 可以删除了)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int State {
+      get { return state_; }
+      set {
+        state_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "StartX" field.</summary>
+    public const int StartXFieldNumber = 7;
+    private float startX_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float StartX {
+      get { return startX_; }
+      set {
+        startX_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "StartY" field.</summary>
+    public const int StartYFieldNumber = 8;
+    private float startY_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float StartY {
+      get { return startY_; }
+      set {
+        startY_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "StartZ" field.</summary>
+    public const int StartZFieldNumber = 9;
+    private float startZ_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float StartZ {
+      get { return startZ_; }
+      set {
+        startZ_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "EndX" field.</summary>
+    public const int EndXFieldNumber = 10;
+    private float endX_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float EndX {
+      get { return endX_; }
+      set {
+        endX_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "EndY" field.</summary>
+    public const int EndYFieldNumber = 11;
+    private float endY_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float EndY {
+      get { return endY_; }
+      set {
+        endY_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "EndZ" field.</summary>
+    public const int EndZFieldNumber = 12;
+    private float endZ_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float EndZ {
+      get { return endZ_; }
+      set {
+        endZ_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as BulletDatas);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(BulletDatas other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ID != other.ID) return false;
+      if (ModeType != other.ModeType) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(X, other.X)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Y, other.Y)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Z, other.Z)) return false;
+      if (State != other.State) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(StartX, other.StartX)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(StartY, other.StartY)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(StartZ, other.StartZ)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(EndX, other.EndX)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(EndY, other.EndY)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(EndZ, other.EndZ)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ID != 0) hash ^= ID.GetHashCode();
+      if (ModeType.Length != 0) hash ^= ModeType.GetHashCode();
+      if (X != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(X);
+      if (Y != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Y);
+      if (Z != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Z);
+      if (State != 0) hash ^= State.GetHashCode();
+      if (StartX != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(StartX);
+      if (StartY != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(StartY);
+      if (StartZ != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(StartZ);
+      if (EndX != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(EndX);
+      if (EndY != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(EndY);
+      if (EndZ != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(EndZ);
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (ID != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(ID);
+      }
+      if (ModeType.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(ModeType);
+      }
+      if (X != 0F) {
+        output.WriteRawTag(29);
+        output.WriteFloat(X);
+      }
+      if (Y != 0F) {
+        output.WriteRawTag(37);
+        output.WriteFloat(Y);
+      }
+      if (Z != 0F) {
+        output.WriteRawTag(45);
+        output.WriteFloat(Z);
+      }
+      if (State != 0) {
+        output.WriteRawTag(48);
+        output.WriteInt32(State);
+      }
+      if (StartX != 0F) {
+        output.WriteRawTag(61);
+        output.WriteFloat(StartX);
+      }
+      if (StartY != 0F) {
+        output.WriteRawTag(69);
+        output.WriteFloat(StartY);
+      }
+      if (StartZ != 0F) {
+        output.WriteRawTag(77);
+        output.WriteFloat(StartZ);
+      }
+      if (EndX != 0F) {
+        output.WriteRawTag(85);
+        output.WriteFloat(EndX);
+      }
+      if (EndY != 0F) {
+        output.WriteRawTag(93);
+        output.WriteFloat(EndY);
+      }
+      if (EndZ != 0F) {
+        output.WriteRawTag(101);
+        output.WriteFloat(EndZ);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (ID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ID);
+      }
+      if (ModeType.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ModeType);
+      }
+      if (X != 0F) {
+        size += 1 + 4;
+      }
+      if (Y != 0F) {
+        size += 1 + 4;
+      }
+      if (Z != 0F) {
+        size += 1 + 4;
+      }
+      if (State != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(State);
+      }
+      if (StartX != 0F) {
+        size += 1 + 4;
+      }
+      if (StartY != 0F) {
+        size += 1 + 4;
+      }
+      if (StartZ != 0F) {
+        size += 1 + 4;
+      }
+      if (EndX != 0F) {
+        size += 1 + 4;
+      }
+      if (EndY != 0F) {
+        size += 1 + 4;
+      }
+      if (EndZ != 0F) {
+        size += 1 + 4;
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(BulletDatas other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ID != 0) {
+        ID = other.ID;
+      }
+      if (other.ModeType.Length != 0) {
+        ModeType = other.ModeType;
+      }
+      if (other.X != 0F) {
+        X = other.X;
+      }
+      if (other.Y != 0F) {
+        Y = other.Y;
+      }
+      if (other.Z != 0F) {
+        Z = other.Z;
+      }
+      if (other.State != 0) {
+        State = other.State;
+      }
+      if (other.StartX != 0F) {
+        StartX = other.StartX;
+      }
+      if (other.StartY != 0F) {
+        StartY = other.StartY;
+      }
+      if (other.StartZ != 0F) {
+        StartZ = other.StartZ;
+      }
+      if (other.EndX != 0F) {
+        EndX = other.EndX;
+      }
+      if (other.EndY != 0F) {
+        EndY = other.EndY;
+      }
+      if (other.EndZ != 0F) {
+        EndZ = other.EndZ;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            ID = input.ReadInt32();
+            break;
+          }
+          case 18: {
+            ModeType = input.ReadString();
+            break;
+          }
+          case 29: {
+            X = input.ReadFloat();
+            break;
+          }
+          case 37: {
+            Y = input.ReadFloat();
+            break;
+          }
+          case 45: {
+            Z = input.ReadFloat();
+            break;
+          }
+          case 48: {
+            State = input.ReadInt32();
+            break;
+          }
+          case 61: {
+            StartX = input.ReadFloat();
+            break;
+          }
+          case 69: {
+            StartY = input.ReadFloat();
+            break;
+          }
+          case 77: {
+            StartZ = input.ReadFloat();
+            break;
+          }
+          case 85: {
+            EndX = input.ReadFloat();
+            break;
+          }
+          case 93: {
+            EndY = input.ReadFloat();
+            break;
+          }
+          case 101: {
+            EndZ = input.ReadFloat();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
   public sealed partial class MsgUserEnterScene : pb::IMessage<MsgUserEnterScene> {
     private static readonly pb::MessageParser<MsgUserEnterScene> _parser = new pb::MessageParser<MsgUserEnterScene>(() => new MsgUserEnterScene());
     private pb::UnknownFieldSet _unknownFields;
@@ -2391,7 +2844,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[9]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[10]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2666,7 +3119,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[10]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[11]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2687,6 +3140,9 @@ namespace Protomsg {
       newUnits_ = other.newUnits_.Clone();
       oldUnits_ = other.oldUnits_.Clone();
       removeUnits_ = other.removeUnits_.Clone();
+      newBullets_ = other.newBullets_.Clone();
+      oldBullets_ = other.oldBullets_.Clone();
+      removeBullets_ = other.removeBullets_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -2748,6 +3204,45 @@ namespace Protomsg {
       get { return removeUnits_; }
     }
 
+    /// <summary>Field number for the "NewBullets" field.</summary>
+    public const int NewBulletsFieldNumber = 5;
+    private static readonly pb::FieldCodec<global::Protomsg.BulletDatas> _repeated_newBullets_codec
+        = pb::FieldCodec.ForMessage(42, global::Protomsg.BulletDatas.Parser);
+    private readonly pbc::RepeatedField<global::Protomsg.BulletDatas> newBullets_ = new pbc::RepeatedField<global::Protomsg.BulletDatas>();
+    /// <summary>
+    ///新的子弹
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::Protomsg.BulletDatas> NewBullets {
+      get { return newBullets_; }
+    }
+
+    /// <summary>Field number for the "OldBullets" field.</summary>
+    public const int OldBulletsFieldNumber = 6;
+    private static readonly pb::FieldCodec<global::Protomsg.BulletDatas> _repeated_oldBullets_codec
+        = pb::FieldCodec.ForMessage(50, global::Protomsg.BulletDatas.Parser);
+    private readonly pbc::RepeatedField<global::Protomsg.BulletDatas> oldBullets_ = new pbc::RepeatedField<global::Protomsg.BulletDatas>();
+    /// <summary>
+    ///旧子弹(只更新变化值)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::Protomsg.BulletDatas> OldBullets {
+      get { return oldBullets_; }
+    }
+
+    /// <summary>Field number for the "RemoveBullets" field.</summary>
+    public const int RemoveBulletsFieldNumber = 7;
+    private static readonly pb::FieldCodec<int> _repeated_removeBullets_codec
+        = pb::FieldCodec.ForInt32(58);
+    private readonly pbc::RepeatedField<int> removeBullets_ = new pbc::RepeatedField<int>();
+    /// <summary>
+    ///删除子弹(子弹ID)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<int> RemoveBullets {
+      get { return removeBullets_; }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as SC_Update);
@@ -2765,6 +3260,9 @@ namespace Protomsg {
       if(!newUnits_.Equals(other.newUnits_)) return false;
       if(!oldUnits_.Equals(other.oldUnits_)) return false;
       if(!removeUnits_.Equals(other.removeUnits_)) return false;
+      if(!newBullets_.Equals(other.newBullets_)) return false;
+      if(!oldBullets_.Equals(other.oldBullets_)) return false;
+      if(!removeBullets_.Equals(other.removeBullets_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -2775,6 +3273,9 @@ namespace Protomsg {
       hash ^= newUnits_.GetHashCode();
       hash ^= oldUnits_.GetHashCode();
       hash ^= removeUnits_.GetHashCode();
+      hash ^= newBullets_.GetHashCode();
+      hash ^= oldBullets_.GetHashCode();
+      hash ^= removeBullets_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -2795,6 +3296,9 @@ namespace Protomsg {
       newUnits_.WriteTo(output, _repeated_newUnits_codec);
       oldUnits_.WriteTo(output, _repeated_oldUnits_codec);
       removeUnits_.WriteTo(output, _repeated_removeUnits_codec);
+      newBullets_.WriteTo(output, _repeated_newBullets_codec);
+      oldBullets_.WriteTo(output, _repeated_oldBullets_codec);
+      removeBullets_.WriteTo(output, _repeated_removeBullets_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -2809,6 +3313,9 @@ namespace Protomsg {
       size += newUnits_.CalculateSize(_repeated_newUnits_codec);
       size += oldUnits_.CalculateSize(_repeated_oldUnits_codec);
       size += removeUnits_.CalculateSize(_repeated_removeUnits_codec);
+      size += newBullets_.CalculateSize(_repeated_newBullets_codec);
+      size += oldBullets_.CalculateSize(_repeated_oldBullets_codec);
+      size += removeBullets_.CalculateSize(_repeated_removeBullets_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -2826,6 +3333,9 @@ namespace Protomsg {
       newUnits_.Add(other.newUnits_);
       oldUnits_.Add(other.oldUnits_);
       removeUnits_.Add(other.removeUnits_);
+      newBullets_.Add(other.newBullets_);
+      oldBullets_.Add(other.oldBullets_);
+      removeBullets_.Add(other.removeBullets_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -2854,6 +3364,19 @@ namespace Protomsg {
             removeUnits_.AddEntriesFrom(input, _repeated_removeUnits_codec);
             break;
           }
+          case 42: {
+            newBullets_.AddEntriesFrom(input, _repeated_newBullets_codec);
+            break;
+          }
+          case 50: {
+            oldBullets_.AddEntriesFrom(input, _repeated_oldBullets_codec);
+            break;
+          }
+          case 58:
+          case 56: {
+            removeBullets_.AddEntriesFrom(input, _repeated_removeBullets_codec);
+            break;
+          }
         }
       }
     }
@@ -2871,7 +3394,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[11]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[12]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3099,7 +3622,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[12]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[13]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3312,7 +3835,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[13]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[14]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3532,7 +4055,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[14]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[15]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

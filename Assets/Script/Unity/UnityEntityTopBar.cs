@@ -47,8 +47,16 @@ public class UnityEntityTopBar : MonoBehaviour
     void Start()
     {
         
-        
+
+
     }
+
+    public void SetVisible(bool vis)
+    {
+        mRoot.visible = vis;
+
+    }
+
     //设置为 玩家的敌人
     public void SetIsEnemy(bool enemy)
     {

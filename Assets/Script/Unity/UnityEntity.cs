@@ -39,9 +39,7 @@ public class UnityEntity {
         UnitType = data.UnitType; //需要数据 ModeType 
         AttackAcpabilities = data.AttackAcpabilities;
         IsMain = data.IsMain;
-
-
-
+        IsDeath = data.IsDeath;
 
 
         m_Mode.transform.position = new Vector3(data.X, 0, data.Y);
@@ -80,6 +78,9 @@ public class UnityEntity {
                     //Debug.Log("animlen: idle1t " + Tool.GetClipLength(m_Mode.GetComponent<Animator>(), "idle1t"));
                     //Debug.Log("animlen: idle2 " + Tool.GetClipLength(m_Mode.GetComponent<Animator>(), "idle2"));
                     //m_Mode.GetComponent<Animator>().speed = 0.2f;
+                }else if(anim == 5)
+                {
+                    m_Mode.GetComponent<Animator>().speed = 100.1f;
                 }
                 else
                 {
@@ -239,6 +240,7 @@ public class UnityEntity {
             UnitType += data.UnitType; //需要数据 ModeType 
             AttackAcpabilities += data.AttackAcpabilities;
             IsMain += data.IsMain;
+            IsDeath += data.IsDeath;
 
             UpdateTopBar();
 
@@ -441,6 +443,19 @@ public class UnityEntity {
             m_IsMain = value;
         }
     }
+    // IsMain
+    protected int m_IsDeath;
+    public int IsDeath
+    {
+        get
+        {
+            return m_IsDeath;
+        }
+        set
+        {
+            m_IsDeath = value;
+        }
+    }
 
     protected GameObject m_SkillAreaLookAt;//技能效果 箭头
     //float outerRadius = 6;      // 外圆半径
@@ -511,6 +526,15 @@ public class UnityEntity {
         //头顶条显示
         if (m_TopBar != null)
         {
+            if(IsDeath == 1)
+            {
+                m_TopBar.GetComponent<UnityEntityTopBar>().SetVisible(false);
+            }
+            else
+            {
+                m_TopBar.GetComponent<UnityEntityTopBar>().SetVisible(true);
+            }
+
             m_TopBar.GetComponent<UnityEntityTopBar>().SetHP( (int)((float)HP / MaxHP * 100));
             m_TopBar.GetComponent<UnityEntityTopBar>().SetMP((int)((float)MP / MaxMP * 100));
             m_TopBar.GetComponent<UnityEntityTopBar>().SetName(Name);

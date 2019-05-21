@@ -29,7 +29,7 @@ public class ProjectileScript : MonoBehaviour {
             muzzleVFX.transform.localRotation = gameObject.transform.localRotation;
             //muzzleVFX.transform.forward = gameObject.transform.forward;
 
-            Debug.Log("ShowStartParticle localRotation:" + gameObject.transform.localRotation);
+            //Debug.Log("ShowStartParticle localRotation:" + gameObject.transform.localRotation);
             var ps = muzzleVFX.GetComponent<ParticleSystem>();
             if (ps != null)
                 Destroy(muzzleVFX, ps.main.duration);

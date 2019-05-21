@@ -15,8 +15,11 @@ public class UnityEntity {
 
     protected float m_MeshHeight;
 
+    
+
     public UnityEntity(Protomsg.UnitDatas data, GameScene scene)
     {
+        
 
         RotateSpeed = 480;
 
@@ -40,6 +43,21 @@ public class UnityEntity {
         AttackAcpabilities = data.AttackAcpabilities;
         IsMain = data.IsMain;
         IsDeath = data.IsDeath;
+        if(data.SD.Count > 0)
+        {
+            m_SkillDatas = new Protomsg.SkillDatas[data.SD.Count];
+            int index = 0;
+            foreach (var item in data.SD)
+            {
+                m_SkillDatas[index++] = item;
+            }
+        }
+       
+        //foreach (var item in SkillDatas)
+        //{
+        //    Debug.Log("111111111111m_SkillDatas---:" + item.Level);
+        //}
+        //m_SkillDatas = data.SD;
 
 
         m_Mode.transform.position = new Vector3(data.X, 0, data.Y);
@@ -60,7 +78,7 @@ public class UnityEntity {
         {
             if (anim != 0)
             {
-                Debug.Log("AniState: "+ anim);
+                //Debug.Log("AniState: "+ anim);
                 m_Mode.GetComponent<Animator>().SetInteger("AniState", anim);
                 
                 //攻击动画
@@ -73,11 +91,7 @@ public class UnityEntity {
                     }
                     float speed = animtime / time;
                     m_Mode.GetComponent<Animator>().speed = speed;
-                    //Debug.Log("animlen: attack " + speed);
-                    //Debug.Log("animlen: walk " + Tool.GetClipLength(m_Mode.GetComponent<Animator>(), "walk"));
-                    //Debug.Log("animlen: idle1t " + Tool.GetClipLength(m_Mode.GetComponent<Animator>(), "idle1t"));
-                    //Debug.Log("animlen: idle2 " + Tool.GetClipLength(m_Mode.GetComponent<Animator>(), "idle2"));
-                    //m_Mode.GetComponent<Animator>().speed = 0.2f;
+                   
                 }else if(anim == 5)
                 {
                     m_Mode.GetComponent<Animator>().speed = 100.1f;
@@ -101,7 +115,7 @@ public class UnityEntity {
     {
 
     }
-
+    
 
     //目标红色高亮显示
     public void TargetShow(bool isshow)
@@ -126,13 +140,7 @@ public class UnityEntity {
     //提前更新方向(关闭预判)
     public void PreLookAtDir(float x, float y)
     {
-        //if (m_Mode == null)
-        //{
-        //    return;
-        //}
-        //var dir = new Vector3(x, 0, y);
-        //ChangeDirection(dir);
-        
+       
     }
 
     //更新方向动画
@@ -190,7 +198,7 @@ public class UnityEntity {
     {
         UpdateDirection(dt);
     }
-
+    int testnum = 0;
     public void Change(Protomsg.UnitDatas data)
     {
         // 更新位置
@@ -244,7 +252,40 @@ public class UnityEntity {
 
             UpdateTopBar();
 
-            
+            //foreach (var item in data.SD)
+            //{
+            //    testnum++;
+            //    if(testnum <= 10)
+            //    {
+            //        Debug.Log("22222222m_SkillDatas---:" + item.ToString());
+            //    }
+                
+            //}
+
+            //技能数据
+            foreach (var item in data.SD)
+            {
+                for(var i = 0; i < m_SkillDatas.Length;i++)
+                {
+                    if(item.TypeID == m_SkillDatas[i].TypeID)
+                    {
+                        m_SkillDatas[i].Level += item.Level;
+                        m_SkillDatas[i].RemainCDTime += item.RemainCDTime;
+                        m_SkillDatas[i].CanUpgrade += item.CanUpgrade;
+                        m_SkillDatas[i].Index += item.Index;
+                        m_SkillDatas[i].CastType += item.CastType;
+                        m_SkillDatas[i].CastTargetType += item.CastTargetType;
+                        m_SkillDatas[i].UnitTargetTeam += item.UnitTargetTeam;
+                        m_SkillDatas[i].UnitTargetCamp += item.UnitTargetCamp;
+                        m_SkillDatas[i].NoCareMagicImmune += item.NoCareMagicImmune;
+                        m_SkillDatas[i].CastRange += item.CastRange;
+                        m_SkillDatas[i].Cooldown += item.Cooldown;
+                        m_SkillDatas[i].HurtRange += item.HurtRange;
+                        m_SkillDatas[i].ManaCost += item.ManaCost;
+                    }
+                }
+                
+            }
 
 
 
@@ -458,8 +499,6 @@ public class UnityEntity {
     }
 
     protected GameObject m_SkillAreaLookAt;//技能效果 箭头
-    //float outerRadius = 6;      // 外圆半径
-    //float innerRadius = 2f;     // 内圆半径
     float cubeWidth = 1f;       // 矩形宽度 （矩形长度使用的外圆半径）
     int angle = 60;             // 扇形角度
     public void ShowSkillAreaLookAt(bool isshow,Vector2 targetPos)
@@ -473,15 +512,11 @@ public class UnityEntity {
             m_SkillAreaLookAt = (GameObject)(GameObject.Instantiate(Resources.Load("SkillAreaEffect/Prefabs/Hero_skillarea/chang_hero")));
             //m_Mode.
             m_SkillAreaLookAt.transform.parent = m_Mode.transform;
-            //m_SkillAreaLookAt.transform.localEulerAngles = new Vector3(0,,0);
 
         }
-
-        //m_SkillAreaLookAt.transform.localEulerAngles = new Vector3(0, angle, 0);
-        //Debug.Log("position:" + m_SkillAreaLookAt.transform.localPosition);
+        
         m_SkillAreaLookAt.transform.localPosition = Vector3.zero;
-
-        //Debug.Log("scale:"+ m_Mode.transform.localScale.x);
+        
         m_SkillAreaLookAt.transform.localScale = new Vector3(cubeWidth / m_Mode.transform.localScale.x, 1, len / m_Mode.transform.localScale.x) ;
         m_SkillAreaLookAt.transform.LookAt(new Vector3(targetPos.x, 0, targetPos.y));
         if (isshow)
@@ -502,10 +537,12 @@ public class UnityEntity {
             m_SkillAreaOutCircle = (GameObject)(GameObject.Instantiate(Resources.Load("SkillAreaEffect/Prefabs/Hero_skillarea/quan_hero")));
             //m_Mode.
             m_SkillAreaOutCircle.transform.parent = m_Mode.transform;
+            
 
         }
-        m_SkillAreaOutCircle.transform.localScale = new Vector3(r * 2, 1, r * 2) / m_Mode.transform.localScale.x;
-
+        
+        m_SkillAreaOutCircle.transform.localScale = new Vector3(r * 2 / m_Mode.transform.localScale.x, 1, r * 2 / m_Mode.transform.localScale.x) ;
+        m_SkillAreaOutCircle.transform.localPosition = Vector3.zero;
         if (isshow)
         {
             m_SkillAreaOutCircle.gameObject.SetActive(true);
@@ -513,6 +550,33 @@ public class UnityEntity {
         else
         {
             m_SkillAreaOutCircle.gameObject.SetActive(false);
+        }
+       
+        
+    }
+    //目标红色圈
+    protected GameObject m_TargetRedCircle;//外径圆
+    public void TargetShowRedCircle(bool isshow)
+    {
+        if (m_TargetRedCircle == null)
+        {
+            m_TargetRedCircle = (GameObject)(GameObject.Instantiate(Resources.Load("SkillAreaEffect/Prefabs/Hero_skillarea/quan_hero_red")));
+            //m_Mode.
+            m_TargetRedCircle.transform.parent = m_Mode.transform;
+
+
+        }
+        var r = 0.5f;
+        //m_TargetRedCircle.transform.scale
+        m_TargetRedCircle.transform.localScale = new Vector3(r * 2 / m_Mode.transform.localScale.x, 2, r * 2 / m_Mode.transform.localScale.z);
+        m_TargetRedCircle.transform.localPosition = Vector3.zero;
+        if (isshow)
+        {
+            m_TargetRedCircle.gameObject.SetActive(true);
+        }
+        else
+        {
+            m_TargetRedCircle.gameObject.SetActive(false);
         }
     }
 
@@ -576,8 +640,8 @@ public class UnityEntity {
                 //m_Mode.
 
                 m_TopBar.transform.parent = m_Mode.transform;
-
-                m_TopBar.transform.position = new Vector3(m_TopBar.transform.position.x, m_MeshHeight, m_TopBar.transform.position.z) ;
+                m_TopBar.transform.localPosition = new Vector3(0, m_MeshHeight, 0);
+                //m_TopBar.transform.position = new Vector3(m_TopBar.transform.position.x, m_MeshHeight, m_TopBar.transform.position.z) ;
                 //m_MeshHeight
             }
             else
@@ -586,8 +650,8 @@ public class UnityEntity {
                 //m_Mode.
 
                 m_TopBar.transform.parent = m_Mode.transform;
-
-                m_TopBar.transform.position = new Vector3(m_TopBar.transform.position.x, m_MeshHeight, m_TopBar.transform.position.z);
+                m_TopBar.transform.localPosition = new Vector3(0, m_MeshHeight, 0);
+                //m_TopBar.transform.position = new Vector3(m_TopBar.transform.position.x, m_MeshHeight, m_TopBar.transform.position.z);
 
             }
 
@@ -605,6 +669,18 @@ public class UnityEntity {
         set
         {
             m_AttackAcpabilities = value;
+        }
+    }
+    protected Protomsg.SkillDatas []m_SkillDatas;
+    public Protomsg.SkillDatas []SkillDatas
+    {
+        get
+        {
+            return m_SkillDatas;
+        }
+        set
+        {
+            m_SkillDatas = value;
         }
     }
 

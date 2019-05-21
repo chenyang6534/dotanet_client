@@ -41,7 +41,7 @@ public class BulletEntity
             m_Mode.GetComponent<ProjectileScript>().ShowEndParticle();
         }
 
-        Debug.Log("1111bullet pos:" + m_Mode.transform.position + "  end pos:" + m_EndPos + "   state:" + m_State);
+        //Debug.Log("1111bullet pos:" + m_Mode.transform.position + "  end pos:" + m_EndPos + "   state:" + m_State);
     }
     public void Change(Protomsg.BulletDatas data)
     {
@@ -63,7 +63,7 @@ public class BulletEntity
                 m_Mode.GetComponent<ProjectileScript>().ShowEndParticle();
             }
 
-            Debug.Log("2222bullet pos:" + m_Mode.transform.position+"  end pos:"+ m_EndPos+"   state:"+m_State);
+            //Debug.Log("2222bullet pos:" + m_Mode.transform.position+"  end pos:"+ m_EndPos+"   state:"+m_State);
         }
     }
     public void ChangeShowPos(float scale,Vector3 next)
@@ -79,7 +79,7 @@ public class BulletEntity
     {
         if (m_Mode != null)
         {
-            Debug.Log("4444bullet pos:" + m_Mode.transform.position);
+            //Debug.Log("4444bullet pos:" + m_Mode.transform.position);
             m_Mode.GetComponent<ProjectileScript>().Destroy();
 
 

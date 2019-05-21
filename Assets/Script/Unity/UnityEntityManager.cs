@@ -64,6 +64,49 @@ public class UnityEntityManager  {
     {
         return m_UnityEntitys[id];
     }
+    //检查单位是否满足技能释放条件
+    //int32 UnitTargetTeam = 8;//目标单位关系 1:友方  2:敌方 3:友方敌方都行
+    //int32 UnitTargetCamp = 9;//目标单位阵营 (1:玩家 2:NPC) 3:玩家NPC都行
+    public bool CheckCastSkillTarget(UnityEntity target, UnityEntity my,Protomsg.SkillDatas skilldata)
+    {
+        if(target == null || my == null)
+        {
+            return true;
+        }
+
+        if (skilldata.UnitTargetTeam == 1)
+        {
+            //是否是敌人 
+            if (CheckIsEnemy(target, my) == true)
+            {
+                return false;
+            }
+        }
+        else if (skilldata.UnitTargetTeam == 2)
+        {
+            //是否是敌人 
+            if (CheckIsEnemy(target, my) == false)
+            {
+                return false;
+            }
+        }
+        if (skilldata.UnitTargetCamp == 1)
+        {
+            if (target.UnitType != 1)
+            {
+                return false;
+            }
+        }
+        else if (skilldata.UnitTargetCamp == 2)
+        {
+            if (target.UnitType == 1)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
 
     //检查单位是否是 玩家的敌人
     public bool CheckIsEnemy(UnityEntity target, UnityEntity my)
@@ -150,7 +193,7 @@ public class UnityEntityManager  {
         UnityEntity minangelUnityEntity = null;
         foreach (var item in m_UnityEntitys)
         {
-            if (item.Key == my.ID)
+            if (item.Key == my.ID || item.Value.IsDeath == 1)
             {
                 continue;
             }
@@ -190,6 +233,7 @@ public class UnityEntityManager  {
 
     }
 
+
     //获取离本单位最近的敌人
     public UnityEntity GetNearestEnemy(UnityEntity my)
     {
@@ -204,7 +248,7 @@ public class UnityEntityManager  {
         foreach (var item in m_UnityEntitys)
         {
 
-            if (item.Key == myunityentity.ID)
+            if (item.Key == myunityentity.ID || item.Value.IsDeath == 1)
             {
                 continue;
             }
@@ -226,7 +270,98 @@ public class UnityEntityManager  {
 
         return nearrestUnityEntity;
     }
-    
+
+
+    //获取离本单位 夹角最小的单位 满足技能释放目标条件 且夹角小于45度 
+    public UnityEntity GetMinAngleUnitForSkillTarget(UnityEntity my, Vector2 dir, Protomsg.SkillDatas skilldata)
+    {
+        if (my == null || dir == Vector2.zero || skilldata.CastRange <= 0)
+        {
+            return null;
+        }
+        float minangle = 0;
+        UnityEntity minangelUnityEntity = null;
+        foreach (var item in m_UnityEntitys)
+        {
+            if (item.Key == my.ID || item.Value.IsDeath == 1)
+            {
+                continue;
+            }
+            if (CheckCastSkillTarget(item.Value, my, skilldata) == false)
+            {
+                continue;
+            }
+
+            var dis = Vector2.Distance(new Vector2(item.Value.X, item.Value.Y), new Vector2(my.X, my.Y));
+
+            if (skilldata.CastRange > dis)
+            {
+
+                float angle1 = Vector2.Angle(dir, new Vector2(item.Value.X - my.X, item.Value.Y - my.Y));
+
+                //是否超过最大角度
+                if (angle1 > MaxAngle)
+                {
+                    continue;
+                }
+
+                if (minangelUnityEntity == null)
+                {
+                    minangelUnityEntity = item.Value;
+                    minangle = angle1;
+                }
+                else if (angle1 < minangle)
+                {
+                    minangelUnityEntity = item.Value;
+                    minangle = angle1;
+                }
+            }
+        }
+
+        return minangelUnityEntity;
+
+    }
+
+    //获取离本单位最近的单位 且满足技能目标条件
+    //int32 UnitTargetTeam = 8;//目标单位关系 1:友方  2:敌方 3:友方敌方都行
+    //int32 UnitTargetCamp = 9;//目标单位阵营 (1:玩家 2:NPC) 3:玩家NPC都行
+    public UnityEntity GetNearestUnitForSkillTarget(UnityEntity my,Protomsg.SkillDatas skilldata)
+    {
+        var myunityentity = my;
+        if (myunityentity == null)
+        {
+            Debug.Log("GetNearestEnemy  null");
+            return null;
+        }
+        var mindis = 100000000.0f;
+        UnityEntity nearrestUnityEntity = null;
+        foreach (var item in m_UnityEntitys)
+        {
+
+            if (item.Key == myunityentity.ID || item.Value.IsDeath == 1)
+            {
+                continue;
+            }
+            
+            if(CheckCastSkillTarget(item.Value,myunityentity,skilldata) == false)
+            {
+                continue;
+            }
+
+
+            var dis = Vector2.Distance(new Vector2(item.Value.X, item.Value.Y), new Vector2(myunityentity.X, myunityentity.Y));
+
+            if (mindis > dis)
+            {
+                Debug.Log("dis  " + dis);
+                mindis = dis;
+                nearrestUnityEntity = item.Value;
+            }
+        }
+
+        return nearrestUnityEntity;
+    }
+
 
     //获取离本单位最近的单位
     public UnityEntity GetNearestUnityEntity(int id)
@@ -243,7 +378,7 @@ public class UnityEntityManager  {
         foreach (var item in m_UnityEntitys)
         {
 
-            if(item.Key == id)
+            if(item.Key == id || item.Value.IsDeath == 1)
             {
                 continue;
             }

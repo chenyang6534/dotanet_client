@@ -14,29 +14,37 @@ public class GameUI : MonoBehaviour {
     private double startTime;
 
     private Btnstick attackstick;
-    // Use this for initialization
     void Start () {
+
+        SkillCom = new Dictionary<int, Skillstick>();
         mainUI = GetComponent<UIPanel>().ui;
         touchID = -1;
         startTime = Tool.GetTime();
+        //屏幕点击
         GObject touch = mainUI.GetChild("touchArea");
         touch.onTouchBegin.Add(OnTouchBegin);
         touch.onTouchMove.Add(OnTouchMove);
         touch.onTouchEnd.Add(OnTouchEnd);
+        
 
-        //Debug.Log("ui pos:"+(new Vector2(mainUI.GetChild("n1").x, mainUI.GetChild("n1").y)));
-
+        //ping值 
         gPing = mainUI.GetChild("n3").asTextField;
-        //mainUI.GetChild("n1").SetXY(mainUI.GetChild("n1").x + 100, mainUI.GetChild("n1").y - 100);
+        //移动遥感
         joystick = new Joystick(mainUI.GetChild("n1").asCom);
         joystick.onMove.Add(JoystickMove);
         joystick.onEnd.Add(JoystickEnd);
-
-        attackstick = new Btnstick(mainUI.GetChild("n5").asCom);
+        //攻击遥感
+        attackstick = new Btnstick(mainUI.GetChild("attack").asCom);
         attackstick.onMove.Add(AttackstickMove);
         attackstick.onEnd.Add(AttackstickEnd);
         attackstick.onDown.Add(AttackstickDown);
+
         
+        //view.AddRelation(GRoot.inst, RelationType.Right_Right);
+        //view.AddRelation(GRoot.inst, RelationType.Bottom_Bottom);
+
+
+
     }
     //屏幕点击
     private void OnTouchBegin(EventContext context)
@@ -165,10 +173,73 @@ public class GameUI : MonoBehaviour {
         GameScene.Singleton.SendControlData(degree, false);
 
     }
+    public Vector2[] ThreeSkillPos = { new Vector2(927-1123,617-617), new Vector2(988-1123, 477- 617 ), new Vector2(1123 - 1123, 418-617) };
+    
+    public Dictionary<int, Skillstick> SkillCom;
+    //刷新技能UI显示
+    void FreshSkillUI()
+    {
+        UnityEntity mainunit = GameScene.Singleton.GetMyMainUnit();
+        if(mainunit == null)
+        {
+            return;
+        }
+
+        //主动技能个数
+        var len = 0;
+        foreach (var item in mainunit.SkillDatas)
+        {
+            if(item.CastType == 1)
+            {
+                len++;
+            }
+        }
+
+        if (mainunit.SkillDatas.Length != SkillCom.Count)
+        {
+            SkillCom.Clear();
+            
+            foreach(var item in mainunit.SkillDatas)
+            {
+                if(item.CastType != 1)
+                {
+                    continue;
+                }
+
+                GComponent view = UIPackage.CreateObject("GameUI", "Skillstick").asCom;
+                GRoot.inst.AddChild(view);
+                mainUI.GetChild("attack").asCom.AddChild(view);
+                if(len <= 3)
+                {
+                    view.xy = ThreeSkillPos[item.Index];
+                }
+
+                SkillCom[item.TypeID] = new Skillstick(view);
+            }
+
+            
+        }
+        //刷新信息
+
+        foreach (var item in mainunit.SkillDatas)
+        {
+            if (item.CastType != 1)
+            {
+                continue;
+            }
+            Skillstick view = SkillCom[item.TypeID];
+            if(view == null)
+            {
+                continue;
+            }
+            view.SkillDatas = item;
+            
+        }
+    }
 
     // Update is called once per frame
     void Update () {
         gPing.text = "" + MyKcp.PingValue;
-
+        FreshSkillUI();
     }
 }

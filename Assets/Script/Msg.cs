@@ -35,39 +35,46 @@ namespace Protomsg {
             "NQoPU2VsZWN0Q2hhcmFjdGVyGAEgASgLMhwucHJvdG9tc2cuQ2hhcmFjdGVy",
             "QmFzZURhdGFzIkMKDUNTX1BsYXllck1vdmUSCwoDSURzGAEgAygFEgkKAVgY",
             "AiABKAISCQoBWRgDIAEoAhIPCgdJc1N0YXJ0GAQgASgIIjQKD0NTX1BsYXll",
-            "ckF0dGFjaxILCgNJRHMYASADKAUSFAoMVGFyZ2V0VW5pdElEGAIgASgFIloK",
-            "DkNTX1BsYXllclNraWxsEgsKA0lEcxgBIAEoBRIPCgdTa2lsbElEGAIgASgF",
-            "EgkKAVgYAyABKAISCQoBWRgEIAEoAhIUCgxUYXJnZXRVbml0SUQYBSABKAUi",
-            "hgMKCVVuaXREYXRhcxIMCgROYW1lGAEgASgJEg0KBUxldmVsGAIgASgFEgoK",
-            "AkhQGAMgASgFEgoKAk1QGAQgASgFEgkKAVgYBSABKAISCQoBWRgGIAEoAhIK",
-            "CgJJRBgHIAEoBRIQCghNb2RlVHlwZRgIIAEoCRINCgVNYXhIUBgJIAEoBRIN",
-            "CgVNYXhNUBgKIAEoBRISCgpFeHBlcmllbmNlGAsgASgFEhUKDU1heEV4cGVy",
-            "aWVuY2UYDCABKAUSEQoJQ29udHJvbElEGA0gASgFEhUKDUFuaW1vdG9yU3Rh",
-            "dGUYDiABKAUSEgoKQXR0YWNrVGltZRgPIAEoAhISCgpEaXJlY3Rpb25YGBAg",
-            "ASgCEhIKCkRpcmVjdGlvblkYESABKAISEAoIVW5pdFR5cGUYEiABKAUSGgoS",
-            "QXR0YWNrQWNwYWJpbGl0aWVzGBMgASgFEhIKCkF0dGFja01vZGUYFCABKAUS",
-            "DgoGSXNNYWluGBUgASgFEg8KB0lzRGVhdGgYFiABKAUitQEKC0J1bGxldERh",
-            "dGFzEgoKAklEGAEgASgFEhAKCE1vZGVUeXBlGAIgASgJEgkKAVgYAyABKAIS",
-            "CQoBWRgEIAEoAhIJCgFaGAUgASgCEg0KBVN0YXRlGAYgASgFEg4KBlN0YXJ0",
-            "WBgHIAEoAhIOCgZTdGFydFkYCCABKAISDgoGU3RhcnRaGAkgASgCEgwKBEVu",
-            "ZFgYCiABKAISDAoERW5kWRgLIAEoAhIMCgRFbmRaGAwgASgCIoQBChFNc2dV",
-            "c2VyRW50ZXJTY2VuZRILCgNVaWQYASABKAUSEQoJQ29ubmVjdElkGAIgASgF",
-            "EhUKDVNyY1NlcnZlck5hbWUYAyABKAkSFgoORGVzdFNlcnZlck5hbWUYBCAB",
-            "KAkSEQoJU2NlbmVOYW1lGAUgASgJEg0KBURhdGFzGAYgASgMIu0BCglTQ19V",
-            "cGRhdGUSEAoIQ3VyRnJhbWUYASABKAUSJQoITmV3VW5pdHMYAiADKAsyEy5w",
-            "cm90b21zZy5Vbml0RGF0YXMSJQoIT2xkVW5pdHMYAyADKAsyEy5wcm90b21z",
-            "Zy5Vbml0RGF0YXMSEwoLUmVtb3ZlVW5pdHMYBCADKAUSKQoKTmV3QnVsbGV0",
-            "cxgFIAMoCzIVLnByb3RvbXNnLkJ1bGxldERhdGFzEikKCk9sZEJ1bGxldHMY",
-            "BiADKAsyFS5wcm90b21zZy5CdWxsZXREYXRhcxIVCg1SZW1vdmVCdWxsZXRz",
-            "GAcgAygFIlMKC1NDX05ld1NjZW5lEgwKBE5hbWUYASABKAkSEAoITG9naWNG",
-            "cHMYAiABKAUSEAoIQ3VyRnJhbWUYAyABKAUSEgoKU2VydmVyTmFtZRgEIAEo",
-            "CSJWChJDaGFyYWN0ZXJCYXNlRGF0YXMSEwoLQ2hhcmFjdGVyaWQYASABKAUS",
-            "DAoETmFtZRgCIAEoCRIOCgZUeXBlaWQYAyABKAUSDQoFTGV2ZWwYBCABKAUi",
-            "aAoKU0NfTG9naW5lZBIMCgRDb2RlGAEgASgFEgsKA1VpZBgCIAEoBRINCgVF",
-            "cnJvchgDIAEoCRIwCgpDaGFyYWN0ZXJzGAQgAygLMhwucHJvdG9tc2cuQ2hh",
-            "cmFjdGVyQmFzZURhdGFzIkwKGFNDX1NlbGVjdENoYXJhY3RlclJlc3VsdBIM",
-            "CgRDb2RlGAEgASgFEhMKC0NoYXJhY3RlcmlkGAIgASgFEg0KBUVycm9yGAMg",
-            "ASgJYgZwcm90bzM="));
+            "ckF0dGFjaxILCgNJRHMYASADKAUSFAoMVGFyZ2V0VW5pdElEGAIgASgFIlkK",
+            "DkNTX1BsYXllclNraWxsEgoKAklEGAEgASgFEg8KB1NraWxsSUQYAiABKAUS",
+            "CQoBWBgDIAEoAhIJCgFZGAQgASgCEhQKDFRhcmdldFVuaXRJRBgFIAEoBSKj",
+            "AgoKU2tpbGxEYXRhcxIOCgZUeXBlSUQYASABKAUSDQoFTGV2ZWwYAiABKAUS",
+            "FAoMUmVtYWluQ0RUaW1lGAMgASgCEhIKCkNhblVwZ3JhZGUYBCABKAUSDQoF",
+            "SW5kZXgYBSABKAUSEAoIQ2FzdFR5cGUYBiABKAUSFgoOQ2FzdFRhcmdldFR5",
+            "cGUYByABKAUSFgoOVW5pdFRhcmdldFRlYW0YCCABKAUSFgoOVW5pdFRhcmdl",
+            "dENhbXAYCSABKAUSGQoRTm9DYXJlTWFnaWNJbW11bmUYCiABKAUSEQoJQ2Fz",
+            "dFJhbmdlGAsgASgCEhAKCENvb2xkb3duGAwgASgCEhEKCUh1cnRSYW5nZRgN",
+            "IAEoAhIQCghNYW5hQ29zdBgOIAEoBSKoAwoJVW5pdERhdGFzEgwKBE5hbWUY",
+            "ASABKAkSDQoFTGV2ZWwYAiABKAUSCgoCSFAYAyABKAUSCgoCTVAYBCABKAUS",
+            "CQoBWBgFIAEoAhIJCgFZGAYgASgCEgoKAklEGAcgASgFEhAKCE1vZGVUeXBl",
+            "GAggASgJEg0KBU1heEhQGAkgASgFEg0KBU1heE1QGAogASgFEhIKCkV4cGVy",
+            "aWVuY2UYCyABKAUSFQoNTWF4RXhwZXJpZW5jZRgMIAEoBRIRCglDb250cm9s",
+            "SUQYDSABKAUSFQoNQW5pbW90b3JTdGF0ZRgOIAEoBRISCgpBdHRhY2tUaW1l",
+            "GA8gASgCEhIKCkRpcmVjdGlvblgYECABKAISEgoKRGlyZWN0aW9uWRgRIAEo",
+            "AhIQCghVbml0VHlwZRgSIAEoBRIaChJBdHRhY2tBY3BhYmlsaXRpZXMYEyAB",
+            "KAUSEgoKQXR0YWNrTW9kZRgUIAEoBRIOCgZJc01haW4YFSABKAUSDwoHSXNE",
+            "ZWF0aBgWIAEoBRIgCgJTRBgXIAMoCzIULnByb3RvbXNnLlNraWxsRGF0YXMi",
+            "tQEKC0J1bGxldERhdGFzEgoKAklEGAEgASgFEhAKCE1vZGVUeXBlGAIgASgJ",
+            "EgkKAVgYAyABKAISCQoBWRgEIAEoAhIJCgFaGAUgASgCEg0KBVN0YXRlGAYg",
+            "ASgFEg4KBlN0YXJ0WBgHIAEoAhIOCgZTdGFydFkYCCABKAISDgoGU3RhcnRa",
+            "GAkgASgCEgwKBEVuZFgYCiABKAISDAoERW5kWRgLIAEoAhIMCgRFbmRaGAwg",
+            "ASgCIoQBChFNc2dVc2VyRW50ZXJTY2VuZRILCgNVaWQYASABKAUSEQoJQ29u",
+            "bmVjdElkGAIgASgFEhUKDVNyY1NlcnZlck5hbWUYAyABKAkSFgoORGVzdFNl",
+            "cnZlck5hbWUYBCABKAkSEQoJU2NlbmVOYW1lGAUgASgJEg0KBURhdGFzGAYg",
+            "ASgMIu0BCglTQ19VcGRhdGUSEAoIQ3VyRnJhbWUYASABKAUSJQoITmV3VW5p",
+            "dHMYAiADKAsyEy5wcm90b21zZy5Vbml0RGF0YXMSJQoIT2xkVW5pdHMYAyAD",
+            "KAsyEy5wcm90b21zZy5Vbml0RGF0YXMSEwoLUmVtb3ZlVW5pdHMYBCADKAUS",
+            "KQoKTmV3QnVsbGV0cxgFIAMoCzIVLnByb3RvbXNnLkJ1bGxldERhdGFzEikK",
+            "Ck9sZEJ1bGxldHMYBiADKAsyFS5wcm90b21zZy5CdWxsZXREYXRhcxIVCg1S",
+            "ZW1vdmVCdWxsZXRzGAcgAygFIlMKC1NDX05ld1NjZW5lEgwKBE5hbWUYASAB",
+            "KAkSEAoITG9naWNGcHMYAiABKAUSEAoIQ3VyRnJhbWUYAyABKAUSEgoKU2Vy",
+            "dmVyTmFtZRgEIAEoCSJWChJDaGFyYWN0ZXJCYXNlRGF0YXMSEwoLQ2hhcmFj",
+            "dGVyaWQYASABKAUSDAoETmFtZRgCIAEoCRIOCgZUeXBlaWQYAyABKAUSDQoF",
+            "TGV2ZWwYBCABKAUiaAoKU0NfTG9naW5lZBIMCgRDb2RlGAEgASgFEgsKA1Vp",
+            "ZBgCIAEoBRINCgVFcnJvchgDIAEoCRIwCgpDaGFyYWN0ZXJzGAQgAygLMhwu",
+            "cHJvdG9tc2cuQ2hhcmFjdGVyQmFzZURhdGFzIkwKGFNDX1NlbGVjdENoYXJh",
+            "Y3RlclJlc3VsdBIMCgRDb2RlGAEgASgFEhMKC0NoYXJhY3RlcmlkGAIgASgF",
+            "Eg0KBUVycm9yGAMgASgJYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -78,8 +85,9 @@ namespace Protomsg {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_SelectCharacter), global::Protomsg.CS_SelectCharacter.Parser, new[]{ "SelectCharacter" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_PlayerMove), global::Protomsg.CS_PlayerMove.Parser, new[]{ "IDs", "X", "Y", "IsStart" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_PlayerAttack), global::Protomsg.CS_PlayerAttack.Parser, new[]{ "IDs", "TargetUnitID" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_PlayerSkill), global::Protomsg.CS_PlayerSkill.Parser, new[]{ "IDs", "SkillID", "X", "Y", "TargetUnitID" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.UnitDatas), global::Protomsg.UnitDatas.Parser, new[]{ "Name", "Level", "HP", "MP", "X", "Y", "ID", "ModeType", "MaxHP", "MaxMP", "Experience", "MaxExperience", "ControlID", "AnimotorState", "AttackTime", "DirectionX", "DirectionY", "UnitType", "AttackAcpabilities", "AttackMode", "IsMain", "IsDeath" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_PlayerSkill), global::Protomsg.CS_PlayerSkill.Parser, new[]{ "ID", "SkillID", "X", "Y", "TargetUnitID" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SkillDatas), global::Protomsg.SkillDatas.Parser, new[]{ "TypeID", "Level", "RemainCDTime", "CanUpgrade", "Index", "CastType", "CastTargetType", "UnitTargetTeam", "UnitTargetCamp", "NoCareMagicImmune", "CastRange", "Cooldown", "HurtRange", "ManaCost" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.UnitDatas), global::Protomsg.UnitDatas.Parser, new[]{ "Name", "Level", "HP", "MP", "X", "Y", "ID", "ModeType", "MaxHP", "MaxMP", "Experience", "MaxExperience", "ControlID", "AnimotorState", "AttackTime", "DirectionX", "DirectionY", "UnitType", "AttackAcpabilities", "AttackMode", "IsMain", "IsDeath", "SD" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.BulletDatas), global::Protomsg.BulletDatas.Parser, new[]{ "ID", "ModeType", "X", "Y", "Z", "State", "StartX", "StartY", "StartZ", "EndX", "EndY", "EndZ" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.MsgUserEnterScene), global::Protomsg.MsgUserEnterScene.Parser, new[]{ "Uid", "ConnectId", "SrcServerName", "DestServerName", "SceneName", "Datas" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_Update), global::Protomsg.SC_Update.Parser, new[]{ "CurFrame", "NewUnits", "OldUnits", "RemoveUnits", "NewBullets", "OldBullets", "RemoveBullets" }, null, null, null),
@@ -1411,7 +1419,7 @@ namespace Protomsg {
   }
 
   /// <summary>
-  ///玩家技能(包括道具)
+  ///玩家技能操作(包括道具)
   /// </summary>
   public sealed partial class CS_PlayerSkill : pb::IMessage<CS_PlayerSkill> {
     private static readonly pb::MessageParser<CS_PlayerSkill> _parser = new pb::MessageParser<CS_PlayerSkill>(() => new CS_PlayerSkill());
@@ -1438,7 +1446,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public CS_PlayerSkill(CS_PlayerSkill other) : this() {
-      iDs_ = other.iDs_;
+      iD_ = other.iD_;
       skillID_ = other.skillID_;
       x_ = other.x_;
       y_ = other.y_;
@@ -1451,17 +1459,17 @@ namespace Protomsg {
       return new CS_PlayerSkill(this);
     }
 
-    /// <summary>Field number for the "IDs" field.</summary>
-    public const int IDsFieldNumber = 1;
-    private int iDs_;
+    /// <summary>Field number for the "ID" field.</summary>
+    public const int IDFieldNumber = 1;
+    private int iD_;
     /// <summary>
     ///操作的单位对象
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int IDs {
-      get { return iDs_; }
+    public int ID {
+      get { return iD_; }
       set {
-        iDs_ = value;
+        iD_ = value;
       }
     }
 
@@ -1534,7 +1542,7 @@ namespace Protomsg {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (IDs != other.IDs) return false;
+      if (ID != other.ID) return false;
       if (SkillID != other.SkillID) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(X, other.X)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Y, other.Y)) return false;
@@ -1545,7 +1553,7 @@ namespace Protomsg {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (IDs != 0) hash ^= IDs.GetHashCode();
+      if (ID != 0) hash ^= ID.GetHashCode();
       if (SkillID != 0) hash ^= SkillID.GetHashCode();
       if (X != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(X);
       if (Y != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Y);
@@ -1563,9 +1571,9 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (IDs != 0) {
+      if (ID != 0) {
         output.WriteRawTag(8);
-        output.WriteInt32(IDs);
+        output.WriteInt32(ID);
       }
       if (SkillID != 0) {
         output.WriteRawTag(16);
@@ -1591,8 +1599,8 @@ namespace Protomsg {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (IDs != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(IDs);
+      if (ID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ID);
       }
       if (SkillID != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(SkillID);
@@ -1617,8 +1625,8 @@ namespace Protomsg {
       if (other == null) {
         return;
       }
-      if (other.IDs != 0) {
-        IDs = other.IDs;
+      if (other.ID != 0) {
+        ID = other.ID;
       }
       if (other.SkillID != 0) {
         SkillID = other.SkillID;
@@ -1644,7 +1652,7 @@ namespace Protomsg {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            IDs = input.ReadInt32();
+            ID = input.ReadInt32();
             break;
           }
           case 16: {
@@ -1670,6 +1678,541 @@ namespace Protomsg {
   }
 
   /// <summary>
+  ///技能数据
+  /// </summary>
+  public sealed partial class SkillDatas : pb::IMessage<SkillDatas> {
+    private static readonly pb::MessageParser<SkillDatas> _parser = new pb::MessageParser<SkillDatas>(() => new SkillDatas());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<SkillDatas> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[8]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SkillDatas() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SkillDatas(SkillDatas other) : this() {
+      typeID_ = other.typeID_;
+      level_ = other.level_;
+      remainCDTime_ = other.remainCDTime_;
+      canUpgrade_ = other.canUpgrade_;
+      index_ = other.index_;
+      castType_ = other.castType_;
+      castTargetType_ = other.castTargetType_;
+      unitTargetTeam_ = other.unitTargetTeam_;
+      unitTargetCamp_ = other.unitTargetCamp_;
+      noCareMagicImmune_ = other.noCareMagicImmune_;
+      castRange_ = other.castRange_;
+      cooldown_ = other.cooldown_;
+      hurtRange_ = other.hurtRange_;
+      manaCost_ = other.manaCost_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SkillDatas Clone() {
+      return new SkillDatas(this);
+    }
+
+    /// <summary>Field number for the "TypeID" field.</summary>
+    public const int TypeIDFieldNumber = 1;
+    private int typeID_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int TypeID {
+      get { return typeID_; }
+      set {
+        typeID_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Level" field.</summary>
+    public const int LevelFieldNumber = 2;
+    private int level_;
+    /// <summary>
+    ///技能等级
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Level {
+      get { return level_; }
+      set {
+        level_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "RemainCDTime" field.</summary>
+    public const int RemainCDTimeFieldNumber = 3;
+    private float remainCDTime_;
+    /// <summary>
+    ///技能CD剩余时间
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float RemainCDTime {
+      get { return remainCDTime_; }
+      set {
+        remainCDTime_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "CanUpgrade" field.</summary>
+    public const int CanUpgradeFieldNumber = 4;
+    private int canUpgrade_;
+    /// <summary>
+    ///是否可以升级 1 表示可以  2 表示不可以
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CanUpgrade {
+      get { return canUpgrade_; }
+      set {
+        canUpgrade_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Index" field.</summary>
+    public const int IndexFieldNumber = 5;
+    private int index_;
+    /// <summary>
+    ///位置索引
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Index {
+      get { return index_; }
+      set {
+        index_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "CastType" field.</summary>
+    public const int CastTypeFieldNumber = 6;
+    private int castType_;
+    /// <summary>
+    ///施法类型:  1:主动技能  2:被动技能
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CastType {
+      get { return castType_; }
+      set {
+        castType_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "CastTargetType" field.</summary>
+    public const int CastTargetTypeFieldNumber = 7;
+    private int castTargetType_;
+    /// <summary>
+    ///施法目标类型 1:自身为目标 2:以单位为目标 3:以地面1点为目标
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CastTargetType {
+      get { return castTargetType_; }
+      set {
+        castTargetType_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "UnitTargetTeam" field.</summary>
+    public const int UnitTargetTeamFieldNumber = 8;
+    private int unitTargetTeam_;
+    /// <summary>
+    ///目标单位关系 1:友方  2:敌方 3:友方敌方都行
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int UnitTargetTeam {
+      get { return unitTargetTeam_; }
+      set {
+        unitTargetTeam_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "UnitTargetCamp" field.</summary>
+    public const int UnitTargetCampFieldNumber = 9;
+    private int unitTargetCamp_;
+    /// <summary>
+    ///目标单位阵营 (1:玩家 2:NPC) 3:玩家NPC都行
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int UnitTargetCamp {
+      get { return unitTargetCamp_; }
+      set {
+        unitTargetCamp_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "NoCareMagicImmune" field.</summary>
+    public const int NoCareMagicImmuneFieldNumber = 10;
+    private int noCareMagicImmune_;
+    /// <summary>
+    ///无视技能免疫 (1:无视技能免疫 2:非)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int NoCareMagicImmune {
+      get { return noCareMagicImmune_; }
+      set {
+        noCareMagicImmune_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "CastRange" field.</summary>
+    public const int CastRangeFieldNumber = 11;
+    private float castRange_;
+    /// <summary>
+    ///施法距离
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float CastRange {
+      get { return castRange_; }
+      set {
+        castRange_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Cooldown" field.</summary>
+    public const int CooldownFieldNumber = 12;
+    private float cooldown_;
+    /// <summary>
+    ///技能冷却时间
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float Cooldown {
+      get { return cooldown_; }
+      set {
+        cooldown_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "HurtRange" field.</summary>
+    public const int HurtRangeFieldNumber = 13;
+    private float hurtRange_;
+    /// <summary>
+    ///伤害范围 小于等于0表示单体
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float HurtRange {
+      get { return hurtRange_; }
+      set {
+        hurtRange_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "ManaCost" field.</summary>
+    public const int ManaCostFieldNumber = 14;
+    private int manaCost_;
+    /// <summary>
+    ///技能魔法消耗
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ManaCost {
+      get { return manaCost_; }
+      set {
+        manaCost_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as SkillDatas);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(SkillDatas other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (TypeID != other.TypeID) return false;
+      if (Level != other.Level) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(RemainCDTime, other.RemainCDTime)) return false;
+      if (CanUpgrade != other.CanUpgrade) return false;
+      if (Index != other.Index) return false;
+      if (CastType != other.CastType) return false;
+      if (CastTargetType != other.CastTargetType) return false;
+      if (UnitTargetTeam != other.UnitTargetTeam) return false;
+      if (UnitTargetCamp != other.UnitTargetCamp) return false;
+      if (NoCareMagicImmune != other.NoCareMagicImmune) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(CastRange, other.CastRange)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Cooldown, other.Cooldown)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(HurtRange, other.HurtRange)) return false;
+      if (ManaCost != other.ManaCost) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (TypeID != 0) hash ^= TypeID.GetHashCode();
+      if (Level != 0) hash ^= Level.GetHashCode();
+      if (RemainCDTime != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(RemainCDTime);
+      if (CanUpgrade != 0) hash ^= CanUpgrade.GetHashCode();
+      if (Index != 0) hash ^= Index.GetHashCode();
+      if (CastType != 0) hash ^= CastType.GetHashCode();
+      if (CastTargetType != 0) hash ^= CastTargetType.GetHashCode();
+      if (UnitTargetTeam != 0) hash ^= UnitTargetTeam.GetHashCode();
+      if (UnitTargetCamp != 0) hash ^= UnitTargetCamp.GetHashCode();
+      if (NoCareMagicImmune != 0) hash ^= NoCareMagicImmune.GetHashCode();
+      if (CastRange != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(CastRange);
+      if (Cooldown != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Cooldown);
+      if (HurtRange != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(HurtRange);
+      if (ManaCost != 0) hash ^= ManaCost.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (TypeID != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(TypeID);
+      }
+      if (Level != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(Level);
+      }
+      if (RemainCDTime != 0F) {
+        output.WriteRawTag(29);
+        output.WriteFloat(RemainCDTime);
+      }
+      if (CanUpgrade != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(CanUpgrade);
+      }
+      if (Index != 0) {
+        output.WriteRawTag(40);
+        output.WriteInt32(Index);
+      }
+      if (CastType != 0) {
+        output.WriteRawTag(48);
+        output.WriteInt32(CastType);
+      }
+      if (CastTargetType != 0) {
+        output.WriteRawTag(56);
+        output.WriteInt32(CastTargetType);
+      }
+      if (UnitTargetTeam != 0) {
+        output.WriteRawTag(64);
+        output.WriteInt32(UnitTargetTeam);
+      }
+      if (UnitTargetCamp != 0) {
+        output.WriteRawTag(72);
+        output.WriteInt32(UnitTargetCamp);
+      }
+      if (NoCareMagicImmune != 0) {
+        output.WriteRawTag(80);
+        output.WriteInt32(NoCareMagicImmune);
+      }
+      if (CastRange != 0F) {
+        output.WriteRawTag(93);
+        output.WriteFloat(CastRange);
+      }
+      if (Cooldown != 0F) {
+        output.WriteRawTag(101);
+        output.WriteFloat(Cooldown);
+      }
+      if (HurtRange != 0F) {
+        output.WriteRawTag(109);
+        output.WriteFloat(HurtRange);
+      }
+      if (ManaCost != 0) {
+        output.WriteRawTag(112);
+        output.WriteInt32(ManaCost);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (TypeID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(TypeID);
+      }
+      if (Level != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Level);
+      }
+      if (RemainCDTime != 0F) {
+        size += 1 + 4;
+      }
+      if (CanUpgrade != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(CanUpgrade);
+      }
+      if (Index != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Index);
+      }
+      if (CastType != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(CastType);
+      }
+      if (CastTargetType != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(CastTargetType);
+      }
+      if (UnitTargetTeam != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(UnitTargetTeam);
+      }
+      if (UnitTargetCamp != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(UnitTargetCamp);
+      }
+      if (NoCareMagicImmune != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(NoCareMagicImmune);
+      }
+      if (CastRange != 0F) {
+        size += 1 + 4;
+      }
+      if (Cooldown != 0F) {
+        size += 1 + 4;
+      }
+      if (HurtRange != 0F) {
+        size += 1 + 4;
+      }
+      if (ManaCost != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ManaCost);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(SkillDatas other) {
+      if (other == null) {
+        return;
+      }
+      if (other.TypeID != 0) {
+        TypeID = other.TypeID;
+      }
+      if (other.Level != 0) {
+        Level = other.Level;
+      }
+      if (other.RemainCDTime != 0F) {
+        RemainCDTime = other.RemainCDTime;
+      }
+      if (other.CanUpgrade != 0) {
+        CanUpgrade = other.CanUpgrade;
+      }
+      if (other.Index != 0) {
+        Index = other.Index;
+      }
+      if (other.CastType != 0) {
+        CastType = other.CastType;
+      }
+      if (other.CastTargetType != 0) {
+        CastTargetType = other.CastTargetType;
+      }
+      if (other.UnitTargetTeam != 0) {
+        UnitTargetTeam = other.UnitTargetTeam;
+      }
+      if (other.UnitTargetCamp != 0) {
+        UnitTargetCamp = other.UnitTargetCamp;
+      }
+      if (other.NoCareMagicImmune != 0) {
+        NoCareMagicImmune = other.NoCareMagicImmune;
+      }
+      if (other.CastRange != 0F) {
+        CastRange = other.CastRange;
+      }
+      if (other.Cooldown != 0F) {
+        Cooldown = other.Cooldown;
+      }
+      if (other.HurtRange != 0F) {
+        HurtRange = other.HurtRange;
+      }
+      if (other.ManaCost != 0) {
+        ManaCost = other.ManaCost;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            TypeID = input.ReadInt32();
+            break;
+          }
+          case 16: {
+            Level = input.ReadInt32();
+            break;
+          }
+          case 29: {
+            RemainCDTime = input.ReadFloat();
+            break;
+          }
+          case 32: {
+            CanUpgrade = input.ReadInt32();
+            break;
+          }
+          case 40: {
+            Index = input.ReadInt32();
+            break;
+          }
+          case 48: {
+            CastType = input.ReadInt32();
+            break;
+          }
+          case 56: {
+            CastTargetType = input.ReadInt32();
+            break;
+          }
+          case 64: {
+            UnitTargetTeam = input.ReadInt32();
+            break;
+          }
+          case 72: {
+            UnitTargetCamp = input.ReadInt32();
+            break;
+          }
+          case 80: {
+            NoCareMagicImmune = input.ReadInt32();
+            break;
+          }
+          case 93: {
+            CastRange = input.ReadFloat();
+            break;
+          }
+          case 101: {
+            Cooldown = input.ReadFloat();
+            break;
+          }
+          case 109: {
+            HurtRange = input.ReadFloat();
+            break;
+          }
+          case 112: {
+            ManaCost = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
   ///单位数据
   /// </summary>
   public sealed partial class UnitDatas : pb::IMessage<UnitDatas> {
@@ -1680,7 +2223,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[8]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[9]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1719,6 +2262,7 @@ namespace Protomsg {
       attackMode_ = other.attackMode_;
       isMain_ = other.isMain_;
       isDeath_ = other.isDeath_;
+      sD_ = other.sD_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -2002,6 +2546,19 @@ namespace Protomsg {
       }
     }
 
+    /// <summary>Field number for the "SD" field.</summary>
+    public const int SDFieldNumber = 23;
+    private static readonly pb::FieldCodec<global::Protomsg.SkillDatas> _repeated_sD_codec
+        = pb::FieldCodec.ForMessage(186, global::Protomsg.SkillDatas.Parser);
+    private readonly pbc::RepeatedField<global::Protomsg.SkillDatas> sD_ = new pbc::RepeatedField<global::Protomsg.SkillDatas>();
+    /// <summary>
+    ///技能数据
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::Protomsg.SkillDatas> SD {
+      get { return sD_; }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as UnitDatas);
@@ -2037,6 +2594,7 @@ namespace Protomsg {
       if (AttackMode != other.AttackMode) return false;
       if (IsMain != other.IsMain) return false;
       if (IsDeath != other.IsDeath) return false;
+      if(!sD_.Equals(other.sD_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -2065,6 +2623,7 @@ namespace Protomsg {
       if (AttackMode != 0) hash ^= AttackMode.GetHashCode();
       if (IsMain != 0) hash ^= IsMain.GetHashCode();
       if (IsDeath != 0) hash ^= IsDeath.GetHashCode();
+      hash ^= sD_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -2166,6 +2725,7 @@ namespace Protomsg {
         output.WriteRawTag(176, 1);
         output.WriteInt32(IsDeath);
       }
+      sD_.WriteTo(output, _repeated_sD_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -2240,6 +2800,7 @@ namespace Protomsg {
       if (IsDeath != 0) {
         size += 2 + pb::CodedOutputStream.ComputeInt32Size(IsDeath);
       }
+      size += sD_.CalculateSize(_repeated_sD_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -2317,6 +2878,7 @@ namespace Protomsg {
       if (other.IsDeath != 0) {
         IsDeath = other.IsDeath;
       }
+      sD_.Add(other.sD_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -2416,6 +2978,10 @@ namespace Protomsg {
             IsDeath = input.ReadInt32();
             break;
           }
+          case 186: {
+            sD_.AddEntriesFrom(input, _repeated_sD_codec);
+            break;
+          }
         }
       }
     }
@@ -2430,7 +2996,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[9]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[10]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2876,7 +3442,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[10]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[11]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3151,7 +3717,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[11]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[12]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3426,7 +3992,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[12]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[13]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3654,7 +4220,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[13]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[14]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3867,7 +4433,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[14]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[15]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4087,7 +4653,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[15]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[16]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

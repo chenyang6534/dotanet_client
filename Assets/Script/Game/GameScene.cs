@@ -273,6 +273,134 @@ public class GameScene : MonoBehaviour {
         //}
     }
 
+
+
+    public void PressSkillBtn(int touchstate,Vector2 dir,Protomsg.SkillDatas skilldata)
+    {
+        if (m_MyMainUnit == null )
+        {
+            return;
+        }
+        //CastTargetType 施法目标类型 1:自身为目标 2:以单位为目标 3:以地面1点为目标
+        if (touchstate == 1)
+        {
+            switch (skilldata.CastTargetType) {
+                case 1:
+                    break;
+                case 2:
+                    if (m_TargetUnit == null)
+                    {
+                        m_TargetUnit = UnityEntityManager.Instance.GetNearestUnitForSkillTarget(m_MyMainUnit,skilldata);
+                        if(m_TargetUnit == null)
+                        {
+                            return;
+                        }
+
+                    }
+                    m_TargetUnit.TargetShow(true);
+                    m_TargetUnit.TargetShowRedCircle(true);
+                    m_MyMainUnit.ShowSkillAreaLookAt(true, new Vector2(m_TargetUnit.X, m_TargetUnit.Y));
+                    //m_MyMainUnit.ShowOutCircle(true, skilldata.CastRange);
+                    break;
+                case 3:
+                    var targetPos = new Vector2(m_MyMainUnit.X, m_MyMainUnit.Y);
+                    if (m_TargetUnit != null)
+                    {
+                        targetPos = new Vector2(m_TargetUnit.X, m_TargetUnit.Y);
+                    }
+                    //m_TargetUnit.TargetShow(true);
+                    m_MyMainUnit.ShowSkillAreaLookAt(true, targetPos);
+                    //m_MyMainUnit.ShowOutCircle(true, skilldata.CastRange);
+                    break;
+            }
+            if(skilldata.CastRange > 0.1)
+            {
+                m_MyMainUnit.ShowOutCircle(true, skilldata.CastRange);
+            }
+
+            
+
+        }
+        else if (touchstate == 2)
+        {
+            switch (skilldata.CastTargetType)
+            {
+                case 1:
+                    break;
+                case 2:
+                    var target = UnityEntityManager.Instance.GetMinAngleUnitForSkillTarget(m_MyMainUnit, dir, skilldata);
+                    if (target != null)
+                    {
+                        if (m_TargetUnit != null)
+                        {
+                            m_TargetUnit.TargetShow(false);
+                            m_TargetUnit.TargetShowRedCircle(false);
+                        }
+                        m_TargetUnit = target;
+                        m_TargetUnit.TargetShow(true);
+                        m_TargetUnit.TargetShowRedCircle(true);
+
+                        var targetpos = new Vector2(m_MyMainUnit.X, m_MyMainUnit.Y) + (dir.normalized * skilldata.CastRange);
+
+                        m_MyMainUnit.ShowSkillAreaLookAt(true, targetpos);
+
+                    }
+                    else
+                    {
+                        if (m_TargetUnit != null)
+                        {
+                            m_TargetUnit.TargetShow(true);
+                            m_TargetUnit.TargetShowRedCircle(true);
+                            var targetpos = new Vector2(m_MyMainUnit.X, m_MyMainUnit.Y) + (dir.normalized * skilldata.CastRange);
+                            m_MyMainUnit.ShowSkillAreaLookAt(true, targetpos);
+                        }
+                    }
+                    break;
+                case 3:
+                    break;
+            }
+            if (skilldata.CastRange > 0.1)
+            {
+                m_MyMainUnit.ShowOutCircle(true, skilldata.CastRange);
+            }
+
+
+        }
+        else if (touchstate == 3)
+        {
+            switch (skilldata.CastTargetType)
+            {
+                case 1:
+                    break;
+                case 2:
+                    if (m_TargetUnit == null)
+                    {
+                        return;
+                    }
+
+                    Protomsg.CS_PlayerSkill msg1 = new Protomsg.CS_PlayerSkill();
+                    msg1.ID = m_MyMainUnit.ID;
+                    msg1.TargetUnitID = m_TargetUnit.ID;
+                    msg1.X = 0;
+                    msg1.Y = 0;
+                    MyKcp.Instance.SendMsg(m_ServerName, "CS_PlayerSkill", msg1);
+
+                    Debug.Log("CS_PlayerSkill");
+                    m_TargetUnit.TargetShow(false);
+                    m_MyMainUnit.ShowOutCircle(false, 10);
+                    m_MyMainUnit.ShowSkillAreaLookAt(false, Vector2.zero);
+                    break;
+                case 3:
+                    break;
+            }
+
+
+            
+        }
+
+        return;
+    }
+
     //1:down 2:move 3:end
     float AttackSelectTargetDis = 8;//攻击目标选择范围
     public void PressAttackBtn(int touchstate,Vector2 dir)
@@ -290,8 +418,7 @@ public class GameScene : MonoBehaviour {
 
             }
             m_TargetUnit.TargetShow(true);
-            //float angle = Vector2.SignedAngle(new Vector2(0, 1),
-            //    new Vector2(m_TargetUnit.X - m_MyMainUnit.X, m_TargetUnit.Y - m_MyMainUnit.Y));
+            m_TargetUnit.TargetShowRedCircle(true);
             m_MyMainUnit.ShowSkillAreaLookAt(true, new Vector2(m_TargetUnit.X, m_TargetUnit.Y));
             m_MyMainUnit.ShowOutCircle(true, AttackSelectTargetDis);
 
@@ -304,9 +431,11 @@ public class GameScene : MonoBehaviour {
                 if(m_TargetUnit != null)
                 {
                     m_TargetUnit.TargetShow(false);
+                    m_TargetUnit.TargetShowRedCircle(false);
                 }
                 m_TargetUnit = target;
                 m_TargetUnit.TargetShow(true);
+                m_TargetUnit.TargetShowRedCircle(true);
 
                 var targetpos = new Vector2(m_MyMainUnit.X, m_MyMainUnit.Y) + (dir.normalized * AttackSelectTargetDis);
 
@@ -319,6 +448,7 @@ public class GameScene : MonoBehaviour {
                 if(m_TargetUnit != null)
                 {
                     m_TargetUnit.TargetShow(true);
+                    m_TargetUnit.TargetShowRedCircle(true);
                     var targetpos = new Vector2(m_MyMainUnit.X, m_MyMainUnit.Y) + (dir.normalized * AttackSelectTargetDis);
                     m_MyMainUnit.ShowSkillAreaLookAt(true, targetpos);
                 }
@@ -347,6 +477,9 @@ public class GameScene : MonoBehaviour {
         return;
         
     }
+
+
+
 
     public void ClickPos(Vector2 pos)
     {
@@ -379,6 +512,18 @@ public class GameScene : MonoBehaviour {
 
         LogicUpdate();
         Input.multiTouchEnabled = true;
+
+        //删除目标
+        if(m_TargetUnit != null)
+        {
+            if(m_TargetUnit.IsDeath == 1)
+            {
+                m_TargetUnit.TargetShow(false);
+                m_TargetUnit.TargetShowRedCircle(false);
+                m_TargetUnit = null;
+            }
+            
+        }
 
         UnityEntityManager.Instance.Update(Time.deltaTime);
         if(Time.deltaTime >= 0.025)

@@ -247,12 +247,19 @@ public class GameScene : MonoBehaviour {
 
     private float m_LastDegree = 0;
     private double m_LastControlTime = 0;
+    private bool m_IsMove = false;
     public void SendControlData(float degree,bool isstart)
     {
-        if(isstart == true && (Mathf.Abs(m_LastDegree-degree) <= 10 || Tool.GetTime()- m_LastControlTime <= 1/m_LogicFps))
+        if(m_IsMove == true && isstart == true && (Mathf.Abs(m_LastDegree-degree) <= 10 || Tool.GetTime()- m_LastControlTime <= 1/m_LogicFps))
         {
+            //Debug.Log(" SendControlData no:");
             return;
         }
+        else
+        {
+            //Debug.Log(" SendControlData yes:");
+        }
+        m_IsMove = isstart;
         m_LastControlTime = Tool.GetTime();
         m_LastDegree = degree;
         var dir = Tool.Vec2Rotate(new Vector2(0, 1), degree);
@@ -383,6 +390,7 @@ public class GameScene : MonoBehaviour {
                     msg1.TargetUnitID = m_TargetUnit.ID;
                     msg1.X = 0;
                     msg1.Y = 0;
+                    msg1.SkillID = skilldata.TypeID;
                     MyKcp.Instance.SendMsg(m_ServerName, "CS_PlayerSkill", msg1);
 
                     Debug.Log("CS_PlayerSkill");

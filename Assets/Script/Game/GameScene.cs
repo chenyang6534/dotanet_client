@@ -209,6 +209,16 @@ public class GameScene : MonoBehaviour {
                     BulletEntityManager.Instance.DestroyBulletEntity(item);
                 }
 
+                foreach( var item in p1.PlayerHurt)
+                {
+                    Debug.Log("--id:"+item.HurtUnitID+"  value:"+item.HurtAllValue);
+                    var unit = UnityEntityManager.Instance.GetUnityEntity(item.HurtUnitID);
+                    if(unit != null)
+                    {
+                        unit.CreateHurtWords(item);
+                    }
+                }
+                
                 //UnityEntityManager
 
                 m_CurFrame = i+1;//下一帧序号

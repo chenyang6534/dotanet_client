@@ -43,6 +43,7 @@ public class UnityEntity {
         AttackAcpabilities = data.AttackAcpabilities;
         IsMain = data.IsMain;
         IsDeath = data.IsDeath;
+        AttackTime = data.AttackTime;
         if(data.SD.Count > 0)
         {
             m_SkillDatas = new Protomsg.SkillDatas[data.SD.Count];
@@ -67,8 +68,9 @@ public class UnityEntity {
         //    var fogwar = m_Mode.AddComponent<FogOfWarExplorer>();
         //    fogwar.radius = 8;
         //}
+        AnimotorState = data.AnimotorState;
 
-        FreshAnim(data.AnimotorState, data.AttackTime);
+        //FreshAnim(data.AnimotorState, data.AttackTime);
 
 
     }
@@ -209,8 +211,10 @@ public class UnityEntity {
             Y += data.Y;
             //更新位置
             m_Mode.transform.position = new Vector3(X,0,Y);
-            //更新动画
-            FreshAnim(data.AnimotorState,data.AttackTime);
+
+            AttackTime += data.AttackTime;
+            AnimotorState += data.AnimotorState;
+            
             //更新方向
             DirectionX += data.DirectionX;
             DirectionY += data.DirectionY;
@@ -580,6 +584,26 @@ public class UnityEntity {
         }
     }
 
+    //创建伤害数字
+    public void CreateHurtWords(Protomsg.MsgPlayerHurt hurt)
+    {
+        var words = (GameObject)(GameObject.Instantiate(Resources.Load("UIPref/HurtWords")));
+        //m_Mode.
+
+        words.transform.parent = m_Mode.transform.parent;
+        //words.transform.localPosition = new Vector3(0, m_MeshHeight, 0.1f);
+        words.transform.position = m_Mode.transform.position+ new Vector3(0, m_MeshHeight, -0.1f);
+        var root = words.GetComponent<FairyGUI.UIPanel>().ui;
+        //root.sortingOrder = 10000;
+        root.GetChild("num").asTextField.text = hurt.HurtAllValue+"";
+        //root.GetChild("num").asTextField.color = new Color(0.9f, 0.2f, 0.2f);
+        //root.GetChild("num").sortingOrder = 10000;
+        FairyGUI.Transition trans = root.GetTransition("up");
+        trans.SetHook("over", () => {
+            GameObject.Destroy(words);
+        });
+    }
+
 
     protected GameObject m_TopBar;//头顶血条
     //单位类型(1:英雄 2:普通单位 3:远古 4:boss)
@@ -640,9 +664,9 @@ public class UnityEntity {
                 //m_Mode.
 
                 m_TopBar.transform.parent = m_Mode.transform;
+                //m_TopBar.transform.position = m_Mode.transform.position + new Vector3(0, m_MeshHeight, 0);
                 m_TopBar.transform.localPosition = new Vector3(0, m_MeshHeight, 0);
-                //m_TopBar.transform.position = new Vector3(m_TopBar.transform.position.x, m_MeshHeight, m_TopBar.transform.position.z) ;
-                //m_MeshHeight
+                
             }
             else
             {
@@ -651,8 +675,7 @@ public class UnityEntity {
 
                 m_TopBar.transform.parent = m_Mode.transform;
                 m_TopBar.transform.localPosition = new Vector3(0, m_MeshHeight, 0);
-                //m_TopBar.transform.position = new Vector3(m_TopBar.transform.position.x, m_MeshHeight, m_TopBar.transform.position.z);
-
+                
             }
 
             UpdateTopBar();
@@ -709,6 +732,45 @@ public class UnityEntity {
         set
         {
             m_X = value;
+        }
+    }
+    // x
+    protected float m_AttackTime;
+    public float AttackTime
+    {
+        get
+        {
+            return m_AttackTime;
+        }
+        set
+        {
+            m_AttackTime = value;
+        }
+    }
+    protected int m_AnimotorState;
+    public int AnimotorState
+    {
+        get
+        {
+            return m_AnimotorState;
+        }
+        set
+        {
+            if(m_AnimotorState != value)
+            {
+                
+                m_AnimotorState = value;
+                //更新动画
+                FreshAnim(m_AnimotorState, m_AttackTime);
+
+                if (this.UnitType == 1)
+                {
+                    Debug.Log("------animistate:" + m_AnimotorState + "   time:" + m_AttackTime);
+                }
+            }
+            
+
+            
         }
     }
     // x

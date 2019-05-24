@@ -61,20 +61,23 @@ namespace Protomsg {
             "ASgCIoQBChFNc2dVc2VyRW50ZXJTY2VuZRILCgNVaWQYASABKAUSEQoJQ29u",
             "bmVjdElkGAIgASgFEhUKDVNyY1NlcnZlck5hbWUYAyABKAkSFgoORGVzdFNl",
             "cnZlck5hbWUYBCABKAkSEQoJU2NlbmVOYW1lGAUgASgJEg0KBURhdGFzGAYg",
-            "ASgMIu0BCglTQ19VcGRhdGUSEAoIQ3VyRnJhbWUYASABKAUSJQoITmV3VW5p",
-            "dHMYAiADKAsyEy5wcm90b21zZy5Vbml0RGF0YXMSJQoIT2xkVW5pdHMYAyAD",
-            "KAsyEy5wcm90b21zZy5Vbml0RGF0YXMSEwoLUmVtb3ZlVW5pdHMYBCADKAUS",
-            "KQoKTmV3QnVsbGV0cxgFIAMoCzIVLnByb3RvbXNnLkJ1bGxldERhdGFzEikK",
-            "Ck9sZEJ1bGxldHMYBiADKAsyFS5wcm90b21zZy5CdWxsZXREYXRhcxIVCg1S",
-            "ZW1vdmVCdWxsZXRzGAcgAygFIlMKC1NDX05ld1NjZW5lEgwKBE5hbWUYASAB",
-            "KAkSEAoITG9naWNGcHMYAiABKAUSEAoIQ3VyRnJhbWUYAyABKAUSEgoKU2Vy",
-            "dmVyTmFtZRgEIAEoCSJWChJDaGFyYWN0ZXJCYXNlRGF0YXMSEwoLQ2hhcmFj",
-            "dGVyaWQYASABKAUSDAoETmFtZRgCIAEoCRIOCgZUeXBlaWQYAyABKAUSDQoF",
-            "TGV2ZWwYBCABKAUiaAoKU0NfTG9naW5lZBIMCgRDb2RlGAEgASgFEgsKA1Vp",
-            "ZBgCIAEoBRINCgVFcnJvchgDIAEoCRIwCgpDaGFyYWN0ZXJzGAQgAygLMhwu",
-            "cHJvdG9tc2cuQ2hhcmFjdGVyQmFzZURhdGFzIkwKGFNDX1NlbGVjdENoYXJh",
-            "Y3RlclJlc3VsdBIMCgRDb2RlGAEgASgFEhMKC0NoYXJhY3RlcmlkGAIgASgF",
-            "Eg0KBUVycm9yGAMgASgJYgZwcm90bzM="));
+            "ASgMImEKDU1zZ1BsYXllckh1cnQSEgoKSHVydFVuaXRJRBgBIAEoBRIUCgxI",
+            "dXJ0QWxsVmFsdWUYAiABKAUSFgoOSHVydE1hZ2ljVmFsdWUYAyABKAUSDgoG",
+            "SXNDcml0GAQgASgFIpoCCglTQ19VcGRhdGUSEAoIQ3VyRnJhbWUYASABKAUS",
+            "JQoITmV3VW5pdHMYAiADKAsyEy5wcm90b21zZy5Vbml0RGF0YXMSJQoIT2xk",
+            "VW5pdHMYAyADKAsyEy5wcm90b21zZy5Vbml0RGF0YXMSEwoLUmVtb3ZlVW5p",
+            "dHMYBCADKAUSKQoKTmV3QnVsbGV0cxgFIAMoCzIVLnByb3RvbXNnLkJ1bGxl",
+            "dERhdGFzEikKCk9sZEJ1bGxldHMYBiADKAsyFS5wcm90b21zZy5CdWxsZXRE",
+            "YXRhcxIVCg1SZW1vdmVCdWxsZXRzGAcgAygFEisKClBsYXllckh1cnQYCCAD",
+            "KAsyFy5wcm90b21zZy5Nc2dQbGF5ZXJIdXJ0IlMKC1NDX05ld1NjZW5lEgwK",
+            "BE5hbWUYASABKAkSEAoITG9naWNGcHMYAiABKAUSEAoIQ3VyRnJhbWUYAyAB",
+            "KAUSEgoKU2VydmVyTmFtZRgEIAEoCSJWChJDaGFyYWN0ZXJCYXNlRGF0YXMS",
+            "EwoLQ2hhcmFjdGVyaWQYASABKAUSDAoETmFtZRgCIAEoCRIOCgZUeXBlaWQY",
+            "AyABKAUSDQoFTGV2ZWwYBCABKAUiaAoKU0NfTG9naW5lZBIMCgRDb2RlGAEg",
+            "ASgFEgsKA1VpZBgCIAEoBRINCgVFcnJvchgDIAEoCRIwCgpDaGFyYWN0ZXJz",
+            "GAQgAygLMhwucHJvdG9tc2cuQ2hhcmFjdGVyQmFzZURhdGFzIkwKGFNDX1Nl",
+            "bGVjdENoYXJhY3RlclJlc3VsdBIMCgRDb2RlGAEgASgFEhMKC0NoYXJhY3Rl",
+            "cmlkGAIgASgFEg0KBUVycm9yGAMgASgJYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -90,7 +93,8 @@ namespace Protomsg {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.UnitDatas), global::Protomsg.UnitDatas.Parser, new[]{ "Name", "Level", "HP", "MP", "X", "Y", "ID", "ModeType", "MaxHP", "MaxMP", "Experience", "MaxExperience", "ControlID", "AnimotorState", "AttackTime", "DirectionX", "DirectionY", "UnitType", "AttackAcpabilities", "AttackMode", "IsMain", "IsDeath", "SD" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.BulletDatas), global::Protomsg.BulletDatas.Parser, new[]{ "ID", "ModeType", "X", "Y", "Z", "State", "StartX", "StartY", "StartZ", "EndX", "EndY", "EndZ" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.MsgUserEnterScene), global::Protomsg.MsgUserEnterScene.Parser, new[]{ "Uid", "ConnectId", "SrcServerName", "DestServerName", "SceneName", "Datas" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_Update), global::Protomsg.SC_Update.Parser, new[]{ "CurFrame", "NewUnits", "OldUnits", "RemoveUnits", "NewBullets", "OldBullets", "RemoveBullets" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.MsgPlayerHurt), global::Protomsg.MsgPlayerHurt.Parser, new[]{ "HurtUnitID", "HurtAllValue", "HurtMagicValue", "IsCrit" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_Update), global::Protomsg.SC_Update.Parser, new[]{ "CurFrame", "NewUnits", "OldUnits", "RemoveUnits", "NewBullets", "OldBullets", "RemoveBullets", "PlayerHurt" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_NewScene), global::Protomsg.SC_NewScene.Parser, new[]{ "Name", "LogicFps", "CurFrame", "ServerName" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CharacterBaseDatas), global::Protomsg.CharacterBaseDatas.Parser, new[]{ "Characterid", "Name", "Typeid", "Level" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_Logined), global::Protomsg.SC_Logined.Parser, new[]{ "Code", "Uid", "Error", "Characters" }, null, null, null),
@@ -3707,6 +3711,234 @@ namespace Protomsg {
   }
 
   /// <summary>
+  ///玩家自己造成的伤害数据
+  /// </summary>
+  public sealed partial class MsgPlayerHurt : pb::IMessage<MsgPlayerHurt> {
+    private static readonly pb::MessageParser<MsgPlayerHurt> _parser = new pb::MessageParser<MsgPlayerHurt>(() => new MsgPlayerHurt());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<MsgPlayerHurt> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[12]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public MsgPlayerHurt() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public MsgPlayerHurt(MsgPlayerHurt other) : this() {
+      hurtUnitID_ = other.hurtUnitID_;
+      hurtAllValue_ = other.hurtAllValue_;
+      hurtMagicValue_ = other.hurtMagicValue_;
+      isCrit_ = other.isCrit_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public MsgPlayerHurt Clone() {
+      return new MsgPlayerHurt(this);
+    }
+
+    /// <summary>Field number for the "HurtUnitID" field.</summary>
+    public const int HurtUnitIDFieldNumber = 1;
+    private int hurtUnitID_;
+    /// <summary>
+    ///伤害单位ID
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int HurtUnitID {
+      get { return hurtUnitID_; }
+      set {
+        hurtUnitID_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "HurtAllValue" field.</summary>
+    public const int HurtAllValueFieldNumber = 2;
+    private int hurtAllValue_;
+    /// <summary>
+    ///总伤害值
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int HurtAllValue {
+      get { return hurtAllValue_; }
+      set {
+        hurtAllValue_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "HurtMagicValue" field.</summary>
+    public const int HurtMagicValueFieldNumber = 3;
+    private int hurtMagicValue_;
+    /// <summary>
+    ///魔法伤害值
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int HurtMagicValue {
+      get { return hurtMagicValue_; }
+      set {
+        hurtMagicValue_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "IsCrit" field.</summary>
+    public const int IsCritFieldNumber = 4;
+    private int isCrit_;
+    /// <summary>
+    ///是否暴击
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int IsCrit {
+      get { return isCrit_; }
+      set {
+        isCrit_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as MsgPlayerHurt);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(MsgPlayerHurt other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (HurtUnitID != other.HurtUnitID) return false;
+      if (HurtAllValue != other.HurtAllValue) return false;
+      if (HurtMagicValue != other.HurtMagicValue) return false;
+      if (IsCrit != other.IsCrit) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (HurtUnitID != 0) hash ^= HurtUnitID.GetHashCode();
+      if (HurtAllValue != 0) hash ^= HurtAllValue.GetHashCode();
+      if (HurtMagicValue != 0) hash ^= HurtMagicValue.GetHashCode();
+      if (IsCrit != 0) hash ^= IsCrit.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (HurtUnitID != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(HurtUnitID);
+      }
+      if (HurtAllValue != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(HurtAllValue);
+      }
+      if (HurtMagicValue != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(HurtMagicValue);
+      }
+      if (IsCrit != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(IsCrit);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (HurtUnitID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(HurtUnitID);
+      }
+      if (HurtAllValue != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(HurtAllValue);
+      }
+      if (HurtMagicValue != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(HurtMagicValue);
+      }
+      if (IsCrit != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(IsCrit);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(MsgPlayerHurt other) {
+      if (other == null) {
+        return;
+      }
+      if (other.HurtUnitID != 0) {
+        HurtUnitID = other.HurtUnitID;
+      }
+      if (other.HurtAllValue != 0) {
+        HurtAllValue = other.HurtAllValue;
+      }
+      if (other.HurtMagicValue != 0) {
+        HurtMagicValue = other.HurtMagicValue;
+      }
+      if (other.IsCrit != 0) {
+        IsCrit = other.IsCrit;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            HurtUnitID = input.ReadInt32();
+            break;
+          }
+          case 16: {
+            HurtAllValue = input.ReadInt32();
+            break;
+          }
+          case 24: {
+            HurtMagicValue = input.ReadInt32();
+            break;
+          }
+          case 32: {
+            IsCrit = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
   ///每帧更新单位数据
   /// </summary>
   public sealed partial class SC_Update : pb::IMessage<SC_Update> {
@@ -3717,7 +3949,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[12]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[13]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3741,6 +3973,7 @@ namespace Protomsg {
       newBullets_ = other.newBullets_.Clone();
       oldBullets_ = other.oldBullets_.Clone();
       removeBullets_ = other.removeBullets_.Clone();
+      playerHurt_ = other.playerHurt_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -3841,6 +4074,19 @@ namespace Protomsg {
       get { return removeBullets_; }
     }
 
+    /// <summary>Field number for the "PlayerHurt" field.</summary>
+    public const int PlayerHurtFieldNumber = 8;
+    private static readonly pb::FieldCodec<global::Protomsg.MsgPlayerHurt> _repeated_playerHurt_codec
+        = pb::FieldCodec.ForMessage(66, global::Protomsg.MsgPlayerHurt.Parser);
+    private readonly pbc::RepeatedField<global::Protomsg.MsgPlayerHurt> playerHurt_ = new pbc::RepeatedField<global::Protomsg.MsgPlayerHurt>();
+    /// <summary>
+    ///玩家造成的伤害
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::Protomsg.MsgPlayerHurt> PlayerHurt {
+      get { return playerHurt_; }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as SC_Update);
@@ -3861,6 +4107,7 @@ namespace Protomsg {
       if(!newBullets_.Equals(other.newBullets_)) return false;
       if(!oldBullets_.Equals(other.oldBullets_)) return false;
       if(!removeBullets_.Equals(other.removeBullets_)) return false;
+      if(!playerHurt_.Equals(other.playerHurt_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -3874,6 +4121,7 @@ namespace Protomsg {
       hash ^= newBullets_.GetHashCode();
       hash ^= oldBullets_.GetHashCode();
       hash ^= removeBullets_.GetHashCode();
+      hash ^= playerHurt_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -3897,6 +4145,7 @@ namespace Protomsg {
       newBullets_.WriteTo(output, _repeated_newBullets_codec);
       oldBullets_.WriteTo(output, _repeated_oldBullets_codec);
       removeBullets_.WriteTo(output, _repeated_removeBullets_codec);
+      playerHurt_.WriteTo(output, _repeated_playerHurt_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -3914,6 +4163,7 @@ namespace Protomsg {
       size += newBullets_.CalculateSize(_repeated_newBullets_codec);
       size += oldBullets_.CalculateSize(_repeated_oldBullets_codec);
       size += removeBullets_.CalculateSize(_repeated_removeBullets_codec);
+      size += playerHurt_.CalculateSize(_repeated_playerHurt_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -3934,6 +4184,7 @@ namespace Protomsg {
       newBullets_.Add(other.newBullets_);
       oldBullets_.Add(other.oldBullets_);
       removeBullets_.Add(other.removeBullets_);
+      playerHurt_.Add(other.playerHurt_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -3975,6 +4226,10 @@ namespace Protomsg {
             removeBullets_.AddEntriesFrom(input, _repeated_removeBullets_codec);
             break;
           }
+          case 66: {
+            playerHurt_.AddEntriesFrom(input, _repeated_playerHurt_codec);
+            break;
+          }
         }
       }
     }
@@ -3992,7 +4247,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[13]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[14]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4220,7 +4475,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[14]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[15]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4433,7 +4688,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[15]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[16]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4653,7 +4908,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[16]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[17]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

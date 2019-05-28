@@ -118,16 +118,19 @@ public class UnityEntityManager  {
         //攻击模式(1:和平模式 2:组队模式 3:全体模式 4:阵营模式(玩家,NPC) 5:行会模式)
         if (my.AttackMode == 1)
         {
-            //单位类型(1:英雄 2:普通单位 3:远古 4:boss)
-            //不是英雄单位且不是玩家控制的单位
-            if (target.UnitType != 1 && target.ControlID < 0)
+            //阵营不同 //阵营(1:玩家 2:NPC)
+            if (target.Camp !=  my.Camp)
             {
                 return true;
             }
             else
             {
-                return false;
+                //如果目标是全体模式 也是敌人
+                if(target.AttackMode == 3) {
+                    return true;
+                }
             }
+            return false;
         }
         else if(my.AttackMode == 3)
         {

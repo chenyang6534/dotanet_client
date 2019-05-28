@@ -5,6 +5,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 public class UnityEntity {
 
     protected GameScene m_Scene;
@@ -30,9 +32,10 @@ public class UnityEntity {
         MP = data.MP;
         MaxHP = data.MaxHP;
         MaxMP = data.MaxMP;
+        ControlID = data.ControlID;
         ModeType = data.ModeType;
         ID = data.ID;
-        ControlID = data.ControlID;
+        
         X = data.X;
         Y = data.Y;
         DirectionX = data.DirectionX;
@@ -43,6 +46,8 @@ public class UnityEntity {
         AttackAcpabilities = data.AttackAcpabilities;
         IsMain = data.IsMain;
         IsDeath = data.IsDeath;
+        Camp = data.Camp;
+        //InOtherSpace = data.InOtherSpace;
         AttackTime = data.AttackTime;
         if(data.SD.Count > 0)
         {
@@ -53,25 +58,28 @@ public class UnityEntity {
                 m_SkillDatas[index++] = item;
             }
         }
-       
-        //foreach (var item in SkillDatas)
+        FreshBuff(data.BD);
+        //if(data.BD.Count > 0)
         //{
-        //    Debug.Log("111111111111m_SkillDatas---:" + item.Level);
+        //    BuffDatas = new Protomsg.BuffDatas[data.BD.Count];
+        //    int index = 0;
+        //    foreach (var item in data.BD)
+        //    {
+        //        BuffDatas[index++] = item;
+        //    }
         //}
-        //m_SkillDatas = data.SD;
+
+
 
 
         m_Mode.transform.position = new Vector3(data.X, 0, data.Y);
-
-        //if(ControlID == LoginUI.UID)
-        //{
-        //    var fogwar = m_Mode.AddComponent<FogOfWarExplorer>();
-        //    fogwar.radius = 8;
-        //}
+        
         AnimotorState = data.AnimotorState;
-
-        //FreshAnim(data.AnimotorState, data.AttackTime);
-
+        
+        if (data.IsMiss)
+        {
+            this.ShowMiss();
+        }
 
     }
     public void FreshAnim(int anim,float time)
@@ -234,7 +242,7 @@ public class UnityEntity {
             MaxMP += data.MaxMP;
             if( data.HP != 0)
             {
-                //Debug.Log("hp:" + HP + "  maxhp:" + MaxHP);
+                Debug.Log("hp:" + HP + "  maxhp:" + MaxHP);
             }
             //
 
@@ -253,18 +261,15 @@ public class UnityEntity {
             AttackAcpabilities += data.AttackAcpabilities;
             IsMain += data.IsMain;
             IsDeath += data.IsDeath;
+            Camp += data.Camp;
 
             UpdateTopBar();
 
-            //foreach (var item in data.SD)
-            //{
-            //    testnum++;
-            //    if(testnum <= 10)
-            //    {
-            //        Debug.Log("22222222m_SkillDatas---:" + item.ToString());
-            //    }
-                
-            //}
+            if (data.IsMiss)
+            {
+                this.ShowMiss();
+            }
+
 
             //技能数据
             foreach (var item in data.SD)
@@ -291,11 +296,111 @@ public class UnityEntity {
                 
             }
 
+            //刷新buff
+            FreshBuff(data.BD);
+
 
 
 
         }
     }
+    //根据buffid 创建单位特效
+    public void CreateBuffSpecial(int typeid)
+    {
+        switch (typeid)
+        {
+            case 4:
+                m_Mode.GetComponent<UnityEntitySpecial>().AddWhite();
+                break;
+            case 2:
+                m_Mode.GetComponent<UnityEntitySpecial>().AddGreen();
+                break;
+        }
+        
+    }
+    //根据buffid 删除单位特效
+    public void RemoveBuffSpecial(int typeid)
+    {
+        switch (typeid)
+        {
+            case 4:
+                m_Mode.GetComponent<UnityEntitySpecial>().RemoveWhite();
+                break;
+            case 2:
+                m_Mode.GetComponent<UnityEntitySpecial>().RemoveGreen();
+                break;
+        }
+    }
+
+    //刷新buff
+    public void FreshBuff(Google.Protobuf.Collections.RepeatedField<global::Protomsg.BuffDatas> buffdata)
+    {
+        //buff数据 叠加计算出正确数据
+        foreach (var item in buffdata)
+        {
+            bool isfind = false;//如果在以前的BuffDatas中没找到 则为新增buff
+            if (BuffDatas != null)
+            {
+                for (var i = 0; i < BuffDatas.Length; i++)
+                {
+                    if (item.TypeID == BuffDatas[i].TypeID)
+                    {
+                        item.RemainTime += BuffDatas[i].RemainTime;
+                        item.Time += BuffDatas[i].Time;
+                        item.TagNum += BuffDatas[i].TagNum;
+                        isfind = true;
+                    }
+                }
+            }
+            if (isfind == false)
+            {
+                //新增buff   创建特效
+                CreateBuffSpecial(item.TypeID);
+            }
+
+        }
+
+        //找出删除的buff
+        if(BuffDatas != null)
+        {
+            for (var i = 0; i < BuffDatas.Length; i++)
+            {
+                bool isfind = false;//如果在当前前的buffdata中没找到 则为删除buff
+                foreach (var item in buffdata)
+                { 
+                    if (item.TypeID == BuffDatas[i].TypeID)
+                    {
+                        isfind = true;
+                    }
+                }
+                if (isfind == false)
+                {
+                    //删除buff   删除特效
+                    RemoveBuffSpecial(BuffDatas[i].TypeID);
+                }
+            }
+        }
+
+
+
+        //buff数据赋值
+        if (buffdata.Count > 0)
+        {
+            BuffDatas = new Protomsg.BuffDatas[buffdata.Count];
+            int index = 0;
+            foreach (var item in buffdata)
+            {
+                BuffDatas[index++] = item;
+            }
+        }
+        else
+        {
+            BuffDatas = null;
+        }
+    }
+
+
+
     public void ChangeShowPos(float scale,float nextx,float nexty)
     {
         if (m_Mode != null)
@@ -354,16 +459,18 @@ public class UnityEntity {
                 GameObject.Destroy(m_Mode);
             }
             m_Mode = (GameObject)(GameObject.Instantiate(Resources.Load(m_ModeType)));
+            //if(ControlID > 0)
+            {
+                //Debug.Log("111add special:" + Name);
+                m_Mode.AddComponent<UnityEntitySpecial>();
+                //m_Mode.GetComponent<UnityEntitySpecial>().SetGreen();
+                //Debug.Log("222add special:" + Name);
+            }
+            
 
             m_Mode.transform.parent = m_Scene.transform.parent;
-            //m_MeshHeight = 2;
-
-            //Debug.Log("sizey:" + m_Mode.GetComponent<Collider>().bounds.size.y);
-            //Debug.Log("scaley:" + m_Mode.transform.localScale.y);
-
+            
             m_MeshHeight = m_Mode.GetComponent<Collider>().bounds.size.y;
-            //m_Mode.renderer
-            //m_MeshHeight = m_Mode.renderer.bounds.size;
             Debug.Log("m_MeshHeight:" + m_MeshHeight);
         }
     }
@@ -501,6 +608,20 @@ public class UnityEntity {
             m_IsDeath = value;
         }
     }
+    protected int m_InOtherSpace;
+    public int InOtherSpace
+    {
+        get
+        {
+            return m_InOtherSpace;
+        }
+        set
+        {
+            m_InOtherSpace = value;
+        }
+    }
+
+
 
     protected GameObject m_SkillAreaLookAt;//技能效果 箭头
     float cubeWidth = 1f;       // 矩形宽度 （矩形长度使用的外圆半径）
@@ -583,6 +704,25 @@ public class UnityEntity {
             m_TargetRedCircle.gameObject.SetActive(false);
         }
     }
+    //创建miss
+    public void ShowMiss()
+    {
+
+        Debug.Log("------------ShowMiss------------");
+        var words = (GameObject)(GameObject.Instantiate(Resources.Load("UIPref/HurtWords")));
+        //m_Mode.
+
+        words.transform.parent = m_Mode.transform.parent;
+        words.transform.position = m_Mode.transform.position + new Vector3(0, m_MeshHeight, -0.1f);
+        var root = words.GetComponent<FairyGUI.UIPanel>().ui;
+        //root.sortingOrder = 10000;
+        root.GetChild("num").asTextField.text = "miss";
+        root.GetChild("num").asTextField.color = new Color(1.0f, 1.0f, 1.0f);
+        FairyGUI.Transition trans = root.GetTransition("up");
+        trans.SetHook("over", () => {
+            GameObject.Destroy(words);
+        });
+    }
 
     //创建伤害数字
     public void CreateHurtWords(Protomsg.MsgPlayerHurt hurt)
@@ -596,8 +736,12 @@ public class UnityEntity {
         var root = words.GetComponent<FairyGUI.UIPanel>().ui;
         //root.sortingOrder = 10000;
         root.GetChild("num").asTextField.text = hurt.HurtAllValue+"";
-        //root.GetChild("num").asTextField.color = new Color(0.9f, 0.2f, 0.2f);
-        //root.GetChild("num").sortingOrder = 10000;
+
+        if(hurt.IsCrit != 1)
+        {
+            root.GetChild("num").asTextField.color = new Color(1.0f, 1.0f, 1.0f);
+        }
+
         FairyGUI.Transition trans = root.GetTransition("up");
         trans.SetHook("over", () => {
             GameObject.Destroy(words);
@@ -706,6 +850,18 @@ public class UnityEntity {
             m_SkillDatas = value;
         }
     }
+    protected Protomsg.BuffDatas[] m_BuffDatas;
+    public Protomsg.BuffDatas[] BuffDatas
+    {
+        get
+        {
+            return m_BuffDatas;
+        }
+        set
+        {
+            m_BuffDatas = value;
+        }
+    }
 
     // AttackMode
     protected int m_AttackMode;
@@ -718,6 +874,19 @@ public class UnityEntity {
         set
         {
             m_AttackMode = value;
+        }
+    }
+
+    protected int m_Camp;
+    public int Camp
+    {
+        get
+        {
+            return m_Camp;
+        }
+        set
+        {
+            m_Camp = value;
         }
     }
 

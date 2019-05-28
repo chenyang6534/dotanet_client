@@ -184,7 +184,6 @@ public class GameUI : MonoBehaviour {
         {
             return;
         }
-
         //主动技能个数
         var len = 0;
         foreach (var item in mainunit.SkillDatas)
@@ -195,7 +194,8 @@ public class GameUI : MonoBehaviour {
             }
         }
 
-        if (mainunit.SkillDatas.Length != SkillCom.Count)
+        //if (mainunit.SkillDatas.Length != SkillCom.Count)
+        if(len != SkillCom.Count)
         {
             SkillCom.Clear();
             

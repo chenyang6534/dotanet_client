@@ -194,6 +194,10 @@ public class GameScene : MonoBehaviour {
                 foreach (var item in p1.RemoveUnits)
                 {
                     UnityEntityManager.Instance.DestroyUnityEntity(item);
+                    if(m_TargetUnit != null && m_TargetUnit.ID == item)
+                    {
+                        m_TargetUnit = null;
+                    }
                 }
 
                 foreach (var item in p1.NewBullets)
@@ -211,7 +215,7 @@ public class GameScene : MonoBehaviour {
 
                 foreach( var item in p1.PlayerHurt)
                 {
-                    Debug.Log("--id:"+item.HurtUnitID+"  value:"+item.HurtAllValue);
+                    //Debug.Log("--id:"+item.HurtUnitID+"  value:"+item.HurtAllValue);
                     var unit = UnityEntityManager.Instance.GetUnityEntity(item.HurtUnitID);
                     if(unit != null)
                     {
@@ -388,6 +392,15 @@ public class GameScene : MonoBehaviour {
             switch (skilldata.CastTargetType)
             {
                 case 1:
+                    Protomsg.CS_PlayerSkill msg2 = new Protomsg.CS_PlayerSkill();
+                    msg2.ID = m_MyMainUnit.ID;
+                    msg2.TargetUnitID = 0;
+                    msg2.X = 0;
+                    msg2.Y = 0;
+                    msg2.SkillID = skilldata.TypeID;
+                    MyKcp.Instance.SendMsg(m_ServerName, "CS_PlayerSkill", msg2);
+
+                    Debug.Log("CS_PlayerSkill 1111");
                     break;
                 case 2:
                     if (m_TargetUnit == null)
@@ -534,7 +547,7 @@ public class GameScene : MonoBehaviour {
         //删除目标
         if(m_TargetUnit != null)
         {
-            if(m_TargetUnit.IsDeath == 1)
+            if(m_TargetUnit.IsDeath == 1 || UnityEntityManager.Instance.GetUnityEntity(m_TargetUnit.ID) == null)
             {
                 m_TargetUnit.TargetShow(false);
                 m_TargetUnit.TargetShowRedCircle(false);
@@ -546,7 +559,7 @@ public class GameScene : MonoBehaviour {
         UnityEntityManager.Instance.Update(Time.deltaTime);
         if(Time.deltaTime >= 0.025)
         {
-            Debug.Log("deltaTime:" + Time.deltaTime);
+            //Debug.Log("deltaTime:" + Time.deltaTime);
         }
         
 

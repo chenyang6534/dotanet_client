@@ -19,7 +19,8 @@ public class LoginUI : MonoBehaviour {
 
             
             Protomsg.CS_MsgQuickLogin msg1 = new Protomsg.CS_MsgQuickLogin();
-            msg1.Machineid = "10000";
+            //msg1.Machineid = "100001"; //PA
+            msg1.Machineid = "10000";   //剑圣
             msg1.Platform = "win32";
             MyKcp.Instance.SendMsg("Login", "CS_MsgQuickLogin", msg1);
             UnityEngine.Debug.Log("login onClick");
@@ -66,7 +67,7 @@ public class LoginUI : MonoBehaviour {
             {
                 msg1.SelectCharacter.Characterid = -1;
                 msg1.SelectCharacter.Typeid = 1;
-                msg1.SelectCharacter.Name = "test1234";
+                msg1.SelectCharacter.Name = "test1234a";
 
                 Debug.Log("create");
             }
@@ -93,7 +94,7 @@ public class LoginUI : MonoBehaviour {
         Debug.Log("SelectCharacterid :"+ Characterid);
         if (p1.Code != 1)
         {
-            Debug.Log("SelectCharacterResult fail");
+            Debug.Log("SelectCharacterResult fail"+ p1.Error);
         }
         else
         {

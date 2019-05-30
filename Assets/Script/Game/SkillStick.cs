@@ -90,7 +90,7 @@ public class Skillstick : EventDispatcher
 
 
         touchID = -1;
-        radius = 120;
+        radius = 100;
         m_MoveCallNeedDir = 20;//
         m_IsMoved = false;
 
@@ -106,16 +106,18 @@ public class Skillstick : EventDispatcher
         GameScene.Singleton.PressSkillBtn(1, pos,m_SkillDatas);
         Debug.Log("Skill DoTouchDown:" + pos);
     }
-    protected void DoTouchMove(Vector2 pos)
+    protected void DoTouchMove(Vector2 pos,float len)
     {
         Debug.Log("Skill DoTouchMove:" + pos);
         pos.y = -pos.y;
-        GameScene.Singleton.PressSkillBtn(2, pos, m_SkillDatas);
+        
+        GameScene.Singleton.PressSkillBtn(2, pos.normalized * (m_SkillDatas.CastRange * len), m_SkillDatas);
     }
-    protected void DoTouchEnd(float pos)
+    protected void DoTouchEnd(Vector2 pos, float len)
     {
-        Debug.Log("Skill DoTouchEnd:" + pos);
-        GameScene.Singleton.PressSkillBtn(3, Vector2.zero, m_SkillDatas);
+        Debug.Log("Skill DoTouchEnd:" + pos+"   "+ (pos * (m_SkillDatas.CastRange * len)));
+        pos.y = -pos.y;
+        GameScene.Singleton.PressSkillBtn(3, pos.normalized * (m_SkillDatas.CastRange * len), m_SkillDatas);
     }
 
     //开始触摸
@@ -189,7 +191,7 @@ public class Skillstick : EventDispatcher
             if (m_IsMoved)
             {
                 //onMove.Call(dir);
-                DoTouchMove(dir);
+                DoTouchMove(dir,len/ radius);
             }
 
         }
@@ -208,10 +210,15 @@ public class Skillstick : EventDispatcher
             Vector2 localPos = m_ui.GlobalToLocal(inputEvent.position);
 
             var dir = (localPos - startStagePos);
+            var len = Vector2.Distance(dir, new Vector2(0, 0));
+            if (len > radius)
+            {
+                len = radius;
+            }
 
-            DoTouchEnd(Vector2.SignedAngle(new Vector2(0, 1), new Vector2(dir.x, -dir.y)));
-            //onEnd.Call(Vector2.SignedAngle(new Vector2(0, 1), new Vector2(dir.x, -dir.y)));
-            //onEnd.Call();
+            //DoTouchEnd(Vector2.SignedAngle(new Vector2(0, 1), new Vector2(dir.x, -dir.y)));
+            DoTouchEnd(dir, len / radius);
+
         }
 
     }

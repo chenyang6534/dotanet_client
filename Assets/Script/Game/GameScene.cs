@@ -378,6 +378,12 @@ public class GameScene : MonoBehaviour {
                     }
                     break;
                 case 3:
+                    if (m_TargetUnit != null)
+                    {
+                        m_TargetUnit.TargetShow(false);
+                        m_TargetUnit.TargetShowRedCircle(false);
+                        m_TargetUnit = null;
+                    }
                     break;
             }
             if (skilldata.CastRange > 0.1)
@@ -422,6 +428,24 @@ public class GameScene : MonoBehaviour {
                     m_MyMainUnit.ShowSkillAreaLookAt(false, Vector2.zero);
                     break;
                 case 3:
+                    var targetPos = new Vector2(m_MyMainUnit.X+ dir.x, m_MyMainUnit.Y+ dir.y);
+                    if (m_TargetUnit != null)
+                    {
+                        targetPos = new Vector2(m_TargetUnit.X, m_TargetUnit.Y);
+                    }
+
+                    Protomsg.CS_PlayerSkill msg3 = new Protomsg.CS_PlayerSkill();
+                    msg3.ID = m_MyMainUnit.ID;
+                    msg3.TargetUnitID = -1;
+                    msg3.X = targetPos.x;
+                    msg3.Y = targetPos.y;
+                    msg3.SkillID = skilldata.TypeID;
+                    MyKcp.Instance.SendMsg(m_ServerName, "CS_PlayerSkill", msg3);
+
+                    Debug.Log("CS_PlayerSkill");
+                    //m_TargetUnit.TargetShow(false);
+                    m_MyMainUnit.ShowOutCircle(false, 10);
+                    m_MyMainUnit.ShowSkillAreaLookAt(false, Vector2.zero);
                     break;
             }
 

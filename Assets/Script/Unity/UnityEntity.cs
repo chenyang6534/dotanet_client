@@ -84,11 +84,11 @@ public class UnityEntity {
     }
     public void FreshAnim(int anim,float time)
     {
-        if (m_Mode != null)
+        if (m_Mode != null && m_Mode.GetComponent<Animator>() != null)
         {
             if (anim != 0)
             {
-                //Debug.Log("AniState: "+ anim);
+
                 m_Mode.GetComponent<Animator>().SetInteger("AniState", anim);
                 
                 //攻击动画

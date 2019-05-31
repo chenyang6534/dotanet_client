@@ -324,13 +324,14 @@ public class GameScene : MonoBehaviour {
                     //m_MyMainUnit.ShowOutCircle(true, skilldata.CastRange);
                     break;
                 case 3:
-                    var targetPos = new Vector2(m_MyMainUnit.X, m_MyMainUnit.Y);
+                    var targetPos = new Vector2(0, 0);
                     if (m_TargetUnit != null)
                     {
                         targetPos = new Vector2(m_TargetUnit.X, m_TargetUnit.Y);
                     }
+                    m_MyMainUnit.ShowInCircle(true, 1,new Vector3(targetPos.x- m_MyMainUnit.X, 0,targetPos.y- m_MyMainUnit.Y));
                     //m_TargetUnit.TargetShow(true);
-                    m_MyMainUnit.ShowSkillAreaLookAt(true, targetPos);
+                    //m_MyMainUnit.ShowSkillAreaLookAt(true, targetPos);
                     //m_MyMainUnit.ShowOutCircle(true, skilldata.CastRange);
                     break;
             }
@@ -384,6 +385,7 @@ public class GameScene : MonoBehaviour {
                         m_TargetUnit.TargetShowRedCircle(false);
                         m_TargetUnit = null;
                     }
+                    m_MyMainUnit.ShowInCircle(true, 1, new Vector3(dir.x, 0, dir.y));
                     break;
             }
             if (skilldata.CastRange > 0.1)
@@ -445,6 +447,7 @@ public class GameScene : MonoBehaviour {
                     Debug.Log("CS_PlayerSkill");
                     //m_TargetUnit.TargetShow(false);
                     m_MyMainUnit.ShowOutCircle(false, 10);
+                    m_MyMainUnit.ShowInCircle(false, 1, new Vector3(dir.x, 0, dir.y));
                     m_MyMainUnit.ShowSkillAreaLookAt(false, Vector2.zero);
                     break;
             }

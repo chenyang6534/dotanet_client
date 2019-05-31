@@ -204,9 +204,24 @@ public class UnityEntity {
 
 
     }
+
+    public void UpdateInCirclePos()
+    {
+        if (m_SkillAreaInCircle != null && m_Mode != null)
+        {
+            var pos = m_Mode.transform.localPosition + m_SkillAreaInCircleOffsetPos;
+            pos.y = 0;
+            m_SkillAreaInCircle.transform.localPosition = pos;
+
+        }
+    }
     public void Update(float dt)
     {
         UpdateDirection(dt);
+        
+        
+        
+
     }
     int testnum = 0;
     public void Change(Protomsg.UnitDatas data)
@@ -676,9 +691,38 @@ public class UnityEntity {
         {
             m_SkillAreaOutCircle.gameObject.SetActive(false);
         }
-       
-        
     }
+    //显示外径圆
+    protected GameObject m_SkillAreaInCircle;//外径圆
+    protected Vector3 m_SkillAreaInCircleOffsetPos;
+    public void ShowInCircle(bool isshow, float r,Vector3 pos)
+    {
+        if (m_SkillAreaInCircle == null)
+        {
+            m_SkillAreaInCircle = (GameObject)(GameObject.Instantiate(Resources.Load("SkillAreaEffect/Prefabs/Hero_skillarea/quan_hero")));
+            //m_Mode.
+            m_SkillAreaInCircle.transform.parent = m_Mode.transform.parent;
+
+
+        }
+
+        m_SkillAreaInCircle.transform.localScale = new Vector3(r * 2 / m_Mode.transform.localScale.x, 1, r * 2 / m_Mode.transform.localScale.x);
+        
+        m_SkillAreaInCircleOffsetPos = pos;
+        UpdateInCirclePos();
+        //m_SkillAreaInCircle.transform.localRotation = m_Mode.transform.localRotation;
+        //m_SkillAreaInCircle.transform.LookAt(new Vector3(pos.x, 0, pos.y));
+        if (isshow)
+        {
+            m_SkillAreaInCircle.gameObject.SetActive(true);
+        }
+        else
+        {
+            m_SkillAreaInCircle.gameObject.SetActive(false);
+        }
+    }
+
+
     //目标红色圈
     protected GameObject m_TargetRedCircle;//外径圆
     public void TargetShowRedCircle(bool isshow)

@@ -68,6 +68,14 @@ public class Skillstick : EventDispatcher
         }
         touchArea.asCom.GetChild("progress").asProgress.value = (int)((float)m_SkillDatas.RemainCDTime / m_SkillDatas.Cooldown * 100);
 
+        if (m_SkillDatas.CastType == 1 && m_SkillDatas.CastTargetType == 4 && m_SkillDatas.AttackAutoActive == 1)
+        {
+            touchArea.asCom.GetChild("active").visible = true;
+        }
+        else
+        {
+            touchArea.asCom.GetChild("active").visible = false;
+        }
 
     }
 

@@ -306,6 +306,15 @@ public class GameScene : MonoBehaviour {
         if (touchstate == 1)
         {
             switch (skilldata.CastTargetType) {
+                case 4:
+                    Protomsg.CS_PlayerSkill msg4 = new Protomsg.CS_PlayerSkill();
+                    msg4.ID = m_MyMainUnit.ID;
+                    msg4.TargetUnitID = 0;
+                    msg4.X = 0;
+                    msg4.Y = 0;
+                    msg4.SkillID = skilldata.TypeID;
+                    MyKcp.Instance.SendMsg(m_ServerName, "CS_PlayerSkill", msg4);
+                    break;
                 case 1:
                     break;
                 case 2:

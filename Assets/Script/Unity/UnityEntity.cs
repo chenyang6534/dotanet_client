@@ -306,6 +306,8 @@ public class UnityEntity {
                         m_SkillDatas[i].Cooldown += item.Cooldown;
                         m_SkillDatas[i].HurtRange += item.HurtRange;
                         m_SkillDatas[i].ManaCost += item.ManaCost;
+                        m_SkillDatas[i].AttackAutoActive += item.AttackAutoActive;
+                        
                     }
                 }
                 
@@ -330,6 +332,9 @@ public class UnityEntity {
             case 2:
                 m_Mode.GetComponent<UnityEntitySpecial>().AddGreen();
                 break;
+            case 10:
+                m_Mode.GetComponent<UnityEntitySpecial>().AddWhite();
+                break;
         }
         
     }
@@ -343,6 +348,9 @@ public class UnityEntity {
                 break;
             case 2:
                 m_Mode.GetComponent<UnityEntitySpecial>().RemoveGreen();
+                break;
+            case 10:
+                m_Mode.GetComponent<UnityEntitySpecial>().RemoveWhite();
                 break;
         }
     }

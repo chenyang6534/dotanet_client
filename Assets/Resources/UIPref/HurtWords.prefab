@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4924424407450794}
   - component: {fileID: 114274968918726390}
   - component: {fileID: 114728370080284752}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: HurtWords
   m_TagString: Untagged
   m_Icon: {fileID: 0}

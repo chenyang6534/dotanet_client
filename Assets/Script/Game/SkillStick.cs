@@ -116,6 +116,10 @@ public class Skillstick : EventDispatcher
     }
     protected void DoTouchMove(Vector2 pos,float len)
     {
+        if(m_SkillDatas.CastTargetType == 5)
+        {
+            len = 1;
+        }
         Debug.Log("Skill DoTouchMove:" + pos);
         pos.y = -pos.y;
         
@@ -123,6 +127,10 @@ public class Skillstick : EventDispatcher
     }
     protected void DoTouchEnd(Vector2 pos, float len)
     {
+        if (m_SkillDatas.CastTargetType == 5)
+        {
+            len = 1;
+        }
         Debug.Log("Skill DoTouchEnd:" + pos+"   "+ (pos * (m_SkillDatas.CastRange * len)));
         pos.y = -pos.y;
         GameScene.Singleton.PressSkillBtn(3, pos.normalized * (m_SkillDatas.CastRange * len), m_SkillDatas);

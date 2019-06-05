@@ -335,6 +335,9 @@ public class UnityEntity {
             case 10:
                 m_Mode.GetComponent<UnityEntitySpecial>().AddWhite();
                 break;
+            case 11:
+                m_Mode.GetComponent<UnityEntitySpecial>().AddWhite();
+                break;
         }
         
     }
@@ -350,6 +353,9 @@ public class UnityEntity {
                 m_Mode.GetComponent<UnityEntitySpecial>().RemoveGreen();
                 break;
             case 10:
+                m_Mode.GetComponent<UnityEntitySpecial>().RemoveWhite();
+                break;
+            case 11:
                 m_Mode.GetComponent<UnityEntitySpecial>().RemoveWhite();
                 break;
         }

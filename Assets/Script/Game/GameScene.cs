@@ -333,16 +333,30 @@ public class GameScene : MonoBehaviour {
                     //m_MyMainUnit.ShowOutCircle(true, skilldata.CastRange);
                     break;
                 case 3:
-                    var targetPos = new Vector2(0, 0);
-                    if (m_TargetUnit != null)
                     {
-                        targetPos = new Vector2(m_TargetUnit.X, m_TargetUnit.Y);
+                        var targetPos = new Vector2(0, 0);
+                        if (m_TargetUnit != null)
+                        {
+                            targetPos = new Vector2(m_TargetUnit.X, m_TargetUnit.Y);
+                        }
+                        m_MyMainUnit.ShowInCircle(true, 1, new Vector3(targetPos.x - m_MyMainUnit.X, 0, targetPos.y - m_MyMainUnit.Y));
+
+                        break;
                     }
-                    m_MyMainUnit.ShowInCircle(true, 1,new Vector3(targetPos.x- m_MyMainUnit.X, 0,targetPos.y- m_MyMainUnit.Y));
-                    //m_TargetUnit.TargetShow(true);
-                    //m_MyMainUnit.ShowSkillAreaLookAt(true, targetPos);
-                    //m_MyMainUnit.ShowOutCircle(true, skilldata.CastRange);
-                    break;
+                    
+                case 5:
+                    {
+                        var targetDir = new Vector2(m_MyMainUnit.DirectionX, m_MyMainUnit.DirectionY);
+                        if (m_TargetUnit != null)
+                        {
+                            targetDir = new Vector2(m_TargetUnit.X- m_MyMainUnit.X, m_TargetUnit.Y- m_MyMainUnit.Y);
+                        }
+                        var targetpos = new Vector2(m_MyMainUnit.X, m_MyMainUnit.Y) + (targetDir.normalized * skilldata.CastRange);
+                        //m_MyMainUnit.ShowInCircle(true, 1, new Vector3(targetPos.x - m_MyMainUnit.X, 0, targetPos.y - m_MyMainUnit.Y));
+                        m_MyMainUnit.ShowSkillAreaLookAt(true, targetpos);
+                        break;
+                    }
+                    
             }
             if(skilldata.CastRange > 0.1)
             {
@@ -388,13 +402,31 @@ public class GameScene : MonoBehaviour {
                     }
                     break;
                 case 3:
-                    if (m_TargetUnit != null)
                     {
-                        m_TargetUnit.TargetShow(false);
-                        m_TargetUnit.TargetShowRedCircle(false);
-                        m_TargetUnit = null;
+                        if (m_TargetUnit != null)
+                        {
+                            m_TargetUnit.TargetShow(false);
+                            m_TargetUnit.TargetShowRedCircle(false);
+                            m_TargetUnit = null;
+                        }
+                        m_MyMainUnit.ShowInCircle(true, 1, new Vector3(dir.x, 0, dir.y));
                     }
-                    m_MyMainUnit.ShowInCircle(true, 1, new Vector3(dir.x, 0, dir.y));
+                   
+                    break;
+                case 5:
+                    {
+                        if (m_TargetUnit != null)
+                        {
+                            m_TargetUnit.TargetShow(false);
+                            m_TargetUnit.TargetShowRedCircle(false);
+                            m_TargetUnit = null;
+                        }
+                        var targetpos = new Vector2(m_MyMainUnit.X, m_MyMainUnit.Y) + (dir.normalized * skilldata.CastRange);
+
+                        m_MyMainUnit.ShowSkillAreaLookAt(true, targetpos);
+                        //m_MyMainUnit.ShowInCircle(true, 1, new Vector3(dir.x, 0, dir.y));
+                    }
+
                     break;
             }
             if (skilldata.CastRange > 0.1)
@@ -439,25 +471,50 @@ public class GameScene : MonoBehaviour {
                     m_MyMainUnit.ShowSkillAreaLookAt(false, Vector2.zero);
                     break;
                 case 3:
-                    var targetPos = new Vector2(m_MyMainUnit.X+ dir.x, m_MyMainUnit.Y+ dir.y);
-                    if (m_TargetUnit != null)
                     {
-                        targetPos = new Vector2(m_TargetUnit.X, m_TargetUnit.Y);
+                        var targetPos = new Vector2(m_MyMainUnit.X + dir.x, m_MyMainUnit.Y + dir.y);
+                        if (m_TargetUnit != null)
+                        {
+                            targetPos = new Vector2(m_TargetUnit.X, m_TargetUnit.Y);
+                        }
+
+                        Protomsg.CS_PlayerSkill msg3 = new Protomsg.CS_PlayerSkill();
+                        msg3.ID = m_MyMainUnit.ID;
+                        msg3.TargetUnitID = -1;
+                        msg3.X = targetPos.x;
+                        msg3.Y = targetPos.y;
+                        msg3.SkillID = skilldata.TypeID;
+                        MyKcp.Instance.SendMsg(m_ServerName, "CS_PlayerSkill", msg3);
+
+                        Debug.Log("CS_PlayerSkill");
+                        m_MyMainUnit.ShowOutCircle(false, 10);
+                        m_MyMainUnit.ShowInCircle(false, 1, new Vector3(dir.x, 0, dir.y));
+                        m_MyMainUnit.ShowSkillAreaLookAt(false, Vector2.zero);
+                    }
+                    
+                    break;
+                case 5:
+                    {
+                        var targetPos = new Vector2(m_MyMainUnit.X + dir.x, m_MyMainUnit.Y + dir.y);
+                        if (m_TargetUnit != null)
+                        {
+                            targetPos = new Vector2(m_TargetUnit.X, m_TargetUnit.Y);
+                        }
+
+                        Protomsg.CS_PlayerSkill msg3 = new Protomsg.CS_PlayerSkill();
+                        msg3.ID = m_MyMainUnit.ID;
+                        msg3.TargetUnitID = -1;
+                        msg3.X = targetPos.x;
+                        msg3.Y = targetPos.y;
+                        msg3.SkillID = skilldata.TypeID;
+                        MyKcp.Instance.SendMsg(m_ServerName, "CS_PlayerSkill", msg3);
+
+                        Debug.Log("CS_PlayerSkill");
+                        m_MyMainUnit.ShowOutCircle(false, 10);
+                        m_MyMainUnit.ShowInCircle(false, 1, new Vector3(dir.x, 0, dir.y));
+                        m_MyMainUnit.ShowSkillAreaLookAt(false, Vector2.zero);
                     }
 
-                    Protomsg.CS_PlayerSkill msg3 = new Protomsg.CS_PlayerSkill();
-                    msg3.ID = m_MyMainUnit.ID;
-                    msg3.TargetUnitID = -1;
-                    msg3.X = targetPos.x;
-                    msg3.Y = targetPos.y;
-                    msg3.SkillID = skilldata.TypeID;
-                    MyKcp.Instance.SendMsg(m_ServerName, "CS_PlayerSkill", msg3);
-
-                    Debug.Log("CS_PlayerSkill");
-                    //m_TargetUnit.TargetShow(false);
-                    m_MyMainUnit.ShowOutCircle(false, 10);
-                    m_MyMainUnit.ShowInCircle(false, 1, new Vector3(dir.x, 0, dir.y));
-                    m_MyMainUnit.ShowSkillAreaLookAt(false, Vector2.zero);
                     break;
             }
 

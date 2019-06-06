@@ -511,7 +511,7 @@ public class GameScene : MonoBehaviour {
 
                         Debug.Log("CS_PlayerSkill");
                         m_MyMainUnit.ShowOutCircle(false, 10);
-                        m_MyMainUnit.ShowInCircle(false, 1, new Vector3(dir.x, 0, dir.y));
+                        m_MyMainUnit.ShowInCircle(false, 1, new Vector3(0, 0, 0));
                         m_MyMainUnit.ShowSkillAreaLookAt(false, Vector2.zero);
                     }
 

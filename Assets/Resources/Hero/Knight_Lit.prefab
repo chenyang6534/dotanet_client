@@ -171,6 +171,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4259587943054656}
   - component: {fileID: 95467147135829978}
+  - component: {fileID: 65092283361818540}
   m_Layer: 0
   m_Name: Knight_Lit
   m_TagString: Untagged
@@ -737,6 +738,18 @@ Transform:
   m_Father: {fileID: 4238430004598604}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &65092283361818540
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1474163171669292}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2.02, z: 1}
+  m_Center: {x: 0, y: 0.98, z: 0}
 --- !u!95 &95467147135829978
 Animator:
   serializedVersion: 3
@@ -746,7 +759,7 @@ Animator:
   m_GameObject: {fileID: 1474163171669292}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 0d0e2a1b88cbfcb41aa18991756a9b62, type: 3}
-  m_Controller: {fileID: 9100000, guid: e5c5883853b66ad41a8859f01aa96c44, type: 2}
+  m_Controller: {fileID: 9100000, guid: 92c2e3881886d7f4188856709c4a85c3, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

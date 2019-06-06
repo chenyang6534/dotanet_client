@@ -173,8 +173,16 @@ public class GameUI : MonoBehaviour {
         GameScene.Singleton.SendControlData(degree, false);
 
     }
-    public Vector2[] ThreeSkillPos = { new Vector2(927-1123,617-617), new Vector2(988-1123, 477- 617 ), new Vector2(1123 - 1123, 418-617) };
-    
+    public Vector2[] ThreeSkillPos = {
+        new Vector2(927-1123,617-617),
+        new Vector2(988-1123, 477- 617 ),
+        new Vector2(1123 - 1123, 418-617) };
+    public Vector2[] FourSkillPos = {
+        new Vector2(884-1109,624-609),
+        new Vector2(909-1109, 508- 609 ),
+        new Vector2(1010 - 1109, 419-609),
+        new Vector2(1136 - 1109, 399-609)};
+
     public Dictionary<int, Skillstick> SkillCom;
     //刷新技能UI显示
     void FreshSkillUI()
@@ -185,14 +193,14 @@ public class GameUI : MonoBehaviour {
             return;
         }
         //主动技能个数
-        var len = 0;
-        foreach (var item in mainunit.SkillDatas)
-        {
-            if(item.CastType == 1)
-            {
-                len++;
-            }
-        }
+        var len = mainunit.SkillDatas.Length;
+        //foreach (var item in mainunit.SkillDatas)
+        //{
+        //    if(item.CastType == 1)
+        //    {
+        //        len++;
+        //    }
+        //}
 
         //if (mainunit.SkillDatas.Length != SkillCom.Count)
         if(len != SkillCom.Count)
@@ -201,17 +209,17 @@ public class GameUI : MonoBehaviour {
             
             foreach(var item in mainunit.SkillDatas)
             {
-                if(item.CastType != 1)
-                {
-                    continue;
-                }
+                //if(item.CastType != 1)
+                //{
+                //    continue;
+                //}
 
                 GComponent view = UIPackage.CreateObject("GameUI", "Skillstick").asCom;
                 GRoot.inst.AddChild(view);
                 mainUI.GetChild("attack").asCom.AddChild(view);
-                if(len <= 3)
+                if(len <= 4)
                 {
-                    view.xy = ThreeSkillPos[item.Index];
+                    view.xy = FourSkillPos[item.Index];
                 }
 
                 SkillCom[item.TypeID] = new Skillstick(view);
@@ -223,10 +231,10 @@ public class GameUI : MonoBehaviour {
 
         foreach (var item in mainunit.SkillDatas)
         {
-            if (item.CastType != 1)
-            {
-                continue;
-            }
+            //if (item.CastType != 1)
+            //{
+            //    continue;
+            //}
             Skillstick view = SkillCom[item.TypeID];
             if(view == null)
             {

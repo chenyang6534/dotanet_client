@@ -46,6 +46,19 @@ public class Skillstick : EventDispatcher
     //刷新数据
     protected void FreshData()
     {
+
+        //被动技能缩小图标
+        if (m_SkillDatas.CastType != 1)
+        {
+            m_ui.scale = new Vector2(0.8f,0.8f);
+            touchArea.asCom.touchable = false;
+        }
+        else
+        {
+            m_ui.scale = new Vector2(1.0f, 1.0f);
+            touchArea.asCom.touchable = true;
+        }
+
         //耗蓝
         if (m_SkillDatas.ManaCost <= 0)
         {
@@ -111,6 +124,8 @@ public class Skillstick : EventDispatcher
     }
     protected void DoTouchDown(Vector2 pos)
     {
+
+
         GameScene.Singleton.PressSkillBtn(1, pos,m_SkillDatas);
         Debug.Log("Skill DoTouchDown:" + pos);
     }

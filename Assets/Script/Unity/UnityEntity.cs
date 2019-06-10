@@ -59,28 +59,53 @@ public class UnityEntity {
             }
         }
         FreshBuff(data.BD);
-        //if(data.BD.Count > 0)
-        //{
-        //    BuffDatas = new Protomsg.BuffDatas[data.BD.Count];
-        //    int index = 0;
-        //    foreach (var item in data.BD)
-        //    {
-        //        BuffDatas[index++] = item;
-        //    }
-        //}
-
-
-
-
+       
         m_Mode.transform.position = new Vector3(data.X, 0, data.Y);
         
         AnimotorState = data.AnimotorState;
+        AnimotorPause = data.AnimotorPause;
         
         if (data.IsMiss)
         {
             this.ShowMiss();
         }
 
+    }
+
+    public void FreshAnimSpeed()
+    {
+        var anim = m_AnimotorState;
+        var time = m_AttackTime;
+
+        if(m_AnimotorPause == 1)
+        {
+            m_Mode.GetComponent<Animator>().speed = 0;
+            return;
+        }
+
+        //攻击动画
+        if (anim == 3)
+        {
+            float animtime = Tool.GetClipLength(m_Mode.GetComponent<Animator>(), "attack");
+            if (time <= 0)
+            {
+                time = 1;
+            }
+            float speed = animtime / time;
+            m_Mode.GetComponent<Animator>().speed = speed;
+
+            //m_Mode.GetComponent<Animator>()
+
+
+        }
+        else if (anim == 5)
+        {
+            m_Mode.GetComponent<Animator>().speed = 100.1f;
+        }
+        else
+        {
+            m_Mode.GetComponent<Animator>().speed = 1.0f;
+        }
     }
     public void FreshAnim(int anim,float time)
     {
@@ -90,27 +115,7 @@ public class UnityEntity {
             {
 
                 m_Mode.GetComponent<Animator>().SetInteger("AniState", anim);
-                
-                //攻击动画
-                if (anim == 3)
-                {
-                    float animtime = Tool.GetClipLength(m_Mode.GetComponent<Animator>(), "attack");
-                    if(time <= 0)
-                    {
-                        time = 1;
-                    }
-                    float speed = animtime / time;
-                    m_Mode.GetComponent<Animator>().speed = speed;
-                   
-                }else if(anim == 5)
-                {
-                    m_Mode.GetComponent<Animator>().speed = 100.1f;
-                }
-                else
-                {
-                    m_Mode.GetComponent<Animator>().speed = 1.0f;
-                }
-                
+                FreshAnimSpeed();
             }
         }
     }
@@ -237,7 +242,8 @@ public class UnityEntity {
 
             AttackTime += data.AttackTime;
             AnimotorState += data.AnimotorState;
-            
+            AnimotorPause += data.AnimotorPause;
+
             //更新方向
             DirectionX += data.DirectionX;
             DirectionY += data.DirectionY;
@@ -332,7 +338,7 @@ public class UnityEntity {
             case 2:
                 m_Mode.GetComponent<UnityEntitySpecial>().AddGreen();
                 break;
-            case 10:
+            case 14:
                 m_Mode.GetComponent<UnityEntitySpecial>().AddWhite();
                 break;
             case 11:
@@ -355,7 +361,7 @@ public class UnityEntity {
             case 2:
                 m_Mode.GetComponent<UnityEntitySpecial>().RemoveGreen();
                 break;
-            case 10:
+            case 14:
                 m_Mode.GetComponent<UnityEntitySpecial>().RemoveWhite();
                 break;
             case 11:
@@ -717,6 +723,11 @@ public class UnityEntity {
     protected Vector3 m_SkillAreaInCircleOffsetPos;
     public void ShowInCircle(bool isshow, float r,Vector3 pos)
     {
+        if(r <= 1)
+        {
+            r = 1;
+        }
+
         if (m_SkillAreaInCircle == null)
         {
             m_SkillAreaInCircle = (GameObject)(GameObject.Instantiate(Resources.Load("SkillAreaEffect/Prefabs/Hero_skillarea/quan_hero")));
@@ -726,8 +737,9 @@ public class UnityEntity {
 
         }
 
-        m_SkillAreaInCircle.transform.localScale = new Vector3(r * 2 / m_Mode.transform.localScale.x, 1, r * 2 / m_Mode.transform.localScale.x);
-        
+        //m_SkillAreaInCircle.transform.localScale = new Vector3(r * 2 / m_Mode.transform.localScale.x, 1, r * 2 / m_Mode.transform.localScale.x);
+        m_SkillAreaInCircle.transform.localScale = new Vector3(r * 2 , 1, r * 2 );
+
         m_SkillAreaInCircleOffsetPos = pos;
         UpdateInCirclePos();
         //m_SkillAreaInCircle.transform.localRotation = m_Mode.transform.localRotation;
@@ -980,6 +992,28 @@ public class UnityEntity {
             m_AttackTime = value;
         }
     }
+    protected int m_AnimotorPause;
+    public int AnimotorPause
+    {
+        get
+        {
+            return m_AnimotorPause;
+        }
+        set
+        {
+            if (m_AnimotorPause != value)
+            {
+                m_AnimotorPause = value;
+                FreshAnimSpeed();
+
+
+            }
+
+
+
+        }
+    }
+
     protected int m_AnimotorState;
     public int AnimotorState
     {

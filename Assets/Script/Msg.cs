@@ -46,7 +46,7 @@ namespace Protomsg {
             "dFJhbmdlGAsgASgCEhAKCENvb2xkb3duGAwgASgCEhEKCUh1cnRSYW5nZRgN",
             "IAEoAhIQCghNYW5hQ29zdBgOIAEoBRIYChBBdHRhY2tBdXRvQWN0aXZlGA8g",
             "ASgFIk0KCUJ1ZmZEYXRhcxIOCgZUeXBlSUQYASABKAUSEgoKUmVtYWluVGlt",
-            "ZRgCIAEoAhIMCgRUaW1lGAMgASgCEg4KBlRhZ051bRgEIAEoBSL6AwoJVW5p",
+            "ZRgCIAEoAhIMCgRUaW1lGAMgASgCEg4KBlRhZ051bRgEIAEoBSK6BAoJVW5p",
             "dERhdGFzEgwKBE5hbWUYASABKAkSDQoFTGV2ZWwYAiABKAUSCgoCSFAYAyAB",
             "KAUSCgoCTVAYBCABKAUSCQoBWBgFIAEoAhIJCgFZGAYgASgCEgoKAklEGAcg",
             "ASgFEhAKCE1vZGVUeXBlGAggASgJEg0KBU1heEhQGAkgASgFEg0KBU1heE1Q",
@@ -56,36 +56,38 @@ namespace Protomsg {
             "RGlyZWN0aW9uWRgRIAEoAhIQCghVbml0VHlwZRgSIAEoBRIaChJBdHRhY2tB",
             "Y3BhYmlsaXRpZXMYEyABKAUSEgoKQXR0YWNrTW9kZRgUIAEoBRIOCgZJc01h",
             "aW4YFSABKAUSDwoHSXNEZWF0aBgWIAEoBRIRCglJbnZpc2libGUYFyABKAUS",
-            "DAoEQ2FtcBgYIAEoBRIOCgZJc01pc3MYGSABKAgSIAoCU0QYGiADKAsyFC5w",
-            "cm90b21zZy5Ta2lsbERhdGFzEh8KAkJEGBsgAygLMhMucHJvdG9tc2cuQnVm",
-            "ZkRhdGFzIrUBCgtCdWxsZXREYXRhcxIKCgJJRBgBIAEoBRIQCghNb2RlVHlw",
-            "ZRgCIAEoCRIJCgFYGAMgASgCEgkKAVkYBCABKAISCQoBWhgFIAEoAhINCgVT",
-            "dGF0ZRgGIAEoBRIOCgZTdGFydFgYByABKAISDgoGU3RhcnRZGAggASgCEg4K",
-            "BlN0YXJ0WhgJIAEoAhIMCgRFbmRYGAogASgCEgwKBEVuZFkYCyABKAISDAoE",
-            "RW5kWhgMIAEoAiJKCglIYWxvRGF0YXMSCgoCSUQYASABKAUSEAoITW9kZVR5",
-            "cGUYAiABKAkSCQoBWBgDIAEoAhIJCgFZGAQgASgCEgkKAVoYBSABKAIihAEK",
-            "EU1zZ1VzZXJFbnRlclNjZW5lEgsKA1VpZBgBIAEoBRIRCglDb25uZWN0SWQY",
-            "AiABKAUSFQoNU3JjU2VydmVyTmFtZRgDIAEoCRIWCg5EZXN0U2VydmVyTmFt",
-            "ZRgEIAEoCRIRCglTY2VuZU5hbWUYBSABKAkSDQoFRGF0YXMYBiABKAwiYQoN",
-            "TXNnUGxheWVySHVydBISCgpIdXJ0VW5pdElEGAEgASgFEhQKDEh1cnRBbGxW",
-            "YWx1ZRgCIAEoBRIWCg5IdXJ0TWFnaWNWYWx1ZRgDIAEoBRIOCgZJc0NyaXQY",
-            "BCABKAUi/QIKCVNDX1VwZGF0ZRIQCghDdXJGcmFtZRgBIAEoBRIlCghOZXdV",
-            "bml0cxgCIAMoCzITLnByb3RvbXNnLlVuaXREYXRhcxIlCghPbGRVbml0cxgD",
-            "IAMoCzITLnByb3RvbXNnLlVuaXREYXRhcxITCgtSZW1vdmVVbml0cxgEIAMo",
-            "BRIpCgpOZXdCdWxsZXRzGAUgAygLMhUucHJvdG9tc2cuQnVsbGV0RGF0YXMS",
-            "KQoKT2xkQnVsbGV0cxgGIAMoCzIVLnByb3RvbXNnLkJ1bGxldERhdGFzEhUK",
-            "DVJlbW92ZUJ1bGxldHMYByADKAUSJQoITmV3SGFsb3MYCCADKAsyEy5wcm90",
-            "b21zZy5IYWxvRGF0YXMSJQoIT2xkSGFsb3MYCSADKAsyEy5wcm90b21zZy5I",
-            "YWxvRGF0YXMSEwoLUmVtb3ZlSGFsb3MYCiADKAUSKwoKUGxheWVySHVydBgL",
-            "IAMoCzIXLnByb3RvbXNnLk1zZ1BsYXllckh1cnQiUwoLU0NfTmV3U2NlbmUS",
-            "DAoETmFtZRgBIAEoCRIQCghMb2dpY0ZwcxgCIAEoBRIQCghDdXJGcmFtZRgD",
-            "IAEoBRISCgpTZXJ2ZXJOYW1lGAQgASgJIlYKEkNoYXJhY3RlckJhc2VEYXRh",
-            "cxITCgtDaGFyYWN0ZXJpZBgBIAEoBRIMCgROYW1lGAIgASgJEg4KBlR5cGVp",
-            "ZBgDIAEoBRINCgVMZXZlbBgEIAEoBSJoCgpTQ19Mb2dpbmVkEgwKBENvZGUY",
-            "ASABKAUSCwoDVWlkGAIgASgFEg0KBUVycm9yGAMgASgJEjAKCkNoYXJhY3Rl",
-            "cnMYBCADKAsyHC5wcm90b21zZy5DaGFyYWN0ZXJCYXNlRGF0YXMiTAoYU0Nf",
-            "U2VsZWN0Q2hhcmFjdGVyUmVzdWx0EgwKBENvZGUYASABKAUSEwoLQ2hhcmFj",
-            "dGVyaWQYAiABKAUSDQoFRXJyb3IYAyABKAliBnByb3RvMw=="));
+            "DAoEQ2FtcBgYIAEoBRIOCgZJc01pc3MYGSABKAgSFQoNQW5pbW90b3JQYXVz",
+            "ZRgaIAEoBRITCgtTa2lsbEVuYWJsZRgbIAEoBRISCgpJdGVtRW5hYmxlGBwg",
+            "ASgFEiAKAlNEGB0gAygLMhQucHJvdG9tc2cuU2tpbGxEYXRhcxIfCgJCRBge",
+            "IAMoCzITLnByb3RvbXNnLkJ1ZmZEYXRhcyK1AQoLQnVsbGV0RGF0YXMSCgoC",
+            "SUQYASABKAUSEAoITW9kZVR5cGUYAiABKAkSCQoBWBgDIAEoAhIJCgFZGAQg",
+            "ASgCEgkKAVoYBSABKAISDQoFU3RhdGUYBiABKAUSDgoGU3RhcnRYGAcgASgC",
+            "Eg4KBlN0YXJ0WRgIIAEoAhIOCgZTdGFydFoYCSABKAISDAoERW5kWBgKIAEo",
+            "AhIMCgRFbmRZGAsgASgCEgwKBEVuZFoYDCABKAIiSgoJSGFsb0RhdGFzEgoK",
+            "AklEGAEgASgFEhAKCE1vZGVUeXBlGAIgASgJEgkKAVgYAyABKAISCQoBWRgE",
+            "IAEoAhIJCgFaGAUgASgCIoQBChFNc2dVc2VyRW50ZXJTY2VuZRILCgNVaWQY",
+            "ASABKAUSEQoJQ29ubmVjdElkGAIgASgFEhUKDVNyY1NlcnZlck5hbWUYAyAB",
+            "KAkSFgoORGVzdFNlcnZlck5hbWUYBCABKAkSEQoJU2NlbmVOYW1lGAUgASgJ",
+            "Eg0KBURhdGFzGAYgASgMImEKDU1zZ1BsYXllckh1cnQSEgoKSHVydFVuaXRJ",
+            "RBgBIAEoBRIUCgxIdXJ0QWxsVmFsdWUYAiABKAUSFgoOSHVydE1hZ2ljVmFs",
+            "dWUYAyABKAUSDgoGSXNDcml0GAQgASgFIv0CCglTQ19VcGRhdGUSEAoIQ3Vy",
+            "RnJhbWUYASABKAUSJQoITmV3VW5pdHMYAiADKAsyEy5wcm90b21zZy5Vbml0",
+            "RGF0YXMSJQoIT2xkVW5pdHMYAyADKAsyEy5wcm90b21zZy5Vbml0RGF0YXMS",
+            "EwoLUmVtb3ZlVW5pdHMYBCADKAUSKQoKTmV3QnVsbGV0cxgFIAMoCzIVLnBy",
+            "b3RvbXNnLkJ1bGxldERhdGFzEikKCk9sZEJ1bGxldHMYBiADKAsyFS5wcm90",
+            "b21zZy5CdWxsZXREYXRhcxIVCg1SZW1vdmVCdWxsZXRzGAcgAygFEiUKCE5l",
+            "d0hhbG9zGAggAygLMhMucHJvdG9tc2cuSGFsb0RhdGFzEiUKCE9sZEhhbG9z",
+            "GAkgAygLMhMucHJvdG9tc2cuSGFsb0RhdGFzEhMKC1JlbW92ZUhhbG9zGAog",
+            "AygFEisKClBsYXllckh1cnQYCyADKAsyFy5wcm90b21zZy5Nc2dQbGF5ZXJI",
+            "dXJ0IlMKC1NDX05ld1NjZW5lEgwKBE5hbWUYASABKAkSEAoITG9naWNGcHMY",
+            "AiABKAUSEAoIQ3VyRnJhbWUYAyABKAUSEgoKU2VydmVyTmFtZRgEIAEoCSJW",
+            "ChJDaGFyYWN0ZXJCYXNlRGF0YXMSEwoLQ2hhcmFjdGVyaWQYASABKAUSDAoE",
+            "TmFtZRgCIAEoCRIOCgZUeXBlaWQYAyABKAUSDQoFTGV2ZWwYBCABKAUiaAoK",
+            "U0NfTG9naW5lZBIMCgRDb2RlGAEgASgFEgsKA1VpZBgCIAEoBRINCgVFcnJv",
+            "chgDIAEoCRIwCgpDaGFyYWN0ZXJzGAQgAygLMhwucHJvdG9tc2cuQ2hhcmFj",
+            "dGVyQmFzZURhdGFzIkwKGFNDX1NlbGVjdENoYXJhY3RlclJlc3VsdBIMCgRD",
+            "b2RlGAEgASgFEhMKC0NoYXJhY3RlcmlkGAIgASgFEg0KBUVycm9yGAMgASgJ",
+            "YgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -99,7 +101,7 @@ namespace Protomsg {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_PlayerSkill), global::Protomsg.CS_PlayerSkill.Parser, new[]{ "ID", "SkillID", "X", "Y", "TargetUnitID" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SkillDatas), global::Protomsg.SkillDatas.Parser, new[]{ "TypeID", "Level", "RemainCDTime", "CanUpgrade", "Index", "CastType", "CastTargetType", "UnitTargetTeam", "UnitTargetCamp", "NoCareMagicImmune", "CastRange", "Cooldown", "HurtRange", "ManaCost", "AttackAutoActive" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.BuffDatas), global::Protomsg.BuffDatas.Parser, new[]{ "TypeID", "RemainTime", "Time", "TagNum" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.UnitDatas), global::Protomsg.UnitDatas.Parser, new[]{ "Name", "Level", "HP", "MP", "X", "Y", "ID", "ModeType", "MaxHP", "MaxMP", "Experience", "MaxExperience", "ControlID", "AnimotorState", "AttackTime", "DirectionX", "DirectionY", "UnitType", "AttackAcpabilities", "AttackMode", "IsMain", "IsDeath", "Invisible", "Camp", "IsMiss", "SD", "BD" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.UnitDatas), global::Protomsg.UnitDatas.Parser, new[]{ "Name", "Level", "HP", "MP", "X", "Y", "ID", "ModeType", "MaxHP", "MaxMP", "Experience", "MaxExperience", "ControlID", "AnimotorState", "AttackTime", "DirectionX", "DirectionY", "UnitType", "AttackAcpabilities", "AttackMode", "IsMain", "IsDeath", "Invisible", "Camp", "IsMiss", "AnimotorPause", "SkillEnable", "ItemEnable", "SD", "BD" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.BulletDatas), global::Protomsg.BulletDatas.Parser, new[]{ "ID", "ModeType", "X", "Y", "Z", "State", "StartX", "StartY", "StartZ", "EndX", "EndY", "EndZ" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.HaloDatas), global::Protomsg.HaloDatas.Parser, new[]{ "ID", "ModeType", "X", "Y", "Z" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.MsgUserEnterScene), global::Protomsg.MsgUserEnterScene.Parser, new[]{ "Uid", "ConnectId", "SrcServerName", "DestServerName", "SceneName", "Datas" }, null, null, null),
@@ -2538,6 +2540,9 @@ namespace Protomsg {
       invisible_ = other.invisible_;
       camp_ = other.camp_;
       isMiss_ = other.isMiss_;
+      animotorPause_ = other.animotorPause_;
+      skillEnable_ = other.skillEnable_;
+      itemEnable_ = other.itemEnable_;
       sD_ = other.sD_.Clone();
       bD_ = other.bD_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -2865,10 +2870,52 @@ namespace Protomsg {
       }
     }
 
+    /// <summary>Field number for the "AnimotorPause" field.</summary>
+    public const int AnimotorPauseFieldNumber = 26;
+    private int animotorPause_;
+    /// <summary>
+    ///动画暂停 1表示是 2表示否
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int AnimotorPause {
+      get { return animotorPause_; }
+      set {
+        animotorPause_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "SkillEnable" field.</summary>
+    public const int SkillEnableFieldNumber = 27;
+    private int skillEnable_;
+    /// <summary>
+    ///能否使用主动技能 (比如 被眩晕和沉默不能使用主动技能) 1:可以 2:不可以
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int SkillEnable {
+      get { return skillEnable_; }
+      set {
+        skillEnable_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "ItemEnable" field.</summary>
+    public const int ItemEnableFieldNumber = 28;
+    private int itemEnable_;
+    /// <summary>
+    ///能否使用主动道具 (比如 被眩晕和禁用道具不能使用主动道具) 1:可以 2:不可以
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ItemEnable {
+      get { return itemEnable_; }
+      set {
+        itemEnable_ = value;
+      }
+    }
+
     /// <summary>Field number for the "SD" field.</summary>
-    public const int SDFieldNumber = 26;
+    public const int SDFieldNumber = 29;
     private static readonly pb::FieldCodec<global::Protomsg.SkillDatas> _repeated_sD_codec
-        = pb::FieldCodec.ForMessage(210, global::Protomsg.SkillDatas.Parser);
+        = pb::FieldCodec.ForMessage(234, global::Protomsg.SkillDatas.Parser);
     private readonly pbc::RepeatedField<global::Protomsg.SkillDatas> sD_ = new pbc::RepeatedField<global::Protomsg.SkillDatas>();
     /// <summary>
     ///技能数据
@@ -2879,9 +2926,9 @@ namespace Protomsg {
     }
 
     /// <summary>Field number for the "BD" field.</summary>
-    public const int BDFieldNumber = 27;
+    public const int BDFieldNumber = 30;
     private static readonly pb::FieldCodec<global::Protomsg.BuffDatas> _repeated_bD_codec
-        = pb::FieldCodec.ForMessage(218, global::Protomsg.BuffDatas.Parser);
+        = pb::FieldCodec.ForMessage(242, global::Protomsg.BuffDatas.Parser);
     private readonly pbc::RepeatedField<global::Protomsg.BuffDatas> bD_ = new pbc::RepeatedField<global::Protomsg.BuffDatas>();
     /// <summary>
     ///buff数据
@@ -2929,6 +2976,9 @@ namespace Protomsg {
       if (Invisible != other.Invisible) return false;
       if (Camp != other.Camp) return false;
       if (IsMiss != other.IsMiss) return false;
+      if (AnimotorPause != other.AnimotorPause) return false;
+      if (SkillEnable != other.SkillEnable) return false;
+      if (ItemEnable != other.ItemEnable) return false;
       if(!sD_.Equals(other.sD_)) return false;
       if(!bD_.Equals(other.bD_)) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -2962,6 +3012,9 @@ namespace Protomsg {
       if (Invisible != 0) hash ^= Invisible.GetHashCode();
       if (Camp != 0) hash ^= Camp.GetHashCode();
       if (IsMiss != false) hash ^= IsMiss.GetHashCode();
+      if (AnimotorPause != 0) hash ^= AnimotorPause.GetHashCode();
+      if (SkillEnable != 0) hash ^= SkillEnable.GetHashCode();
+      if (ItemEnable != 0) hash ^= ItemEnable.GetHashCode();
       hash ^= sD_.GetHashCode();
       hash ^= bD_.GetHashCode();
       if (_unknownFields != null) {
@@ -3077,6 +3130,18 @@ namespace Protomsg {
         output.WriteRawTag(200, 1);
         output.WriteBool(IsMiss);
       }
+      if (AnimotorPause != 0) {
+        output.WriteRawTag(208, 1);
+        output.WriteInt32(AnimotorPause);
+      }
+      if (SkillEnable != 0) {
+        output.WriteRawTag(216, 1);
+        output.WriteInt32(SkillEnable);
+      }
+      if (ItemEnable != 0) {
+        output.WriteRawTag(224, 1);
+        output.WriteInt32(ItemEnable);
+      }
       sD_.WriteTo(output, _repeated_sD_codec);
       bD_.WriteTo(output, _repeated_bD_codec);
       if (_unknownFields != null) {
@@ -3161,6 +3226,15 @@ namespace Protomsg {
       }
       if (IsMiss != false) {
         size += 2 + 1;
+      }
+      if (AnimotorPause != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(AnimotorPause);
+      }
+      if (SkillEnable != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(SkillEnable);
+      }
+      if (ItemEnable != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(ItemEnable);
       }
       size += sD_.CalculateSize(_repeated_sD_codec);
       size += bD_.CalculateSize(_repeated_bD_codec);
@@ -3249,6 +3323,15 @@ namespace Protomsg {
       }
       if (other.IsMiss != false) {
         IsMiss = other.IsMiss;
+      }
+      if (other.AnimotorPause != 0) {
+        AnimotorPause = other.AnimotorPause;
+      }
+      if (other.SkillEnable != 0) {
+        SkillEnable = other.SkillEnable;
+      }
+      if (other.ItemEnable != 0) {
+        ItemEnable = other.ItemEnable;
       }
       sD_.Add(other.sD_);
       bD_.Add(other.bD_);
@@ -3363,11 +3446,23 @@ namespace Protomsg {
             IsMiss = input.ReadBool();
             break;
           }
-          case 210: {
+          case 208: {
+            AnimotorPause = input.ReadInt32();
+            break;
+          }
+          case 216: {
+            SkillEnable = input.ReadInt32();
+            break;
+          }
+          case 224: {
+            ItemEnable = input.ReadInt32();
+            break;
+          }
+          case 234: {
             sD_.AddEntriesFrom(input, _repeated_sD_codec);
             break;
           }
-          case 218: {
+          case 242: {
             bD_.AddEntriesFrom(input, _repeated_bD_codec);
             break;
           }

@@ -339,7 +339,7 @@ public class GameScene : MonoBehaviour {
                         {
                             targetPos = new Vector2(m_TargetUnit.X, m_TargetUnit.Y);
                         }
-                        m_MyMainUnit.ShowInCircle(true, 1, new Vector3(targetPos.x - m_MyMainUnit.X, 0, targetPos.y - m_MyMainUnit.Y));
+                        m_MyMainUnit.ShowInCircle(true, skilldata.HurtRange, new Vector3(targetPos.x - m_MyMainUnit.X, 0, targetPos.y - m_MyMainUnit.Y));
 
                         break;
                     }
@@ -409,7 +409,7 @@ public class GameScene : MonoBehaviour {
                             m_TargetUnit.TargetShowRedCircle(false);
                             m_TargetUnit = null;
                         }
-                        m_MyMainUnit.ShowInCircle(true, 1, new Vector3(dir.x, 0, dir.y));
+                        m_MyMainUnit.ShowInCircle(true, skilldata.HurtRange, new Vector3(dir.x, 0, dir.y));
                     }
                    
                     break;
@@ -488,7 +488,7 @@ public class GameScene : MonoBehaviour {
 
                         Debug.Log("CS_PlayerSkill");
                         m_MyMainUnit.ShowOutCircle(false, 10);
-                        m_MyMainUnit.ShowInCircle(false, 1, new Vector3(dir.x, 0, dir.y));
+                        m_MyMainUnit.ShowInCircle(false, skilldata.HurtRange, new Vector3(dir.x, 0, dir.y));
                         m_MyMainUnit.ShowSkillAreaLookAt(false, Vector2.zero);
                     }
                     

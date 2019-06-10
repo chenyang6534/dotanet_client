@@ -188,7 +188,7 @@ public class GameUI : MonoBehaviour {
     void FreshSkillUI()
     {
         UnityEntity mainunit = GameScene.Singleton.GetMyMainUnit();
-        if(mainunit == null)
+        if(mainunit == null || mainunit.SkillDatas == null)
         {
             return;
         }

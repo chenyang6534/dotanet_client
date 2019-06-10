@@ -681,6 +681,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4431608887792646}
   - component: {fileID: 95426971210739634}
+  - component: {fileID: 65777949325899834}
   m_Layer: 0
   m_Name: Horseman_Lit
   m_TagString: Untagged
@@ -1433,6 +1434,18 @@ Transform:
   m_Father: {fileID: 4912453465739904}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &65777949325899834
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1937740628612764}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2.7, z: 1}
+  m_Center: {x: 0, y: 1.35, z: 0}
 --- !u!95 &95426971210739634
 Animator:
   serializedVersion: 3
@@ -1442,7 +1455,7 @@ Animator:
   m_GameObject: {fileID: 1937740628612764}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 4f2d901a760b6c44297343a8cc00af20, type: 3}
-  m_Controller: {fileID: 9100000, guid: e61d79219a39c044ab00b0cff3449b34, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8a38e2420ce278749aa945d3686cd113, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

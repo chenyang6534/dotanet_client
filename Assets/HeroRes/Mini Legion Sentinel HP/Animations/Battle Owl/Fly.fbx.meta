@@ -1,0 +1,379 @@
+fileFormatVersion: 2
+guid: 3e14f5a57a417134dbc77ed54cadeb9e
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: BattleOwlMesh
+    100002: Clavicle_L
+    100004: Clavicle_R
+    100006: Ear01_L
+    100008: Ear01_R
+    100010: Ear02_L
+    100012: Ear02_R
+    100014: Ear03_L
+    100016: Ear03_R
+    100018: //RootNode
+    100020: Hand_L
+    100022: Hand_R
+    100024: Head
+    100026: Index01_L
+    100028: Index01_R
+    100030: Index02_L
+    100032: Index02_R
+    100034: Index03_L
+    100036: Index03_R
+    100038: joint5
+    100040: joint6
+    100042: joint7
+    100044: joint8
+    100046: LowerLeg_L
+    100048: LowerLeg_R
+    100050: Middle01_L
+    100052: Middle01_R
+    100054: Middle02L
+    100056: Middle02L 1
+    100058: Middle03_L
+    100060: Middle03_R
+    100062: Neck
+    100064: Pinky01_L
+    100066: Pinky01_R
+    100068: Pinky02_L
+    100070: Pinky02_R
+    100072: Pinky03_L
+    100074: Pinky03_R
+    100076: Root
+    100078: Spine
+    100080: Thumb01_L
+    100082: Thumb01_R
+    100084: Thumb02_L
+    100086: Thumb02_R
+    100088: Thumb03_L
+    100090: Thumb03_R
+    100092: UpperLeg_L
+    100094: UpperLeg_R
+    100096: Wing01_L
+    100098: Wing01_R
+    100100: Wing02_L
+    100102: Wing02_R
+    100104: Wing03_L
+    100106: Wing03_R
+    100108: Wing04_L
+    100110: Wing04_R
+    100112: Wing05_L
+    100114: Wing05_R
+    100116: Wing06_L
+    100118: Wing06_R
+    100120: Wing07_L
+    100122: Wing07_R
+    100124: Wing09_L
+    100126: Wing09_R
+    100128: Wing10_L
+    100130: Wing10_R
+    100132: Wing11_L
+    100134: Wing11_R
+    400000: BattleOwlMesh
+    400002: Clavicle_L
+    400004: Clavicle_R
+    400006: Ear01_L
+    400008: Ear01_R
+    400010: Ear02_L
+    400012: Ear02_R
+    400014: Ear03_L
+    400016: Ear03_R
+    400018: //RootNode
+    400020: Hand_L
+    400022: Hand_R
+    400024: Head
+    400026: Index01_L
+    400028: Index01_R
+    400030: Index02_L
+    400032: Index02_R
+    400034: Index03_L
+    400036: Index03_R
+    400038: joint5
+    400040: joint6
+    400042: joint7
+    400044: joint8
+    400046: LowerLeg_L
+    400048: LowerLeg_R
+    400050: Middle01_L
+    400052: Middle01_R
+    400054: Middle02L
+    400056: Middle02L 1
+    400058: Middle03_L
+    400060: Middle03_R
+    400062: Neck
+    400064: Pinky01_L
+    400066: Pinky01_R
+    400068: Pinky02_L
+    400070: Pinky02_R
+    400072: Pinky03_L
+    400074: Pinky03_R
+    400076: Root
+    400078: Spine
+    400080: Thumb01_L
+    400082: Thumb01_R
+    400084: Thumb02_L
+    400086: Thumb02_R
+    400088: Thumb03_L
+    400090: Thumb03_R
+    400092: UpperLeg_L
+    400094: UpperLeg_R
+    400096: Wing01_L
+    400098: Wing01_R
+    400100: Wing02_L
+    400102: Wing02_R
+    400104: Wing03_L
+    400106: Wing03_R
+    400108: Wing04_L
+    400110: Wing04_R
+    400112: Wing05_L
+    400114: Wing05_R
+    400116: Wing06_L
+    400118: Wing06_R
+    400120: Wing07_L
+    400122: Wing07_R
+    400124: Wing09_L
+    400126: Wing09_R
+    400128: Wing10_L
+    400130: Wing10_R
+    400132: Wing11_L
+    400134: Wing11_R
+    4300000: BattleOwlMesh
+    7400000: Fly
+    9500000: //RootNode
+    13700000: BattleOwlMesh
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Fly
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 1
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: BattleOwlMesh
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/joint5
+        weight: 1
+      - path: Root/joint5/joint6
+        weight: 1
+      - path: Root/joint5/joint6/joint7
+        weight: 1
+      - path: Root/joint5/joint6/joint7/joint8
+        weight: 1
+      - path: Root/Spine
+        weight: 1
+      - path: Root/Spine/Clavicle_L
+        weight: 1
+      - path: Root/Spine/Clavicle_L/Wing01_L
+        weight: 1
+      - path: Root/Spine/Clavicle_L/Wing01_L/Wing02_L
+        weight: 1
+      - path: Root/Spine/Clavicle_L/Wing01_L/Wing02_L/Wing03_L
+        weight: 1
+      - path: Root/Spine/Clavicle_L/Wing01_L/Wing02_L/Wing03_L/Wing04_L
+        weight: 1
+      - path: Root/Spine/Clavicle_L/Wing01_L/Wing02_L/Wing05_L
+        weight: 1
+      - path: Root/Spine/Clavicle_L/Wing01_L/Wing02_L/Wing05_L/Wing06_L
+        weight: 1
+      - path: Root/Spine/Clavicle_L/Wing01_L/Wing07_L
+        weight: 1
+      - path: Root/Spine/Clavicle_L/Wing01_L/Wing07_L/Wing11_L
+        weight: 1
+      - path: Root/Spine/Clavicle_L/Wing01_L/Wing09_L
+        weight: 1
+      - path: Root/Spine/Clavicle_L/Wing01_L/Wing09_L/Wing10_L
+        weight: 1
+      - path: Root/Spine/Clavicle_R
+        weight: 1
+      - path: Root/Spine/Clavicle_R/Wing01_R
+        weight: 1
+      - path: Root/Spine/Clavicle_R/Wing01_R/Wing02_R
+        weight: 1
+      - path: Root/Spine/Clavicle_R/Wing01_R/Wing02_R/Wing03_R
+        weight: 1
+      - path: Root/Spine/Clavicle_R/Wing01_R/Wing02_R/Wing03_R/Wing04_R
+        weight: 1
+      - path: Root/Spine/Clavicle_R/Wing01_R/Wing02_R/Wing05_R
+        weight: 1
+      - path: Root/Spine/Clavicle_R/Wing01_R/Wing02_R/Wing05_R/Wing06_R
+        weight: 1
+      - path: Root/Spine/Clavicle_R/Wing01_R/Wing07_R
+        weight: 1
+      - path: Root/Spine/Clavicle_R/Wing01_R/Wing07_R/Wing11_R
+        weight: 1
+      - path: Root/Spine/Clavicle_R/Wing01_R/Wing09_R
+        weight: 1
+      - path: Root/Spine/Clavicle_R/Wing01_R/Wing09_R/Wing10_R
+        weight: 1
+      - path: Root/Spine/Neck
+        weight: 1
+      - path: Root/Spine/Neck/Head
+        weight: 1
+      - path: Root/Spine/Neck/Head/Ear01_L
+        weight: 1
+      - path: Root/Spine/Neck/Head/Ear01_L/Ear02_L
+        weight: 1
+      - path: Root/Spine/Neck/Head/Ear01_L/Ear02_L/Ear03_L
+        weight: 1
+      - path: Root/Spine/Neck/Head/Ear01_R
+        weight: 1
+      - path: Root/Spine/Neck/Head/Ear01_R/Ear02_R
+        weight: 1
+      - path: Root/Spine/Neck/Head/Ear01_R/Ear02_R/Ear03_R
+        weight: 1
+      - path: Root/UpperLeg_L
+        weight: 1
+      - path: Root/UpperLeg_L/LowerLeg_L
+        weight: 1
+      - path: Root/UpperLeg_L/LowerLeg_L/Hand_L
+        weight: 1
+      - path: Root/UpperLeg_L/LowerLeg_L/Hand_L/Index01_L
+        weight: 1
+      - path: Root/UpperLeg_L/LowerLeg_L/Hand_L/Index01_L/Index02_L
+        weight: 1
+      - path: Root/UpperLeg_L/LowerLeg_L/Hand_L/Index01_L/Index02_L/Index03_L
+        weight: 1
+      - path: Root/UpperLeg_L/LowerLeg_L/Hand_L/Middle01_L
+        weight: 1
+      - path: Root/UpperLeg_L/LowerLeg_L/Hand_L/Middle01_L/Middle02L
+        weight: 1
+      - path: Root/UpperLeg_L/LowerLeg_L/Hand_L/Middle01_L/Middle02L/Middle03_L
+        weight: 1
+      - path: Root/UpperLeg_L/LowerLeg_L/Hand_L/Pinky01_L
+        weight: 1
+      - path: Root/UpperLeg_L/LowerLeg_L/Hand_L/Pinky01_L/Pinky02_L
+        weight: 1
+      - path: Root/UpperLeg_L/LowerLeg_L/Hand_L/Pinky01_L/Pinky02_L/Pinky03_L
+        weight: 1
+      - path: Root/UpperLeg_L/LowerLeg_L/Hand_L/Thumb01_L
+        weight: 1
+      - path: Root/UpperLeg_L/LowerLeg_L/Hand_L/Thumb01_L/Thumb02_L
+        weight: 1
+      - path: Root/UpperLeg_L/LowerLeg_L/Hand_L/Thumb01_L/Thumb02_L/Thumb03_L
+        weight: 1
+      - path: Root/UpperLeg_R
+        weight: 1
+      - path: Root/UpperLeg_R/LowerLeg_R
+        weight: 1
+      - path: Root/UpperLeg_R/LowerLeg_R/Hand_R
+        weight: 1
+      - path: Root/UpperLeg_R/LowerLeg_R/Hand_R/Index01_R
+        weight: 1
+      - path: Root/UpperLeg_R/LowerLeg_R/Hand_R/Index01_R/Index02_R
+        weight: 1
+      - path: Root/UpperLeg_R/LowerLeg_R/Hand_R/Index01_R/Index02_R/Index03_R
+        weight: 1
+      - path: Root/UpperLeg_R/LowerLeg_R/Hand_R/Middle01_R
+        weight: 1
+      - path: Root/UpperLeg_R/LowerLeg_R/Hand_R/Middle01_R/Middle02L 1
+        weight: 1
+      - path: Root/UpperLeg_R/LowerLeg_R/Hand_R/Middle01_R/Middle02L 1/Middle03_R
+        weight: 1
+      - path: Root/UpperLeg_R/LowerLeg_R/Hand_R/Pinky01_R
+        weight: 1
+      - path: Root/UpperLeg_R/LowerLeg_R/Hand_R/Pinky01_R/Pinky02_R
+        weight: 1
+      - path: Root/UpperLeg_R/LowerLeg_R/Hand_R/Pinky01_R/Pinky02_R/Pinky03_R
+        weight: 1
+      - path: Root/UpperLeg_R/LowerLeg_R/Hand_R/Thumb01_R
+        weight: 1
+      - path: Root/UpperLeg_R/LowerLeg_R/Hand_R/Thumb01_R/Thumb02_R
+        weight: 1
+      - path: Root/UpperLeg_R/LowerLeg_R/Hand_R/Thumb01_R/Thumb02_R/Thumb03_R
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

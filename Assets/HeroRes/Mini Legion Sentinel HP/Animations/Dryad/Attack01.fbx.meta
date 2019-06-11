@@ -1,0 +1,287 @@
+fileFormatVersion: 2
+guid: e5bf90353fc6e45439e92c127b2edbf1
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: DryadMesh
+    100004: ear01_L
+    100006: ear01_R
+    100008: ear02_L
+    100010: ear02_R
+    100012: ear03_L
+    100014: ear03_R
+    100016: horse_feet_L
+    100018: horse_feet_R
+    100020: horse_feetTip_L
+    100022: horse_feetTip_R
+    100024: horse_hand_L
+    100026: horse_hand_R
+    100028: horse_handTip_L
+    100030: horse_handTip_R
+    100032: horse_lowerArm_L
+    100034: horse_lowerArm_R
+    100036: horse_lowerLeg_L
+    100038: horse_lowerLeg_R
+    100040: horse_Tail01
+    100042: horse_Tail02
+    100044: horse_upperArm_L
+    100046: horse_upperArm_R
+    100048: horse_upperLeg_L
+    100050: horse_upperLeg_R
+    100052: horseChest
+    100054: horseSpine
+    100056: man_armor_L
+    100058: man_armor_R
+    100060: man_hand_L
+    100062: man_hand_R
+    100064: man_head
+    100066: man_lowerArm_L
+    100068: man_lowerArm_R
+    100070: man_neck
+    100072: man_shoulder_L
+    100074: man_shoulder_R
+    100076: man_spine
+    100078: man_upperArm_L
+    100080: man_upperArm_R
+    100082: man_wrist_L
+    100084: man_wrist_R
+    100086: Root
+    100088: Spear1
+    400000: //RootNode
+    400002: DryadMesh
+    400004: ear01_L
+    400006: ear01_R
+    400008: ear02_L
+    400010: ear02_R
+    400012: ear03_L
+    400014: ear03_R
+    400016: horse_feet_L
+    400018: horse_feet_R
+    400020: horse_feetTip_L
+    400022: horse_feetTip_R
+    400024: horse_hand_L
+    400026: horse_hand_R
+    400028: horse_handTip_L
+    400030: horse_handTip_R
+    400032: horse_lowerArm_L
+    400034: horse_lowerArm_R
+    400036: horse_lowerLeg_L
+    400038: horse_lowerLeg_R
+    400040: horse_Tail01
+    400042: horse_Tail02
+    400044: horse_upperArm_L
+    400046: horse_upperArm_R
+    400048: horse_upperLeg_L
+    400050: horse_upperLeg_R
+    400052: horseChest
+    400054: horseSpine
+    400056: man_armor_L
+    400058: man_armor_R
+    400060: man_hand_L
+    400062: man_hand_R
+    400064: man_head
+    400066: man_lowerArm_L
+    400068: man_lowerArm_R
+    400070: man_neck
+    400072: man_shoulder_L
+    400074: man_shoulder_R
+    400076: man_spine
+    400078: man_upperArm_L
+    400080: man_upperArm_R
+    400082: man_wrist_L
+    400084: man_wrist_R
+    400086: Root
+    400088: Spear1
+    4300000: DryadMesh
+    7400000: Attack01
+    9500000: //RootNode
+    13700000: DryadMesh
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Attack01
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 1
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: DryadMesh
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/horse_Tail01
+        weight: 1
+      - path: Root/horse_Tail01/horse_Tail02
+        weight: 1
+      - path: Root/horse_upperLeg_L
+        weight: 1
+      - path: Root/horse_upperLeg_L/horse_lowerLeg_L
+        weight: 1
+      - path: Root/horse_upperLeg_L/horse_lowerLeg_L/horse_feet_L
+        weight: 1
+      - path: Root/horse_upperLeg_L/horse_lowerLeg_L/horse_feet_L/horse_feetTip_L
+        weight: 1
+      - path: Root/horse_upperLeg_R
+        weight: 1
+      - path: Root/horse_upperLeg_R/horse_lowerLeg_R
+        weight: 1
+      - path: Root/horse_upperLeg_R/horse_lowerLeg_R/horse_feet_R
+        weight: 1
+      - path: Root/horse_upperLeg_R/horse_lowerLeg_R/horse_feet_R/horse_feetTip_R
+        weight: 1
+      - path: Root/horseSpine
+        weight: 1
+      - path: Root/horseSpine/horseChest
+        weight: 1
+      - path: Root/horseSpine/horseChest/horse_upperArm_L
+        weight: 1
+      - path: Root/horseSpine/horseChest/horse_upperArm_L/horse_lowerArm_L
+        weight: 1
+      - path: Root/horseSpine/horseChest/horse_upperArm_L/horse_lowerArm_L/horse_hand_L
+        weight: 1
+      - path: Root/horseSpine/horseChest/horse_upperArm_L/horse_lowerArm_L/horse_hand_L/horse_handTip_L
+        weight: 1
+      - path: Root/horseSpine/horseChest/horse_upperArm_R
+        weight: 1
+      - path: Root/horseSpine/horseChest/horse_upperArm_R/horse_lowerArm_R
+        weight: 1
+      - path: Root/horseSpine/horseChest/horse_upperArm_R/horse_lowerArm_R/horse_hand_R
+        weight: 1
+      - path: Root/horseSpine/horseChest/horse_upperArm_R/horse_lowerArm_R/horse_hand_R/horse_handTip_R
+        weight: 1
+      - path: Root/horseSpine/horseChest/man_spine
+        weight: 1
+      - path: Root/horseSpine/horseChest/man_spine/man_neck
+        weight: 1
+      - path: Root/horseSpine/horseChest/man_spine/man_neck/man_head
+        weight: 1
+      - path: Root/horseSpine/horseChest/man_spine/man_neck/man_head/ear01_L
+        weight: 1
+      - path: Root/horseSpine/horseChest/man_spine/man_neck/man_head/ear01_L/ear02_L
+        weight: 1
+      - path: Root/horseSpine/horseChest/man_spine/man_neck/man_head/ear01_L/ear02_L/ear03_L
+        weight: 1
+      - path: Root/horseSpine/horseChest/man_spine/man_neck/man_head/ear01_R
+        weight: 1
+      - path: Root/horseSpine/horseChest/man_spine/man_neck/man_head/ear01_R/ear02_R
+        weight: 1
+      - path: Root/horseSpine/horseChest/man_spine/man_neck/man_head/ear01_R/ear02_R/ear03_R
+        weight: 1
+      - path: Root/horseSpine/horseChest/man_spine/man_shoulder_L
+        weight: 1
+      - path: Root/horseSpine/horseChest/man_spine/man_shoulder_L/man_armor_L
+        weight: 1
+      - path: Root/horseSpine/horseChest/man_spine/man_shoulder_L/man_upperArm_L
+        weight: 1
+      - path: Root/horseSpine/horseChest/man_spine/man_shoulder_L/man_upperArm_L/man_lowerArm_L
+        weight: 1
+      - path: Root/horseSpine/horseChest/man_spine/man_shoulder_L/man_upperArm_L/man_lowerArm_L/man_wrist_L
+        weight: 1
+      - path: Root/horseSpine/horseChest/man_spine/man_shoulder_L/man_upperArm_L/man_lowerArm_L/man_wrist_L/man_hand_L
+        weight: 1
+      - path: Root/horseSpine/horseChest/man_spine/man_shoulder_R
+        weight: 1
+      - path: Root/horseSpine/horseChest/man_spine/man_shoulder_R/man_armor_R
+        weight: 1
+      - path: Root/horseSpine/horseChest/man_spine/man_shoulder_R/man_upperArm_R
+        weight: 1
+      - path: Root/horseSpine/horseChest/man_spine/man_shoulder_R/man_upperArm_R/man_lowerArm_R
+        weight: 1
+      - path: Root/horseSpine/horseChest/man_spine/man_shoulder_R/man_upperArm_R/man_lowerArm_R/man_wrist_R
+        weight: 1
+      - path: Root/horseSpine/horseChest/man_spine/man_shoulder_R/man_upperArm_R/man_lowerArm_R/man_wrist_R/man_hand_R
+        weight: 1
+      - path: Root/horseSpine/horseChest/Spear1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

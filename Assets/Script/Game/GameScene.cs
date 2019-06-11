@@ -316,6 +316,10 @@ public class GameScene : MonoBehaviour {
                     MyKcp.Instance.SendMsg(m_ServerName, "CS_PlayerSkill", msg4);
                     break;
                 case 1:
+                    if (skilldata.HurtRange > 0.1)
+                    {
+                        m_MyMainUnit.ShowOutCircle(true, skilldata.HurtRange);
+                    }
                     break;
                 case 2:
                     if (m_TargetUnit == null)
@@ -448,6 +452,7 @@ public class GameScene : MonoBehaviour {
                     msg2.Y = 0;
                     msg2.SkillID = skilldata.TypeID;
                     MyKcp.Instance.SendMsg(m_ServerName, "CS_PlayerSkill", msg2);
+                    m_MyMainUnit.ShowOutCircle(false, 10);
 
                     Debug.Log("CS_PlayerSkill 1111");
                     break;

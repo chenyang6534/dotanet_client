@@ -16,6 +16,15 @@ public class Skillstick : EventDispatcher
     private GObject thumb;
     private GObject touchArea;
     private GObject center;
+    private GObject no;
+    private GObject my;
+    private bool isNo;
+    private bool isMy;
+
+    private bool showmy;
+    public Vector2 nopos = new Vector2(80,-300);
+    public Vector2 mypos = new Vector2(0, -300);
+
     //
     private GObject m_ui;
 
@@ -57,6 +66,11 @@ public class Skillstick : EventDispatcher
         {
             m_ui.scale = new Vector2(1.0f, 1.0f);
             touchArea.asCom.touchable = true;
+        }
+
+        if(m_SkillDatas.CastTargetType == 2 && m_SkillDatas.UnitTargetTeam == 3)
+        {
+            showmy = true;
         }
 
         //耗蓝
@@ -104,6 +118,11 @@ public class Skillstick : EventDispatcher
         touchArea = UI.GetChild("toucharea");
         center = UI.GetChild("centerpic");
         center.visible = false;
+        no = UI.GetChild("no");
+        my = UI.GetChild("my");
+        no.visible = false;
+        my.visible = false;
+        showmy = false;
 
         m_ui = UI;
 
@@ -126,7 +145,7 @@ public class Skillstick : EventDispatcher
     {
 
 
-        GameScene.Singleton.PressSkillBtn(1, pos,m_SkillDatas);
+        GameScene.Singleton.PressSkillBtn(1, pos,m_SkillDatas,false,false);
         Debug.Log("Skill DoTouchDown:" + pos);
     }
     protected void DoTouchMove(Vector2 pos,float len)
@@ -138,9 +157,9 @@ public class Skillstick : EventDispatcher
         Debug.Log("Skill DoTouchMove:" + pos);
         pos.y = -pos.y;
         
-        GameScene.Singleton.PressSkillBtn(2, pos.normalized * (m_SkillDatas.CastRange * len), m_SkillDatas);
+        GameScene.Singleton.PressSkillBtn(2, pos.normalized * (m_SkillDatas.CastRange * len), m_SkillDatas,false,false);
     }
-    protected void DoTouchEnd(Vector2 pos, float len)
+    protected void DoTouchEnd(Vector2 pos, float len,bool isno,bool ismy)
     {
         if (m_SkillDatas.CastTargetType == 5)
         {
@@ -148,7 +167,7 @@ public class Skillstick : EventDispatcher
         }
         Debug.Log("Skill DoTouchEnd:" + pos+"   "+ (pos * (m_SkillDatas.CastRange * len)));
         pos.y = -pos.y;
-        GameScene.Singleton.PressSkillBtn(3, pos.normalized * (m_SkillDatas.CastRange * len), m_SkillDatas);
+        GameScene.Singleton.PressSkillBtn(3, pos.normalized * (m_SkillDatas.CastRange * len), m_SkillDatas,isno,ismy);
     }
 
     //开始触摸
@@ -165,13 +184,24 @@ public class Skillstick : EventDispatcher
                 tweener.Kill();//杀死上一个动画
                 tweener = null;
             }
-
+            isNo = false;
+            isMy = false;
 
             Vector2 localPos = m_ui.GlobalToLocal(inputEvent.position);
 
 
             lastStagePos = localPos;
             startStagePos = localPos;
+
+            no.SetXY(localPos.x + nopos.x, localPos.y + nopos.y);
+            my.SetXY(localPos.x + mypos.x, localPos.y + mypos.y);
+            no.visible = true;
+            if (showmy)
+            {
+                my.visible = true;
+            }
+            //private GObject no;showmy
+            //public Vector2 nopos = new Vector2(120, -200);
 
 
             center.visible = true;
@@ -202,6 +232,37 @@ public class Skillstick : EventDispatcher
             Vector2 localPos = m_ui.GlobalToLocal(inputEvent.position);
 
             var dir = (localPos - startStagePos);
+            //点击到 取消施法
+            if (Vector2.Distance(localPos, no.xy) < 30)
+            {
+                no.scale = new Vector2(1.5f, 1.5f);
+                no.asTextField.color = new Color(1, 0, 0);
+                isNo = true;
+            }
+            else
+            {
+                no.scale = new Vector2(1.0f, 1.0f);
+                no.asTextField.color = new Color(1, 1, 1);
+                isNo = false;
+            }
+            //点击到 施法自己
+            if (showmy)
+            {
+                if (Vector2.Distance(localPos, my.xy) < 30)
+                {
+                    my.scale = new Vector2(1.5f, 1.5f);
+                    my.asTextField.color = new Color(1, 0, 0);
+                    isMy = true;
+                }
+                else
+                {
+                    my.scale = new Vector2(1.0f, 1.0f);
+                    my.asTextField.color = new Color(1, 1, 1);
+                    isMy = false;
+                }
+            }
+            
+
             var len = Vector2.Distance(dir, new Vector2(0, 0));
             if (len > radius)
             {
@@ -237,6 +298,12 @@ public class Skillstick : EventDispatcher
             touchID = -1;
             center.visible = false;
             thumb.visible = false;
+            no.visible = false;
+            my.visible = false;
+            no.scale = new Vector2(1.0f, 1.0f);
+            my.scale = new Vector2(1.0f, 1.0f);
+            no.asTextField.color = new Color(1, 1, 1);
+            my.asTextField.color = new Color(1, 1, 1);
 
             Vector2 localPos = m_ui.GlobalToLocal(inputEvent.position);
 
@@ -248,7 +315,8 @@ public class Skillstick : EventDispatcher
             }
 
             //DoTouchEnd(Vector2.SignedAngle(new Vector2(0, 1), new Vector2(dir.x, -dir.y)));
-            DoTouchEnd(dir, len / radius);
+            //isMy = false;
+            DoTouchEnd(dir, len / radius,isNo,isMy);
 
         }
 

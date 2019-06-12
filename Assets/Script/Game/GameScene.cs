@@ -296,7 +296,7 @@ public class GameScene : MonoBehaviour {
 
 
 
-    public void PressSkillBtn(int touchstate,Vector2 dir,Protomsg.SkillDatas skilldata)
+    public void PressSkillBtn(int touchstate,Vector2 dir,Protomsg.SkillDatas skilldata,bool isno,bool ismy)
     {
         if (m_MyMainUnit == null )
         {
@@ -442,6 +442,36 @@ public class GameScene : MonoBehaviour {
         }
         else if (touchstate == 3)
         {
+            if(isno == true)
+            {
+                if(m_TargetUnit != null)
+                {
+                    m_TargetUnit.TargetShow(false);
+                }
+                m_MyMainUnit.ShowOutCircle(false, 10);
+                m_MyMainUnit.ShowSkillAreaLookAt(false, Vector2.zero);
+                m_MyMainUnit.ShowInCircle(false, 1, new Vector3(0, 0, 0));
+                return;
+            }
+            if(ismy == true)
+            {
+                Protomsg.CS_PlayerSkill msgmy = new Protomsg.CS_PlayerSkill();
+                msgmy.ID = m_MyMainUnit.ID;
+                msgmy.TargetUnitID = m_MyMainUnit.ID;
+                msgmy.X = 0;
+                msgmy.Y = 0;
+                msgmy.SkillID = skilldata.TypeID;
+                MyKcp.Instance.SendMsg(m_ServerName, "CS_PlayerSkill", msgmy);
+
+                if (m_TargetUnit != null)
+                {
+                    m_TargetUnit.TargetShow(false);
+                }
+                m_MyMainUnit.ShowOutCircle(false, 10);
+                m_MyMainUnit.ShowSkillAreaLookAt(false, Vector2.zero);
+                m_MyMainUnit.ShowInCircle(false, 1, new Vector3(0, 0, 0));
+                return;
+            }
             switch (skilldata.CastTargetType)
             {
                 case 1:

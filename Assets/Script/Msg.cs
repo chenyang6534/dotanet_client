@@ -46,7 +46,7 @@ namespace Protomsg {
             "dFJhbmdlGAsgASgCEhAKCENvb2xkb3duGAwgASgCEhEKCUh1cnRSYW5nZRgN",
             "IAEoAhIQCghNYW5hQ29zdBgOIAEoBRIYChBBdHRhY2tBdXRvQWN0aXZlGA8g",
             "ASgFIk0KCUJ1ZmZEYXRhcxIOCgZUeXBlSUQYASABKAUSEgoKUmVtYWluVGlt",
-            "ZRgCIAEoAhIMCgRUaW1lGAMgASgCEg4KBlRhZ051bRgEIAEoBSK6BAoJVW5p",
+            "ZRgCIAEoAhIMCgRUaW1lGAMgASgCEg4KBlRhZ051bRgEIAEoBSLFBAoJVW5p",
             "dERhdGFzEgwKBE5hbWUYASABKAkSDQoFTGV2ZWwYAiABKAUSCgoCSFAYAyAB",
             "KAUSCgoCTVAYBCABKAUSCQoBWBgFIAEoAhIJCgFZGAYgASgCEgoKAklEGAcg",
             "ASgFEhAKCE1vZGVUeXBlGAggASgJEg0KBU1heEhQGAkgASgFEg0KBU1heE1Q",
@@ -58,36 +58,36 @@ namespace Protomsg {
             "aW4YFSABKAUSDwoHSXNEZWF0aBgWIAEoBRIRCglJbnZpc2libGUYFyABKAUS",
             "DAoEQ2FtcBgYIAEoBRIOCgZJc01pc3MYGSABKAgSFQoNQW5pbW90b3JQYXVz",
             "ZRgaIAEoBRITCgtTa2lsbEVuYWJsZRgbIAEoBRISCgpJdGVtRW5hYmxlGBwg",
-            "ASgFEiAKAlNEGB0gAygLMhQucHJvdG9tc2cuU2tpbGxEYXRhcxIfCgJCRBge",
-            "IAMoCzITLnByb3RvbXNnLkJ1ZmZEYXRhcyK1AQoLQnVsbGV0RGF0YXMSCgoC",
-            "SUQYASABKAUSEAoITW9kZVR5cGUYAiABKAkSCQoBWBgDIAEoAhIJCgFZGAQg",
-            "ASgCEgkKAVoYBSABKAISDQoFU3RhdGUYBiABKAUSDgoGU3RhcnRYGAcgASgC",
-            "Eg4KBlN0YXJ0WRgIIAEoAhIOCgZTdGFydFoYCSABKAISDAoERW5kWBgKIAEo",
-            "AhIMCgRFbmRZGAsgASgCEgwKBEVuZFoYDCABKAIiSgoJSGFsb0RhdGFzEgoK",
-            "AklEGAEgASgFEhAKCE1vZGVUeXBlGAIgASgJEgkKAVgYAyABKAISCQoBWRgE",
-            "IAEoAhIJCgFaGAUgASgCIoQBChFNc2dVc2VyRW50ZXJTY2VuZRILCgNVaWQY",
-            "ASABKAUSEQoJQ29ubmVjdElkGAIgASgFEhUKDVNyY1NlcnZlck5hbWUYAyAB",
-            "KAkSFgoORGVzdFNlcnZlck5hbWUYBCABKAkSEQoJU2NlbmVOYW1lGAUgASgJ",
-            "Eg0KBURhdGFzGAYgASgMImEKDU1zZ1BsYXllckh1cnQSEgoKSHVydFVuaXRJ",
-            "RBgBIAEoBRIUCgxIdXJ0QWxsVmFsdWUYAiABKAUSFgoOSHVydE1hZ2ljVmFs",
-            "dWUYAyABKAUSDgoGSXNDcml0GAQgASgFIv0CCglTQ19VcGRhdGUSEAoIQ3Vy",
-            "RnJhbWUYASABKAUSJQoITmV3VW5pdHMYAiADKAsyEy5wcm90b21zZy5Vbml0",
-            "RGF0YXMSJQoIT2xkVW5pdHMYAyADKAsyEy5wcm90b21zZy5Vbml0RGF0YXMS",
-            "EwoLUmVtb3ZlVW5pdHMYBCADKAUSKQoKTmV3QnVsbGV0cxgFIAMoCzIVLnBy",
-            "b3RvbXNnLkJ1bGxldERhdGFzEikKCk9sZEJ1bGxldHMYBiADKAsyFS5wcm90",
-            "b21zZy5CdWxsZXREYXRhcxIVCg1SZW1vdmVCdWxsZXRzGAcgAygFEiUKCE5l",
-            "d0hhbG9zGAggAygLMhMucHJvdG9tc2cuSGFsb0RhdGFzEiUKCE9sZEhhbG9z",
-            "GAkgAygLMhMucHJvdG9tc2cuSGFsb0RhdGFzEhMKC1JlbW92ZUhhbG9zGAog",
-            "AygFEisKClBsYXllckh1cnQYCyADKAsyFy5wcm90b21zZy5Nc2dQbGF5ZXJI",
-            "dXJ0IlMKC1NDX05ld1NjZW5lEgwKBE5hbWUYASABKAkSEAoITG9naWNGcHMY",
-            "AiABKAUSEAoIQ3VyRnJhbWUYAyABKAUSEgoKU2VydmVyTmFtZRgEIAEoCSJW",
-            "ChJDaGFyYWN0ZXJCYXNlRGF0YXMSEwoLQ2hhcmFjdGVyaWQYASABKAUSDAoE",
-            "TmFtZRgCIAEoCRIOCgZUeXBlaWQYAyABKAUSDQoFTGV2ZWwYBCABKAUiaAoK",
-            "U0NfTG9naW5lZBIMCgRDb2RlGAEgASgFEgsKA1VpZBgCIAEoBRINCgVFcnJv",
-            "chgDIAEoCRIwCgpDaGFyYWN0ZXJzGAQgAygLMhwucHJvdG9tc2cuQ2hhcmFj",
-            "dGVyQmFzZURhdGFzIkwKGFNDX1NlbGVjdENoYXJhY3RlclJlc3VsdBIMCgRD",
-            "b2RlGAEgASgFEhMKC0NoYXJhY3RlcmlkGAIgASgFEg0KBUVycm9yGAMgASgJ",
-            "YgZwcm90bzM="));
+            "ASgFEgkKAVoYHSABKAISIAoCU0QYHiADKAsyFC5wcm90b21zZy5Ta2lsbERh",
+            "dGFzEh8KAkJEGB8gAygLMhMucHJvdG9tc2cuQnVmZkRhdGFzIrUBCgtCdWxs",
+            "ZXREYXRhcxIKCgJJRBgBIAEoBRIQCghNb2RlVHlwZRgCIAEoCRIJCgFYGAMg",
+            "ASgCEgkKAVkYBCABKAISCQoBWhgFIAEoAhINCgVTdGF0ZRgGIAEoBRIOCgZT",
+            "dGFydFgYByABKAISDgoGU3RhcnRZGAggASgCEg4KBlN0YXJ0WhgJIAEoAhIM",
+            "CgRFbmRYGAogASgCEgwKBEVuZFkYCyABKAISDAoERW5kWhgMIAEoAiJKCglI",
+            "YWxvRGF0YXMSCgoCSUQYASABKAUSEAoITW9kZVR5cGUYAiABKAkSCQoBWBgD",
+            "IAEoAhIJCgFZGAQgASgCEgkKAVoYBSABKAIihAEKEU1zZ1VzZXJFbnRlclNj",
+            "ZW5lEgsKA1VpZBgBIAEoBRIRCglDb25uZWN0SWQYAiABKAUSFQoNU3JjU2Vy",
+            "dmVyTmFtZRgDIAEoCRIWCg5EZXN0U2VydmVyTmFtZRgEIAEoCRIRCglTY2Vu",
+            "ZU5hbWUYBSABKAkSDQoFRGF0YXMYBiABKAwiYQoNTXNnUGxheWVySHVydBIS",
+            "CgpIdXJ0VW5pdElEGAEgASgFEhQKDEh1cnRBbGxWYWx1ZRgCIAEoBRIWCg5I",
+            "dXJ0TWFnaWNWYWx1ZRgDIAEoBRIOCgZJc0NyaXQYBCABKAUi/QIKCVNDX1Vw",
+            "ZGF0ZRIQCghDdXJGcmFtZRgBIAEoBRIlCghOZXdVbml0cxgCIAMoCzITLnBy",
+            "b3RvbXNnLlVuaXREYXRhcxIlCghPbGRVbml0cxgDIAMoCzITLnByb3RvbXNn",
+            "LlVuaXREYXRhcxITCgtSZW1vdmVVbml0cxgEIAMoBRIpCgpOZXdCdWxsZXRz",
+            "GAUgAygLMhUucHJvdG9tc2cuQnVsbGV0RGF0YXMSKQoKT2xkQnVsbGV0cxgG",
+            "IAMoCzIVLnByb3RvbXNnLkJ1bGxldERhdGFzEhUKDVJlbW92ZUJ1bGxldHMY",
+            "ByADKAUSJQoITmV3SGFsb3MYCCADKAsyEy5wcm90b21zZy5IYWxvRGF0YXMS",
+            "JQoIT2xkSGFsb3MYCSADKAsyEy5wcm90b21zZy5IYWxvRGF0YXMSEwoLUmVt",
+            "b3ZlSGFsb3MYCiADKAUSKwoKUGxheWVySHVydBgLIAMoCzIXLnByb3RvbXNn",
+            "Lk1zZ1BsYXllckh1cnQiUwoLU0NfTmV3U2NlbmUSDAoETmFtZRgBIAEoCRIQ",
+            "CghMb2dpY0ZwcxgCIAEoBRIQCghDdXJGcmFtZRgDIAEoBRISCgpTZXJ2ZXJO",
+            "YW1lGAQgASgJIlYKEkNoYXJhY3RlckJhc2VEYXRhcxITCgtDaGFyYWN0ZXJp",
+            "ZBgBIAEoBRIMCgROYW1lGAIgASgJEg4KBlR5cGVpZBgDIAEoBRINCgVMZXZl",
+            "bBgEIAEoBSJoCgpTQ19Mb2dpbmVkEgwKBENvZGUYASABKAUSCwoDVWlkGAIg",
+            "ASgFEg0KBUVycm9yGAMgASgJEjAKCkNoYXJhY3RlcnMYBCADKAsyHC5wcm90",
+            "b21zZy5DaGFyYWN0ZXJCYXNlRGF0YXMiTAoYU0NfU2VsZWN0Q2hhcmFjdGVy",
+            "UmVzdWx0EgwKBENvZGUYASABKAUSEwoLQ2hhcmFjdGVyaWQYAiABKAUSDQoF",
+            "RXJyb3IYAyABKAliBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -101,7 +101,7 @@ namespace Protomsg {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_PlayerSkill), global::Protomsg.CS_PlayerSkill.Parser, new[]{ "ID", "SkillID", "X", "Y", "TargetUnitID" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SkillDatas), global::Protomsg.SkillDatas.Parser, new[]{ "TypeID", "Level", "RemainCDTime", "CanUpgrade", "Index", "CastType", "CastTargetType", "UnitTargetTeam", "UnitTargetCamp", "NoCareMagicImmune", "CastRange", "Cooldown", "HurtRange", "ManaCost", "AttackAutoActive" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.BuffDatas), global::Protomsg.BuffDatas.Parser, new[]{ "TypeID", "RemainTime", "Time", "TagNum" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.UnitDatas), global::Protomsg.UnitDatas.Parser, new[]{ "Name", "Level", "HP", "MP", "X", "Y", "ID", "ModeType", "MaxHP", "MaxMP", "Experience", "MaxExperience", "ControlID", "AnimotorState", "AttackTime", "DirectionX", "DirectionY", "UnitType", "AttackAcpabilities", "AttackMode", "IsMain", "IsDeath", "Invisible", "Camp", "IsMiss", "AnimotorPause", "SkillEnable", "ItemEnable", "SD", "BD" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.UnitDatas), global::Protomsg.UnitDatas.Parser, new[]{ "Name", "Level", "HP", "MP", "X", "Y", "ID", "ModeType", "MaxHP", "MaxMP", "Experience", "MaxExperience", "ControlID", "AnimotorState", "AttackTime", "DirectionX", "DirectionY", "UnitType", "AttackAcpabilities", "AttackMode", "IsMain", "IsDeath", "Invisible", "Camp", "IsMiss", "AnimotorPause", "SkillEnable", "ItemEnable", "Z", "SD", "BD" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.BulletDatas), global::Protomsg.BulletDatas.Parser, new[]{ "ID", "ModeType", "X", "Y", "Z", "State", "StartX", "StartY", "StartZ", "EndX", "EndY", "EndZ" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.HaloDatas), global::Protomsg.HaloDatas.Parser, new[]{ "ID", "ModeType", "X", "Y", "Z" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.MsgUserEnterScene), global::Protomsg.MsgUserEnterScene.Parser, new[]{ "Uid", "ConnectId", "SrcServerName", "DestServerName", "SceneName", "Datas" }, null, null, null),
@@ -2543,6 +2543,7 @@ namespace Protomsg {
       animotorPause_ = other.animotorPause_;
       skillEnable_ = other.skillEnable_;
       itemEnable_ = other.itemEnable_;
+      z_ = other.z_;
       sD_ = other.sD_.Clone();
       bD_ = other.bD_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -2912,10 +2913,24 @@ namespace Protomsg {
       }
     }
 
+    /// <summary>Field number for the "Z" field.</summary>
+    public const int ZFieldNumber = 29;
+    private float z_;
+    /// <summary>
+    ///z坐标
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float Z {
+      get { return z_; }
+      set {
+        z_ = value;
+      }
+    }
+
     /// <summary>Field number for the "SD" field.</summary>
-    public const int SDFieldNumber = 29;
+    public const int SDFieldNumber = 30;
     private static readonly pb::FieldCodec<global::Protomsg.SkillDatas> _repeated_sD_codec
-        = pb::FieldCodec.ForMessage(234, global::Protomsg.SkillDatas.Parser);
+        = pb::FieldCodec.ForMessage(242, global::Protomsg.SkillDatas.Parser);
     private readonly pbc::RepeatedField<global::Protomsg.SkillDatas> sD_ = new pbc::RepeatedField<global::Protomsg.SkillDatas>();
     /// <summary>
     ///技能数据
@@ -2926,9 +2941,9 @@ namespace Protomsg {
     }
 
     /// <summary>Field number for the "BD" field.</summary>
-    public const int BDFieldNumber = 30;
+    public const int BDFieldNumber = 31;
     private static readonly pb::FieldCodec<global::Protomsg.BuffDatas> _repeated_bD_codec
-        = pb::FieldCodec.ForMessage(242, global::Protomsg.BuffDatas.Parser);
+        = pb::FieldCodec.ForMessage(250, global::Protomsg.BuffDatas.Parser);
     private readonly pbc::RepeatedField<global::Protomsg.BuffDatas> bD_ = new pbc::RepeatedField<global::Protomsg.BuffDatas>();
     /// <summary>
     ///buff数据
@@ -2979,6 +2994,7 @@ namespace Protomsg {
       if (AnimotorPause != other.AnimotorPause) return false;
       if (SkillEnable != other.SkillEnable) return false;
       if (ItemEnable != other.ItemEnable) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Z, other.Z)) return false;
       if(!sD_.Equals(other.sD_)) return false;
       if(!bD_.Equals(other.bD_)) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -3015,6 +3031,7 @@ namespace Protomsg {
       if (AnimotorPause != 0) hash ^= AnimotorPause.GetHashCode();
       if (SkillEnable != 0) hash ^= SkillEnable.GetHashCode();
       if (ItemEnable != 0) hash ^= ItemEnable.GetHashCode();
+      if (Z != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Z);
       hash ^= sD_.GetHashCode();
       hash ^= bD_.GetHashCode();
       if (_unknownFields != null) {
@@ -3142,6 +3159,10 @@ namespace Protomsg {
         output.WriteRawTag(224, 1);
         output.WriteInt32(ItemEnable);
       }
+      if (Z != 0F) {
+        output.WriteRawTag(237, 1);
+        output.WriteFloat(Z);
+      }
       sD_.WriteTo(output, _repeated_sD_codec);
       bD_.WriteTo(output, _repeated_bD_codec);
       if (_unknownFields != null) {
@@ -3235,6 +3256,9 @@ namespace Protomsg {
       }
       if (ItemEnable != 0) {
         size += 2 + pb::CodedOutputStream.ComputeInt32Size(ItemEnable);
+      }
+      if (Z != 0F) {
+        size += 2 + 4;
       }
       size += sD_.CalculateSize(_repeated_sD_codec);
       size += bD_.CalculateSize(_repeated_bD_codec);
@@ -3332,6 +3356,9 @@ namespace Protomsg {
       }
       if (other.ItemEnable != 0) {
         ItemEnable = other.ItemEnable;
+      }
+      if (other.Z != 0F) {
+        Z = other.Z;
       }
       sD_.Add(other.sD_);
       bD_.Add(other.bD_);
@@ -3458,11 +3485,15 @@ namespace Protomsg {
             ItemEnable = input.ReadInt32();
             break;
           }
-          case 234: {
-            sD_.AddEntriesFrom(input, _repeated_sD_codec);
+          case 237: {
+            Z = input.ReadFloat();
             break;
           }
           case 242: {
+            sD_.AddEntriesFrom(input, _repeated_sD_codec);
+            break;
+          }
+          case 250: {
             bD_.AddEntriesFrom(input, _repeated_bD_codec);
             break;
           }

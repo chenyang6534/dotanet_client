@@ -38,6 +38,7 @@ public class UnityEntity {
         
         X = data.X;
         Y = data.Y;
+        Z = data.Z;
         DirectionX = data.DirectionX;
         DirectionY = data.DirectionY;
 
@@ -60,7 +61,7 @@ public class UnityEntity {
         }
         FreshBuff(data.BD);
        
-        m_Mode.transform.position = new Vector3(data.X, 0, data.Y);
+        m_Mode.transform.position = new Vector3(data.X, data.Z, data.Y);
         
         AnimotorState = data.AnimotorState;
         AnimotorPause = data.AnimotorPause;
@@ -237,8 +238,9 @@ public class UnityEntity {
             //Vector3 add = new Vector3(data.X, 0, data.Y);
             X += data.X;
             Y += data.Y;
+            Z += data.Z;
             //更新位置
-            m_Mode.transform.position = new Vector3(X,0,Y);
+            m_Mode.transform.position = new Vector3(X,Z,Y);
 
             AttackTime += data.AttackTime;
             AnimotorState += data.AnimotorState;
@@ -446,7 +448,7 @@ public class UnityEntity {
     {
         if (m_Mode != null)
         {
-            m_Mode.transform.position = new Vector3(X+(scale*nextx), 0, Y + (scale * nexty));
+            m_Mode.transform.position = new Vector3(X+(scale*nextx), Z, Y + (scale * nexty));
         }
     }
 
@@ -1053,6 +1055,19 @@ public class UnityEntity {
             m_Y = value;
         }
     }
+    protected float m_Z;
+    public float Z
+    {
+        get
+        {
+            return m_Z;
+        }
+        set
+        {
+            m_Z = value;
+        }
+    }
+
     // x
     protected float m_DirectionX;
     public float DirectionX

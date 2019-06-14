@@ -67,7 +67,7 @@ public class Skillstick : EventDispatcher
             m_ui.scale = new Vector2(1.0f, 1.0f);
             touchArea.asCom.touchable = true;
         }
-
+        //对目标施法 且能对所有单位包括自己施法
         if(m_SkillDatas.CastTargetType == 2 && m_SkillDatas.UnitTargetTeam == 3)
         {
             showmy = true;

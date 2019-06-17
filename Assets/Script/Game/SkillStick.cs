@@ -55,6 +55,15 @@ public class Skillstick : EventDispatcher
     //刷新数据
     protected void FreshData()
     {
+        //显示
+        if(m_SkillDatas.Visible == 1)
+        {
+            m_ui.visible = true;
+        }
+        else
+        {
+            m_ui.visible = false;
+        }
 
         //被动技能缩小图标
         if (m_SkillDatas.CastType != 1)

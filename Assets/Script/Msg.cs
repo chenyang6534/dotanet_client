@@ -37,7 +37,7 @@ namespace Protomsg {
             "AiABKAISCQoBWRgDIAEoAhIPCgdJc1N0YXJ0GAQgASgIIjQKD0NTX1BsYXll",
             "ckF0dGFjaxILCgNJRHMYASADKAUSFAoMVGFyZ2V0VW5pdElEGAIgASgFIlkK",
             "DkNTX1BsYXllclNraWxsEgoKAklEGAEgASgFEg8KB1NraWxsSUQYAiABKAUS",
-            "CQoBWBgDIAEoAhIJCgFZGAQgASgCEhQKDFRhcmdldFVuaXRJRBgFIAEoBSK9",
+            "CQoBWBgDIAEoAhIJCgFZGAQgASgCEhQKDFRhcmdldFVuaXRJRBgFIAEoBSLO",
             "AgoKU2tpbGxEYXRhcxIOCgZUeXBlSUQYASABKAUSDQoFTGV2ZWwYAiABKAUS",
             "FAoMUmVtYWluQ0RUaW1lGAMgASgCEhIKCkNhblVwZ3JhZGUYBCABKAUSDQoF",
             "SW5kZXgYBSABKAUSEAoIQ2FzdFR5cGUYBiABKAUSFgoOQ2FzdFRhcmdldFR5",
@@ -45,49 +45,49 @@ namespace Protomsg {
             "dENhbXAYCSABKAUSGQoRTm9DYXJlTWFnaWNJbW11bmUYCiABKAUSEQoJQ2Fz",
             "dFJhbmdlGAsgASgCEhAKCENvb2xkb3duGAwgASgCEhEKCUh1cnRSYW5nZRgN",
             "IAEoAhIQCghNYW5hQ29zdBgOIAEoBRIYChBBdHRhY2tBdXRvQWN0aXZlGA8g",
-            "ASgFIk0KCUJ1ZmZEYXRhcxIOCgZUeXBlSUQYASABKAUSEgoKUmVtYWluVGlt",
-            "ZRgCIAEoAhIMCgRUaW1lGAMgASgCEg4KBlRhZ051bRgEIAEoBSLFBAoJVW5p",
-            "dERhdGFzEgwKBE5hbWUYASABKAkSDQoFTGV2ZWwYAiABKAUSCgoCSFAYAyAB",
-            "KAUSCgoCTVAYBCABKAUSCQoBWBgFIAEoAhIJCgFZGAYgASgCEgoKAklEGAcg",
-            "ASgFEhAKCE1vZGVUeXBlGAggASgJEg0KBU1heEhQGAkgASgFEg0KBU1heE1Q",
-            "GAogASgFEhIKCkV4cGVyaWVuY2UYCyABKAUSFQoNTWF4RXhwZXJpZW5jZRgM",
-            "IAEoBRIRCglDb250cm9sSUQYDSABKAUSFQoNQW5pbW90b3JTdGF0ZRgOIAEo",
-            "BRISCgpBdHRhY2tUaW1lGA8gASgCEhIKCkRpcmVjdGlvblgYECABKAISEgoK",
-            "RGlyZWN0aW9uWRgRIAEoAhIQCghVbml0VHlwZRgSIAEoBRIaChJBdHRhY2tB",
-            "Y3BhYmlsaXRpZXMYEyABKAUSEgoKQXR0YWNrTW9kZRgUIAEoBRIOCgZJc01h",
-            "aW4YFSABKAUSDwoHSXNEZWF0aBgWIAEoBRIRCglJbnZpc2libGUYFyABKAUS",
-            "DAoEQ2FtcBgYIAEoBRIOCgZJc01pc3MYGSABKAgSFQoNQW5pbW90b3JQYXVz",
-            "ZRgaIAEoBRITCgtTa2lsbEVuYWJsZRgbIAEoBRISCgpJdGVtRW5hYmxlGBwg",
-            "ASgFEgkKAVoYHSABKAISIAoCU0QYHiADKAsyFC5wcm90b21zZy5Ta2lsbERh",
-            "dGFzEh8KAkJEGB8gAygLMhMucHJvdG9tc2cuQnVmZkRhdGFzIrUBCgtCdWxs",
-            "ZXREYXRhcxIKCgJJRBgBIAEoBRIQCghNb2RlVHlwZRgCIAEoCRIJCgFYGAMg",
-            "ASgCEgkKAVkYBCABKAISCQoBWhgFIAEoAhINCgVTdGF0ZRgGIAEoBRIOCgZT",
-            "dGFydFgYByABKAISDgoGU3RhcnRZGAggASgCEg4KBlN0YXJ0WhgJIAEoAhIM",
-            "CgRFbmRYGAogASgCEgwKBEVuZFkYCyABKAISDAoERW5kWhgMIAEoAiJKCglI",
-            "YWxvRGF0YXMSCgoCSUQYASABKAUSEAoITW9kZVR5cGUYAiABKAkSCQoBWBgD",
-            "IAEoAhIJCgFZGAQgASgCEgkKAVoYBSABKAIihAEKEU1zZ1VzZXJFbnRlclNj",
-            "ZW5lEgsKA1VpZBgBIAEoBRIRCglDb25uZWN0SWQYAiABKAUSFQoNU3JjU2Vy",
-            "dmVyTmFtZRgDIAEoCRIWCg5EZXN0U2VydmVyTmFtZRgEIAEoCRIRCglTY2Vu",
-            "ZU5hbWUYBSABKAkSDQoFRGF0YXMYBiABKAwiYQoNTXNnUGxheWVySHVydBIS",
-            "CgpIdXJ0VW5pdElEGAEgASgFEhQKDEh1cnRBbGxWYWx1ZRgCIAEoBRIWCg5I",
-            "dXJ0TWFnaWNWYWx1ZRgDIAEoBRIOCgZJc0NyaXQYBCABKAUi/QIKCVNDX1Vw",
-            "ZGF0ZRIQCghDdXJGcmFtZRgBIAEoBRIlCghOZXdVbml0cxgCIAMoCzITLnBy",
-            "b3RvbXNnLlVuaXREYXRhcxIlCghPbGRVbml0cxgDIAMoCzITLnByb3RvbXNn",
-            "LlVuaXREYXRhcxITCgtSZW1vdmVVbml0cxgEIAMoBRIpCgpOZXdCdWxsZXRz",
-            "GAUgAygLMhUucHJvdG9tc2cuQnVsbGV0RGF0YXMSKQoKT2xkQnVsbGV0cxgG",
-            "IAMoCzIVLnByb3RvbXNnLkJ1bGxldERhdGFzEhUKDVJlbW92ZUJ1bGxldHMY",
-            "ByADKAUSJQoITmV3SGFsb3MYCCADKAsyEy5wcm90b21zZy5IYWxvRGF0YXMS",
-            "JQoIT2xkSGFsb3MYCSADKAsyEy5wcm90b21zZy5IYWxvRGF0YXMSEwoLUmVt",
-            "b3ZlSGFsb3MYCiADKAUSKwoKUGxheWVySHVydBgLIAMoCzIXLnByb3RvbXNn",
-            "Lk1zZ1BsYXllckh1cnQiUwoLU0NfTmV3U2NlbmUSDAoETmFtZRgBIAEoCRIQ",
-            "CghMb2dpY0ZwcxgCIAEoBRIQCghDdXJGcmFtZRgDIAEoBRISCgpTZXJ2ZXJO",
-            "YW1lGAQgASgJIlYKEkNoYXJhY3RlckJhc2VEYXRhcxITCgtDaGFyYWN0ZXJp",
-            "ZBgBIAEoBRIMCgROYW1lGAIgASgJEg4KBlR5cGVpZBgDIAEoBRINCgVMZXZl",
-            "bBgEIAEoBSJoCgpTQ19Mb2dpbmVkEgwKBENvZGUYASABKAUSCwoDVWlkGAIg",
-            "ASgFEg0KBUVycm9yGAMgASgJEjAKCkNoYXJhY3RlcnMYBCADKAsyHC5wcm90",
-            "b21zZy5DaGFyYWN0ZXJCYXNlRGF0YXMiTAoYU0NfU2VsZWN0Q2hhcmFjdGVy",
-            "UmVzdWx0EgwKBENvZGUYASABKAUSEwoLQ2hhcmFjdGVyaWQYAiABKAUSDQoF",
-            "RXJyb3IYAyABKAliBnByb3RvMw=="));
+            "ASgFEg8KB1Zpc2libGUYECABKAUiTQoJQnVmZkRhdGFzEg4KBlR5cGVJRBgB",
+            "IAEoBRISCgpSZW1haW5UaW1lGAIgASgCEgwKBFRpbWUYAyABKAISDgoGVGFn",
+            "TnVtGAQgASgFIsUECglVbml0RGF0YXMSDAoETmFtZRgBIAEoCRINCgVMZXZl",
+            "bBgCIAEoBRIKCgJIUBgDIAEoBRIKCgJNUBgEIAEoBRIJCgFYGAUgASgCEgkK",
+            "AVkYBiABKAISCgoCSUQYByABKAUSEAoITW9kZVR5cGUYCCABKAkSDQoFTWF4",
+            "SFAYCSABKAUSDQoFTWF4TVAYCiABKAUSEgoKRXhwZXJpZW5jZRgLIAEoBRIV",
+            "Cg1NYXhFeHBlcmllbmNlGAwgASgFEhEKCUNvbnRyb2xJRBgNIAEoBRIVCg1B",
+            "bmltb3RvclN0YXRlGA4gASgFEhIKCkF0dGFja1RpbWUYDyABKAISEgoKRGly",
+            "ZWN0aW9uWBgQIAEoAhISCgpEaXJlY3Rpb25ZGBEgASgCEhAKCFVuaXRUeXBl",
+            "GBIgASgFEhoKEkF0dGFja0FjcGFiaWxpdGllcxgTIAEoBRISCgpBdHRhY2tN",
+            "b2RlGBQgASgFEg4KBklzTWFpbhgVIAEoBRIPCgdJc0RlYXRoGBYgASgFEhEK",
+            "CUludmlzaWJsZRgXIAEoBRIMCgRDYW1wGBggASgFEg4KBklzTWlzcxgZIAEo",
+            "CBIVCg1Bbmltb3RvclBhdXNlGBogASgFEhMKC1NraWxsRW5hYmxlGBsgASgF",
+            "EhIKCkl0ZW1FbmFibGUYHCABKAUSCQoBWhgdIAEoAhIgCgJTRBgeIAMoCzIU",
+            "LnByb3RvbXNnLlNraWxsRGF0YXMSHwoCQkQYHyADKAsyEy5wcm90b21zZy5C",
+            "dWZmRGF0YXMitQEKC0J1bGxldERhdGFzEgoKAklEGAEgASgFEhAKCE1vZGVU",
+            "eXBlGAIgASgJEgkKAVgYAyABKAISCQoBWRgEIAEoAhIJCgFaGAUgASgCEg0K",
+            "BVN0YXRlGAYgASgFEg4KBlN0YXJ0WBgHIAEoAhIOCgZTdGFydFkYCCABKAIS",
+            "DgoGU3RhcnRaGAkgASgCEgwKBEVuZFgYCiABKAISDAoERW5kWRgLIAEoAhIM",
+            "CgRFbmRaGAwgASgCIkoKCUhhbG9EYXRhcxIKCgJJRBgBIAEoBRIQCghNb2Rl",
+            "VHlwZRgCIAEoCRIJCgFYGAMgASgCEgkKAVkYBCABKAISCQoBWhgFIAEoAiKE",
+            "AQoRTXNnVXNlckVudGVyU2NlbmUSCwoDVWlkGAEgASgFEhEKCUNvbm5lY3RJ",
+            "ZBgCIAEoBRIVCg1TcmNTZXJ2ZXJOYW1lGAMgASgJEhYKDkRlc3RTZXJ2ZXJO",
+            "YW1lGAQgASgJEhEKCVNjZW5lTmFtZRgFIAEoCRINCgVEYXRhcxgGIAEoDCJh",
+            "Cg1Nc2dQbGF5ZXJIdXJ0EhIKCkh1cnRVbml0SUQYASABKAUSFAoMSHVydEFs",
+            "bFZhbHVlGAIgASgFEhYKDkh1cnRNYWdpY1ZhbHVlGAMgASgFEg4KBklzQ3Jp",
+            "dBgEIAEoBSL9AgoJU0NfVXBkYXRlEhAKCEN1ckZyYW1lGAEgASgFEiUKCE5l",
+            "d1VuaXRzGAIgAygLMhMucHJvdG9tc2cuVW5pdERhdGFzEiUKCE9sZFVuaXRz",
+            "GAMgAygLMhMucHJvdG9tc2cuVW5pdERhdGFzEhMKC1JlbW92ZVVuaXRzGAQg",
+            "AygFEikKCk5ld0J1bGxldHMYBSADKAsyFS5wcm90b21zZy5CdWxsZXREYXRh",
+            "cxIpCgpPbGRCdWxsZXRzGAYgAygLMhUucHJvdG9tc2cuQnVsbGV0RGF0YXMS",
+            "FQoNUmVtb3ZlQnVsbGV0cxgHIAMoBRIlCghOZXdIYWxvcxgIIAMoCzITLnBy",
+            "b3RvbXNnLkhhbG9EYXRhcxIlCghPbGRIYWxvcxgJIAMoCzITLnByb3RvbXNn",
+            "LkhhbG9EYXRhcxITCgtSZW1vdmVIYWxvcxgKIAMoBRIrCgpQbGF5ZXJIdXJ0",
+            "GAsgAygLMhcucHJvdG9tc2cuTXNnUGxheWVySHVydCJTCgtTQ19OZXdTY2Vu",
+            "ZRIMCgROYW1lGAEgASgJEhAKCExvZ2ljRnBzGAIgASgFEhAKCEN1ckZyYW1l",
+            "GAMgASgFEhIKClNlcnZlck5hbWUYBCABKAkiVgoSQ2hhcmFjdGVyQmFzZURh",
+            "dGFzEhMKC0NoYXJhY3RlcmlkGAEgASgFEgwKBE5hbWUYAiABKAkSDgoGVHlw",
+            "ZWlkGAMgASgFEg0KBUxldmVsGAQgASgFImgKClNDX0xvZ2luZWQSDAoEQ29k",
+            "ZRgBIAEoBRILCgNVaWQYAiABKAUSDQoFRXJyb3IYAyABKAkSMAoKQ2hhcmFj",
+            "dGVycxgEIAMoCzIcLnByb3RvbXNnLkNoYXJhY3RlckJhc2VEYXRhcyJMChhT",
+            "Q19TZWxlY3RDaGFyYWN0ZXJSZXN1bHQSDAoEQ29kZRgBIAEoBRITCgtDaGFy",
+            "YWN0ZXJpZBgCIAEoBRINCgVFcnJvchgDIAEoCWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -99,7 +99,7 @@ namespace Protomsg {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_PlayerMove), global::Protomsg.CS_PlayerMove.Parser, new[]{ "IDs", "X", "Y", "IsStart" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_PlayerAttack), global::Protomsg.CS_PlayerAttack.Parser, new[]{ "IDs", "TargetUnitID" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_PlayerSkill), global::Protomsg.CS_PlayerSkill.Parser, new[]{ "ID", "SkillID", "X", "Y", "TargetUnitID" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SkillDatas), global::Protomsg.SkillDatas.Parser, new[]{ "TypeID", "Level", "RemainCDTime", "CanUpgrade", "Index", "CastType", "CastTargetType", "UnitTargetTeam", "UnitTargetCamp", "NoCareMagicImmune", "CastRange", "Cooldown", "HurtRange", "ManaCost", "AttackAutoActive" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SkillDatas), global::Protomsg.SkillDatas.Parser, new[]{ "TypeID", "Level", "RemainCDTime", "CanUpgrade", "Index", "CastType", "CastTargetType", "UnitTargetTeam", "UnitTargetCamp", "NoCareMagicImmune", "CastRange", "Cooldown", "HurtRange", "ManaCost", "AttackAutoActive", "Visible" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.BuffDatas), global::Protomsg.BuffDatas.Parser, new[]{ "TypeID", "RemainTime", "Time", "TagNum" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.UnitDatas), global::Protomsg.UnitDatas.Parser, new[]{ "Name", "Level", "HP", "MP", "X", "Y", "ID", "ModeType", "MaxHP", "MaxMP", "Experience", "MaxExperience", "ControlID", "AnimotorState", "AttackTime", "DirectionX", "DirectionY", "UnitType", "AttackAcpabilities", "AttackMode", "IsMain", "IsDeath", "Invisible", "Camp", "IsMiss", "AnimotorPause", "SkillEnable", "ItemEnable", "Z", "SD", "BD" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.BulletDatas), global::Protomsg.BulletDatas.Parser, new[]{ "ID", "ModeType", "X", "Y", "Z", "State", "StartX", "StartY", "StartZ", "EndX", "EndY", "EndZ" }, null, null, null),
@@ -1736,6 +1736,7 @@ namespace Protomsg {
       hurtRange_ = other.hurtRange_;
       manaCost_ = other.manaCost_;
       attackAutoActive_ = other.attackAutoActive_;
+      visible_ = other.visible_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1951,6 +1952,20 @@ namespace Protomsg {
       }
     }
 
+    /// <summary>Field number for the "Visible" field.</summary>
+    public const int VisibleFieldNumber = 16;
+    private int visible_;
+    /// <summary>
+    /////技能是否显示 1:是 2:否
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Visible {
+      get { return visible_; }
+      set {
+        visible_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as SkillDatas);
@@ -1979,6 +1994,7 @@ namespace Protomsg {
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(HurtRange, other.HurtRange)) return false;
       if (ManaCost != other.ManaCost) return false;
       if (AttackAutoActive != other.AttackAutoActive) return false;
+      if (Visible != other.Visible) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -2000,6 +2016,7 @@ namespace Protomsg {
       if (HurtRange != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(HurtRange);
       if (ManaCost != 0) hash ^= ManaCost.GetHashCode();
       if (AttackAutoActive != 0) hash ^= AttackAutoActive.GetHashCode();
+      if (Visible != 0) hash ^= Visible.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -2073,6 +2090,10 @@ namespace Protomsg {
         output.WriteRawTag(120);
         output.WriteInt32(AttackAutoActive);
       }
+      if (Visible != 0) {
+        output.WriteRawTag(128, 1);
+        output.WriteInt32(Visible);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -2125,6 +2146,9 @@ namespace Protomsg {
       }
       if (AttackAutoActive != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(AttackAutoActive);
+      }
+      if (Visible != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(Visible);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -2181,6 +2205,9 @@ namespace Protomsg {
       }
       if (other.AttackAutoActive != 0) {
         AttackAutoActive = other.AttackAutoActive;
+      }
+      if (other.Visible != 0) {
+        Visible = other.Visible;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -2251,6 +2278,10 @@ namespace Protomsg {
           }
           case 120: {
             AttackAutoActive = input.ReadInt32();
+            break;
+          }
+          case 128: {
+            Visible = input.ReadInt32();
             break;
           }
         }

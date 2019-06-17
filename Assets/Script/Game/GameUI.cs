@@ -217,7 +217,7 @@ public class GameUI : MonoBehaviour {
                 GComponent view = UIPackage.CreateObject("GameUI", "Skillstick").asCom;
                 GRoot.inst.AddChild(view);
                 mainUI.GetChild("attack").asCom.AddChild(view);
-                if(len <= 4)
+                if(item.Index < 4)
                 {
                     view.xy = FourSkillPos[item.Index];
                 }

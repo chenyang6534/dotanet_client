@@ -39,6 +39,7 @@ public class UnityEntity {
         X = data.X;
         Y = data.Y;
         Z = data.Z;
+        IsMirrorImage = data.IsMirrorImage;
         DirectionX = data.DirectionX;
         DirectionY = data.DirectionY;
 
@@ -239,6 +240,7 @@ public class UnityEntity {
             X += data.X;
             Y += data.Y;
             Z += data.Z;
+            IsMirrorImage += data.IsMirrorImage;
             //更新位置
             m_Mode.transform.position = new Vector3(X,Z,Y);
 
@@ -1068,6 +1070,21 @@ public class UnityEntity {
             m_Z = value;
         }
     }
+
+    protected float m_IsMirrorImage;
+    public float IsMirrorImage
+    {
+        get
+        {
+            return m_IsMirrorImage;
+        }
+        set
+        {
+            m_IsMirrorImage = value;
+        }
+    }
+
+    
 
     // x
     protected float m_DirectionX;

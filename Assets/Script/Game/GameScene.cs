@@ -571,11 +571,21 @@ public class GameScene : MonoBehaviour {
 
         if (touchstate == 1)
         {
-            if (m_TargetUnit == null)
+            if (m_TargetUnit == null )
             {
                 m_TargetUnit = UnityEntityManager.Instance.GetNearestEnemy(m_MyMainUnit);
 
             }
+            else
+            {
+                m_TargetUnit.TargetShow(false);
+                m_TargetUnit.TargetShowRedCircle(false);
+                if (UnityEntityManager.Instance.CheckIsEnemy(m_TargetUnit, m_MyMainUnit) == false)
+                {
+                    m_TargetUnit = UnityEntityManager.Instance.GetNearestEnemy(m_MyMainUnit);
+                }
+            }
+            
             m_TargetUnit.TargetShow(true);
             m_TargetUnit.TargetShowRedCircle(true);
             m_MyMainUnit.ShowSkillAreaLookAt(true, new Vector2(m_TargetUnit.X, m_TargetUnit.Y));

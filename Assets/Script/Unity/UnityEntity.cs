@@ -318,6 +318,7 @@ public class UnityEntity {
                         m_SkillDatas[i].ManaCost += item.ManaCost;
                         m_SkillDatas[i].AttackAutoActive += item.AttackAutoActive;
                         m_SkillDatas[i].Visible += item.Visible;
+                        m_SkillDatas[i].RemainSkillCount += item.RemainSkillCount;
 
                     }
                 }

@@ -64,6 +64,15 @@ public class Skillstick : EventDispatcher
         {
             m_ui.visible = false;
         }
+        //
+        if(m_SkillDatas.RemainSkillCount <= 1)
+        {
+            touchArea.asCom.GetChild("skillcount").asTextField.text = "";
+        }
+        else
+        {
+            touchArea.asCom.GetChild("skillcount").asTextField.text = ""+ m_SkillDatas.RemainSkillCount;
+        }
 
         //被动技能缩小图标
         if (m_SkillDatas.CastType != 1)
@@ -94,15 +103,17 @@ public class Skillstick : EventDispatcher
             touchArea.asCom.GetChild("manacost").asTextField.text = m_SkillDatas.ManaCost+"";
         }
         //cd
-        if (m_SkillDatas.RemainCDTime <= 0)
+        if (m_SkillDatas.RemainSkillCount > 0)
         {
             touchArea.asCom.GetChild("cdtime").asTextField.text = "";
+            touchArea.asCom.GetChild("progress").asProgress.value = 0;
         }
         else
         {
             touchArea.asCom.GetChild("cdtime").asTextField.text = m_SkillDatas.RemainCDTime.ToString("F1");
+            touchArea.asCom.GetChild("progress").asProgress.value = (int)((float)m_SkillDatas.RemainCDTime / m_SkillDatas.Cooldown * 100);
         }
-        touchArea.asCom.GetChild("progress").asProgress.value = (int)((float)m_SkillDatas.RemainCDTime / m_SkillDatas.Cooldown * 100);
+        
 
         if (m_SkillDatas.CastType == 1 && m_SkillDatas.CastTargetType == 4 && m_SkillDatas.AttackAutoActive == 1)
         {

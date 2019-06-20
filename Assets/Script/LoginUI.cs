@@ -12,8 +12,9 @@ public class LoginUI : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-       
+
         MyKcp.Instance.Create("127.0.0.1", 1118);
+        //MyKcp.Instance.Create("119.23.8.72", 1118);
         mRoot = GetComponent<UIPanel>().ui;
         mRoot.GetChild("n6").asButton.onClick.Add(()=> {
 
@@ -32,7 +33,8 @@ public class LoginUI : MonoBehaviour {
             //msg1.Machineid = "10010";   //帕克
             //msg1.Machineid = "10011";   //影魔
             //msg1.Machineid = "10012";   //幽鬼
-            msg1.Machineid = "10013";   //火枪
+            //msg1.Machineid = "10013";   //火枪
+            msg1.Machineid = "10014";   //斧王
             msg1.Platform = "win32";
             MyKcp.Instance.SendMsg("Login", "CS_MsgQuickLogin", msg1);
             UnityEngine.Debug.Log("login onClick");
@@ -78,8 +80,8 @@ public class LoginUI : MonoBehaviour {
             if (p1.Characters.Count <= 0)
             {
                 msg1.SelectCharacter.Characterid = -1;
-                msg1.SelectCharacter.Typeid = 16;
-                msg1.SelectCharacter.Name = "test火枪";
+                msg1.SelectCharacter.Typeid = 17;
+                msg1.SelectCharacter.Name = "test斧王";
 
                 Debug.Log("create");
             }

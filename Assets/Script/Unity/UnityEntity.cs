@@ -40,6 +40,7 @@ public class UnityEntity {
         Y = data.Y;
         Z = data.Z;
         IsMirrorImage = data.IsMirrorImage;
+        AttackRange = data.AttackRange;
         DirectionX = data.DirectionX;
         DirectionY = data.DirectionY;
 
@@ -241,6 +242,7 @@ public class UnityEntity {
             Y += data.Y;
             Z += data.Z;
             IsMirrorImage += data.IsMirrorImage;
+            AttackRange += data.AttackRange;
             //更新位置
             m_Mode.transform.position = new Vector3(X,Z,Y);
 
@@ -1069,6 +1071,18 @@ public class UnityEntity {
         set
         {
             m_Z = value;
+        }
+    }
+    protected float m_AttackRange;
+    public float AttackRange
+    {
+        get
+        {
+            return m_AttackRange;
+        }
+        set
+        {
+            m_AttackRange = value;
         }
     }
 

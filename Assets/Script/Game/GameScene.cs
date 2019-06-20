@@ -568,6 +568,12 @@ public class GameScene : MonoBehaviour {
         {
             return;
         }
+        //AttackRange
+        float showattackrange = AttackSelectTargetDis;
+        if( m_MyMainUnit.AttackRange > showattackrange)
+        {
+            showattackrange = m_MyMainUnit.AttackRange;
+        }
 
         if (touchstate == 1)
         {
@@ -589,12 +595,12 @@ public class GameScene : MonoBehaviour {
             m_TargetUnit.TargetShow(true);
             m_TargetUnit.TargetShowRedCircle(true);
             m_MyMainUnit.ShowSkillAreaLookAt(true, new Vector2(m_TargetUnit.X, m_TargetUnit.Y));
-            m_MyMainUnit.ShowOutCircle(true, AttackSelectTargetDis);
+            m_MyMainUnit.ShowOutCircle(true, showattackrange);
 
         }
         else if (touchstate == 2)
         {
-            var target = UnityEntityManager.Instance.GetMinAngleEnemy(m_MyMainUnit, dir, AttackSelectTargetDis);
+            var target = UnityEntityManager.Instance.GetMinAngleEnemy(m_MyMainUnit, dir, showattackrange);
             if( target != null)
             {
                 if(m_TargetUnit != null)
@@ -606,7 +612,7 @@ public class GameScene : MonoBehaviour {
                 m_TargetUnit.TargetShow(true);
                 m_TargetUnit.TargetShowRedCircle(true);
 
-                var targetpos = new Vector2(m_MyMainUnit.X, m_MyMainUnit.Y) + (dir.normalized * AttackSelectTargetDis);
+                var targetpos = new Vector2(m_MyMainUnit.X, m_MyMainUnit.Y) + (dir.normalized * showattackrange);
 
                 //m_MyMainUnit.ShowSkillAreaLookAt(true, new Vector2(m_TargetUnit.X, m_TargetUnit.Y));
                 m_MyMainUnit.ShowSkillAreaLookAt(true, targetpos);
@@ -618,7 +624,7 @@ public class GameScene : MonoBehaviour {
                 {
                     m_TargetUnit.TargetShow(true);
                     m_TargetUnit.TargetShowRedCircle(true);
-                    var targetpos = new Vector2(m_MyMainUnit.X, m_MyMainUnit.Y) + (dir.normalized * AttackSelectTargetDis);
+                    var targetpos = new Vector2(m_MyMainUnit.X, m_MyMainUnit.Y) + (dir.normalized * showattackrange);
                     m_MyMainUnit.ShowSkillAreaLookAt(true, targetpos);
                 }
             }

@@ -47,7 +47,7 @@ namespace Protomsg {
             "IAEoAhIQCghNYW5hQ29zdBgOIAEoBRIYChBBdHRhY2tBdXRvQWN0aXZlGA8g",
             "ASgFEg8KB1Zpc2libGUYECABKAUSGAoQUmVtYWluU2tpbGxDb3VudBgRIAEo",
             "BSJNCglCdWZmRGF0YXMSDgoGVHlwZUlEGAEgASgFEhIKClJlbWFpblRpbWUY",
-            "AiABKAISDAoEVGltZRgDIAEoAhIOCgZUYWdOdW0YBCABKAUi3AQKCVVuaXRE",
+            "AiABKAISDAoEVGltZRgDIAEoAhIOCgZUYWdOdW0YBCABKAUi8QQKCVVuaXRE",
             "YXRhcxIMCgROYW1lGAEgASgJEg0KBUxldmVsGAIgASgFEgoKAkhQGAMgASgF",
             "EgoKAk1QGAQgASgFEgkKAVgYBSABKAISCQoBWRgGIAEoAhIKCgJJRBgHIAEo",
             "BRIQCghNb2RlVHlwZRgIIAEoCRINCgVNYXhIUBgJIAEoBRINCgVNYXhNUBgK",
@@ -59,36 +59,37 @@ namespace Protomsg {
             "GBUgASgFEg8KB0lzRGVhdGgYFiABKAUSEQoJSW52aXNpYmxlGBcgASgFEgwK",
             "BENhbXAYGCABKAUSDgoGSXNNaXNzGBkgASgIEhUKDUFuaW1vdG9yUGF1c2UY",
             "GiABKAUSEwoLU2tpbGxFbmFibGUYGyABKAUSEgoKSXRlbUVuYWJsZRgcIAEo",
-            "BRIJCgFaGB0gASgCEhUKDUlzTWlycm9ySW1hZ2UYHiABKAUSIAoCU0QYHyAD",
-            "KAsyFC5wcm90b21zZy5Ta2lsbERhdGFzEh8KAkJEGCAgAygLMhMucHJvdG9t",
-            "c2cuQnVmZkRhdGFzIrUBCgtCdWxsZXREYXRhcxIKCgJJRBgBIAEoBRIQCghN",
-            "b2RlVHlwZRgCIAEoCRIJCgFYGAMgASgCEgkKAVkYBCABKAISCQoBWhgFIAEo",
-            "AhINCgVTdGF0ZRgGIAEoBRIOCgZTdGFydFgYByABKAISDgoGU3RhcnRZGAgg",
-            "ASgCEg4KBlN0YXJ0WhgJIAEoAhIMCgRFbmRYGAogASgCEgwKBEVuZFkYCyAB",
-            "KAISDAoERW5kWhgMIAEoAiJKCglIYWxvRGF0YXMSCgoCSUQYASABKAUSEAoI",
-            "TW9kZVR5cGUYAiABKAkSCQoBWBgDIAEoAhIJCgFZGAQgASgCEgkKAVoYBSAB",
-            "KAIihAEKEU1zZ1VzZXJFbnRlclNjZW5lEgsKA1VpZBgBIAEoBRIRCglDb25u",
-            "ZWN0SWQYAiABKAUSFQoNU3JjU2VydmVyTmFtZRgDIAEoCRIWCg5EZXN0U2Vy",
-            "dmVyTmFtZRgEIAEoCRIRCglTY2VuZU5hbWUYBSABKAkSDQoFRGF0YXMYBiAB",
-            "KAwiYQoNTXNnUGxheWVySHVydBISCgpIdXJ0VW5pdElEGAEgASgFEhQKDEh1",
-            "cnRBbGxWYWx1ZRgCIAEoBRIWCg5IdXJ0TWFnaWNWYWx1ZRgDIAEoBRIOCgZJ",
-            "c0NyaXQYBCABKAUi/QIKCVNDX1VwZGF0ZRIQCghDdXJGcmFtZRgBIAEoBRIl",
-            "CghOZXdVbml0cxgCIAMoCzITLnByb3RvbXNnLlVuaXREYXRhcxIlCghPbGRV",
-            "bml0cxgDIAMoCzITLnByb3RvbXNnLlVuaXREYXRhcxITCgtSZW1vdmVVbml0",
-            "cxgEIAMoBRIpCgpOZXdCdWxsZXRzGAUgAygLMhUucHJvdG9tc2cuQnVsbGV0",
-            "RGF0YXMSKQoKT2xkQnVsbGV0cxgGIAMoCzIVLnByb3RvbXNnLkJ1bGxldERh",
-            "dGFzEhUKDVJlbW92ZUJ1bGxldHMYByADKAUSJQoITmV3SGFsb3MYCCADKAsy",
-            "Ey5wcm90b21zZy5IYWxvRGF0YXMSJQoIT2xkSGFsb3MYCSADKAsyEy5wcm90",
-            "b21zZy5IYWxvRGF0YXMSEwoLUmVtb3ZlSGFsb3MYCiADKAUSKwoKUGxheWVy",
-            "SHVydBgLIAMoCzIXLnByb3RvbXNnLk1zZ1BsYXllckh1cnQiUwoLU0NfTmV3",
-            "U2NlbmUSDAoETmFtZRgBIAEoCRIQCghMb2dpY0ZwcxgCIAEoBRIQCghDdXJG",
-            "cmFtZRgDIAEoBRISCgpTZXJ2ZXJOYW1lGAQgASgJIlYKEkNoYXJhY3RlckJh",
-            "c2VEYXRhcxITCgtDaGFyYWN0ZXJpZBgBIAEoBRIMCgROYW1lGAIgASgJEg4K",
-            "BlR5cGVpZBgDIAEoBRINCgVMZXZlbBgEIAEoBSJoCgpTQ19Mb2dpbmVkEgwK",
-            "BENvZGUYASABKAUSCwoDVWlkGAIgASgFEg0KBUVycm9yGAMgASgJEjAKCkNo",
-            "YXJhY3RlcnMYBCADKAsyHC5wcm90b21zZy5DaGFyYWN0ZXJCYXNlRGF0YXMi",
-            "TAoYU0NfU2VsZWN0Q2hhcmFjdGVyUmVzdWx0EgwKBENvZGUYASABKAUSEwoL",
-            "Q2hhcmFjdGVyaWQYAiABKAUSDQoFRXJyb3IYAyABKAliBnByb3RvMw=="));
+            "BRIJCgFaGB0gASgCEhUKDUlzTWlycm9ySW1hZ2UYHiABKAUSEwoLQXR0YWNr",
+            "UmFuZ2UYHyABKAISIAoCU0QYICADKAsyFC5wcm90b21zZy5Ta2lsbERhdGFz",
+            "Eh8KAkJEGCEgAygLMhMucHJvdG9tc2cuQnVmZkRhdGFzIrUBCgtCdWxsZXRE",
+            "YXRhcxIKCgJJRBgBIAEoBRIQCghNb2RlVHlwZRgCIAEoCRIJCgFYGAMgASgC",
+            "EgkKAVkYBCABKAISCQoBWhgFIAEoAhINCgVTdGF0ZRgGIAEoBRIOCgZTdGFy",
+            "dFgYByABKAISDgoGU3RhcnRZGAggASgCEg4KBlN0YXJ0WhgJIAEoAhIMCgRF",
+            "bmRYGAogASgCEgwKBEVuZFkYCyABKAISDAoERW5kWhgMIAEoAiJKCglIYWxv",
+            "RGF0YXMSCgoCSUQYASABKAUSEAoITW9kZVR5cGUYAiABKAkSCQoBWBgDIAEo",
+            "AhIJCgFZGAQgASgCEgkKAVoYBSABKAIihAEKEU1zZ1VzZXJFbnRlclNjZW5l",
+            "EgsKA1VpZBgBIAEoBRIRCglDb25uZWN0SWQYAiABKAUSFQoNU3JjU2VydmVy",
+            "TmFtZRgDIAEoCRIWCg5EZXN0U2VydmVyTmFtZRgEIAEoCRIRCglTY2VuZU5h",
+            "bWUYBSABKAkSDQoFRGF0YXMYBiABKAwiYQoNTXNnUGxheWVySHVydBISCgpI",
+            "dXJ0VW5pdElEGAEgASgFEhQKDEh1cnRBbGxWYWx1ZRgCIAEoBRIWCg5IdXJ0",
+            "TWFnaWNWYWx1ZRgDIAEoBRIOCgZJc0NyaXQYBCABKAUi/QIKCVNDX1VwZGF0",
+            "ZRIQCghDdXJGcmFtZRgBIAEoBRIlCghOZXdVbml0cxgCIAMoCzITLnByb3Rv",
+            "bXNnLlVuaXREYXRhcxIlCghPbGRVbml0cxgDIAMoCzITLnByb3RvbXNnLlVu",
+            "aXREYXRhcxITCgtSZW1vdmVVbml0cxgEIAMoBRIpCgpOZXdCdWxsZXRzGAUg",
+            "AygLMhUucHJvdG9tc2cuQnVsbGV0RGF0YXMSKQoKT2xkQnVsbGV0cxgGIAMo",
+            "CzIVLnByb3RvbXNnLkJ1bGxldERhdGFzEhUKDVJlbW92ZUJ1bGxldHMYByAD",
+            "KAUSJQoITmV3SGFsb3MYCCADKAsyEy5wcm90b21zZy5IYWxvRGF0YXMSJQoI",
+            "T2xkSGFsb3MYCSADKAsyEy5wcm90b21zZy5IYWxvRGF0YXMSEwoLUmVtb3Zl",
+            "SGFsb3MYCiADKAUSKwoKUGxheWVySHVydBgLIAMoCzIXLnByb3RvbXNnLk1z",
+            "Z1BsYXllckh1cnQiUwoLU0NfTmV3U2NlbmUSDAoETmFtZRgBIAEoCRIQCghM",
+            "b2dpY0ZwcxgCIAEoBRIQCghDdXJGcmFtZRgDIAEoBRISCgpTZXJ2ZXJOYW1l",
+            "GAQgASgJIlYKEkNoYXJhY3RlckJhc2VEYXRhcxITCgtDaGFyYWN0ZXJpZBgB",
+            "IAEoBRIMCgROYW1lGAIgASgJEg4KBlR5cGVpZBgDIAEoBRINCgVMZXZlbBgE",
+            "IAEoBSJoCgpTQ19Mb2dpbmVkEgwKBENvZGUYASABKAUSCwoDVWlkGAIgASgF",
+            "Eg0KBUVycm9yGAMgASgJEjAKCkNoYXJhY3RlcnMYBCADKAsyHC5wcm90b21z",
+            "Zy5DaGFyYWN0ZXJCYXNlRGF0YXMiTAoYU0NfU2VsZWN0Q2hhcmFjdGVyUmVz",
+            "dWx0EgwKBENvZGUYASABKAUSEwoLQ2hhcmFjdGVyaWQYAiABKAUSDQoFRXJy",
+            "b3IYAyABKAliBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -102,7 +103,7 @@ namespace Protomsg {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_PlayerSkill), global::Protomsg.CS_PlayerSkill.Parser, new[]{ "ID", "SkillID", "X", "Y", "TargetUnitID" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SkillDatas), global::Protomsg.SkillDatas.Parser, new[]{ "TypeID", "Level", "RemainCDTime", "CanUpgrade", "Index", "CastType", "CastTargetType", "UnitTargetTeam", "UnitTargetCamp", "NoCareMagicImmune", "CastRange", "Cooldown", "HurtRange", "ManaCost", "AttackAutoActive", "Visible", "RemainSkillCount" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.BuffDatas), global::Protomsg.BuffDatas.Parser, new[]{ "TypeID", "RemainTime", "Time", "TagNum" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.UnitDatas), global::Protomsg.UnitDatas.Parser, new[]{ "Name", "Level", "HP", "MP", "X", "Y", "ID", "ModeType", "MaxHP", "MaxMP", "Experience", "MaxExperience", "ControlID", "AnimotorState", "AttackTime", "DirectionX", "DirectionY", "UnitType", "AttackAcpabilities", "AttackMode", "IsMain", "IsDeath", "Invisible", "Camp", "IsMiss", "AnimotorPause", "SkillEnable", "ItemEnable", "Z", "IsMirrorImage", "SD", "BD" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.UnitDatas), global::Protomsg.UnitDatas.Parser, new[]{ "Name", "Level", "HP", "MP", "X", "Y", "ID", "ModeType", "MaxHP", "MaxMP", "Experience", "MaxExperience", "ControlID", "AnimotorState", "AttackTime", "DirectionX", "DirectionY", "UnitType", "AttackAcpabilities", "AttackMode", "IsMain", "IsDeath", "Invisible", "Camp", "IsMiss", "AnimotorPause", "SkillEnable", "ItemEnable", "Z", "IsMirrorImage", "AttackRange", "SD", "BD" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.BulletDatas), global::Protomsg.BulletDatas.Parser, new[]{ "ID", "ModeType", "X", "Y", "Z", "State", "StartX", "StartY", "StartZ", "EndX", "EndY", "EndZ" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.HaloDatas), global::Protomsg.HaloDatas.Parser, new[]{ "ID", "ModeType", "X", "Y", "Z" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.MsgUserEnterScene), global::Protomsg.MsgUserEnterScene.Parser, new[]{ "Uid", "ConnectId", "SrcServerName", "DestServerName", "SceneName", "Datas" }, null, null, null),
@@ -2608,6 +2609,7 @@ namespace Protomsg {
       itemEnable_ = other.itemEnable_;
       z_ = other.z_;
       isMirrorImage_ = other.isMirrorImage_;
+      attackRange_ = other.attackRange_;
       sD_ = other.sD_.Clone();
       bD_ = other.bD_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -3005,10 +3007,24 @@ namespace Protomsg {
       }
     }
 
+    /// <summary>Field number for the "AttackRange" field.</summary>
+    public const int AttackRangeFieldNumber = 31;
+    private float attackRange_;
+    /// <summary>
+    ///攻击距离
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float AttackRange {
+      get { return attackRange_; }
+      set {
+        attackRange_ = value;
+      }
+    }
+
     /// <summary>Field number for the "SD" field.</summary>
-    public const int SDFieldNumber = 31;
+    public const int SDFieldNumber = 32;
     private static readonly pb::FieldCodec<global::Protomsg.SkillDatas> _repeated_sD_codec
-        = pb::FieldCodec.ForMessage(250, global::Protomsg.SkillDatas.Parser);
+        = pb::FieldCodec.ForMessage(258, global::Protomsg.SkillDatas.Parser);
     private readonly pbc::RepeatedField<global::Protomsg.SkillDatas> sD_ = new pbc::RepeatedField<global::Protomsg.SkillDatas>();
     /// <summary>
     ///技能数据
@@ -3019,9 +3035,9 @@ namespace Protomsg {
     }
 
     /// <summary>Field number for the "BD" field.</summary>
-    public const int BDFieldNumber = 32;
+    public const int BDFieldNumber = 33;
     private static readonly pb::FieldCodec<global::Protomsg.BuffDatas> _repeated_bD_codec
-        = pb::FieldCodec.ForMessage(258, global::Protomsg.BuffDatas.Parser);
+        = pb::FieldCodec.ForMessage(266, global::Protomsg.BuffDatas.Parser);
     private readonly pbc::RepeatedField<global::Protomsg.BuffDatas> bD_ = new pbc::RepeatedField<global::Protomsg.BuffDatas>();
     /// <summary>
     ///buff数据
@@ -3074,6 +3090,7 @@ namespace Protomsg {
       if (ItemEnable != other.ItemEnable) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Z, other.Z)) return false;
       if (IsMirrorImage != other.IsMirrorImage) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(AttackRange, other.AttackRange)) return false;
       if(!sD_.Equals(other.sD_)) return false;
       if(!bD_.Equals(other.bD_)) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -3112,6 +3129,7 @@ namespace Protomsg {
       if (ItemEnable != 0) hash ^= ItemEnable.GetHashCode();
       if (Z != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Z);
       if (IsMirrorImage != 0) hash ^= IsMirrorImage.GetHashCode();
+      if (AttackRange != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(AttackRange);
       hash ^= sD_.GetHashCode();
       hash ^= bD_.GetHashCode();
       if (_unknownFields != null) {
@@ -3247,6 +3265,10 @@ namespace Protomsg {
         output.WriteRawTag(240, 1);
         output.WriteInt32(IsMirrorImage);
       }
+      if (AttackRange != 0F) {
+        output.WriteRawTag(253, 1);
+        output.WriteFloat(AttackRange);
+      }
       sD_.WriteTo(output, _repeated_sD_codec);
       bD_.WriteTo(output, _repeated_bD_codec);
       if (_unknownFields != null) {
@@ -3346,6 +3368,9 @@ namespace Protomsg {
       }
       if (IsMirrorImage != 0) {
         size += 2 + pb::CodedOutputStream.ComputeInt32Size(IsMirrorImage);
+      }
+      if (AttackRange != 0F) {
+        size += 2 + 4;
       }
       size += sD_.CalculateSize(_repeated_sD_codec);
       size += bD_.CalculateSize(_repeated_bD_codec);
@@ -3449,6 +3474,9 @@ namespace Protomsg {
       }
       if (other.IsMirrorImage != 0) {
         IsMirrorImage = other.IsMirrorImage;
+      }
+      if (other.AttackRange != 0F) {
+        AttackRange = other.AttackRange;
       }
       sD_.Add(other.sD_);
       bD_.Add(other.bD_);
@@ -3583,11 +3611,15 @@ namespace Protomsg {
             IsMirrorImage = input.ReadInt32();
             break;
           }
-          case 250: {
-            sD_.AddEntriesFrom(input, _repeated_sD_codec);
+          case 253: {
+            AttackRange = input.ReadFloat();
             break;
           }
           case 258: {
+            sD_.AddEntriesFrom(input, _repeated_sD_codec);
+            break;
+          }
+          case 266: {
             bD_.AddEntriesFrom(input, _repeated_bD_codec);
             break;
           }

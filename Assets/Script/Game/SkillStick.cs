@@ -103,7 +103,7 @@ public class Skillstick : EventDispatcher
             touchArea.asCom.GetChild("manacost").asTextField.text = m_SkillDatas.ManaCost+"";
         }
         //cd
-        if (m_SkillDatas.RemainSkillCount > 0)
+        if (m_SkillDatas.RemainSkillCount > 0 || m_SkillDatas.RemainCDTime <= 0)
         {
             touchArea.asCom.GetChild("cdtime").asTextField.text = "";
             touchArea.asCom.GetChild("progress").asProgress.value = 0;

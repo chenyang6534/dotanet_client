@@ -1,5 +1,6 @@
 ﻿
 using DG.Tweening;
+using FairyGUI;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -16,12 +17,13 @@ public class UnityEntity {
     protected Vector3 TargetRotation;
 
     protected float m_MeshHeight;
-
     
+
+
 
     public UnityEntity(Protomsg.UnitDatas data, GameScene scene)
     {
-        
+        //m_AllWords = new Dictionary<WordsInfo, WordsInfo>();
 
         RotateSpeed = 480;
 
@@ -226,7 +228,11 @@ public class UnityEntity {
     public void Update(float dt)
     {
         UpdateDirection(dt);
-        
+
+        foreach (var item in m_AllWords)
+        {
+            item.Value.update();
+        }
         
         
 
@@ -793,43 +799,116 @@ public class UnityEntity {
     {
 
         Debug.Log("------------ShowMiss------------");
-        var words = (GameObject)(GameObject.Instantiate(Resources.Load("UIPref/HurtWords")));
-        //m_Mode.
-
-        words.transform.parent = m_Mode.transform.parent;
-        words.transform.position = m_Mode.transform.position + new Vector3(0, m_MeshHeight, -0.1f);
-        var root = words.GetComponent<FairyGUI.UIPanel>().ui;
-        //root.sortingOrder = 10000;
-        root.GetChild("num").asTextField.text = "miss";
-        root.GetChild("num").asTextField.color = new Color(1.0f, 1.0f, 1.0f);
-        FairyGUI.Transition trans = root.GetTransition("up");
+        //var words = (GameObject)(GameObject.Instantiate(Resources.Load("UIPref/HurtWords")));
+        //words.transform.parent = m_Mode.transform.parent;
+        //words.transform.position = m_Mode.transform.position + new Vector3(0, m_MeshHeight, -0.1f);
+        GComponent words = UIPackage.CreateObject("GameUI", "HurtInfo").asCom;
+        WordsInfo wd = AddWordsInfo(words);
+        wd.RandomX(-30, 30);
+        //1，直接加到GRoot显示出来
+        GRoot.inst.AddChild(words);
+        //var root = words.GetComponent<FairyGUI.UIPanel>().ui;
+        words.GetChild("num").asTextField.text = "miss";
+        words.GetChild("num").asTextField.color = new Color(1.0f, 1.0f, 1.0f);
+        FairyGUI.Transition trans = words.GetTransition("up");
+        trans.Play();
         trans.SetHook("over", () => {
-            GameObject.Destroy(words);
+            RemoveWordsInfo(wd);
         });
+    }
+
+   
+
+    public class WordsInfo
+    {
+        public GComponent root;
+        public Vector3 startpos;
+        public float offsetX;
+        public WordsInfo(GComponent r, Vector3 pos)
+        {
+            root = r;
+            startpos = pos;
+            offsetX = 0;
+        }
+        public void update()
+        {
+            if(root == null)
+            {
+                return;
+            }
+            Vector3 screenPos = Camera.main.WorldToScreenPoint(startpos);
+            //原点位置转换
+            screenPos.y = Screen.height - screenPos.y;
+            Vector2 pt = GRoot.inst.GlobalToLocal(screenPos);
+            pt.x += offsetX;
+            root.xy = pt;
+        }
+        public void RandomX(float start,float end)
+        {
+            offsetX = UnityEngine.Random.Range(-30, 30);
+        }
+    }
+    protected Dictionary<WordsInfo, WordsInfo> m_AllWords = new Dictionary<WordsInfo, WordsInfo>();
+    public WordsInfo AddWordsInfo(GComponent root)
+    {
+        var p1 = m_Mode.transform.position;
+        p1.y += m_MeshHeight / 2;
+        WordsInfo wi = new WordsInfo(root, p1);
+        m_AllWords[wi] = wi;
+        return wi;
+    }
+    public void RemoveWordsInfo(WordsInfo wd)
+    {
+        if(wd.root != null)
+        {
+            wd.root.Dispose();
+        }
+        
+        m_AllWords.Remove(wd);
     }
 
     //创建伤害数字
     public void CreateHurtWords(Protomsg.MsgPlayerHurt hurt)
     {
-        var words = (GameObject)(GameObject.Instantiate(Resources.Load("UIPref/HurtWords")));
-        //m_Mode.
+        //Vector2 pt = World2FairyUIPoint();
+        //pt.x += UnityEngine.Random.Range(-30, 30);
 
-        words.transform.parent = m_Mode.transform.parent;
-        //words.transform.localPosition = new Vector3(0, m_MeshHeight, 0.1f);
-        words.transform.position = m_Mode.transform.position+ new Vector3(0, m_MeshHeight, -0.1f);
-        var root = words.GetComponent<FairyGUI.UIPanel>().ui;
-        //root.sortingOrder = 10000;
-        root.GetChild("num").asTextField.text = hurt.HurtAllValue+"";
+        
 
-        if(hurt.IsCrit != 1)
+        GComponent words = UIPackage.CreateObject("GameUI", "HurtInfo").asCom;
+        WordsInfo wd = AddWordsInfo(words);
+        wd.RandomX(-30, 30);
+
+        //1，直接加到GRoot显示出来
+        GRoot.inst.AddChild(words);
+        //words.xy = pt;
+        words.GetChild("num").asTextField.text = hurt.HurtAllValue + "";
+        if (this == GameScene.Singleton.GetMyMainUnit()){
+            //自己受伤
+            FairyGUI.Transition trans = words.GetTransition("down");
+            trans.Play();
+            trans.SetHook("over", () => {
+                RemoveWordsInfo(wd);
+                //GameObject.Destroy(words);
+            });
+        }
+        else
         {
-            root.GetChild("num").asTextField.color = new Color(1.0f, 1.0f, 1.0f);
+            //伤害别人
+            if (hurt.IsCrit != 1)
+            {
+                words.GetChild("num").asTextField.color = new Color(1.0f, 1.0f, 1.0f);
+            }
+            FairyGUI.Transition trans = words.GetTransition("up");
+            trans.Play();
+            trans.SetHook("over", () => {
+                RemoveWordsInfo(wd);
+                //words.Dispose();
+                //GameObject.Destroy(words);
+            });
         }
 
-        FairyGUI.Transition trans = root.GetTransition("up");
-        trans.SetHook("over", () => {
-            GameObject.Destroy(words);
-        });
+        
     }
 
 

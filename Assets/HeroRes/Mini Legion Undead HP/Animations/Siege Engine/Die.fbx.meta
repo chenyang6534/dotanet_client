@@ -1,0 +1,179 @@
+fileFormatVersion: 2
+guid: 0cff107ebbebd9b47bfbaee9c2aeb432
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Body
+    100002: Cannon01
+    100004: Cannon02
+    100006: Cannon03
+    100008: CannonTip
+    100010: //RootNode
+    100012: FrontBlade
+    100014: FrontWheel_L
+    100016: FrontWheel_R
+    100018: joint1
+    100020: joint2
+    100022: LowerJaw
+    100024: RearBlade
+    100026: RearWheel_L
+    100028: RearWheel_R
+    100030: Root
+    100032: SiegeEngineMesh
+    100034: UpperJaw
+    400000: Body
+    400002: Cannon01
+    400004: Cannon02
+    400006: Cannon03
+    400008: CannonTip
+    400010: //RootNode
+    400012: FrontBlade
+    400014: FrontWheel_L
+    400016: FrontWheel_R
+    400018: joint1
+    400020: joint2
+    400022: LowerJaw
+    400024: RearBlade
+    400026: RearWheel_L
+    400028: RearWheel_R
+    400030: Root
+    400032: SiegeEngineMesh
+    400034: UpperJaw
+    4300000: SiegeEngineMesh
+    7400000: die
+    9500000: //RootNode
+    13700000: SiegeEngineMesh
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: die
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 1
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/Body
+        weight: 1
+      - path: Root/Body/Cannon01
+        weight: 1
+      - path: Root/Body/Cannon01/Cannon02
+        weight: 1
+      - path: Root/Body/Cannon01/Cannon02/Cannon03
+        weight: 1
+      - path: Root/Body/Cannon01/Cannon02/Cannon03/CannonTip
+        weight: 1
+      - path: Root/Body/LowerJaw
+        weight: 1
+      - path: Root/Body/UpperJaw
+        weight: 1
+      - path: Root/joint1
+        weight: 1
+      - path: Root/joint1/FrontBlade
+        weight: 1
+      - path: Root/joint1/RearBlade
+        weight: 1
+      - path: Root/joint2
+        weight: 1
+      - path: Root/joint2/FrontWheel_L
+        weight: 1
+      - path: Root/joint2/FrontWheel_R
+        weight: 1
+      - path: Root/joint2/RearWheel_L
+        weight: 1
+      - path: Root/joint2/RearWheel_R
+        weight: 1
+      - path: SiegeEngineMesh
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

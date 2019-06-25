@@ -885,12 +885,27 @@ public class UnityEntity {
         words.GetChild("num").asTextField.text = hurt.HurtAllValue + "";
         if (this == GameScene.Singleton.GetMyMainUnit()){
             //自己受伤
-            FairyGUI.Transition trans = words.GetTransition("down");
-            trans.Play();
-            trans.SetHook("over", () => {
-                RemoveWordsInfo(wd);
-                //GameObject.Destroy(words);
-            });
+            if(hurt.HurtAllValue < 0)
+            {
+                FairyGUI.Transition trans = words.GetTransition("down");
+                trans.Play();
+                trans.SetHook("over", () => {
+                    RemoveWordsInfo(wd);
+                    //GameObject.Destroy(words);
+                });
+            }
+            else//加血
+            {
+                words.GetChild("num").asTextField.color = new Color(0.1f, 1.0f, 0.1f);
+                FairyGUI.Transition trans = words.GetTransition("up");
+                trans.Play();
+                trans.SetHook("over", () => {
+                    RemoveWordsInfo(wd);
+                    //GameObject.Destroy(words);
+                });
+            }
+            
+            
         }
         else
         {

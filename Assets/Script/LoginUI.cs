@@ -38,7 +38,8 @@ public class LoginUI : MonoBehaviour {
             //msg1.Machineid = "10015";   //月骑
             //msg1.Machineid = "10016";   //毒龙
             //msg1.Machineid = "10017";   //蓝猫
-            msg1.Machineid = "10018";   //瘟疫法师
+            //msg1.Machineid = "10018";   //瘟疫法师
+            msg1.Machineid = "10019";   //天怒法师
             msg1.Platform = "win32";
             MyKcp.Instance.SendMsg("Login", "CS_MsgQuickLogin", msg1);
             UnityEngine.Debug.Log("login onClick");
@@ -84,8 +85,8 @@ public class LoginUI : MonoBehaviour {
             if (p1.Characters.Count <= 0)
             {
                 msg1.SelectCharacter.Characterid = -1;
-                msg1.SelectCharacter.Typeid = 21;
-                msg1.SelectCharacter.Name = "test瘟疫法师";
+                msg1.SelectCharacter.Typeid = 22;
+                msg1.SelectCharacter.Name = "test天怒法师";
 
                 Debug.Log("create");
             }

@@ -22,7 +22,7 @@ public class LoginUI : MonoBehaviour {
             Protomsg.CS_MsgQuickLogin msg1 = new Protomsg.CS_MsgQuickLogin();
             //msg1.Machineid = "100001"; //PA
             //msg1.Machineid = "10000";   //剑圣
-            //msg1.Machineid = "10002";   //小黑
+            msg1.Machineid = "10002";   //小黑
             //msg1.Machineid = "10003";   //虚空
             //msg1.Machineid = "10004";   //混沌骑士
             //msg1.Machineid = "10005";   //熊战士
@@ -39,7 +39,7 @@ public class LoginUI : MonoBehaviour {
             //msg1.Machineid = "10016";   //毒龙
             //msg1.Machineid = "10017";   //蓝猫
             //msg1.Machineid = "10018";   //瘟疫法师
-            msg1.Machineid = "10019";   //天怒法师
+            //msg1.Machineid = "10019";   //天怒法师
             msg1.Platform = "win32";
             MyKcp.Instance.SendMsg("Login", "CS_MsgQuickLogin", msg1);
             UnityEngine.Debug.Log("login onClick");

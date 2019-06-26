@@ -273,10 +273,10 @@ public class UnityEntity {
             MP += data.MP;
             MaxHP += data.MaxHP;
             MaxMP += data.MaxMP;
-            if( data.HP != 0)
-            {
-                Debug.Log("hp:" + HP + "  maxhp:" + MaxHP);
-            }
+            //if( data.HP != 0)
+            //{
+            //    Debug.Log("hp:" + HP + "  maxhp:" + MaxHP);
+            //}
             //
 
             if (data.ModeType != "")
@@ -1132,10 +1132,10 @@ public class UnityEntity {
                 //更新动画
                 FreshAnim(m_AnimotorState, m_AttackTime);
 
-                if (this.UnitType == 1)
-                {
-                    Debug.Log("------animistate:" + m_AnimotorState + "   time:" + m_AttackTime);
-                }
+                //if (this.UnitType == 1)
+                //{
+                //    Debug.Log("------animistate:" + m_AnimotorState + "   time:" + m_AttackTime);
+                //}
             }
             
 

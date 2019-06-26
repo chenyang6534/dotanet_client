@@ -32,7 +32,8 @@ public class BulletEntity
         m_Mode = (GameObject)(GameObject.Instantiate(Resources.Load(m_ModeType)));
         m_Mode.transform.parent = m_Scene.transform.parent;
         m_Mode.transform.position = m_Position;
-        m_Mode.transform.LookAt(m_EndPos - m_Position);
+        m_Mode.transform.LookAt(m_EndPos);
+        
         if (m_State == 1)
         {
             m_Mode.GetComponent<ProjectileScript>().ShowStartParticle();
@@ -43,6 +44,19 @@ public class BulletEntity
 
         //Debug.Log("1111bullet pos:" + m_Mode.transform.position + "  end pos:" + m_EndPos + "   state:" + m_State);
     }
+
+    public Vector3 GetPosition()
+    {
+        float distanse1 = Vector3.Distance(m_EndPos, m_StartPos);
+        float distanse2 = Vector3.Distance(m_StartPos, m_Position);
+        float height = 1.5f;
+        var addy = (0.5f - Math.Abs(distanse2 / distanse1 - 0.5)) * height * 2.0f;
+        Debug.Log("addy:" + addy + "dis1 :" + distanse1 + " dis2:" + distanse2 + " abs:" + Math.Abs(distanse2 / distanse1 - 0.5));
+        var pos = new Vector3(m_Position.x, m_Position.y + (float)addy, m_Position.z);
+
+        return pos;
+    }
+
     public void Change(Protomsg.BulletDatas data)
     {
         // 更新位置
@@ -54,9 +68,14 @@ public class BulletEntity
             m_EndPos += new Vector3(data.EndX, data.EndZ, data.EndY);
             m_State += data.State;
 
+            //var pos = GetPosition();
+            //m_Position.y += (float)addy;
             //更新位置
+            m_Mode.transform.LookAt(m_Position);
             m_Mode.transform.position = m_Position;
-            m_Mode.transform.LookAt(m_EndPos - m_Position);
+            
+
+            
 
             if(m_State == 3)
             {
@@ -70,7 +89,9 @@ public class BulletEntity
     {
         if (m_Mode != null)
         {
+            //var pos = GetPosition();
             m_Mode.transform.position = new Vector3(m_Position.x + (scale * next.x), m_Position.y + (scale * next.z), m_Position.z + (scale * next.y));
+            //m_Mode.transform.position = new Vector3(m_Position.x + (scale * next.x), m_Mode.transform.position.y, m_Position.z + (scale * next.y));
             //Debug.Log("3333bullet pos:" + m_Mode.transform.position + "  end pos:" + m_EndPos);
         }
     }

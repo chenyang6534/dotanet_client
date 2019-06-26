@@ -47,6 +47,7 @@ public class ProjectileScript : MonoBehaviour {
     }
     public void ShowEndParticle()
     {
+        Debug.Log("111time:" + Time.frameCount);
         if (m_IsDestroy == true)
         {
             return;
@@ -70,7 +71,7 @@ public class ProjectileScript : MonoBehaviour {
         //    }
         //}
         
-        GetComponent<Rigidbody>().isKinematic = true;
+        //GetComponent<Rigidbody>().isKinematic = true;
 
         //ContactPoint contact = co.contacts[0];
         Quaternion rot = Quaternion.FromToRotation(Vector3.up, gameObject.transform.forward);
@@ -95,7 +96,14 @@ public class ProjectileScript : MonoBehaviour {
     }
     public void Destroy()
     {
-        StartCoroutine(DestroyParticle(1.1f));
+        Debug.Log("222time:" +Time.frameCount);
+        if (m_IsDestroy == false)
+        {
+            m_IsDestroy = true;
+            Destroy(gameObject);
+
+        }
+        //StartCoroutine(DestroyParticle(0.01f));
     }
     
 	public IEnumerator DestroyParticle (float waitTime) {
@@ -103,28 +111,28 @@ public class ProjectileScript : MonoBehaviour {
         if (m_IsDestroy == false)
         {
             m_IsDestroy = true;
-            if (transform.childCount > 0 && waitTime != 0)
-            {
-                List<Transform> tList = new List<Transform>();
+            //if (transform.childCount > 0 && waitTime != 0)
+            //{
+            //    List<Transform> tList = new List<Transform>();
 
-                foreach (Transform t in transform.GetChild(0).transform)
-                {
-                    tList.Add(t);
-                }
-                while (transform.GetChild(0).localScale.x > 0)
-                {
-                    yield return new WaitForSeconds(0.01f);
-                    transform.GetChild(0).localScale -= new Vector3(0.1f, 0.1f, 0.1f);
-                    for (int i = 0; i < tList.Count; i++)
-                    {
-                        tList[i].localScale -= new Vector3(0.1f, 0.1f, 0.1f);
-                    }
+            //    foreach (Transform t in transform.GetChild(0).transform)
+            //    {
+            //        tList.Add(t);
+            //    }
+            //    while (transform.GetChild(0).localScale.x > 0)
+            //    {
+            //        yield return new WaitForSeconds(0.01f);
+            //        transform.GetChild(0).localScale -= new Vector3(0.1f, 0.1f, 0.1f);
+            //        //Debug.Log("----localScale:" + transform.GetChild(0).localScale);
+            //        for (int i = 0; i < tList.Count; i++)
+            //        {
+            //            tList[i].localScale -= new Vector3(0.1f, 0.1f, 0.1f);
+            //        }
                     
-                }
-            }
+            //    }
+            //}
             
             yield return new WaitForSeconds(waitTime);
-            //isdestroy = true;
             Destroy(gameObject);
             
         }

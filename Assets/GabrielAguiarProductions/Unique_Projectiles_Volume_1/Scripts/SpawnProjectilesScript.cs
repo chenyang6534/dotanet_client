@@ -59,8 +59,7 @@ public class SpawnProjectilesScript : MonoBehaviour {
 
 		if (firePoint != null) {
 			vfx = Instantiate (effectToSpawn, firePoint.transform.position, Quaternion.identity);
-            Debug.Log("-----------"+ effectToSpawn.name);
-            if (rotateToMouse != null){
+			if(rotateToMouse != null){
 				vfx.transform.localRotation = rotateToMouse.GetRotation ();
 			} 
 			else Debug.Log ("No RotateToMouseScript found on firePoint.");

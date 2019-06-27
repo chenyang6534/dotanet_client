@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41db7dc2f2503f74886f6351fd7f2cdc, type: 3}
+  m_Name: BulletItem
+  m_EditorClassIdentifier: 
+  dataArray:
+  - TypeID: 1
+    ModePath: Bullet/Projectiles/xiaohei_attack
+    Level: 1
+  - TypeID: 2
+    ModePath: Bullet/Projectiles/xiaohei_chenmo
+    Level: 1
+  - TypeID: 3
+    ModePath: Bullet/Projectiles/xiaohei_binjian_1
+    Level: 2
+  - TypeID: 4
+    ModePath: Bullet/Projectiles/xiaohei_binjian_2
+    Level: 10
+  - TypeID: 5
+    ModePath: Bullet/Projectiles/fengxing_attack
+    Level: 1
+  - TypeID: 6
+    ModePath: Bullet/Projectiles/fengxing_skill1
+    Level: 2

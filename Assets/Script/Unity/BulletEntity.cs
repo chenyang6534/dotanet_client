@@ -26,7 +26,8 @@ public class BulletEntity
         m_StartPos = new Vector3(data.StartX, data.StartZ, data.StartY);
         m_EndPos = new Vector3(data.EndX, data.EndZ, data.EndY);
         m_State = data.State;
-        m_ModeType = data.ModeType;
+
+        m_ModeType = BulletEntityManager.Instance.GetBulletModePath(data.ModeType);
 
         //数据处理
         m_Mode = (GameObject)(GameObject.Instantiate(Resources.Load(m_ModeType)));

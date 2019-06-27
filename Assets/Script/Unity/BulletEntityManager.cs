@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ExcelData;
 
 public class BulletEntityManager
 {
@@ -15,12 +16,55 @@ public class BulletEntityManager
 
     private BulletEntityManager()
     {
-
+        m_BIM.Init();
     }
 
 
 
     protected Dictionary<int, BulletEntity> m_BulletEntitys = new Dictionary<int, BulletEntity>();
+
+    protected BulletItemManager m_BIM = Resources.Load<BulletItemManager>("Conf/BulletItem");
+
+    //获取子弹模型路径
+    public string GetBulletModePath(string paths)
+    {
+        Debug.Log("GetBulletModePath:" + paths);
+        if(paths.Length <= 0)
+        {
+            return "";
+        }
+        string[] arr1 = paths.Split(',');
+
+        BulletItem modeitem = null;
+        foreach (var item in arr1)
+        {
+            var bulletitem = m_BIM.GetBIByID(int.Parse(item));
+            if(bulletitem != null)
+            {
+                if(modeitem == null)
+                {
+                    modeitem = bulletitem;
+                }
+                else
+                {
+                    if(bulletitem.Level >= modeitem.Level)
+                    {
+                        modeitem = bulletitem;
+                    }
+                }
+            }
+        }
+        if(modeitem == null)
+        {
+            return "";
+        }
+        else
+        {
+            return modeitem.ModePath;
+        }
+        
+    }
+
 
     //创建新单位
     public void CreateBulletEntity(GameScene gs, Protomsg.BulletDatas data)

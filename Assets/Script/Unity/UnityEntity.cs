@@ -526,7 +526,7 @@ public class UnityEntity {
             m_Mode.transform.parent = m_Scene.transform.parent;
             
             m_MeshHeight = m_Mode.GetComponent<Collider>().bounds.size.y;
-            Debug.Log("m_MeshHeight:" + m_MeshHeight);
+            //Debug.Log("m_MeshHeight:" + m_MeshHeight);
         }
     }
     
@@ -975,7 +975,7 @@ public class UnityEntity {
             }
 
             m_UnitType = value;
-            Debug.Log("m_UnitType-:" + m_UnitType);
+            //Debug.Log("m_UnitType-:" + m_UnitType);
             if (m_TopBar != null)
             {
                 GameObject.Destroy(m_TopBar);

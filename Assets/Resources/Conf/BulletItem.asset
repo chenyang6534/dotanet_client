@@ -30,3 +30,21 @@ MonoBehaviour:
   - TypeID: 6
     ModePath: Bullet/Projectiles/fengxing_skill1
     Level: 2
+  - TypeID: 7
+    ModePath: Bullet/Projectiles/pake_attack
+    Level: 1
+  - TypeID: 8
+    ModePath: Bullet/Projectiles/pake_skill1
+    Level: 2
+  - TypeID: 9
+    ModePath: Bullet/Projectiles/yingmo_attack
+    Level: 1
+  - TypeID: 10
+    ModePath: Bullet/Projectiles/yingmo_skill1
+    Level: 1
+  - TypeID: 11
+    ModePath: Bullet/Projectiles/yingmo_skill2
+    Level: 1
+  - TypeID: 12
+    ModePath: Bullet/Projectiles/huoqiang_attack
+    Level: 1

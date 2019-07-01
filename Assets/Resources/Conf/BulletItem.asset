@@ -48,3 +48,27 @@ MonoBehaviour:
   - TypeID: 12
     ModePath: Bullet/Projectiles/huoqiang_attack
     Level: 1
+  - TypeID: 13
+    ModePath: Bullet/Projectiles/huoqiang_skill1
+    Level: 2
+  - TypeID: 14
+    ModePath: Bullet/Projectiles/yueqi_attack
+    Level: 1
+  - TypeID: 15
+    ModePath: Bullet/Projectiles/dulong_attack
+    Level: 1
+  - TypeID: 16
+    ModePath: Bullet/Projectiles/dulong_skill1
+    Level: 2
+  - TypeID: 17
+    ModePath: Bullet/Projectiles/dulong_skill2
+    Level: 3
+  - TypeID: 18
+    ModePath: Bullet/Projectiles/lanmao_attack
+    Level: 1
+  - TypeID: 19
+    ModePath: Bullet/Projectiles/lanmao_skill1
+    Level: 2
+  - TypeID: 20
+    ModePath: Bullet/Projectiles/lanmao_skill2
+    Level: 2

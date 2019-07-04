@@ -817,6 +817,7 @@ public class UnityEntity {
         });
     }
 
+    
    
 
     public class WordsInfo
@@ -891,7 +892,6 @@ public class UnityEntity {
                 trans.Play();
                 trans.SetHook("over", () => {
                     RemoveWordsInfo(wd);
-                    //GameObject.Destroy(words);
                 });
             }
             else//加血

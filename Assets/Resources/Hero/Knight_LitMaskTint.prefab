@@ -997,7 +997,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84a8081cb3cf3e84ead92ff687384ca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AttackFireTrail: {fileID: 96462106666291034}
+  m_AttackFireTrail:
+  - {fileID: 96462106666291034}
+  m_AttackAnim: 0
 --- !u!137 &137585073399396354
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

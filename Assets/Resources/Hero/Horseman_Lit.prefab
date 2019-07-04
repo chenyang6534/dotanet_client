@@ -1133,7 +1133,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1937740628612764}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 6.11, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4372244494512494}
@@ -1636,7 +1636,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84a8081cb3cf3e84ead92ff687384ca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AttackFireTrail: {fileID: 96716060574016790}
+  m_AttackFireTrail:
+  - {fileID: 96716060574016790}
+  m_AttackAnim: 0
 --- !u!137 &137407522462701324
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

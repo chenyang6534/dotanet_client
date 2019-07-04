@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class EntityActionEvent : MonoBehaviour {
 
-    public TrailRenderer m_AttackFireTrail;
+    public TrailRenderer[] m_AttackFireTrail;
     public int m_AttackAnim;
 	// Use this for initialization
 	void Start () {
-		if(m_AttackFireTrail != null)
+		for( var i = 0; i < m_AttackFireTrail.Length; i++)
         {
-            m_AttackFireTrail.enabled = false;
+            m_AttackFireTrail[i].enabled = false;
         }
+            
 	}
 	
 	// Update is called once per frame
@@ -34,20 +35,20 @@ public class EntityActionEvent : MonoBehaviour {
     }
     public void AttackStart(string arg)
     {
-        if (m_AttackFireTrail != null)
+        for (var i = 0; i < m_AttackFireTrail.Length; i++)
         {
-            m_AttackFireTrail.enabled = true;
+            m_AttackFireTrail[i].enabled = true;
         }
-        if( arg.Length > 0 && m_AttackAnim > 0)
+        if ( arg.Length > 0 && m_AttackAnim > 0)
         {
             ShowDaoGuang(arg);
         }
     }
     public void AttackEnd(string _arg1)
     {
-        if (m_AttackFireTrail != null)
+        for (var i = 0; i < m_AttackFireTrail.Length; i++)
         {
-            m_AttackFireTrail.enabled = false;
+            m_AttackFireTrail[i].enabled = false;
         }
     }
 

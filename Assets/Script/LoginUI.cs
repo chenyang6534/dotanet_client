@@ -24,7 +24,7 @@ public class LoginUI : MonoBehaviour {
             //msg1.Machineid = "10000";   //剑圣
             //msg1.Machineid = "10002";   //小黑
             //msg1.Machineid = "10003";   //虚空
-            msg1.Machineid = "10004";   //混沌骑士
+            //msg1.Machineid = "10004";   //混沌骑士
             //msg1.Machineid = "10005";   //熊战士
             //msg1.Machineid = "10006";   //血魔
             //msg1.Machineid = "10007";   //小娜迦
@@ -34,7 +34,7 @@ public class LoginUI : MonoBehaviour {
             //msg1.Machineid = "10011";   //影魔
             //msg1.Machineid = "10012";   //幽鬼
             //msg1.Machineid = "10013";   //火枪
-            //msg1.Machineid = "10014";   //斧王
+            msg1.Machineid = "10014";   //斧王
             //msg1.Machineid = "10015";   //月骑
             //msg1.Machineid = "10016";   //毒龙
             //msg1.Machineid = "10017";   //蓝猫

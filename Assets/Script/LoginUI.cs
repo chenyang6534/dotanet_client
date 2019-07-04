@@ -21,10 +21,10 @@ public class LoginUI : MonoBehaviour {
             
             Protomsg.CS_MsgQuickLogin msg1 = new Protomsg.CS_MsgQuickLogin();
             //msg1.Machineid = "100001"; //PA
-            msg1.Machineid = "10000";   //剑圣
+            //msg1.Machineid = "10000";   //剑圣
             //msg1.Machineid = "10002";   //小黑
             //msg1.Machineid = "10003";   //虚空
-            //msg1.Machineid = "10004";   //混沌骑士
+            msg1.Machineid = "10004";   //混沌骑士
             //msg1.Machineid = "10005";   //熊战士
             //msg1.Machineid = "10006";   //血魔
             //msg1.Machineid = "10007";   //小娜迦

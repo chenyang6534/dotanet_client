@@ -47,7 +47,7 @@ public class ProjectileScript : MonoBehaviour {
     }
     public void ShowEndParticle()
     {
-        Debug.Log("111time:" + Time.frameCount);
+        //Debug.Log("111time:" + Time.frameCount);
         if (m_IsDestroy == true)
         {
             return;
@@ -96,7 +96,7 @@ public class ProjectileScript : MonoBehaviour {
     }
     public void Destroy()
     {
-        Debug.Log("222time:" +Time.frameCount);
+        //Debug.Log("222time:" +Time.frameCount);
         if (m_IsDestroy == false)
         {
             m_IsDestroy = true;

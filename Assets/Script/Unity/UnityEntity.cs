@@ -35,6 +35,7 @@ public class UnityEntity {
         MaxHP = data.MaxHP;
         MaxMP = data.MaxMP;
         ControlID = data.ControlID;
+        AttackAnim = data.AttackAnim;
         ModeType = data.ModeType;
         ID = data.ID;
         
@@ -289,6 +290,7 @@ public class UnityEntity {
             }
 
             ControlID += data.ControlID;
+            AttackAnim += data.AttackAnim;
             AttackMode += data.AttackMode;
             UnitType += data.UnitType; //需要数据 ModeType 
             AttackAcpabilities += data.AttackAcpabilities;
@@ -637,6 +639,29 @@ public class UnityEntity {
             m_ControlID = value;
         }
     }
+    protected int m_AttackAnim;
+    public int AttackAnim
+    {
+        get
+        {
+            return m_AttackAnim;
+        }
+        set
+        {
+            m_AttackAnim = value;
+            if(m_Mode != null)
+            {
+                var eae = m_Mode.GetComponent<EntityActionEvent>();
+                if(eae != null)
+                {
+                    eae.m_AttackAnim = value;
+                }
+                
+            }
+        }
+    }
+
+    
     // IsMain
     protected int m_IsMain;
     public int IsMain

@@ -72,3 +72,6 @@ MonoBehaviour:
   - TypeID: 20
     ModePath: Bullet/Projectiles/lanmao_skill2
     Level: 2
+  - TypeID: 21
+    ModePath: Bullet/Projectiles/jianshen_skill2
+    Level: 2

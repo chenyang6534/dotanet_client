@@ -5,12 +5,11 @@ namespace ExcelData
     //这里根据自己的表结构来
 
     [System.Serializable]
-    public class BulletItem
+    public class BuffItem
     {
         public int TypeID;
-        public string ModePath;
-        public int Level;
+        public string BodyEffect;
+        public string FootEffect;
     }
-    
 
 }

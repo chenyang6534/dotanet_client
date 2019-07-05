@@ -1,5 +1,6 @@
 ﻿
 using DG.Tweening;
+using ExcelData;
 using FairyGUI;
 using System;
 using System.Collections;
@@ -343,50 +344,56 @@ public class UnityEntity {
 
         }
     }
+
+    protected Dictionary<int, BuffEffect> m_BuffEffects = new Dictionary<int, BuffEffect>();
+
     //根据buffid 创建单位特效
     public void CreateBuffSpecial(int typeid)
     {
-        switch (typeid)
+        Debug.Log("------- CreateBuffSpecial :" + typeid+" "+ m_BuffEffects);
+
+        //BuffEffect be = m_BuffEffects[typeid];
+        //if(be != null)
+        //{
+        //    Debug.Log("-------repeat CreateBuffSpecial :" + typeid);
+        //}
+        //Debug.Log("----ttt--- CreateBuffSpecial :" + typeid);
+
+        BuffEffect buffeffect =  BuffEffect.CreateBuffEffect(typeid,m_Mode);
+        if(buffeffect != null)
         {
-            case 4:
-                m_Mode.GetComponent<UnityEntitySpecial>().AddWhite();
-                break;
-            case 2:
-                m_Mode.GetComponent<UnityEntitySpecial>().AddGreen();
-                break;
-            case 14:
-                m_Mode.GetComponent<UnityEntitySpecial>().AddWhite();
-                break;
-            case 11:
-                m_Mode.GetComponent<UnityEntitySpecial>().AddWhite();
-                break;
-            case 13:
-                m_Mode.GetComponent<UnityEntitySpecial>().AddWhite();
-                break;
+            m_BuffEffects[typeid] = buffeffect;
         }
+        
+
+        //switch (typeid)
+        //{
+        //    case 4:
+        //        m_Mode.GetComponent<UnityEntitySpecial>().AddWhite();
+        //        break;
+           
+        //}
         
     }
     //根据buffid 删除单位特效
     public void RemoveBuffSpecial(int typeid)
     {
-        switch (typeid)
+        Debug.Log("------- RemoveBuffSpecial :" + typeid);
+        if (m_BuffEffects.ContainsKey(typeid) == false)
         {
-            case 4:
-                m_Mode.GetComponent<UnityEntitySpecial>().RemoveWhite();
-                break;
-            case 2:
-                m_Mode.GetComponent<UnityEntitySpecial>().RemoveGreen();
-                break;
-            case 14:
-                m_Mode.GetComponent<UnityEntitySpecial>().RemoveWhite();
-                break;
-            case 11:
-                m_Mode.GetComponent<UnityEntitySpecial>().RemoveWhite();
-                break;
-            case 13:
-                m_Mode.GetComponent<UnityEntitySpecial>().RemoveWhite();
-                break;
+            Debug.Log("-------no RemoveBuffSpecial :" + typeid);
+            return;
         }
+        var be = m_BuffEffects[typeid];
+        be.Delete();
+        m_BuffEffects.Remove(typeid);
+        //switch (typeid)
+        //{
+        //    case 4:
+        //        m_Mode.GetComponent<UnityEntitySpecial>().RemoveWhite();
+        //        break;
+
+        //}
     }
 
     //刷新buff

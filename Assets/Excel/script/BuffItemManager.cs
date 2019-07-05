@@ -6,24 +6,24 @@ using System.Collections.Generic;
 namespace ExcelData
 {
     [System.Serializable]
-    public class BulletItemManager : ScriptableObject
+    public class BuffItemManager : ScriptableObject
     {
-        public BulletItem[] dataArray;
+        public BuffItem[] dataArray;
 
-        protected Dictionary<int, BulletItem> m_Data = new Dictionary<int, BulletItem>();
+        protected Dictionary<int, BuffItem> m_Data = new Dictionary<int, BuffItem>();
         public void Init()
         {
             var tt = dataArray;
-            Debug.Log("BulletItemManager");
-            foreach (BulletItem i in dataArray)
+            Debug.Log("BuffItemManager");
+            foreach (BuffItem i in dataArray)
             {
                 m_Data[i.TypeID] = i;
             }
         }
 
-        public BulletItem GetBIByID(int id)
+        public BuffItem GetBIByID(int id)
         {
-            if(m_Data.ContainsKey(id) == false)
+            if (m_Data.ContainsKey(id) == false)
             {
                 return null;
             }

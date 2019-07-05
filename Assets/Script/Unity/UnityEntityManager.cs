@@ -62,6 +62,10 @@ public class UnityEntityManager  {
     //通过ID获取单位
     public UnityEntity GetUnityEntity(int id)
     {
+        if (m_UnityEntitys.ContainsKey(id) == false)
+        {
+            return null;
+        }
         return m_UnityEntitys[id];
     }
     //检查单位是否满足技能释放条件

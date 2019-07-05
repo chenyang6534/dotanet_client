@@ -16,14 +16,14 @@ public class BulletEntityManager
 
     private BulletEntityManager()
     {
-        m_BIM.Init();
+        //m_BIM.Init();
     }
 
 
 
     protected Dictionary<int, BulletEntity> m_BulletEntitys = new Dictionary<int, BulletEntity>();
 
-    protected BulletItemManager m_BIM = Resources.Load<BulletItemManager>("Conf/BulletItem");
+    //protected BulletItemManager m_BIM = Resources.Load<BulletItemManager>("Conf/BulletItem");
 
     //获取子弹模型路径
     public string GetBulletModePath(string paths)
@@ -38,7 +38,7 @@ public class BulletEntityManager
         BulletItem modeitem = null;
         foreach (var item in arr1)
         {
-            var bulletitem = m_BIM.GetBIByID(int.Parse(item));
+            var bulletitem = ExcelManager.Instance.GetBulletIM().GetBIByID(int.Parse(item));
             if(bulletitem != null)
             {
                 if(modeitem == null)
@@ -107,6 +107,10 @@ public class BulletEntityManager
     //通过ID获取单位
     public BulletEntity GetUnityEntity(int id)
     {
+        if (m_BulletEntitys.ContainsKey(id) == false)
+        {
+            return null;
+        }
         return m_BulletEntitys[id];
     }
     

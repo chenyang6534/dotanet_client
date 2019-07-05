@@ -45,6 +45,7 @@ public class GameScene : MonoBehaviour {
 
     void Init()
     {
+
         m_LogicDelayTime = 0.05f;//延时0.02s
         MsgManager.Instance.AddListener("SC_Update", new HandleMsg(this.SC_Update));
         MsgManager.Instance.AddListener("SC_NewScene", new HandleMsg(this.SC_NewScene));

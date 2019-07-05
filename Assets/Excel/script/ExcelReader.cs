@@ -35,7 +35,7 @@ public class ExcelReader
         /// </summary>
         /// <param name="filePath">excel文件全路径</param>
         /// <returns>Item数组</returns>
-        public static BulletItem[] CreateItemArrayWithExcel(string filePath)
+        public static BulletItem[] CreateBulletItemArrayWithExcel(string filePath)
         {
             //获得表数据
             int columnNum = 0, rowNum = 0;
@@ -50,6 +50,26 @@ public class ExcelReader
                 item.TypeID = int.Parse(collect[i][0].ToString());
                 item.ModePath = collect[i][1].ToString();
                 item.Level = int.Parse(collect[i][2].ToString());
+                array[i - 1] = item;
+            }
+            return array;
+        }
+
+        public static BuffItem[] CreateBuffItemArrayWithExcel(string filePath)
+        {
+            //获得表数据
+            int columnNum = 0, rowNum = 0;
+            DataRowCollection collect = ReadExcel(filePath, ref columnNum, ref rowNum);
+
+            //根据excel的定义，第二行开始才是数据
+            BuffItem[] array = new BuffItem[rowNum - 1];
+            for (int i = 1; i < rowNum; i++)
+            {
+                BuffItem item = new BuffItem();
+                //解析每列的数据
+                item.TypeID = int.Parse(collect[i][0].ToString());
+                item.BodyEffect = collect[i][2].ToString();
+                item.FootEffect = collect[i][3].ToString();
                 array[i - 1] = item;
             }
             return array;
@@ -81,9 +101,14 @@ public class ExcelReader
         [MenuItem("CustomEditor/CreateItemAsset")]
         public static void CreateItemAsset()
         {
+            CreateBulletItemAsset();
+            CreateBuffItemAsset();
+        }
+        public static void CreateBulletItemAsset()
+        {
             BulletItemManager manager = ScriptableObject.CreateInstance<BulletItemManager>();
             //赋值
-            manager.dataArray = ExcelTool.CreateItemArrayWithExcel(ExcelConfig.excelsFolderPath + "Bullet.xlsx");
+            manager.dataArray = ExcelTool.CreateBulletItemArrayWithExcel(ExcelConfig.excelsFolderPath + "bullet.xlsx");
 
             //确保文件夹存在
             if (!Directory.Exists(ExcelConfig.assetPath))
@@ -93,6 +118,25 @@ public class ExcelReader
 
             //asset文件的路径 要以"Assets/..."开始，否则CreateAsset会报错
             string assetPath = string.Format("{0}{1}.asset", ExcelConfig.assetPath, "BulletItem");
+            //生成一个Asset文件
+            AssetDatabase.CreateAsset(manager, assetPath);
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+        }
+        public static void CreateBuffItemAsset()
+        {
+            BuffItemManager manager = ScriptableObject.CreateInstance<BuffItemManager>();
+            //赋值
+            manager.dataArray = ExcelTool.CreateBuffItemArrayWithExcel(ExcelConfig.excelsFolderPath + "buff_effect.xlsx");
+
+            //确保文件夹存在
+            if (!Directory.Exists(ExcelConfig.assetPath))
+            {
+                Directory.CreateDirectory(ExcelConfig.assetPath);
+            }
+
+            //asset文件的路径 要以"Assets/..."开始，否则CreateAsset会报错
+            string assetPath = string.Format("{0}{1}.asset", ExcelConfig.assetPath, "BuffItem");
             //生成一个Asset文件
             AssetDatabase.CreateAsset(manager, assetPath);
             AssetDatabase.SaveAssets();

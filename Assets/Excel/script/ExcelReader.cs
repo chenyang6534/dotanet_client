@@ -70,6 +70,7 @@ public class ExcelReader
                 item.TypeID = int.Parse(collect[i][0].ToString());
                 item.BodyEffect = collect[i][2].ToString();
                 item.FootEffect = collect[i][3].ToString();
+                item.Enable = int.Parse(collect[i][4].ToString());
                 array[i - 1] = item;
             }
             return array;

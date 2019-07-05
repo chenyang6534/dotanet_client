@@ -10,6 +10,7 @@ namespace ExcelData
         public int TypeID;
         public string BodyEffect;
         public string FootEffect;
+        public int Enable;
     }
 
 }

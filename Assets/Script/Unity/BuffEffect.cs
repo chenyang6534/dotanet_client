@@ -25,6 +25,7 @@ public class BuffEffect
             return;
         }
         Debug.Log("init:"+ BIdata.BodyEffect);
+        //模型身上的特效
         if (BIdata.BodyEffect.Length > 0)
         {
             var modeeffect = (GameObject)(GameObject.Instantiate(Resources.Load(BIdata.BodyEffect)));
@@ -37,15 +38,26 @@ public class BuffEffect
                 ModeEffect.Add(modeeffect);
             }
         }
+        //隐藏模型
+        //ParentEntity.Mode.SetActive(false);
+        if(BIdata.Enable == 0)
+        {
+            ParentEntity.Mode.SetActive(false);
+        }
     }
     public void Delete()
     {
+        if (BIdata.Enable == 0)
+        {
+            ParentEntity.Mode.SetActive(true);
+        }
         Debug.Log("Delete:" + TypeID);
         foreach (GameObject p in ModeEffect)
         {
             Object.Destroy(p);
         }
-        
+        //ParentEntity.Mode.SetActive(true);
+
     }
 
     public static BuffEffect CreateBuffEffect(int typeid, UnityEntity parent)

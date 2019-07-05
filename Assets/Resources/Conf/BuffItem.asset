@@ -15,3 +15,8 @@ MonoBehaviour:
   - TypeID: 5
     BodyEffect: Buff/xuanfengzhan
     FootEffect: 
+    Enable: 1
+  - TypeID: 9
+    BodyEffect: 
+    FootEffect: 
+    Enable: 0

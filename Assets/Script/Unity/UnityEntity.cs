@@ -359,7 +359,7 @@ public class UnityEntity {
         //}
         //Debug.Log("----ttt--- CreateBuffSpecial :" + typeid);
 
-        BuffEffect buffeffect =  BuffEffect.CreateBuffEffect(typeid,m_Mode);
+        BuffEffect buffeffect =  BuffEffect.CreateBuffEffect(typeid,this);
         if(buffeffect != null)
         {
             m_BuffEffects[typeid] = buffeffect;

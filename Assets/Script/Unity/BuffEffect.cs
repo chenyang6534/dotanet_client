@@ -9,25 +9,29 @@ public class BuffEffect
     public int TypeID;
     public BuffItem BIdata;
     List<GameObject> ModeEffect = new List<GameObject>();
-    public GameObject ParentMode;
+    public UnityEntity ParentEntity;
     //public 
-    public BuffEffect(int typeid, GameObject parent)
+    public BuffEffect(int typeid, UnityEntity parent)
     {
         TypeID = typeid;
         BIdata = ExcelManager.Instance.GetBuffIM().GetBIByID(typeid);
-        ParentMode = parent;
+        ParentEntity = parent;
         Init();
     }
     public void Init()
     {
+        if(ParentEntity == null || ParentEntity.Mode == null)
+        {
+            return;
+        }
         Debug.Log("init:"+ BIdata.BodyEffect);
         if (BIdata.BodyEffect.Length > 0)
         {
             var modeeffect = (GameObject)(GameObject.Instantiate(Resources.Load(BIdata.BodyEffect)));
             if (modeeffect != null)
             {
-                modeeffect.transform.parent = ParentMode.transform;
-                modeeffect.transform.position = ParentMode.transform.position;
+                modeeffect.transform.parent = ParentEntity.Mode.transform;
+                modeeffect.transform.position = ParentEntity.Mode.transform.position;
                 Debug.Log("modeeffect:" + modeeffect);
 
                 ModeEffect.Add(modeeffect);
@@ -44,10 +48,10 @@ public class BuffEffect
         
     }
 
-    public static BuffEffect CreateBuffEffect(int typeid, GameObject parent)
+    public static BuffEffect CreateBuffEffect(int typeid, UnityEntity parent)
     {
         var data = ExcelManager.Instance.GetBuffIM().GetBIByID(typeid);
-        if(data == null)
+        if(data == null || parent == null || parent.Mode == null)
         {
             return null;
         }

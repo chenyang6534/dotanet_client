@@ -9,7 +9,7 @@ public class GameScene : MonoBehaviour {
     // Use this for initialization
     protected UnityEntity m_TargetUnit; //目标单位
     protected GameObject hero;
-    protected GameObject m_GameScene;
+    public GameObject m_GameScene;
     protected Plane m_PlaneScene;
     protected int m_CurFrame;
     protected int m_LogicFps;
@@ -200,7 +200,7 @@ public class GameScene : MonoBehaviour {
                         m_TargetUnit = null;
                     }
                 }
-
+                //子弹
                 foreach (var item in p1.NewBullets)
                 {
                     BulletEntityManager.Instance.CreateBulletEntity(this, item);
@@ -213,8 +213,25 @@ public class GameScene : MonoBehaviour {
                 {
                     BulletEntityManager.Instance.DestroyBulletEntity(item);
                 }
+                //光环
+                foreach (var item in p1.NewHalos)
+                {
+                    Debug.Log("new halo:" + item.ID);
+                    HaloEntityManager.Instance.CreateHaloEntity(this, item);
+                }
+                foreach (var item in p1.OldHalos)
+                {
+                    Debug.Log("old halo:" + item.ID);
+                    HaloEntityManager.Instance.ChangeHaloEntity(item);
+                }
+                foreach (var item in p1.RemoveHalos)
+                {
+                    Debug.Log("remove halo:" + item);
+                    HaloEntityManager.Instance.DestroyHaloEntity(item);
+                }
 
-                foreach( var item in p1.PlayerHurt)
+                //伤害数字提示
+                foreach ( var item in p1.PlayerHurt)
                 {
                     //Debug.Log("--id:"+item.HurtUnitID+"  value:"+item.HurtAllValue);
                     var unit = UnityEntityManager.Instance.GetUnityEntity(item.HurtUnitID);

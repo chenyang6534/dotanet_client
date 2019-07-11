@@ -9,11 +9,15 @@ public class UnityEntitySpecial : MonoBehaviour {
     
     protected int m_GreenCount;
     protected int m_WhiteCount;
+    protected int m_AngerRed;//愤怒红
+
+    public Material AngerRedMat;//愤怒红材质
 
     void Awake () {
         //Debug.Log("aaaaaaaaaaaaaa");
         m_GreenCount = 0;
         m_WhiteCount = 0;
+        m_AngerRed = 0;
         var allChild = GetComponentsInChildren<Transform>();
         foreach (Transform child in allChild)
         {
@@ -40,7 +44,7 @@ public class UnityEntitySpecial : MonoBehaviour {
 
     public void CheckNextShow()
     {
-        if(m_GreenCount <= 0 && m_WhiteCount <= 0)
+        if(m_GreenCount <= 0 && m_WhiteCount <= 0 && m_AngerRed <= 0)
         {
             Reset();
             return;
@@ -51,6 +55,9 @@ public class UnityEntitySpecial : MonoBehaviour {
         }else if(m_WhiteCount > 0)
         {
             SetWhite();
+        }else if( m_AngerRed > 0)
+        {
+
         }
 
     }
@@ -92,6 +99,30 @@ public class UnityEntitySpecial : MonoBehaviour {
     {
         SetWhite();
         m_WhiteCount++;
+    }
+
+    public void RemoveAngerRed()
+    {
+        m_AngerRed--;
+        CheckNextShow();
+    }
+    protected void SetAngerRed()
+    {
+        if(AngerRedMat == null)
+        {
+            return;
+        }
+        //Material mat = Resources.Load<Material>("Specialeffects/unitywhite");// new Material(Shader.Find("UnityEntity/Specail1"));
+
+        foreach (var item in m_AllMaterial)
+        {
+            item.Key.material = AngerRedMat;
+        }
+    }
+    public void AddAngerRed()
+    {
+        SetAngerRed();
+        m_AngerRed++;
     }
 
     // Update is called once per frame

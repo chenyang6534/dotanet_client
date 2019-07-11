@@ -71,6 +71,11 @@ public class ExcelReader
                 item.BodyEffect = collect[i][2].ToString();
                 item.FootEffect = collect[i][3].ToString();
                 item.Enable = int.Parse(collect[i][4].ToString());
+                item.HeadEffect = collect[i][5].ToString();
+                item.TopBarEffect = collect[i][6].ToString();
+                item.RenderColor = int.Parse(collect[i][7].ToString());
+                item.OutEffect = collect[i][8].ToString();
+                item.NativeTopBarEffect = collect[i][9].ToString();
                 array[i - 1] = item;
             }
             return array;

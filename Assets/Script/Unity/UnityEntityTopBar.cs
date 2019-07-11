@@ -13,6 +13,8 @@ public class UnityEntityTopBar : MonoBehaviour
     protected GProgressBar m_DebuffPro;
     protected GProgressBar m_HP;
     protected GProgressBar m_MP;
+
+    protected GList m_BuffList;
     
     void Awake()
     {
@@ -43,12 +45,45 @@ public class UnityEntityTopBar : MonoBehaviour
         {
             m_Level = mRoot.GetChild("level").asTextField;
         }
+        if (mRoot.GetChild("buff") != null)
+        {
+            m_BuffList = mRoot.GetChild("buff").asList;
+        }
+        
     }
     void Start()
     {
+
+        //this.AddBuff();
+
+    }
+    public GObject AddNativeBuff(string path)
+    {
+        var url = "ui://fekv2twrs1b211";
+        //ui://fekv2twrs1b2w
+        var go = m_BuffList.AddItemFromPool(url);
+        var modeeffect = (GameObject)(GameObject.Instantiate(Resources.Load(path)));
+        modeeffect.transform.localPosition = new Vector3(0, 0, 10);
+        modeeffect.transform.localScale = new Vector3(40, 40, 40);
+        GGraph holder = go.asCom.GetChild("n1").asGraph;
+        GoWrapper wrapper = new GoWrapper(modeeffect);
+        holder.SetNativeObject(wrapper);
+        return go;
+    }
+    public GObject AddBuff(string url) 
+    {
+        if(m_BuffList == null)
+        {
+            return null;
+        }
         
+        var go = m_BuffList.AddItemFromPool(url);
+        return go;// m_BuffList.AddItemFromPool(url);
 
-
+    }
+    public void RemoveBuff(GObject gobj)
+    {
+        m_BuffList.RemoveChildToPool(gobj);
     }
 
     public void SetVisible(bool vis)

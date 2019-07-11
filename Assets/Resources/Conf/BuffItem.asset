@@ -16,7 +16,89 @@ MonoBehaviour:
     BodyEffect: Buff/xuanfengzhan
     FootEffect: 
     Enable: 1
+    HeadEffect: 
+    TopBarEffect: 
+    RenderColor: 0
+    OutEffect: 
+    NativeTopBarEffect: 
   - TypeID: 9
     BodyEffect: 
     FootEffect: 
     Enable: 0
+    HeadEffect: 
+    TopBarEffect: 
+    RenderColor: 0
+    OutEffect: 
+    NativeTopBarEffect: 
+  - TypeID: 11
+    BodyEffect: 
+    FootEffect: 
+    Enable: 1
+    HeadEffect: 
+    TopBarEffect: ui://fekv2twrs1b2w
+    RenderColor: 0
+    OutEffect: 
+    NativeTopBarEffect: Buff/zhuaheng
+  - TypeID: 51
+    BodyEffect: Line/pake_skill4
+    FootEffect: 
+    Enable: 1
+    HeadEffect: 
+    TopBarEffect: 
+    RenderColor: 0
+    OutEffect: 
+    NativeTopBarEffect: 
+  - TypeID: 14
+    BodyEffect: Buff/xukong_skill2
+    FootEffect: 
+    Enable: 1
+    HeadEffect: 
+    TopBarEffect: 
+    RenderColor: 0
+    OutEffect: 
+    NativeTopBarEffect: 
+  - TypeID: 25
+    BodyEffect: 
+    FootEffect: 
+    Enable: 1
+    HeadEffect: 
+    TopBarEffect: ui://fekv2twrs1b2x
+    RenderColor: 0
+    OutEffect: 
+    NativeTopBarEffect: 
+  - TypeID: 87
+    BodyEffect: 
+    FootEffect: 
+    Enable: 0
+    HeadEffect: 
+    TopBarEffect: 
+    RenderColor: 0
+    OutEffect: 
+    NativeTopBarEffect: 
+  - TypeID: 26
+    BodyEffect: 
+    FootEffect: 
+    Enable: 1
+    HeadEffect: 
+    TopBarEffect: 
+    RenderColor: 3
+    OutEffect: 
+    NativeTopBarEffect: 
+  - TypeID: 48
+    BodyEffect: 
+    FootEffect: 
+    Enable: 0
+    HeadEffect: 
+    TopBarEffect: 
+    RenderColor: 0
+    OutEffect: Buff/pake_skill3
+    NativeTopBarEffect: 
+  - TypeID: 84
+    BodyEffect: Line/lanmao_skill2
+    FootEffect: 
+    Enable: 1
+    HeadEffect: 
+    TopBarEffect: 
+    RenderColor: 0
+    OutEffect: 
+    NativeTopBarEffect: 

@@ -46,50 +46,52 @@ namespace Protomsg {
             "dFJhbmdlGAsgASgCEhAKCENvb2xkb3duGAwgASgCEhEKCUh1cnRSYW5nZRgN",
             "IAEoAhIQCghNYW5hQ29zdBgOIAEoBRIYChBBdHRhY2tBdXRvQWN0aXZlGA8g",
             "ASgFEg8KB1Zpc2libGUYECABKAUSGAoQUmVtYWluU2tpbGxDb3VudBgRIAEo",
-            "BSJNCglCdWZmRGF0YXMSDgoGVHlwZUlEGAEgASgFEhIKClJlbWFpblRpbWUY",
-            "AiABKAISDAoEVGltZRgDIAEoAhIOCgZUYWdOdW0YBCABKAUihQUKCVVuaXRE",
-            "YXRhcxIMCgROYW1lGAEgASgJEg0KBUxldmVsGAIgASgFEgoKAkhQGAMgASgF",
-            "EgoKAk1QGAQgASgFEgkKAVgYBSABKAISCQoBWRgGIAEoAhIKCgJJRBgHIAEo",
-            "BRIQCghNb2RlVHlwZRgIIAEoCRINCgVNYXhIUBgJIAEoBRINCgVNYXhNUBgK",
-            "IAEoBRISCgpFeHBlcmllbmNlGAsgASgFEhUKDU1heEV4cGVyaWVuY2UYDCAB",
-            "KAUSEQoJQ29udHJvbElEGA0gASgFEhUKDUFuaW1vdG9yU3RhdGUYDiABKAUS",
-            "EgoKQXR0YWNrVGltZRgPIAEoAhISCgpEaXJlY3Rpb25YGBAgASgCEhIKCkRp",
-            "cmVjdGlvblkYESABKAISEAoIVW5pdFR5cGUYEiABKAUSGgoSQXR0YWNrQWNw",
-            "YWJpbGl0aWVzGBMgASgFEhIKCkF0dGFja01vZGUYFCABKAUSDgoGSXNNYWlu",
-            "GBUgASgFEg8KB0lzRGVhdGgYFiABKAUSEQoJSW52aXNpYmxlGBcgASgFEgwK",
-            "BENhbXAYGCABKAUSDgoGSXNNaXNzGBkgASgIEhUKDUFuaW1vdG9yUGF1c2UY",
-            "GiABKAUSEwoLU2tpbGxFbmFibGUYGyABKAUSEgoKSXRlbUVuYWJsZRgcIAEo",
-            "BRIJCgFaGB0gASgCEhUKDUlzTWlycm9ySW1hZ2UYHiABKAUSEwoLQXR0YWNr",
-            "UmFuZ2UYHyABKAISEgoKQXR0YWNrQW5pbRggIAEoBRIgCgJTRBghIAMoCzIU",
-            "LnByb3RvbXNnLlNraWxsRGF0YXMSHwoCQkQYIiADKAsyEy5wcm90b21zZy5C",
-            "dWZmRGF0YXMitQEKC0J1bGxldERhdGFzEgoKAklEGAEgASgFEhAKCE1vZGVU",
-            "eXBlGAIgASgJEgkKAVgYAyABKAISCQoBWRgEIAEoAhIJCgFaGAUgASgCEg0K",
-            "BVN0YXRlGAYgASgFEg4KBlN0YXJ0WBgHIAEoAhIOCgZTdGFydFkYCCABKAIS",
-            "DgoGU3RhcnRaGAkgASgCEgwKBEVuZFgYCiABKAISDAoERW5kWRgLIAEoAhIM",
-            "CgRFbmRaGAwgASgCIkoKCUhhbG9EYXRhcxIKCgJJRBgBIAEoBRIQCghNb2Rl",
-            "VHlwZRgCIAEoCRIJCgFYGAMgASgCEgkKAVkYBCABKAISCQoBWhgFIAEoAiKE",
-            "AQoRTXNnVXNlckVudGVyU2NlbmUSCwoDVWlkGAEgASgFEhEKCUNvbm5lY3RJ",
-            "ZBgCIAEoBRIVCg1TcmNTZXJ2ZXJOYW1lGAMgASgJEhYKDkRlc3RTZXJ2ZXJO",
-            "YW1lGAQgASgJEhEKCVNjZW5lTmFtZRgFIAEoCRINCgVEYXRhcxgGIAEoDCJh",
-            "Cg1Nc2dQbGF5ZXJIdXJ0EhIKCkh1cnRVbml0SUQYASABKAUSFAoMSHVydEFs",
-            "bFZhbHVlGAIgASgFEhYKDkh1cnRNYWdpY1ZhbHVlGAMgASgFEg4KBklzQ3Jp",
-            "dBgEIAEoBSL9AgoJU0NfVXBkYXRlEhAKCEN1ckZyYW1lGAEgASgFEiUKCE5l",
-            "d1VuaXRzGAIgAygLMhMucHJvdG9tc2cuVW5pdERhdGFzEiUKCE9sZFVuaXRz",
-            "GAMgAygLMhMucHJvdG9tc2cuVW5pdERhdGFzEhMKC1JlbW92ZVVuaXRzGAQg",
-            "AygFEikKCk5ld0J1bGxldHMYBSADKAsyFS5wcm90b21zZy5CdWxsZXREYXRh",
-            "cxIpCgpPbGRCdWxsZXRzGAYgAygLMhUucHJvdG9tc2cuQnVsbGV0RGF0YXMS",
-            "FQoNUmVtb3ZlQnVsbGV0cxgHIAMoBRIlCghOZXdIYWxvcxgIIAMoCzITLnBy",
-            "b3RvbXNnLkhhbG9EYXRhcxIlCghPbGRIYWxvcxgJIAMoCzITLnByb3RvbXNn",
-            "LkhhbG9EYXRhcxITCgtSZW1vdmVIYWxvcxgKIAMoBRIrCgpQbGF5ZXJIdXJ0",
-            "GAsgAygLMhcucHJvdG9tc2cuTXNnUGxheWVySHVydCJTCgtTQ19OZXdTY2Vu",
-            "ZRIMCgROYW1lGAEgASgJEhAKCExvZ2ljRnBzGAIgASgFEhAKCEN1ckZyYW1l",
-            "GAMgASgFEhIKClNlcnZlck5hbWUYBCABKAkiVgoSQ2hhcmFjdGVyQmFzZURh",
-            "dGFzEhMKC0NoYXJhY3RlcmlkGAEgASgFEgwKBE5hbWUYAiABKAkSDgoGVHlw",
-            "ZWlkGAMgASgFEg0KBUxldmVsGAQgASgFImgKClNDX0xvZ2luZWQSDAoEQ29k",
-            "ZRgBIAEoBRILCgNVaWQYAiABKAUSDQoFRXJyb3IYAyABKAkSMAoKQ2hhcmFj",
-            "dGVycxgEIAMoCzIcLnByb3RvbXNnLkNoYXJhY3RlckJhc2VEYXRhcyJMChhT",
-            "Q19TZWxlY3RDaGFyYWN0ZXJSZXN1bHQSDAoEQ29kZRgBIAEoBRITCgtDaGFy",
-            "YWN0ZXJpZBgCIAEoBRINCgVFcnJvchgDIAEoCWIGcHJvdG8z"));
+            "BSKkAQoJQnVmZkRhdGFzEg4KBlR5cGVJRBgBIAEoBRISCgpSZW1haW5UaW1l",
+            "GAIgASgCEgwKBFRpbWUYAyABKAISDgoGVGFnTnVtGAQgASgFEhYKDkNvbm5l",
+            "Y3Rpb25UeXBlGAUgASgFEhMKC0Nvbm5lY3Rpb25YGAYgASgCEhMKC0Nvbm5l",
+            "Y3Rpb25ZGAcgASgCEhMKC0Nvbm5lY3Rpb25aGAggASgCIoUFCglVbml0RGF0",
+            "YXMSDAoETmFtZRgBIAEoCRINCgVMZXZlbBgCIAEoBRIKCgJIUBgDIAEoBRIK",
+            "CgJNUBgEIAEoBRIJCgFYGAUgASgCEgkKAVkYBiABKAISCgoCSUQYByABKAUS",
+            "EAoITW9kZVR5cGUYCCABKAkSDQoFTWF4SFAYCSABKAUSDQoFTWF4TVAYCiAB",
+            "KAUSEgoKRXhwZXJpZW5jZRgLIAEoBRIVCg1NYXhFeHBlcmllbmNlGAwgASgF",
+            "EhEKCUNvbnRyb2xJRBgNIAEoBRIVCg1Bbmltb3RvclN0YXRlGA4gASgFEhIK",
+            "CkF0dGFja1RpbWUYDyABKAISEgoKRGlyZWN0aW9uWBgQIAEoAhISCgpEaXJl",
+            "Y3Rpb25ZGBEgASgCEhAKCFVuaXRUeXBlGBIgASgFEhoKEkF0dGFja0FjcGFi",
+            "aWxpdGllcxgTIAEoBRISCgpBdHRhY2tNb2RlGBQgASgFEg4KBklzTWFpbhgV",
+            "IAEoBRIPCgdJc0RlYXRoGBYgASgFEhEKCUludmlzaWJsZRgXIAEoBRIMCgRD",
+            "YW1wGBggASgFEg4KBklzTWlzcxgZIAEoCBIVCg1Bbmltb3RvclBhdXNlGBog",
+            "ASgFEhMKC1NraWxsRW5hYmxlGBsgASgFEhIKCkl0ZW1FbmFibGUYHCABKAUS",
+            "CQoBWhgdIAEoAhIVCg1Jc01pcnJvckltYWdlGB4gASgFEhMKC0F0dGFja1Jh",
+            "bmdlGB8gASgCEhIKCkF0dGFja0FuaW0YICABKAUSIAoCU0QYISADKAsyFC5w",
+            "cm90b21zZy5Ta2lsbERhdGFzEh8KAkJEGCIgAygLMhMucHJvdG9tc2cuQnVm",
+            "ZkRhdGFzIrUBCgtCdWxsZXREYXRhcxIKCgJJRBgBIAEoBRIQCghNb2RlVHlw",
+            "ZRgCIAEoCRIJCgFYGAMgASgCEgkKAVkYBCABKAISCQoBWhgFIAEoAhINCgVT",
+            "dGF0ZRgGIAEoBRIOCgZTdGFydFgYByABKAISDgoGU3RhcnRZGAggASgCEg4K",
+            "BlN0YXJ0WhgJIAEoAhIMCgRFbmRYGAogASgCEgwKBEVuZFkYCyABKAISDAoE",
+            "RW5kWhgMIAEoAiJKCglIYWxvRGF0YXMSCgoCSUQYASABKAUSEAoITW9kZVR5",
+            "cGUYAiABKAkSCQoBWBgDIAEoAhIJCgFZGAQgASgCEgkKAVoYBSABKAIihAEK",
+            "EU1zZ1VzZXJFbnRlclNjZW5lEgsKA1VpZBgBIAEoBRIRCglDb25uZWN0SWQY",
+            "AiABKAUSFQoNU3JjU2VydmVyTmFtZRgDIAEoCRIWCg5EZXN0U2VydmVyTmFt",
+            "ZRgEIAEoCRIRCglTY2VuZU5hbWUYBSABKAkSDQoFRGF0YXMYBiABKAwiYQoN",
+            "TXNnUGxheWVySHVydBISCgpIdXJ0VW5pdElEGAEgASgFEhQKDEh1cnRBbGxW",
+            "YWx1ZRgCIAEoBRIWCg5IdXJ0TWFnaWNWYWx1ZRgDIAEoBRIOCgZJc0NyaXQY",
+            "BCABKAUi/QIKCVNDX1VwZGF0ZRIQCghDdXJGcmFtZRgBIAEoBRIlCghOZXdV",
+            "bml0cxgCIAMoCzITLnByb3RvbXNnLlVuaXREYXRhcxIlCghPbGRVbml0cxgD",
+            "IAMoCzITLnByb3RvbXNnLlVuaXREYXRhcxITCgtSZW1vdmVVbml0cxgEIAMo",
+            "BRIpCgpOZXdCdWxsZXRzGAUgAygLMhUucHJvdG9tc2cuQnVsbGV0RGF0YXMS",
+            "KQoKT2xkQnVsbGV0cxgGIAMoCzIVLnByb3RvbXNnLkJ1bGxldERhdGFzEhUK",
+            "DVJlbW92ZUJ1bGxldHMYByADKAUSJQoITmV3SGFsb3MYCCADKAsyEy5wcm90",
+            "b21zZy5IYWxvRGF0YXMSJQoIT2xkSGFsb3MYCSADKAsyEy5wcm90b21zZy5I",
+            "YWxvRGF0YXMSEwoLUmVtb3ZlSGFsb3MYCiADKAUSKwoKUGxheWVySHVydBgL",
+            "IAMoCzIXLnByb3RvbXNnLk1zZ1BsYXllckh1cnQiUwoLU0NfTmV3U2NlbmUS",
+            "DAoETmFtZRgBIAEoCRIQCghMb2dpY0ZwcxgCIAEoBRIQCghDdXJGcmFtZRgD",
+            "IAEoBRISCgpTZXJ2ZXJOYW1lGAQgASgJIlYKEkNoYXJhY3RlckJhc2VEYXRh",
+            "cxITCgtDaGFyYWN0ZXJpZBgBIAEoBRIMCgROYW1lGAIgASgJEg4KBlR5cGVp",
+            "ZBgDIAEoBRINCgVMZXZlbBgEIAEoBSJoCgpTQ19Mb2dpbmVkEgwKBENvZGUY",
+            "ASABKAUSCwoDVWlkGAIgASgFEg0KBUVycm9yGAMgASgJEjAKCkNoYXJhY3Rl",
+            "cnMYBCADKAsyHC5wcm90b21zZy5DaGFyYWN0ZXJCYXNlRGF0YXMiTAoYU0Nf",
+            "U2VsZWN0Q2hhcmFjdGVyUmVzdWx0EgwKBENvZGUYASABKAUSEwoLQ2hhcmFj",
+            "dGVyaWQYAiABKAUSDQoFRXJyb3IYAyABKAliBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -102,7 +104,7 @@ namespace Protomsg {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_PlayerAttack), global::Protomsg.CS_PlayerAttack.Parser, new[]{ "IDs", "TargetUnitID" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_PlayerSkill), global::Protomsg.CS_PlayerSkill.Parser, new[]{ "ID", "SkillID", "X", "Y", "TargetUnitID" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SkillDatas), global::Protomsg.SkillDatas.Parser, new[]{ "TypeID", "Level", "RemainCDTime", "CanUpgrade", "Index", "CastType", "CastTargetType", "UnitTargetTeam", "UnitTargetCamp", "NoCareMagicImmune", "CastRange", "Cooldown", "HurtRange", "ManaCost", "AttackAutoActive", "Visible", "RemainSkillCount" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.BuffDatas), global::Protomsg.BuffDatas.Parser, new[]{ "TypeID", "RemainTime", "Time", "TagNum" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.BuffDatas), global::Protomsg.BuffDatas.Parser, new[]{ "TypeID", "RemainTime", "Time", "TagNum", "ConnectionType", "ConnectionX", "ConnectionY", "ConnectionZ" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.UnitDatas), global::Protomsg.UnitDatas.Parser, new[]{ "Name", "Level", "HP", "MP", "X", "Y", "ID", "ModeType", "MaxHP", "MaxMP", "Experience", "MaxExperience", "ControlID", "AnimotorState", "AttackTime", "DirectionX", "DirectionY", "UnitType", "AttackAcpabilities", "AttackMode", "IsMain", "IsDeath", "Invisible", "Camp", "IsMiss", "AnimotorPause", "SkillEnable", "ItemEnable", "Z", "IsMirrorImage", "AttackRange", "AttackAnim", "SD", "BD" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.BulletDatas), global::Protomsg.BulletDatas.Parser, new[]{ "ID", "ModeType", "X", "Y", "Z", "State", "StartX", "StartY", "StartZ", "EndX", "EndY", "EndZ" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.HaloDatas), global::Protomsg.HaloDatas.Parser, new[]{ "ID", "ModeType", "X", "Y", "Z" }, null, null, null),
@@ -2355,6 +2357,10 @@ namespace Protomsg {
       remainTime_ = other.remainTime_;
       time_ = other.time_;
       tagNum_ = other.tagNum_;
+      connectionType_ = other.connectionType_;
+      connectionX_ = other.connectionX_;
+      connectionY_ = other.connectionY_;
+      connectionZ_ = other.connectionZ_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -2409,13 +2415,69 @@ namespace Protomsg {
     public const int TagNumFieldNumber = 4;
     private int tagNum_;
     /// <summary>
-    ///标记数字  
+    ///标记数字
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int TagNum {
       get { return tagNum_; }
       set {
         tagNum_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "ConnectionType" field.</summary>
+    public const int ConnectionTypeFieldNumber = 5;
+    private int connectionType_;
+    /// <summary>
+    ///是否有连接 0表示没有 1表示有连接点 2表示有连接单位
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ConnectionType {
+      get { return connectionType_; }
+      set {
+        connectionType_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "ConnectionX" field.</summary>
+    public const int ConnectionXFieldNumber = 6;
+    private float connectionX_;
+    /// <summary>
+    ///连接点x
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float ConnectionX {
+      get { return connectionX_; }
+      set {
+        connectionX_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "ConnectionY" field.</summary>
+    public const int ConnectionYFieldNumber = 7;
+    private float connectionY_;
+    /// <summary>
+    ///连接点y
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float ConnectionY {
+      get { return connectionY_; }
+      set {
+        connectionY_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "ConnectionZ" field.</summary>
+    public const int ConnectionZFieldNumber = 8;
+    private float connectionZ_;
+    /// <summary>
+    ///连接点z
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float ConnectionZ {
+      get { return connectionZ_; }
+      set {
+        connectionZ_ = value;
       }
     }
 
@@ -2436,6 +2498,10 @@ namespace Protomsg {
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(RemainTime, other.RemainTime)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Time, other.Time)) return false;
       if (TagNum != other.TagNum) return false;
+      if (ConnectionType != other.ConnectionType) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(ConnectionX, other.ConnectionX)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(ConnectionY, other.ConnectionY)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(ConnectionZ, other.ConnectionZ)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -2446,6 +2512,10 @@ namespace Protomsg {
       if (RemainTime != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(RemainTime);
       if (Time != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Time);
       if (TagNum != 0) hash ^= TagNum.GetHashCode();
+      if (ConnectionType != 0) hash ^= ConnectionType.GetHashCode();
+      if (ConnectionX != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(ConnectionX);
+      if (ConnectionY != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(ConnectionY);
+      if (ConnectionZ != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(ConnectionZ);
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -2475,6 +2545,22 @@ namespace Protomsg {
         output.WriteRawTag(32);
         output.WriteInt32(TagNum);
       }
+      if (ConnectionType != 0) {
+        output.WriteRawTag(40);
+        output.WriteInt32(ConnectionType);
+      }
+      if (ConnectionX != 0F) {
+        output.WriteRawTag(53);
+        output.WriteFloat(ConnectionX);
+      }
+      if (ConnectionY != 0F) {
+        output.WriteRawTag(61);
+        output.WriteFloat(ConnectionY);
+      }
+      if (ConnectionZ != 0F) {
+        output.WriteRawTag(69);
+        output.WriteFloat(ConnectionZ);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -2494,6 +2580,18 @@ namespace Protomsg {
       }
       if (TagNum != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(TagNum);
+      }
+      if (ConnectionType != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ConnectionType);
+      }
+      if (ConnectionX != 0F) {
+        size += 1 + 4;
+      }
+      if (ConnectionY != 0F) {
+        size += 1 + 4;
+      }
+      if (ConnectionZ != 0F) {
+        size += 1 + 4;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -2517,6 +2615,18 @@ namespace Protomsg {
       }
       if (other.TagNum != 0) {
         TagNum = other.TagNum;
+      }
+      if (other.ConnectionType != 0) {
+        ConnectionType = other.ConnectionType;
+      }
+      if (other.ConnectionX != 0F) {
+        ConnectionX = other.ConnectionX;
+      }
+      if (other.ConnectionY != 0F) {
+        ConnectionY = other.ConnectionY;
+      }
+      if (other.ConnectionZ != 0F) {
+        ConnectionZ = other.ConnectionZ;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -2543,6 +2653,22 @@ namespace Protomsg {
           }
           case 32: {
             TagNum = input.ReadInt32();
+            break;
+          }
+          case 40: {
+            ConnectionType = input.ReadInt32();
+            break;
+          }
+          case 53: {
+            ConnectionX = input.ReadFloat();
+            break;
+          }
+          case 61: {
+            ConnectionY = input.ReadFloat();
+            break;
+          }
+          case 69: {
+            ConnectionZ = input.ReadFloat();
             break;
           }
         }

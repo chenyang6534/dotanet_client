@@ -19,12 +19,12 @@ public class ProjectileScript : MonoBehaviour {
         
 	}
 
-    public void ShowStartParticle()
+    public void ShowStartParticle(Vector3 pos)
     {
         if (muzzlePrefab != null)
         {
             var muzzleVFX = Instantiate(muzzlePrefab);
-            muzzleVFX.transform.position = transform.position;
+            muzzleVFX.transform.position = pos;
             muzzleVFX.transform.localScale = gameObject.transform.localScale;
             muzzleVFX.transform.localRotation = gameObject.transform.localRotation;
             //muzzleVFX.transform.forward = gameObject.transform.forward;

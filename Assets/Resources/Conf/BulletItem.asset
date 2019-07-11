@@ -75,3 +75,30 @@ MonoBehaviour:
   - TypeID: 21
     ModePath: Bullet/Projectiles/jianshen_skill2
     Level: 2
+  - TypeID: 1001
+    ModePath: Buff/zhiliaobang_halo
+    Level: 1
+  - TypeID: 1004
+    ModePath: Buff/xukong_skill1
+    Level: 1
+  - TypeID: 22
+    ModePath: Bullet/Projectiles/xiaonajia_skill1
+    Level: 1
+  - TypeID: 23
+    ModePath: Bullet/Projectiles/paipaixiong_skill1
+    Level: 1
+  - TypeID: 1020
+    ModePath: Buff/lanmao_skill1
+    Level: 1
+  - TypeID: 1019
+    ModePath: Buff/dulong_skill2
+    Level: 1
+  - TypeID: 1006
+    ModePath: Buff/xuemo_skill2
+    Level: 1
+  - TypeID: 24
+    ModePath: Bullet/Projectiles/xuemo_skill2_bullet
+    Level: 1
+  - TypeID: 25
+    ModePath: Bullet/Projectiles/yueqi_skill1
+    Level: 1

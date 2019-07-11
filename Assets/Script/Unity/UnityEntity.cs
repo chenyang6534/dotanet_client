@@ -18,7 +18,17 @@ public class UnityEntity {
     protected Vector3 TargetRotation;
 
     protected float m_MeshHeight;
-    
+    public float MeshHeight
+    {
+        get
+        {
+            return m_MeshHeight;
+        }
+        set
+        {
+            m_MeshHeight = value;
+        }
+    }
 
 
 
@@ -348,21 +358,16 @@ public class UnityEntity {
     protected Dictionary<int, BuffEffect> m_BuffEffects = new Dictionary<int, BuffEffect>();
 
     //根据buffid 创建单位特效
-    public void CreateBuffSpecial(int typeid)
+    public void CreateBuffSpecial(Protomsg.BuffDatas buffdata)
     {
-        Debug.Log("------- CreateBuffSpecial :" + typeid+" "+ m_BuffEffects);
+        Debug.Log("------- CreateBuffSpecial :" + buffdata.TypeID+ " "+ m_BuffEffects);
 
-        //BuffEffect be = m_BuffEffects[typeid];
-        //if(be != null)
-        //{
-        //    Debug.Log("-------repeat CreateBuffSpecial :" + typeid);
-        //}
-        //Debug.Log("----ttt--- CreateBuffSpecial :" + typeid);
+       
 
-        BuffEffect buffeffect =  BuffEffect.CreateBuffEffect(typeid,this);
+        BuffEffect buffeffect =  BuffEffect.CreateBuffEffect(buffdata, this);
         if(buffeffect != null)
         {
-            m_BuffEffects[typeid] = buffeffect;
+            m_BuffEffects[buffdata.TypeID] = buffeffect;
         }
         
 
@@ -374,6 +379,15 @@ public class UnityEntity {
            
         //}
         
+    }
+    public void FreshBuffSpecial(Protomsg.BuffDatas buffdata)
+    {
+        if (m_BuffEffects.ContainsKey(buffdata.TypeID) == false)
+        {
+            return;
+        }
+        var be = m_BuffEffects[buffdata.TypeID];
+        be.FreshData(buffdata);
     }
     //根据buffid 删除单位特效
     public void RemoveBuffSpecial(int typeid)
@@ -412,14 +426,19 @@ public class UnityEntity {
                         item.RemainTime += BuffDatas[i].RemainTime;
                         item.Time += BuffDatas[i].Time;
                         item.TagNum += BuffDatas[i].TagNum;
+                        item.ConnectionType += BuffDatas[i].ConnectionType;
+                        item.ConnectionX += BuffDatas[i].ConnectionX;
+                        item.ConnectionY += BuffDatas[i].ConnectionY;
+                        item.ConnectionZ += BuffDatas[i].ConnectionZ;
                         isfind = true;
+                        FreshBuffSpecial(item);
                     }
                 }
             }
             if (isfind == false)
             {
                 //新增buff   创建特效
-                CreateBuffSpecial(item.TypeID);
+                CreateBuffSpecial(item);
             }
 
         }
@@ -526,8 +545,14 @@ public class UnityEntity {
             //if(ControlID > 0)
             {
                 //Debug.Log("111add special:" + Name);
-                m_Mode.AddComponent<UnityEntitySpecial>();
+                var ues = m_Mode.GetComponent<UnityEntitySpecial>();
+                if(ues == null)
+                {
+                    m_Mode.AddComponent<UnityEntitySpecial>();
+                }
+                
                 //m_Mode.GetComponent<UnityEntitySpecial>().SetGreen();
+                
                 //Debug.Log("222add special:" + Name);
             }
             
@@ -962,6 +987,14 @@ public class UnityEntity {
     protected GameObject m_TopBar;//头顶血条
     //单位类型(1:英雄 2:普通单位 3:远古 4:boss)
     // UnitType
+    public UnityEntityTopBar GetTopBar()
+    {
+        if (m_TopBar == null)
+        {
+            return null;
+        }
+        return m_TopBar.GetComponent<UnityEntityTopBar>();
+    }
 
     public void UpdateTopBar()
     {

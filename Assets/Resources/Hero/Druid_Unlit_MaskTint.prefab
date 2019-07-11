@@ -339,6 +339,7 @@ GameObject:
   - component: {fileID: 95529047408244524}
   - component: {fileID: 65558225658801656}
   - component: {fileID: 114207928630951274}
+  - component: {fileID: 114337936038400368}
   m_Layer: 0
   m_Name: Druid_Unlit_MaskTint
   m_TagString: Untagged
@@ -581,7 +582,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1906140793167232}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.94, y: 0, z: 0}
+  m_LocalPosition: {x: -7.19, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4713810536569008}
@@ -885,6 +886,18 @@ MonoBehaviour:
   m_AttackFireTrail:
   - {fileID: 96040515027133948}
   m_AttackAnim: 0
+--- !u!114 &114337936038400368
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1906140793167232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 315923e84bcf56d418e80b01214ae3af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AngerRedMat: {fileID: 2100000, guid: 1f034859e8c6887439f8472db424c240, type: 2}
 --- !u!137 &137859583562607292
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

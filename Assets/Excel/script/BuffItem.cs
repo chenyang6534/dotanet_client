@@ -11,6 +11,11 @@ namespace ExcelData
         public string BodyEffect;
         public string FootEffect;
         public int Enable;
+        public string HeadEffect;
+        public string TopBarEffect;
+        public int RenderColor; //0:没 1:白色 2:绿色 3:愤怒红
+        public string OutEffect; //模型之外的效果 不以模型为父节点
+        public string NativeTopBarEffect;
     }
 
 }

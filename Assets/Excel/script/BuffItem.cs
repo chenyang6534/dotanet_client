@@ -16,6 +16,8 @@ namespace ExcelData
         public int RenderColor; //0:没 1:白色 2:绿色 3:愤怒红
         public string OutEffect; //模型之外的效果 不以模型为父节点
         public string NativeTopBarEffect;
+        public string HandsEffect;
+        public string FootsEffect;
     }
 
 }

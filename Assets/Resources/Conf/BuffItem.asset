@@ -21,6 +21,8 @@ MonoBehaviour:
     RenderColor: 0
     OutEffect: 
     NativeTopBarEffect: 
+    HandsEffect: 
+    FootsEffect: 
   - TypeID: 9
     BodyEffect: 
     FootEffect: 
@@ -30,6 +32,8 @@ MonoBehaviour:
     RenderColor: 0
     OutEffect: 
     NativeTopBarEffect: 
+    HandsEffect: 
+    FootsEffect: 
   - TypeID: 11
     BodyEffect: 
     FootEffect: 
@@ -39,6 +43,8 @@ MonoBehaviour:
     RenderColor: 0
     OutEffect: 
     NativeTopBarEffect: Buff/zhuaheng
+    HandsEffect: 
+    FootsEffect: 
   - TypeID: 51
     BodyEffect: Line/pake_skill4
     FootEffect: 
@@ -48,6 +54,8 @@ MonoBehaviour:
     RenderColor: 0
     OutEffect: 
     NativeTopBarEffect: 
+    HandsEffect: 
+    FootsEffect: 
   - TypeID: 14
     BodyEffect: Buff/xukong_skill2
     FootEffect: 
@@ -57,6 +65,8 @@ MonoBehaviour:
     RenderColor: 0
     OutEffect: 
     NativeTopBarEffect: 
+    HandsEffect: 
+    FootsEffect: 
   - TypeID: 25
     BodyEffect: 
     FootEffect: 
@@ -66,6 +76,8 @@ MonoBehaviour:
     RenderColor: 0
     OutEffect: 
     NativeTopBarEffect: 
+    HandsEffect: 
+    FootsEffect: 
   - TypeID: 87
     BodyEffect: 
     FootEffect: 
@@ -75,6 +87,8 @@ MonoBehaviour:
     RenderColor: 0
     OutEffect: 
     NativeTopBarEffect: 
+    HandsEffect: 
+    FootsEffect: 
   - TypeID: 26
     BodyEffect: 
     FootEffect: 
@@ -84,6 +98,8 @@ MonoBehaviour:
     RenderColor: 3
     OutEffect: 
     NativeTopBarEffect: 
+    HandsEffect: 
+    FootsEffect: 
   - TypeID: 48
     BodyEffect: 
     FootEffect: 
@@ -93,6 +109,8 @@ MonoBehaviour:
     RenderColor: 0
     OutEffect: Buff/pake_skill3
     NativeTopBarEffect: 
+    HandsEffect: 
+    FootsEffect: 
   - TypeID: 84
     BodyEffect: Line/lanmao_skill2
     FootEffect: 
@@ -102,3 +120,38 @@ MonoBehaviour:
     RenderColor: 0
     OutEffect: 
     NativeTopBarEffect: 
+    HandsEffect: 
+    FootsEffect: 
+  - TypeID: 27
+    BodyEffect: 
+    FootEffect: 
+    Enable: 1
+    HeadEffect: 
+    TopBarEffect: 
+    RenderColor: 0
+    OutEffect: 
+    NativeTopBarEffect: 
+    HandsEffect: Buff/xuemo_skill1
+    FootsEffect: 
+  - TypeID: 85
+    BodyEffect: 
+    FootEffect: 
+    Enable: 1
+    HeadEffect: 
+    TopBarEffect: 
+    RenderColor: 0
+    OutEffect: 
+    NativeTopBarEffect: 
+    HandsEffect: Buff/lanmao_skill3
+    FootsEffect: 
+  - TypeID: 43
+    BodyEffect: Line/fengxing_skill1
+    FootEffect: 
+    Enable: 1
+    HeadEffect: 
+    TopBarEffect: 
+    RenderColor: 0
+    OutEffect: 
+    NativeTopBarEffect: 
+    HandsEffect: 
+    FootsEffect: 

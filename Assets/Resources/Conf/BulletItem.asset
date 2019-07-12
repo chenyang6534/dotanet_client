@@ -102,3 +102,6 @@ MonoBehaviour:
   - TypeID: 25
     ModePath: Bullet/Projectiles/yueqi_skill1
     Level: 1
+  - TypeID: 26
+    ModePath: Bullet/Projectiles/fengxing_skill1_bullet
+    Level: 1

@@ -43,20 +43,20 @@ public class BuffEffect
                 ModeEffect.Add(modeeffect);
             }
         }
-        //模型脚底的特效
-        Debug.Log("init:" + BIdata.FootEffect);
-        if (BIdata.FootEffect.Length > 0)
-        {
-            var modeeffect = (GameObject)(GameObject.Instantiate(Resources.Load(BIdata.FootEffect)));
-            if (modeeffect != null)
-            {
-                modeeffect.transform.parent = ParentEntity.Mode.transform;
-                modeeffect.transform.position = ParentEntity.Mode.transform.position;
-                Debug.Log("modeeffect:" + modeeffect);
+        ////模型脚底的特效
+        //Debug.Log("init:" + BIdata.FootEffect);
+        //if (BIdata.FootEffect.Length > 0)
+        //{
+        //    var modeeffect = (GameObject)(GameObject.Instantiate(Resources.Load(BIdata.FootEffect)));
+        //    if (modeeffect != null)
+        //    {
+        //        modeeffect.transform.parent = ParentEntity.Mode.transform;
+        //        modeeffect.transform.position = ParentEntity.Mode.transform.position;
+        //        Debug.Log("modeeffect:" + modeeffect);
 
-                ModeEffect.Add(modeeffect);
-            }
-        }
+        //        ModeEffect.Add(modeeffect);
+        //    }
+        //}
         //头顶
         if (BIdata.HeadEffect.Length > 0)
         {
@@ -69,6 +69,37 @@ public class BuffEffect
 
                 ModeEffect.Add(modeeffect);
             }
+        }
+        //手上的特效
+        if (BIdata.HandsEffect.Length > 0)
+        {
+            Debug.Log("hand:" + BIdata.HandsEffect);
+            var bodypart = ParentEntity.Mode.GetComponent<BodyPart>();
+            if (bodypart != null)
+            {
+                Debug.Log("1111:");
+                foreach (var item in bodypart.Hands)
+                {
+                    Debug.Log("222:");
+                    var modeeffect = (GameObject)(GameObject.Instantiate(Resources.Load(BIdata.HandsEffect)));
+                    if (modeeffect != null)
+                    {
+                        //modeeffect.transform.parent = item.transform;
+                        //modeeffect.transform.localScale = new Vector3(1, 1, 1);
+                        var fol = modeeffect.AddComponent<FollowTrans>();
+                        fol.FollowTarget = item.transform;
+                        //item.
+
+                        //modeeffect.transform.parent = item.transform;
+                        //modeeffect.transform.position = item.transform.position;
+                        //modeeffect.transform.localScale = new Vector3(1, 1, 1);
+                        //Debug.Log("scale:" + modeeffect.transform.localScale+"  :"+ item.transform.localScale);
+
+                        ModeEffect.Add(modeeffect);
+                    }
+                }
+            }
+           
         }
 
         //topbar

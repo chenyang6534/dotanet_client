@@ -76,6 +76,9 @@ public class ExcelReader
                 item.RenderColor = int.Parse(collect[i][7].ToString());
                 item.OutEffect = collect[i][8].ToString();
                 item.NativeTopBarEffect = collect[i][9].ToString();
+                item.HandsEffect = collect[i][10].ToString();
+                item.FootsEffect = collect[i][11].ToString();
+                
                 array[i - 1] = item;
             }
             return array;

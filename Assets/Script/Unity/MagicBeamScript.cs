@@ -46,7 +46,7 @@ public class MagicBeamScript : MonoBehaviour {
         {
             line = beam.GetComponent<LineRenderer>();
         }
-        ShootBeamInDir(new Vector3(0,0,0),new Vector3(10,0,0));
+        //ShootBeamInDir(new Vector3(0,0,0),new Vector3(10,0,0));
 
 
 

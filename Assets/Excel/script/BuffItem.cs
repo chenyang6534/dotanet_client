@@ -18,6 +18,7 @@ namespace ExcelData
         public string NativeTopBarEffect;
         public string HandsEffect;
         public string FootsEffect;
+        public string MaterialEffect;//材质特效
     }
 
 }

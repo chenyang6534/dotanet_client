@@ -372,6 +372,7 @@ GameObject:
   - component: {fileID: 9500000}
   - component: {fileID: 65908778389539830}
   - component: {fileID: 114624520394513804}
+  - component: {fileID: 114360482123403014}
   m_Layer: 0
   m_Name: Grunt_Unlit_Masktint
   m_TagString: Untagged
@@ -653,7 +654,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100048}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -11.557, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4911918202626654}
@@ -999,6 +1000,21 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &114360482123403014
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1447e7ea56b5674f8be638a8899ca33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hands:
+  - {fileID: 100026}
+  - {fileID: 100024}
+  Foots: []
 --- !u!114 &114624520394513804
 MonoBehaviour:
   m_ObjectHideFlags: 1

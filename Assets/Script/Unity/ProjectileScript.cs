@@ -10,6 +10,7 @@ public class ProjectileScript : MonoBehaviour {
 	public AudioClip shotSFX;
 	public AudioClip hitSFX;
 	public List<GameObject> trails;
+    public bool IsRotationHit = true;
 
     protected bool m_IsDestroy;
 	void Start () {
@@ -45,7 +46,7 @@ public class ProjectileScript : MonoBehaviour {
             GetComponent<AudioSource>().PlayOneShot(shotSFX);
         }
     }
-    public void ShowEndParticle()
+    public void ShowEndParticle(Vector3 direction)
     {
         //Debug.Log("111time:" + Time.frameCount);
         if (m_IsDestroy == true)
@@ -79,9 +80,24 @@ public class ProjectileScript : MonoBehaviour {
 
         if (hitPrefab != null)
         {
-            var hitVFX = Instantiate(hitPrefab, pos, rot);
-            hitVFX.transform.localScale = gameObject.transform.localScale;
-            hitVFX.transform.forward = gameObject.transform.forward;
+            //var hitVFX = Instantiate(hitPrefab, pos, rot);
+            var hitVFX = Instantiate(hitPrefab);
+            hitVFX.transform.position = gameObject.transform.position;
+            //hitVFX.transform.localScale = gameObject.transform.localScale;
+            //hitVFX.transform.localRotation = gameObject.transform.localRotation;
+            //var q1:Quaternion;SetLookRotation
+            if(IsRotationHit == true)
+            {
+                Quaternion q = new Quaternion();
+                q.SetLookRotation(direction);
+                hitVFX.transform.rotation = q;
+            }
+            
+
+            //hitVFX.transform.rotation.SetLookRotation(q);
+            //hitVFX.transform.localRotation = q1;
+            Debug.Log("local rotation:" + hitVFX.transform.localRotation+" rotation:"+ hitVFX.transform.rotation);
+            //hitVFX.transform.forward = gameObject.transform.forward;
             var ps = hitVFX.GetComponent<ParticleSystem>();
             if (ps == null)
             {

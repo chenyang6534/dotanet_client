@@ -303,7 +303,7 @@ public class UnityEntityManager  {
 
             if (mindis > dis)
             {
-                Debug.Log("dis  " + dis);
+                //Debug.Log("dis  " + dis);
                 mindis = dis;
                 nearrestUnityEntity = item.Value;
             }

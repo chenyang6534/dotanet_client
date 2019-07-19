@@ -130,7 +130,7 @@ public class GameUI : MonoBehaviour {
     {
         Vector2 dir = (Vector2)context.data;
         dir.y = -dir.y;
-        Debug.Log("AttackstickMove:"+ dir);
+        //Debug.Log("AttackstickMove:"+ dir);
         GameScene.Singleton.PressAttackBtn(2, dir);
         //GameScene.Singleton.SendControlData(degree, true);
 
@@ -138,7 +138,7 @@ public class GameUI : MonoBehaviour {
     }
     private void AttackstickDown(EventContext context)
     {
-        Debug.Log("AttackstickDown");
+        //Debug.Log("AttackstickDown");
 
         GameScene.Singleton.PressAttackBtn(1,Vector2.zero);
 
@@ -148,7 +148,7 @@ public class GameUI : MonoBehaviour {
     private void AttackstickEnd(EventContext context)
     {
         float degree = (float)context.data;
-        Debug.Log("AttackstickEnd");
+        //Debug.Log("AttackstickEnd");
 
         GameScene.Singleton.PressAttackBtn(3,Vector2.zero);
 

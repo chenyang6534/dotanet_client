@@ -78,7 +78,8 @@ public class ExcelReader
                 item.NativeTopBarEffect = collect[i][9].ToString();
                 item.HandsEffect = collect[i][10].ToString();
                 item.FootsEffect = collect[i][11].ToString();
-                
+                item.MaterialEffect = collect[i][12].ToString();
+
                 array[i - 1] = item;
             }
             return array;

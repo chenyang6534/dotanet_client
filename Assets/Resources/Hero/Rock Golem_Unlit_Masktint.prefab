@@ -248,6 +248,7 @@ GameObject:
   - component: {fileID: 95663460499334290}
   - component: {fileID: 65709802460702392}
   - component: {fileID: 114585724519297988}
+  - component: {fileID: 114554052550764980}
   m_Layer: 0
   m_Name: Rock Golem_Unlit_Masktint
   m_TagString: Untagged
@@ -440,7 +441,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1775664957115360}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.16, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4430510467512218}
@@ -851,6 +852,22 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &114554052550764980
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1775664957115360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1447e7ea56b5674f8be638a8899ca33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hands:
+  - {fileID: 1760655823581846}
+  - {fileID: 1775213977853200}
+  Foots:
+  - {fileID: 1760655823581846}
 --- !u!114 &114585724519297988
 MonoBehaviour:
   m_ObjectHideFlags: 1

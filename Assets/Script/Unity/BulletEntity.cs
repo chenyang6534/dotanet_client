@@ -38,10 +38,12 @@ public class BulletEntity
         if (m_State == 1)
         {
             m_Mode.GetComponent<ProjectileScript>().ShowStartParticle(m_StartPos);
-            Debug.Log("start:" + m_StartPos+ "pos:" + m_Position + "end:" + m_EndPos);
+            Debug.Log("11start:" + m_StartPos+ "pos:" + m_Position + "end:" + m_EndPos);
         }else if(m_State == 3)
         {
-            m_Mode.GetComponent<ProjectileScript>().ShowEndParticle();
+            //Quaternion rotation = Quaternion.FromToRotation(m_StartPos, m_EndPos);
+            m_Mode.GetComponent<ProjectileScript>().ShowEndParticle(m_EndPos- m_StartPos);
+            
         }
 
         //Debug.Log("1111bullet pos:" + m_Mode.transform.position + "  end pos:" + m_EndPos + "   state:" + m_State);
@@ -73,16 +75,22 @@ public class BulletEntity
             //var pos = GetPosition();
             //m_Position.y += (float)addy;
             //更新位置
+
+            if (m_State == 3)
+            {
+                //Quaternion rotation = Quaternion.FromToRotation(m_StartPos, m_EndPos);
+                m_Mode.GetComponent<ProjectileScript>().ShowEndParticle(m_EndPos - m_StartPos);
+                //Debug.Log("22start:" + m_StartPos + "pos:" + m_Position + "end:" + m_EndPos);
+            }
+
             m_Mode.transform.LookAt(m_Position);
+            //Debug.Log("111 rotation:" + m_Mode.transform.localRotation);
             m_Mode.transform.position = m_Position;
             
 
             
 
-            if(m_State == 3)
-            {
-                m_Mode.GetComponent<ProjectileScript>().ShowEndParticle();
-            }
+            
 
             //Debug.Log("2222bullet pos:" + m_Mode.transform.position+"  end pos:"+ m_EndPos+"   state:"+m_State);
         }

@@ -624,6 +624,7 @@ GameObject:
   - component: {fileID: 95278396947824628}
   - component: {fileID: 65255551285117606}
   - component: {fileID: 114064325633747466}
+  - component: {fileID: 114099641790726518}
   m_Layer: 0
   m_Name: Dryad_Unlit_MaskTint
   m_TagString: Untagged
@@ -769,7 +770,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1891269321392014}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.69, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4116510901842862}
@@ -1514,6 +1515,21 @@ MonoBehaviour:
   m_AttackFireTrail:
   - {fileID: 96964002064162214}
   m_AttackAnim: 0
+--- !u!114 &114099641790726518
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1891269321392014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1447e7ea56b5674f8be638a8899ca33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hands:
+  - {fileID: 1337550730235028}
+  - {fileID: 1699730380717950}
+  Foots: []
 --- !u!137 &137326017476660066
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

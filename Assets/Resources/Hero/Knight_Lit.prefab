@@ -204,6 +204,7 @@ GameObject:
   - component: {fileID: 95467147135829978}
   - component: {fileID: 65092283361818540}
   - component: {fileID: 114792037215622128}
+  - component: {fileID: 114160396703416244}
   m_Layer: 0
   m_Name: Knight_Lit
   m_TagString: Untagged
@@ -500,7 +501,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1474163171669292}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.95, y: 0, z: 0}
+  m_LocalPosition: {x: -10.425, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4800188286891360}
@@ -929,6 +930,20 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &114160396703416244
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1474163171669292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1447e7ea56b5674f8be638a8899ca33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hands:
+  - {fileID: 1108521200353168}
+  Foots: []
 --- !u!114 &114792037215622128
 MonoBehaviour:
   m_ObjectHideFlags: 1

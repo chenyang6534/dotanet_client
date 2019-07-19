@@ -82,6 +82,7 @@ GameObject:
   - component: {fileID: 95104258304168616}
   - component: {fileID: 65430754613896416}
   - component: {fileID: 114092842878895010}
+  - component: {fileID: 114413726545054772}
   m_Layer: 0
   m_Name: Knight_LitMaskTint
   m_TagString: Untagged
@@ -573,7 +574,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1123212939966478}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -7.3, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4596489264149336}
@@ -1000,6 +1001,21 @@ MonoBehaviour:
   m_AttackFireTrail:
   - {fileID: 96462106666291034}
   m_AttackAnim: 0
+--- !u!114 &114413726545054772
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1123212939966478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1447e7ea56b5674f8be638a8899ca33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hands:
+  - {fileID: 1255254791479446}
+  - {fileID: 1878427444197572}
+  Foots: []
 --- !u!137 &137585073399396354
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

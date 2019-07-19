@@ -714,6 +714,7 @@ GameObject:
   - component: {fileID: 95426971210739634}
   - component: {fileID: 65777949325899834}
   - component: {fileID: 114228126543402964}
+  - component: {fileID: 114905168403816114}
   m_Layer: 0
   m_Name: Horseman_Lit
   m_TagString: Untagged
@@ -1133,7 +1134,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1937740628612764}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.11, y: 0, z: 0}
+  m_LocalPosition: {x: 3.903, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4372244494512494}
@@ -1639,6 +1640,20 @@ MonoBehaviour:
   m_AttackFireTrail:
   - {fileID: 96716060574016790}
   m_AttackAnim: 0
+--- !u!114 &114905168403816114
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1937740628612764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1447e7ea56b5674f8be638a8899ca33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hands:
+  - {fileID: 1224393087443436}
+  Foots: []
 --- !u!137 &137407522462701324
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

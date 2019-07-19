@@ -33,12 +33,101 @@ public class UnityEntitySpecial : MonoBehaviour {
             }
         }
 	}
+
+    //更改第一个材质
+    public void ChangeFirstMaterial(SkinnedMeshRenderer skmr,Material mat)
+    {
+        //foreach (var item in m_AllMaterial)
+        //{
+            Material []materials = skmr.materials;
+            materials[0] = mat;
+
+            skmr.materials = materials;
+        //}
+    }
+    //增加材质
+    public void AddMat(string mat_string)
+    {
+        Material mat = Resources.Load<Material>(mat_string);
+        mat.name = mat_string;
+        Debug.Log("mat name:" + mat.name);
+        
+        if(mat == null)
+        {
+            return;
+        }
+        foreach (var item in m_AllMaterial)
+        {
+            int old_len = item.Key.materials.Length;
+            Material[] materials = new Material[old_len + 1];
+            for( var i = 0; i < item.Key.materials.Length; i++)
+            {
+                materials[i] = item.Key.materials[i];
+            }
+            materials[old_len] = mat;
+
+            Debug.Log("11mat name:" + mat.name+ " name2:"+ materials[old_len].name);
+            item.Key.materials = materials;
+            item.Key.materials[old_len].name = mat_string;
+            for (var i = 0; i < item.Key.materials.Length; i++)
+            {
+                Debug.Log("111 remove11 mat name:" + item.Key.materials[i].name );
+                
+            }
+        }
+
+        Debug.Log("22mat name:" + mat.name);
+    }
+    //删除材质
+    public void RemoveMat(string mat_string)
+    {
+        //Material removemat = Resources.Load<Material>(mat_string);
+        //if (removemat == null)
+        //{
+        //    return;
+        //}
+        //Debug.Log(" remove mat name:" + removemat.name+ "   removemat.GetInstanceID:"+ removemat.GetInstanceID());
+        foreach (var item in m_AllMaterial)
+        {
+            int removeid = -1;
+            
+            for (var i = 0; i < item.Key.materials.Length; i++)
+            {
+                Debug.Log(" remove11 mat name:" + item.Key.materials[i].name + "   removemat.GetInstanceID:" + item.Key.materials[i].GetInstanceID());
+                if (item.Key.materials[i].name == mat_string)
+                {
+                    removeid = i;
+                    break;
+                }
+            }
+            Debug.Log(" removeid:" + removeid);
+            if (removeid >= 0)
+            {
+                Material[] materials = new Material[item.Key.materials.Length - 1];
+                for (var i = 0; i < item.Key.materials.Length; i++)
+                {
+                    if( i != removeid)
+                    {
+                        materials[i] = item.Key.materials[i];
+                    }
+                    
+                }
+                item.Key.materials = materials;
+            }
+
+            //materials[item.Key.materials.Length] = mat;
+
+
+            //item.Key.materials = materials;
+        }
+    }
+
     public void Reset()
     {
-
-        foreach ( var item in m_AllMaterial)
+        
+        foreach (var item in m_AllMaterial)
         {
-            item.Key.material = item.Value;
+            ChangeFirstMaterial(item.Key,item.Value);
         }
     }
 
@@ -73,7 +162,8 @@ public class UnityEntitySpecial : MonoBehaviour {
 
         foreach (var item in m_AllMaterial)
         {
-            item.Key.material = mat;
+            //item.Key.materials[0] = mat;
+            ChangeFirstMaterial(item.Key, mat);
         }
     }
     public void AddGreen()
@@ -92,7 +182,8 @@ public class UnityEntitySpecial : MonoBehaviour {
 
         foreach (var item in m_AllMaterial)
         {
-            item.Key.material = mat;
+            //item.Key.materials[0] = mat;
+            ChangeFirstMaterial(item.Key, mat);
         }
     }
     public void AddWhite()
@@ -116,7 +207,8 @@ public class UnityEntitySpecial : MonoBehaviour {
 
         foreach (var item in m_AllMaterial)
         {
-            item.Key.material = AngerRedMat;
+            //item.Key.materials[0] = AngerRedMat;
+            ChangeFirstMaterial(item.Key, AngerRedMat);
         }
     }
     public void AddAngerRed()

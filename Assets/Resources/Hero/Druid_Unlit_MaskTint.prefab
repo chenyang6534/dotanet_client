@@ -340,6 +340,7 @@ GameObject:
   - component: {fileID: 65558225658801656}
   - component: {fileID: 114207928630951274}
   - component: {fileID: 114337936038400368}
+  - component: {fileID: 114026032611081420}
   m_Layer: 0
   m_Name: Druid_Unlit_MaskTint
   m_TagString: Untagged
@@ -582,7 +583,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1906140793167232}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.19, y: 0, z: 0}
+  m_LocalPosition: {x: -9.075, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4713810536569008}
@@ -872,6 +873,21 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &114026032611081420
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1906140793167232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1447e7ea56b5674f8be638a8899ca33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hands:
+  - {fileID: 1748917554364906}
+  - {fileID: 1419087357535812}
+  Foots: []
 --- !u!114 &114207928630951274
 MonoBehaviour:
   m_ObjectHideFlags: 1

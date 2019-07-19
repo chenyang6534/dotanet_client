@@ -77,29 +77,39 @@ public class BuffEffect
             var bodypart = ParentEntity.Mode.GetComponent<BodyPart>();
             if (bodypart != null)
             {
-                Debug.Log("1111:");
                 foreach (var item in bodypart.Hands)
                 {
-                    Debug.Log("222:");
                     var modeeffect = (GameObject)(GameObject.Instantiate(Resources.Load(BIdata.HandsEffect)));
                     if (modeeffect != null)
                     {
-                        //modeeffect.transform.parent = item.transform;
-                        //modeeffect.transform.localScale = new Vector3(1, 1, 1);
                         var fol = modeeffect.AddComponent<FollowTrans>();
                         fol.FollowTarget = item.transform;
-                        //item.
-
-                        //modeeffect.transform.parent = item.transform;
-                        //modeeffect.transform.position = item.transform.position;
-                        //modeeffect.transform.localScale = new Vector3(1, 1, 1);
-                        //Debug.Log("scale:" + modeeffect.transform.localScale+"  :"+ item.transform.localScale);
-
                         ModeEffect.Add(modeeffect);
                     }
                 }
             }
            
+        }
+
+        //脚上的特效
+        if (BIdata.FootsEffect.Length > 0)
+        {
+            Debug.Log("foot:" + BIdata.FootsEffect);
+            var bodypart = ParentEntity.Mode.GetComponent<BodyPart>();
+            if (bodypart != null)
+            {
+                foreach (var item in bodypart.Foots)
+                {
+                    var modeeffect = (GameObject)(GameObject.Instantiate(Resources.Load(BIdata.FootsEffect)));
+                    if (modeeffect != null)
+                    {
+                        var fol = modeeffect.AddComponent<FollowTrans>();
+                        fol.FollowTarget = item.transform;
+                        ModeEffect.Add(modeeffect);
+                    }
+                }
+            }
+
         }
 
         //topbar
@@ -135,6 +145,17 @@ public class BuffEffect
                 Debug.Log("modeeffect:" + modeeffect);
 
                 ModeEffect.Add(modeeffect);
+            }
+        }
+        //叠加材质特效
+        if(BIdata.MaterialEffect.Length > 0)
+        {
+            var es = ParentEntity.Mode.GetComponent<UnityEntitySpecial>();
+            if(es != null)
+            {
+                es.AddMat(BIdata.MaterialEffect);
+
+                //es.AddWhite();
             }
         }
 
@@ -232,6 +253,18 @@ public class BuffEffect
                 topbar.RemoveBuff(TopBarObj);
             }
         }
+        if(BIdata.MaterialEffect.Length > 0)
+        {
+            var es = ParentEntity.Mode.GetComponent<UnityEntitySpecial>();
+            if (es != null)
+            {
+                es.RemoveMat(BIdata.MaterialEffect);
+                //es.RemoveWhite();
+            }
+        }
+        
+        
+
         Debug.Log("Delete:" + TypeID);
         foreach (GameObject p in ModeEffect)
         {

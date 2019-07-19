@@ -367,6 +367,7 @@ GameObject:
   - component: {fileID: 4322524458110768}
   - component: {fileID: 95084404371580896}
   - component: {fileID: 65290977792108268}
+  - component: {fileID: 114242435394712922}
   m_Layer: 0
   m_Name: Archer_Lit
   m_TagString: Untagged
@@ -532,7 +533,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1944396089849954}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 5.24, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4583655537416170}
@@ -797,6 +798,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114242435394712922
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1944396089849954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1447e7ea56b5674f8be638a8899ca33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hands:
+  - {fileID: 1877410463551244}
+  - {fileID: 1799957649943046}
+  Foots: []
 --- !u!137 &137064295702709308
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

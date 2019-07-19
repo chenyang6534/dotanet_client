@@ -216,6 +216,7 @@ GameObject:
   - component: {fileID: 4259613014144224}
   - component: {fileID: 95441401279864396}
   - component: {fileID: 65196403239553860}
+  - component: {fileID: 114644061404590832}
   m_Layer: 0
   m_Name: Elf Ranger_Lit
   m_TagString: Untagged
@@ -642,7 +643,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1404670625791122}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1.296, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4250675147678454}
@@ -1029,6 +1030,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114644061404590832
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1404670625791122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1447e7ea56b5674f8be638a8899ca33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hands:
+  - {fileID: 1665929827521458}
+  - {fileID: 1598758721687220}
+  Foots:
+  - {fileID: 1171118405964108}
+  - {fileID: 1156450880517816}
 --- !u!137 &137797090522410666
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

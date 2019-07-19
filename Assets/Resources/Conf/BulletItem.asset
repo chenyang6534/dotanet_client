@@ -105,3 +105,24 @@ MonoBehaviour:
   - TypeID: 26
     ModePath: Bullet/Projectiles/fengxing_skill1_bullet
     Level: 1
+  - TypeID: 27
+    ModePath: Bullet/Projectiles/yougui_skill3
+    Level: 1
+  - TypeID: 28
+    ModePath: Bullet/Projectiles/hundun_skill1
+    Level: 1
+  - TypeID: 29
+    ModePath: Bullet/Projectiles/najia_skill2_bullet
+    Level: 1
+  - TypeID: 1008
+    ModePath: Buff/najia_skill4_halo
+    Level: 1
+  - TypeID: 30
+    ModePath: Bullet/Projectiles/fuwang_skill4
+    Level: 1
+  - TypeID: 1015
+    ModePath: Buff/huoqiang_skill1
+    Level: 1
+  - TypeID: 31
+    ModePath: Bullet/Projectiles/fuwang_skill1_bullet
+    Level: 1

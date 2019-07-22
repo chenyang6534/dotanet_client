@@ -126,3 +126,15 @@ MonoBehaviour:
   - TypeID: 31
     ModePath: Bullet/Projectiles/fuwang_skill1_bullet
     Level: 1
+  - TypeID: 32
+    ModePath: Bullet/Projectiles/yougui_skill1
+    Level: 1
+  - TypeID: 1014
+    ModePath: Buff/yougui_skill1_halo
+    Level: 1
+  - TypeID: 1009
+    ModePath: Buff/xiaoxiao_skill1
+    Level: 1
+  - TypeID: 33
+    ModePath: Bullet/Projectiles/xiaoxiao_skill3_bullet
+    Level: 2

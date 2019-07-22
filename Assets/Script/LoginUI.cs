@@ -28,13 +28,13 @@ public class LoginUI : MonoBehaviour {
             //msg1.Machineid = "10005";   //熊战士   (技能特效完结)
             //msg1.Machineid = "10006";   //血魔    (技能特效完结)
             //msg1.Machineid = "10007";   //小娜迦 (技能特效完结)
-            //msg1.Machineid = "10008";   //小小
+            msg1.Machineid = "10008";   //小小 (技能特效完结)
             //msg1.Machineid = "10009";   //风行 (技能特效完结)
             //msg1.Machineid = "10010";   //帕克 (技能特效完结)
             //msg1.Machineid = "10011";   //影魔 (技能特效完结)
-            //msg1.Machineid = "10012";   //幽鬼
+            //msg1.Machineid = "10012";   //幽鬼 (技能特效完结)
             //msg1.Machineid = "10013";   //火枪 (技能特效完结)
-            msg1.Machineid = "10014";   //斧王 (技能特效完结)
+            //msg1.Machineid = "10014";   //斧王 (技能特效完结)
             //msg1.Machineid = "10015";   //月骑 (技能特效完结)
             //msg1.Machineid = "10016";   //毒龙 (技能特效完结)
             //msg1.Machineid = "10017";   //蓝猫 (技能特效完结)

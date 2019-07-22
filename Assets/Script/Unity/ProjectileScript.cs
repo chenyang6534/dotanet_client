@@ -20,14 +20,15 @@ public class ProjectileScript : MonoBehaviour {
         
 	}
 
-    public void ShowStartParticle(Vector3 pos)
+    public void ShowStartParticle(Vector3 pos,Vector3 endpos)
     {
         if (muzzlePrefab != null)
         {
             var muzzleVFX = Instantiate(muzzlePrefab);
             muzzleVFX.transform.position = pos;
             muzzleVFX.transform.localScale = gameObject.transform.localScale;
-            muzzleVFX.transform.localRotation = gameObject.transform.localRotation;
+            muzzleVFX.transform.LookAt(endpos);
+            //muzzleVFX.transform.localRotation = gameObject.transform.localRotation;
             //muzzleVFX.transform.forward = gameObject.transform.forward;
 
             //Debug.Log("ShowStartParticle localRotation:" + gameObject.transform.localRotation);
@@ -58,23 +59,7 @@ public class ProjectileScript : MonoBehaviour {
             GetComponent<AudioSource>().PlayOneShot(hitSFX);
         }
 
-        //if (trails.Count > 0)
-        //{
-        //    for (int i = 0; i < trails.Count; i++)
-        //    {
-        //        trails[i].transform.parent = null;
-        //        var ps = trails[i].GetComponent<ParticleSystem>();
-        //        if (ps != null)
-        //        {
-        //            ps.Stop();
-        //            Destroy(ps.gameObject, ps.main.duration + ps.main.startLifetime.constantMax);
-        //        }
-        //    }
-        //}
-        
-        //GetComponent<Rigidbody>().isKinematic = true;
-
-        //ContactPoint contact = co.contacts[0];
+       
         Quaternion rot = Quaternion.FromToRotation(Vector3.up, gameObject.transform.forward);
         Vector3 pos = gameObject.transform.position;
 

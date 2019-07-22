@@ -37,7 +37,7 @@ public class BulletEntity
         
         if (m_State == 1)
         {
-            m_Mode.GetComponent<ProjectileScript>().ShowStartParticle(m_StartPos);
+            m_Mode.GetComponent<ProjectileScript>().ShowStartParticle(m_StartPos, m_EndPos);
             Debug.Log("11start:" + m_StartPos+ "pos:" + m_Position + "end:" + m_EndPos);
         }else if(m_State == 3)
         {

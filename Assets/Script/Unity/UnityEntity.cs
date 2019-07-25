@@ -1197,10 +1197,10 @@ public class UnityEntity {
                 //更新动画
                 FreshAnim(m_AnimotorState, m_AttackTime);
 
-                //if (this.UnitType == 1)
-                //{
-                //    Debug.Log("------animistate:" + m_AnimotorState + "   time:" + m_AttackTime);
-                //}
+                if (this.UnitType == 1)
+                {
+                    Debug.Log("------animistate:" + m_AnimotorState + "   time:" + m_AttackTime);
+                }
             }
             
 

@@ -10,13 +10,16 @@ using UnityEditor.SceneManagement;
 
 public class MyEditor : Editor
 {
-    static string []ScenePath = { "Assets/ScenesRes/LOM/Scenes/set_5v5.unity" };
-    static string  []SceneName = { "Map/set_5v5" };
+    
+    static string  []SceneName = { "Map/Scene1" };
+    static string DestPath = "D://sheshe/bin/conf/";
+
     //将所有游戏场景导出为JSON格式
-    [MenuItem("GameObject/ExportJSON")]
-    static void ExportJSON()
+    [MenuItem("GameObject/ExportMapJSON")]
+    static void ExportMapJSON()
     {
-        string filepath = Application.dataPath + @"/Output/SceneCollides.sc";
+        //string filepath = Application.dataPath + @"/Output/SceneCollides.sc";
+        string filepath = DestPath + "SceneCollides.sc";
         FileInfo t = new FileInfo(filepath);
         if (!File.Exists(filepath))
         {
@@ -30,89 +33,91 @@ public class MyEditor : Editor
         writer.WritePropertyName("Scenes");
         writer.WriteArrayStart();
 
-        int i11 = 0;
-        foreach (string S in ScenePath)
+        //int i11 = 0;
+        foreach (string S in SceneName)
         {
-            int index = i11++;
-            EditorSceneManager.OpenScene("Assets/ScenesRes/LOM/Scenes/set_5v5.unity");//(GameObject)Instantiate(Resources.Load(S));
-            //SObj = Object.fin
-            //if (SObj != null)
+            //int index = i11++;
+            //EditorSceneManager.OpenScene(ScenePath[index]);
+            var scene = (GameObject)(GameObject.Instantiate(Resources.Load(S)));
+            if(scene != null)
             {
-                string name = SceneName[index];
-                //EditorApplication.OpenScene(name);
-                //writer.WriteObjectStart();
-                //writer.WritePropertyName("scenes");
-                //writer.WriteArrayStart();
+                string name = S;
                 writer.WriteObjectStart();
                 writer.WritePropertyName("name");
                 writer.Write(name);
 
-                foreach (GameObject obj1 in Object.FindObjectsOfType(typeof(GameObject)))
+                var collides = scene.GetComponentsInChildren<BoxCollider>();
+                if(collides.Length <= 0)
                 {
-                    if (obj1.name.CompareTo("collides") != 0)
+                    continue;
+                }
+                writer.WritePropertyName("Collides");
+                writer.WriteArrayStart();
+                foreach (BoxCollider obj1 in collides)
+                {
+                    UnityEngine.Debug.Log("y:" + obj1.transform.rotation.y + " name:" + obj1.name);
+
+                    Vector3[] vectors = GetBoxColliderVertexPositions(obj1);
+
+                    if (IsRect(vectors))
                     {
-                        continue;
+                        writer.WriteObjectStart();
+                        writer.WritePropertyName("IsRect");
+                        writer.Write(true);
+
+                        Vector3 center = getRectCenter(vectors);
+
+                        writer.WritePropertyName("CenterX");
+                        writer.Write(center.x);
+                        writer.WritePropertyName("CenterY");
+                        writer.Write(center.z);
+
+                        var rectpoint = convert2BigRect(vectors);
+
+                        writer.WritePropertyName("Width");
+                        writer.Write((rectpoint[1].x - rectpoint[0].x)/2);
+                        writer.WritePropertyName("Height");
+                        writer.Write((rectpoint[1].z - rectpoint[2].z) / 2);
+
+                        writer.WriteObjectEnd();
                     }
-                    writer.WritePropertyName("Collides");
-                    writer.WriteArrayStart();
-                    foreach (Transform obj in obj1.transform.GetComponentInChildren<Transform>())
+                    else
                     {
+                        writer.WriteObjectStart();
+                        writer.WritePropertyName("IsRect");
+                        writer.Write(false);
+
+                        Vector3 center = getRectCenter(vectors);
+
+                        writer.WritePropertyName("CenterX");
+                        writer.Write(center.x);
+                        writer.WritePropertyName("CenterY");
+                        writer.Write(center.z);
+
+                        writer.WritePropertyName("Points");
+                        writer.WriteArrayStart();
+                        //Vector3[] vectors = GetBoxColliderVertexPositions(obj1);
+                        for (int i = 0; i < vectors.Length; i++)
                         {
-                            UnityEngine.Debug.Log("y:"+ obj.transform.rotation.y);
-                            if (System.Math.Abs(obj.transform.rotation.y)  == 0)
-                            {
-                                writer.WriteObjectStart();
-                                writer.WritePropertyName("IsRect");
-                                writer.Write(true);
+                            writer.WriteObjectStart();
+                            writer.WritePropertyName("X");
+                            writer.Write(vectors[i].x- center.x);
+                            writer.WritePropertyName("Y");
+                            writer.Write(vectors[i].z- center.z);
+                            writer.WriteObjectEnd();
+                        }
+                        writer.WriteArrayEnd();
 
-                                writer.WritePropertyName("CenterX");
-                                writer.Write(obj.transform.position.x);
-                                writer.WritePropertyName("CenterY");
-                                writer.Write(obj.transform.position.z);
-
-                                writer.WritePropertyName("Width");
-                                writer.Write((obj.GetComponent<BoxCollider>().size.x* obj.transform.localScale.x/2));
-                                writer.WritePropertyName("Height");
-                                writer.Write((obj.GetComponent<BoxCollider>().size.z * obj.transform.localScale.z/2));
-
-                                writer.WriteObjectEnd();
-                            }
-                            else
-                            {
-                                writer.WriteObjectStart();
-                                writer.WritePropertyName("IsRect");
-                                writer.Write(false);
-
-                                writer.WritePropertyName("CenterX");
-                                writer.Write(obj.transform.position.x);
-                                writer.WritePropertyName("CenterY");
-                                writer.Write(obj.transform.position.z);
-
-                                writer.WritePropertyName("Points");
-                                writer.WriteArrayStart();
-                                Vector3[] vectors = GetBoxColliderVertexPositions(obj.GetComponent<BoxCollider>());
-                                for (int i = 0; i < vectors.Length; i++)
-                                {
-                                    writer.WriteObjectStart();
-                                    writer.WritePropertyName("X");
-                                    writer.Write(vectors[i].x);
-                                    writer.WritePropertyName("Y");
-                                    writer.Write(vectors[i].z);
-                                    writer.WriteObjectEnd();
-                                }
-                                writer.WriteArrayEnd();
-
-                                writer.WriteObjectEnd();
-                            }
+                        writer.WriteObjectEnd();
+                    }
 
                             
-                        }
-                        
-                    }
-                    writer.WriteArrayEnd();
+                    
                 }
-                
+                writer.WriteArrayEnd();
+
                 writer.WriteObjectEnd();
+                DestroyImmediate(scene);
             }
         }
         writer.WriteArrayEnd();
@@ -122,6 +127,70 @@ public class MyEditor : Editor
         sw.Close();
         sw.Dispose();
         AssetDatabase.Refresh();
+
+        UnityEngine.Debug.Log("export succ");
+    }
+    //是否为矩形
+    static bool IsRect(Vector3[] points)
+    {
+        float mindis = 0.3f; //任意两点之间的 横纵 最小距离小于1就为矩形
+        for(var i = 0; i < points.Length; i++)
+        {
+            var next = i + 1;
+            if(next >= points.Length)
+            {
+                next = 0;
+            }
+            //System.Math.Abs
+            var offx = points[i].x - points[next].x;
+            var offz = points[i].z - points[next].z;
+            if(System.Math.Abs(offx) > mindis && System.Math.Abs(offz) > mindis)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+    static Vector3 getRectCenter(Vector3[] points)
+    {
+        var rectpoint = convert2BigRect(points);
+        return new Vector3(rectpoint[0].x+(rectpoint[1].x-rectpoint[0].x)/2, 0, rectpoint[2].z + (rectpoint[1].z - rectpoint[2].z) / 2);
+    }
+    //转换为大矩形
+    static Vector3[] convert2BigRect(Vector3[] points)
+    {
+        //左上 右上 右下 左下
+        float minx = points[0].x;
+        float minz = points[0].z;
+        float maxx = points[0].x;
+        float maxz = points[0].z;
+        for (var i = 0; i < points.Length; i++)
+        {
+            if (points[i].x < minx)
+            {
+                minx = points[i].x;
+            }
+            if (points[i].x > maxx)
+            {
+                maxx = points[i].x;
+            }
+            if (points[i].z < minz)
+            {
+                minz = points[i].z;
+            }
+            if (points[i].z > maxz)
+            {
+                maxz = points[i].z;
+            }
+        }
+        var vertices = new Vector3[4];
+        //左上 右上 右下 左下
+        vertices[0] = new Vector3(minx, 0, maxz);
+        vertices[1] = new Vector3(maxx, 0, maxz);
+        vertices[2] = new Vector3(maxx, 0, minz);
+        vertices[3] = new Vector3(minx, 0, minz);
+        return vertices;
     }
 
     static Vector3[] GetBoxColliderVertexPositions(BoxCollider boxcollider)
@@ -129,10 +198,22 @@ public class MyEditor : Editor
 
         var vertices = new Vector3[4];
         //下面4个点
-        vertices[0] =  boxcollider.transform.TransformPoint(boxcollider.center+ new Vector3(-boxcollider.size.x, boxcollider.size.y, boxcollider.size.z) * 0.5f) - boxcollider.transform.position;
-        vertices[1] = boxcollider.transform.TransformPoint(boxcollider.center  + new Vector3(boxcollider.size.x, boxcollider.size.y, boxcollider.size.z) * 0.5f) - boxcollider.transform.position;
-        vertices[2] = boxcollider.transform.TransformPoint(boxcollider.center  + new Vector3(boxcollider.size.x, boxcollider.size.y, -boxcollider.size.z) * 0.5f) - boxcollider.transform.position;
-        vertices[3] = boxcollider.transform.TransformPoint(boxcollider.center  + new Vector3(-boxcollider.size.x, boxcollider.size.y, -boxcollider.size.z) * 0.5f) - boxcollider.transform.position;
+        //vertices[0] =  boxcollider.transform.TransformPoint(boxcollider.center+ new Vector3(-boxcollider.size.x, boxcollider.size.y, boxcollider.size.z) * 0.5f) - boxcollider.transform.position;
+        //vertices[1] = boxcollider.transform.TransformPoint(boxcollider.center  + new Vector3(boxcollider.size.x, boxcollider.size.y, boxcollider.size.z) * 0.5f) - boxcollider.transform.position;
+        //vertices[2] = boxcollider.transform.TransformPoint(boxcollider.center  + new Vector3(boxcollider.size.x, boxcollider.size.y, -boxcollider.size.z) * 0.5f) - boxcollider.transform.position;
+        //vertices[3] = boxcollider.transform.TransformPoint(boxcollider.center  + new Vector3(-boxcollider.size.x, boxcollider.size.y, -boxcollider.size.z) * 0.5f) - boxcollider.transform.position;
+
+        vertices[0] = boxcollider.transform.TransformPoint(boxcollider.center + new Vector3(-boxcollider.size.x, boxcollider.size.y, boxcollider.size.z) * 0.5f);
+        vertices[1] = boxcollider.transform.TransformPoint(boxcollider.center + new Vector3(boxcollider.size.x, boxcollider.size.y, boxcollider.size.z) * 0.5f);
+        vertices[2] = boxcollider.transform.TransformPoint(boxcollider.center + new Vector3(boxcollider.size.x, boxcollider.size.y, -boxcollider.size.z) * 0.5f);
+        vertices[3] = boxcollider.transform.TransformPoint(boxcollider.center + new Vector3(-boxcollider.size.x, boxcollider.size.y, -boxcollider.size.z) * 0.5f);
+
+        for (var i = 0; i < vertices.Length; i++)
+        {
+            Debug.Log("point:" + i + "  " + vertices[i]);
+        }
+
         return vertices;
     }
+    
 }

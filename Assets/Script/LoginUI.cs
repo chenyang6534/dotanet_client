@@ -21,9 +21,9 @@ public class LoginUI : MonoBehaviour {
             
             Protomsg.CS_MsgQuickLogin msg1 = new Protomsg.CS_MsgQuickLogin();
             //msg1.Machineid = "100001"; //PA
-            //msg1.Machineid = "10000";   //剑圣 (技能特效完结)
+            msg1.Machineid = "10000";   //剑圣 (技能特效完结)
             //msg1.Machineid = "10002";   //小黑 (技能特效完结)
-            msg1.Machineid = "10003";   //虚空 (技能特效完结)
+            //msg1.Machineid = "10003";   //虚空 (技能特效完结)
             //msg1.Machineid = "10004";   //混沌骑士 (技能特效完结)
             //msg1.Machineid = "10005";   //熊战士   (技能特效完结)
             //msg1.Machineid = "10006";   //血魔    (技能特效完结)

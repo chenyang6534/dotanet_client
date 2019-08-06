@@ -115,10 +115,12 @@ public class GameScene : MonoBehaviour {
     //清除场景资源 包括场景 单位 特效 
     void CleanScene()
     {
+        m_LogicFrameData = new Dictionary<int, Protomsg.SC_Update>();
         Destroy(m_GameScene);
         m_GameScene = null;
         UnityEntityManager.Instance.Clear();
-        UnityEntityManager.Instance.Clear();
+        HaloEntityManager.Instance.Clear();
+        BulletEntityManager.Instance.Clear();
 
 
     }

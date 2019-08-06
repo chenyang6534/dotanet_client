@@ -12,6 +12,7 @@ public class MyEditor : Editor
 {
     
     static string  []SceneName = { "Map/Scene1" };
+    static string[] CreateUnits = { "Map/CreateUnits/CreateUnits1", "Map/CreateUnits/CreateUnits2" };
     static string DestPath = "D://sheshe/bin/conf/";
 
     //将所有游戏场景导出为JSON格式
@@ -129,6 +130,118 @@ public class MyEditor : Editor
         AssetDatabase.Refresh();
 
         UnityEngine.Debug.Log("export succ");
+    }
+    //将所有游戏创建单位导出为JSON格式
+    [MenuItem("GameObject/ExportCreateUnitsJSON")]
+    static void ExportCreateUnitsJSON()
+    {
+        //string filepath = Application.dataPath + @"/Output/SceneCollides.sc";
+        string filepath = DestPath + "CreateUnits.sc";
+        FileInfo t = new FileInfo(filepath);
+        if (!File.Exists(filepath))
+        {
+            File.Delete(filepath);
+        }
+        StreamWriter sw = t.CreateText();
+
+        StringBuilder sb = new StringBuilder();
+        JsonWriter writer = new JsonWriter(sb);
+        writer.WriteObjectStart();
+        writer.WritePropertyName("CreateUnits");
+        writer.WriteArrayStart();
+
+        //int i11 = 0;
+        foreach (string S in CreateUnits)
+        {
+            //int index = i11++;
+            //EditorSceneManager.OpenScene(ScenePath[index]);
+            var scene = (GameObject)(GameObject.Instantiate(Resources.Load(S)));
+            if (scene != null)
+            {
+                string name = S;
+                writer.WriteObjectStart();
+                writer.WritePropertyName("name");
+                writer.Write(name);
+
+                var scenetag = scene.GetComponentsInChildren<SceneTag>();
+                if (scenetag != null)
+                {
+                    writer.WritePropertyName("Units");
+                    writer.WriteArrayStart();
+                    foreach (SceneTag obj1 in scenetag)
+                    {
+                        //this.transform.localEulerAngles.x
+                        UnityEngine.Debug.Log("y:" + obj1.transform.localEulerAngles.y + " name:" + obj1.name);
+                        int typeid = obj1.EnemyID;
+                        var pos = obj1.transform.position;
+                        float recreatetime = obj1.ReCreateTime;
+                        writer.WriteObjectStart();
+                        writer.WritePropertyName("TypeID");
+                        writer.Write(typeid);
+                        writer.WritePropertyName("X");
+                        writer.Write(pos.x);
+                        writer.WritePropertyName("Y");
+                        writer.Write(pos.z);
+                        writer.WritePropertyName("Z");
+                        writer.Write(pos.y);
+                        writer.WritePropertyName("ReCreateTime");
+                        writer.Write(recreatetime);
+                        writer.WritePropertyName("Rotation");
+                        writer.Write(obj1.transform.localEulerAngles.y);
+
+                        writer.WriteObjectEnd();
+
+                    }
+                    writer.WriteArrayEnd();
+                }
+                var doorway = scene.GetComponentsInChildren<DoorwayTag>();
+                if (doorway != null)
+                {
+                    writer.WritePropertyName("Doorways");
+                    writer.WriteArrayStart();
+                    foreach (DoorwayTag obj1 in doorway)
+                    {
+                        //this.transform.localEulerAngles.x
+                        
+                        var pos = obj1.transform.position;
+                        writer.WriteObjectStart();
+                        writer.WritePropertyName("NextSceneID");
+                        writer.Write(obj1.NextSceneID);
+                        writer.WritePropertyName("X");
+                        writer.Write(pos.x);
+                        writer.WritePropertyName("Y");
+                        writer.Write(pos.z);
+                        writer.WritePropertyName("Z");
+                        writer.Write(pos.y);
+                        writer.WritePropertyName("R");
+                        writer.Write(obj1.R);
+                        writer.WritePropertyName("NeedLevel");
+                        writer.Write(obj1.NeedLevel);
+                        writer.WritePropertyName("NextX");
+                        writer.Write(obj1.NextScenePosition.x);
+                        writer.WritePropertyName("NextY");
+                        writer.Write(obj1.NextScenePosition.y);
+
+                        writer.WriteObjectEnd();
+
+                    }
+                    writer.WriteArrayEnd();
+                }
+
+
+                writer.WriteObjectEnd();
+                DestroyImmediate(scene);
+            }
+        }
+        writer.WriteArrayEnd();
+        writer.WriteObjectEnd();
+
+        sw.WriteLine(sb.ToString());
+        sw.Close();
+        sw.Dispose();
+        AssetDatabase.Refresh();
+
+        UnityEngine.Debug.Log("export createunits succ");
     }
     //是否为矩形
     static bool IsRect(Vector3[] points)

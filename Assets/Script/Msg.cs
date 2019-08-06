@@ -69,29 +69,29 @@ namespace Protomsg {
             "dGF0ZRgGIAEoBRIOCgZTdGFydFgYByABKAISDgoGU3RhcnRZGAggASgCEg4K",
             "BlN0YXJ0WhgJIAEoAhIMCgRFbmRYGAogASgCEgwKBEVuZFkYCyABKAISDAoE",
             "RW5kWhgMIAEoAiJKCglIYWxvRGF0YXMSCgoCSUQYASABKAUSEAoITW9kZVR5",
-            "cGUYAiABKAkSCQoBWBgDIAEoAhIJCgFZGAQgASgCEgkKAVoYBSABKAIihAEK",
+            "cGUYAiABKAkSCQoBWBgDIAEoAhIJCgFZGAQgASgCEgkKAVoYBSABKAIiggEK",
             "EU1zZ1VzZXJFbnRlclNjZW5lEgsKA1VpZBgBIAEoBRIRCglDb25uZWN0SWQY",
             "AiABKAUSFQoNU3JjU2VydmVyTmFtZRgDIAEoCRIWCg5EZXN0U2VydmVyTmFt",
-            "ZRgEIAEoCRIRCglTY2VuZU5hbWUYBSABKAkSDQoFRGF0YXMYBiABKAwiYQoN",
-            "TXNnUGxheWVySHVydBISCgpIdXJ0VW5pdElEGAEgASgFEhQKDEh1cnRBbGxW",
-            "YWx1ZRgCIAEoBRIWCg5IdXJ0TWFnaWNWYWx1ZRgDIAEoBRIOCgZJc0NyaXQY",
-            "BCABKAUi/QIKCVNDX1VwZGF0ZRIQCghDdXJGcmFtZRgBIAEoBRIlCghOZXdV",
-            "bml0cxgCIAMoCzITLnByb3RvbXNnLlVuaXREYXRhcxIlCghPbGRVbml0cxgD",
-            "IAMoCzITLnByb3RvbXNnLlVuaXREYXRhcxITCgtSZW1vdmVVbml0cxgEIAMo",
-            "BRIpCgpOZXdCdWxsZXRzGAUgAygLMhUucHJvdG9tc2cuQnVsbGV0RGF0YXMS",
-            "KQoKT2xkQnVsbGV0cxgGIAMoCzIVLnByb3RvbXNnLkJ1bGxldERhdGFzEhUK",
-            "DVJlbW92ZUJ1bGxldHMYByADKAUSJQoITmV3SGFsb3MYCCADKAsyEy5wcm90",
-            "b21zZy5IYWxvRGF0YXMSJQoIT2xkSGFsb3MYCSADKAsyEy5wcm90b21zZy5I",
-            "YWxvRGF0YXMSEwoLUmVtb3ZlSGFsb3MYCiADKAUSKwoKUGxheWVySHVydBgL",
-            "IAMoCzIXLnByb3RvbXNnLk1zZ1BsYXllckh1cnQiUwoLU0NfTmV3U2NlbmUS",
-            "DAoETmFtZRgBIAEoCRIQCghMb2dpY0ZwcxgCIAEoBRIQCghDdXJGcmFtZRgD",
-            "IAEoBRISCgpTZXJ2ZXJOYW1lGAQgASgJIlYKEkNoYXJhY3RlckJhc2VEYXRh",
-            "cxITCgtDaGFyYWN0ZXJpZBgBIAEoBRIMCgROYW1lGAIgASgJEg4KBlR5cGVp",
-            "ZBgDIAEoBRINCgVMZXZlbBgEIAEoBSJoCgpTQ19Mb2dpbmVkEgwKBENvZGUY",
-            "ASABKAUSCwoDVWlkGAIgASgFEg0KBUVycm9yGAMgASgJEjAKCkNoYXJhY3Rl",
-            "cnMYBCADKAsyHC5wcm90b21zZy5DaGFyYWN0ZXJCYXNlRGF0YXMiTAoYU0Nf",
-            "U2VsZWN0Q2hhcmFjdGVyUmVzdWx0EgwKBENvZGUYASABKAUSEwoLQ2hhcmFj",
-            "dGVyaWQYAiABKAUSDQoFRXJyb3IYAyABKAliBnByb3RvMw=="));
+            "ZRgEIAEoCRIPCgdTY2VuZUlEGAUgASgFEg0KBURhdGFzGAYgASgMImEKDU1z",
+            "Z1BsYXllckh1cnQSEgoKSHVydFVuaXRJRBgBIAEoBRIUCgxIdXJ0QWxsVmFs",
+            "dWUYAiABKAUSFgoOSHVydE1hZ2ljVmFsdWUYAyABKAUSDgoGSXNDcml0GAQg",
+            "ASgFIv0CCglTQ19VcGRhdGUSEAoIQ3VyRnJhbWUYASABKAUSJQoITmV3VW5p",
+            "dHMYAiADKAsyEy5wcm90b21zZy5Vbml0RGF0YXMSJQoIT2xkVW5pdHMYAyAD",
+            "KAsyEy5wcm90b21zZy5Vbml0RGF0YXMSEwoLUmVtb3ZlVW5pdHMYBCADKAUS",
+            "KQoKTmV3QnVsbGV0cxgFIAMoCzIVLnByb3RvbXNnLkJ1bGxldERhdGFzEikK",
+            "Ck9sZEJ1bGxldHMYBiADKAsyFS5wcm90b21zZy5CdWxsZXREYXRhcxIVCg1S",
+            "ZW1vdmVCdWxsZXRzGAcgAygFEiUKCE5ld0hhbG9zGAggAygLMhMucHJvdG9t",
+            "c2cuSGFsb0RhdGFzEiUKCE9sZEhhbG9zGAkgAygLMhMucHJvdG9tc2cuSGFs",
+            "b0RhdGFzEhMKC1JlbW92ZUhhbG9zGAogAygFEisKClBsYXllckh1cnQYCyAD",
+            "KAsyFy5wcm90b21zZy5Nc2dQbGF5ZXJIdXJ0IlMKC1NDX05ld1NjZW5lEgwK",
+            "BE5hbWUYASABKAkSEAoITG9naWNGcHMYAiABKAUSEAoIQ3VyRnJhbWUYAyAB",
+            "KAUSEgoKU2VydmVyTmFtZRgEIAEoCSJWChJDaGFyYWN0ZXJCYXNlRGF0YXMS",
+            "EwoLQ2hhcmFjdGVyaWQYASABKAUSDAoETmFtZRgCIAEoCRIOCgZUeXBlaWQY",
+            "AyABKAUSDQoFTGV2ZWwYBCABKAUiaAoKU0NfTG9naW5lZBIMCgRDb2RlGAEg",
+            "ASgFEgsKA1VpZBgCIAEoBRINCgVFcnJvchgDIAEoCRIwCgpDaGFyYWN0ZXJz",
+            "GAQgAygLMhwucHJvdG9tc2cuQ2hhcmFjdGVyQmFzZURhdGFzIkwKGFNDX1Nl",
+            "bGVjdENoYXJhY3RlclJlc3VsdBIMCgRDb2RlGAEgASgFEhMKC0NoYXJhY3Rl",
+            "cmlkGAIgASgFEg0KBUVycm9yGAMgASgJYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -108,7 +108,7 @@ namespace Protomsg {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.UnitDatas), global::Protomsg.UnitDatas.Parser, new[]{ "Name", "Level", "HP", "MP", "X", "Y", "ID", "ModeType", "MaxHP", "MaxMP", "Experience", "MaxExperience", "ControlID", "AnimotorState", "AttackTime", "DirectionX", "DirectionY", "UnitType", "AttackAcpabilities", "AttackMode", "IsMain", "IsDeath", "Invisible", "Camp", "IsMiss", "AnimotorPause", "SkillEnable", "ItemEnable", "Z", "IsMirrorImage", "AttackRange", "AttackAnim", "SD", "BD" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.BulletDatas), global::Protomsg.BulletDatas.Parser, new[]{ "ID", "ModeType", "X", "Y", "Z", "State", "StartX", "StartY", "StartZ", "EndX", "EndY", "EndZ" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.HaloDatas), global::Protomsg.HaloDatas.Parser, new[]{ "ID", "ModeType", "X", "Y", "Z" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.MsgUserEnterScene), global::Protomsg.MsgUserEnterScene.Parser, new[]{ "Uid", "ConnectId", "SrcServerName", "DestServerName", "SceneName", "Datas" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.MsgUserEnterScene), global::Protomsg.MsgUserEnterScene.Parser, new[]{ "Uid", "ConnectId", "SrcServerName", "DestServerName", "SceneID", "Datas" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.MsgPlayerHurt), global::Protomsg.MsgPlayerHurt.Parser, new[]{ "HurtUnitID", "HurtAllValue", "HurtMagicValue", "IsCrit" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_Update), global::Protomsg.SC_Update.Parser, new[]{ "CurFrame", "NewUnits", "OldUnits", "RemoveUnits", "NewBullets", "OldBullets", "RemoveBullets", "NewHalos", "OldHalos", "RemoveHalos", "PlayerHurt" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_NewScene), global::Protomsg.SC_NewScene.Parser, new[]{ "Name", "LogicFps", "CurFrame", "ServerName" }, null, null, null),
@@ -4508,7 +4508,7 @@ namespace Protomsg {
       connectId_ = other.connectId_;
       srcServerName_ = other.srcServerName_;
       destServerName_ = other.destServerName_;
-      sceneName_ = other.sceneName_;
+      sceneID_ = other.sceneID_;
       datas_ = other.datas_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -4562,14 +4562,14 @@ namespace Protomsg {
       }
     }
 
-    /// <summary>Field number for the "SceneName" field.</summary>
-    public const int SceneNameFieldNumber = 5;
-    private string sceneName_ = "";
+    /// <summary>Field number for the "SceneID" field.</summary>
+    public const int SceneIDFieldNumber = 5;
+    private int sceneID_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string SceneName {
-      get { return sceneName_; }
+    public int SceneID {
+      get { return sceneID_; }
       set {
-        sceneName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        sceneID_ = value;
       }
     }
 
@@ -4604,7 +4604,7 @@ namespace Protomsg {
       if (ConnectId != other.ConnectId) return false;
       if (SrcServerName != other.SrcServerName) return false;
       if (DestServerName != other.DestServerName) return false;
-      if (SceneName != other.SceneName) return false;
+      if (SceneID != other.SceneID) return false;
       if (Datas != other.Datas) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -4616,7 +4616,7 @@ namespace Protomsg {
       if (ConnectId != 0) hash ^= ConnectId.GetHashCode();
       if (SrcServerName.Length != 0) hash ^= SrcServerName.GetHashCode();
       if (DestServerName.Length != 0) hash ^= DestServerName.GetHashCode();
-      if (SceneName.Length != 0) hash ^= SceneName.GetHashCode();
+      if (SceneID != 0) hash ^= SceneID.GetHashCode();
       if (Datas.Length != 0) hash ^= Datas.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -4647,9 +4647,9 @@ namespace Protomsg {
         output.WriteRawTag(34);
         output.WriteString(DestServerName);
       }
-      if (SceneName.Length != 0) {
-        output.WriteRawTag(42);
-        output.WriteString(SceneName);
+      if (SceneID != 0) {
+        output.WriteRawTag(40);
+        output.WriteInt32(SceneID);
       }
       if (Datas.Length != 0) {
         output.WriteRawTag(50);
@@ -4675,8 +4675,8 @@ namespace Protomsg {
       if (DestServerName.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(DestServerName);
       }
-      if (SceneName.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(SceneName);
+      if (SceneID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(SceneID);
       }
       if (Datas.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeBytesSize(Datas);
@@ -4704,8 +4704,8 @@ namespace Protomsg {
       if (other.DestServerName.Length != 0) {
         DestServerName = other.DestServerName;
       }
-      if (other.SceneName.Length != 0) {
-        SceneName = other.SceneName;
+      if (other.SceneID != 0) {
+        SceneID = other.SceneID;
       }
       if (other.Datas.Length != 0) {
         Datas = other.Datas;
@@ -4737,8 +4737,8 @@ namespace Protomsg {
             DestServerName = input.ReadString();
             break;
           }
-          case 42: {
-            SceneName = input.ReadString();
+          case 40: {
+            SceneID = input.ReadInt32();
             break;
           }
           case 50: {

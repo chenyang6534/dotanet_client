@@ -138,3 +138,6 @@ MonoBehaviour:
   - TypeID: 33
     ModePath: Bullet/Projectiles/xiaoxiao_skill3_bullet
     Level: 2
+  - TypeID: 34
+    ModePath: Bullet/Projectiles/enemy1_attack
+    Level: 1

@@ -188,6 +188,7 @@ public class MyEditor : Editor
                         writer.Write(recreatetime);
                         writer.WritePropertyName("Rotation");
                         writer.Write(obj1.transform.localEulerAngles.y);
+                        
 
                         writer.WriteObjectEnd();
 
@@ -221,6 +222,9 @@ public class MyEditor : Editor
                         writer.Write(obj1.NextScenePosition.x);
                         writer.WritePropertyName("NextY");
                         writer.Write(obj1.NextScenePosition.y);
+                        writer.WritePropertyName("HaloTypeID");
+                        writer.Write(obj1.HaloTypeID);
+
 
                         writer.WriteObjectEnd();
 

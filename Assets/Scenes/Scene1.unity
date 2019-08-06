@@ -221,7 +221,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1001 &559292602
+--- !u!1001 &1127870774
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -263,7 +263,7 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20bc2b257a5208b43b5a60a3b1dee544, type: 2}
   m_IsPrefabAsset: 0
---- !u!1001 &1788272644
+--- !u!1001 &1762375105
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2

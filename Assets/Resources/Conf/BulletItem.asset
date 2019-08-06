@@ -141,3 +141,6 @@ MonoBehaviour:
   - TypeID: 34
     ModePath: Bullet/Projectiles/enemy1_attack
     Level: 1
+  - TypeID: 1024
+    ModePath: Buff/doorway
+    Level: 1

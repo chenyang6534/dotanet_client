@@ -1001,27 +1001,36 @@ public class UnityEntity {
         //头顶条显示
         if (m_TopBar != null)
         {
-            if(IsDeath == 1)
-            {
-                m_TopBar.GetComponent<UnityEntityTopBar>().SetVisible(false);
-            }
-            else
-            {
-                m_TopBar.GetComponent<UnityEntityTopBar>().SetVisible(true);
-            }
-
             m_TopBar.GetComponent<UnityEntityTopBar>().SetHP( (int)((float)HP / MaxHP * 100));
             m_TopBar.GetComponent<UnityEntityTopBar>().SetMP((int)((float)MP / MaxMP * 100));
             m_TopBar.GetComponent<UnityEntityTopBar>().SetName(Name);
             m_TopBar.GetComponent<UnityEntityTopBar>().SetLevel(Level);
 
-            if (UnityEntityManager.Instance.CheckIsEnemy(this, GameScene.Singleton.GetMyMainUnit()))
+            var isEnemy = UnityEntityManager.Instance.CheckIsEnemy(this, GameScene.Singleton.GetMyMainUnit());
+
+            if (isEnemy)
             {
                 m_TopBar.GetComponent<UnityEntityTopBar>().SetIsEnemy(true);
             }
             else
             {
                 m_TopBar.GetComponent<UnityEntityTopBar>().SetIsEnemy(false);
+            }
+            if (IsDeath == 1)
+            {
+                m_TopBar.GetComponent<UnityEntityTopBar>().SetVisible(false);
+            }
+            else
+            {
+                if(m_Camp == 2 && (int)((float)HP / MaxHP * 100) == 100)//NPC
+                {
+                    m_TopBar.GetComponent<UnityEntityTopBar>().SetVisible(false);
+                }
+                else
+                {
+                    m_TopBar.GetComponent<UnityEntityTopBar>().SetVisible(true);
+                }
+                
             }
         }
     }

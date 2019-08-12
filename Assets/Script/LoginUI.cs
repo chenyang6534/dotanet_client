@@ -11,11 +11,24 @@ public class LoginUI : MonoBehaviour {
     protected GComponent mRoot;
 	// Use this for initialization
 	void Start () {
+        //UIPackage.AddPackage("FairyGui/GameUI");
+        //GComponent view = UIPackage.CreateObject("GameUI","MyInfo").asCom;
+        //以下几种方式都可以将view显示出来：
+        //1，直接加到GRoot显示出来
+        //GRoot.inst.AddChild(view);
+        //view.Center();
+        Debug.Log("width:" + Screen.width + " height:" + Screen.height);
+        //view.xy = new Vector2(Screen.width/2, Screen.height/2);
 
+        //var testui = (GameObject)(GameObject.Instantiate(Resources.Load("UIPref/test")));
+        //testui.transform.parent = gameObject.transform;
+        //testui.transform.localPosition = new Vector3(0, 0, 0);
+        //testui.transform.localRotation = 
 
         MyKcp.Instance.Create("127.0.0.1", 1118);
         //MyKcp.Instance.Create("119.23.8.72", 1118);
         mRoot = GetComponent<UIPanel>().ui;
+        //mRoot.GetChild("center")..AddChild(view);
         mRoot.GetChild("n6").asButton.onClick.Add(()=> {
 
             

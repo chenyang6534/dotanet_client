@@ -15,7 +15,7 @@ public class GameScene : MonoBehaviour {
     protected int m_LogicFps;
     protected double m_GameServerStartTime;//游戏场景服务器第0帧的时候的本地时间
     protected float m_LogicDelayTime;//逻辑延时
-    protected string m_ServerName;
+    public string m_ServerName;
 
     public int m_MaxFrame = 0;//当前收到的逻辑帧数据 帧号
     protected Dictionary<int,Protomsg.SC_Update> m_LogicFrameData;//逻辑帧数据

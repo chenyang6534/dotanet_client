@@ -13,6 +13,10 @@ public class GameUI : MonoBehaviour {
     private Vector2 startPos;
     private double startTime;
 
+    private GComponent leftTopHead;
+
+    private GComponent center;
+
     private Btnstick attackstick;
     void Start () {
 
@@ -20,6 +24,10 @@ public class GameUI : MonoBehaviour {
         mainUI = GetComponent<UIPanel>().ui;
         touchID = -1;
         startTime = Tool.GetTime();
+
+        center = mainUI.GetChild("center").asCom;
+        Debug.Log("center---------------------------:"+ center.name);
+
         //屏幕点击
         GObject touch = mainUI.GetChild("touchArea");
         touch.onTouchBegin.Add(OnTouchBegin);
@@ -39,6 +47,7 @@ public class GameUI : MonoBehaviour {
         attackstick.onEnd.Add(AttackstickEnd);
         attackstick.onDown.Add(AttackstickDown);
 
+        InitLeftTopHead();
         
         //view.AddRelation(GRoot.inst, RelationType.Right_Right);
         //view.AddRelation(GRoot.inst, RelationType.Bottom_Bottom);
@@ -245,6 +254,23 @@ public class GameUI : MonoBehaviour {
         }
     }
 
+    //初始化头像信息
+    void InitLeftTopHead()
+    {
+        leftTopHead = mainUI.GetChild("headInfo").asCom;
+
+        leftTopHead.GetChild("headbtn").asButton.onClick.Add(() => {
+            //GComponent view = UIPackage.CreateObject("GameUI", "MyInfo").asCom;
+            //center.AddChild(view);
+            MyInfo myinfo = new MyInfo(center, GameScene.Singleton.GetMyMainUnit());
+        });
+    }
+    //左上角头像信息 刷新
+    void FreshLeftTopHead()
+    {
+
+    }
+    
     // Update is called once per frame
     void Update () {
         gPing.text = "" + MyKcp.PingValue;

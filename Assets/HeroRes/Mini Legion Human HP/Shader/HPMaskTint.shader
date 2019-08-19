@@ -20,6 +20,13 @@ Shader "HPMaskTint"
 	{
 		Tags{ "RenderType" = "Opaque"  "Queue" = "Geometry+0" "IsEmissive" = "true"  }
 		Cull Back
+		Stencil{
+			Ref[_Stencil]
+			ReadMask[_StencilReadMask]
+			WriteMask[_StencilWriteMask]
+			Comp[_StencilComp]
+			Pass[_StencilOp]
+		}
 		CGPROGRAM
 		#pragma target 3.0
 		#pragma surface surf Standard keepalpha addshadow fullforwardshadows 
@@ -57,7 +64,6 @@ Shader "HPMaskTint"
 			o.Smoothness = _Smoothness;
 			o.Alpha = 1;
 		}
-
 		ENDCG
 	}
 	Fallback "Diffuse"

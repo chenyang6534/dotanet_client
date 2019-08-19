@@ -18,6 +18,9 @@ public class GameUI : MonoBehaviour {
     private GComponent center;
 
     private Btnstick attackstick;
+
+    private HeadInfo MyHeadInfo;
+    private HeadInfo TargetHeadInfo;
     void Start () {
 
         SkillCom = new Dictionary<int, Skillstick>();
@@ -27,6 +30,9 @@ public class GameUI : MonoBehaviour {
 
         center = mainUI.GetChild("center").asCom;
         Debug.Log("center---------------------------:"+ center.name);
+
+        MyHeadInfo = new HeadInfo(mainUI.GetChild("myHeadInfo").asCom);
+        TargetHeadInfo = new HeadInfo(mainUI.GetChild("targetHeadInfo").asCom);
 
         //屏幕点击
         GObject touch = mainUI.GetChild("touchArea");
@@ -257,23 +263,33 @@ public class GameUI : MonoBehaviour {
     //初始化头像信息
     void InitLeftTopHead()
     {
-        leftTopHead = mainUI.GetChild("headInfo").asCom;
+        //leftTopHead = mainUI.GetChild("headInfo").asCom;
 
-        leftTopHead.GetChild("headbtn").asButton.onClick.Add(() => {
-            //GComponent view = UIPackage.CreateObject("GameUI", "MyInfo").asCom;
-            //center.AddChild(view);
-            MyInfo myinfo = new MyInfo(center, GameScene.Singleton.GetMyMainUnit());
-        });
+        //leftTopHead.GetChild("headbtn").asButton.onClick.Add(() => {
+        //    MyInfo myinfo = new MyInfo(center, GameScene.Singleton.GetMyMainUnit());
+        //});
     }
     //左上角头像信息 刷新
-    void FreshLeftTopHead()
+    void FreshHead()
     {
-
+        int myid = -1;
+        if(GameScene.Singleton.m_MyMainUnit != null)
+        {
+            myid = GameScene.Singleton.m_MyMainUnit.ID;
+        }
+        int targetid = -1;
+        if (GameScene.Singleton.m_TargetUnit != null)
+        {
+            targetid = GameScene.Singleton.m_TargetUnit.ID;
+        }
+        MyHeadInfo.FreshData(myid);
+        TargetHeadInfo.FreshData(targetid);
     }
     
     // Update is called once per frame
     void Update () {
         gPing.text = "" + MyKcp.PingValue;
         FreshSkillUI();
+        FreshHead();
     }
 }

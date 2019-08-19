@@ -59,7 +59,7 @@ public class UnityEntityTopBar : MonoBehaviour
     }
     public GObject AddNativeBuff(string path)
     {
-        var url = "ui://fekv2twrs1b211";
+        var url = "ui://fekv2twrs1b211";//ui://fekv2twrs1b211
         //ui://fekv2twrs1b2w
         var go = m_BuffList.AddItemFromPool(url);
         var modeeffect = (GameObject)(GameObject.Instantiate(Resources.Load(path)));

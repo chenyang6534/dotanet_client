@@ -6,18 +6,25 @@ using UnityEngine;
 using Google.Protobuf;
 
 public class MyInfo {
-    private GComponent parent;
     private GComponent unitinfo;
     private GComponent main;
     private UnityEntity unit;
-    public MyInfo(GComponent parent,UnityEntity unit)
+    public MyInfo(UnityEntity unit)
     {
-        this.parent = parent;
         this.unit = unit;
         this.InitNetData();
         main = UIPackage.CreateObject("GameUI", "MyInfo").asCom;
         unitinfo = main.GetChild("heroInfo").asCom;
-        parent.AddChild(main);
+        GRoot.inst.AddChild(main);
+        //main.fairyBatching = true;
+
+        Vector2 screenPos = new Vector2(Screen.width / 2, Screen.height / 2);
+        Vector2 logicScreenPos = GRoot.inst.GlobalToLocal(screenPos);
+        main.xy = logicScreenPos;
+
+        //main.AddChild()
+        Debug.Log("xy:" + main.xy + " screenxy:" + screenPos);
+
         Init();
         //FreshData();
     }
@@ -33,6 +40,21 @@ public class MyInfo {
         }
         //关闭按钮
         unitinfo.GetChild("close").asButton.onClick.Add(() => { Destroy(); });
+
+        //模型
+        var modeeffect = (GameObject)(GameObject.Instantiate(Resources.Load(unit.ModeType)));
+        modeeffect.transform.localPosition = new Vector3(0, 0, 0);
+        modeeffect.transform.localScale = new Vector3(100, 100, 100);
+        Vector3 rotation = modeeffect.transform.localEulerAngles;
+        rotation.x = 10; // 在这里修改坐标轴的值
+        rotation.y = 180;
+        rotation.z = 0;
+        //将旋转的角度赋值给预制出来需要打出去的麻将
+        modeeffect.transform.localEulerAngles = rotation;
+        GGraph holder = unitinfo.GetChild("heromode").asGraph;
+        GoWrapper wrapper = new GoWrapper(modeeffect);
+        holder.SetNativeObject(wrapper);
+
     }
 
     //

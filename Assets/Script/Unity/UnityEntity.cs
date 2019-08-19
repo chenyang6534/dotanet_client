@@ -862,8 +862,11 @@ public class UnityEntity {
         GComponent words = UIPackage.CreateObject("GameUI", "HurtInfo").asCom;
         WordsInfo wd = AddWordsInfo(words);
         wd.RandomX(-30, 30);
+        
+        //words.z = 0;
         //1，直接加到GRoot显示出来
         GRoot.inst.AddChild(words);
+        GRoot.inst.SetChildIndex(words, 1);
         //var root = words.GetComponent<FairyGUI.UIPanel>().ui;
         words.GetChild("num").asTextField.text = "miss";
         words.GetChild("num").asTextField.color = new Color(1.0f, 1.0f, 1.0f);
@@ -939,6 +942,7 @@ public class UnityEntity {
 
         //1，直接加到GRoot显示出来
         GRoot.inst.AddChild(words);
+        GRoot.inst.SetChildIndex(words, 1);
         //words.xy = pt;
         words.GetChild("num").asTextField.text = hurt.HurtAllValue + "";
         if (this == GameScene.Singleton.GetMyMainUnit()){

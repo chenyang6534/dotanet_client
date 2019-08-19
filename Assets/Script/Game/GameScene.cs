@@ -7,7 +7,7 @@ using UnityEngine;
 public class GameScene : MonoBehaviour {
 
     // Use this for initialization
-    protected UnityEntity m_TargetUnit; //目标单位
+    public UnityEntity m_TargetUnit; //目标单位
     protected GameObject hero;
     public GameObject m_GameScene;
     protected Plane m_PlaneScene;
@@ -22,7 +22,7 @@ public class GameScene : MonoBehaviour {
 
 
     protected List<int> m_MyControlUnit;//我自己控制的单位的ID
-    protected UnityEntity m_MyMainUnit;//我自己的主单位
+    public UnityEntity m_MyMainUnit;//我自己的主单位
 
     private static GameScene singleton = null;
     public static GameScene Singleton

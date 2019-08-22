@@ -231,6 +231,19 @@ public class GameScene : MonoBehaviour {
                     Debug.Log("remove halo:" + item);
                     HaloEntityManager.Instance.DestroyHaloEntity(item);
                 }
+                //场景道具
+                foreach (var item in p1.NewSceneItems)
+                {
+                    Debug.Log("new sceneitem:" + item.ID+" typeid:"+item.TypeID);
+                    //HaloEntityManager.Instance.CreateHaloEntity(this, item);
+                    SceneItemManager.Instance.CreateSceneItem(this, item);
+                }
+                foreach (var item in p1.RemoveSceneItems)
+                {
+                    Debug.Log("remove sceneitem:" + item);
+                    //HaloEntityManager.Instance.DestroyHaloEntity(item);
+                    SceneItemManager.Instance.DestroySceneItem(item);
+                }
 
                 //伤害数字提示
                 foreach ( var item in p1.PlayerHurt)

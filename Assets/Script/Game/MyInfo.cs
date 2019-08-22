@@ -41,6 +41,8 @@ public class MyInfo {
         //关闭按钮
         unitinfo.GetChild("close").asButton.onClick.Add(() => { Destroy(); });
 
+        
+
         //模型
         var modeeffect = (GameObject)(GameObject.Instantiate(Resources.Load(unit.ModeType)));
         modeeffect.transform.localPosition = new Vector3(0, 0, 0);
@@ -107,6 +109,18 @@ public class MyInfo {
         {
             return;
         }
+        for(var i = 0; i < data.Equips.Count; i++)
+        {
+            var itemdata = data.Equips[i];
+            var clientitem = ExcelManager.Instance.GetItemManager().GetItemByID(itemdata.TypdID);
+
+            //道具
+            unitinfo.GetChild("item" + (itemdata.Pos + 1)).asLoader.url = clientitem.IconPath;// "ui://GameUI/黯灭";
+        }
+        
+
+        
+
         //力量 敏捷 智力
         unitinfo.GetChild("strength").asTextField.text = ((int)data.AttributeStrength).ToString();
         unitinfo.GetChild("agility").asTextField.text = ((int)data.AttributeAgility).ToString();

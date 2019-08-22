@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Test : MonoBehaviour {
-
+    
     public Vector3 LookRatotion;
 	// Use this for initialization
 	void Start () {

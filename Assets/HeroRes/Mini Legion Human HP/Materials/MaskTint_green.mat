@@ -85,7 +85,7 @@ Material:
     - _Stencil: 1
     - _StencilComp: 3
     - _StencilOp: 0
-    - _StencilReadMask: 1
+    - _StencilReadMask: 2
     - _StencilWriteMask: 255
     - _UVSec: 0
     - _ZWrite: 1

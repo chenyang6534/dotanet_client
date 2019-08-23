@@ -112,8 +112,14 @@ public class MyInfo {
         for(var i = 0; i < data.Equips.Count; i++)
         {
             var itemdata = data.Equips[i];
+            
             var clientitem = ExcelManager.Instance.GetItemManager().GetItemByID(itemdata.TypdID);
-
+            if(clientitem == null)
+            {
+                //道具
+                unitinfo.GetChild("item" + (itemdata.Pos + 1)).asLoader.url = "";// "ui://GameUI/黯灭";
+                continue;
+            }
             //道具
             unitinfo.GetChild("item" + (itemdata.Pos + 1)).asLoader.url = clientitem.IconPath;// "ui://GameUI/黯灭";
         }

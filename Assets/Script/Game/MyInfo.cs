@@ -7,6 +7,7 @@ using Google.Protobuf;
 
 public class MyInfo {
     private GComponent unitinfo;
+    private GComponent baginfo;
     private GComponent main;
     private UnityEntity unit;
     public MyInfo(UnityEntity unit)
@@ -15,6 +16,7 @@ public class MyInfo {
         this.InitNetData();
         main = UIPackage.CreateObject("GameUI", "MyInfo").asCom;
         unitinfo = main.GetChild("heroInfo").asCom;
+        baginfo = main.GetChild("bag").asCom;
         GRoot.inst.AddChild(main);
         //main.fairyBatching = true;
 
@@ -41,7 +43,46 @@ public class MyInfo {
         //关闭按钮
         unitinfo.GetChild("close").asButton.onClick.Add(() => { Destroy(); });
 
-        
+        //道具拖动
+        for (var i = 0; i < 6; i++)
+        {
+            //道具
+            var item = unitinfo.GetChild("item" + (i + 1)).asButton;
+            item.draggable = true;
+            item.onDragStart.Add((EventContext context) =>
+            {
+                //Cancel the original dragging, and start a new one with a agent.
+                context.PreventDefault();
+
+                DragDropManager.inst.StartDrag(item, item.icon, item.icon, (int)context.data);
+            });
+
+            item.onDrop.Add((EventContext context) =>
+            {
+                item.icon = (string)context.data;
+            });
+        }
+        //baginfo
+        for (var i = 0; i < 6; i++)
+        {
+            //道具
+            var item = baginfo.GetChild("bagitem" + (i + 1)).asButton;
+            item.draggable = true;
+            item.onDragStart.Add((EventContext context) =>
+            {
+                //Cancel the original dragging, and start a new one with a agent.
+                context.PreventDefault();
+
+                DragDropManager.inst.StartDrag(item, item.icon, item.icon, (int)context.data);
+            });
+
+            item.onDrop.Add((EventContext context) =>
+            {
+                item.icon = (string)context.data;
+            });
+        }
+
+
 
         //模型
         var modeeffect = (GameObject)(GameObject.Instantiate(Resources.Load(unit.ModeType)));
@@ -79,13 +120,17 @@ public class MyInfo {
         Protomsg.CS_GetUnitInfo msg1 = new Protomsg.CS_GetUnitInfo();
         msg1.UnitID = unit.ID;
         MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetUnitInfo", msg1);
+
+        Protomsg.CS_GetBagInfo msg2 = new Protomsg.CS_GetBagInfo();
+        msg2.UnitID = unit.ID;
+        MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetBagInfo", msg2);
     }
     public bool SC_BagInfo(Protomsg.MsgBase d1)
     {
-        //IMessage IMperson = new Protomsg.SC_UnitInfo();
-        //Protomsg.SC_UnitInfo p1 = (Protomsg.SC_UnitInfo)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
+        IMessage IMperson = new Protomsg.SC_BagInfo();
+        Protomsg.SC_BagInfo p1 = (Protomsg.SC_BagInfo)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
 
-        //FreshUnitInfoData(p1.UnitData);
+        FreshBagInfoData(p1);
 
         return true;
     }
@@ -99,6 +144,37 @@ public class MyInfo {
         FreshUnitInfoData(p1.UnitData);
 
         return true;
+    }
+    //刷新单位信息
+    public void FreshBagInfoData(Protomsg.SC_BagInfo data)
+    {
+        if (baginfo == null || data == null)
+        {
+            return;
+        }
+        for (var i = 0; i < data.Equips.Count; i++)
+        {
+            
+            var itemdata = data.Equips[i];
+            if (baginfo.GetChild("bagitem" + (itemdata.Pos + 1)) == null)
+            {
+                continue;
+            }
+
+            var clientitem = ExcelManager.Instance.GetItemManager().GetItemByID(itemdata.TypdID);
+            if (clientitem == null)
+            {
+                //道具"n71"
+                //unitinfo.GetChild("item" + (itemdata.Pos + 1)).asLoader.url = "";// "ui://GameUI/黯灭";
+                baginfo.GetChild("bagitem" + (itemdata.Pos + 1)).asButton.icon = "";
+                continue;
+            }
+            //道具
+            //unitinfo.GetChild("item" + (itemdata.Pos + 1)).asLoader.url = clientitem.IconPath;// "ui://GameUI/黯灭";
+            baginfo.GetChild("bagitem" + (itemdata.Pos + 1)).asButton.icon = clientitem.IconPath;
+        }
+        
+
     }
 
 
@@ -116,12 +192,14 @@ public class MyInfo {
             var clientitem = ExcelManager.Instance.GetItemManager().GetItemByID(itemdata.TypdID);
             if(clientitem == null)
             {
-                //道具
-                unitinfo.GetChild("item" + (itemdata.Pos + 1)).asLoader.url = "";// "ui://GameUI/黯灭";
+                //道具"n71"
+                //unitinfo.GetChild("item" + (itemdata.Pos + 1)).asLoader.url = "";// "ui://GameUI/黯灭";
+                unitinfo.GetChild("item" + (itemdata.Pos + 1)).asButton.icon = "";
                 continue;
             }
             //道具
-            unitinfo.GetChild("item" + (itemdata.Pos + 1)).asLoader.url = clientitem.IconPath;// "ui://GameUI/黯灭";
+            //unitinfo.GetChild("item" + (itemdata.Pos + 1)).asLoader.url = clientitem.IconPath;// "ui://GameUI/黯灭";
+            unitinfo.GetChild("item" + (itemdata.Pos + 1)).asButton.icon = clientitem.IconPath;
         }
         
 

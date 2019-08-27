@@ -1051,7 +1051,6 @@ public class UnityEntity {
             {
                 return;
             }
-
             m_UnitType = value;
             //Debug.Log("m_UnitType-:" + m_UnitType);
             if (m_TopBar != null)

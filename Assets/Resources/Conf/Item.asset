@@ -16,7 +16,9 @@ MonoBehaviour:
     IconPath: "ui://GameUI/\u529B\u91CF\u624B\u5957"
     SceneItem: "Item/Icon/\u529B\u91CF\u624B\u5957 (1)"
     Name: "\u529B\u91CF\u624B\u5957"
+    Des: "\u529B\u91CF[color=#FFFF00]+3[/color]"
   - TypeID: 2
     IconPath: "ui://GameUI/\u654F\u6377\u4FBF\u978B"
     SceneItem: "Item/Icon/\u654F\u6377\u4FBF\u978B (1)"
     Name: "\u654F\u6377\u4FBF\u978B"
+    Des: "\u654F\u6377[color=#FFFF00]+3[/color]"

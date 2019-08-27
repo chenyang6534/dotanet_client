@@ -11,6 +11,7 @@ namespace ExcelData
         public string IconPath;
         public string SceneItem;
         public string Name;
+        public string Des;
     }
     
 

@@ -100,6 +100,7 @@ public class ExcelReader
                 item.IconPath = collect[i][1].ToString();
                 item.SceneItem = collect[i][2].ToString();
                 item.Name = collect[i][3].ToString();
+                item.Des = collect[i][4].ToString();
                 array[i - 1] = item;
             }
             return array;

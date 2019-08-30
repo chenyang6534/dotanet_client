@@ -16,9 +16,355 @@ MonoBehaviour:
     IconPath: "ui://GameUI/\u529B\u91CF\u624B\u5957"
     SceneItem: "Item/Icon/\u529B\u91CF\u624B\u5957 (1)"
     Name: "\u529B\u91CF\u624B\u5957"
-    Des: "\u529B\u91CF[color=#FFFF00]+3[/color]"
+    Des: "+[color=#D8D8D8] 3 [/color]\u529B\u91CF"
   - TypeID: 2
     IconPath: "ui://GameUI/\u654F\u6377\u4FBF\u978B"
     SceneItem: "Item/Icon/\u654F\u6377\u4FBF\u978B (1)"
     Name: "\u654F\u6377\u4FBF\u978B"
-    Des: "\u654F\u6377[color=#FFFF00]+3[/color]"
+    Des: "+[color=#D8D8D8] 3 [/color]\u654F\u6377"
+  - TypeID: 3
+    IconPath: "ui://GameUI/\u667A\u529B\u6597\u7BF7"
+    SceneItem: "Item/Icon/\u667A\u529B\u6597\u7BF7 (1)"
+    Name: "\u667A\u529B\u6597\u7BF7"
+    Des: "+[color=#D8D8D8] 3 [/color]\u667A\u529B"
+  - TypeID: 4
+    IconPath: "ui://GameUI/\u5706\u73AF"
+    SceneItem: "Item/Icon/\u5706\u73AF (1)"
+    Name: "\u5706\u73AF"
+    Des: "+[color=#D8D8D8] 2 [/color]\u6240\u6709\u5C5E\u6027"
+  - TypeID: 5
+    IconPath: "ui://GameUI/\u529B\u91CF\u8170\u5E26"
+    SceneItem: "Item/Icon/\u529B\u91CF\u8170\u5E26 (1)"
+    Name: "\u529B\u91CF\u8170\u5E26"
+    Des: "+[color=#D8D8D8] 6 [/color]\u529B\u91CF"
+  - TypeID: 6
+    IconPath: "ui://GameUI/\u7CBE\u7075\u5E03\u5E26"
+    SceneItem: "Item/Icon/\u7CBE\u7075\u5E03\u5E26 (1)"
+    Name: "\u7CBE\u7075\u5E03\u5E26"
+    Des: "+[color=#D8D8D8] 6 [/color]\u654F\u6377"
+  - TypeID: 7
+    IconPath: "ui://GameUI/\u6CD5\u5E08\u957F\u888D"
+    SceneItem: "Item/Icon/\u6CD5\u5E08\u957F\u888D (1)"
+    Name: "\u6CD5\u5E08\u957F\u888D"
+    Des: "+[color=#D8D8D8] 6 [/color]\u667A\u529B"
+  - TypeID: 8
+    IconPath: "ui://GameUI/\u98DF\u4EBA\u9B54\u4E4B\u65A7"
+    SceneItem: "Item/Icon/\u98DF\u4EBA\u9B54\u4E4B\u65A7 (1)"
+    Name: "\u98DF\u4EBA\u9B54\u4E4B\u65A7"
+    Des: "+[color=#D8D8D8] 10 [/color]\u529B\u91CF"
+  - TypeID: 9
+    IconPath: "ui://GameUI/\u6B22\u6B23\u4E4B\u5203"
+    SceneItem: "Item/Icon/\u6B22\u6B23\u4E4B\u5203 (1)"
+    Name: "\u6B22\u6B23\u4E4B\u5203"
+    Des: "+[color=#D8D8D8] 10 [/color]\u654F\u6377"
+  - TypeID: 10
+    IconPath: "ui://GameUI/\u9B54\u529B\u6CD5\u6756"
+    SceneItem: "Item/Icon/\u9B54\u529B\u6CD5\u6756 (1)"
+    Name: "\u9B54\u529B\u6CD5\u6756"
+    Des: "+[color=#D8D8D8] 10 [/color]\u667A\u529B"
+  - TypeID: 11
+    IconPath: "ui://GameUI/\u5B88\u62A4\u6307\u73AF"
+    SceneItem: "Item/Icon/\u5B88\u62A4\u6307\u73AF (1)"
+    Name: "\u5B88\u62A4\u6307\u73AF"
+    Des: "+[color=#D8D8D8] 2 [/color]\u62A4\u7532"
+  - TypeID: 12
+    IconPath: "ui://GameUI/\u5706\u76FE"
+    SceneItem: "Item/Icon/\u5706\u76FE (1)"
+    Name: "\u5706\u76FE"
+    Des: "[color=#D8D8D8]\u88AB\u52A8:\u4F24\u5BB3\u683C\u6321 [/color]\n\u670950%\u7684\u51E0\u7387\u683C\u6321\u4F24\u5BB3,\u8FD1\u6218\u82F1\u96C4\u683C\u632120\u70B9\u4F24\u5BB3,\u8FDC\u7A0B\u82F1\u96C4\u683C\u63219\u70B9\u4F24\u5BB3\u3002"
+  - TypeID: 13
+    IconPath: "ui://GameUI/\u6DEC\u6BD2\u4E4B\u73E0"
+    SceneItem: "Item/Icon/\u6DEC\u6BD2\u4E4B\u73E0 (1)"
+    Name: "\u6DEC\u6BD2\u4E4B\u73E0"
+    Des: "[color=#D8D8D8]\u88AB\u52A8:\u6BD2\u6027\u653B\u51FB [/color]\n\u4F7F\u76EE\u6807\u4E2D\u6BD2,\u6301\u7EED3\u79D2,\u6BCF\u79D2\u9020\u62105\u70B9\u4F24\u5BB3,\u79FB\u52A8\u901F\u5EA6\u964D\u4F4E7%\u3002"
+  - TypeID: 14
+    IconPath: "ui://GameUI/\u653B\u51FB\u4E4B\u722A"
+    SceneItem: "Item/Icon/\u653B\u51FB\u4E4B\u722A (1)"
+    Name: "\u653B\u51FB\u4E4B\u722A"
+    Des: "+[color=#D8D8D8] 9 [/color]\u653B\u51FB\u529B"
+  - TypeID: 15
+    IconPath: "ui://GameUI/\u9501\u5B50\u7532"
+    SceneItem: "Item/Icon/\u9501\u5B50\u7532 (1)"
+    Name: "\u9501\u5B50\u7532"
+    Des: "+[color=#D8D8D8] 5 [/color]\u62A4\u7532"
+  - TypeID: 16
+    IconPath: "ui://GameUI/\u77ED\u68CD"
+    SceneItem: "Item/Icon/\u77ED\u68CD (1)"
+    Name: "\u77ED\u68CD"
+    Des: "+[color=#D8D8D8] 10 [/color]\u653B\u51FB\u529B\n+[color=#D8D8D8] 10 [/color]\u653B\u51FB\u901F\u5EA6"
+  - TypeID: 17
+    IconPath: "ui://GameUI/\u94C1\u610F\u5934\u76D4"
+    SceneItem: "Item/Icon/\u94C1\u610F\u5934\u76D4 (1)"
+    Name: "\u94C1\u610F\u5934\u76D4"
+    Des: "+[color=#D8D8D8] 5 [/color]\u62A4\u7532\n+[color=#D8D8D8] 4.5 [/color]\u751F\u547D\u6062\u590D"
+  - TypeID: 18
+    IconPath: "ui://GameUI/\u9614\u5251"
+    SceneItem: "Item/Icon/\u9614\u5251 (1)"
+    Name: "\u9614\u5251"
+    Des: "+[color=#D8D8D8] 18 [/color]\u653B\u51FB\u529B"
+  - TypeID: 19
+    IconPath: "ui://GameUI/\u5927\u5251"
+    SceneItem: "Item/Icon/\u5927\u5251 (1)"
+    Name: "\u5927\u5251"
+    Des: "+[color=#D8D8D8] 21 [/color]\u653B\u51FB\u529B"
+  - TypeID: 20
+    IconPath: "ui://GameUI/\u6807\u67AA"
+    SceneItem: "Item/Icon/\u6807\u67AA (1)"
+    Name: "\u6807\u67AA"
+    Des: "[color=#D8D8D8]\u88AB\u52A8:\u7A7F\u523A [/color]\n\u670925%\u7684\u51E0\u7387\u65E0\u89C6\u95EA\u907F,\u5E76\u9020\u6210100\u70B9\u9B54\u6CD5\u4F24\u5BB3"
+  - TypeID: 21
+    IconPath: "ui://GameUI/\u79D8\u94F6\u9524"
+    SceneItem: "Item/Icon/\u79D8\u94F6\u9524 (1)"
+    Name: "\u79D8\u94F6\u9524"
+    Des: "+[color=#D8D8D8] 24 [/color]\u653B\u51FB\u529B"
+  - TypeID: 22
+    IconPath: "ui://GameUI/\u8D24\u8005\u9762\u7F69"
+    SceneItem: "Item/Icon/\u8D24\u8005\u9762\u7F69 (1)"
+    Name: "\u8D24\u8005\u9762\u7F69"
+    Des: "+[color=#D8D8D8] 0.75 [/color]\u9B54\u6CD5\u6062\u590D"
+  - TypeID: 23
+    IconPath: "ui://GameUI/\u56DE\u590D\u6212\u6307"
+    SceneItem: "Item/Icon/\u56DE\u590D\u6212\u6307 (1)"
+    Name: "\u56DE\u590D\u6212\u6307"
+    Des: "+[color=#D8D8D8] 2 [/color]\u751F\u547D\u6062\u590D"
+  - TypeID: 24
+    IconPath: "ui://GameUI/\u901F\u5EA6\u4E4B\u9774"
+    SceneItem: "Item/Icon/\u901F\u5EA6\u4E4B\u9774 (1)"
+    Name: "\u901F\u5EA6\u4E4B\u9774"
+    Des: "+[color=#D8D8D8] 15% [/color]\u79FB\u52A8\u901F\u5EA6"
+  - TypeID: 25
+    IconPath: "ui://GameUI/\u52A0\u901F\u624B\u5957"
+    SceneItem: "Item/Icon/\u52A0\u901F\u624B\u5957 (1)"
+    Name: "\u52A0\u901F\u624B\u5957"
+    Des: "+[color=#D8D8D8] 20 [/color]\u653B\u51FB\u901F\u5EA6"
+  - TypeID: 26
+    IconPath: "ui://GameUI/\u6297\u9B54\u6597\u7BF7"
+    SceneItem: "Item/Icon/\u6297\u9B54\u6597\u7BF7 (1)"
+    Name: "\u6297\u9B54\u6597\u7BF7"
+    Des: "+[color=#D8D8D8] 15% [/color]\u9B54\u6CD5\u6297\u6027"
+  - TypeID: 27
+    IconPath: "ui://GameUI/\u6CBB\u7597\u6307\u73AF"
+    SceneItem: "Item/Icon/\u6CBB\u7597\u6307\u73AF (1)"
+    Name: "\u6CBB\u7597\u6307\u73AF"
+    Des: "+[color=#D8D8D8] 5 [/color]\u751F\u547D\u6062\u590D"
+  - TypeID: 28
+    IconPath: "ui://GameUI/\u865A\u65E0\u5B9D\u77F3"
+    SceneItem: "Item/Icon/\u865A\u65E0\u5B9D\u77F3 (1)"
+    Name: "\u865A\u65E0\u5B9D\u77F3"
+    Des: "+[color=#D8D8D8] 1.75 [/color]\u9B54\u6CD5\u6062\u590D"
+  - TypeID: 29
+    IconPath: "ui://GameUI/\u5438\u8840\u9762\u5177"
+    SceneItem: "Item/Icon/\u5438\u8840\u9762\u5177 (1)"
+    Name: "\u5438\u8840\u9762\u5177"
+    Des: "[color=#D8D8D8]\u88AB\u52A8:\u5438\u8840 [/color]\n\u653B\u51FB\u654C\u4EBA\u65F6\u6062\u590D\u9020\u6210\u4F24\u5BB315%\u7684\u8840\u91CF"
+  - TypeID: 30
+    IconPath: "ui://GameUI/\u5E7D\u9B42\u6743\u6756"
+    SceneItem: "Item/Icon/\u5E7D\u9B42\u6743\u6756 (1)"
+    Name: "\u5E7D\u9B42\u6743\u6756"
+    Des: "+[color=#D8D8D8] 5 [/color]\u6240\u6709\u5C5E\u6027\n[color=#D8D8D8]\u4E3B\u52A8:\u5E7D\u7075\u5F62\u6001
+      [/color]\n\u6301\u7EED4\u79D2,\u671F\u95F4\u4E0D\u4F1A\u53D7\u5230\u666E\u901A\u4F24\u5BB3,\u4E5F\u4E0D\u80FD\u653B\u51FB\u3002\u4F1A\u53D7\u5230\u989D\u591640%\u7684\u9B54\u6CD5\u4F24\u5BB3\u3002"
+  - TypeID: 31
+    IconPath: "ui://GameUI/\u95EA\u70C1\u5315\u9996"
+    SceneItem: "Item/Icon/\u95EA\u70C1\u5315\u9996 (1)"
+    Name: "\u95EA\u70C1\u5315\u9996"
+    Des: "[color=#D8D8D8]\u4E3B\u52A8:\u95EA\u70C1 [/color]\n\u4F20\u9001\u5230\u6700\u8FDC12\u7C73\u7684\u8DDD\u79BB,\u53D7\u5230\u653B\u51FB\u540E3\u79D2\u5185\u65E0\u6CD5\u4F7F\u7528\u3002"
+  - TypeID: 32
+    IconPath: "ui://GameUI/\u6028\u7075\u7CFB\u5E26"
+    SceneItem: "Item/Icon/\u6028\u7075\u7CFB\u5E26 (1)"
+    Name: "\u6028\u7075\u7CFB\u5E26"
+    Des: "+[color=#D8D8D8] 3 [/color]\u529B\u91CF\n+[color=#D8D8D8] 6 [/color]\u654F\u6377\n+[color=#D8D8D8]
+      3 [/color]\u667A\u529B\n+[color=#D8D8D8] 5 [/color]\u653B\u51FB"
+  - TypeID: 33
+    IconPath: "ui://GameUI/\u7A7A\u7075\u6302\u4EF6"
+    SceneItem: "Item/Icon/\u7A7A\u7075\u6302\u4EF6 (1)"
+    Name: "\u7A7A\u7075\u6302\u4EF6"
+    Des: "+[color=#D8D8D8] 3 [/color]\u529B\u91CF\n+[color=#D8D8D8] 3 [/color]\u654F\u6377\n+[color=#D8D8D8]
+      6 [/color]\u667A\u529B\n+[color=#D8D8D8] 3% [/color]\u6280\u80FD\u589E\u5F3A"
+  - TypeID: 34
+    IconPath: "ui://GameUI/\u62A4\u8155"
+    SceneItem: "Item/Icon/\u62A4\u8155 (1)"
+    Name: "\u62A4\u8155"
+    Des: "+[color=#D8D8D8] 6 [/color]\u529B\u91CF\n+[color=#D8D8D8] 3 [/color]\u654F\u6377\n+[color=#D8D8D8]
+      3 [/color]\u667A\u529B\n+[color=#D8D8D8] 6% [/color]\u9B54\u6CD5\u6297\u6027"
+  - TypeID: 35
+    IconPath: "ui://GameUI/\u76F8\u4F4D\u978B"
+    SceneItem: "Item/Icon/\u76F8\u4F4D\u978B (1)"
+    Name: "\u76F8\u4F4D\u978B"
+    Des: "+[color=#D8D8D8] 15% [/color]\u79FB\u52A8\u901F\u5EA6\n+[color=#D8D8D8]
+      18 [/color]\u653B\u51FB\u529B(\u8FD1\u6218)\n+[color=#D8D8D8] 12 [/color]\u653B\u51FB\u529B(\u8FDC\u7A0B)\n+[color=#D8D8D8]
+      6 [/color]\u62A4\u7532\n[color=#D8D8D8]\u4E3B\u52A8:\u76F8\u4F4D\u79FB\u52A8
+      [/color]\n\u6301\u7EED3\u79D2,\u53EF\u4EE5\u7A7F\u8D8A\u5355\u4F4D,\u8FD1\u6218\u63D0\u534722%\u79FB\u52A8\u901F\u5EA6,\u8FDC\u7A0B\u63D0\u534710%\u79FB\u52A8\u901F\u5EA6\u3002\nCD:8"
+  - TypeID: 36
+    IconPath: "ui://GameUI/\u52A8\u529B\u978B"
+    SceneItem: "Item/Icon/\u52A8\u529B\u978B (1)"
+    Name: "\u52A8\u529B\u978B"
+    Des: "+[color=#D8D8D8] 15% [/color]\u79FB\u52A8\u901F\u5EA6\n+[color=#D8D8D8]
+      10 [/color]\u4E3B\u5C5E\u6027\n+[color=#D8D8D8] 20 [/color]\u653B\u51FB\u529B"
+  - TypeID: 37
+    IconPath: "ui://GameUI/\u7A7A\u660E\u6756"
+    SceneItem: "Item/Icon/\u7A7A\u660E\u6756 (1)"
+    Name: "\u7A7A\u660E\u6756"
+    Des: "+[color=#D8D8D8] 10 [/color]\u667A\u529B\n+[color=#D8D8D8] 10 [/color]\u653B\u51FB\u901F\u5EA6\n+[color=#D8D8D8]
+      10 [/color]\u653B\u51FB\u529B\n+[color=#D8D8D8] 1.25 [/color]\u9B54\u6CD5\u6062\u590D"
+  - TypeID: 38
+    IconPath: "ui://GameUI/\u575A\u97E7\u7403"
+    SceneItem: "Item/Icon/\u575A\u97E7\u7403 (1)"
+    Name: "\u575A\u97E7\u7403"
+    Des: "+[color=#D8D8D8] 6 [/color]\u751F\u547D\u6062\u590D\n+[color=#D8D8D8] 2
+      [/color]\u9B54\u6CD5\u6062\u590D"
+  - TypeID: 39
+    IconPath: "ui://GameUI/\u738B\u8005\u4E4B\u6212"
+    SceneItem: "Item/Icon/\u738B\u8005\u4E4B\u6212 (1)"
+    Name: "\u738B\u8005\u4E4B\u6212"
+    Des: "+[color=#D8D8D8] 7 [/color]\u653B\u51FB\u529B\n+[color=#D8D8D8] 2 [/color]\u62A4\u7532\n+[color=#D8D8D8]
+      0.75 [/color]\u9B54\u6CD5\u6062\u590D"
+  - TypeID: 40
+    IconPath: "ui://GameUI/\u6062\u590D\u5934\u5DFE"
+    SceneItem: "Item/Icon/\u6062\u590D\u5934\u5DFE (1)"
+    Name: "\u6062\u590D\u5934\u5DFE"
+    Des: "+[color=#D8D8D8] 2 [/color]\u6240\u6709\u5C5E\u6027\n[color=#D8D8D8]\u88AB\u52A8:\u6062\u590D\u5149\u73AF
+      [/color]\n\u63D0\u534712\u7C73\u8303\u56F4\u5185\u7684\u53CB\u65B9\u5355\u4F4D2\u70B9/\u79D2\u751F\u547D\u6062\u590D"
+  - TypeID: 41
+    IconPath: "ui://GameUI/\u7384\u51A5\u76FE\u724C"
+    SceneItem: "Item/Icon/\u7384\u51A5\u76FE\u724C (1)"
+    Name: "\u7384\u51A5\u76FE\u724C"
+    Des: "+[color=#D8D8D8] 2 [/color]\u6240\u6709\u5C5E\u6027\n+[color=#D8D8D8] 5
+      [/color]\u62A4\u7532\n[color=#D8D8D8]\u4E3B\u52A8:\u9632\u5FA1\u63D0\u5347 [/color]\n\u4E3A\u6240\u670912\u7C73\u8303\u56F4\u5185\u7684\u53CB\u65B9\u5355\u4F4D\u63D0\u53472\u70B9\u62A4\u7532,\u6301\u7EED30\u79D2\u3002\nCD:30
+      \  \u8017\u84DD:10"
+  - TypeID: 42
+    IconPath: "ui://GameUI/\u52C7\u6C14\u52CB\u7AE0"
+    SceneItem: "Item/Icon/\u52C7\u6C14\u52CB\u7AE0 (1)"
+    Name: "\u52C7\u6C14\u52CB\u7AE0"
+    Des: "+[color=#D8D8D8] 0.75 [/color]\u9B54\u6CD5\u6062\u590D\n+[color=#D8D8D8]
+      7 [/color]\u62A4\u7532\n[color=#D8D8D8]\u4E3B\u52A8:\u65E0\u754F [/color]\n\u964D\u4F4E\u81EA\u8EAB7\u70B9\u62A4\u7532,\u63D0\u5347\u53CB\u65B97\u70B9\u62A4\u7532,\u964D\u4F4E\u654C\u65B97\u70B9\u62A4\u7532\n\u65BD\u6CD5\u8DDD\u79BB:10
+      \  CD:7"
+  - TypeID: 43
+    IconPath: "ui://GameUI/\u5965\u672F\u978B"
+    SceneItem: "Item/Icon/\u5965\u672F\u978B (1)"
+    Name: "\u5965\u672F\u978B"
+    Des: "+[color=#D8D8D8] 15% [/color]\u79FB\u52A8\u901F\u5EA6\n+[color=#D8D8D8]
+      250 [/color]\u9B54\u6CD5\n[color=#D8D8D8]\u4E3B\u52A8:\u8865\u9B54 [/color]\n\u7ACB\u5373\u6062\u590D12\u7C73\u5185\u7684\u53CB\u65B9\u5355\u4F4D160\u9B54\u6CD5\nCD:55"
+  - TypeID: 44
+    IconPath: "ui://GameUI/\u97E7\u9F13"
+    SceneItem: "Item/Icon/\u97E7\u9F13 (1)"
+    Name: "\u97E7\u9F13"
+    Des: "+[color=#D8D8D8] 6 [/color]\u6240\u6709\u5C5E\u6027\n+[color=#D8D8D8] 1.25
+      [/color]\u9B54\u6CD5\u6062\u590D\n+[color=#D8D8D8] 0.2 [/color]\u79FB\u52A8\u901F\u5EA6\n[color=#D8D8D8]\u4E3B\u52A8:\u575A\u97E7
+      [/color]\n\u4E3A12\u7C73\u5185\u7684\u53CB\u65B9\u5355\u4F4D\u63D0\u4F9B35\u70B9\u653B\u51FB\u901F\u5EA6\u548C+13%\u7684\u79FB\u52A8\u901F\u5EA6\nCD:30"
+  - TypeID: 45
+    IconPath: "ui://GameUI/\u5F17\u62C9\u8FEA\u7C73\u5C14\u7684\u796D\u54C1"
+    SceneItem: "Item/Icon/\u5F17\u62C9\u8FEA\u7C73\u5C14\u7684\u796D\u54C1 (1)"
+    Name: "\u5F17\u62C9\u8FEA\u7C73\u5C14\u7684\u796D\u54C1"
+    Des: "[color=#D8D8D8]\u88AB\u52A8:\u5F17\u62C9\u8FEA\u7C73\u5C14\u5149\u73AF [/color]\n\u4E3A12\u7C73\u5185\u7684\u53CB\u65B9\u5355\u4F4D\u63D0\u4F9B\u5438\u8840\uFF0C1.5\u70B9/\u79D2\u7684\u9B54\u6CD5\u6062\u590D\u901F\u5EA6,15%\u989D\u5916\u653B\u51FB\u529B,4\u70B9\u62A4\u7532\u3002\n\u5438\u8840\u6548\u679C\u8FD1\u621815%,\u8FDC\u7A0B10%\u3002"
+  - TypeID: 46
+    IconPath: "ui://GameUI/\u6885\u80AF\u65AF\u59C6"
+    SceneItem: "Item/Icon/\u6885\u80AF\u65AF\u59C6 (1)"
+    Name: "\u6885\u80AF\u65AF\u59C6"
+    Des: "+[color=#D8D8D8] 5 [/color]\u6240\u6709\u5C5E\u6027\n+[color=#D8D8D8] 5
+      [/color]\u62A4\u7532\n+[color=#D8D8D8] 0.2 [/color]\u79FB\u52A8\u901F\u5EA6\n[color=#D8D8D8]\u4E3B\u52A8:\u56DE\u590D
+      [/color]\n\u4E3A12\u7C73\u5185\u7684\u53CB\u65B9\u5355\u4F4D\u56DE\u590D275\u70B9\u751F\u547D\u503C\nCD:65
+      \   \u8017\u84DD:225\n[color=#D8D8D8]\u88AB\u52A8:\u6885\u80AF\u65AF\u59C6\u5149\u73AF
+      [/color]\n\u4E3A12\u7C73\u5185\u7684\u53CB\u65B9\u5355\u4F4D\u63D0\u4F9B2\u70B9\u62A4\u7532,3.5\u70B9/\u6BCF\u79D2\u7684\u751F\u547D\u6062\u590D\u901F\u5EA6"
+  - TypeID: 47
+    IconPath: "ui://GameUI/\u6D1E\u5BDF\u70DF\u6597"
+    SceneItem: "Item/Icon/\u6D1E\u5BDF\u70DF\u6597 (1)"
+    Name: "\u6D1E\u5BDF\u70DF\u6597"
+    Des: "+[color=#D8D8D8] 8 [/color]\u751F\u547D\u56DE\u590D\n+[color=#D8D8D8] 30%
+      [/color]\u9B54\u6CD5\u6297\u6027\n+[color=#D8D8D8] 2 [/color]\u6240\u6709\u5C5E\u6027\n[color=#D8D8D8]\u4E3B\u52A8:\u9B54\u6CD5\u62A4\u76FE
+      [/color]\n\u4E3A12\u7C73\u5185\u7684\u53CB\u65B9\u5355\u4F4D\u5957\u4E0A\u80FD\u62B5\u6321400\u70B9\u9B54\u6CD5\u4F24\u5BB3\u7684\u62A4\u76FE\uFF0C\u6301\u7EED12\u79D2\nCD:60
+      \   \u8017\u84DD:100\n[color=#D8D8D8]\u88AB\u52A8:\u6D1E\u5BDF\u5149\u73AF [/color]\n\u4E3A12\u7C73\u5185\u7684\u53CB\u65B9\u5355\u4F4D\u63D0\u4F9B\u751F\u547D\u6062\u590D2\u70B9,\u548C10%\u7684\u9B54\u6CD5\u6297\u6027"
+  - TypeID: 48
+    IconPath: "ui://GameUI/\u5706\u73AF"
+    SceneItem: "Item/Icon/\u5706\u73AF (1)"
+    Name: "\u5706\u73AF"
+    Des: "+[color=#D8D8D8] 2 [/color]\u6240\u6709\u5C5E\u6027"
+  - TypeID: 49
+    IconPath: "ui://GameUI/\u5706\u73AF"
+    SceneItem: "Item/Icon/\u5706\u73AF (1)"
+    Name: "\u5706\u73AF"
+    Des: "+[color=#D8D8D8] 2 [/color]\u6240\u6709\u5C5E\u6027"
+  - TypeID: 50
+    IconPath: "ui://GameUI/\u5706\u73AF"
+    SceneItem: "Item/Icon/\u5706\u73AF (1)"
+    Name: "\u5706\u73AF"
+    Des: "+[color=#D8D8D8] 2 [/color]\u6240\u6709\u5C5E\u6027"
+  - TypeID: 51
+    IconPath: "ui://GameUI/\u5706\u73AF"
+    SceneItem: "Item/Icon/\u5706\u73AF (1)"
+    Name: "\u5706\u73AF"
+    Des: "+[color=#D8D8D8] 2 [/color]\u6240\u6709\u5C5E\u6027"
+  - TypeID: 52
+    IconPath: "ui://GameUI/\u5706\u73AF"
+    SceneItem: "Item/Icon/\u5706\u73AF (1)"
+    Name: "\u5706\u73AF"
+    Des: "+[color=#D8D8D8] 2 [/color]\u6240\u6709\u5C5E\u6027"
+  - TypeID: 53
+    IconPath: "ui://GameUI/\u5706\u73AF"
+    SceneItem: "Item/Icon/\u5706\u73AF (1)"
+    Name: "\u5706\u73AF"
+    Des: "+[color=#D8D8D8] 2 [/color]\u6240\u6709\u5C5E\u6027"
+  - TypeID: 54
+    IconPath: "ui://GameUI/\u5706\u73AF"
+    SceneItem: "Item/Icon/\u5706\u73AF (1)"
+    Name: "\u5706\u73AF"
+    Des: "+[color=#D8D8D8] 2 [/color]\u6240\u6709\u5C5E\u6027"
+  - TypeID: 55
+    IconPath: "ui://GameUI/\u5706\u73AF"
+    SceneItem: "Item/Icon/\u5706\u73AF (1)"
+    Name: "\u5706\u73AF"
+    Des: "+[color=#D8D8D8] 2 [/color]\u6240\u6709\u5C5E\u6027"
+  - TypeID: 56
+    IconPath: "ui://GameUI/\u5706\u73AF"
+    SceneItem: "Item/Icon/\u5706\u73AF (1)"
+    Name: "\u5706\u73AF"
+    Des: "+[color=#D8D8D8] 2 [/color]\u6240\u6709\u5C5E\u6027"
+  - TypeID: 57
+    IconPath: "ui://GameUI/\u5706\u73AF"
+    SceneItem: "Item/Icon/\u5706\u73AF (1)"
+    Name: "\u5706\u73AF"
+    Des: "+[color=#D8D8D8] 2 [/color]\u6240\u6709\u5C5E\u6027"
+  - TypeID: 58
+    IconPath: "ui://GameUI/\u5706\u73AF"
+    SceneItem: "Item/Icon/\u5706\u73AF (1)"
+    Name: "\u5706\u73AF"
+    Des: "+[color=#D8D8D8] 2 [/color]\u6240\u6709\u5C5E\u6027"
+  - TypeID: 59
+    IconPath: "ui://GameUI/\u5706\u73AF"
+    SceneItem: "Item/Icon/\u5706\u73AF (1)"
+    Name: "\u5706\u73AF"
+    Des: "+[color=#D8D8D8] 2 [/color]\u6240\u6709\u5C5E\u6027"
+  - TypeID: 60
+    IconPath: "ui://GameUI/\u5706\u73AF"
+    SceneItem: "Item/Icon/\u5706\u73AF (1)"
+    Name: "\u5706\u73AF"
+    Des: "+[color=#D8D8D8] 2 [/color]\u6240\u6709\u5C5E\u6027"
+  - TypeID: 61
+    IconPath: "ui://GameUI/\u5706\u73AF"
+    SceneItem: "Item/Icon/\u5706\u73AF (1)"
+    Name: "\u5706\u73AF"
+    Des: "+[color=#D8D8D8] 2 [/color]\u6240\u6709\u5C5E\u6027"
+  - TypeID: 62
+    IconPath: "ui://GameUI/\u5706\u73AF"
+    SceneItem: "Item/Icon/\u5706\u73AF (1)"
+    Name: "\u5706\u73AF"
+    Des: "+[color=#D8D8D8] 2 [/color]\u6240\u6709\u5C5E\u6027"
+  - TypeID: 63
+    IconPath: "ui://GameUI/\u5706\u73AF"
+    SceneItem: "Item/Icon/\u5706\u73AF (1)"
+    Name: "\u5706\u73AF"
+    Des: "+[color=#D8D8D8] 2 [/color]\u6240\u6709\u5C5E\u6027"
+  - TypeID: 64
+    IconPath: "ui://GameUI/\u5706\u73AF"
+    SceneItem: "Item/Icon/\u5706\u73AF (1)"
+    Name: "\u5706\u73AF"
+    Des: "+[color=#D8D8D8] 2 [/color]\u6240\u6709\u5C5E\u6027"
+  - TypeID: 65
+    IconPath: "ui://GameUI/\u5706\u73AF"
+    SceneItem: "Item/Icon/\u5706\u73AF (1)"
+    Name: "\u5706\u73AF"
+    Des: "+[color=#D8D8D8] 2 [/color]\u6240\u6709\u5C5E\u6027"
+  - TypeID: 66
+    IconPath: "ui://GameUI/\u5706\u73AF"
+    SceneItem: "Item/Icon/\u5706\u73AF (1)"
+    Name: "\u5706\u73AF"
+    Des: "+[color=#D8D8D8] 2 [/color]\u6240\u6709\u5C5E\u6027"

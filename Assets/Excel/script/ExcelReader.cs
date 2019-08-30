@@ -106,6 +106,27 @@ public class ExcelReader
             return array;
         }
 
+        public static Skill[] CreateSkillArrayWithExcel(string filePath)
+        {
+            //获得表数据
+            int columnNum = 0, rowNum = 0;
+            DataRowCollection collect = ReadExcel(filePath, ref columnNum, ref rowNum);
+
+            //根据excel的定义，第二行开始才是数据
+            Skill[] array = new Skill[rowNum - 1];
+            for (int i = 1; i < rowNum; i++)
+            {
+                Skill item = new Skill();
+                //解析每列的数据
+                item.TypeID = int.Parse(collect[i][0].ToString());
+                item.Name = collect[i][1].ToString();
+                item.IconPath = collect[i][2].ToString();
+                item.Des = collect[i][3].ToString();
+                array[i - 1] = item;
+            }
+            return array;
+        }
+
         /// <summary>
         /// 读取excel文件内容
         /// </summary>
@@ -135,6 +156,7 @@ public class ExcelReader
             CreateBulletItemAsset();
             CreateBuffItemAsset();
             CreateItemAsset();
+            CreateSkillAsset();
         }
         public static void CreateBulletItemAsset()
         {
@@ -193,6 +215,28 @@ public class ExcelReader
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
         }
+
+        public static void CreateSkillAsset()
+        {
+            SkillManager manager = ScriptableObject.CreateInstance<SkillManager>();
+            //赋值
+            manager.dataArray = ExcelTool.CreateSkillArrayWithExcel(ExcelConfig.excelsFolderPath + "client_skill.xlsx");
+
+            //确保文件夹存在
+            if (!Directory.Exists(ExcelConfig.assetPath))
+            {
+                Directory.CreateDirectory(ExcelConfig.assetPath);
+            }
+
+            //asset文件的路径 要以"Assets/..."开始，否则CreateAsset会报错
+            string assetPath = string.Format("{0}{1}.asset", ExcelConfig.assetPath, "Skill");
+            //生成一个Asset文件
+            AssetDatabase.CreateAsset(manager, assetPath);
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+        }
+
+        //CreateSkillArrayWithExcel
     }
 
 

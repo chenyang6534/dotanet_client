@@ -86,10 +86,21 @@ public class MyInfo {
             {
                 //Cancel the original dragging, and start a new one with a agent.
                 context.PreventDefault();
+                InputEvent inputEvent = (context.inputEvent);
+                Stage.inst.CancelClick(inputEvent.touchId);
+
+                //item.SetState(OVER);
+
+                //Debug.Log("onDragStart");
 
                 //1表示装备栏 2表示背包
                 DragDropManager.inst.StartDrag(item, item.icon, item.data + ",1", (int)context.data);
             });
+            //DragDropManager.inst.dragAgent.onDragEnd.Add((EventContext context) =>
+            //{
+            //    item.touchable = true;
+            //    //Debug.Log("onDragEnd");
+            //});
 
             item.onDrop.Add((EventContext context) =>
             {
@@ -103,6 +114,7 @@ public class MyInfo {
             });
 
             item.onClick.Add(() => {
+                //Debug.Log("onClick");
                 var index = (int)item.data;
                 var typeid = -1;
                 for (var j = 0; j < UnitDataInfo.Equips.Count; j++)
@@ -131,6 +143,8 @@ public class MyInfo {
             {
                 //Cancel the original dragging, and start a new one with a agent.
                 context.PreventDefault();
+                InputEvent inputEvent = (context.inputEvent);
+                Stage.inst.CancelClick(inputEvent.touchId);
                 DragDropManager.inst.StartDrag(item, item.icon, item.data + ",2" , (int)context.data);
             });
 

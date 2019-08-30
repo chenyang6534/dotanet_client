@@ -5,25 +5,27 @@ using System.Collections.Generic;
 
 namespace ExcelData
 {
-    [System.Serializable]
-    public class ItemManager : ScriptableObject
-    {
-        public Item[] dataArray;
+   
 
-        protected Dictionary<int, Item> m_Data = new Dictionary<int, Item>();
+    [System.Serializable]
+    public class SkillManager : ScriptableObject
+    {
+        public Skill[] dataArray;
+
+        protected Dictionary<int, Skill> m_Data = new Dictionary<int, Skill>();
         public void Init()
         {
             var tt = dataArray;
-            Debug.Log("ItemManager");
-            foreach (Item i in dataArray)
+            Debug.Log("SkillManager");
+            foreach (Skill i in dataArray)
             {
                 m_Data[i.TypeID] = i;
             }
         }
 
-        public Item GetItemByID(int id)
+        public Skill GetSkillByID(int id)
         {
-            if(m_Data.ContainsKey(id) == false)
+            if (m_Data.ContainsKey(id) == false)
             {
                 return null;
             }
@@ -32,6 +34,4 @@ namespace ExcelData
 
 
     }
-
-    
 }

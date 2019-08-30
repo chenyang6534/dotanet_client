@@ -384,3 +384,15 @@ MonoBehaviour:
     HandsEffect: 
     FootsEffect: 
     MaterialEffect: Specialeffects/fuwang_skill1_red
+  - TypeID: 123
+    BodyEffect: 
+    FootEffect: 
+    Enable: 1
+    HeadEffect: 
+    TopBarEffect: 
+    RenderColor: 2
+    OutEffect: 
+    NativeTopBarEffect: 
+    HandsEffect: 
+    FootsEffect: 
+    MaterialEffect: 

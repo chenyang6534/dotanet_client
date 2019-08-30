@@ -39,6 +39,7 @@ public class Skillstick : EventDispatcher
     private Tweener tweener;
 
     protected Protomsg.SkillDatas m_SkillDatas;
+    protected bool m_IsItem;
     public Protomsg.SkillDatas SkillDatas
     {
         get
@@ -50,6 +51,14 @@ public class Skillstick : EventDispatcher
             m_SkillDatas = value;
             //Debug.Log("m_SkillDatas:"+ m_SkillDatas);
             FreshData();
+        }
+    }
+    //设置位置
+    public void SetXY(Vector2 xy)
+    {
+        if(m_ui != null)
+        {
+            m_ui.xy = xy;
         }
     }
     //刷新数据
@@ -73,18 +82,31 @@ public class Skillstick : EventDispatcher
         {
             touchArea.asCom.GetChild("skillcount").asTextField.text = ""+ m_SkillDatas.RemainSkillCount;
         }
+        //图标
+        var clientskill = ExcelManager.Instance.GetSkillManager().GetSkillByID(m_SkillDatas.TypeID);
+        if (clientskill != null)
+        {
+            touchArea.asCom.GetChild("icon").asLoader.url = clientskill.IconPath;
+        }
+
 
         //被动技能缩小图标
         if (m_SkillDatas.CastType != 1)
         {
-            m_ui.scale = new Vector2(0.8f,0.8f);
+            m_ui.scale = new Vector2(0.7f,0.7f);
             touchArea.asCom.touchable = false;
         }
         else
         {
-            m_ui.scale = new Vector2(1.0f, 1.0f);
+            m_ui.scale = new Vector2(0.85f, 0.85f);
             touchArea.asCom.touchable = true;
         }
+        //道具
+        if(m_IsItem == true)
+        {
+            m_ui.scale = new Vector2(0.7f, 0.7f);
+        }
+
         //对目标施法 且能对所有单位包括自己施法
         if(m_SkillDatas.CastTargetType == 2 && m_SkillDatas.UnitTargetTeam == 3)
         {
@@ -125,13 +147,26 @@ public class Skillstick : EventDispatcher
         }
 
     }
+    public void Destroy()
+    {
+        if(m_ui != null)
+        {
+            m_ui.Dispose();
+            m_ui = null;
+            thumb = null;
+            touchArea = null;
+            center = null;
+            no = null;
+            my = null;
+        }
+    }
 
-    public Skillstick(GComponent UI)
+    public Skillstick(GComponent UI,bool isItem)
     {
         //onMove = new EventListener(this, "onMove");
         //onEnd = new EventListener(this, "onEnd");
         //onDown = new EventListener(this, "onDown");
-
+        m_IsItem = isItem;
 
         thumb = UI.GetChild("thumb");
         thumb.visible = false;

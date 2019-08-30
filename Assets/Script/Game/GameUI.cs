@@ -24,6 +24,7 @@ public class GameUI : MonoBehaviour {
     void Start () {
 
         SkillCom = new Dictionary<int, Skillstick>();
+        ItemSkillCom = new Dictionary<int, Skillstick>();
         mainUI = GetComponent<UIPanel>().ui;
         touchID = -1;
         startTime = Tool.GetTime();
@@ -198,6 +199,8 @@ public class GameUI : MonoBehaviour {
         new Vector2(1010 - 1109, 419-609),
         new Vector2(1136 - 1109, 399-609)};
 
+    
+
     public Dictionary<int, Skillstick> SkillCom;
     //刷新技能UI显示
     void FreshSkillUI()
@@ -209,35 +212,23 @@ public class GameUI : MonoBehaviour {
         }
         //主动技能个数
         var len = mainunit.SkillDatas.Length;
-        //foreach (var item in mainunit.SkillDatas)
-        //{
-        //    if(item.CastType == 1)
-        //    {
-        //        len++;
-        //    }
-        //}
-
-        //if (mainunit.SkillDatas.Length != SkillCom.Count)
+        
         if(len != SkillCom.Count)
         {
             SkillCom.Clear();
             
             foreach(var item in mainunit.SkillDatas)
             {
-                //if(item.CastType != 1)
-                //{
-                //    continue;
-                //}
 
                 GComponent view = UIPackage.CreateObject("GameUI", "Skillstick").asCom;
-                GRoot.inst.AddChild(view);
+                //GRoot.inst.AddChild(view);
                 mainUI.GetChild("attack").asCom.AddChild(view);
                 if(item.Index < 4)
                 {
                     view.xy = FourSkillPos[item.Index];
                 }
 
-                SkillCom[item.TypeID] = new Skillstick(view);
+                SkillCom[item.TypeID] = new Skillstick(view,false);
             }
 
             
@@ -246,19 +237,103 @@ public class GameUI : MonoBehaviour {
 
         foreach (var item in mainunit.SkillDatas)
         {
-            //if (item.CastType != 1)
-            //{
-            //    continue;
-            //}
             Skillstick view = SkillCom[item.TypeID];
             if(view == null)
             {
                 continue;
             }
             view.SkillDatas = item;
-            
         }
     }
+
+    public Vector2[] ItemSkillPos =
+    {
+        new Vector2(780-1109,624-579),
+        new Vector2(680-1109,624-579),
+        new Vector2(580-1109,624-579),
+        new Vector2(480-1109,624-579),
+        new Vector2(380-1109,624-579),
+        new Vector2(280-1109,624-579),
+    };
+    public Dictionary<int, Skillstick> ItemSkillCom;
+    //刷新道具技能显示FreshItemSkill(data.ISD);
+    void FreshItemSkillUI()
+    {
+        UnityEntity mainunit = GameScene.Singleton.GetMyMainUnit();
+        if (mainunit == null || mainunit.ItemSkillDatas == null)
+        {
+            foreach (int key in new List<int>(ItemSkillCom.Keys))
+            {
+                ItemSkillCom[key].Destroy();
+                ItemSkillCom.Remove(key);
+            }
+            //foreach (var item in ItemSkillCom)
+            //{
+            //    item.Value.Destroy();
+            //    ItemSkillCom.Remove(item.Key);
+            //}
+            return;
+        }
+
+        //排序
+        System.Array.Sort(mainunit.ItemSkillDatas, (s1, s2) => s1.Index.CompareTo(s2.Index));
+
+        var index = 0;
+        foreach (var item in mainunit.ItemSkillDatas)
+        {
+            if (ItemSkillCom.ContainsKey(item.TypeID))
+            {
+                ItemSkillCom[item.TypeID].SkillDatas = item;
+                ItemSkillCom[item.TypeID].SetXY(ItemSkillPos[index]);
+            }
+            else
+            {
+                GComponent view = UIPackage.CreateObject("GameUI", "Skillstick").asCom;
+                //GRoot.inst.AddChild(view);
+                mainUI.GetChild("attack").asCom.AddChild(view);
+                if (index < 6)
+                {
+                    view.xy = ItemSkillPos[index];
+                }
+                ItemSkillCom[item.TypeID] = new Skillstick(view,true);
+                ItemSkillCom[item.TypeID].SkillDatas = item;
+                Debug.Log("--------------ItemSkillCom:"+item.ToString());
+            }
+            index++;
+        }
+
+        //删除多余的
+
+        foreach (int key in new List<int>(ItemSkillCom.Keys))
+        {
+            var isfind = false;
+            foreach (var item1 in mainunit.ItemSkillDatas)
+            {
+                if (key == item1.TypeID)
+                {
+                    isfind = true;
+                    break;
+                }
+            }
+            if (isfind == false)
+            {
+                ItemSkillCom[key].Destroy();
+                ItemSkillCom.Remove(key);
+            }
+
+            
+        }
+
+        //foreach (var item in ItemSkillCom)
+        //{
+            
+        //}
+
+
+
+
+    }
+
 
     //初始化头像信息
     void InitLeftTopHead()
@@ -290,6 +365,7 @@ public class GameUI : MonoBehaviour {
     void Update () {
         gPing.text = "" + MyKcp.PingValue;
         FreshSkillUI();
+        FreshItemSkillUI();
         FreshHead();
     }
 }

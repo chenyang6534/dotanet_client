@@ -76,7 +76,9 @@ public class UnityEntity {
             }
         }
         FreshBuff(data.BD);
-       
+        FreshItemSkill(data.ISD);
+
+
         m_Mode.transform.position = new Vector3(data.X, data.Z, data.Y);
         
         AnimotorState = data.AnimotorState;
@@ -348,6 +350,7 @@ public class UnityEntity {
 
             //刷新buff
             FreshBuff(data.BD);
+            FreshItemSkill(data.ISD);
 
 
 
@@ -408,6 +411,61 @@ public class UnityEntity {
         //        break;
 
         //}
+    }
+    //刷新道具技能
+    public void FreshItemSkill(Google.Protobuf.Collections.RepeatedField<global::Protomsg.SkillDatas> itemskilldata)
+    {
+        //m_ItemSkillDatas
+        //buff数据 叠加计算出正确数据
+        foreach (var item in itemskilldata)
+        {
+            bool isfind = false;//如果在以前的BuffDatas中没找到 则为新增buff
+            if (m_ItemSkillDatas != null)
+            {
+                for (var i = 0; i < m_ItemSkillDatas.Length; i++)
+                {
+                    if (item.TypeID == m_ItemSkillDatas[i].TypeID)
+                    {
+                        item.Level += m_ItemSkillDatas[i].Level;
+                        item.RemainCDTime += m_ItemSkillDatas[i].RemainCDTime;
+                        item.CanUpgrade += m_ItemSkillDatas[i].CanUpgrade;
+                        item.Index += m_ItemSkillDatas[i].Index;
+                        item.CastType += m_ItemSkillDatas[i].CastType;
+                        item.CastTargetType += m_ItemSkillDatas[i].CastTargetType;
+                        item.UnitTargetTeam += m_ItemSkillDatas[i].UnitTargetTeam;
+                        item.UnitTargetCamp += m_ItemSkillDatas[i].UnitTargetCamp;
+                        item.NoCareMagicImmune += m_ItemSkillDatas[i].NoCareMagicImmune;
+                        item.CastRange += m_ItemSkillDatas[i].CastRange;
+                        item.Cooldown += m_ItemSkillDatas[i].Cooldown;
+                        item.HurtRange += m_ItemSkillDatas[i].HurtRange;
+                        item.ManaCost += m_ItemSkillDatas[i].ManaCost;
+                        item.AttackAutoActive += m_ItemSkillDatas[i].AttackAutoActive;
+                        item.Visible += m_ItemSkillDatas[i].Visible;
+                        item.RemainSkillCount += m_ItemSkillDatas[i].RemainSkillCount;
+                        //isfind = true;
+                        //FreshBuffSpecial(item);
+                    }
+                }
+            }
+           
+
+        }
+        
+
+        //道具技能数据赋值
+        if (itemskilldata.Count > 0)
+        {
+            m_ItemSkillDatas = new Protomsg.SkillDatas[itemskilldata.Count];
+            int index = 0;
+            foreach (var item in itemskilldata)
+            {
+                m_ItemSkillDatas[index++] = item;
+            }
+        }
+        else
+        {
+            m_ItemSkillDatas = null;
+        }
     }
 
     //刷新buff
@@ -1105,6 +1163,20 @@ public class UnityEntity {
             m_SkillDatas = value;
         }
     }
+
+    protected Protomsg.SkillDatas[] m_ItemSkillDatas;
+    public Protomsg.SkillDatas[] ItemSkillDatas
+    {
+        get
+        {
+            return m_ItemSkillDatas;
+        }
+        set
+        {
+            m_ItemSkillDatas = value;
+        }
+    }
+
     protected Protomsg.BuffDatas[] m_BuffDatas;
     public Protomsg.BuffDatas[] BuffDatas
     {

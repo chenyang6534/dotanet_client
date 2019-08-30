@@ -15,12 +15,14 @@ public class ExcelManager
     protected BulletItemManager BulletIM = Resources.Load<BulletItemManager>("Conf/BulletItem");
     protected BuffItemManager BuffIM = Resources.Load<BuffItemManager>("Conf/BuffItem");
     protected ItemManager ItemManager = Resources.Load<ItemManager>("Conf/Item");
+    protected SkillManager SkillManager = Resources.Load<SkillManager>("Conf/Skill");
     private ExcelManager()
     {
         //m_BIM.Init();
         BulletIM.Init();
         BuffIM.Init();
         ItemManager.Init();
+        SkillManager.Init();
     }
 
     public BulletItemManager GetBulletIM()
@@ -34,5 +36,9 @@ public class ExcelManager
     public ItemManager GetItemManager()
     {
         return ItemManager;
+    }
+    public SkillManager GetSkillManager()
+    {
+        return SkillManager;
     }
 }

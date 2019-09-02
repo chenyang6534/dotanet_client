@@ -60,6 +60,11 @@ public class MyInfo {
         Protomsg.CS_GetUnitInfo msg1 = new Protomsg.CS_GetUnitInfo();
         msg1.UnitID = unit.ID;
         MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetUnitInfo", msg1);
+
+        Thread.Sleep(2000);
+        Protomsg.CS_GetUnitInfo msg2 = new Protomsg.CS_GetUnitInfo();
+        msg2.UnitID = unit.ID;
+        MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetUnitInfo", msg2);
     }
 
 

@@ -274,6 +274,14 @@ public class UnityEntity {
             DirectionX += data.DirectionX;
             DirectionY += data.DirectionY;
             var dir = new Vector3(DirectionX, 0, DirectionY);
+            if(data.DirectionX != 0 || data.DirectionY != 0)
+            {
+                if(UnitType == 1)
+                {
+                    Debug.Log("----direction:" + DirectionX + "  " + DirectionY);
+                }
+            }
+            
             //var dir = new Vector3(1, 0, 1);
             if (dir != Vector3.zero)
             {

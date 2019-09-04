@@ -86,7 +86,11 @@ public class Skillstick : EventDispatcher
         var clientskill = ExcelManager.Instance.GetSkillManager().GetSkillByID(m_SkillDatas.TypeID);
         if (clientskill != null)
         {
-            touchArea.asCom.GetChild("icon").asLoader.url = clientskill.IconPath;
+            if(clientskill.IconPath.Length > 0)
+            {
+                touchArea.asCom.GetChild("icon").asLoader.url = clientskill.IconPath;
+            }
+            
         }
 
 

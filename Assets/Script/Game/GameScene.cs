@@ -234,13 +234,13 @@ public class GameScene : MonoBehaviour {
                 //场景道具
                 foreach (var item in p1.NewSceneItems)
                 {
-                    Debug.Log("new sceneitem:" + item.ID+" typeid:"+item.TypeID);
+                    //Debug.Log("new sceneitem:" + item.ID+" typeid:"+item.TypeID);
                     //HaloEntityManager.Instance.CreateHaloEntity(this, item);
                     SceneItemManager.Instance.CreateSceneItem(this, item);
                 }
                 foreach (var item in p1.RemoveSceneItems)
                 {
-                    Debug.Log("remove sceneitem:" + item);
+                    //Debug.Log("remove sceneitem:" + item);
                     //HaloEntityManager.Instance.DestroyHaloEntity(item);
                     SceneItemManager.Instance.DestroySceneItem(item);
                 }
@@ -266,7 +266,7 @@ public class GameScene : MonoBehaviour {
             }
             else
             {
-                Debug.Log("no data-------------------------------");
+                //Debug.Log("no data-------------------------------");
             }
         }
 

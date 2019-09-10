@@ -79,6 +79,8 @@ public class ExcelReader
                 item.HandsEffect = collect[i][10].ToString();
                 item.FootsEffect = collect[i][11].ToString();
                 item.MaterialEffect = collect[i][12].ToString();
+                item.ModeEnable = int.Parse(collect[i][13].ToString());
+
 
                 array[i - 1] = item;
             }

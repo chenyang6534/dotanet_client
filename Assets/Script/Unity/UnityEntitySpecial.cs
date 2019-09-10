@@ -104,12 +104,19 @@ public class UnityEntitySpecial : MonoBehaviour {
             if (removeid >= 0)
             {
                 Material[] materials = new Material[item.Key.materials.Length - 1];
+                var index = 0;
                 for (var i = 0; i < item.Key.materials.Length; i++)
                 {
                     if( i != removeid)
                     {
-                        materials[i] = item.Key.materials[i];
+                        materials[index] = item.Key.materials[i];
+                        index++;
+                        if( index >= item.Key.materials.Length - 1)
+                        {
+                            break;
+                        }
                     }
+
                     
                 }
                 item.Key.materials = materials;

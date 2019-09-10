@@ -1019,7 +1019,9 @@ MonoBehaviour:
   Hands:
   - {fileID: 1255254791479446}
   - {fileID: 1878427444197572}
-  Foots: []
+  Foots:
+  - {fileID: 1317246754781266}
+  - {fileID: 1351622487252508}
 --- !u!137 &137585073399396354
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

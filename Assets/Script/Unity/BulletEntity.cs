@@ -86,8 +86,8 @@ public class BulletEntity
             m_Mode.transform.LookAt(m_Position);
             //Debug.Log("111 rotation:" + m_Mode.transform.localRotation);
             m_Mode.transform.position = m_Position;
-            
 
+            m_Mode.GetComponent<ProjectileScript>().ChangePos(m_StartPos, m_Position);
             
 
             

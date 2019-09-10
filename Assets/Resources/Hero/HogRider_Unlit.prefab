@@ -1156,7 +1156,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1418996306704232}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.63, y: 0, z: 0}
+  m_LocalPosition: {x: -6.9200096, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4924866736895024}
@@ -1595,7 +1595,9 @@ MonoBehaviour:
   Hands:
   - {fileID: 1507870005599732}
   - {fileID: 1244064621566480}
-  Foots: []
+  Foots:
+  - {fileID: 1256232795094124}
+  - {fileID: 1018231777435874}
 --- !u!137 &137508541968096322
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

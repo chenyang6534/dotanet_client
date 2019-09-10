@@ -540,8 +540,8 @@ MonoBehaviour:
     SceneItem: "Item/Icon/\u6492\u65E6\u4E4B\u90AA\u529B (1)"
     Name: "\u6492\u65E6\u4E4B\u90AA\u529B"
     Des: "+[color=#D8D8D8] 25 [/color]\u529B\u91CF\n+[color=#D8D8D8] 25 [/color]\u653B\u51FB\u529B\n+[color=#D8D8D8]
-      30% [/D86color]\u72B6\u6001\u6297\u6027\n[color=#D8D8D8]\u4E3B\u52A8:\u4E0D\u6D01\u72C2\u70ED
-      [/color]\n\u5438\u8840\u6548\u679C\u63D0\u5347200%,\u6301\u7EED5\u79D2\u3002\n[color=#D8D8D8]\u88AB\u52A8:\u5438\u8840
+      30% [/color]\u72B6\u6001\u6297\u6027\n[color=#D8D8D8]\u4E3B\u52A8:\u4E0D\u6D01\u72C2\u70ED
+      [/color]\n\u5438\u8840\u6548\u679C\u63D0\u5347200%,\u6301\u7EED5\u79D2\u3002\nCD:35\n[color=#D8D8D8]\u88AB\u52A8:\u5438\u8840
       [/color]\n\u6BCF\u6B21\u653B\u51FB\u6839\u636E\u9020\u6210\u7684\u4F24\u5BB3\u56DE\u590D25%\u7684\u751F\u547D\u503C"
   - TypeID: 86
     IconPath: "ui://GameUI/\u6076\u9B54\u5200\u950B"

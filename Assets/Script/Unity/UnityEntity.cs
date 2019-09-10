@@ -603,6 +603,9 @@ public class UnityEntity {
                 return;
             }
             m_ModeType = value;
+
+            //m_Mode.GetComponent<Animator>().avatar = 
+
             if( m_Mode != null)
             {
                 GameObject.Destroy(m_Mode);

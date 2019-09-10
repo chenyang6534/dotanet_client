@@ -33,11 +33,16 @@ public class BuffEffect
         //模型身上的特效
         if (BIdata.BodyEffect.Length > 0)
         {
+            //ParentEntity.ModeType = "Hero/Sand_Pillar";
+            //BIdata.BodyEffect = "Hero/Sand_Pillar";
+            //ParentEntity.Mode.transform.FindChild("GameObject").gameObject.SetActive(false);
+
             var modeeffect = (GameObject)(GameObject.Instantiate(Resources.Load(BIdata.BodyEffect)));
             if (modeeffect != null)
             {
                 modeeffect.transform.parent = ParentEntity.Mode.transform;
                 modeeffect.transform.position = ParentEntity.Mode.transform.position;
+                modeeffect.transform.rotation = ParentEntity.Mode.transform.rotation;
                 Debug.Log("modeeffect:" + modeeffect);
 
                 ModeEffect.Add(modeeffect);
@@ -159,10 +164,22 @@ public class BuffEffect
             }
         }
 
-        //隐藏模型
+        //隐藏所有
         if (BIdata.Enable == 0)
         {
             ParentEntity.Mode.SetActive(false);
+            //ParentEntity.Mode.renderer.enabled
+        }
+
+        //隐藏模型
+        if (BIdata.ModeEnable == 0)
+        {
+            var go = ParentEntity.Mode.transform.FindChild("GameObject");
+            if(go != null)
+            {
+                go.gameObject.SetActive(false);
+            }
+            
         }
 
         UpdateData();
@@ -244,6 +261,16 @@ public class BuffEffect
         if (BIdata.Enable == 0)
         {
             ParentEntity.Mode.SetActive(true);
+        }
+        //隐藏模型
+        if (BIdata.ModeEnable == 0)
+        {
+            var go = ParentEntity.Mode.transform.FindChild("GameObject");
+            if (go != null)
+            {
+                go.gameObject.SetActive(true);
+            }
+
         }
         if (TopBarObj != null)
         {

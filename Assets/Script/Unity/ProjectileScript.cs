@@ -4,7 +4,10 @@ using UnityEngine;
 using System.Collections.Generic;
 
 public class ProjectileScript : MonoBehaviour {
+
+    public GameObject LinePre;
     
+
 	public GameObject muzzlePrefab;
 	public GameObject hitPrefab;
 	public AudioClip shotSFX;
@@ -12,13 +15,31 @@ public class ProjectileScript : MonoBehaviour {
 	public List<GameObject> trails;
     public bool IsRotationHit = true;
 
+    protected GameObject LinePreIns;
     protected bool m_IsDestroy;
 	void Start () {
         m_IsDestroy = false;
 
-
+        if(LinePre != null)
+        {
+            LinePreIns = Instantiate(LinePre);
+        }
+        
         
 	}
+    public void ChangePos(Vector3 start,Vector3 end)
+    {
+        Debug.Log("-------------------ChangePos:"+start+"   end:"+end);
+        if (LinePreIns != null)
+        {
+            MagicBeamScript magicbeam = LinePreIns.GetComponent<MagicBeamScript>();
+            if (magicbeam != null)
+            {
+                Debug.Log("-------------------ChangePos  MagicBeamScript:" + start + "   end:" + end);
+                magicbeam.ShootBeamInDir(start, end);
+            }
+        }
+    }
 
     public void ShowStartParticle(Vector3 pos,Vector3 endpos)
     {
@@ -100,9 +121,13 @@ public class ProjectileScript : MonoBehaviour {
         //Debug.Log("222time:" +Time.frameCount);
         if (m_IsDestroy == false)
         {
+            if (LinePreIns != null)
+            {
+                Destroy(LinePreIns);
+                LinePreIns = null;
+            }
             m_IsDestroy = true;
             Destroy(gameObject);
-
         }
         //StartCoroutine(DestroyParticle(0.01f));
     }

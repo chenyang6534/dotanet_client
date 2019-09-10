@@ -24,6 +24,7 @@ MonoBehaviour:
     HandsEffect: 
     FootsEffect: 
     MaterialEffect: 
+    ModeEnable: 1
   - TypeID: 9
     BodyEffect: 
     FootEffect: 
@@ -36,6 +37,7 @@ MonoBehaviour:
     HandsEffect: 
     FootsEffect: 
     MaterialEffect: 
+    ModeEnable: 1
   - TypeID: 11
     BodyEffect: 
     FootEffect: 
@@ -48,6 +50,7 @@ MonoBehaviour:
     HandsEffect: 
     FootsEffect: 
     MaterialEffect: 
+    ModeEnable: 1
   - TypeID: 51
     BodyEffect: Line/pake_skill4
     FootEffect: 
@@ -60,6 +63,7 @@ MonoBehaviour:
     HandsEffect: 
     FootsEffect: 
     MaterialEffect: 
+    ModeEnable: 1
   - TypeID: 14
     BodyEffect: Buff/xukong_skill2
     FootEffect: 
@@ -72,6 +76,7 @@ MonoBehaviour:
     HandsEffect: 
     FootsEffect: 
     MaterialEffect: 
+    ModeEnable: 1
   - TypeID: 25
     BodyEffect: 
     FootEffect: 
@@ -84,6 +89,7 @@ MonoBehaviour:
     HandsEffect: 
     FootsEffect: 
     MaterialEffect: 
+    ModeEnable: 1
   - TypeID: 87
     BodyEffect: 
     FootEffect: 
@@ -96,6 +102,7 @@ MonoBehaviour:
     HandsEffect: 
     FootsEffect: 
     MaterialEffect: 
+    ModeEnable: 1
   - TypeID: 26
     BodyEffect: 
     FootEffect: 
@@ -108,6 +115,7 @@ MonoBehaviour:
     HandsEffect: 
     FootsEffect: 
     MaterialEffect: 
+    ModeEnable: 1
   - TypeID: 48
     BodyEffect: 
     FootEffect: 
@@ -120,6 +128,7 @@ MonoBehaviour:
     HandsEffect: 
     FootsEffect: 
     MaterialEffect: 
+    ModeEnable: 1
   - TypeID: 84
     BodyEffect: Line/lanmao_skill2
     FootEffect: 
@@ -132,6 +141,7 @@ MonoBehaviour:
     HandsEffect: 
     FootsEffect: 
     MaterialEffect: 
+    ModeEnable: 1
   - TypeID: 27
     BodyEffect: 
     FootEffect: 
@@ -144,6 +154,7 @@ MonoBehaviour:
     HandsEffect: Buff/xuemo_skill1
     FootsEffect: 
     MaterialEffect: 
+    ModeEnable: 1
   - TypeID: 85
     BodyEffect: 
     FootEffect: 
@@ -156,6 +167,7 @@ MonoBehaviour:
     HandsEffect: Buff/lanmao_skill3
     FootsEffect: 
     MaterialEffect: 
+    ModeEnable: 1
   - TypeID: 43
     BodyEffect: Line/fengxing_skill1
     FootEffect: 
@@ -168,6 +180,7 @@ MonoBehaviour:
     HandsEffect: 
     FootsEffect: 
     MaterialEffect: 
+    ModeEnable: 1
   - TypeID: 78
     BodyEffect: 
     FootEffect: 
@@ -180,6 +193,7 @@ MonoBehaviour:
     HandsEffect: 
     FootsEffect: 
     MaterialEffect: 
+    ModeEnable: 1
   - TypeID: 31
     BodyEffect: 
     FootEffect: 
@@ -192,6 +206,7 @@ MonoBehaviour:
     HandsEffect: 
     FootsEffect: 
     MaterialEffect: 
+    ModeEnable: 1
   - TypeID: 44
     BodyEffect: 
     FootEffect: 
@@ -204,6 +219,7 @@ MonoBehaviour:
     HandsEffect: 
     FootsEffect: Buff/fengxing_skill3
     MaterialEffect: 
+    ModeEnable: 1
   - TypeID: 24
     BodyEffect: 
     FootEffect: 
@@ -216,6 +232,7 @@ MonoBehaviour:
     HandsEffect: Buff/paipaixiong_skill3
     FootsEffect: 
     MaterialEffect: 
+    ModeEnable: 1
   - TypeID: 35
     BodyEffect: Buff/najia_skill2
     FootEffect: 
@@ -228,6 +245,7 @@ MonoBehaviour:
     HandsEffect: 
     FootsEffect: 
     MaterialEffect: 
+    ModeEnable: 1
   - TypeID: 18
     BodyEffect: 
     FootEffect: 
@@ -240,6 +258,7 @@ MonoBehaviour:
     HandsEffect: 
     FootsEffect: 
     MaterialEffect: 
+    ModeEnable: 1
   - TypeID: 15
     BodyEffect: 
     FootEffect: 
@@ -252,6 +271,7 @@ MonoBehaviour:
     HandsEffect: 
     FootsEffect: 
     MaterialEffect: 
+    ModeEnable: 1
   - TypeID: 38
     BodyEffect: 
     FootEffect: 
@@ -264,6 +284,7 @@ MonoBehaviour:
     HandsEffect: 
     FootsEffect: 
     MaterialEffect: 
+    ModeEnable: 1
   - TypeID: 43
     BodyEffect: 
     FootEffect: 
@@ -276,6 +297,7 @@ MonoBehaviour:
     HandsEffect: 
     FootsEffect: 
     MaterialEffect: 
+    ModeEnable: 1
   - TypeID: 49
     BodyEffect: 
     FootEffect: 
@@ -288,6 +310,7 @@ MonoBehaviour:
     HandsEffect: 
     FootsEffect: 
     MaterialEffect: 
+    ModeEnable: 1
   - TypeID: 50
     BodyEffect: 
     FootEffect: 
@@ -300,6 +323,7 @@ MonoBehaviour:
     HandsEffect: 
     FootsEffect: 
     MaterialEffect: 
+    ModeEnable: 1
   - TypeID: 66
     BodyEffect: 
     FootEffect: 
@@ -312,6 +336,7 @@ MonoBehaviour:
     HandsEffect: 
     FootsEffect: 
     MaterialEffect: 
+    ModeEnable: 1
   - TypeID: 72
     BodyEffect: 
     FootEffect: 
@@ -324,6 +349,7 @@ MonoBehaviour:
     HandsEffect: 
     FootsEffect: 
     MaterialEffect: 
+    ModeEnable: 1
   - TypeID: 92
     BodyEffect: 
     FootEffect: 
@@ -336,6 +362,7 @@ MonoBehaviour:
     HandsEffect: 
     FootsEffect: 
     MaterialEffect: 
+    ModeEnable: 1
   - TypeID: 69
     BodyEffect: 
     FootEffect: 
@@ -348,6 +375,7 @@ MonoBehaviour:
     HandsEffect: 
     FootsEffect: 
     MaterialEffect: 
+    ModeEnable: 1
   - TypeID: 37
     BodyEffect: 
     FootEffect: 
@@ -360,6 +388,7 @@ MonoBehaviour:
     HandsEffect: 
     FootsEffect: 
     MaterialEffect: 
+    ModeEnable: 1
   - TypeID: 41
     BodyEffect: 
     FootEffect: 
@@ -372,6 +401,7 @@ MonoBehaviour:
     HandsEffect: Buff/xiaoxiao_skill3
     FootsEffect: 
     MaterialEffect: 
+    ModeEnable: 1
   - TypeID: 67
     BodyEffect: 
     FootEffect: 
@@ -384,6 +414,7 @@ MonoBehaviour:
     HandsEffect: 
     FootsEffect: 
     MaterialEffect: Specialeffects/fuwang_skill1_red
+    ModeEnable: 1
   - TypeID: 123
     BodyEffect: 
     FootEffect: 
@@ -396,6 +427,7 @@ MonoBehaviour:
     HandsEffect: 
     FootsEffect: 
     MaterialEffect: 
+    ModeEnable: 1
   - TypeID: 170
     BodyEffect: 
     FootEffect: 
@@ -408,3 +440,212 @@ MonoBehaviour:
     HandsEffect: 
     FootsEffect: 
     MaterialEffect: 
+    ModeEnable: 1
+  - TypeID: 129
+    BodyEffect: 
+    FootEffect: 
+    Enable: 1
+    HeadEffect: 
+    TopBarEffect: 
+    RenderColor: 0
+    OutEffect: 
+    NativeTopBarEffect: 
+    HandsEffect: 
+    FootsEffect: Buff/xiangweixie
+    MaterialEffect: 
+    ModeEnable: 1
+  - TypeID: 130
+    BodyEffect: 
+    FootEffect: 
+    Enable: 1
+    HeadEffect: 
+    TopBarEffect: 
+    RenderColor: 0
+    OutEffect: 
+    NativeTopBarEffect: 
+    HandsEffect: 
+    FootsEffect: Buff/xiangweixie
+    MaterialEffect: 
+    ModeEnable: 1
+  - TypeID: 138
+    BodyEffect: Buff/xuanmingduanpai
+    FootEffect: 
+    Enable: 1
+    HeadEffect: 
+    TopBarEffect: 
+    RenderColor: 0
+    OutEffect: 
+    NativeTopBarEffect: 
+    HandsEffect: 
+    FootsEffect: 
+    MaterialEffect: 
+    ModeEnable: 1
+  - TypeID: 152
+    BodyEffect: Buff/tiaozhan
+    FootEffect: 
+    Enable: 1
+    HeadEffect: 
+    TopBarEffect: 
+    RenderColor: 0
+    OutEffect: 
+    NativeTopBarEffect: 
+    HandsEffect: 
+    FootsEffect: 
+    MaterialEffect: 
+    ModeEnable: 1
+  - TypeID: 185
+    BodyEffect: Buff/tiaozhan
+    FootEffect: 
+    Enable: 1
+    HeadEffect: 
+    TopBarEffect: 
+    RenderColor: 0
+    OutEffect: 
+    NativeTopBarEffect: 
+    HandsEffect: 
+    FootsEffect: 
+    MaterialEffect: 
+    ModeEnable: 1
+  - TypeID: 155
+    BodyEffect: 
+    FootEffect: 
+    Enable: 1
+    HeadEffect: 
+    TopBarEffect: 
+    RenderColor: 0
+    OutEffect: 
+    NativeTopBarEffect: 
+    HandsEffect: 
+    FootsEffect: 
+    MaterialEffect: Specialeffects/fenzhengmiansha_purple
+    ModeEnable: 1
+  - TypeID: 158
+    BodyEffect: 
+    FootEffect: 
+    Enable: 1
+    HeadEffect: 
+    TopBarEffect: 
+    RenderColor: 0
+    OutEffect: Buff/chuifeng
+    NativeTopBarEffect: 
+    HandsEffect: 
+    FootsEffect: 
+    MaterialEffect: 
+    ModeEnable: 1
+  - TypeID: 161
+    BodyEffect: Buff/najia_skill2
+    FootEffect: 
+    Enable: 1
+    HeadEffect: 
+    TopBarEffect: 
+    RenderColor: 0
+    OutEffect: 
+    NativeTopBarEffect: 
+    HandsEffect: 
+    FootsEffect: 
+    MaterialEffect: 
+    ModeEnable: 1
+  - TypeID: 164
+    BodyEffect: 
+    FootEffect: 
+    Enable: 1
+    HeadEffect: 
+    TopBarEffect: ui://fekv2twrs1b2w
+    RenderColor: 0
+    OutEffect: 
+    NativeTopBarEffect: 
+    HandsEffect: 
+    FootsEffect: 
+    MaterialEffect: 
+    ModeEnable: 1
+  - TypeID: 167
+    BodyEffect: Hero/Toon Chick
+    FootEffect: 
+    Enable: 1
+    HeadEffect: 
+    TopBarEffect: 
+    RenderColor: 0
+    OutEffect: 
+    NativeTopBarEffect: 
+    HandsEffect: 
+    FootsEffect: 
+    MaterialEffect: 
+    ModeEnable: 0
+  - TypeID: 174
+    BodyEffect: 
+    FootEffect: 
+    Enable: 1
+    HeadEffect: 
+    TopBarEffect: 
+    RenderColor: 2
+    OutEffect: 
+    NativeTopBarEffect: 
+    HandsEffect: 
+    FootsEffect: 
+    MaterialEffect: 
+    ModeEnable: 1
+  - TypeID: 183
+    BodyEffect: 
+    FootEffect: 
+    Enable: 1
+    HeadEffect: Buff/xuanyun
+    TopBarEffect: 
+    RenderColor: 0
+    OutEffect: 
+    NativeTopBarEffect: 
+    HandsEffect: 
+    FootsEffect: 
+    MaterialEffect: 
+    ModeEnable: 1
+  - TypeID: 220
+    BodyEffect: 
+    FootEffect: 
+    Enable: 1
+    HeadEffect: 
+    TopBarEffect: 
+    RenderColor: 0
+    OutEffect: 
+    NativeTopBarEffect: 
+    HandsEffect: 
+    FootsEffect: 
+    MaterialEffect: Specialeffects/bingyan_white
+    ModeEnable: 1
+  - TypeID: 221
+    BodyEffect: 
+    FootEffect: 
+    Enable: 1
+    HeadEffect: 
+    TopBarEffect: 
+    RenderColor: 0
+    OutEffect: 
+    NativeTopBarEffect: 
+    HandsEffect: 
+    FootsEffect: 
+    MaterialEffect: Specialeffects/bingyan_white
+    ModeEnable: 1
+  - TypeID: 187
+    BodyEffect: Buff/renjia
+    FootEffect: 
+    Enable: 1
+    HeadEffect: 
+    TopBarEffect: 
+    RenderColor: 0
+    OutEffect: 
+    NativeTopBarEffect: 
+    HandsEffect: 
+    FootsEffect: 
+    MaterialEffect: 
+    ModeEnable: 1
+  - TypeID: 191
+    BodyEffect: Buff/bkb
+    FootEffect: 
+    Enable: 1
+    HeadEffect: 
+    TopBarEffect: 
+    RenderColor: 0
+    OutEffect: 
+    NativeTopBarEffect: 
+    HandsEffect: 
+    FootsEffect: 
+    MaterialEffect: 
+    ModeEnable: 1

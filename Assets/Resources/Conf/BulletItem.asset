@@ -144,3 +144,21 @@ MonoBehaviour:
   - TypeID: 1024
     ModePath: Buff/doorway
     Level: 1
+  - TypeID: 35
+    ModePath: Bullet/Projectiles/meiken_pro
+    Level: 1
+  - TypeID: 36
+    ModePath: Bullet/Projectiles/dagen_pro
+    Level: 1
+  - TypeID: 37
+    ModePath: Bullet/Projectiles/mifa_pro
+    Level: 1
+  - TypeID: 38
+    ModePath: Bullet/Projectiles/shuaxin_pro
+    Level: 1
+  - TypeID: 39
+    ModePath: Bullet/Projectiles/LifeProjectileNormal
+    Level: 1
+  - TypeID: 40
+    ModePath: Bullet/Projectiles/xiwa_skill
+    Level: 1

@@ -19,6 +19,7 @@ namespace ExcelData
         public string HandsEffect;
         public string FootsEffect;
         public string MaterialEffect;//材质特效
+        public int ModeEnable; //模型的隐藏和显示
     }
 
 }

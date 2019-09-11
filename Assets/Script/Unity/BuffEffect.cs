@@ -42,7 +42,7 @@ public class BuffEffect
             {
                 modeeffect.transform.parent = ParentEntity.Mode.transform;
                 modeeffect.transform.position = ParentEntity.Mode.transform.position;
-                modeeffect.transform.rotation = ParentEntity.Mode.transform.rotation;
+                //modeeffect.transform.rotation = ParentEntity.Mode.transform.rotation;
                 Debug.Log("modeeffect:" + modeeffect);
 
                 ModeEffect.Add(modeeffect);
@@ -133,6 +133,7 @@ public class BuffEffect
             {
                 var topbar = ParentEntity.GetTopBar();
                 TopBarObj = topbar.AddNativeBuff(BIdata.NativeTopBarEffect);
+                //Debug.Log("------- NativeTopBarEffect :" + BIdata.NativeTopBarEffect);
             }
         }
 

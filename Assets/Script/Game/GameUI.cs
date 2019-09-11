@@ -17,6 +17,8 @@ public class GameUI : MonoBehaviour {
 
     private GComponent center;
 
+    private GList Bufs;
+
     private Btnstick attackstick;
 
     private HeadInfo MyHeadInfo;
@@ -25,12 +27,15 @@ public class GameUI : MonoBehaviour {
 
         SkillCom = new Dictionary<int, Skillstick>();
         ItemSkillCom = new Dictionary<int, Skillstick>();
+        BufsRes = new Dictionary<int, GComponent>();
         mainUI = GetComponent<UIPanel>().ui;
         touchID = -1;
         startTime = Tool.GetTime();
 
         center = mainUI.GetChild("center").asCom;
         Debug.Log("center---------------------------:"+ center.name);
+
+        Bufs = mainUI.GetChild("buflist").asList;
 
         MyHeadInfo = new HeadInfo(mainUI.GetChild("myHeadInfo").asCom);
         TargetHeadInfo = new HeadInfo(mainUI.GetChild("targetHeadInfo").asCom);
@@ -360,12 +365,114 @@ public class GameUI : MonoBehaviour {
         MyHeadInfo.FreshData(myid);
         TargetHeadInfo.FreshData(targetid);
     }
-    
+
+
+
+    public Dictionary<int, GComponent> BufsRes;
+    //刷新buf
+    void FreshBuf()
+    {
+        UnityEntity mainunit = GameScene.Singleton.GetMyMainUnit();
+        if (mainunit == null || mainunit.BuffDatas == null || mainunit.BuffDatas.Length <= 0)
+        {
+            BufsRes.Clear();
+            Bufs.RemoveChildren();
+            return;
+        }
+
+        foreach (var item in mainunit.BuffDatas)
+        {
+            if (BufsRes.ContainsKey(item.TypeID))
+            {
+                SetBufData(BufsRes[item.TypeID], item);
+            }
+            else
+            {
+
+                AddBuf(item);
+            }
+        }
+
+        //删除多余的
+        foreach (int key in new List<int>(BufsRes.Keys))
+        {
+            var isfind = false;
+            foreach (var item1 in mainunit.BuffDatas)
+            {
+                if (key == item1.TypeID)
+                {
+                    isfind = true;
+                    break;
+                }
+            }
+            if (isfind == false)
+            {
+                RemoveBuf(key);
+            }
+        }
+    }
+    void RemoveBuf(int key)
+    {
+        if (BufsRes.ContainsKey(key))
+        {
+            Bufs.RemoveChild(BufsRes[key]);
+            BufsRes.Remove(key);
+        }
+        
+    }
+    void AddBuf(Protomsg.BuffDatas data)
+    {
+        var clientskill = ExcelManager.Instance.GetBuffIM().GetBIByID(data.TypeID);
+        if (clientskill == null || clientskill.IconPath.Length <= 0)
+        {
+            return;
+        }
+
+        GComponent view = UIPackage.CreateObject("GameUI", "buf_icon").asCom;
+        view.scale = new Vector2(0.75f, 0.75f);
+        Bufs.AddChild(view);
+        BufsRes[data.TypeID] = view;
+        SetBufData(view, data);
+    }
+    void SetBufData(GComponent obj,Protomsg.BuffDatas data)
+    {
+        //图标
+        var clientskill = ExcelManager.Instance.GetBuffIM().GetBIByID(data.TypeID);
+        if (clientskill != null)
+        {
+            if (clientskill.IconPath.Length > 0)
+            {
+                obj.GetChild("icon").asLoader.url = clientskill.IconPath;
+            }
+
+            if( clientskill.IconTimeEnable == 0)
+            {
+                obj.GetChild("pro").asProgress.value = 100;
+            }
+            else
+            {
+                obj.GetChild("pro").asProgress.value = (data.RemainTime / data.Time) * 100;
+            }
+        }
+        
+        
+        if(data.TagNum >= 2)
+        {
+            obj.GetChild("count").asTextField.text = "" + data.TagNum;
+        }
+        else
+        {
+            obj.GetChild("count").asTextField.text = "";
+        }
+        
+
+    }
     // Update is called once per frame
     void Update () {
         gPing.text = "" + MyKcp.PingValue;
         FreshSkillUI();
         FreshItemSkillUI();
         FreshHead();
+        FreshBuf();
     }
 }

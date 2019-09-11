@@ -20,6 +20,8 @@ namespace ExcelData
         public string FootsEffect;
         public string MaterialEffect;//材质特效
         public int ModeEnable; //模型的隐藏和显示
+        public string IconPath;//图标
+        public int IconTimeEnable; //图标是否显示时间
     }
 
 }

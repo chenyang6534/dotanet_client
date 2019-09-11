@@ -70,6 +70,12 @@ public class UnityEntityTopBar : MonoBehaviour
         holder.SetNativeObject(wrapper);
         return go;
     }
+
+    public int GetBuffCount()
+    {
+        return m_BuffList.GetChildren().Length;
+    }
+
     public GObject AddBuff(string url) 
     {
         if(m_BuffList == null)

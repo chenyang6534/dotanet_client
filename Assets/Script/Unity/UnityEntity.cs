@@ -380,6 +380,10 @@ public class UnityEntity {
         {
             m_BuffEffects[buffdata.TypeID] = buffeffect;
         }
+        else
+        {
+            Debug.Log("------- CreateBuffSpecial : faild" + buffdata.TypeID + " " + m_BuffEffects);
+        }
         
 
         //switch (typeid)
@@ -1095,7 +1099,7 @@ public class UnityEntity {
             }
             else
             {
-                if(m_Camp == 2 && (int)((float)HP / MaxHP * 100) == 100)//NPC
+                if(m_Camp == 2 && (int)((float)HP / MaxHP * 100) == 100 && m_TopBar.GetComponent<UnityEntityTopBar>().GetBuffCount() <= 0)//NPC
                 {
                     m_TopBar.GetComponent<UnityEntityTopBar>().SetVisible(false);
                 }

@@ -29,13 +29,13 @@ public class ProjectileScript : MonoBehaviour {
 	}
     public void ChangePos(Vector3 start,Vector3 end)
     {
-        Debug.Log("-------------------ChangePos:"+start+"   end:"+end);
+        //Debug.Log("-------------------ChangePos:"+start+"   end:"+end);
         if (LinePreIns != null)
         {
             MagicBeamScript magicbeam = LinePreIns.GetComponent<MagicBeamScript>();
             if (magicbeam != null)
             {
-                Debug.Log("-------------------ChangePos  MagicBeamScript:" + start + "   end:" + end);
+                //Debug.Log("-------------------ChangePos  MagicBeamScript:" + start + "   end:" + end);
                 magicbeam.ShootBeamInDir(start, end);
             }
         }

@@ -27,6 +27,7 @@ public class Skillstick : EventDispatcher
 
     //
     private GObject m_ui;
+    private GButton m_upgrade;
 
     //摇杆的属性
     private Vector2 initPos;
@@ -37,6 +38,8 @@ public class Skillstick : EventDispatcher
     public float m_MoveCallNeedDir; //move回调需要移动的距离
     public bool m_IsMoved;//是否已经开始移动
     private Tweener tweener;
+
+    private List<GComponent>  LevelShow;
 
     protected Protomsg.SkillDatas m_SkillDatas;
     protected bool m_IsItem;
@@ -61,6 +64,24 @@ public class Skillstick : EventDispatcher
             m_ui.xy = xy;
         }
     }
+    //
+    public Vector2[] ThreeSkillLevelPos = {
+        new Vector2(25,115),
+        new Vector2(50,120),
+        new Vector2(75, 115) };
+    public Vector2[] FourSkillLevelPos = {
+        new Vector2(12.5f,108),
+        new Vector2(37.5f, 117.5f),
+        new Vector2(62.5f, 117.5f),
+        new Vector2(87.5f, 108)};
+
+
+    public Vector2[] UpgradeSkillBtnPos = {
+        new Vector2(-13,0),
+        new Vector2(0, -16),
+        new Vector2(24, -28),
+        new Vector2(50, -31)};
+
     //刷新数据
     protected void FreshData()
     {
@@ -109,6 +130,75 @@ public class Skillstick : EventDispatcher
         if(m_IsItem == true)
         {
             m_ui.scale = new Vector2(0.7f, 0.7f);
+            m_upgrade.visible = false;
+        }
+        else
+        {
+            //显示升级按钮
+            m_upgrade.visible = false;
+            if (GameScene.Singleton.m_MyMainUnit != null)
+            {
+                var alllevel = GameScene.Singleton.m_MyMainUnit.GetAllSkillLevel();
+                if(alllevel < GameScene.Singleton.m_MyMainUnit.Level)
+                {
+                    //显示升级按钮
+                    var nextlevel_needunitlevel = m_SkillDatas.RequiredLevel + m_SkillDatas.LevelsBetweenUpgrades * m_SkillDatas.Level;
+                    if (nextlevel_needunitlevel <= GameScene.Singleton.m_MyMainUnit.Level && m_SkillDatas.Level < m_SkillDatas.MaxLevel)
+                    {
+                        m_upgrade.visible = true;
+                        m_upgrade.SetXY(UpgradeSkillBtnPos[m_SkillDatas.Index].x, UpgradeSkillBtnPos[m_SkillDatas.Index].y);
+                        
+                        
+                    }
+                }
+            }
+            
+
+
+            //等级显示
+            //创建
+            var createcount = m_SkillDatas.MaxLevel - LevelShow.Count;
+            for( var i = 0; i < createcount; i++)
+            {
+                GComponent view = UIPackage.CreateObject("GameUI", "SkillLevel").asCom;
+                m_ui.asCom.AddChild(view);
+                LevelShow.Add(view);
+            }
+            //刷新信息
+            int index = 0;
+            foreach( var item in LevelShow)
+            {
+                if( m_SkillDatas.MaxLevel == 4)
+                {
+                    item.SetXY(FourSkillLevelPos[index].x, FourSkillLevelPos[index].y);
+                }
+                else if(m_SkillDatas.MaxLevel == 3)
+                {
+                    item.SetXY(ThreeSkillLevelPos[index].x, ThreeSkillLevelPos[index].y);
+                }
+
+                if(m_SkillDatas.Level > index)
+                {
+                    item.GetChild("level").visible = true;
+                }
+                else
+                {
+                    item.GetChild("level").visible = false;
+                }
+                index++;
+
+
+            }
+        }
+
+        //0级 图标变淡
+        if(m_SkillDatas.Level <= 0)
+        {
+            touchArea.asCom.alpha = 0.5f;
+        }
+        else
+        {
+            touchArea.asCom.alpha = 1;
         }
 
         //对目标施法 且能对所有单位包括自己施法
@@ -193,11 +283,23 @@ public class Skillstick : EventDispatcher
         m_MoveCallNeedDir = 20;//
         m_IsMoved = false;
 
+        LevelShow = new List<GComponent>();
+
         touchArea.onTouchBegin.Add(OnTouchBegin);
         touchArea.onTouchMove.Add(OnTouchMove);
         touchArea.onTouchEnd.Add(OnTouchEnd);
 
         Debug.Log("touchArea:" + touchArea);
+
+        m_upgrade = m_ui.asCom.GetChild("upgrade").asButton;
+        m_upgrade.onClick.Add(() =>
+        {
+            //升级技能
+            Debug.Log("-------升级技能-------:"+ m_SkillDatas.TypeID);
+            Protomsg.CS_PlayerUpgradeSkill msg4 = new Protomsg.CS_PlayerUpgradeSkill();
+            msg4.TypeID = m_SkillDatas.TypeID;
+            cocosocket4unity.MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_PlayerUpgradeSkill", msg4);
+        });
 
     }
     protected void DoTouchDown(Vector2 pos)
@@ -325,7 +427,7 @@ public class Skillstick : EventDispatcher
             var len = Vector2.Distance(dir, new Vector2(0, 0));
             if (len > radius)
             {
-                len = radius;
+                //len = radius;
             }
             var dest = dir.normalized * len + startStagePos;
 
@@ -343,6 +445,12 @@ public class Skillstick : EventDispatcher
             {
                 //onMove.Call(dir);
                 DoTouchMove(dir,len/ radius);
+
+                if( len > radius)
+                {
+                    startStagePos += dir.normalized * (len - radius);
+                    center.SetXY(startStagePos.x, startStagePos.y);
+                }
             }
 
         }

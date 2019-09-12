@@ -187,7 +187,15 @@ public class MyInfo {
         //模型
         var modeeffect = (GameObject)(GameObject.Instantiate(Resources.Load(unit.ModeType)));
         modeeffect.transform.localPosition = new Vector3(0, 0, 0);
+        var box = modeeffect.GetComponent<BoxCollider>();
         modeeffect.transform.localScale = new Vector3(100, 100, 100);
+        if (box != null)
+        {
+            var scale = box.size.y / 2;
+            modeeffect.transform.localScale = new Vector3(100/ scale, 100 / scale, 100 / scale);
+        }
+        
+        
         Vector3 rotation = modeeffect.transform.localEulerAngles;
         rotation.x = 10; // 在这里修改坐标轴的值
         rotation.y = 180;

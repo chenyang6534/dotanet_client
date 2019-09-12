@@ -101,7 +101,7 @@ public class Joystick : EventDispatcher
             var len = Vector2.Distance(dir, new Vector2(0, 0));
             if(len > radius)
             {
-                len = radius;
+                //len = radius;
             }
             var dest = dir.normalized * len+ startStagePos;
 
@@ -111,6 +111,12 @@ public class Joystick : EventDispatcher
             thumb.rotation = Vector2.SignedAngle(new Vector2(0,-1),dir);
 
             onMove.Call(Vector2.SignedAngle(new Vector2(0, 1), new Vector2(dir.x,-dir.y)));
+
+            if (len > radius)
+            {
+                startStagePos += dir.normalized * (len - radius);
+                center.SetXY(startStagePos.x, startStagePos.y);
+            }
         }
     }
 

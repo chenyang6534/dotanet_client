@@ -274,13 +274,13 @@ public class UnityEntity {
             DirectionX += data.DirectionX;
             DirectionY += data.DirectionY;
             var dir = new Vector3(DirectionX, 0, DirectionY);
-            if(data.DirectionX != 0 || data.DirectionY != 0)
-            {
-                if(UnitType == 1)
-                {
-                    Debug.Log("----direction:" + DirectionX + "  " + DirectionY);
-                }
-            }
+            //if(data.DirectionX != 0 || data.DirectionY != 0)
+            //{
+            //    if(UnitType == 1)
+            //    {
+            //        Debug.Log("----direction:" + DirectionX + "  " + DirectionY);
+            //    }
+            //}
             
             //var dir = new Vector3(1, 0, 1);
             if (dir != Vector3.zero)
@@ -364,6 +364,16 @@ public class UnityEntity {
 
 
         }
+    }
+
+    public int GetAllSkillLevel()
+    {
+        var count = 0;
+        for (var i = 0; i < m_SkillDatas.Length; i++)
+        {
+            count += m_SkillDatas[i].Level;
+        }
+        return count;
     }
 
     protected Dictionary<int, BuffEffect> m_BuffEffects = new Dictionary<int, BuffEffect>();

@@ -699,14 +699,23 @@ public class GameScene : MonoBehaviour {
         {
             Debug.Log("Raycast:");
             //测试
-            //UnityEntity unit = UnityEntityManager.Instance.GetUnityEntityFromObject(hit.transform.gameObject);
-            //if(unit != null && unit != m_MyMainUnit)
-            //{
-            //    Protomsg.CS_PlayerAttack msg1 = new Protomsg.CS_PlayerAttack();
-            //    msg1.IDs.AddRange(m_MyControlUnit);
-            //    msg1.TargetUnitID = unit.ID;
-            //    MyKcp.Instance.SendMsg(m_ServerName, "CS_PlayerAttack", msg1);
-            //}
+            UnityEntity unit = UnityEntityManager.Instance.GetUnityEntityFromObject(hit.transform.gameObject);
+            if (unit != null && unit != m_MyMainUnit)
+            {
+                if (m_TargetUnit != null)
+                {
+                    m_TargetUnit.TargetShow(false);
+                    m_TargetUnit.TargetShowRedCircle(false);
+                }
+                m_TargetUnit = unit;
+                //m_TargetUnit.TargetShow(true);
+                m_TargetUnit.TargetShowRedCircle(true);
+
+                //Protomsg.CS_PlayerAttack msg1 = new Protomsg.CS_PlayerAttack();
+                //msg1.IDs.AddRange(m_MyControlUnit);
+                //msg1.TargetUnitID = unit.ID;
+                //MyKcp.Instance.SendMsg(m_ServerName, "CS_PlayerAttack", msg1);
+            }
 
             //Debug.Log(hit.collider.gameObject);
         }

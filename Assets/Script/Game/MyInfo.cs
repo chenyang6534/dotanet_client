@@ -85,6 +85,7 @@ public class MyInfo {
 
             //道具
             var item = unitinfo.GetChild("item" + (i + 1)).asButton;
+            //item.z = 12;
             item.data = i;
             item.draggable = true;
             item.onDragStart.Add((EventContext context) =>
@@ -205,6 +206,7 @@ public class MyInfo {
         GGraph holder = unitinfo.GetChild("heromode").asGraph;
         GoWrapper wrapper = new GoWrapper(modeeffect);
         holder.SetNativeObject(wrapper);
+        holder.z = 10;
 
     }
 

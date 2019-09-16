@@ -29,6 +29,10 @@ public class Skillstick : EventDispatcher
     private GObject m_ui;
     private GButton m_upgrade;
 
+    //长按显示详情
+    protected bool IsShowInfo;
+    protected double TouchBeginTime;
+
     //摇杆的属性
     private Vector2 initPos;
     private Vector2 startStagePos;
@@ -119,7 +123,7 @@ public class Skillstick : EventDispatcher
         if (m_SkillDatas.CastType != 1)
         {
             m_ui.scale = new Vector2(0.7f,0.7f);
-            touchArea.asCom.touchable = false;
+            //touchArea.asCom.touchable = false;
         }
         else
         {
@@ -353,6 +357,7 @@ public class Skillstick : EventDispatcher
 
             lastStagePos = localPos;
             startStagePos = localPos;
+            TouchBeginTime = Tool.GetTime();
 
             no.SetXY(localPos.x + nopos.x, localPos.y + nopos.y);
             my.SetXY(localPos.x + mypos.x, localPos.y + mypos.y);
@@ -441,6 +446,39 @@ public class Skillstick : EventDispatcher
                 m_IsMoved = true;
 
             }
+            else
+            {
+                //详情
+                if(IsShowInfo == false && Tool.GetTime() - TouchBeginTime >= 2)
+                {
+                    IsShowInfo = true;
+                    GComponent info = Tool.CreateTouchShowInfo();
+
+                    m_ui.asCom.AddChild(info);
+
+                    var clientskill = ExcelManager.Instance.GetSkillManager().GetSkillByID(m_SkillDatas.TypeID);
+                    if (clientskill != null)
+                    {
+                        if (clientskill.IconPath.Length > 0)
+                        {
+                            info.GetChild("icon").asLoader.url = clientskill.IconPath;
+                        }
+                        info.GetChild("name").asTextField.text = clientskill.Name;
+                        info.GetChild("des").asTextField.text = clientskill.Des;
+
+                    }
+                    info.SetXY(localPos.x-100, localPos.y-50);
+
+                }
+                //
+            }
+
+            if( IsShowInfo == true)
+            {
+                GComponent info = Tool.CreateTouchShowInfo();
+                info.SetXY(localPos.x - 100, localPos.y - 50);
+            }
+
             if (m_IsMoved)
             {
                 //onMove.Call(dir);
@@ -462,6 +500,10 @@ public class Skillstick : EventDispatcher
         InputEvent inputEvent = (InputEvent)context.data;
         if (touchID != -1 && inputEvent.touchId == touchID)
         {
+
+            Tool.CloseTouchShowInfo();
+            IsShowInfo = false;
+
             touchID = -1;
             center.visible = false;
             thumb.visible = false;

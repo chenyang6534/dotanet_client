@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using FairyGUI;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -42,6 +43,29 @@ public static class Tool {
                 return tAnimationClip.length;
         }
         return 0F;
+    }
+    //创建点击显示的信息 (比如点击buff图标显示buff信息，长按技能图标显示技能信息)
+    public static GComponent TouchShowCom = null;
+    public static GComponent CreateTouchShowInfo()
+    {
+        //CloseTouchShowInfo();
+        if (TouchShowCom != null)
+        {
+            return TouchShowCom;
+        }
+        TouchShowCom = UIPackage.CreateObject("GameUI", "TouchShowInfo").asCom;
+        GRoot.inst.AddChild(TouchShowCom);
+
+        Debug.Log("-----TouchShowInfo---");
+        return TouchShowCom;
+    }
+    public static void CloseTouchShowInfo()
+    {
+        if(TouchShowCom != null)
+        {
+            TouchShowCom.Dispose();
+            TouchShowCom = null;
+        }
     }
 
 }

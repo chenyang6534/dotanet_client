@@ -196,7 +196,7 @@ MonoBehaviour:
     BodyEffect: Line/fengxing_skill1
     FootEffect: 
     Enable: 1
-    HeadEffect: 
+    HeadEffect: Buff/xuanyun
     TopBarEffect: 
     RenderColor: 0
     OutEffect: 
@@ -327,7 +327,7 @@ MonoBehaviour:
     ModeEnable: 1
     IconPath: 
     IconTimeEnable: 1
-  - TypeID: 43
+  - TypeID: 1000000
     BodyEffect: 
     FootEffect: 
     Enable: 1
@@ -1061,4 +1061,19 @@ MonoBehaviour:
     MaterialEffect: 
     ModeEnable: 1
     IconPath: "ui://GameUI/\u6492\u65E6\u4E4B\u90AA\u529B"
+    IconTimeEnable: 1
+  - TypeID: 47
+    BodyEffect: 
+    FootEffect: 
+    Enable: 1
+    HeadEffect: 
+    TopBarEffect: ui://fekv2twrs1b2w
+    RenderColor: 0
+    OutEffect: 
+    NativeTopBarEffect: 
+    HandsEffect: 
+    FootsEffect: 
+    MaterialEffect: 
+    ModeEnable: 1
+    IconPath: 
     IconTimeEnable: 1

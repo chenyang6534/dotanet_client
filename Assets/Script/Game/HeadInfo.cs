@@ -95,11 +95,12 @@ public class HeadInfo{
         //等级数字
         maininfo.GetChild("level").asTextField.text = unit.Level+"";
 
+        //经验条
+        maininfo.GetChild("experience").asProgress.value = (int)((float)unit.Experience / (float)unit.MaxExperience * 100);
 
 
 
 
 
-        
     }
 }

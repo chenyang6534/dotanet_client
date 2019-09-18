@@ -161,44 +161,48 @@ public class Skillstick : EventDispatcher
 
             //等级显示
             //创建
-            var createcount = m_SkillDatas.MaxLevel - LevelShow.Count;
-            for( var i = 0; i < createcount; i++)
+            if(m_SkillDatas.InitLevel == 0)
             {
-                GComponent view = UIPackage.CreateObject("GameUI", "SkillLevel").asCom;
-                m_ui.asCom.AddChild(view);
-                LevelShow.Add(view);
+                var createcount = m_SkillDatas.MaxLevel - LevelShow.Count;
+                for (var i = 0; i < createcount; i++)
+                {
+                    GComponent view = UIPackage.CreateObject("GameUI", "SkillLevel").asCom;
+                    m_ui.asCom.AddChild(view);
+                    LevelShow.Add(view);
+                }
+                //刷新信息
+                int index = 0;
+                foreach (var item in LevelShow)
+                {
+                    if (m_SkillDatas.MaxLevel == 4)
+                    {
+                        item.SetXY(FourSkillLevelPos[index].x, FourSkillLevelPos[index].y);
+                    }
+                    else if (m_SkillDatas.MaxLevel == 3)
+                    {
+                        item.SetXY(ThreeSkillLevelPos[index].x, ThreeSkillLevelPos[index].y);
+                    }
+
+                    if (m_SkillDatas.Level > index)
+                    {
+                        item.GetChild("level").visible = true;
+                    }
+                    else
+                    {
+                        item.GetChild("level").visible = false;
+                    }
+                    index++;
+
+
+                }
             }
-            //刷新信息
-            int index = 0;
-            foreach( var item in LevelShow)
-            {
-                if( m_SkillDatas.MaxLevel == 4)
-                {
-                    item.SetXY(FourSkillLevelPos[index].x, FourSkillLevelPos[index].y);
-                }
-                else if(m_SkillDatas.MaxLevel == 3)
-                {
-                    item.SetXY(ThreeSkillLevelPos[index].x, ThreeSkillLevelPos[index].y);
-                }
-
-                if(m_SkillDatas.Level > index)
-                {
-                    item.GetChild("level").visible = true;
-                }
-                else
-                {
-                    item.GetChild("level").visible = false;
-                }
-                index++;
-
-
-            }
+            
         }
 
         //0级 图标变淡
         if(m_SkillDatas.Level <= 0)
         {
-            touchArea.asCom.alpha = 0.5f;
+            touchArea.asCom.alpha = 0.2f;
         }
         else
         {

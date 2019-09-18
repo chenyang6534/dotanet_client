@@ -248,7 +248,7 @@ public class GameScene : MonoBehaviour {
                 //伤害数字提示
                 foreach ( var item in p1.PlayerHurt)
                 {
-                    //Debug.Log("--id:"+item.HurtUnitID+"  value:"+item.HurtAllValue);
+                    Debug.Log("--id:"+item.HurtUnitID+"  value:"+item.HurtAllValue+"  gold:"+item.GetGold);
                     var unit = UnityEntityManager.Instance.GetUnityEntity(item.HurtUnitID);
                     if(unit != null)
                     {

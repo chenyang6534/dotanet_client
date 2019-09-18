@@ -41,6 +41,8 @@ public class UnityEntity {
         m_Scene = scene;
         Name = data.Name;
         Level = data.Level;
+        Experience = data.Experience;
+        MaxExperience = data.MaxExperience;
         HP = data.HP;
         MP = data.MP;
         MaxHP = data.MaxHP;
@@ -291,6 +293,8 @@ public class UnityEntity {
             //-----更新其他数据----
             //Name = data.Name;
             Level += data.Level;
+            Experience += data.Experience;
+            MaxExperience += data.MaxExperience;
             HP += data.HP;
             MP += data.MP;
             MaxHP += data.MaxHP;
@@ -371,7 +375,7 @@ public class UnityEntity {
         var count = 0;
         for (var i = 0; i < m_SkillDatas.Length; i++)
         {
-            count += m_SkillDatas[i].Level;
+            count += (m_SkillDatas[i].Level- m_SkillDatas[i].InitLevel);
         }
         return count;
     }
@@ -674,6 +678,33 @@ public class UnityEntity {
             m_Level = value;
         }
     }
+    //经验
+    protected int m_Experience;
+    public int Experience
+    {
+        get
+        {
+            return m_Experience;
+        }
+        set
+        {
+            m_Experience = value;
+        }
+    }
+    //最大经验值
+    protected int m_MaxExperience;
+    public int MaxExperience
+    {
+        get
+        {
+            return m_MaxExperience;
+        }
+        set
+        {
+            m_MaxExperience = value;
+        }
+    }
+
 
     // HP
     protected int m_HP;
@@ -960,8 +991,36 @@ public class UnityEntity {
         });
     }
 
-    
-   
+    //创建获得金币
+    public void ShowGetGold(int gold)
+    {
+
+        Debug.Log("------------ShowMiss------------");
+        //var words = (GameObject)(GameObject.Instantiate(Resources.Load("UIPref/HurtWords")));
+        //words.transform.parent = m_Mode.transform.parent;
+        //words.transform.position = m_Mode.transform.position + new Vector3(0, m_MeshHeight, -0.1f);
+        GComponent words = UIPackage.CreateObject("GameUI", "HurtInfo").asCom;
+        WordsInfo wd = AddWordsInfo(words);
+        wd.RandomX(-30, 30);
+
+        //words.z = 0;
+        //1，直接加到GRoot显示出来
+        GRoot.inst.AddChild(words);
+        GRoot.inst.SetChildIndex(words, 1);
+        //var root = words.GetComponent<FairyGUI.UIPanel>().ui;
+        words.GetChild("num").asTextField.text = ""+ gold;
+        words.GetChild("num").asTextField.color = new Color(245/255.0f, 218/255.0f, 0);
+        words.GetChild("num").asTextField.shadowOffset = new Vector2(3, 3);
+        words.GetChild("num").asTextField.textFormat.bold = true;
+        FairyGUI.Transition trans = words.GetTransition("getgold");
+        trans.Play();
+        trans.SetHook("over", () => {
+            RemoveWordsInfo(wd);
+        });
+    }
+
+
+
 
     public class WordsInfo
     {
@@ -1016,6 +1075,13 @@ public class UnityEntity {
     {
         //Vector2 pt = World2FairyUIPoint();
         //pt.x += UnityEngine.Random.Range(-30, 30);
+
+        //如果是加金币
+        if( hurt.GetGold > 0)
+        {
+            ShowGetGold(hurt.GetGold);
+            return;
+        }
 
         
 

@@ -232,14 +232,17 @@ public class BuffEffect
 
     public void UpdateData()
     {
+        Debug.Log("------UpdateData---:");
         //更新显示的数据
         foreach (GameObject p in ModeEffect)
         {
             MagicBeamScript magicbeam = p.GetComponent<MagicBeamScript>();
             if(magicbeam != null)
             {
-                if( Data.ConnectionType != 0)
+                Debug.Log("------magicbeam---:"+p+" "+ Data.ConnectionType);
+                if ( Data.ConnectionType != 0)
                 {
+                    Debug.Log("------ShootBeamInDir---:" + Data.ConnectionX+" "+ Data.ConnectionZ + " " + Data.ConnectionY);
                     magicbeam.ShootBeamInDir(ParentEntity.Mode.transform.position+new Vector3(0, ParentEntity.MeshHeight/2,0),
                         new Vector3(Data.ConnectionX, Data.ConnectionZ, Data.ConnectionY) + new Vector3(0, ParentEntity.MeshHeight / 2, 0));
                     //magicbeam.ShootBeamInDir(ParentEntity.Mode.transform.position,

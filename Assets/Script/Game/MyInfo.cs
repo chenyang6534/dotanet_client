@@ -9,18 +9,23 @@ using System.Threading;
 public class MyInfo {
     private GComponent unitinfo;
     private GComponent baginfo;
+    private GComponent itemdropinfo;
     private GComponent main;
     private UnityEntity unit;
 
     private Protomsg.SC_BagInfo BagDataInfo;
     private Protomsg.UnitBoardDatas UnitDataInfo;
+
+    protected bool IsDestroy;
     public MyInfo(UnityEntity unit)
     {
+        IsDestroy = false;
         this.unit = unit;
         this.InitNetData();
         main = UIPackage.CreateObject("GameUI", "MyInfo").asCom;
         unitinfo = main.GetChild("heroInfo").asCom;
         baginfo = main.GetChild("bag").asCom;
+        itemdropinfo = main.GetChild("drop").asCom;
         GRoot.inst.AddChild(main);
         //main.fairyBatching = true;
 
@@ -62,11 +67,190 @@ public class MyInfo {
         MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetUnitInfo", msg1);
 
         Thread.Sleep(2000);
-        Protomsg.CS_GetUnitInfo msg2 = new Protomsg.CS_GetUnitInfo();
-        msg2.UnitID = unit.ID;
-        MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetUnitInfo", msg2);
+        if(IsDestroy == false)
+        {
+            Protomsg.CS_GetUnitInfo msg2 = new Protomsg.CS_GetUnitInfo();
+            msg2.UnitID = unit.ID;
+            MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetUnitInfo", msg2);
+        }
+        
     }
 
+    public void InitItemDrag()
+    {
+        if(GameScene.Singleton.m_MyMainUnit == unit)
+        {
+            //道具拖动
+            for (var i = 0; i < 6; i++)
+            {
+                //
+
+                //道具
+                var item = unitinfo.GetChild("item" + (i + 1)).asButton;
+                //item.z = 12;
+                item.data = i;
+                item.draggable = true;
+                item.onDragStart.Add((EventContext context) =>
+                {
+                    //Cancel the original dragging, and start a new one with a agent.
+                    context.PreventDefault();
+                    InputEvent inputEvent = (context.inputEvent);
+                    Stage.inst.CancelClick(inputEvent.touchId);
+
+                    //item.SetState(OVER);
+
+                    //Debug.Log("onDragStart");
+
+                    //1表示装备栏 2表示背包
+                    DragDropManager.inst.StartDrag(item, item.icon, item.data + ",1", (int)context.data);
+                });
+                //DragDropManager.inst.dragAgent.onDragEnd.Add((EventContext context) =>
+                //{
+                //    item.touchable = true;
+                //    //Debug.Log("onDragEnd");
+                //});
+
+                item.onDrop.Add((EventContext context) =>
+                {
+                    string[] sArray = ((string)context.data).Split(',');
+                    if (sArray.Length != 2)
+                    {
+                        return;
+                    }
+
+                    SendChangePos(int.Parse(sArray[0]), (int)item.data, int.Parse(sArray[1]), 1);
+                });
+
+                item.onClick.Add(() => {
+                    //Debug.Log("onClick");
+                    var index = (int)item.data;
+                    var typeid = -1;
+                    for (var j = 0; j < UnitDataInfo.Equips.Count; j++)
+                    {
+                        if (UnitDataInfo.Equips[j].Pos == index)
+                        {
+                            typeid = UnitDataInfo.Equips[j].TypdID;
+                        }
+                    }
+                    if (typeid != -1)
+                    {
+                        new ItemInfo(typeid);
+                    }
+
+
+                });
+            }
+            //baginfo
+            for (var i = 0; i < 36; i++)
+            {
+                //道具
+                var item = baginfo.GetChild("bagitem" + (i + 1)).asButton;
+                item.data = i;
+                item.draggable = true;
+                item.onDragStart.Add((EventContext context) =>
+                {
+                    //Cancel the original dragging, and start a new one with a agent.
+                    context.PreventDefault();
+                    InputEvent inputEvent = (context.inputEvent);
+                    Stage.inst.CancelClick(inputEvent.touchId);
+                    DragDropManager.inst.StartDrag(item, item.icon, item.data + ",2", (int)context.data);
+                });
+
+                item.onDrop.Add((EventContext context) =>
+                {
+                    string[] sArray = ((string)context.data).Split(',');
+                    if (sArray.Length != 2)
+                    {
+                        return;
+                    }
+                    SendChangePos(int.Parse(sArray[0]), (int)item.data, int.Parse(sArray[1]), 2);
+                });
+
+                item.onClick.Add(() => {
+                    var index = (int)item.data;
+                    var typeid = -1;
+                    for (var j = 0; j < BagDataInfo.Equips.Count; j++)
+                    {
+                        if (BagDataInfo.Equips[j].Pos == index)
+                        {
+                            typeid = BagDataInfo.Equips[j].TypdID;
+                        }
+                    }
+                    if (typeid != -1)
+                    {
+                        new ItemInfo(typeid);
+                    }
+
+
+                });
+            }
+        }
+        else
+        {
+            baginfo.visible = false;
+        }
+    }
+
+    public void InitDropItem()
+    {
+        //阵营(1:玩家 2:NPC)
+        if (unit.Camp != 1)
+        {
+            itemdropinfo.visible = true;
+        }
+        else
+        {
+            itemdropinfo.visible = false;
+        }
+    }
+    
+    //初始化技能信息
+    public void InitSkillInfo()
+    {
+        if (unit == null || unit.SkillDatas == null)
+        {
+            //unitinfo.GetChild("skill_list").asList.visible = false;
+            return;
+        }
+        var skilllist = unitinfo.GetChild("skill_list").asList;
+        if(skilllist == null)
+        {
+            return;
+        }
+        skilllist.RemoveChildren();
+
+        //排序
+        System.Array.Sort(unit.SkillDatas, (s1, s2) => s1.Index.CompareTo(s2.Index));
+        foreach (var item in unit.SkillDatas)
+        {
+            var clientitem = ExcelManager.Instance.GetSkillManager().GetSkillByID(item.TypeID);
+            if (clientitem != null && item.Visible == 1)
+            {
+                var onedropitem = UIPackage.CreateObject("GameUI", "HeroInfo_Skill").asButton;
+                onedropitem.icon = clientitem.IconPath;
+
+                onedropitem.GetChild("level").asTextField.text = "Lv."+item.Level;
+
+                if(item.Level <= 0)
+                {
+                    onedropitem.asCom.alpha = 0.2f;
+                }
+                else
+                {
+                    onedropitem.asCom.alpha = 1;
+                }
+                
+                onedropitem.onClick.Add(() => {
+                    //Debug.Log("onClick");
+                    if (clientitem.TypeID != -1)
+                    {
+                        new SkillInfo(clientitem.TypeID);
+                    }
+                });
+                skilllist.AddChild(onedropitem);
+            }
+        }
+    }
 
     //初始化
     public void Init()
@@ -78,111 +262,10 @@ public class MyInfo {
         //关闭按钮
         unitinfo.GetChild("close").asButton.onClick.Add(() => { Destroy(); });
 
-        //道具拖动
-        for (var i = 0; i < 6; i++)
-        {
-            //
 
-            //道具
-            var item = unitinfo.GetChild("item" + (i + 1)).asButton;
-            //item.z = 12;
-            item.data = i;
-            item.draggable = true;
-            item.onDragStart.Add((EventContext context) =>
-            {
-                //Cancel the original dragging, and start a new one with a agent.
-                context.PreventDefault();
-                InputEvent inputEvent = (context.inputEvent);
-                Stage.inst.CancelClick(inputEvent.touchId);
-
-                //item.SetState(OVER);
-
-                //Debug.Log("onDragStart");
-
-                //1表示装备栏 2表示背包
-                DragDropManager.inst.StartDrag(item, item.icon, item.data + ",1", (int)context.data);
-            });
-            //DragDropManager.inst.dragAgent.onDragEnd.Add((EventContext context) =>
-            //{
-            //    item.touchable = true;
-            //    //Debug.Log("onDragEnd");
-            //});
-
-            item.onDrop.Add((EventContext context) =>
-            {
-                string[] sArray = ((string)context.data).Split(',');
-                if(sArray.Length != 2)
-                {
-                    return;
-                }
-
-                SendChangePos(int.Parse(sArray[0]), (int)item.data, int.Parse(sArray[1]), 1);
-            });
-
-            item.onClick.Add(() => {
-                //Debug.Log("onClick");
-                var index = (int)item.data;
-                var typeid = -1;
-                for (var j = 0; j < UnitDataInfo.Equips.Count; j++)
-                {
-                    if(UnitDataInfo.Equips[j].Pos == index)
-                    {
-                        typeid = UnitDataInfo.Equips[j].TypdID;
-                    }
-                }
-                if(typeid != -1)
-                {
-                    new ItemInfo(typeid);
-                }
-                
-                
-            });
-        }
-        //baginfo
-        for (var i = 0; i < 36; i++)
-        {
-            //道具
-            var item = baginfo.GetChild("bagitem" + (i + 1)).asButton;
-            item.data = i;
-            item.draggable = true;
-            item.onDragStart.Add((EventContext context) =>
-            {
-                //Cancel the original dragging, and start a new one with a agent.
-                context.PreventDefault();
-                InputEvent inputEvent = (context.inputEvent);
-                Stage.inst.CancelClick(inputEvent.touchId);
-                DragDropManager.inst.StartDrag(item, item.icon, item.data + ",2" , (int)context.data);
-            });
-
-            item.onDrop.Add((EventContext context) =>
-            {
-                string[] sArray = ((string)context.data).Split(',');
-                if (sArray.Length != 2)
-                {
-                    return;
-                }
-                SendChangePos(int.Parse(sArray[0]), (int)item.data, int.Parse(sArray[1]), 2);
-            });
-
-            item.onClick.Add(() => {
-                var index = (int)item.data;
-                var typeid = -1;
-                for (var j = 0; j < BagDataInfo.Equips.Count; j++)
-                {
-                    if (BagDataInfo.Equips[j].Pos == index)
-                    {
-                        typeid = BagDataInfo.Equips[j].TypdID;
-                    }
-                }
-                if (typeid != -1)
-                {
-                    new ItemInfo(typeid);
-                }
-
-
-            });
-        }
-
+        InitItemDrag();
+        InitDropItem();
+        InitSkillInfo();
 
 
         //模型
@@ -192,7 +275,7 @@ public class MyInfo {
         modeeffect.transform.localScale = new Vector3(100, 100, 100);
         if (box != null)
         {
-            var scale = box.size.y / 2;
+            var scale = box.size.y / 1.2f;
             modeeffect.transform.localScale = new Vector3(100/ scale, 100 / scale, 100 / scale);
         }
         
@@ -219,6 +302,7 @@ public class MyInfo {
         }
         MsgManager.Instance.RemoveListener("SC_UnitInfo");
         MsgManager.Instance.RemoveListener("SC_BagInfo");
+        IsDestroy = true;
     }
 
     //初始化网络数据
@@ -231,9 +315,13 @@ public class MyInfo {
         msg1.UnitID = unit.ID;
         MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetUnitInfo", msg1);
 
-        Protomsg.CS_GetBagInfo msg2 = new Protomsg.CS_GetBagInfo();
-        msg2.UnitID = unit.ID;
-        MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetBagInfo", msg2);
+        if (GameScene.Singleton.m_MyMainUnit == unit)
+        {
+            Protomsg.CS_GetBagInfo msg2 = new Protomsg.CS_GetBagInfo();
+            msg2.UnitID = unit.ID;
+            MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetBagInfo", msg2);
+        }
+            
     }
     public bool SC_BagInfo(Protomsg.MsgBase d1)
     {
@@ -293,6 +381,49 @@ public class MyInfo {
 
     }
 
+    //刷新掉落道具
+    public void FreshDropItem(string dropitem)
+    {
+        Debug.Log("FreshDropItem:" + dropitem);
+        var itemlist = itemdropinfo.GetChild("list").asList;
+        itemlist.RemoveChildren();
+        if(dropitem.Length > 0)
+        {
+            string[] sArray = dropitem.Split(';');
+            foreach (string i in sArray)
+            {
+                string[] onedrop = i.Split(',');
+                if(onedrop.Length == 2)
+                {
+                    Debug.Log("--FreshDropItem--" + onedrop[0]+"   "+ onedrop[1]);
+                    //var typeid = 
+                    var clientitem = ExcelManager.Instance.GetItemManager().GetItemByID(int.Parse(onedrop[0]));
+                    if (clientitem != null)
+                    {
+                        var onedropitem = UIPackage.CreateObject("GameUI", "dropItemButton1").asButton;
+                        onedropitem.icon = clientitem.IconPath;
+                        float f1 = System.Convert.ToSingle(onedrop[1]);
+                        onedropitem.GetChild("droptxt").asTextField.text = (f1 * 100).ToString("#.00")+"%";
+
+
+                        onedropitem.onClick.Add(() => {
+                            //Debug.Log("onClick");
+                            if (clientitem.TypeID != -1)
+                            {
+                                new ItemInfo(clientitem.TypeID);
+                            }
+                        });
+
+
+                        itemlist.AddChild(onedropitem);
+
+                        Debug.Log("--FreshDropItem:"+ clientitem.IconPath);
+                    }
+                    
+                }
+            }
+        }
+    }
 
     //刷新单位信息
     public void FreshUnitInfoData(Protomsg.UnitBoardDatas data)
@@ -323,14 +454,48 @@ public class MyInfo {
             //unitinfo.GetChild("item" + (itemdata.Pos + 1)).asLoader.url = clientitem.IconPath;// "ui://GameUI/黯灭";
             unitinfo.GetChild("item" + (itemdata.Pos + 1)).asButton.icon = clientitem.IconPath;
         }
-        
 
-        
+
+        //等级
+        unitinfo.GetChild("level").asTextField.text = ((int)unit.Level).ToString();
+        //经验值
+        unitinfo.GetChild("experience").asTextField.text = ((int)unit.Experience).ToString()+"/"+ ((int)unit.MaxExperience).ToString();
+
+        //今日剩余经验值
+        unitinfo.GetChild("remainexperience").asTextField.text = ((int)data.RemainExperience).ToString();
+        if(unit.UnitType != 1)
+        {
+            unitinfo.GetChild("remainexperience").asTextField.visible = false;
+            unitinfo.GetChild("remainexlable").asTextField.visible = false;
+
+            unitinfo.GetChild("exlable").asTextField.visible = false;
+            unitinfo.GetChild("experience").asTextField.visible = false;
+        }
 
         //力量 敏捷 智力
         unitinfo.GetChild("strength").asTextField.text = ((int)data.AttributeStrength).ToString();
         unitinfo.GetChild("agility").asTextField.text = ((int)data.AttributeAgility).ToString();
         unitinfo.GetChild("intelligence").asTextField.text = ((int)data.AttributeIntelligence).ToString();
+        //主属性(1:力量 2:敏捷 3:智力)
+        if (data.AttributePrimary == 1)
+        {
+            unitinfo.GetChild("strength").asTextField.color = new Color(0.1f, 0.8f, 0.4f);
+            unitinfo.GetChild("agility").asTextField.color = new Color(1, 1, 1);
+            unitinfo.GetChild("intelligence").asTextField.color = new Color(1, 1, 1);
+        }
+        else if(data.AttributePrimary == 2)
+        {
+            unitinfo.GetChild("strength").asTextField.color = new Color(1, 1, 1);
+            unitinfo.GetChild("agility").asTextField.color = new Color(0.1f, 0.8f, 0.4f);
+            unitinfo.GetChild("intelligence").asTextField.color = new Color(1, 1, 1);
+            
+        }
+        else if(data.AttributePrimary == 3)
+        {
+            unitinfo.GetChild("strength").asTextField.color = new Color(1, 1, 1);
+            unitinfo.GetChild("agility").asTextField.color = new Color(1, 1, 1);
+            unitinfo.GetChild("intelligence").asTextField.color = new Color(0.1f, 0.8f, 0.4f);
+        }
         //攻击
         unitinfo.GetChild("attack").asTextField.text = ((int)data.Attack).ToString();
         unitinfo.GetChild("attackspeed").asTextField.text = ((int)data.AttackSpeed).ToString();
@@ -346,6 +511,8 @@ public class MyInfo {
         unitinfo.GetChild("dodge").asTextField.text = ((int)(data.Dodge * 100)).ToString() + "%";
         unitinfo.GetChild("hpregain").asTextField.text = (data.HPRegain).ToString("f2");
 
+
+        FreshDropItem(data.DropItems);
 
     }
 }

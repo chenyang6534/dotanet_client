@@ -35,10 +35,10 @@ namespace cocosocket4unity
       }
       public KcpOnUdp(int port)
       {
-              client = new UdpClient(port);
-              kcp = new Kcp(121106, this, null);
-              this.received = new LinkedList<ByteBuf>();
-              this.sendList = new LinkedList<ByteBuf>();
+            client = new UdpClient(port);
+            kcp = new Kcp(121106, this, null);
+            this.received = new LinkedList<ByteBuf>();
+            this.sendList = new LinkedList<ByteBuf>();
       }
       /// <summary>
       /// 连接到地址

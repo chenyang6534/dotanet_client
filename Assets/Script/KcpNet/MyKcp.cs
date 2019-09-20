@@ -23,7 +23,7 @@ namespace cocosocket4unity
 	{
         public static int PingValue = 0;
         protected double m_SendHeartTime = 0;
-        private static readonly MyKcp _instance = new MyKcp();
+        private static MyKcp _instance = new MyKcp();
         public static MyKcp Instance
         {
             get
@@ -33,6 +33,12 @@ namespace cocosocket4unity
         }
 
         private MyKcp() { }
+
+        public void Destroy()
+        {
+            this.Stop();
+            _instance = new MyKcp();
+        }
 
 
         protected override void HandleReceive(ByteBuf bb)
@@ -84,6 +90,7 @@ namespace cocosocket4unity
         public void Create(String ip,int port)
         {
             this.Stop();
+            //Thread.Sleep(1000);
 
             this.NoDelay(1, 10, 2, 1);//fast
             this.WndSize(128, 128);

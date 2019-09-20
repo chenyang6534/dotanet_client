@@ -16,6 +16,7 @@ public class GameScene : MonoBehaviour {
     protected double m_GameServerStartTime;//游戏场景服务器第0帧的时候的本地时间
     protected float m_LogicDelayTime;//逻辑延时
     public string m_ServerName;
+    public int m_SceneID;
 
     public int m_MaxFrame = 0;//当前收到的逻辑帧数据 帧号
     protected Dictionary<int,Protomsg.SC_Update> m_LogicFrameData;//逻辑帧数据
@@ -88,6 +89,7 @@ public class GameScene : MonoBehaviour {
         m_CurFrame = p1.CurFrame;
         m_LogicFps = p1.LogicFps;
         m_ServerName = p1.ServerName;
+        m_SceneID = p1.SceneID;
         m_GameServerStartTime = Tool.GetTime() - 1.0f/p1.LogicFps* p1.CurFrame;
         Debug.Log("starttime:"+ m_GameServerStartTime+ " LogicFps: "+ p1.LogicFps+"  curframe:"+m_CurFrame+"  time:"+ Time.realtimeSinceStartup);
         CleanScene();

@@ -108,15 +108,15 @@ namespace Protomsg {
             "dGFzEhMKC1JlbW92ZUhhbG9zGAogAygFEi8KDU5ld1NjZW5lSXRlbXMYCyAD",
             "KAsyGC5wcm90b21zZy5TY2VuZUl0ZW1EYXRhcxIYChBSZW1vdmVTY2VuZUl0",
             "ZW1zGAwgAygFEisKClBsYXllckh1cnQYDSADKAsyFy5wcm90b21zZy5Nc2dQ",
-            "bGF5ZXJIdXJ0IlMKC1NDX05ld1NjZW5lEgwKBE5hbWUYASABKAkSEAoITG9n",
+            "bGF5ZXJIdXJ0ImQKC1NDX05ld1NjZW5lEgwKBE5hbWUYASABKAkSEAoITG9n",
             "aWNGcHMYAiABKAUSEAoIQ3VyRnJhbWUYAyABKAUSEgoKU2VydmVyTmFtZRgE",
-            "IAEoCSJWChJDaGFyYWN0ZXJCYXNlRGF0YXMSEwoLQ2hhcmFjdGVyaWQYASAB",
-            "KAUSDAoETmFtZRgCIAEoCRIOCgZUeXBlaWQYAyABKAUSDQoFTGV2ZWwYBCAB",
-            "KAUiaAoKU0NfTG9naW5lZBIMCgRDb2RlGAEgASgFEgsKA1VpZBgCIAEoBRIN",
-            "CgVFcnJvchgDIAEoCRIwCgpDaGFyYWN0ZXJzGAQgAygLMhwucHJvdG9tc2cu",
-            "Q2hhcmFjdGVyQmFzZURhdGFzIkwKGFNDX1NlbGVjdENoYXJhY3RlclJlc3Vs",
-            "dBIMCgRDb2RlGAEgASgFEhMKC0NoYXJhY3RlcmlkGAIgASgFEg0KBUVycm9y",
-            "GAMgASgJYgZwcm90bzM="));
+            "IAEoCRIPCgdTY2VuZUlEGAUgASgFIlYKEkNoYXJhY3RlckJhc2VEYXRhcxIT",
+            "CgtDaGFyYWN0ZXJpZBgBIAEoBRIMCgROYW1lGAIgASgJEg4KBlR5cGVpZBgD",
+            "IAEoBRINCgVMZXZlbBgEIAEoBSJoCgpTQ19Mb2dpbmVkEgwKBENvZGUYASAB",
+            "KAUSCwoDVWlkGAIgASgFEg0KBUVycm9yGAMgASgJEjAKCkNoYXJhY3RlcnMY",
+            "BCADKAsyHC5wcm90b21zZy5DaGFyYWN0ZXJCYXNlRGF0YXMiTAoYU0NfU2Vs",
+            "ZWN0Q2hhcmFjdGVyUmVzdWx0EgwKBENvZGUYASABKAUSEwoLQ2hhcmFjdGVy",
+            "aWQYAiABKAUSDQoFRXJyb3IYAyABKAliBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -145,7 +145,7 @@ namespace Protomsg {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.MsgUserEnterScene), global::Protomsg.MsgUserEnterScene.Parser, new[]{ "Uid", "ConnectId", "SrcServerName", "DestServerName", "SceneID", "Datas" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.MsgPlayerHurt), global::Protomsg.MsgPlayerHurt.Parser, new[]{ "HurtUnitID", "HurtAllValue", "HurtMagicValue", "IsCrit", "GetGold" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_Update), global::Protomsg.SC_Update.Parser, new[]{ "CurFrame", "NewUnits", "OldUnits", "RemoveUnits", "NewBullets", "OldBullets", "RemoveBullets", "NewHalos", "OldHalos", "RemoveHalos", "NewSceneItems", "RemoveSceneItems", "PlayerHurt" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_NewScene), global::Protomsg.SC_NewScene.Parser, new[]{ "Name", "LogicFps", "CurFrame", "ServerName" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_NewScene), global::Protomsg.SC_NewScene.Parser, new[]{ "Name", "LogicFps", "CurFrame", "ServerName", "SceneID" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CharacterBaseDatas), global::Protomsg.CharacterBaseDatas.Parser, new[]{ "Characterid", "Name", "Typeid", "Level" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_Logined), global::Protomsg.SC_Logined.Parser, new[]{ "Code", "Uid", "Error", "Characters" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_SelectCharacterResult), global::Protomsg.SC_SelectCharacterResult.Parser, new[]{ "Code", "Characterid", "Error" }, null, null, null)
@@ -7659,6 +7659,7 @@ namespace Protomsg {
       logicFps_ = other.logicFps_;
       curFrame_ = other.curFrame_;
       serverName_ = other.serverName_;
+      sceneID_ = other.sceneID_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -7723,6 +7724,20 @@ namespace Protomsg {
       }
     }
 
+    /// <summary>Field number for the "SceneID" field.</summary>
+    public const int SceneIDFieldNumber = 5;
+    private int sceneID_;
+    /// <summary>
+    ///场景ID
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int SceneID {
+      get { return sceneID_; }
+      set {
+        sceneID_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as SC_NewScene);
@@ -7740,6 +7755,7 @@ namespace Protomsg {
       if (LogicFps != other.LogicFps) return false;
       if (CurFrame != other.CurFrame) return false;
       if (ServerName != other.ServerName) return false;
+      if (SceneID != other.SceneID) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -7750,6 +7766,7 @@ namespace Protomsg {
       if (LogicFps != 0) hash ^= LogicFps.GetHashCode();
       if (CurFrame != 0) hash ^= CurFrame.GetHashCode();
       if (ServerName.Length != 0) hash ^= ServerName.GetHashCode();
+      if (SceneID != 0) hash ^= SceneID.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -7779,6 +7796,10 @@ namespace Protomsg {
         output.WriteRawTag(34);
         output.WriteString(ServerName);
       }
+      if (SceneID != 0) {
+        output.WriteRawTag(40);
+        output.WriteInt32(SceneID);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -7798,6 +7819,9 @@ namespace Protomsg {
       }
       if (ServerName.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(ServerName);
+      }
+      if (SceneID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(SceneID);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -7821,6 +7845,9 @@ namespace Protomsg {
       }
       if (other.ServerName.Length != 0) {
         ServerName = other.ServerName;
+      }
+      if (other.SceneID != 0) {
+        SceneID = other.SceneID;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -7847,6 +7874,10 @@ namespace Protomsg {
           }
           case 34: {
             ServerName = input.ReadString();
+            break;
+          }
+          case 40: {
+            SceneID = input.ReadInt32();
             break;
           }
         }

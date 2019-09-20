@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.IO;
+using System.Net.Sockets;
 
 namespace cocosocket4unity
 {
@@ -45,8 +46,10 @@ namespace cocosocket4unity
            running = false;
            try 
            {
-            this.client.Close(); 
-           }catch (Exception ex)
+            this.client.Close();
+            //this.client = new UdpClient(0);
+            }
+            catch (Exception ex)
            {
            }
            }

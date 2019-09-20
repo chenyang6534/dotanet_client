@@ -70,9 +70,9 @@ public class Skillstick : EventDispatcher
     }
     //
     public Vector2[] ThreeSkillLevelPos = {
-        new Vector2(25,115),
+        new Vector2(30,115),
         new Vector2(50,120),
-        new Vector2(75, 115) };
+        new Vector2(70, 115) };
     public Vector2[] FourSkillLevelPos = {
         new Vector2(12.5f,108),
         new Vector2(37.5f, 117.5f),

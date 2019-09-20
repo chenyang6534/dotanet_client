@@ -4,13 +4,16 @@ using UnityEngine;
 using cocosocket4unity;
 using FairyGUI;
 using UnityEngine.SceneManagement;
+using System;
 
 public class LoginUI : MonoBehaviour {
     public static int UID;
     public static int Characterid;
     protected GComponent mRoot;
-	// Use this for initialization
-	void Start () {
+
+    protected ServerListInfo SelectServer;
+    // Use this for initialization
+    void Start () {
         //UIPackage.AddPackage("FairyGui/GameUI");
         //GComponent view = UIPackage.CreateObject("GameUI","MyInfo").asCom;
         //以下几种方式都可以将view显示出来：
@@ -18,20 +21,18 @@ public class LoginUI : MonoBehaviour {
         //GRoot.inst.AddChild(view);
         //view.Center();
         Debug.Log("width:" + Screen.width + " height:" + Screen.height);
-        //view.xy = new Vector2(Screen.width/2, Screen.height/2);
+        
 
-        //var testui = (GameObject)(GameObject.Instantiate(Resources.Load("UIPref/test")));
-        //testui.transform.parent = gameObject.transform;
-        //testui.transform.localPosition = new Vector3(0, 0, 0);
-        //testui.transform.localRotation = 
-
-        MyKcp.Instance.Create("127.0.0.1", 1118);
+        
+        //MyKcp.Instance.Create("119.23.8.72", 1118);
         //MyKcp.Instance.Create("119.23.8.72", 1118);
         mRoot = GetComponent<UIPanel>().ui;
         //mRoot.GetChild("center")..AddChild(view);
-        mRoot.GetChild("n6").asButton.onClick.Add(()=> {
+        mRoot.GetChild("login").asButton.onClick.Add(()=> {
 
-            
+            MyKcp.Instance.Create(SelectServer.ip, SelectServer.port);
+
+
             Protomsg.CS_MsgQuickLogin msg1 = new Protomsg.CS_MsgQuickLogin();
             //msg1.Machineid = "100001"; //PA
             //msg1.Machineid = "10000";   //剑圣 (技能特效完结)
@@ -57,7 +58,8 @@ public class LoginUI : MonoBehaviour {
             MyKcp.Instance.SendMsg("Login", "CS_MsgQuickLogin", msg1);
             UnityEngine.Debug.Log("login onClick");
         });
-        
+
+        InitServerList();
 
         MsgManager.Instance.AddListener("SC_Logined", new HandleMsg(this.Logined));
 
@@ -65,6 +67,71 @@ public class LoginUI : MonoBehaviour {
         
 
 
+    }
+
+    [Serializable]
+    public class ServerListInfo
+    {
+        public string name;
+        public string ip;
+        public int port;
+        public int state; // 1表示空闲 2表示拥挤 3表示已满
+        public int index;//唯一索引
+
+    }
+    [Serializable]
+    public class ServerListInfoArr
+    {
+        public ServerListInfo[] servers;
+    }
+
+    void InitServerList()
+    {
+        //测试数据
+        ServerListInfo[] allServerList = new ServerListInfo[5];
+        for (var i = 0; i < 5; i++)
+        {
+            ServerListInfo p = new ServerListInfo();
+            p.name = (i+1)+"服";
+            p.ip = "127.0.0.1";
+            p.port = 1118;
+            p.state = 1;
+            p.index = i;
+            allServerList[i] = p;
+        }
+        ServerListInfoArr t1 = new ServerListInfoArr();
+        t1.servers = allServerList;
+        var jsonstr = JsonUtility.ToJson(t1);
+
+        Debug.Log("-------------InitServerList:" + jsonstr);
+
+        //默认id
+        var defaultid = 1;
+        var t2 = JsonUtility.FromJson<ServerListInfoArr>(jsonstr);
+        var serverlist = t2.servers;
+        Debug.Log("-------------len:" + serverlist.Length);
+        var defaultserver = serverlist[defaultid];
+        SelectServer = defaultserver;
+        //建立连接
+        //MyKcp.Instance.Create(defaultserver.ip, defaultserver.port);
+        //
+        string[] names = new string[serverlist.Length];
+        string[] values = new string[serverlist.Length];
+        for (var i = 0; i < serverlist.Length; i++)
+        {
+            names[i] = serverlist[i].name;
+            values[i] = ""+serverlist[i].index;
+        }
+        GComboBox combo = mRoot.GetChild("server").asComboBox;
+        combo.items = names;
+        combo.values = values;
+        combo.selectedIndex = defaultid;
+        combo.onChanged.Add(() => {
+            SelectServer = serverlist[int.Parse(combo.value)];
+            //重新建立连接
+            //MyKcp.Instance.Destroy();
+            //MyKcp.Instance.Create(SelectServer.ip, SelectServer.port);
+        });
     }
 	
 	// Update is called once per frame

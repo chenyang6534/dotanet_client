@@ -130,6 +130,31 @@ public class ExcelReader
             return array;
         }
 
+        public static Scene[] CreateSceneArrayWithExcel(string filePath)
+        {
+            //获得表数据
+            int columnNum = 0, rowNum = 0;
+            DataRowCollection collect = ReadExcel(filePath, ref columnNum, ref rowNum);
+
+            //根据excel的定义，第二行开始才是数据
+            Scene[] array = new Scene[rowNum - 1];
+            for (int i = 1; i < rowNum; i++)
+            {
+                Scene item = new Scene();
+                //解析每列的数据
+                item.TypeID = int.Parse(collect[i][0].ToString());
+                item.ScenePath = collect[i][1].ToString();
+                item.Little_BG = collect[i][2].ToString();
+                item.StartX = int.Parse(collect[i][3].ToString());
+                item.StartY = int.Parse(collect[i][4].ToString());
+                item.EndX = int.Parse(collect[i][5].ToString());
+                item.EndY = int.Parse(collect[i][6].ToString());
+                array[i - 1] = item;
+                
+            }
+            return array;
+        }
+
         /// <summary>
         /// 读取excel文件内容
         /// </summary>
@@ -160,6 +185,7 @@ public class ExcelReader
             CreateBuffItemAsset();
             CreateItemAsset();
             CreateSkillAsset();
+            CreateSceneAsset();
         }
         public static void CreateBulletItemAsset()
         {
@@ -233,6 +259,26 @@ public class ExcelReader
 
             //asset文件的路径 要以"Assets/..."开始，否则CreateAsset会报错
             string assetPath = string.Format("{0}{1}.asset", ExcelConfig.assetPath, "Skill");
+            //生成一个Asset文件
+            AssetDatabase.CreateAsset(manager, assetPath);
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+        }
+
+        public static void CreateSceneAsset()
+        {
+            SceneManager manager = ScriptableObject.CreateInstance<SceneManager>();
+            //赋值
+            manager.dataArray = ExcelTool.CreateSceneArrayWithExcel(ExcelConfig.excelsFolderPath + "client_scene.xlsx");
+
+            //确保文件夹存在
+            if (!Directory.Exists(ExcelConfig.assetPath))
+            {
+                Directory.CreateDirectory(ExcelConfig.assetPath);
+            }
+
+            //asset文件的路径 要以"Assets/..."开始，否则CreateAsset会报错
+            string assetPath = string.Format("{0}{1}.asset", ExcelConfig.assetPath, "Scene");
             //生成一个Asset文件
             AssetDatabase.CreateAsset(manager, assetPath);
             AssetDatabase.SaveAssets();

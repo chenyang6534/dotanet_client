@@ -1010,7 +1010,7 @@ public class UnityEntity {
         //var root = words.GetComponent<FairyGUI.UIPanel>().ui;
         words.GetChild("num").asTextField.text = ""+ gold;
         words.GetChild("num").asTextField.color = new Color(245/255.0f, 218/255.0f, 0);
-        words.GetChild("num").asTextField.shadowOffset = new Vector2(3, 3);
+        words.GetChild("num").asTextField.shadowOffset = new Vector2(1, 1);
         words.GetChild("num").asTextField.textFormat.bold = true;
         FairyGUI.Transition trans = words.GetTransition("getgold");
         trans.Play();

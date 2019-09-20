@@ -23,8 +23,12 @@ public class GameUI : MonoBehaviour {
 
     private HeadInfo MyHeadInfo;
     private HeadInfo TargetHeadInfo;
-    void Start () {
 
+    protected GComponent LittleMapCom;
+    protected int SceneID;
+
+    void Start () {
+        SceneID = -1;
         SkillCom = new Dictionary<int, Skillstick>();
         ItemSkillCom = new Dictionary<int, Skillstick>();
         BufsRes = new Dictionary<int, GComponent>();
@@ -39,7 +43,7 @@ public class GameUI : MonoBehaviour {
 
         MyHeadInfo = new HeadInfo(mainUI.GetChild("myHeadInfo").asCom);
         TargetHeadInfo = new HeadInfo(mainUI.GetChild("targetHeadInfo").asCom);
-
+        LittleMapCom = mainUI.GetChild("littlemap").asCom;
         //屏幕点击
         GObject touch = mainUI.GetChild("touchArea");
         touch.onTouchBegin.Add(OnTouchBegin);
@@ -467,6 +471,85 @@ public class GameUI : MonoBehaviour {
         
 
     }
+
+    protected List<GImage> allunitImage = new List<GImage>();
+    protected double LastFreshLittleMapTime = Tool.GetTime();
+    void FreshLittleMap()
+    {
+        if(Tool.GetTime()-LastFreshLittleMapTime <= 1)
+        {
+            return;
+        }
+        LastFreshLittleMapTime = Tool.GetTime();
+
+        if (SceneID != GameScene.Singleton.m_SceneID)
+        {
+            var item = ExcelManager.Instance.GetSceneManager().GetSceneByID(GameScene.Singleton.m_SceneID);
+            if(item != null)
+            {
+                LittleMapCom.GetChild("bg").asLoader.url = item.Little_BG;
+                SceneID = GameScene.Singleton.m_SceneID;
+            }
+            else
+            {
+                return;
+            }
+        }
+        //GImage aImage = UIPackage.CreateObject("包名","图片名").asImage;
+        foreach (var image in allunitImage)
+        {
+            image.RemoveFromParent();
+        }
+        var allunit = UnityEntityManager.Instance.GetAllUnity();
+        foreach(var unit in allunit)
+        {
+            string iconpath = "Minimap_UnitPin_Foreground_Leader";
+            if (unit.Value == GameScene.Singleton.m_MyMainUnit)
+            {
+                iconpath = "Minimap_UnitPin_Foreground_Leader";
+                //iconpath = "Minimap_UnitPin_Foreground_Friendly";
+            }
+            else
+            {
+                var isenemy = UnityEntityManager.Instance.CheckIsEnemy(GameScene.Singleton.m_MyMainUnit, unit.Value);
+                if(isenemy == true)
+                {
+                    iconpath = "Minimap_UnitPin_Enemy";
+                }
+                else
+                {
+                    iconpath = "Minimap_UnitPin_Foreground_Friendly";
+                }
+            }
+            GImage aImage = UIPackage.CreateObject("GameUI", iconpath).asImage;
+            aImage.pivot = new Vector2(0.5f, 0.5f);
+            aImage.pivotAsAnchor = true;
+            LittleMapCom.AddChild(aImage);
+            if (unit.Value == GameScene.Singleton.m_MyMainUnit)
+            {
+                aImage.sortingOrder = 100;
+                aImage.scale = new Vector2(2, 2);
+            }
+            else
+            {
+                aImage.sortingOrder = 10;
+                aImage.scale = new Vector2(1, 1);
+            }
+            allunitImage.Add(aImage);
+
+            var item = ExcelManager.Instance.GetSceneManager().GetSceneByID(SceneID);
+            if (item != null)
+            {
+                var scaleX = (LittleMapCom.width) / (item.EndX- item.StartX);
+                var scaleY = (LittleMapCom.height) / (item.EndY - item.StartY);
+                aImage.SetXY((unit.Value.X - item.StartX)* scaleX , LittleMapCom.height - ((unit.Value.Y - item.StartY) * scaleY ));
+            }
+            
+        }
+
+
+    }
+
     // Update is called once per frame
     void Update () {
         gPing.text = "" + MyKcp.PingValue;
@@ -474,5 +557,6 @@ public class GameUI : MonoBehaviour {
         FreshItemSkillUI();
         FreshHead();
         FreshBuf();
+        FreshLittleMap();
     }
 }

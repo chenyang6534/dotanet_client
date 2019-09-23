@@ -12,8 +12,15 @@ public class LoginUI : MonoBehaviour {
     protected GComponent mRoot;
 
     protected ServerListInfo SelectServer;
+
+    protected GComponent SelectLayer;
+    protected Protomsg.CharacterBaseDatas SelectHeroMsg;
     // Use this for initialization
     void Start () {
+        MyKcp.Instance.Destroy();
+        //读取存档
+        SaveDataManager.Read();
+
         //UIPackage.AddPackage("FairyGui/GameUI");
         //GComponent view = UIPackage.CreateObject("GameUI","MyInfo").asCom;
         //以下几种方式都可以将view显示出来：
@@ -21,15 +28,15 @@ public class LoginUI : MonoBehaviour {
         //GRoot.inst.AddChild(view);
         //view.Center();
         Debug.Log("width:" + Screen.width + " height:" + Screen.height);
-        
+        UIPackage.AddPackage("FairyGui/GameUI");
 
-        
+
         //MyKcp.Instance.Create("119.23.8.72", 1118);
         //MyKcp.Instance.Create("119.23.8.72", 1118);
         mRoot = GetComponent<UIPanel>().ui;
         //mRoot.GetChild("center")..AddChild(view);
         mRoot.GetChild("login").asButton.onClick.Add(()=> {
-
+            MyKcp.Instance.Destroy();
             MyKcp.Instance.Create(SelectServer.ip, SelectServer.port);
 
 
@@ -145,8 +152,188 @@ public class LoginUI : MonoBehaviour {
     {
         //Debug.Log("OnDestroy:");
         MsgManager.Instance.RemoveListener("SC_Logined");
+        MsgManager.Instance.RemoveListener("SC_SelectCharacterResult");
     }
 
+    //开放的英雄
+    public int[] openherotypeids1 = {3,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
+    public List<Protomsg.CharacterBaseDatas> AllOpenHeros = new List<Protomsg.CharacterBaseDatas>();
+    public void initOpenHeros(Google.Protobuf.Collections.RepeatedField<Protomsg.CharacterBaseDatas> HaveHeros)
+    {
+        AllOpenHeros.Clear();
+        for(var i = 0; i < openherotypeids1.Length; i++)
+        {
+            var item = openherotypeids1[i];
+            //Debug.Log("--------11----openherotypeids1:" + item);
+
+            bool has = false;
+            foreach(var havehero in HaveHeros)
+            {
+                if( item == havehero.Typeid)
+                {
+                    AllOpenHeros.Add(havehero);
+                    has = true;
+                    break;
+                }
+            }
+            if(has == false)
+            {
+                var hero = new Protomsg.CharacterBaseDatas();
+                hero.Typeid = item;
+                hero.Characterid = -1;
+                hero.Name = "";
+                hero.Level = 1;
+                AllOpenHeros.Add(hero);
+            }
+
+        }
+    }
+    //选择英雄
+    public void SelectHero(Protomsg.CharacterBaseDatas hero)
+    {
+        SelectHeroMsg = hero;
+        SaveDataManager.sData.SelectHeroTypeID = hero.Typeid;
+
+        freshSelectHero();
+    }
+
+    //刷新选择英雄界面
+    public void freshSelectHero()
+    {
+        var herolist = SelectLayer.GetChild("heros_list").asList;
+        herolist.RemoveChildren();
+        foreach (var item in AllOpenHeros)
+        {
+            var heroinfo = ExcelManager.Instance.GetUnitInfoManager().GetUnitInfoByID(item.Typeid);
+            if (heroinfo == null)
+            {
+                continue;
+            }
+            var heroiconcom = UIPackage.CreateObject("Package1", "HeroIcon").asCom;
+
+
+            //Debug.Log("------------hero:" + heroinfo.IconPath);
+            heroiconcom.GetChild("pic").asLoader.url = heroinfo.IconPath;
+            heroiconcom.GetChild("pic").asLoader.onClick.Add(() =>
+            {
+                //选择
+                SelectHero(item);
+            });
+            heroiconcom.GetChild("level").asTextField.text = item.Level + "";
+            if (item.Typeid == SaveDataManager.sData.SelectHeroTypeID)
+            {
+                SelectHeroMsg = item;
+                heroiconcom.GetChild("select").asImage.visible = true;
+
+                //显示选择的英雄信息
+                SelectLayer.GetChild("selectheroicon").asCom.GetChild("pic").asLoader.url = heroinfo.IconPath;
+                SelectLayer.GetChild("selectheroicon").asCom.GetChild("level").asTextField.text = item.Level + "";
+                SelectLayer.GetChild("heroname").asTextField.text = heroinfo.HeroName;
+                SelectLayer.GetChild("player_name").asTextField.text = item.Name;
+                //主属性(1:力量 2:敏捷 3:智力)
+                if (heroinfo.AttributePrimary == 1)
+                {
+                    SelectLayer.GetChild("type_attribute").asTextField.text = "力量";
+                }
+                else if(heroinfo.AttributePrimary == 2)
+                {
+                    SelectLayer.GetChild("type_attribute").asTextField.text = "敏捷";
+                }
+                else if (heroinfo.AttributePrimary == 3)
+                {
+                    SelectLayer.GetChild("type_attribute").asTextField.text = "智力";
+                }
+                SelectLayer.GetChild("attack_range").asTextField.text = heroinfo.Attack_Range;
+                SelectLayer.GetChild("des").asTextField.text = heroinfo.Des;
+                //技能
+                var skillcom = SelectLayer.GetChild("skill_list").asList;
+                skillcom.RemoveChildren();
+                var skills_str = heroinfo.Skills_ID.Split(',');
+                foreach(var skilltype in skills_str)
+                {
+                    var clientitem = ExcelManager.Instance.GetSkillManager().GetSkillByID(int.Parse(skilltype));
+                    if (clientitem != null)
+                    {
+                        var onedropitem = UIPackage.CreateObject("GameUI", "HeroInfo_Skill").asButton;
+                        onedropitem.icon = clientitem.IconPath;
+                        onedropitem.GetChild("level").asTextField.text = "";
+                        onedropitem.onClick.Add(() => {
+                            //Debug.Log("onClick");
+                            if (clientitem.TypeID != -1)
+                            {
+                                new SkillInfo(clientitem.TypeID);
+                            }
+                        });
+                        skillcom.AddChild(onedropitem);
+                    }
+                }
+                
+            }
+            else
+            {
+                heroiconcom.GetChild("select").asImage.visible = false;
+            }
+            herolist.AddChild(heroiconcom);
+        }
+    }
+
+   
+//显示选择英雄界面
+public void showSelectHero()
+    {
+        SelectLayer = UIPackage.CreateObject("Package1", "SelectHero").asCom;
+        GRoot.inst.AddChild(SelectLayer);
+        Vector2 screenPos = new Vector2(Screen.width / 2, Screen.height / 2);
+        Vector2 logicScreenPos = GRoot.inst.GlobalToLocal(screenPos);
+        SelectLayer.xy = logicScreenPos;
+
+        //---设置默认选择英雄
+        if(SaveDataManager.sData.SelectHeroTypeID <= 0)
+        {
+            SaveDataManager.sData.SelectHeroTypeID = openherotypeids1[0];
+        }
+
+        freshSelectHero();
+
+        SelectLayer.GetChild("startbtn").asButton.onClick.Add(()=> {
+
+            if (SelectHeroMsg.Name.Length <= 0)
+            {
+                //输入名字
+                var inputnamecom = UIPackage.CreateObject("Package1", "InputName").asCom;
+                GRoot.inst.AddChild(inputnamecom);
+                inputnamecom.xy = logicScreenPos;
+
+                inputnamecom.GetChild("ok").asButton.onClick.Add(() =>
+                {
+                    SelectHeroMsg.Name = inputnamecom.GetChild("input").asTextInput.text;
+
+                    Protomsg.CS_SelectCharacter msg1 = new Protomsg.CS_SelectCharacter();
+                    msg1.SelectCharacter = SelectHeroMsg;
+                    MyKcp.Instance.SendMsg("Login", "CS_SelectCharacter", msg1);
+
+                    inputnamecom.Dispose();
+                });
+
+                inputnamecom.GetChild("input").asTextInput.onKeyDown.Add((EventContext context) =>
+                {
+                    if (context.inputEvent.keyCode == KeyCode.Return)
+                    {
+                        inputnamecom.GetChild("ok").asButton.onClick.Call();
+                    }
+                });
+            }
+            else
+            {
+                Protomsg.CS_SelectCharacter msg1 = new Protomsg.CS_SelectCharacter();
+                msg1.SelectCharacter = SelectHeroMsg;
+                MyKcp.Instance.SendMsg("Login", "CS_SelectCharacter", msg1);
+                
+            }
+
+            
+        });
+    }
 
     public bool Logined(Protomsg.MsgBase d1)
     {
@@ -161,24 +348,26 @@ public class LoginUI : MonoBehaviour {
         {
             Protomsg.CS_SelectCharacter msg1 = new Protomsg.CS_SelectCharacter();
             msg1.SelectCharacter = new Protomsg.CharacterBaseDatas();
-            //foreach (var item in p1.NewUnits)
-            if (p1.Characters.Count <= 0)
-            {
-                msg1.SelectCharacter.Characterid = -1;
-                msg1.SelectCharacter.Typeid = 22;
-                msg1.SelectCharacter.Name = "test天怒法师";
 
-                Debug.Log("create");
-            }
-            else
-            {
-                msg1.SelectCharacter = p1.Characters[0];
-
-                Debug.Log("select");
-            }
-            MyKcp.Instance.SendMsg("Login", "CS_SelectCharacter", msg1);
+            initOpenHeros(p1.Characters);
+            showSelectHero();
             
-            //SceneManager.LoadScene(1);
+            //if (p1.Characters.Count <= 0)
+            //{
+            //    msg1.SelectCharacter.Characterid = -1;
+            //    msg1.SelectCharacter.Typeid = 22;
+            //    msg1.SelectCharacter.Name = "test天怒法师";
+
+            //    Debug.Log("create");
+            //}
+            //else
+            //{
+            //    msg1.SelectCharacter = p1.Characters[0];
+
+            //    Debug.Log("select");
+            //}
+            //MyKcp.Instance.SendMsg("Login", "CS_SelectCharacter", msg1);
+            
         }
         
         return false; //中断解析数据
@@ -197,6 +386,9 @@ public class LoginUI : MonoBehaviour {
         }
         else
         {
+            SaveDataManager.Save();
+            SelectLayer.Dispose();
+
             SceneManager.LoadScene(1);
         }
 

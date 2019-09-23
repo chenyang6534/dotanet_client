@@ -155,6 +155,35 @@ public class ExcelReader
             return array;
         }
 
+        public static UnitInfo[] CreateUnitInfoArrayWithExcel(string filePath)
+        {
+            //获得表数据
+            int columnNum = 0, rowNum = 0;
+            DataRowCollection collect = ReadExcel(filePath, ref columnNum, ref rowNum);
+
+            //根据excel的定义，第二行开始才是数据
+            UnitInfo[] array = new UnitInfo[rowNum - 1];
+            for (int i = 1; i < rowNum; i++)
+            {
+                UnitInfo item = new UnitInfo();
+                //public int TypeID;
+                //public string HeroName;
+                //public string IconPath;
+                //public string Des;
+                //解析每列的数据
+                item.TypeID = int.Parse(collect[i][0].ToString());
+                item.HeroName = collect[i][1].ToString();
+                item.IconPath = collect[i][2].ToString();
+                item.Des = collect[i][3].ToString();
+                item.Attack_Range = collect[i][4].ToString();
+                item.AttributePrimary = int.Parse(collect[i][5].ToString());
+                item.Skills_ID = collect[i][6].ToString();
+                array[i - 1] = item;
+
+            }
+            return array;
+        }
+
         /// <summary>
         /// 读取excel文件内容
         /// </summary>
@@ -186,6 +215,7 @@ public class ExcelReader
             CreateItemAsset();
             CreateSkillAsset();
             CreateSceneAsset();
+            CreateUnitInfoAsset();
         }
         public static void CreateBulletItemAsset()
         {
@@ -285,7 +315,27 @@ public class ExcelReader
             AssetDatabase.Refresh();
         }
 
-        //CreateSkillArrayWithExcel
+        public static void CreateUnitInfoAsset()
+        {
+            UnitInfoManager manager = ScriptableObject.CreateInstance<UnitInfoManager>();
+            //赋值
+            manager.dataArray = ExcelTool.CreateUnitInfoArrayWithExcel(ExcelConfig.excelsFolderPath + "unit_info.xlsx");
+
+            //确保文件夹存在
+            if (!Directory.Exists(ExcelConfig.assetPath))
+            {
+                Directory.CreateDirectory(ExcelConfig.assetPath);
+            }
+
+            //asset文件的路径 要以"Assets/..."开始，否则CreateAsset会报错
+            string assetPath = string.Format("{0}{1}.asset", ExcelConfig.assetPath, "UnitInfo");
+            //生成一个Asset文件
+            AssetDatabase.CreateAsset(manager, assetPath);
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+        }
+
+        //CreateUnitInfoArrayWithExcel
     }
 
 

@@ -17,6 +17,8 @@ public class ExcelManager
     protected ItemManager ItemManager = Resources.Load<ItemManager>("Conf/Item");
     protected SkillManager SkillManager = Resources.Load<SkillManager>("Conf/Skill");
     protected SceneManager SceneManager = Resources.Load<SceneManager>("Conf/Scene");
+    protected UnitInfoManager UnitInfoManager = Resources.Load<UnitInfoManager>("Conf/UnitInfo");
+    
     private ExcelManager()
     {
         //m_BIM.Init();
@@ -25,6 +27,7 @@ public class ExcelManager
         ItemManager.Init();
         SkillManager.Init();
         SceneManager.Init();
+        UnitInfoManager.Init();
     }
 
     public BulletItemManager GetBulletIM()
@@ -46,5 +49,9 @@ public class ExcelManager
     public SceneManager GetSceneManager()
     {
         return SceneManager;
+    }
+    public UnitInfoManager GetUnitInfoManager()
+    {
+        return UnitInfoManager;
     }
 }

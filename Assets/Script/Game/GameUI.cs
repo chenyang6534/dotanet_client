@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using cocosocket4unity;
+using UnityEngine.SceneManagement;
 public class GameUI : MonoBehaviour {
 
 
@@ -44,6 +45,13 @@ public class GameUI : MonoBehaviour {
         MyHeadInfo = new HeadInfo(mainUI.GetChild("myHeadInfo").asCom);
         TargetHeadInfo = new HeadInfo(mainUI.GetChild("targetHeadInfo").asCom);
         LittleMapCom = mainUI.GetChild("littlemap").asCom;
+
+        //设置 退出
+        LittleMapCom.GetChild("set_btn").asButton.onClick.Add(() =>
+        {
+            SceneManager.LoadScene(0);
+        });
+
         //屏幕点击
         GObject touch = mainUI.GetChild("touchArea");
         touch.onTouchBegin.Add(OnTouchBegin);

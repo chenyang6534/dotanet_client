@@ -287,7 +287,7 @@ public class Skillstick : EventDispatcher
 
 
         touchID = -1;
-        radius = 100;
+        radius = 125;
         m_MoveCallNeedDir = 20;//
         m_IsMoved = false;
 
@@ -403,32 +403,37 @@ public class Skillstick : EventDispatcher
 
             var dir = (localPos - startStagePos);
             //点击到 取消施法
-            if (Vector2.Distance(localPos, no.xy) < 30)
+            if (Vector2.Distance(localPos, no.xy) < 40)
             {
                 no.scale = new Vector2(1.5f, 1.5f);
                 no.asTextField.color = new Color(1, 0, 0);
                 isNo = true;
+                center.asImage.color = new Color(1, 0, 0);
             }
             else
             {
                 no.scale = new Vector2(1.0f, 1.0f);
                 no.asTextField.color = new Color(1, 1, 1);
                 isNo = false;
+                center.asImage.color = new Color(1, 1, 1);
             }
             //点击到 施法自己
             if (showmy)
             {
-                if (Vector2.Distance(localPos, my.xy) < 30)
+                if (Vector2.Distance(localPos, my.xy) < 40)
                 {
                     my.scale = new Vector2(1.5f, 1.5f);
-                    my.asTextField.color = new Color(1, 0, 0);
+                    my.asTextField.color = new Color(0, 0, 1);
                     isMy = true;
+
+                    center.asImage.color = new Color(0, 0, 1);
                 }
                 else
                 {
                     my.scale = new Vector2(1.0f, 1.0f);
                     my.asTextField.color = new Color(1, 1, 1);
                     isMy = false;
+                    center.asImage.color = new Color(1, 1, 1);
                 }
             }
             

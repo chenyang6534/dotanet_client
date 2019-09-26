@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEditor;
 using ExcelData;
 
-
+#if UNITY_EDITOR
 public class ExcelReader
 {
 
@@ -340,3 +340,5 @@ public class ExcelReader
 
 
 }
+
+#endif

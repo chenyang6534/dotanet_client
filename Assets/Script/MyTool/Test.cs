@@ -12,8 +12,9 @@ public class Test : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Quaternion q = new Quaternion();
-        q.SetLookRotation(LookRatotion);
-        gameObject.transform.rotation = q;
+        return;
+        //Quaternion q = new Quaternion();
+        //q.SetLookRotation(LookRatotion);
+        //gameObject.transform.rotation = q;
 	}
 }

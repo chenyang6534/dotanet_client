@@ -47,7 +47,7 @@ public class LoginUI : MonoBehaviour {
             //msg1.Machineid = "10003";   //虚空 (技能特效完结)
             //msg1.Machineid = "10004";   //混沌骑士 (技能特效完结)
             //msg1.Machineid = "10005";   //熊战士   (技能特效完结)
-            msg1.Machineid = "10006";   //血魔    (技能特效完结)
+            //msg1.Machineid = "10006";   //血魔    (技能特效完结)
             //msg1.Machineid = "10007";   //小娜迦 (技能特效完结)
             //msg1.Machineid = "10008";   //小小 (技能特效完结)
             //msg1.Machineid = "10009";   //风行 (技能特效完结)
@@ -61,7 +61,8 @@ public class LoginUI : MonoBehaviour {
             //msg1.Machineid = "10017";   //蓝猫 (技能特效完结)
             //msg1.Machineid = "10018";   //瘟疫法师
             //msg1.Machineid = "10019";   //天怒法师
-            msg1.Platform = "win32";
+            msg1.Machineid = SystemInfo.deviceUniqueIdentifier;
+            msg1.Platform = "test";
             MyKcp.Instance.SendMsg("Login", "CS_MsgQuickLogin", msg1);
             UnityEngine.Debug.Log("login onClick");
         });
@@ -84,6 +85,12 @@ public class LoginUI : MonoBehaviour {
         public int port;
         public int state; // 1表示空闲 2表示拥挤 3表示已满
         public int index;//唯一索引
+        public ServerListInfo(string name,string ip, int port)
+        {
+            this.ip = ip;
+            this.port = port;
+            this.name = name;
+        }
 
     }
     [Serializable]
@@ -95,17 +102,8 @@ public class LoginUI : MonoBehaviour {
     void InitServerList()
     {
         //测试数据
-        ServerListInfo[] allServerList = new ServerListInfo[5];
-        for (var i = 0; i < 5; i++)
-        {
-            ServerListInfo p = new ServerListInfo();
-            p.name = (i+1)+"服";
-            p.ip = "127.0.0.1";
-            p.port = 1118;
-            p.state = 1;
-            p.index = i;
-            allServerList[i] = p;
-        }
+        ServerListInfo[] allServerList = {new ServerListInfo("本地服","127.0.0.1",1118), new ServerListInfo("外网", "119.23.8.72", 1118) };
+        
         ServerListInfoArr t1 = new ServerListInfoArr();
         t1.servers = allServerList;
         var jsonstr = JsonUtility.ToJson(t1);
@@ -207,6 +205,7 @@ public class LoginUI : MonoBehaviour {
             var heroinfo = ExcelManager.Instance.GetUnitInfoManager().GetUnitInfoByID(item.Typeid);
             if (heroinfo == null)
             {
+                Debug.Log("no hero:" + item.Name);
                 continue;
             }
             var heroiconcom = UIPackage.CreateObject("Package1", "HeroIcon").asCom;
@@ -278,62 +277,63 @@ public class LoginUI : MonoBehaviour {
     }
 
    
-//显示选择英雄界面
-public void showSelectHero()
-    {
-        SelectLayer = UIPackage.CreateObject("Package1", "SelectHero").asCom;
-        GRoot.inst.AddChild(SelectLayer);
-        Vector2 screenPos = new Vector2(Screen.width / 2, Screen.height / 2);
-        Vector2 logicScreenPos = GRoot.inst.GlobalToLocal(screenPos);
-        SelectLayer.xy = logicScreenPos;
-
-        //---设置默认选择英雄
-        if(SaveDataManager.sData.SelectHeroTypeID <= 0)
+    //显示选择英雄界面
+    public void showSelectHero()
         {
-            SaveDataManager.sData.SelectHeroTypeID = openherotypeids1[0];
-        }
+            SelectLayer = UIPackage.CreateObject("Package1", "SelectHero").asCom;
+            GRoot.inst.AddChild(SelectLayer);
+            Vector2 screenPos = new Vector2(Screen.width / 2, Screen.height / 2);
+            Vector2 logicScreenPos = GRoot.inst.GlobalToLocal(screenPos);
+            SelectLayer.xy = logicScreenPos;
 
-        freshSelectHero();
-
-        SelectLayer.GetChild("startbtn").asButton.onClick.Add(()=> {
-
-            if (SelectHeroMsg.Name.Length <= 0)
+            //---设置默认选择英雄
+            if(SaveDataManager.sData.SelectHeroTypeID <= 0)
             {
-                //输入名字
-                var inputnamecom = UIPackage.CreateObject("Package1", "InputName").asCom;
-                GRoot.inst.AddChild(inputnamecom);
-                inputnamecom.xy = logicScreenPos;
+                SaveDataManager.sData.SelectHeroTypeID = openherotypeids1[0];
+            }
 
-                inputnamecom.GetChild("ok").asButton.onClick.Add(() =>
+            freshSelectHero();
+
+            SelectLayer.GetChild("startbtn").asButton.onClick.Add(()=> {
+
+                if (SelectHeroMsg.Name.Length <= 0)
                 {
-                    SelectHeroMsg.Name = inputnamecom.GetChild("input").asTextInput.text;
+                    //输入名字
+                    var inputnamecom = UIPackage.CreateObject("Package1", "InputName").asCom;
+                    GRoot.inst.AddChild(inputnamecom);
+                    inputnamecom.xy = logicScreenPos;
 
+                    inputnamecom.GetChild("ok").asButton.onClick.Add(() =>
+                    {
+                        SelectHeroMsg.Name = inputnamecom.GetChild("input").asTextInput.text;
+
+                        Protomsg.CS_SelectCharacter msg1 = new Protomsg.CS_SelectCharacter();
+                        msg1.SelectCharacter = SelectHeroMsg;
+                        MyKcp.Instance.SendMsg("Login", "CS_SelectCharacter", msg1);
+
+                        SelectHeroMsg.Name = "";//清空名字
+                        inputnamecom.Dispose();
+                    });
+
+                    inputnamecom.GetChild("input").asTextInput.onKeyDown.Add((EventContext context) =>
+                    {
+                        if (context.inputEvent.keyCode == KeyCode.Return)
+                        {
+                            inputnamecom.GetChild("ok").asButton.onClick.Call();
+                        }
+                    });
+                }
+                else
+                {
                     Protomsg.CS_SelectCharacter msg1 = new Protomsg.CS_SelectCharacter();
                     msg1.SelectCharacter = SelectHeroMsg;
                     MyKcp.Instance.SendMsg("Login", "CS_SelectCharacter", msg1);
-
-                    inputnamecom.Dispose();
-                });
-
-                inputnamecom.GetChild("input").asTextInput.onKeyDown.Add((EventContext context) =>
-                {
-                    if (context.inputEvent.keyCode == KeyCode.Return)
-                    {
-                        inputnamecom.GetChild("ok").asButton.onClick.Call();
-                    }
-                });
-            }
-            else
-            {
-                Protomsg.CS_SelectCharacter msg1 = new Protomsg.CS_SelectCharacter();
-                msg1.SelectCharacter = SelectHeroMsg;
-                MyKcp.Instance.SendMsg("Login", "CS_SelectCharacter", msg1);
                 
-            }
+                }
 
             
-        });
-    }
+            });
+        }
 
     public bool Logined(Protomsg.MsgBase d1)
     {
@@ -346,27 +346,12 @@ public void showSelectHero()
         }
         else
         {
+            
             Protomsg.CS_SelectCharacter msg1 = new Protomsg.CS_SelectCharacter();
             msg1.SelectCharacter = new Protomsg.CharacterBaseDatas();
-
+            Debug.Log("Logined:" + p1.Characters);
             initOpenHeros(p1.Characters);
             showSelectHero();
-            
-            //if (p1.Characters.Count <= 0)
-            //{
-            //    msg1.SelectCharacter.Characterid = -1;
-            //    msg1.SelectCharacter.Typeid = 22;
-            //    msg1.SelectCharacter.Name = "test天怒法师";
-
-            //    Debug.Log("create");
-            //}
-            //else
-            //{
-            //    msg1.SelectCharacter = p1.Characters[0];
-
-            //    Debug.Log("select");
-            //}
-            //MyKcp.Instance.SendMsg("Login", "CS_SelectCharacter", msg1);
             
         }
         

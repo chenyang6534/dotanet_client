@@ -8,9 +8,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 3815178bfbafc06459bb3af2620f2023, type: 3}
   m_Name: UnitInfo
-  m_EditorClassIdentifier: Assembly-CSharp:ExcelData:UnitInfoManager
+  m_EditorClassIdentifier: 
   dataArray:
   - TypeID: 1
     HeroName: PA

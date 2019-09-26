@@ -61,6 +61,7 @@ public class GameScene : MonoBehaviour {
         Debug.Log("OnDestroy");
     }
 
+
     public UnityEntity GetMyMainUnit()
     {
         return m_MyMainUnit;

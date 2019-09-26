@@ -51,7 +51,8 @@ public class UnityEntity {
         AttackAnim = data.AttackAnim;
         ModeType = data.ModeType;
         ID = data.ID;
-        
+        TypeID = data.TypeID;
+
         X = data.X;
         Y = data.Y;
         Z = data.Z;
@@ -770,6 +771,19 @@ public class UnityEntity {
         set
         {
             m_ID = value;
+        }
+    }
+    // TypeID
+    protected int m_TypeID;
+    public int TypeID
+    {
+        get
+        {
+            return m_TypeID;
+        }
+        set
+        {
+            m_TypeID = value;
         }
     }
     // ControlID

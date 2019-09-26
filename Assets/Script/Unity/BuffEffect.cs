@@ -175,7 +175,7 @@ public class BuffEffect
         //隐藏模型
         if (BIdata.ModeEnable == 0)
         {
-            var go = ParentEntity.Mode.transform.FindChild("GameObject");
+            var go = ParentEntity.Mode.transform.Find("GameObject");
             if(go != null)
             {
                 go.gameObject.SetActive(false);
@@ -269,7 +269,7 @@ public class BuffEffect
         //隐藏模型
         if (BIdata.ModeEnable == 0)
         {
-            var go = ParentEntity.Mode.transform.FindChild("GameObject");
+            var go = ParentEntity.Mode.transform.Find("GameObject");
             if (go != null)
             {
                 go.gameObject.SetActive(true);

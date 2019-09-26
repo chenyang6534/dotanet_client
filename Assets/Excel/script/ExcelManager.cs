@@ -21,13 +21,16 @@ public class ExcelManager
     
     private ExcelManager()
     {
+        Debug.Log("ExcelManager init");
         //m_BIM.Init();
         BulletIM.Init();
         BuffIM.Init();
         ItemManager.Init();
         SkillManager.Init();
         SceneManager.Init();
+        Debug.Log("1111ExcelManager init");
         UnitInfoManager.Init();
+        Debug.Log("2222ExcelManager init");
     }
 
     public BulletItemManager GetBulletIM()

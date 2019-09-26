@@ -66,21 +66,33 @@ public class HeadInfo{
         if (id != unitid)
         {
             id = unitid;
-            //模型
-            var modeeffect = (GameObject)(GameObject.Instantiate(Resources.Load(unit.ModeType)));
-            modeeffect.transform.localPosition = new Vector3(0, 10, 1000);
-            modeeffect.transform.localScale = new Vector3(50, 50, 50);
-            Vector3 rotation = modeeffect.transform.localEulerAngles;
-            rotation.x = 10; // 在这里修改坐标轴的值
-            rotation.y = 180;
-            rotation.z = 0;
-            //将旋转的角度赋值给预制出来需要打出去的麻将
-            modeeffect.transform.localEulerAngles = rotation;
-            GGraph holder = maininfo.GetChild("head").asCom.GetChild("n1").asGraph;
-            GoWrapper wrapper = new GoWrapper();
-            wrapper.supportStencil = true;
-            wrapper.SetWrapTarget(modeeffect, true);
-            holder.SetNativeObject(wrapper);
+            ////模型
+            //var modeeffect = (GameObject)(GameObject.Instantiate(Resources.Load(unit.ModeType)));
+            //modeeffect.transform.localPosition = new Vector3(0, 10, 1000);
+            //modeeffect.transform.localScale = new Vector3(50, 50, 50);
+            //Vector3 rotation = modeeffect.transform.localEulerAngles;
+            //rotation.x = 10; // 在这里修改坐标轴的值
+            //rotation.y = 180;
+            //rotation.z = 0;
+            ////将旋转的角度赋值给预制出来需要打出去的麻将
+            //modeeffect.transform.localEulerAngles = rotation;
+            //GGraph holder = maininfo.GetChild("head").asCom.GetChild("n1").asGraph;
+            //GoWrapper wrapper = new GoWrapper();
+            //wrapper.supportStencil = true;
+            //wrapper.SetWrapTarget(modeeffect, true);
+            //holder.SetNativeObject(wrapper);
+
+            Debug.Log("---------unittype:" + unit.TypeID);
+
+            var unitinfo = ExcelManager.Instance.GetUnitInfoManager().GetUnitInfoByID(unit.TypeID);
+            if(unitinfo != null && unitinfo.IconPath.Length > 0)
+            {
+                Debug.Log("---------iconpath:" + unitinfo.IconPath);
+                maininfo.GetChild("head").asCom.GetChild("head_icon").asLoader.url = unitinfo.IconPath;
+            }
+
+            
+            //head_icon
         }
         //名字
         maininfo.GetChild("name").asTextField.text = unit.Name;

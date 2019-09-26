@@ -6,8 +6,9 @@ using System.Xml;
 using System.IO;
 using System.Text;
 using LitJson;
-using UnityEditor.SceneManagement;
 
+#if UNITY_EDITOR
+using UnityEditor.SceneManagement;
 public class MyEditor : Editor
 {
     
@@ -334,3 +335,4 @@ public class MyEditor : Editor
     }
     
 }
+#endif

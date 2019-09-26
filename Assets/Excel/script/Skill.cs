@@ -15,18 +15,7 @@ namespace ExcelData
         public string Des;
     }
 
-    [System.Serializable]
-    public class UnitInfo
-    {
-        public int TypeID;
-        public string HeroName;
-        public string IconPath;
-        public string Des;
-        public string Attack_Range;//攻击距离类型 近战和远程
-        public int AttributePrimary;//主属性(1:力量 2:敏捷 3:智力)
-        public string Skills_ID;//技能
-        
-    }
+    
 
 
 }

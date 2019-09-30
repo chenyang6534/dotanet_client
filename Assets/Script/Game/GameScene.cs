@@ -176,7 +176,7 @@ public class GameScene : MonoBehaviour {
     //处理游戏逻辑
     void LogicUpdate()
     {
-        //Debug.Log("33time:" + Tool.GetTime());
+        Debug.Log("33time:" + Tool.GetTime());
         //m_GameServerStartTime = Tool.GetTime() - 1.0f / p1.LogicFps * p1.CurFrame;
         var frame = (Tool.GetTime() - m_GameServerStartTime-m_LogicDelayTime) * m_LogicFps;
         //Debug.Log("frame:" + frame+"     curframe:"+ m_CurFrame+ " MaxFrame: " + m_MaxFrame);
@@ -294,7 +294,7 @@ public class GameScene : MonoBehaviour {
             }
         }
 
-        //Debug.Log("44time:" + Tool.GetTime());
+        Debug.Log("44time:" + Tool.GetTime());
 
     }
 
@@ -796,6 +796,21 @@ public class GameScene : MonoBehaviour {
                 m_TargetUnit.TargetShow(false);
                 m_TargetUnit.TargetShowRedCircle(false);
                 m_TargetUnit = null;
+            }
+            else
+            {
+                //距离我自己太远
+                if(m_MyMainUnit != null)
+                {
+                    var dis = Vector2.Distance(new Vector2(m_TargetUnit.X, m_TargetUnit.Y), new Vector2(m_MyMainUnit.X, m_MyMainUnit.Y));
+                    if(dis > 8 && dis > m_MyMainUnit.AttackRange+2)
+                    {
+                        m_TargetUnit.TargetShow(false);
+                        m_TargetUnit.TargetShowRedCircle(false);
+                        m_TargetUnit = null;
+                    }
+                }
+                
             }
             
         }

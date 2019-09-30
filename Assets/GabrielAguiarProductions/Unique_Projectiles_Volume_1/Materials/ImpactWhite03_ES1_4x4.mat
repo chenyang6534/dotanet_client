@@ -4,7 +4,7 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: ImpactWhite03_ES1_4x4
   m_Shader: {fileID: 4800000, guid: 2bbb684815e227148bd7f9a30fb29fbc, type: 3}

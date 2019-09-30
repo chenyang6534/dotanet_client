@@ -239,7 +239,7 @@ public class GameUI : MonoBehaviour {
 
                 GComponent view = UIPackage.CreateObject("GameUI", "Skillstick").asCom;
                 //GRoot.inst.AddChild(view);
-                mainUI.GetChild("attack").asCom.AddChild(view);
+                mainUI.GetChild("attack").asCom.AddChildAt(view,0);
                 if(item.Index < 4)
                 {
                     view.xy = FourSkillPos[item.Index];
@@ -495,7 +495,10 @@ public class GameUI : MonoBehaviour {
             var item = ExcelManager.Instance.GetSceneManager().GetSceneByID(GameScene.Singleton.m_SceneID);
             if(item != null)
             {
+                //小地图
                 LittleMapCom.GetChild("bg").asLoader.url = item.Little_BG;
+                //名字
+                LittleMapCom.GetChild("name").asTextField.text = item.Name;
                 SceneID = GameScene.Singleton.m_SceneID;
             }
             else
@@ -503,6 +506,15 @@ public class GameUI : MonoBehaviour {
                 return;
             }
         }
+
+        //坐标
+        if(GameScene.Singleton.m_MyMainUnit != null)
+        {
+            LittleMapCom.GetChild("pos").asTextField.text = "(" + (int)(GameScene.Singleton.m_MyMainUnit.X) + "," + (int)(GameScene.Singleton.m_MyMainUnit.Y) + ")";
+        }
+
+
+
         //GImage aImage = UIPackage.CreateObject("包名","图片名").asImage;
         foreach (var image in allunitImage)
         {
@@ -566,5 +578,6 @@ public class GameUI : MonoBehaviour {
         FreshHead();
         FreshBuf();
         FreshLittleMap();
+        //Debug.Log("aaaa time:" + Tool.GetTime());
     }
 }

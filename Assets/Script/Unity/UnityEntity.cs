@@ -157,20 +157,27 @@ public class UnityEntity {
     //目标红色高亮显示
     public void TargetShow(bool isshow)
     {
+        //return;
         //Debug.Log("TargetShow:"+isshow);
         var hlob = m_Mode.GetComponent<HighlightableObject>();
-        if (hlob == null)
-        {
-            hlob = m_Mode.AddComponent<HighlightableObject>();
-        }
+        
         if (isshow)
         {
+            if (hlob == null)
+            {
+                hlob = m_Mode.AddComponent<HighlightableObject>();
+            }
             //红色
             hlob.FlashingOn(new Color(0.9f, 0.3f, 0.3f), new Color(0.9f, 0.3f, 0.3f), 1);
         }
         else
         {
-            hlob.FlashingOff();
+            if (hlob != null)
+            {
+                hlob.FlashingOff();
+                GameObject.Destroy(hlob);
+            }
+            
         }
     }
 
@@ -386,7 +393,7 @@ public class UnityEntity {
     //根据buffid 创建单位特效
     public void CreateBuffSpecial(Protomsg.BuffDatas buffdata)
     {
-        Debug.Log("------- CreateBuffSpecial :" + buffdata.TypeID+ " "+ m_BuffEffects);
+        Debug.Log("------- CreateBuffSpecial :" + buffdata.TypeID+ " "+ Tool.GetTime());
 
        
 
@@ -676,6 +683,12 @@ public class UnityEntity {
         }
         set
         {
+            if( m_Level > 0 && m_Level != value)
+            {
+                //播放升级特效
+                BuffEffect.PlayEffectOnUnitEntity("Buff/LevelUp", this);
+                Debug.Log("--升级了！");
+            }
             m_Level = value;
         }
     }
@@ -866,6 +879,7 @@ public class UnityEntity {
     protected GameObject m_SkillAreaLookAt;//技能效果 箭头
     float cubeWidth = 1f;       // 矩形宽度 （矩形长度使用的外圆半径）
     int angle = 60;             // 扇形角度
+    public Vector3 m_SkillAreaLookAtDir; //目标位置方向
     public void ShowSkillAreaLookAt(bool isshow,Vector2 targetPos)
     {
         float len = Vector2.Distance(targetPos, new Vector2(X, Y));
@@ -887,6 +901,7 @@ public class UnityEntity {
         if (isshow)
         {
             m_SkillAreaLookAt.gameObject.SetActive(true);
+            m_SkillAreaLookAtDir = new Vector3(targetPos.x-X, 0, targetPos.y-Y);
         }
         else
         {
@@ -908,6 +923,7 @@ public class UnityEntity {
         
         m_SkillAreaOutCircle.transform.localScale = new Vector3(r * 2 / m_Mode.transform.localScale.x, 1, r * 2 / m_Mode.transform.localScale.x) ;
         m_SkillAreaOutCircle.transform.localPosition = Vector3.zero;
+        m_SkillAreaOutCircle.transform.localRotation = Quaternion.identity;
         if (isshow)
         {
             m_SkillAreaOutCircle.gameObject.SetActive(true);
@@ -919,7 +935,7 @@ public class UnityEntity {
     }
     //显示外径圆
     protected GameObject m_SkillAreaInCircle;//外径圆
-    protected Vector3 m_SkillAreaInCircleOffsetPos;
+    public Vector3 m_SkillAreaInCircleOffsetPos;
     public void ShowInCircle(bool isshow, float r,Vector3 pos)
     {
         if(r <= 1)
@@ -953,6 +969,31 @@ public class UnityEntity {
         }
     }
 
+    //自己的绿圈
+    protected GameObject m_TargetGreenCircle;//外径圆
+    public void MySelefShowGreenCircle(bool isshow)
+    {
+        if (m_TargetGreenCircle == null)
+        {
+            m_TargetGreenCircle = (GameObject)(GameObject.Instantiate(Resources.Load("SkillAreaEffect/Prefabs/Hero_skillarea/quan_hero_green")));
+            //m_Mode.
+            m_TargetGreenCircle.transform.parent = m_Mode.transform;
+
+
+        }
+        var r = 0.8f;
+        //m_TargetRedCircle.transform.scale
+        m_TargetGreenCircle.transform.localScale = new Vector3(r * 2 / m_Mode.transform.localScale.x, 2, r * 2 / m_Mode.transform.localScale.z);
+        m_TargetGreenCircle.transform.localPosition = Vector3.zero;
+        if (isshow)
+        {
+            m_TargetGreenCircle.gameObject.SetActive(true);
+        }
+        else
+        {
+            m_TargetGreenCircle.gameObject.SetActive(false);
+        }
+    }
 
     //目标红色圈
     protected GameObject m_TargetRedCircle;//外径圆
@@ -966,7 +1007,7 @@ public class UnityEntity {
 
 
         }
-        var r = 0.5f;
+        var r = 0.8f;
         //m_TargetRedCircle.transform.scale
         m_TargetRedCircle.transform.localScale = new Vector3(r * 2 / m_Mode.transform.localScale.x, 2, r * 2 / m_Mode.transform.localScale.z);
         m_TargetRedCircle.transform.localPosition = Vector3.zero;

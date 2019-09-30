@@ -19,6 +19,7 @@ MonoBehaviour:
     StartY: 7
     EndX: 143
     EndY: 143
+    Name: "\u8352\u91CE\u4E00"
   - TypeID: 2
     ScenePath: Map/Scene1
     Little_BG: ui://GameUI/little_bg1
@@ -26,3 +27,4 @@ MonoBehaviour:
     StartY: 7
     EndX: 143
     EndY: 143
+    Name: "\u8352\u91CE\u4E8C"

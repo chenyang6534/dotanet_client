@@ -19,6 +19,8 @@ public class BulletEntity
 
     public BulletEntity(Protomsg.BulletDatas data, GameScene scene)
     {
+        //Debug.Log("----------------11time:" + Tool.GetTime());
+
         //数据赋值
         m_Scene = scene;
         m_ID = data.ID;
@@ -28,23 +30,25 @@ public class BulletEntity
         m_State = data.State;
 
         m_ModeType = BulletEntityManager.Instance.GetBulletModePath(data.ModeType);
-
+        //Debug.Log("ddd------------------------22time:" + Tool.GetTime());
         //数据处理
         m_Mode = (GameObject)(GameObject.Instantiate(Resources.Load(m_ModeType)));
         m_Mode.transform.parent = m_Scene.transform.parent;
         m_Mode.transform.position = m_Position;
         m_Mode.transform.LookAt(m_EndPos);
-        
+        //Debug.Log("aaa------------------------22time:" + Tool.GetTime());
         if (m_State == 1)
         {
             m_Mode.GetComponent<ProjectileScript>().ShowStartParticle(m_StartPos, m_EndPos);
-            Debug.Log("11start:" + m_StartPos+ "pos:" + m_Position + "end:" + m_EndPos);
+            //Debug.Log("bbb------------------------22time:" + Tool.GetTime());
+            //Debug.Log("11start:" + m_StartPos+ "pos:" + m_Position + "end:" + m_EndPos);
         }else if(m_State == 3)
         {
             //Quaternion rotation = Quaternion.FromToRotation(m_StartPos, m_EndPos);
             m_Mode.GetComponent<ProjectileScript>().ShowEndParticle(m_EndPos- m_StartPos);
             
         }
+        //Debug.Log("------------------------22time:" + Tool.GetTime());
 
         //Debug.Log("1111bullet pos:" + m_Mode.transform.position + "  end pos:" + m_EndPos + "   state:" + m_State);
     }
@@ -110,8 +114,8 @@ public class BulletEntity
     {
         if (m_Mode != null)
         {
-            //Debug.Log("4444bullet pos:" + m_Mode.transform.position);
-            m_Mode.GetComponent<ProjectileScript>().Destroy();
+            Debug.Log("4444bullet pos:" + m_Mode.transform.position);
+            m_Mode.GetComponent<ProjectileScript>().DestroyProject();
 
 
         }

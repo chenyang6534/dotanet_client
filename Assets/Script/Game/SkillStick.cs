@@ -342,7 +342,7 @@ public class Skillstick : EventDispatcher
     //开始触摸
     private void OnTouchBegin(EventContext context)
     {
-        Debug.Log("OnTouchBegin");
+        //Debug.Log("OnTouchBegin");
         if (touchID == -1)//第一次触摸
         {
             InputEvent inputEvent = (InputEvent)context.data;

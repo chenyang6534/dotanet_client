@@ -145,6 +145,7 @@ public class GameScene : MonoBehaviour {
                 if (item.Value.IsMain == 1)
                 {
                     m_MyMainUnit = item.Value;
+                    m_MyMainUnit.MySelefShowGreenCircle(true);
                     DHCameraManager.SetFollowingTarget(item.Value);
                 }
             }
@@ -175,6 +176,7 @@ public class GameScene : MonoBehaviour {
     //处理游戏逻辑
     void LogicUpdate()
     {
+        //Debug.Log("33time:" + Tool.GetTime());
         //m_GameServerStartTime = Tool.GetTime() - 1.0f / p1.LogicFps * p1.CurFrame;
         var frame = (Tool.GetTime() - m_GameServerStartTime-m_LogicDelayTime) * m_LogicFps;
         //Debug.Log("frame:" + frame+"     curframe:"+ m_CurFrame+ " MaxFrame: " + m_MaxFrame);
@@ -251,7 +253,7 @@ public class GameScene : MonoBehaviour {
                 //伤害数字提示
                 foreach ( var item in p1.PlayerHurt)
                 {
-                    Debug.Log("--id:"+item.HurtUnitID+"  value:"+item.HurtAllValue+"  gold:"+item.GetGold);
+                    //Debug.Log("--id:"+item.HurtUnitID+"  value:"+item.HurtAllValue+"  gold:"+item.GetGold);
                     var unit = UnityEntityManager.Instance.GetUnityEntity(item.HurtUnitID);
                     if(unit != null)
                     {
@@ -291,6 +293,8 @@ public class GameScene : MonoBehaviour {
                 //BulletEntityManager.Instance.DestroyBulletEntity(item);
             }
         }
+
+        //Debug.Log("44time:" + Tool.GetTime());
 
     }
 
@@ -338,7 +342,8 @@ public class GameScene : MonoBehaviour {
         {
             return;
         }
-        //CastTargetType 施法目标类型 1:自身为目标 2:以单位为目标 3:以地面1点为目标
+        //CastTargetType 施法目标类型 1:自身为目标 2:以单位为目标 3:以地面1点为目标 
+        //4:攻击时自动释放(攻击特效)5:以地面一点为方向
         if (touchstate == 1)
         {
             switch (skilldata.CastTargetType) {
@@ -374,10 +379,32 @@ public class GameScene : MonoBehaviour {
                     break;
                 case 3:
                     {
-                        var targetPos = new Vector2(0, 0);
+                        var targetPos = new Vector2(m_MyMainUnit.X, m_MyMainUnit.Y);
                         if (m_TargetUnit != null)
                         {
                             targetPos = new Vector2(m_TargetUnit.X, m_TargetUnit.Y);
+                        }
+                        else
+                        {
+                            //进攻性技能
+                            var skillclientitem = ExcelManager.Instance.GetSkillManager().GetSkillByID(skilldata.TypeID);
+                            if(skillclientitem != null)
+                            {
+                                //技能自动瞄准类型 1:普通 2:位移技能(朝目标方向最大距离) 3:进攻技能(瞄准敌人)
+                                if (skillclientitem.AutoAimType == 3)
+                                {
+                                    var targetunit = UnityEntityManager.Instance.GetNearestEnemy(m_MyMainUnit);
+                                    if (targetunit != null)
+                                    {
+                                        targetPos = new Vector2(targetunit.X, targetunit.Y);
+                                    }
+                                }else if(skillclientitem.AutoAimType == 2)
+                                {
+                                    var targetDir = new Vector2(m_MyMainUnit.DirectionX, m_MyMainUnit.DirectionY);
+                                    targetPos = new Vector2(m_MyMainUnit.X, m_MyMainUnit.Y) + (targetDir.normalized * skilldata.CastRange);
+                                }
+                                
+                            }
                         }
                         m_MyMainUnit.ShowInCircle(true, skilldata.HurtRange, new Vector3(targetPos.x - m_MyMainUnit.X, 0, targetPos.y - m_MyMainUnit.Y));
 
@@ -390,6 +417,28 @@ public class GameScene : MonoBehaviour {
                         if (m_TargetUnit != null)
                         {
                             targetDir = new Vector2(m_TargetUnit.X- m_MyMainUnit.X, m_TargetUnit.Y- m_MyMainUnit.Y);
+                        }
+                        else
+                        {
+                            //进攻性技能
+                            var skillclientitem = ExcelManager.Instance.GetSkillManager().GetSkillByID(skilldata.TypeID);
+                            if (skillclientitem != null)
+                            {
+                                //技能自动瞄准类型 1:普通 2:位移技能(朝目标方向最大距离) 3:进攻技能(瞄准敌人)
+                                if (skillclientitem.AutoAimType == 3)
+                                {
+                                    var targetunit = UnityEntityManager.Instance.GetNearestEnemy(m_MyMainUnit);
+                                    if (targetunit != null)
+                                    {
+                                        targetDir = new Vector2(targetunit.X - m_MyMainUnit.X, targetunit.Y - m_MyMainUnit.Y);
+                                    }
+                                }
+                                else if (skillclientitem.AutoAimType == 2)
+                                {
+
+                                }
+
+                            }
                         }
                         var targetpos = new Vector2(m_MyMainUnit.X, m_MyMainUnit.Y) + (targetDir.normalized * skilldata.CastRange);
                         //m_MyMainUnit.ShowInCircle(true, 1, new Vector3(targetPos.x - m_MyMainUnit.X, 0, targetPos.y - m_MyMainUnit.Y));
@@ -552,8 +601,11 @@ public class GameScene : MonoBehaviour {
                         Protomsg.CS_PlayerSkill msg3 = new Protomsg.CS_PlayerSkill();
                         msg3.ID = m_MyMainUnit.ID;
                         msg3.TargetUnitID = -1;
-                        msg3.X = targetPos.x;
-                        msg3.Y = targetPos.y;
+                        //msg3.X = targetPos.x;
+                        //msg3.Y = targetPos.y;
+                        msg3.X = m_MyMainUnit.m_SkillAreaInCircleOffsetPos.x+ m_MyMainUnit.X;
+                        msg3.Y = m_MyMainUnit.m_SkillAreaInCircleOffsetPos.z+ m_MyMainUnit.Y;
+
                         msg3.SkillID = skilldata.TypeID;
                         MyKcp.Instance.SendMsg(m_ServerName, "CS_PlayerSkill", msg3);
 
@@ -575,8 +627,10 @@ public class GameScene : MonoBehaviour {
                         Protomsg.CS_PlayerSkill msg3 = new Protomsg.CS_PlayerSkill();
                         msg3.ID = m_MyMainUnit.ID;
                         msg3.TargetUnitID = -1;
-                        msg3.X = targetPos.x;
-                        msg3.Y = targetPos.y;
+                        //msg3.X = targetPos.x;
+                        //msg3.Y = targetPos.y;
+                        msg3.X = m_MyMainUnit.m_SkillAreaLookAtDir.x+ m_MyMainUnit.X;
+                        msg3.Y = m_MyMainUnit.m_SkillAreaLookAtDir.z+ m_MyMainUnit.Y;
                         msg3.SkillID = skilldata.TypeID;
                         MyKcp.Instance.SendMsg(m_ServerName, "CS_PlayerSkill", msg3);
 
@@ -728,6 +782,7 @@ public class GameScene : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+        //Debug.Log("55time:" + Tool.GetTime());
         MsgManager.Instance.UpdateMessage();
 
         LogicUpdate();
@@ -746,11 +801,11 @@ public class GameScene : MonoBehaviour {
         }
 
         UnityEntityManager.Instance.Update(Time.deltaTime);
-        if(Time.deltaTime >= 0.025)
+        if(Time.deltaTime >= 0.00033)
         {
-            //Debug.Log("deltaTime:" + Time.deltaTime);
+            Debug.Log("deltaTime:" + Time.deltaTime);
         }
-        
+        //Debug.Log("66time:" + Tool.GetTime());
 
         //if(Input.touchCount > 0)
         //{

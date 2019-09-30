@@ -54,12 +54,18 @@ public class ProjectileScript : MonoBehaviour {
 
             //Debug.Log("ShowStartParticle localRotation:" + gameObject.transform.localRotation);
             var ps = muzzleVFX.GetComponent<ParticleSystem>();
+
+            //return;
             if (ps != null)
+            {
+                Debug.Log("55time1:" + ps.main.duration);
                 Destroy(muzzleVFX, ps.main.duration);
+            }  
             else
             {
                 var psChild = muzzleVFX.transform.GetChild(0).GetComponent<ParticleSystem>();
                 Destroy(muzzleVFX, psChild.main.duration);
+                Debug.Log("66time1:" + psChild.main.duration);
             }
         }
 
@@ -70,6 +76,7 @@ public class ProjectileScript : MonoBehaviour {
     }
     public void ShowEndParticle(Vector3 direction)
     {
+        //return;
         //Debug.Log("111time:" + Time.frameCount);
         if (m_IsDestroy == true)
         {
@@ -102,22 +109,28 @@ public class ProjectileScript : MonoBehaviour {
 
             //hitVFX.transform.rotation.SetLookRotation(q);
             //hitVFX.transform.localRotation = q1;
-            Debug.Log("local rotation:" + hitVFX.transform.localRotation+" rotation:"+ hitVFX.transform.rotation);
+            //Debug.Log("----------local rotation:" + hitVFX.transform.localRotation+" rotation:"+ hitVFX.transform.rotation);
             //hitVFX.transform.forward = gameObject.transform.forward;
             var ps = hitVFX.GetComponent<ParticleSystem>();
             if (ps == null)
             {
                 var psChild = hitVFX.transform.GetChild(0).GetComponent<ParticleSystem>();
                 Destroy(hitVFX, psChild.main.duration);
+                Debug.Log("22time1:" + psChild.main.duration);
             }
             else
+            {
                 Destroy(hitVFX, ps.main.duration);
+                Debug.Log("44time1:" + ps.main.duration);
+            }
+                
         }
 
         //StartCoroutine(DestroyParticle(0f));
     }
-    public void Destroy()
+    public void DestroyProject()
     {
+
         //Debug.Log("222time:" +Time.frameCount);
         if (m_IsDestroy == false)
         {

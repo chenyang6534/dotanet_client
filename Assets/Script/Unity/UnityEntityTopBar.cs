@@ -160,11 +160,15 @@ public class UnityEntityTopBar : MonoBehaviour
     void Update()
     {
         this.transform.rotation = Camera.main.transform.rotation;
+
+        //Debug.Log("cccc time:" + Tool.GetTime());
     }
 
     void LateUpdate()
     {
         //this.transform.rotation = Camera.main.transform.rotation;
+
+        //Debug.Log("dddd time:" + Tool.GetTime());
     }
 
 

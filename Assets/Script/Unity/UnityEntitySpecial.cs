@@ -226,6 +226,6 @@ public class UnityEntitySpecial : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-		
-	}
+        //Debug.Log("bbbb time:" + Tool.GetTime());
+    }
 }

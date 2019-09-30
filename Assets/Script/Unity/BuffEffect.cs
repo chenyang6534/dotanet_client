@@ -23,6 +23,33 @@ public class BuffEffect
         ParentEntity = parent;
         Init();
     }
+
+    //在单位身上 播放一次性特效
+    public static void PlayEffectOnUnitEntity(string path,UnityEntity unit)
+    {
+        if(unit == null || path.Length <= 0)
+        {
+            return;
+        }
+
+        var modeeffect = (GameObject)(GameObject.Instantiate(Resources.Load(path)));
+        if (modeeffect != null)
+        {
+            modeeffect.transform.parent = unit.Mode.transform;
+            modeeffect.transform.position = unit.Mode.transform.position;
+            //modeeffect.transform.rotation = ParentEntity.Mode.transform.rotation;
+            var ps = modeeffect.GetComponent<ParticleSystem>();
+            if (ps != null)
+            {
+                GameObject.Destroy(modeeffect, ps.main.duration);
+            }
+            else
+            {
+                GameObject.Destroy(modeeffect, 2);
+            }
+        }
+    }
+
     public void Init()
     {
         if(ParentEntity == null || ParentEntity.Mode == null)
@@ -232,7 +259,7 @@ public class BuffEffect
 
     public void UpdateData()
     {
-        Debug.Log("------UpdateData---:");
+        //Debug.Log("------UpdateData---:");
         //更新显示的数据
         foreach (GameObject p in ModeEffect)
         {

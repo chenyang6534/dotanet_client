@@ -125,6 +125,7 @@ public class ExcelReader
                 item.Name = collect[i][1].ToString();
                 item.IconPath = collect[i][2].ToString();
                 item.Des = collect[i][3].ToString();
+                item.AutoAimType = int.Parse(collect[i][4].ToString());
                 array[i - 1] = item;
             }
             return array;
@@ -149,6 +150,7 @@ public class ExcelReader
                 item.StartY = int.Parse(collect[i][4].ToString());
                 item.EndX = int.Parse(collect[i][5].ToString());
                 item.EndY = int.Parse(collect[i][6].ToString());
+                item.Name = collect[i][7].ToString();
                 array[i - 1] = item;
                 
             }

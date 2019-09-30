@@ -16,6 +16,7 @@ namespace ExcelData
         public int StartY;
         public int EndX;
         public int EndY;
+        public string Name;//场景名字
     }
 
 

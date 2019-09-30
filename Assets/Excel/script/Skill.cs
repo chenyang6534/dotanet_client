@@ -13,6 +13,7 @@ namespace ExcelData
         public string IconPath;
         public string Name;
         public string Des;
+        public int AutoAimType; //技能自动瞄准类型 1:普通 2:位移技能(朝目标方向最大距离) 3:进攻技能(瞄准敌人)
     }
 
     

@@ -52,6 +52,7 @@ public class GameScene : MonoBehaviour {
         MsgManager.Instance.AddListener("SC_NewScene", new HandleMsg(this.SC_NewScene));
         m_LogicFrameData = new Dictionary<int, Protomsg.SC_Update>();
 
+        Application.targetFrameRate = 30;
     }
     void OnDestroy()
     {
@@ -70,13 +71,16 @@ public class GameScene : MonoBehaviour {
     public bool SC_Update(Protomsg.MsgBase d1)
     {
         //Debug.Log("SC_Update:");
+        //var m1 = System.GC.GetTotalMemory(true);
         IMessage IMperson = new Protomsg.SC_Update();
         Protomsg.SC_Update p1 = (Protomsg.SC_Update)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
 
         m_LogicFrameData[p1.CurFrame] = p1;
         m_MaxFrame = p1.CurFrame;
 
-        //Debug.Log("SC_Update:"+p1.CurFrame);
+        //var m2 = System.GC.GetTotalMemory(true);
+
+        //Debug.Log("gc size:"+ d1.Datas.Length+" str:"+ d1.Datas.ToString());
 
         return true;
     }
@@ -176,7 +180,7 @@ public class GameScene : MonoBehaviour {
     //处理游戏逻辑
     void LogicUpdate()
     {
-        Debug.Log("33time:" + Tool.GetTime());
+        //Debug.Log("33time:" + Tool.GetTime());
         //m_GameServerStartTime = Tool.GetTime() - 1.0f / p1.LogicFps * p1.CurFrame;
         var frame = (Tool.GetTime() - m_GameServerStartTime-m_LogicDelayTime) * m_LogicFps;
         //Debug.Log("frame:" + frame+"     curframe:"+ m_CurFrame+ " MaxFrame: " + m_MaxFrame);
@@ -294,7 +298,16 @@ public class GameScene : MonoBehaviour {
             }
         }
 
-        Debug.Log("44time:" + Tool.GetTime());
+        //删除已经计算的帧数据
+        for (var i = m_CurFrame-15; i <= m_CurFrame - 5; i++)
+        {
+            if (m_LogicFrameData.ContainsKey(i))
+            {
+                m_LogicFrameData.Remove(i);
+            }
+        }
+
+        //Debug.Log("44time:" + Tool.GetTime());
 
     }
 
@@ -816,9 +829,9 @@ public class GameScene : MonoBehaviour {
         }
 
         UnityEntityManager.Instance.Update(Time.deltaTime);
-        if(Time.deltaTime >= 0.00033)
+        if(Time.deltaTime >= 0.033)
         {
-            Debug.Log("deltaTime:" + Time.deltaTime);
+            //Debug.Log("deltaTime:" + Time.deltaTime);
         }
         //Debug.Log("66time:" + Tool.GetTime());
 

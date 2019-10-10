@@ -56,8 +56,9 @@ namespace cocosocket4unity
                 //UnityEngine.Debug.Log("ping:"+ PingValue);
                 return;
             }
-            
-            
+
+
+
            MsgManager.Instance.AddMessage(p1);
           //  UnityEngine.Debug.Log("MsgType:" + p1.MsgType+ "ModeType:" + p1.ModeType + "ConnectId:" + p1.ConnectId + "Uid:" + p1.Uid);
             //this.Send(bb.Copy());

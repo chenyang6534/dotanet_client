@@ -216,13 +216,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf311f0d31320474ebdcfad9a086cae6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LinePre: {fileID: 0}
   muzzlePrefab: {fileID: 1357030889595668, guid: 7fb26512cdc340a4e8e7dd9d974ceb0f,
     type: 2}
   hitPrefab: {fileID: 1801918589960200, guid: fd8ef4005e6e02d4198f424a676c39fb, type: 2}
-  shotSFX: {fileID: 0}
-  hitSFX: {fileID: 0}
+  shotSFX:
+  - {fileID: 8300000, guid: 5e9fa7c3fde9d0443a8dd5377b242277, type: 3}
+  hitSFX:
+  - {fileID: 8300000, guid: 6c77ee72075d21b4e980f25e6313a13f, type: 3}
   trails:
   - {fileID: 1769995617360978}
+  IsRotationHit: 1
 --- !u!114 &114399328481516584
 MonoBehaviour:
   m_ObjectHideFlags: 1

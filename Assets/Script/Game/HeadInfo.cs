@@ -81,7 +81,7 @@ public class HeadInfo{
         }
 
         GComponent view = UIPackage.CreateObject("GameUI", "buf_icon").asCom;
-        view.scale = new Vector2(0.5f, 0.5f);
+        view.scale = new Vector2(0.7f, 0.7f);
         Bufs.AddChild(view);
         BufsRes[data.TypeID] = view;
         SetBufData(view, data);

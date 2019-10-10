@@ -23,7 +23,7 @@ public class SpawnProjectilesScript : MonoBehaviour {
 			camerasList.Add (cameras.transform.GetChild(i).gameObject.GetComponent<Camera>());
 		}
 
-		Application.targetFrameRate = 60;
+		//Application.targetFrameRate = 60;
 		effectToSpawn = VFXs[0];
 		if (effectName != null) effectName.text = effectToSpawn.name;
 

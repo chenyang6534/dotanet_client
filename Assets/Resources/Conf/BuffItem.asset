@@ -92,10 +92,10 @@ MonoBehaviour:
     FootEffect: 
     Enable: 1
     HeadEffect: 
-    TopBarEffect: ui://fekv2twrs1b2x
+    TopBarEffect: 
     RenderColor: 0
     OutEffect: 
-    NativeTopBarEffect: 
+    NativeTopBarEffect: Buff/zhuaheng
     HandsEffect: 
     FootsEffect: 
     MaterialEffect: 

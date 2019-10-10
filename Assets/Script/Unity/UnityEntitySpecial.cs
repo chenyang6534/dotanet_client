@@ -166,7 +166,7 @@ public class UnityEntitySpecial : MonoBehaviour {
     protected void SetGreen()
     {
         Material mat = Resources.Load<Material>("Specialeffects/unitygreen");// new Material(Shader.Find("UnityEntity/Specail1"));
-
+        
         foreach (var item in m_AllMaterial)
         {
             //item.Key.materials[0] = mat;

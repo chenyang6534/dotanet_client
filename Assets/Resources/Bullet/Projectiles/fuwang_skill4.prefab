@@ -51,9 +51,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf311f0d31320474ebdcfad9a086cae6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LinePre: {fileID: 0}
   muzzlePrefab: {fileID: 0}
   hitPrefab: {fileID: 1632223898698674, guid: b38fa48aa21053e488fc9805b3f60539, type: 2}
-  shotSFX: {fileID: 0}
-  hitSFX: {fileID: 0}
+  shotSFX: []
+  hitSFX:
+  - {fileID: 8300000, guid: 310bfcdc7d497ec43bb5c3b8f49f2e7c, type: 3}
   trails: []
   IsRotationHit: 0

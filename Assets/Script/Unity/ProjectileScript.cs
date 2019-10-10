@@ -10,8 +10,8 @@ public class ProjectileScript : MonoBehaviour {
 
 	public GameObject muzzlePrefab;
 	public GameObject hitPrefab;
-	public AudioClip shotSFX;
-	public AudioClip hitSFX;
+	public AudioClip[] shotSFX;
+	public AudioClip[] hitSFX;
 	public List<GameObject> trails;
     public bool IsRotationHit = true;
 
@@ -69,9 +69,13 @@ public class ProjectileScript : MonoBehaviour {
             }
         }
 
-        if (shotSFX != null && GetComponent<AudioSource>())
+        if (shotSFX.Length > 0)
         {
-            GetComponent<AudioSource>().PlayOneShot(shotSFX);
+            int index = Random.Range(0, shotSFX.Length);
+            Debug.Log("rand:" + index + "   len:" + shotSFX.Length);
+            Debug.Log("rand obj:" + shotSFX[index] +"   pos:"+pos);
+            AudioManager.Am.Play3DSound(shotSFX[index], pos);
+
         }
     }
     public void ShowEndParticle(Vector3 direction)
@@ -82,12 +86,15 @@ public class ProjectileScript : MonoBehaviour {
         {
             return;
         }
-        if (shotSFX != null && GetComponent<AudioSource>())
+        if (hitSFX.Length > 0)
         {
-            GetComponent<AudioSource>().PlayOneShot(hitSFX);
-        }
+            int index = Random.Range(0, hitSFX.Length);
+            AudioManager.Am.Play3DSound(hitSFX[index], gameObject.transform.position);
 
-       
+        }
+        
+
+
         Quaternion rot = Quaternion.FromToRotation(Vector3.up, gameObject.transform.forward);
         Vector3 pos = gameObject.transform.position;
 

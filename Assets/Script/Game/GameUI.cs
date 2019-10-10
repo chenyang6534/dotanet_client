@@ -518,8 +518,10 @@ public class GameUI : MonoBehaviour {
         //GImage aImage = UIPackage.CreateObject("包名","图片名").asImage;
         foreach (var image in allunitImage)
         {
-            image.RemoveFromParent();
+            image.Dispose();
         }
+        allunitImage.Clear();
+
         var allunit = UnityEntityManager.Instance.GetAllUnity();
         foreach(var unit in allunit)
         {

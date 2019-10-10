@@ -74,7 +74,7 @@ MonoBehaviour:
     Level: 2
   - TypeID: 21
     ModePath: Bullet/Projectiles/jianshen_skill2
-    Level: 2
+    Level: 10
   - TypeID: 1001
     ModePath: Buff/zhiliaobang_halo
     Level: 1
@@ -162,3 +162,168 @@ MonoBehaviour:
   - TypeID: 40
     ModePath: Bullet/Projectiles/xiwa_skill
     Level: 1
+  - TypeID: 41
+    ModePath: Bullet/Projectiles/jianshen_attack
+    Level: 1
+  - TypeID: 42
+    ModePath: Bullet/Projectiles/jianshen_baoji
+    Level: 2
+  - TypeID: 43
+    ModePath: Bullet/Projectiles/jianshen_fengbao
+    Level: 2
+  - TypeID: 44
+    ModePath: Bullet/Projectiles/jianshen_zhiliao
+    Level: 2
+  - TypeID: 45
+    ModePath: Bullet/Projectiles/xukong_attack
+    Level: 1
+  - TypeID: 46
+    ModePath: Bullet/Projectiles/xukong_tiao
+    Level: 2
+  - TypeID: 47
+    ModePath: Bullet/Projectiles/xukong_lockskill
+    Level: 2
+  - TypeID: 48
+    ModePath: Bullet/Projectiles/xukong_timelock
+    Level: 2
+  - TypeID: 49
+    ModePath: Bullet/Projectiles/xukong_timewalk
+    Level: 2
+  - TypeID: 50
+    ModePath: Bullet/Projectiles/hundun_attack
+    Level: 1
+  - TypeID: 51
+    ModePath: Bullet/Projectiles/hundun_skill2
+    Level: 2
+  - TypeID: 52
+    ModePath: Bullet/Projectiles/hundun_skill3
+    Level: 2
+  - TypeID: 53
+    ModePath: Bullet/Projectiles/hundun_skill4
+    Level: 2
+  - TypeID: 54
+    ModePath: Bullet/Projectiles/paipaixiong_attack
+    Level: 1
+  - TypeID: 55
+    ModePath: Bullet/Projectiles/paipaixiong_skill2
+    Level: 2
+  - TypeID: 56
+    ModePath: Bullet/Projectiles/paipaixiong_skill4
+    Level: 2
+  - TypeID: 57
+    ModePath: Bullet/Projectiles/xuemo_attack
+    Level: 1
+  - TypeID: 58
+    ModePath: Bullet/Projectiles/xuemo_skill1
+    Level: 2
+  - TypeID: 59
+    ModePath: Bullet/Projectiles/xuemo_skill2
+    Level: 2
+  - TypeID: 60
+    ModePath: Bullet/Projectiles/xuemo_skill4
+    Level: 2
+  - TypeID: 61
+    ModePath: Bullet/Projectiles/xiaonajia_attack
+    Level: 1
+  - TypeID: 62
+    ModePath: Bullet/Projectiles/xiaonajia_fenshen
+    Level: 2
+  - TypeID: 63
+    ModePath: Bullet/Projectiles/xiaonajia_skill4
+    Level: 2
+  - TypeID: 64
+    ModePath: Bullet/Projectiles/xiaoxiao_attack
+    Level: 1
+  - TypeID: 65
+    ModePath: Bullet/Projectiles/xiaoxiao_skill1
+    Level: 2
+  - TypeID: 66
+    ModePath: Bullet/Projectiles/xiaoxiao_skill2_1
+    Level: 2
+  - TypeID: 67
+    ModePath: Bullet/Projectiles/xiaoxiao_skill2_2
+    Level: 2
+  - TypeID: 68
+    ModePath: Bullet/Projectiles/fengxing_skill3
+    Level: 2
+  - TypeID: 69
+    ModePath: Bullet/Projectiles/fengxing_skill4
+    Level: 2
+  - TypeID: 70
+    ModePath: Bullet/Projectiles/pake_skill2
+    Level: 2
+  - TypeID: 71
+    ModePath: Bullet/Projectiles/pake_skill3
+    Level: 2
+  - TypeID: 72
+    ModePath: Bullet/Projectiles/pake_skill4
+    Level: 2
+  - TypeID: 73
+    ModePath: Bullet/Projectiles/yougui_attack
+    Level: 1
+  - TypeID: 74
+    ModePath: Bullet/Projectiles/yougui_skill4
+    Level: 2
+  - TypeID: 75
+    ModePath: Bullet/Projectiles/yougui_skill5
+    Level: 2
+  - TypeID: 76
+    ModePath: Bullet/Projectiles/huoqiang_liudan
+    Level: 2
+  - TypeID: 77
+    ModePath: Bullet/Projectiles/fuwang_attack
+    Level: 1
+  - TypeID: 78
+    ModePath: Bullet/Projectiles/fuwang_hou
+    Level: 2
+  - TypeID: 79
+    ModePath: Bullet/Projectiles/fuwang_diandeng
+    Level: 2
+  - TypeID: 80
+    ModePath: Bullet/Projectiles/yueqi_skill4
+    Level: 2
+  - TypeID: 81
+    ModePath: Bullet/Projectiles/dulong_skill_judu
+    Level: 2
+  - TypeID: 82
+    ModePath: Bullet/Projectiles/lanmao_canying
+    Level: 2
+  - TypeID: 83
+    ModePath: Bullet/Projectiles/lanmao_la
+    Level: 2
+  - TypeID: 84
+    ModePath: Bullet/Projectiles/lanmao_canying_1
+    Level: 2
+  - TypeID: 85
+    ModePath: 
+    Level: 2
+  - TypeID: 86
+    ModePath: 
+    Level: 2
+  - TypeID: 87
+    ModePath: 
+    Level: 2
+  - TypeID: 88
+    ModePath: 
+    Level: 2
+  - TypeID: 89
+    ModePath: 
+    Level: 2
+  - TypeID: 90
+    ModePath: 
+    Level: 2
+  - TypeID: 91
+    ModePath: 
+    Level: 2
+  - TypeID: 92
+    ModePath: 
+    Level: 2
+  - TypeID: 93
+    ModePath: 
+    Level: 2
+  - TypeID: 94
+    ModePath: 
+    Level: 2
+  - TypeID: 95
+    ModePath: 
+    Level: 2

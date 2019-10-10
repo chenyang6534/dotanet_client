@@ -275,14 +275,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf311f0d31320474ebdcfad9a086cae6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LinePre: {fileID: 0}
   muzzlePrefab: {fileID: 1357030889595668, guid: ad33ea808f171aa41b96ed7ac119d010,
     type: 2}
   hitPrefab: {fileID: 0}
-  shotSFX: {fileID: 0}
-  hitSFX: {fileID: 0}
+  shotSFX:
+  - {fileID: 8300000, guid: c0628ad236cdeb740aebee63a6df345f, type: 3}
+  - {fileID: 8300000, guid: abccbdd354e102f4fa22c2924df9f1e8, type: 3}
+  - {fileID: 8300000, guid: 80b5ff24a677dee4896fc7c1e4c9e670, type: 3}
+  - {fileID: 8300000, guid: 06e4d24035c348848a9575b2d6aee80e, type: 3}
+  hitSFX:
+  - {fileID: 8300000, guid: b39c613adc1b16c44b5356981bf6068b, type: 3}
+  - {fileID: 8300000, guid: 1e44ca23611dd684fbef575429186ad8, type: 3}
+  - {fileID: 8300000, guid: 72787d2f19c82844c9f53b9e0dd28284, type: 3}
   trails:
   - {fileID: 1726877120892846}
   - {fileID: 1672229105990886}
+  IsRotationHit: 1
 --- !u!198 &198044721771282614
 ParticleSystem:
   m_ObjectHideFlags: 1

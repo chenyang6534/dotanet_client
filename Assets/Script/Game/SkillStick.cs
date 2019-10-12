@@ -47,6 +47,9 @@ public class Skillstick : EventDispatcher
 
     protected Protomsg.SkillDatas m_SkillDatas;
     protected bool m_IsItem;
+
+    TimerCallback timeCallBack;
+    InputEvent moveEventContext;
     public Protomsg.SkillDatas SkillDatas
     {
         get
@@ -260,6 +263,11 @@ public class Skillstick : EventDispatcher
             center = null;
             no = null;
             my = null;
+            if(timeCallBack != null)
+            {
+                Timers.inst.Remove(timeCallBack);
+                timeCallBack = null;
+            }
         }
     }
 
@@ -296,6 +304,11 @@ public class Skillstick : EventDispatcher
         touchArea.onTouchBegin.Add(OnTouchBegin);
         touchArea.onTouchMove.Add(OnTouchMove);
         touchArea.onTouchEnd.Add(OnTouchEnd);
+        timeCallBack = (p1) =>
+        {
+            this.TimerUpdate();
+        };
+        Timers.inst.AddUpdate(timeCallBack);
 
         Debug.Log("touchArea:" + touchArea);
 
@@ -315,7 +328,7 @@ public class Skillstick : EventDispatcher
 
 
         GameScene.Singleton.PressSkillBtn(1, pos,m_SkillDatas,false,false);
-        Debug.Log("Skill DoTouchDown:" + pos);
+        //Debug.Log("Skill DoTouchDown:" + pos);
     }
     protected void DoTouchMove(Vector2 pos,float len)
     {
@@ -323,7 +336,7 @@ public class Skillstick : EventDispatcher
         {
             len = 1;
         }
-        Debug.Log("Skill DoTouchMove:" + pos);
+        //Debug.Log("Skill DoTouchMove:" + pos);
         pos.y = -pos.y;
         
         GameScene.Singleton.PressSkillBtn(2, pos.normalized * (m_SkillDatas.CastRange * len), m_SkillDatas,false,false);
@@ -334,18 +347,146 @@ public class Skillstick : EventDispatcher
         {
             len = 1;
         }
-        Debug.Log("Skill DoTouchEnd:" + pos+"   "+ (pos * (m_SkillDatas.CastRange * len)));
+        //Debug.Log("Skill DoTouchEnd:" + pos+"   "+ (pos * (m_SkillDatas.CastRange * len)));
         pos.y = -pos.y;
         GameScene.Singleton.PressSkillBtn(3, pos.normalized * (m_SkillDatas.CastRange * len), m_SkillDatas,isno,ismy);
+    }
+
+
+    public void TimerUpdate()
+    {
+        Debug.Log("----------TimerUpdate111-:" + moveEventContext);
+        if (moveEventContext != null)
+        {
+            Debug.Log("----------TimerUpdate222-:"+ moveEventContext);
+            //var context = moveEventContext;
+            InputEvent inputEvent = moveEventContext;// (InputEvent)context.data;
+            if (touchID != -1 && inputEvent.touchId == touchID)
+            {
+                //Vector2 localPos = GRoot.inst.GlobalToLocal(new Vector2(inputEvent.x, inputEvent.y));
+                Vector2 localPos = m_ui.GlobalToLocal(inputEvent.position);
+
+                var dir = (localPos - startStagePos);
+                //点击到 取消施法
+                if (Vector2.Distance(localPos, no.xy) < 40)
+                {
+                    no.scale = new Vector2(1.5f, 1.5f);
+                    no.asTextField.color = new Color(1, 0, 0);
+                    isNo = true;
+                    center.asImage.color = new Color(1, 0, 0);
+                }
+                else
+                {
+                    no.scale = new Vector2(1.0f, 1.0f);
+                    no.asTextField.color = new Color(1, 1, 1);
+                    isNo = false;
+                    center.asImage.color = new Color(1, 1, 1);
+                }
+                //点击到 施法自己
+                if (showmy)
+                {
+                    if (Vector2.Distance(localPos, my.xy) < 40)
+                    {
+                        my.scale = new Vector2(1.5f, 1.5f);
+                        my.asTextField.color = new Color(0, 0, 1);
+                        isMy = true;
+
+                        center.asImage.color = new Color(0, 0, 1);
+                    }
+                    else
+                    {
+                        my.scale = new Vector2(1.0f, 1.0f);
+                        my.asTextField.color = new Color(1, 1, 1);
+                        isMy = false;
+                        center.asImage.color = new Color(1, 1, 1);
+                    }
+                }
+
+
+                var len = Vector2.Distance(dir, new Vector2(0, 0));
+                if (len > radius)
+                {
+                    //len = radius;
+                }
+                var dest = dir.normalized * len + startStagePos;
+
+
+                thumb.SetXY(dest.x, dest.y);
+
+                thumb.rotation = Vector2.SignedAngle(new Vector2(0, -1), dir);
+
+                if (len >= m_MoveCallNeedDir)
+                {
+                    m_IsMoved = true;
+
+                }
+
+                if( m_IsMoved == false)
+                {
+                    //详情
+                    if (IsShowInfo == false && Tool.GetTime() - TouchBeginTime >= 2)
+                    {
+                        isNo = true;
+                        DoTouchEnd(dir, len / radius, isNo, isMy);
+
+                        IsShowInfo = true;
+                        GComponent info = Tool.CreateTouchShowInfo();
+
+                        m_ui.asCom.AddChild(info);
+
+                        var clientskill = ExcelManager.Instance.GetSkillManager().GetSkillByID(m_SkillDatas.TypeID);
+                        if (clientskill != null)
+                        {
+                            if (clientskill.IconPath.Length > 0)
+                            {
+                                info.GetChild("icon").asLoader.url = clientskill.IconPath;
+                            }
+                            info.GetChild("name").asTextField.text = clientskill.Name;
+                            info.GetChild("des").asTextField.text = clientskill.Des;
+
+                        }
+                        info.SetXY(localPos.x - 100, localPos.y - 50);
+
+                    }
+                    //
+                }
+
+                if (IsShowInfo == true)
+                {
+                    GComponent info = Tool.CreateTouchShowInfo();
+                    info.SetXY(localPos.x - 100, localPos.y - 50);
+                    isNo = true;
+                    return;
+                    //no.scale = new Vector2(1.5f, 1.5f);
+                    //no.asTextField.color = new Color(1, 0, 0);
+                    //isNo = true;
+                    //center.asImage.color = new Color(1, 0, 0);
+                }
+
+                if (m_IsMoved)
+                {
+                    //onMove.Call(dir);
+                    DoTouchMove(dir, len / radius);
+
+                    if (len > radius)
+                    {
+                        startStagePos += dir.normalized * (len - radius);
+                        center.SetXY(startStagePos.x, startStagePos.y);
+                    }
+                }
+
+            }
+        }
     }
 
     //开始触摸
     private void OnTouchBegin(EventContext context)
     {
-        //Debug.Log("OnTouchBegin");
+        Debug.Log("OnTouchBegin");
         if (touchID == -1)//第一次触摸
         {
             InputEvent inputEvent = (InputEvent)context.data;
+            moveEventContext = (InputEvent)context.data;
             touchID = inputEvent.touchId;
 
             if (tweener != null)
@@ -395,121 +536,20 @@ public class Skillstick : EventDispatcher
     //移动触摸
     private void OnTouchMove(EventContext context)
     {
-        InputEvent inputEvent = (InputEvent)context.data;
-        if (touchID != -1 && inputEvent.touchId == touchID)
-        {
-            //Vector2 localPos = GRoot.inst.GlobalToLocal(new Vector2(inputEvent.x, inputEvent.y));
-            Vector2 localPos = m_ui.GlobalToLocal(inputEvent.position);
-
-            var dir = (localPos - startStagePos);
-            //点击到 取消施法
-            if (Vector2.Distance(localPos, no.xy) < 40)
-            {
-                no.scale = new Vector2(1.5f, 1.5f);
-                no.asTextField.color = new Color(1, 0, 0);
-                isNo = true;
-                center.asImage.color = new Color(1, 0, 0);
-            }
-            else
-            {
-                no.scale = new Vector2(1.0f, 1.0f);
-                no.asTextField.color = new Color(1, 1, 1);
-                isNo = false;
-                center.asImage.color = new Color(1, 1, 1);
-            }
-            //点击到 施法自己
-            if (showmy)
-            {
-                if (Vector2.Distance(localPos, my.xy) < 40)
-                {
-                    my.scale = new Vector2(1.5f, 1.5f);
-                    my.asTextField.color = new Color(0, 0, 1);
-                    isMy = true;
-
-                    center.asImage.color = new Color(0, 0, 1);
-                }
-                else
-                {
-                    my.scale = new Vector2(1.0f, 1.0f);
-                    my.asTextField.color = new Color(1, 1, 1);
-                    isMy = false;
-                    center.asImage.color = new Color(1, 1, 1);
-                }
-            }
-            
-
-            var len = Vector2.Distance(dir, new Vector2(0, 0));
-            if (len > radius)
-            {
-                //len = radius;
-            }
-            var dest = dir.normalized * len + startStagePos;
-
-
-            thumb.SetXY(dest.x, dest.y);
-
-            thumb.rotation = Vector2.SignedAngle(new Vector2(0, -1), dir);
-
-            if (len >= m_MoveCallNeedDir)
-            {
-                m_IsMoved = true;
-
-            }
-            else
-            {
-                //详情
-                if(IsShowInfo == false && Tool.GetTime() - TouchBeginTime >= 2)
-                {
-                    IsShowInfo = true;
-                    GComponent info = Tool.CreateTouchShowInfo();
-
-                    m_ui.asCom.AddChild(info);
-
-                    var clientskill = ExcelManager.Instance.GetSkillManager().GetSkillByID(m_SkillDatas.TypeID);
-                    if (clientskill != null)
-                    {
-                        if (clientskill.IconPath.Length > 0)
-                        {
-                            info.GetChild("icon").asLoader.url = clientskill.IconPath;
-                        }
-                        info.GetChild("name").asTextField.text = clientskill.Name;
-                        info.GetChild("des").asTextField.text = clientskill.Des;
-
-                    }
-                    info.SetXY(localPos.x-100, localPos.y-50);
-
-                }
-                //
-            }
-
-            if( IsShowInfo == true)
-            {
-                GComponent info = Tool.CreateTouchShowInfo();
-                info.SetXY(localPos.x - 100, localPos.y - 50);
-            }
-
-            if (m_IsMoved)
-            {
-                //onMove.Call(dir);
-                DoTouchMove(dir,len/ radius);
-
-                if( len > radius)
-                {
-                    startStagePos += dir.normalized * (len - radius);
-                    center.SetXY(startStagePos.x, startStagePos.y);
-                }
-            }
-
-        }
+        moveEventContext = (InputEvent)context.data;
+        Debug.Log("----OnTouchMove:" + context);
+        
     }
 
     //结束触摸
     private void OnTouchEnd(EventContext context)
     {
+        
         InputEvent inputEvent = (InputEvent)context.data;
         if (touchID != -1 && inputEvent.touchId == touchID)
         {
-
+            Debug.Log("----OnTouchEnd:" + context);
+            moveEventContext = null;
             Tool.CloseTouchShowInfo();
             IsShowInfo = false;
 

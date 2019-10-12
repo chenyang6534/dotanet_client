@@ -94,6 +94,15 @@ public class UnityEntity {
 
     }
 
+    public Boolean IsBigUnit()
+    {
+        if(UnitType == 1 || UnitType == 4)
+        {
+            return true;
+        }
+        return false;
+    }
+
     public void FreshAnimSpeed()
     {
         var anim = m_AnimotorState;
@@ -257,8 +266,14 @@ public class UnityEntity {
         {
             item.Value.update();
         }
-        
-        
+
+        //
+        if(m_SkillAreaLookAt != null)
+        {
+            m_SkillAreaLookAt.transform.LookAt(new Vector3(m_SkillAreaLookAtDir.x+X, 0, m_SkillAreaLookAtDir.z+Y));
+        }
+        UpdateInCirclePos();
+
 
     }
     int testnum = 0;
@@ -389,11 +404,11 @@ public class UnityEntity {
     }
 
     protected Dictionary<int, BuffEffect> m_BuffEffects = new Dictionary<int, BuffEffect>();
-
+    public BuffEffect m_ControlBuffEffect;//控制特效
     //根据buffid 创建单位特效
     public void CreateBuffSpecial(Protomsg.BuffDatas buffdata)
     {
-        Debug.Log("------- CreateBuffSpecial :" + buffdata.TypeID+ " "+ Tool.GetTime());
+        //Debug.Log("------- CreateBuffSpecial :" + buffdata.TypeID+ " "+ Tool.GetTime());
 
        
 
@@ -1202,6 +1217,14 @@ public class UnityEntity {
             return null;
         }
         return m_TopBar.GetComponent<UnityEntityTopBar>();
+    }
+
+    public void SetControlEffectTime(int time)
+    {
+        if (m_TopBar != null)
+        {
+            m_TopBar.GetComponent<UnityEntityTopBar>().SetDebuf(time);
+        }
     }
 
     public void UpdateTopBar()

@@ -114,7 +114,7 @@ public class BulletEntity
     {
         if (m_Mode != null)
         {
-            Debug.Log("4444bullet pos:" + m_Mode.transform.position);
+            //Debug.Log("4444bullet pos:" + m_Mode.transform.position);
             m_Mode.GetComponent<ProjectileScript>().DestroyProject();
 
 

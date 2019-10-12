@@ -355,10 +355,93 @@ public class GameScene : MonoBehaviour {
         {
             return;
         }
+
+        float showattackrange = AttackSelectTargetDis;
+        if (skilldata.CastRange > showattackrange)
+        {
+            showattackrange = skilldata.CastRange;
+        }
+
+        
+
         //CastTargetType 施法目标类型 1:自身为目标 2:以单位为目标 3:以地面1点为目标 
         //4:攻击时自动释放(攻击特效)5:以地面一点为方向
         if (touchstate == 1)
         {
+
+            //第一次选择目标
+            if (m_TargetUnit == null)
+            {
+                m_TargetUnit = UnityEntityManager.Instance.GetNearestBigUnitForSkillTarget(m_MyMainUnit, skilldata, showattackrange);
+                if (m_TargetUnit == null)
+                {
+                    m_TargetUnit = UnityEntityManager.Instance.GetNearestUnitForSkillTarget(m_MyMainUnit, skilldata);
+                }
+
+
+            }
+            else
+            {
+                m_TargetUnit.TargetShow(false);
+                m_TargetUnit.TargetShowRedCircle(false);
+
+                if (UnityEntityManager.Instance.CheckCastSkillTarget(m_TargetUnit, m_MyMainUnit, skilldata) == false)
+                {
+                    var target1 = UnityEntityManager.Instance.GetNearestBigUnitForSkillTarget(m_MyMainUnit, skilldata, showattackrange);
+                    //m_TargetUnit = UnityEntityManager.Instance.GetNearestBigUnitForSkillTarget(m_MyMainUnit, skilldata, showattackrange);
+                    if (target1 == null)
+                    {
+                        target1 = UnityEntityManager.Instance.GetNearestUnitForSkillTarget(m_MyMainUnit, skilldata);
+                    }
+                    if(target1 != null)
+                    {
+                        m_TargetUnit = target1;
+                    }
+                }
+
+                //不在范围内都重新寻找
+                //如果是普通单位且不在寻找攻击范围内 则重新寻找最近单位
+                var dis = Vector2.Distance(new Vector2(m_MyMainUnit.X, m_MyMainUnit.Y), new Vector2(m_TargetUnit.X, m_TargetUnit.Y));
+                if (showattackrange < dis)
+                {
+                    m_TargetUnit = UnityEntityManager.Instance.GetNearestBigUnitForSkillTarget(m_MyMainUnit, skilldata, showattackrange);
+                    if (m_TargetUnit == null)
+                    {
+                        m_TargetUnit = UnityEntityManager.Instance.GetNearestUnitForSkillTarget(m_MyMainUnit, skilldata);
+                    }
+                }
+                else
+                {
+                    //单位类型(1:英雄 2:普通单位 3:远古 4:boss)
+                    //如果不是大仇恨敌方单位
+                    if (m_TargetUnit.IsBigUnit() == false)
+                    {
+                        var bigenemy = UnityEntityManager.Instance.GetNearestBigUnitForSkillTarget(m_MyMainUnit, skilldata, showattackrange);
+                        if (bigenemy != null)
+                        {
+                            m_TargetUnit = bigenemy;
+                        }
+                        else
+                        {
+                            //不在攻击范围内
+                            if (skilldata.CastRange < dis)
+                            {
+                                m_TargetUnit = UnityEntityManager.Instance.GetNearestUnitForSkillTarget(m_MyMainUnit, skilldata);
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+            
+            
+
+
+
+
             switch (skilldata.CastTargetType) {
                 case 4:
                     Protomsg.CS_PlayerSkill msg4 = new Protomsg.CS_PlayerSkill();
@@ -663,6 +746,8 @@ public class GameScene : MonoBehaviour {
         return;
     }
 
+
+
     //1:down 2:move 3:end
     float AttackSelectTargetDis = 8;//攻击目标选择范围
     public void PressAttackBtn(int touchstate,Vector2 dir)
@@ -682,17 +767,68 @@ public class GameScene : MonoBehaviour {
         {
             if (m_TargetUnit == null )
             {
-                m_TargetUnit = UnityEntityManager.Instance.GetNearestEnemy(m_MyMainUnit);
+                m_TargetUnit = UnityEntityManager.Instance.GetNearestBigEnemy(m_MyMainUnit, showattackrange);
+                if(m_TargetUnit == null)
+                {
+                    m_TargetUnit = UnityEntityManager.Instance.GetNearestEnemy(m_MyMainUnit);
+                }
+                
 
             }
             else
             {
                 m_TargetUnit.TargetShow(false);
                 m_TargetUnit.TargetShowRedCircle(false);
+
                 if (UnityEntityManager.Instance.CheckIsEnemy(m_TargetUnit, m_MyMainUnit) == false)
                 {
-                    m_TargetUnit = UnityEntityManager.Instance.GetNearestEnemy(m_MyMainUnit);
+                    m_TargetUnit = UnityEntityManager.Instance.GetNearestBigEnemy(m_MyMainUnit, showattackrange);
+                    if (m_TargetUnit == null)
+                    {
+                        m_TargetUnit = UnityEntityManager.Instance.GetNearestEnemy(m_MyMainUnit);
+                    }
                 }
+
+                //不在范围内都重新寻找
+                //如果是普通单位且不在寻找攻击范围内 则重新寻找最近单位
+                var dis = Vector2.Distance(new Vector2(m_MyMainUnit.X, m_MyMainUnit.Y), new Vector2(m_TargetUnit.X, m_TargetUnit.Y));
+                if (showattackrange < dis)
+                {
+                    m_TargetUnit = UnityEntityManager.Instance.GetNearestBigEnemy(m_MyMainUnit, showattackrange);
+                    if (m_TargetUnit == null)
+                    {
+                        m_TargetUnit = UnityEntityManager.Instance.GetNearestEnemy(m_MyMainUnit);
+                    }
+                }else
+                {
+                    //单位类型(1:英雄 2:普通单位 3:远古 4:boss)
+                    //如果不是大仇恨敌方单位
+                    if (m_TargetUnit.IsBigUnit() == false)
+                    {
+                        var bigenemy = UnityEntityManager.Instance.GetNearestBigEnemy(m_MyMainUnit, showattackrange);
+                        if (bigenemy != null)
+                        {
+                            m_TargetUnit = bigenemy;
+                        }
+                        else
+                        {
+                            //不在攻击范围内
+                            if (m_MyMainUnit.AttackRange < dis)
+                            {
+                                m_TargetUnit = UnityEntityManager.Instance.GetNearestEnemy(m_MyMainUnit);
+                            }
+                                
+                        }
+
+                    }
+                    
+                }
+                
+            }
+
+            if(m_TargetUnit == null)
+            {
+                return;
             }
             
             m_TargetUnit.TargetShow(true);
@@ -813,16 +949,18 @@ public class GameScene : MonoBehaviour {
             else
             {
                 //距离我自己太远
-                if(m_MyMainUnit != null)
-                {
-                    var dis = Vector2.Distance(new Vector2(m_TargetUnit.X, m_TargetUnit.Y), new Vector2(m_MyMainUnit.X, m_MyMainUnit.Y));
-                    if(dis > 8 && dis > m_MyMainUnit.AttackRange+2)
-                    {
-                        m_TargetUnit.TargetShow(false);
-                        m_TargetUnit.TargetShowRedCircle(false);
-                        m_TargetUnit = null;
-                    }
-                }
+                //if(m_MyMainUnit != null)
+                //{
+                //    var dis = Vector2.Distance(new Vector2(m_TargetUnit.X, m_TargetUnit.Y), new Vector2(m_MyMainUnit.X, m_MyMainUnit.Y));
+                //    if(dis > AttackSelectTargetDis && dis > m_MyMainUnit.AttackRange)
+                //    {
+                //        //m_TargetUnit.TargetShow(false);
+                //        //m_TargetUnit.TargetShowRedCircle(false);
+                //        //m_TargetUnit = null;
+
+                        
+                //    }
+                //}
                 
             }
             

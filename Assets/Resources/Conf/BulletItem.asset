@@ -295,35 +295,107 @@ MonoBehaviour:
     ModePath: Bullet/Projectiles/lanmao_canying_1
     Level: 2
   - TypeID: 85
-    ModePath: 
+    ModePath: Bullet/Projectiles/item/lvzhang
     Level: 2
   - TypeID: 86
-    ModePath: 
+    ModePath: Bullet/Projectiles/item/xiangweixie
     Level: 2
   - TypeID: 87
-    ModePath: 
+    ModePath: Bullet/Projectiles/item/xuanmingdunpai
     Level: 2
   - TypeID: 88
-    ModePath: 
+    ModePath: Bullet/Projectiles/item/xiaoxunzhang
     Level: 2
   - TypeID: 89
-    ModePath: 
+    ModePath: Bullet/Projectiles/item/zhangu
     Level: 2
   - TypeID: 90
-    ModePath: 
+    ModePath: Bullet/Projectiles/item/dizi
     Level: 2
   - TypeID: 91
-    ModePath: 
+    ModePath: Bullet/Projectiles/item/tuitui
     Level: 2
   - TypeID: 92
-    ModePath: 
+    ModePath: Bullet/Projectiles/item/fenzheng
     Level: 2
   - TypeID: 93
-    ModePath: 
+    ModePath: Bullet/Projectiles/item/fengzhang
     Level: 2
   - TypeID: 94
-    ModePath: 
+    ModePath: Bullet/Projectiles/atuosi
     Level: 2
   - TypeID: 95
+    ModePath: Bullet/Projectiles/item/ziyuan
+    Level: 2
+  - TypeID: 96
+    ModePath: Bullet/Projectiles/item/yangdao
+    Level: 2
+  - TypeID: 97
+    ModePath: Bullet/Projectiles/item/xiaoyunchui
+    Level: 0
+  - TypeID: 98
+    ModePath: Bullet/Projectiles/item/jingubang
+    Level: 0
+  - TypeID: 99
+    ModePath: Bullet/Projectiles/item/dayunchui
+    Level: 2
+  - TypeID: 100
+    ModePath: Bullet/Projectiles/item/tiaozhan
+    Level: 2
+  - TypeID: 101
+    ModePath: Bullet/Projectiles/item/renjia
+    Level: 2
+  - TypeID: 102
+    ModePath: Bullet/Projectiles/item/bkb
+    Level: 2
+  - TypeID: 103
+    ModePath: Bullet/Projectiles/item/fenshen
+    Level: 2
+  - TypeID: 104
+    ModePath: Bullet/Projectiles/item/xuejingshi
+    Level: 2
+  - TypeID: 105
+    ModePath: Bullet/Projectiles/item/fengkuang
+    Level: 2
+  - TypeID: 106
+    ModePath: Bullet/Projectiles/xiaodianchui
+    Level: 2
+  - TypeID: 107
+    ModePath: Bullet/Projectiles/item/sanshi
+    Level: 2
+  - TypeID: 108
+    ModePath: Bullet/Projectiles/item/tiantang
+    Level: 2
+  - TypeID: 109
+    ModePath: Bullet/Projectiles/item/sadan
+    Level: 2
+  - TypeID: 110
+    ModePath: 
+    Level: 2
+  - TypeID: 111
+    ModePath: 
+    Level: 2
+  - TypeID: 112
+    ModePath: 
+    Level: 2
+  - TypeID: 113
+    ModePath: 
+    Level: 2
+  - TypeID: 114
+    ModePath: 
+    Level: 2
+  - TypeID: 115
+    ModePath: 
+    Level: 2
+  - TypeID: 116
+    ModePath: 
+    Level: 2
+  - TypeID: 117
+    ModePath: 
+    Level: 2
+  - TypeID: 118
+    ModePath: 
+    Level: 2
+  - TypeID: 119
     ModePath: 
     Level: 2

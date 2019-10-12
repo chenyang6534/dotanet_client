@@ -551,6 +551,7 @@ GameObject:
   - component: {fileID: 9500000}
   - component: {fileID: 65251337703132812}
   - component: {fileID: 114381795963908838}
+  - component: {fileID: 114257045954407362}
   m_Layer: 0
   m_Name: Fire_Demon_Red
   m_TagString: Untagged
@@ -7021,6 +7022,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 2.4, z: 1}
   m_Center: {x: 0, y: 1.2, z: 0}
+--- !u!114 &114257045954407362
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84a8081cb3cf3e84ead92ff687384ca4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AttackFireTrail: []
+  m_AttackAnim: 0
 --- !u!114 &114381795963908838
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -10,6 +10,8 @@ public class AudioManager : MonoBehaviour
     //public AudioSource MusicPlayer;
     //音效播放器
     public AudioSource SoundPlayer;
+
+    protected Dictionary<AudioClip, double> PlaySoundTime = new Dictionary<AudioClip, double>();
     void Start()
     {
         Am = this;
@@ -44,10 +46,16 @@ public class AudioManager : MonoBehaviour
     //播放音效
     public void Play3DSound(AudioClip ac, Vector3 pos)
     {
-        //AudioClip clip = Resources.Load<AudioClip>(path);
-        //SoundPlayer.clip = clip;
-        //SoundPlayer.PlayOneShot(clip);
+        if (PlaySoundTime.ContainsKey(ac))
+        {
+            if(Tool.GetTime()- PlaySoundTime[ac] < 0.1)
+            {
+                return;
+            }
+        }
+        PlaySoundTime[ac] = Tool.GetTime();
         AudioSource.PlayClipAtPoint(ac, pos);
+
     }
 
     //播放音效
@@ -56,5 +64,12 @@ public class AudioManager : MonoBehaviour
         AudioClip clip = Resources.Load<AudioClip>(path);
         //SoundPlayer.clip = clip;
         SoundPlayer.PlayOneShot(clip);
+    }
+
+    public void Play2DSound(AudioClip ac)
+    {
+        //AudioClip clip = Resources.Load<AudioClip>(path);
+        //SoundPlayer.clip = clip;
+        SoundPlayer.PlayOneShot(ac);
     }
 }

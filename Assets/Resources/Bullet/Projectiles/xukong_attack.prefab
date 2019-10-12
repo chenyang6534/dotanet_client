@@ -56,8 +56,8 @@ MonoBehaviour:
   hitPrefab: {fileID: 0}
   shotSFX: []
   hitSFX:
-  - {fileID: 8300000, guid: bc68cfb4f157720409ecfe67aa72118a, type: 3}
-  - {fileID: 8300000, guid: b7d65bb92fc0e7a458e3825f2f7c04d8, type: 3}
-  - {fileID: 8300000, guid: 2dc92ebb94833074c9aae566eff18e73, type: 3}
+  - {fileID: 8300000, guid: 7393748ff9562ef488acc3126bf2da25, type: 3}
+  - {fileID: 8300000, guid: df534f1385abbcd4f87a30b0f3b420f0, type: 3}
+  - {fileID: 8300000, guid: 47631646855ff7246b7207f0e10de231, type: 3}
   trails: []
   IsRotationHit: 1

@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1570443267020112}
+  m_IsPrefabAsset: 1
+--- !u!1 &1570443267020112
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4603778322194206}
+  - component: {fileID: 114492585085726736}
+  m_Layer: 0
+  m_Name: xiaodianchui
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4603778322194206
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1570443267020112}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114492585085726736
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1570443267020112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf311f0d31320474ebdcfad9a086cae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LinePre: {fileID: 1702919814179016, guid: f5fd2928e69ec834f81bee5e8315c6bd, type: 2}
+  muzzlePrefab: {fileID: 0}
+  hitPrefab: {fileID: 0}
+  shotSFX:
+  - {fileID: 8300000, guid: 285a4cec29da29649a948ee2e2528129, type: 3}
+  - {fileID: 8300000, guid: aa496a2286ac26346be53e043679b450, type: 3}
+  - {fileID: 8300000, guid: 042a7a7f745885841b7389a3e5c4349d, type: 3}
+  - {fileID: 8300000, guid: 6d6c667418dc70b47b99c62f4d49bb47, type: 3}
+  - {fileID: 8300000, guid: 0f30caa0fc5f57347939ec112b0b16dd, type: 3}
+  hitSFX: []
+  trails: []
+  IsRotationHit: 0

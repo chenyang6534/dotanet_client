@@ -82,6 +82,7 @@ public class ExcelReader
                 item.ModeEnable = int.Parse(collect[i][13].ToString());
                 item.IconPath = collect[i][14].ToString();
                 item.IconTimeEnable = int.Parse(collect[i][15].ToString());
+                item.IsShowControl = int.Parse(collect[i][16].ToString());
 
                 array[i - 1] = item;
             }

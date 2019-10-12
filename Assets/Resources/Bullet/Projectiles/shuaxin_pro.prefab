@@ -54,7 +54,8 @@ MonoBehaviour:
   LinePre: {fileID: 0}
   muzzlePrefab: {fileID: 0}
   hitPrefab: {fileID: 1140832017631582, guid: b31438a92fc1a014cbc42c93b4b7eca4, type: 2}
-  shotSFX: []
+  shotSFX:
+  - {fileID: 8300000, guid: 89194304c11830347b2055722fdf7f4b, type: 3}
   hitSFX: []
   trails: []
   IsRotationHit: 0

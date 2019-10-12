@@ -58,22 +58,22 @@ public class ProjectileScript : MonoBehaviour {
             //return;
             if (ps != null)
             {
-                Debug.Log("55time1:" + ps.main.duration);
+                //Debug.Log("55time1:" + ps.main.duration);
                 Destroy(muzzleVFX, ps.main.duration);
             }  
             else
             {
                 var psChild = muzzleVFX.transform.GetChild(0).GetComponent<ParticleSystem>();
                 Destroy(muzzleVFX, psChild.main.duration);
-                Debug.Log("66time1:" + psChild.main.duration);
+                //Debug.Log("66time1:" + psChild.main.duration);
             }
         }
 
         if (shotSFX.Length > 0)
         {
             int index = Random.Range(0, shotSFX.Length);
-            Debug.Log("rand:" + index + "   len:" + shotSFX.Length);
-            Debug.Log("rand obj:" + shotSFX[index] +"   pos:"+pos);
+            //Debug.Log("rand:" + index + "   len:" + shotSFX.Length);
+            //Debug.Log("rand obj:" + shotSFX[index] +"   pos:"+pos);
             AudioManager.Am.Play3DSound(shotSFX[index], pos);
 
         }
@@ -123,12 +123,12 @@ public class ProjectileScript : MonoBehaviour {
             {
                 var psChild = hitVFX.transform.GetChild(0).GetComponent<ParticleSystem>();
                 Destroy(hitVFX, psChild.main.duration);
-                Debug.Log("22time1:" + psChild.main.duration);
+                //Debug.Log("22time1:" + psChild.main.duration);
             }
             else
             {
                 Destroy(hitVFX, ps.main.duration);
-                Debug.Log("44time1:" + ps.main.duration);
+                //Debug.Log("44time1:" + ps.main.duration);
             }
                 
         }

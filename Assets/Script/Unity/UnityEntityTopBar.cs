@@ -137,6 +137,14 @@ public class UnityEntityTopBar : MonoBehaviour
         if (m_DebuffPro != null)
         {
             m_DebuffPro.value = hp;
+            if(hp <= 0)
+            {
+                m_DebuffPro.visible = false;
+            }
+            else
+            {
+                m_DebuffPro.visible = true;
+            }
         }
     }
 

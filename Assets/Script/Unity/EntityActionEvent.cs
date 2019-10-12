@@ -51,7 +51,17 @@ public class EntityActionEvent : MonoBehaviour {
             m_AttackFireTrail[i].enabled = false;
         }
     }
-
+    public void PreSkillEvent(Object obj)
+    {
+        
+        AudioClip ac = (AudioClip)obj;
+        if( ac == null)
+        {
+            return;
+        }
+        Debug.Log("PreSkillEvent :" + obj);
+        AudioManager.Am.Play3DSound(ac, gameObject.transform.position);
+    }
 
     public void AttackActionEvent1(string _arg1)
     {

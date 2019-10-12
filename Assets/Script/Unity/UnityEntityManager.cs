@@ -274,6 +274,49 @@ public class UnityEntityManager  {
 
     }
 
+    //获取离本单位最近的敌方英雄和BOSS 且距离小于 distanse
+    public UnityEntity GetNearestBigEnemy(UnityEntity my,float distanse)
+    {
+        var myunityentity = my;
+        if (myunityentity == null)
+        {
+            Debug.Log("GetNearestEnemy  null");
+            return null;
+        }
+        var mindis = distanse;
+        UnityEntity nearrestUnityEntity = null;
+        foreach (var item in m_UnityEntitys)
+        {
+
+            if (item.Key == myunityentity.ID || item.Value.IsDeath == 1)
+            {
+                continue;
+            }
+            ////单位类型(1:英雄 2:普通单位 3:远古 4:boss)
+            if (item.Value.IsBigUnit() == false)
+            {
+                continue;
+            }
+            //是否是敌人 
+            if (CheckIsEnemy(item.Value, myunityentity) == false)
+            {
+                continue;
+            }
+
+            var dis = Vector2.Distance(new Vector2(item.Value.X, item.Value.Y), new Vector2(myunityentity.X, myunityentity.Y));
+
+            if (mindis >= dis)
+            {
+                //Debug.Log("dis  " + dis);
+                mindis = dis;
+                nearrestUnityEntity = item.Value;
+            }
+        }
+
+        return nearrestUnityEntity;
+    }
+
+
 
     //获取离本单位最近的敌人
     public UnityEntity GetNearestEnemy(UnityEntity my)
@@ -363,6 +406,53 @@ public class UnityEntityManager  {
 
     }
 
+
+
+
+    //获取离本单位最近的敌方英雄和BOSS 且距离小于 distanse
+    public UnityEntity GetNearestBigUnitForSkillTarget(UnityEntity my, Protomsg.SkillDatas skilldata, float distanse)
+    {
+        var myunityentity = my;
+        if (myunityentity == null)
+        {
+            Debug.Log("GetNearestEnemy  null");
+            return null;
+        }
+        var mindis = distanse;
+        UnityEntity nearrestUnityEntity = null;
+        foreach (var item in m_UnityEntitys)
+        {
+
+            if (item.Key == myunityentity.ID || item.Value.IsDeath == 1)
+            {
+                continue;
+            }
+            ////单位类型(1:英雄 2:普通单位 3:远古 4:boss)
+            if (item.Value.IsBigUnit() == false)
+            {
+                continue;
+            }
+
+            if (CheckCastSkillTarget(item.Value, myunityentity, skilldata) == false)
+            {
+                continue;
+            }
+
+
+            var dis = Vector2.Distance(new Vector2(item.Value.X, item.Value.Y), new Vector2(myunityentity.X, myunityentity.Y));
+
+            if (mindis > dis)
+            {
+                Debug.Log("dis  " + dis);
+                mindis = dis;
+                nearrestUnityEntity = item.Value;
+            }
+        }
+
+        return nearrestUnityEntity;
+    }
+
+
     //获取离本单位最近的单位 且满足技能目标条件
     //int32 UnitTargetTeam = 8;//目标单位关系 1:友方  2:敌方 3:友方敌方都行
     //int32 UnitTargetCamp = 9;//目标单位阵营 (1:玩家 2:NPC) 3:玩家NPC都行
@@ -394,7 +484,7 @@ public class UnityEntityManager  {
 
             if (mindis > dis)
             {
-                Debug.Log("dis  " + dis);
+                //Debug.Log("dis  " + dis);
                 mindis = dis;
                 nearrestUnityEntity = item.Value;
             }

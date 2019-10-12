@@ -56,7 +56,15 @@ public class BuffEffect
         {
             return;
         }
+
         Debug.Log("init:"+ BIdata.BodyEffect);
+
+
+        if(BIdata.IsShowControl == 1)
+        {
+            ParentEntity.m_ControlBuffEffect = this;
+        }
+
         //模型身上的特效
         if (BIdata.BodyEffect.Length > 0)
         {
@@ -260,6 +268,12 @@ public class BuffEffect
     public void UpdateData()
     {
         //Debug.Log("------UpdateData---:");
+        //如果自己是单位显示的控制技能特效
+        if(ParentEntity.m_ControlBuffEffect == this)
+        {
+            ParentEntity.SetControlEffectTime((int)(Data.RemainTime / Data.Time * 100));
+            
+        }
         //更新显示的数据
         foreach (GameObject p in ModeEffect)
         {
@@ -288,6 +302,14 @@ public class BuffEffect
     public void Delete()
     {
         //ParentEntity.Mode.GetComponent<UnityEntitySpecial>().RemoveGreen();
+
+        if (ParentEntity.m_ControlBuffEffect == this)
+        {
+            ParentEntity.SetControlEffectTime(0);
+
+        }
+
+
         RemoveEntitySpecial();
         if (BIdata.Enable == 0)
         {

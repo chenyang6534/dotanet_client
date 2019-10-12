@@ -22,6 +22,7 @@ namespace ExcelData
         public int ModeEnable; //模型的隐藏和显示
         public string IconPath;//图标
         public int IconTimeEnable; //图标是否显示时间
+        public int IsShowControl;//是否是需要显示的控制技能
     }
 
 }

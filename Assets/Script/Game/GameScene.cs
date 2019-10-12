@@ -1,4 +1,5 @@
 ﻿using cocosocket4unity;
+using FairyGUI;
 using Google.Protobuf;
 using System.Collections;
 using System.Collections.Generic;
@@ -111,10 +112,32 @@ public class GameScene : MonoBehaviour {
             CleanScene();
         }
 
-        m_GameScene = (GameObject)Instantiate(Resources.Load(name));
 
-        var pos = new Vector3(m_GameScene.transform.position.x, 0, m_GameScene.transform.position.z);
-        m_PlaneScene.SetNormalAndPosition(m_GameScene.transform.up, pos);
+        GComponent loading = UIPackage.CreateObject("GameUI", "Loading").asCom;
+        GRoot.inst.AddChild(loading);
+        Vector2 screenPos = new Vector2(Screen.width / 2, Screen.height / 2);
+        Vector2 logicScreenPos = GRoot.inst.GlobalToLocal(screenPos);
+        loading.xy = logicScreenPos;
+
+        ResourceLoadAsync.Instance.AddLoad(name,(re)=> {
+            Debug.Log("--ResourceLoadAsync:" + re.isDone + "   :" + re.progress+"  time:"+Tool.GetTime());
+            loading.GetChild("loadingbar").asProgress.value = re.progress * 100;
+            if (re.isDone)
+            {
+                m_GameScene = (GameObject)Instantiate(re.asset);
+
+                var pos = new Vector3(m_GameScene.transform.position.x, 0, m_GameScene.transform.position.z);
+                m_PlaneScene.SetNormalAndPosition(m_GameScene.transform.up, pos);
+                loading.Dispose();
+            }
+            
+        });
+        
+
+        //m_GameScene = (GameObject)Instantiate(Resources.Load(name));
+
+        //var pos = new Vector3(m_GameScene.transform.position.x, 0, m_GameScene.transform.position.z);
+        //m_PlaneScene.SetNormalAndPosition(m_GameScene.transform.up, pos);
 
         Debug.Log("SC_NewScene:"+name);
     }
@@ -931,7 +954,7 @@ public class GameScene : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        //Debug.Log("55time:" + Tool.GetTime());
+        Debug.Log("update time:" + Tool.GetTime());
         MsgManager.Instance.UpdateMessage();
 
         LogicUpdate();

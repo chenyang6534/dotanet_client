@@ -355,10 +355,10 @@ public class Skillstick : EventDispatcher
 
     public void TimerUpdate()
     {
-        Debug.Log("----------TimerUpdate111-:" + moveEventContext);
+        //Debug.Log("----------TimerUpdate111-:" + moveEventContext);
         if (moveEventContext != null)
         {
-            Debug.Log("----------TimerUpdate222-:"+ moveEventContext);
+            //Debug.Log("----------TimerUpdate222-:"+ moveEventContext);
             //var context = moveEventContext;
             InputEvent inputEvent = moveEventContext;// (InputEvent)context.data;
             if (touchID != -1 && inputEvent.touchId == touchID)

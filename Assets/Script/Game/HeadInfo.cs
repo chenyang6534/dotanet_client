@@ -120,11 +120,44 @@ public class HeadInfo{
 
     }
 
+    public void showHeadSelect(UnityEntity unit)
+    {
+        var headselect = UIPackage.CreateObject("GameUI", "HeadSelect").asCom;
+        //GRoot.inst.AddChild(headselect);
+        GRoot.inst.ShowPopup(headselect);
+        headselect.xy = maininfo.xy;
+        headselect.x += 50;
+        headselect.y += 50;
+
+        headselect.GetChild("team").asButton.onClick.Add(() =>
+        {
+            if(GameScene.Singleton.m_MyMainUnit == null || unit == null)
+            {
+                GRoot.inst.HidePopup(headselect);
+                return;
+            }
+
+            Protomsg.CS_OrganizeTeam msg1 = new Protomsg.CS_OrganizeTeam();
+            msg1.Player1 = GameScene.Singleton.m_MyMainUnit.ControlID;
+            msg1.Player2 = unit.ControlID;
+            MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_OrganizeTeam", msg1);
+            GRoot.inst.HidePopup(headselect);
+        });
+
+        headselect.GetChild("info").asButton.onClick.Add(() =>
+        {
+            GRoot.inst.HidePopup(headselect);
+            MyInfo myinfo = new MyInfo(unit);
+        });
+    }
+
+
     public void Init()
     {
         
         maininfo.GetChild("headbtn").asButton.onClick.Add(() =>
         {
+            
             //玩家自己
             if (GameScene.Singleton.GetMyMainUnit().ID == id)
             {
@@ -133,8 +166,16 @@ public class HeadInfo{
                 {
                     return;
                 }
-                MyInfo myinfo = new MyInfo(unit);
-                
+                //是玩家
+                //if (unit.ControlID > 0)
+                //{
+                //    showHeadSelect(unit);
+                //}
+                //else
+                {
+                    MyInfo myinfo = new MyInfo(unit);
+                }
+
             }
             else
             {
@@ -143,7 +184,17 @@ public class HeadInfo{
                 {
                     return;
                 }
-                MyInfo myinfo = new MyInfo(unit);
+                //是玩家
+                if(unit.ControlID > 0)
+                {
+                    showHeadSelect(unit);
+                }
+                else
+                {
+                    MyInfo myinfo = new MyInfo(unit);
+                }
+
+                
             }
         });
 

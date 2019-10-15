@@ -51,6 +51,8 @@ public class GameScene : MonoBehaviour {
         m_LogicDelayTime = 0.05f;//延时0.02s
         MsgManager.Instance.AddListener("SC_Update", new HandleMsg(this.SC_Update));
         MsgManager.Instance.AddListener("SC_NewScene", new HandleMsg(this.SC_NewScene));
+
+        MsgManager.Instance.AddListener("SC_RequestTeam", new HandleMsg(this.SC_RequestTeam));
         m_LogicFrameData = new Dictionary<int, Protomsg.SC_Update>();
 
         Application.targetFrameRate = 30;
@@ -59,6 +61,7 @@ public class GameScene : MonoBehaviour {
     {
         MsgManager.Instance.RemoveListener("SC_Update");
         MsgManager.Instance.RemoveListener("SC_NewScene");
+        MsgManager.Instance.RemoveListener("SC_RequestTeam");
         MyKcp.Instance.Stop();
         Debug.Log("OnDestroy");
     }
@@ -85,6 +88,24 @@ public class GameScene : MonoBehaviour {
 
         return true;
     }
+
+    //组队请求
+    public bool SC_RequestTeam(Protomsg.MsgBase d1)
+    {
+        Debug.Log("SC_RequestTeam:");
+        IMessage IMperson = new Protomsg.SC_RequestTeam();
+        Protomsg.SC_RequestTeam p1 = (Protomsg.SC_RequestTeam)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
+
+        //恢复同意组队请求
+        Protomsg.CS_ResponseOrgTeam msg1 = new Protomsg.CS_ResponseOrgTeam();
+        msg1.SrcPlayerUID = p1.SrcPlayerUID;
+        msg1.RequestType = p1.RequestType;
+        msg1.IsAgree = 1;
+        MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_ResponseOrgTeam", msg1);
+
+        return true;
+    }
+
     //进入新场景
     public bool SC_NewScene(Protomsg.MsgBase d1)
     {
@@ -100,12 +121,12 @@ public class GameScene : MonoBehaviour {
         Debug.Log("starttime:"+ m_GameServerStartTime+ " LogicFps: "+ p1.LogicFps+"  curframe:"+m_CurFrame+"  time:"+ Time.realtimeSinceStartup);
         CleanScene();
 
-        LoadScene(p1.Name);
+        LoadScene(p1.SceneID,p1.Name);
 
         return true;
     }
 
-    void LoadScene(string name)
+    void LoadScene(int sceneid,string name)
     {
         if(m_GameScene != null)
         {
@@ -126,9 +147,16 @@ public class GameScene : MonoBehaviour {
             {
                 m_GameScene = (GameObject)Instantiate(re.asset);
 
+                //System.Threading.Thread.Sleep(5000);
+
                 var pos = new Vector3(m_GameScene.transform.position.x, 0, m_GameScene.transform.position.z);
                 m_PlaneScene.SetNormalAndPosition(m_GameScene.transform.up, pos);
                 loading.Dispose();
+
+                //通知服务器加载完成
+                Protomsg.CS_LodingScene msg1 = new Protomsg.CS_LodingScene();
+                msg1.SceneID = sceneid;
+                MyKcp.Instance.SendMsg(m_ServerName, "CS_LodingScene", msg1);
             }
             
         });
@@ -954,7 +982,7 @@ public class GameScene : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        Debug.Log("update time:" + Tool.GetTime());
+        //Debug.Log("update time:" + Tool.GetTime());
         MsgManager.Instance.UpdateMessage();
 
         LogicUpdate();

@@ -30,7 +30,7 @@ public class UnityEntity {
         }
     }
 
-
+    public int TeamID;
 
     public UnityEntity(Protomsg.UnitDatas data, GameScene scene)
     {
@@ -52,6 +52,7 @@ public class UnityEntity {
         ModeType = data.ModeType;
         ID = data.ID;
         TypeID = data.TypeID;
+        TeamID = data.TeamID;
 
         X = data.X;
         Y = data.Y;
@@ -322,6 +323,7 @@ public class UnityEntity {
             MP += data.MP;
             MaxHP += data.MaxHP;
             MaxMP += data.MaxMP;
+            TeamID += data.TeamID;
             //if( data.HP != 0)
             //{
             //    Debug.Log("hp:" + HP + "  maxhp:" + MaxHP);

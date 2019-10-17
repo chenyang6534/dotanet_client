@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using cocosocket4unity;
 using UnityEngine.SceneManagement;
+using Google.Protobuf;
+
 public class GameUI : MonoBehaviour {
 
 
@@ -26,6 +28,10 @@ public class GameUI : MonoBehaviour {
     private HeadInfo TargetHeadInfo;
 
     protected GComponent LittleMapCom;
+
+    protected GButton ShowOffBtn;
+
+    protected GComponent TeamInfo;
     protected int SceneID;
 
     void Start () {
@@ -38,13 +44,28 @@ public class GameUI : MonoBehaviour {
         startTime = Tool.GetTime();
 
         center = mainUI.GetChild("center").asCom;
-        Debug.Log("center---------------------------:"+ center.name);
+        //Debug.Log("center---------------------------:"+ center.name);
 
         Bufs = mainUI.GetChild("buflist").asList;
 
         MyHeadInfo = new HeadInfo(mainUI.GetChild("myHeadInfo").asCom);
         TargetHeadInfo = new HeadInfo(mainUI.GetChild("targetHeadInfo").asCom);
         LittleMapCom = mainUI.GetChild("littlemap").asCom;
+
+
+        //显示隐藏组队界面按钮
+        ShowOffBtn = mainUI.GetChild("showoffbtn1").asButton;
+        ShowOffBtn.selected = true;
+        ShowOffBtn.onChanged.Add((EventContext context) => {
+            //ShowOffBtn.selected = true;
+            TeamInfoShow(ShowOffBtn.selected);
+            Debug.Log("-----------ShowOffBtn:" + ShowOffBtn.selected);
+        });
+
+        //组队信息
+        TeamInfo = mainUI.GetChild("teaminfo").asCom;
+        TeamInfoShow(ShowOffBtn.selected);
+
 
         //设置 退出
         LittleMapCom.GetChild("set_btn").asButton.onClick.Add(() =>
@@ -72,13 +93,176 @@ public class GameUI : MonoBehaviour {
         attackstick.onDown.Add(AttackstickDown);
 
         InitLeftTopHead();
-        
+
         //view.AddRelation(GRoot.inst, RelationType.Right_Right);
         //view.AddRelation(GRoot.inst, RelationType.Bottom_Bottom);
 
-
+        MsgManager.Instance.AddListener("SC_UpdateTeamInfo", new HandleMsg(this.SC_UpdateTeamInfo));
+        MsgManager.Instance.AddListener("SC_NoticeWords", new HandleMsg(this.SC_NoticeWords));
 
     }
+    void OnDestroy()
+    {
+        MsgManager.Instance.RemoveListener("SC_UpdateTeamInfo");
+        MsgManager.Instance.RemoveListener("SC_NoticeWords");
+    }
+    public bool SC_NoticeWords(Protomsg.MsgBase d1)
+    {
+        //Debug.Log("SC_NoticeWords:");
+        IMessage IMperson = new Protomsg.SC_NoticeWords();
+        Protomsg.SC_NoticeWords p1 = (Protomsg.SC_NoticeWords)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
+        var noticewords = ExcelManager.Instance.GetNoticeWordsManager().GetNoticeWordsByID(p1.TypeID);
+        if(noticewords != null)
+        {
+            GComponent words = UIPackage.CreateObject("GameUI", "NoticeWords").asCom;
+            //1，直接加到GRoot显示出来
+            GRoot.inst.AddChild(words);
+            GRoot.inst.SetChildIndex(words, 1);
+            words.xy = Tool.GetPosition(0.5f,0.25f);
+            //var root = words.GetComponent<FairyGUI.UIPanel>().ui;
+            words.GetChild("word").asTextField.text = noticewords.Words;
+            FairyGUI.Transition trans = words.GetTransition("anim1");
+            trans.Play();
+            trans.SetHook("over", () => {
+                words.Dispose();
+            });
+            Debug.Log("SC_NoticeWords:"+noticewords.Words+"  sound:"+noticewords.Sound);
+        }
+        return true;
+    }
+
+    //CS_UpdateTeamInfo
+    //更新队伍信息
+    public bool SC_UpdateTeamInfo(Protomsg.MsgBase d1)
+    {
+        Debug.Log("SC_UpdateTeamInfo:");
+        IMessage IMperson = new Protomsg.SC_UpdateTeamInfo();
+        Protomsg.SC_UpdateTeamInfo p1 = (Protomsg.SC_UpdateTeamInfo)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
+
+        var teamlist = TeamInfo.GetChild("unitslist").asList;
+        teamlist.RemoveChildren();
+
+        if(p1.TPInfo.Count <= 1)
+        {
+            return true;
+        }
+
+        //处理排序
+        Protomsg.TeamPlayerInfo[] allplayer = new Protomsg.TeamPlayerInfo[p1.TPInfo.Count];
+        int index = 0;
+        foreach (var item in p1.TPInfo)
+        {
+            allplayer[index++] = item;
+        }
+
+            //排序
+        System.Array.Sort(allplayer, (s1, s2) => s1.Name.CompareTo(s2.Name));
+        foreach (var item in allplayer)
+        {
+            //Debug.Log("SC_UpdateTeamInfo11:" + item.HP + "  " + item.MP + "  "+item.MaxHP + "  " + item.MaxMP);
+            //Debug.Log("SC_UpdateTeamInfo22:" + (int)((float)item.HP / item.MaxHP * 100) + "  " + (int)((float)item.MP / item.MaxMP * 100));
+            //(int)((float)HP / MaxHP * 100)
+            var onedropitem = UIPackage.CreateObject("GameUI", "TeamInfo_OneUnit").asCom;
+            
+            onedropitem.GetChild("hp").asProgress.value = (int)((float)item.HP / item.MaxHP * 100);
+            onedropitem.GetChild("mp").asProgress.value = (int)((float)item.MP / item.MaxMP * 100);
+            onedropitem.GetChild("name").asTextField.text = item.Name;
+            teamlist.AddChild(onedropitem);
+
+
+
+            onedropitem.onClick.Add(() => {
+                Debug.Log("----teamclick :" + p1.MainUID + "  :" + item.ID);
+                if(GameScene.Singleton.m_MyMainUnit != null && GameScene.Singleton.m_MyMainUnit.ControlID == item.UID)
+                {
+                    //点击了自己 
+                    //TeamPlayerInfo
+                    var headselect = UIPackage.CreateObject("GameUI", "TeamPlayerInfo").asCom;
+                    GRoot.inst.ShowPopup(headselect);
+                    headselect.GetChild("out").visible = false;
+                    headselect.GetChild("leave").asButton.onClick.Add(() =>
+                    {
+
+
+                        Protomsg.CS_OutTeam msg1 = new Protomsg.CS_OutTeam();
+                        msg1.OutPlayerUID = item.UID;
+                        MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_OutTeam", msg1);
+                        GRoot.inst.HidePopup(headselect);
+                    });
+
+                    headselect.GetChild("info").asButton.onClick.Add(() =>
+                    {
+                        var unit = UnityEntityManager.Instance.GetUnityEntity(item.ID);
+                        if (unit != null)
+                        {
+                            MyInfo myinfo = new MyInfo(unit);
+                        }
+                        GRoot.inst.HidePopup(headselect);
+                    });
+                }else if( GameScene.Singleton.m_MyMainUnit != null && GameScene.Singleton.m_MyMainUnit.ControlID == p1.MainUID)
+                {
+                    //TeamPlayerInfo//自己是否是队伍的队长
+                    var headselect = UIPackage.CreateObject("GameUI", "TeamPlayerInfo").asCom;
+                    GRoot.inst.ShowPopup(headselect);
+                    headselect.GetChild("leave").visible = false;
+                    headselect.GetChild("out").asButton.onClick.Add(() =>
+                    {
+                        
+
+                        Protomsg.CS_OutTeam msg1 = new Protomsg.CS_OutTeam();
+                        msg1.OutPlayerUID = item.UID;
+                        MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_OutTeam", msg1);
+                        GRoot.inst.HidePopup(headselect);
+                    });
+
+                    headselect.GetChild("info").asButton.onClick.Add(() =>
+                    {
+                        var unit = UnityEntityManager.Instance.GetUnityEntity(item.ID);
+                        if (unit != null)
+                        {
+                            MyInfo myinfo = new MyInfo(unit);
+                        }
+                        GRoot.inst.HidePopup(headselect);
+                    });
+                }
+                else
+                {
+                    var unit = UnityEntityManager.Instance.GetUnityEntity(item.ID);
+                    if (unit != null)
+                    {
+                        MyInfo myinfo = new MyInfo(unit);
+                    }
+                }
+
+                
+                
+            });
+        }
+
+        return true;
+    }
+
+    //
+    protected void TeamInfoShow(bool isshow)
+    {
+        TeamInfo.visible = isshow;
+    }
+
+    //更新组队信息
+    public void UpdateTeamInfo()
+    {
+        //
+        if(GameScene.Singleton.m_MyMainUnit != null)
+        {
+            if(GameScene.Singleton.m_MyMainUnit.TeamID <= 0)
+            {
+                var teamlist = TeamInfo.GetChild("unitslist").asList;
+                teamlist.RemoveChildren();
+            }
+        }
+    }
+
+
     //屏幕点击
     private void OnTouchBegin(EventContext context)
     {
@@ -580,6 +764,7 @@ public class GameUI : MonoBehaviour {
         FreshHead();
         FreshBuf();
         FreshLittleMap();
+        UpdateTeamInfo();
         //Debug.Log("aaaa time:" + Tool.GetTime());
     }
 }

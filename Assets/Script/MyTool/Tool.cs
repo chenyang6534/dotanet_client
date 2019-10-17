@@ -68,4 +68,11 @@ public static class Tool {
         }
     }
 
+    public static Vector2 GetPosition(float onex,float oney)
+    {
+        Vector2 screenPos = new Vector2(Screen.width * onex, Screen.height * oney);
+        Vector2 logicScreenPos = GRoot.inst.GlobalToLocal(screenPos);
+        return logicScreenPos;
+    }
+
 }

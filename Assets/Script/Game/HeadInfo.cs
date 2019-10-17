@@ -129,6 +129,11 @@ public class HeadInfo{
         headselect.x += 50;
         headselect.y += 50;
 
+        //-------
+        //headselect.onClick.Add(() => {
+        //    Debug.Log(" 组件点击测试");
+        //});
+
         headselect.GetChild("team").asButton.onClick.Add(() =>
         {
             if(GameScene.Singleton.m_MyMainUnit == null || unit == null)

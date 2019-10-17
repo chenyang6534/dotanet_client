@@ -26,6 +26,8 @@ public class GameScene : MonoBehaviour {
     protected List<int> m_MyControlUnit;//我自己控制的单位的ID
     public UnityEntity m_MyMainUnit;//我自己的主单位
 
+    
+
     private static GameScene singleton = null;
     public static GameScene Singleton
     {
@@ -53,6 +55,7 @@ public class GameScene : MonoBehaviour {
         MsgManager.Instance.AddListener("SC_NewScene", new HandleMsg(this.SC_NewScene));
 
         MsgManager.Instance.AddListener("SC_RequestTeam", new HandleMsg(this.SC_RequestTeam));
+        
         m_LogicFrameData = new Dictionary<int, Protomsg.SC_Update>();
 
         Application.targetFrameRate = 30;
@@ -88,6 +91,7 @@ public class GameScene : MonoBehaviour {
 
         return true;
     }
+    
 
     //组队请求
     public bool SC_RequestTeam(Protomsg.MsgBase d1)

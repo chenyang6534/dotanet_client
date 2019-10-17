@@ -18,7 +18,8 @@ public class ExcelManager
     protected SkillManager SkillManager = Resources.Load<SkillManager>("Conf/Skill");
     protected SceneManager SceneManager = Resources.Load<SceneManager>("Conf/Scene");
     protected UnitInfoManager UnitInfoManager = Resources.Load<UnitInfoManager>("Conf/UnitInfo");
-    
+    protected NoticeWordsManager NoticeWordsManager = Resources.Load<NoticeWordsManager>("Conf/NoticeWords");
+
     private ExcelManager()
     {
         Debug.Log("ExcelManager init");
@@ -31,6 +32,7 @@ public class ExcelManager
         Debug.Log("1111ExcelManager init");
         UnitInfoManager.Init();
         Debug.Log("2222ExcelManager init");
+        NoticeWordsManager.Init();
     }
 
     public BulletItemManager GetBulletIM()
@@ -56,5 +58,9 @@ public class ExcelManager
     public UnitInfoManager GetUnitInfoManager()
     {
         return UnitInfoManager;
+    }
+    public NoticeWordsManager GetNoticeWordsManager()
+    {
+        return NoticeWordsManager;
     }
 }

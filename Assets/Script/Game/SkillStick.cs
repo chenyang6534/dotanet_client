@@ -466,12 +466,17 @@ public class Skillstick : EventDispatcher
                 if (m_IsMoved)
                 {
                     //onMove.Call(dir);
-                    DoTouchMove(dir, len / radius);
+                    
 
                     if (len > radius)
                     {
                         startStagePos += dir.normalized * (len - radius);
                         center.SetXY(startStagePos.x, startStagePos.y);
+                        DoTouchMove(dir, 1);
+                    }
+                    else
+                    {
+                        DoTouchMove(dir, len / radius);
                     }
                 }
 

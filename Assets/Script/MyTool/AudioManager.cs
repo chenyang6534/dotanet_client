@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
+
 public class AudioManager : MonoBehaviour
 {
     //将声音管理器写成单例模式
@@ -38,10 +41,20 @@ public class AudioManager : MonoBehaviour
     //播放音效
     public void Play3DSound(string path,Vector3 pos)
     {
-        AudioClip clip = Resources.Load<AudioClip>(path);
-        //SoundPlayer.clip = clip;
-        //SoundPlayer.PlayOneShot(clip);
+
+        if (path.Length <= 0)
+        {
+            return;
+        }
+        string[] allpath = path.Split(',');
+        int index = Random.Range(0, allpath.Length);
+        Debug.Log("Play3DSound:" + index + "  :" + allpath[index]);
+        //Debug.Log("Play3DSound:" + allpath[index]);
+
+        AudioClip clip = Resources.Load<AudioClip>(allpath[index]);
         AudioSource.PlayClipAtPoint(clip, pos);
+
+        
     }
     //播放音效
     public void Play3DSound(AudioClip ac, Vector3 pos)
@@ -58,12 +71,28 @@ public class AudioManager : MonoBehaviour
 
     }
 
+
+    //
+    //static public string Sound_Gold = "sound/other/gold1,sound/other/gold2,sound/other/gold3";
+    static public string Sound_Gold = "sound/other/gold1";
+    static public string Sound_LevelUp = "sound/other/levelup";
+    static public string Sound_OpenUI = "sound/menu/filter_open";
+    static public string Sound_Click = "sound/menu/browser_click_common";
+
     //播放音效
     public void Play2DSound(string path)
     {
-        AudioClip clip = Resources.Load<AudioClip>(path);
-        //SoundPlayer.clip = clip;
+
+        if(path.Length <= 0)
+        {
+            return;
+        }
+        string[] allpath = path.Split(',');
+        int index = Random.Range(0, allpath.Length);
+        AudioClip clip = Resources.Load<AudioClip>(allpath[index]);
+        SoundPlayer.clip = clip;
         SoundPlayer.PlayOneShot(clip);
+        Debug.Log("Play2DSound:" + path + "   " + SoundPlayer.volume);
     }
 
     public void Play2DSound(AudioClip ac)

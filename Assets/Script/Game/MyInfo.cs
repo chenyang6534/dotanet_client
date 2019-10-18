@@ -19,6 +19,7 @@ public class MyInfo {
     protected bool IsDestroy;
     public MyInfo(UnityEntity unit)
     {
+        AudioManager.Am.Play2DSound(AudioManager.Sound_OpenUI);
         IsDestroy = false;
         this.unit = unit;
         this.InitNetData();

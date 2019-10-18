@@ -114,18 +114,7 @@ public class GameUI : MonoBehaviour {
         var noticewords = ExcelManager.Instance.GetNoticeWordsManager().GetNoticeWordsByID(p1.TypeID);
         if(noticewords != null)
         {
-            GComponent words = UIPackage.CreateObject("GameUI", "NoticeWords").asCom;
-            //1，直接加到GRoot显示出来
-            GRoot.inst.AddChild(words);
-            GRoot.inst.SetChildIndex(words, 1);
-            words.xy = Tool.GetPosition(0.5f,0.25f);
-            //var root = words.GetComponent<FairyGUI.UIPanel>().ui;
-            words.GetChild("word").asTextField.text = noticewords.Words;
-            FairyGUI.Transition trans = words.GetTransition("anim1");
-            trans.Play();
-            trans.SetHook("over", () => {
-                words.Dispose();
-            });
+            Tool.NoticeWords(noticewords.Words);
             Debug.Log("SC_NoticeWords:"+noticewords.Words+"  sound:"+noticewords.Sound);
         }
         return true;

@@ -215,6 +215,7 @@ public class LoginUI : MonoBehaviour {
             heroiconcom.GetChild("pic").asLoader.url = heroinfo.IconPath;
             heroiconcom.GetChild("pic").asLoader.onClick.Add(() =>
             {
+                AudioManager.Am.Play2DSound(AudioManager.Sound_Click);
                 //选择
                 SelectHero(item);
             });
@@ -305,7 +306,20 @@ public class LoginUI : MonoBehaviour {
 
                     inputnamecom.GetChild("ok").asButton.onClick.Add(() =>
                     {
-                        SelectHeroMsg.Name = inputnamecom.GetChild("input").asTextInput.text;
+                        var txt = inputnamecom.GetChild("input").asTextInput.text;
+                        if (txt.Length <= 0)
+                        {
+                            Tool.NoticeWords("请输入名字！");
+                            return;
+                        }
+                        if (Tool.IsChineseOrNumberOrWord(txt) == false)
+                        {
+                            Tool.NoticeWords("名字不含有中文,字母,数字以外的其他字符！");
+                            return;
+                        }
+                        SelectHeroMsg.Name = txt;
+                        Debug.Log("name:" + txt);
+                        
 
                         Protomsg.CS_SelectCharacter msg1 = new Protomsg.CS_SelectCharacter();
                         msg1.SelectCharacter = SelectHeroMsg;
@@ -364,10 +378,24 @@ public class LoginUI : MonoBehaviour {
         Protomsg.SC_SelectCharacterResult p1 = (Protomsg.SC_SelectCharacterResult)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
         Characterid = p1.Characterid;
 
+        
+
         Debug.Log("SelectCharacterid :"+ Characterid);
         if (p1.Code != 1)
         {
             Debug.Log("SelectCharacterResult fail"+ p1.Error);
+            var word = "";
+            if(p1.Error == 3)
+            {
+                word = "这个名字已经存在,请重新取名！";
+            }
+            else if(p1.Error == 1)
+            {
+                word = "找不到该角色";
+            }
+            Tool.NoticeWords(word);
+
+            
         }
         else
         {

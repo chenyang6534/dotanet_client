@@ -704,6 +704,8 @@ public class UnityEntity {
             {
                 //播放升级特效
                 BuffEffect.PlayEffectOnUnitEntity("Buff/LevelUp", this);
+                //音效
+                AudioManager.Am.Play3DSound(AudioManager.Sound_LevelUp, this.Mode.transform.position);
                 Debug.Log("--升级了！");
             }
             m_Level = value;
@@ -1089,6 +1091,11 @@ public class UnityEntity {
         trans.SetHook("over", () => {
             RemoveWordsInfo(wd);
         });
+
+        //音效
+        AudioManager.Am.Play3DSound(AudioManager.Sound_Gold, this.Mode.transform.position);
+
+
     }
 
 

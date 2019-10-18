@@ -370,10 +370,10 @@ MonoBehaviour:
     ModePath: Bullet/Projectiles/item/sadan
     Level: 2
   - TypeID: 110
-    ModePath: 
+    ModePath: Bullet/Projectiles/enemy2_attack
     Level: 2
   - TypeID: 111
-    ModePath: 
+    ModePath: Bullet/Projectiles/enemy3_attack
     Level: 2
   - TypeID: 112
     ModePath: 

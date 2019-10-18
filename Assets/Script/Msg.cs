@@ -131,7 +131,7 @@ namespace Protomsg {
             "ZBgCIAEoBRINCgVFcnJvchgDIAEoCRIwCgpDaGFyYWN0ZXJzGAQgAygLMhwu",
             "cHJvdG9tc2cuQ2hhcmFjdGVyQmFzZURhdGFzIkwKGFNDX1NlbGVjdENoYXJh",
             "Y3RlclJlc3VsdBIMCgRDb2RlGAEgASgFEhMKC0NoYXJhY3RlcmlkGAIgASgF",
-            "Eg0KBUVycm9yGAMgASgJYgZwcm90bzM="));
+            "Eg0KBUVycm9yGAMgASgFYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -10174,15 +10174,15 @@ namespace Protomsg {
 
     /// <summary>Field number for the "Error" field.</summary>
     public const int ErrorFieldNumber = 3;
-    private string error_ = "";
+    private int error_;
     /// <summary>
     ///失败原因  名字重复
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Error {
+    public int Error {
       get { return error_; }
       set {
-        error_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        error_ = value;
       }
     }
 
@@ -10210,7 +10210,7 @@ namespace Protomsg {
       int hash = 1;
       if (Code != 0) hash ^= Code.GetHashCode();
       if (Characterid != 0) hash ^= Characterid.GetHashCode();
-      if (Error.Length != 0) hash ^= Error.GetHashCode();
+      if (Error != 0) hash ^= Error.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -10232,9 +10232,9 @@ namespace Protomsg {
         output.WriteRawTag(16);
         output.WriteInt32(Characterid);
       }
-      if (Error.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteString(Error);
+      if (Error != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(Error);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -10250,8 +10250,8 @@ namespace Protomsg {
       if (Characterid != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Characterid);
       }
-      if (Error.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Error);
+      if (Error != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Error);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -10270,7 +10270,7 @@ namespace Protomsg {
       if (other.Characterid != 0) {
         Characterid = other.Characterid;
       }
-      if (other.Error.Length != 0) {
+      if (other.Error != 0) {
         Error = other.Error;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -10292,8 +10292,8 @@ namespace Protomsg {
             Characterid = input.ReadInt32();
             break;
           }
-          case 26: {
-            Error = input.ReadString();
+          case 24: {
+            Error = input.ReadInt32();
             break;
           }
         }

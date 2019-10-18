@@ -1,6 +1,7 @@
 ﻿using FairyGUI;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
 
 public static class Tool {
@@ -73,6 +74,32 @@ public static class Tool {
         Vector2 screenPos = new Vector2(Screen.width * onex, Screen.height * oney);
         Vector2 logicScreenPos = GRoot.inst.GlobalToLocal(screenPos);
         return logicScreenPos;
+    }
+
+    public static void NoticeWords(string word)
+    {
+        GComponent words = UIPackage.CreateObject("GameUI", "NoticeWords").asCom;
+        //1，直接加到GRoot显示出来
+        GRoot.inst.AddChild(words);
+        GRoot.inst.SetChildIndex(words, 1);
+        words.xy = Tool.GetPosition(0.5f, 0.25f);
+        //var root = words.GetComponent<FairyGUI.UIPanel>().ui;
+        words.GetChild("word").asTextField.text = word;// noticewords.Words;
+        FairyGUI.Transition trans = words.GetTransition("anim1");
+        trans.Play();
+        trans.SetHook("over", () => {
+            words.Dispose();
+        });
+    }
+
+
+    public static bool IsChineseOrNumberOrWord(string value)
+    {
+        
+        Regex rg = new Regex("^[\u4e00-\u9fa5_a-zA-Z0-9]+$");
+        bool re = rg.IsMatch(value);
+        Debug.Log("IsChineseOrNumberOrWord:" + value+" :"+re);
+        return re;
     }
 
 }

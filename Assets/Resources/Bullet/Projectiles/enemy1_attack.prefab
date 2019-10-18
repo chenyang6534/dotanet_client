@@ -36,8 +36,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1879979432131342}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalPosition: {x: -0.002, y: 0.106, z: -0.158}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -57,7 +57,10 @@ MonoBehaviour:
   muzzlePrefab: {fileID: 1241110814086498, guid: 2202c63444735ed4dae049d64b1d1219,
     type: 2}
   hitPrefab: {fileID: 1809393241090614, guid: 0c5f78050dc98dd44b08a90255725ea3, type: 2}
-  shotSFX: []
+  shotSFX:
+  - {fileID: 8300000, guid: d315c42fe96149544967fa6e16e0512a, type: 3}
+  - {fileID: 8300000, guid: a38c98f13fc00e34098105b4ce8c6c62, type: 3}
+  - {fileID: 8300000, guid: b6fa9fe5d35da4f4d8b3b76907c32f9a, type: 3}
   hitSFX: []
   trails: []
   IsRotationHit: 1

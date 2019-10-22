@@ -77,7 +77,7 @@ public class StoreInfo
             var onedropitem = UIPackage.CreateObject("GameUI", "Commodity").asCom;
             onedropitem.GetChild("n0").asLoader.url = clientitem.IconPath;
             onedropitem.GetChild("n3").asLoader.url = Tool.GetPriceTypeIcon(item.PriceType);
-            onedropitem.onClick.Add(() =>
+            onedropitem.GetChild("n0").onClick.Add(() =>
             {
                 new ItemInfo(item.ItemID);
             });

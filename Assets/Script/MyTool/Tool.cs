@@ -13,6 +13,19 @@ public static class Tool {
         return t1;
     }
 
+    public static string GetPriceTypeIcon(int pricetype)
+    {
+        if(pricetype == 1)
+        {
+            return "ui://GameUI/gold1";
+        }
+        else
+        {
+            return "ui://GameUI/jingzuan";
+        }
+        return "";
+    }
+
     public static Vector2 Vec2Rotate(Vector2 v, float angle)
     {
 

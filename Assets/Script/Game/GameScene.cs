@@ -54,7 +54,7 @@ public class GameScene : MonoBehaviour {
         MsgManager.Instance.AddListener("SC_Update", new HandleMsg(this.SC_Update));
         MsgManager.Instance.AddListener("SC_NewScene", new HandleMsg(this.SC_NewScene));
 
-        MsgManager.Instance.AddListener("SC_RequestTeam", new HandleMsg(this.SC_RequestTeam));
+        
         
         m_LogicFrameData = new Dictionary<int, Protomsg.SC_Update>();
 
@@ -64,7 +64,7 @@ public class GameScene : MonoBehaviour {
     {
         MsgManager.Instance.RemoveListener("SC_Update");
         MsgManager.Instance.RemoveListener("SC_NewScene");
-        MsgManager.Instance.RemoveListener("SC_RequestTeam");
+        
         MyKcp.Instance.Stop();
         Debug.Log("OnDestroy");
     }
@@ -93,22 +93,7 @@ public class GameScene : MonoBehaviour {
     }
     
 
-    //组队请求
-    public bool SC_RequestTeam(Protomsg.MsgBase d1)
-    {
-        Debug.Log("SC_RequestTeam:");
-        IMessage IMperson = new Protomsg.SC_RequestTeam();
-        Protomsg.SC_RequestTeam p1 = (Protomsg.SC_RequestTeam)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
-
-        //恢复同意组队请求
-        Protomsg.CS_ResponseOrgTeam msg1 = new Protomsg.CS_ResponseOrgTeam();
-        msg1.SrcPlayerUID = p1.SrcPlayerUID;
-        msg1.RequestType = p1.RequestType;
-        msg1.IsAgree = 1;
-        MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_ResponseOrgTeam", msg1);
-
-        return true;
-    }
+    
 
     //进入新场景
     public bool SC_NewScene(Protomsg.MsgBase d1)

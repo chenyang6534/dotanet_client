@@ -31,6 +31,8 @@ public class UnityEntity {
     }
 
     public int TeamID;
+    public int Gold;
+    public int Diamond;
 
     public UnityEntity(Protomsg.UnitDatas data, GameScene scene)
     {
@@ -53,6 +55,8 @@ public class UnityEntity {
         ID = data.ID;
         TypeID = data.TypeID;
         TeamID = data.TeamID;
+        Gold = data.Gold;
+        Diamond = data.Diamond;
 
         X = data.X;
         Y = data.Y;
@@ -324,6 +328,8 @@ public class UnityEntity {
             MaxHP += data.MaxHP;
             MaxMP += data.MaxMP;
             TeamID += data.TeamID;
+            Gold += data.Gold;
+            Diamond += data.Diamond;
             //if( data.HP != 0)
             //{
             //    Debug.Log("hp:" + HP + "  maxhp:" + MaxHP);

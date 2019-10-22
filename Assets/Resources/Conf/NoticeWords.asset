@@ -25,16 +25,16 @@ MonoBehaviour:
     Words: "\u4F60\u5DF2\u88AB\u8E22\u51FA\u961F\u4F0D"
     Sound: test
   - TypeID: 5
-    Words: 
+    Words: "\u91D1\u5E01\u4E0D\u8DB3"
     Sound: test
   - TypeID: 6
-    Words: 
+    Words: "\u94BB\u77F3\u4E0D\u8DB3"
     Sound: test
   - TypeID: 7
-    Words: 
+    Words: "\u80CC\u5305\u5DF2\u6EE1"
     Sound: test
   - TypeID: 8
-    Words: 
+    Words: "\u8D2D\u4E70\u6210\u529F"
     Sound: test
   - TypeID: 9
     Words: 

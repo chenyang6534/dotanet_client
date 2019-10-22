@@ -9,6 +9,7 @@ public class HeadInfo{
     private GComponent maininfo;
     private int id;
     private GList Bufs;
+    public bool IsMy;
     public HeadInfo(GComponent info)
     {
         maininfo = info;
@@ -303,7 +304,19 @@ public class HeadInfo{
             maininfo.GetChild("attackmodebtn").asButton.GetChild("word").asTextField.color = new Color(1, 0, 0.2f);
         }
 
-        FreshBuf();
+        if(IsMy == true)
+        {
+            maininfo.GetChild("huobi").asGroup.visible = true;
+            maininfo.GetChild("gold_num").asTextField.text = unit.Gold+"";
+            maininfo.GetChild("zuanshi_num").asTextField.text = unit.Diamond + "";
+        }
+        else
+        {
+            maininfo.GetChild("huobi").asGroup.visible = false;
+            FreshBuf();
+        }
+
+        
 
     }
 }

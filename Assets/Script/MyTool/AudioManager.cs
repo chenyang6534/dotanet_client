@@ -77,6 +77,9 @@ public class AudioManager : MonoBehaviour
     static public string Sound_Gold = "sound/other/gold1";
     static public string Sound_LevelUp = "sound/other/levelup";
     static public string Sound_OpenUI = "sound/menu/filter_open";
+    static public string Sound_CloseUI = "sound/menu/filter_close";
+    static public string Sound_OpenLittleUI = "sound/menu/chat_open";
+    static public string Sound_CloseLittleUI = "sound/menu/chat_close";
     static public string Sound_Click = "sound/menu/browser_click_common";
 
     //播放音效

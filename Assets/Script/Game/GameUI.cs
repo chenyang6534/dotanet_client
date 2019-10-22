@@ -49,7 +49,9 @@ public class GameUI : MonoBehaviour {
         Bufs = mainUI.GetChild("buflist").asList;
 
         MyHeadInfo = new HeadInfo(mainUI.GetChild("myHeadInfo").asCom);
+        MyHeadInfo.IsMy = true;
         TargetHeadInfo = new HeadInfo(mainUI.GetChild("targetHeadInfo").asCom);
+        TargetHeadInfo.IsMy = false;
         LittleMapCom = mainUI.GetChild("littlemap").asCom;
 
 
@@ -71,6 +73,12 @@ public class GameUI : MonoBehaviour {
         LittleMapCom.GetChild("set_btn").asButton.onClick.Add(() =>
         {
             SceneManager.LoadScene(0);
+        });
+        //商店
+        LittleMapCom.GetChild("store").asButton.onClick.Add(() =>
+        {
+            //SceneManager.LoadScene(0);
+            new StoreInfo();
         });
 
         //屏幕点击
@@ -99,12 +107,65 @@ public class GameUI : MonoBehaviour {
 
         MsgManager.Instance.AddListener("SC_UpdateTeamInfo", new HandleMsg(this.SC_UpdateTeamInfo));
         MsgManager.Instance.AddListener("SC_NoticeWords", new HandleMsg(this.SC_NoticeWords));
+        MsgManager.Instance.AddListener("SC_RequestTeam", new HandleMsg(this.SC_RequestTeam));
 
     }
     void OnDestroy()
     {
         MsgManager.Instance.RemoveListener("SC_UpdateTeamInfo");
         MsgManager.Instance.RemoveListener("SC_NoticeWords");
+        MsgManager.Instance.RemoveListener("SC_RequestTeam");
+    }
+    //组队请求
+    public bool SC_RequestTeam(Protomsg.MsgBase d1)
+    {
+        Debug.Log("SC_RequestTeam:");
+        IMessage IMperson = new Protomsg.SC_RequestTeam();
+        Protomsg.SC_RequestTeam p1 = (Protomsg.SC_RequestTeam)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
+
+        //弹出组队请求框
+        var teamrequest = UIPackage.CreateObject("GameUI", "TeamRequest").asCom;
+        GRoot.inst.AddChild(teamrequest);
+        teamrequest.xy = Tool.GetPosition(0, 0.3f);
+
+        AudioManager.Am.Play2DSound(AudioManager.Sound_OpenLittleUI);
+
+        //SrcUnitTypeID
+        var clientitem = ExcelManager.Instance.GetUnitInfoManager().GetUnitInfoByID(p1.SrcUnitTypeID);
+        if(clientitem != null)
+        {
+            teamrequest.GetChild("headicon").asLoader.url = clientitem.IconPath;
+        }
+        teamrequest.GetChild("name").asTextField.text = p1.SrcName;
+        teamrequest.GetChild("level").asTextField.text = p1.SrcLevel+"";
+
+        teamrequest.GetChild("no_btn").asButton.onClick.Add(() =>
+        {
+
+            //回复同意组队请求
+            Protomsg.CS_ResponseOrgTeam msg1 = new Protomsg.CS_ResponseOrgTeam();
+            msg1.SrcPlayerUID = p1.SrcPlayerUID;
+            msg1.RequestType = p1.RequestType;
+            msg1.IsAgree = 2;
+            MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_ResponseOrgTeam", msg1);
+
+            teamrequest.Dispose();
+        });
+
+        teamrequest.GetChild("yes_btn").asButton.onClick.Add(() =>
+        {
+            //回复同意组队请求
+            Protomsg.CS_ResponseOrgTeam msg1 = new Protomsg.CS_ResponseOrgTeam();
+            msg1.SrcPlayerUID = p1.SrcPlayerUID;
+            msg1.RequestType = p1.RequestType;
+            msg1.IsAgree = 1;
+            MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_ResponseOrgTeam", msg1);
+            teamrequest.Dispose();
+        });
+
+        
+
+        return true;
     }
     public bool SC_NoticeWords(Protomsg.MsgBase d1)
     {

@@ -142,7 +142,7 @@ public class MyInfo {
                 });
             }
             //baginfo
-            for (var i = 0; i < 36; i++)
+            for (var i = 0; i < 25; i++)
             {
                 //道具
                 var item = baginfo.GetChild("bagitem" + (i + 1)).asButton;
@@ -300,6 +300,7 @@ public class MyInfo {
         if(main != null)
         {
             main.Dispose();
+            AudioManager.Am.Play2DSound(AudioManager.Sound_CloseUI);
         }
         MsgManager.Instance.RemoveListener("SC_UnitInfo");
         MsgManager.Instance.RemoveListener("SC_BagInfo");
@@ -352,7 +353,7 @@ public class MyInfo {
         {
             return;
         }
-        for (var i = 0; i < 36; i++)
+        for (var i = 0; i < 25; i++)
         {
             //道具
             baginfo.GetChild("bagitem" + (i + 1)).asButton.icon = "";

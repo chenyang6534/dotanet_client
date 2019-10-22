@@ -43,14 +43,28 @@ public class StoreInfo
             allplayer[index++] = item;
         }
         System.Array.Sort(allplayer,(a,b)=> {
-            if(a.TypeID > b.TypeID)
+
+            if(a.PriceType == b.PriceType)
+            {
+                if (a.Price > b.Price)
+                {
+                    return 1;
+                }
+                else if (a.Price == b.Price)
+                {
+                    return 0;
+                }
+                return -1;
+            }else if(a.PriceType > b.PriceType)
             {
                 return 1;
-            }else if(a.TypeID == b.TypeID)
-            {
-                return 0;
             }
-            return -1;
+            else
+            {
+                return -1;
+            }
+
+            
         });
         foreach ( var item in allplayer)
         {
@@ -63,6 +77,10 @@ public class StoreInfo
             var onedropitem = UIPackage.CreateObject("GameUI", "Commodity").asCom;
             onedropitem.GetChild("n0").asLoader.url = clientitem.IconPath;
             onedropitem.GetChild("n3").asLoader.url = Tool.GetPriceTypeIcon(item.PriceType);
+            onedropitem.onClick.Add(() =>
+            {
+                new ItemInfo(item.ItemID);
+            });
             onedropitem.GetChild("n4").asTextField.text = item.Price + "";
             onedropitem.GetChild("n1").asButton.onClick.Add(() =>
             {

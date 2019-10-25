@@ -89,7 +89,7 @@ public static class Tool {
         return logicScreenPos;
     }
 
-    public static void NoticeWords(string word)
+    public static void NoticeWords(string word,Google.Protobuf.Collections.RepeatedField<string> p)
     {
         GComponent words = UIPackage.CreateObject("GameUI", "NoticeWords").asCom;
         //1，直接加到GRoot显示出来
@@ -97,7 +97,21 @@ public static class Tool {
         GRoot.inst.SetChildIndex(words, 1);
         words.xy = Tool.GetPosition(0.5f, 0.25f);
         //var root = words.GetComponent<FairyGUI.UIPanel>().ui;
+        
         words.GetChild("word").asTextField.text = word;// noticewords.Words;
+        if( p != null && p.Count > 0)
+        {
+            int index = 1;
+            foreach (var item in p)
+            {
+                Debug.Log("---------------NoticeWords:" + item);
+                words.GetChild("word").asTextField.SetVar("p" + index, item);
+                index++;
+            }
+            words.GetChild("word").asTextField.FlushVars();
+        }
+        
+
         FairyGUI.Transition trans = words.GetTransition("anim1");
         trans.Play();
         trans.SetHook("over", () => {

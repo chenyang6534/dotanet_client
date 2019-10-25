@@ -18,6 +18,7 @@ public class GameScene : MonoBehaviour {
     protected float m_LogicDelayTime;//逻辑延时
     public string m_ServerName;
     public int m_SceneID;
+    public string m_ScenePath;
 
     public int m_MaxFrame = 0;//当前收到的逻辑帧数据 帧号
     protected Dictionary<int,Protomsg.SC_Update> m_LogicFrameData;//逻辑帧数据
@@ -101,16 +102,32 @@ public class GameScene : MonoBehaviour {
         Debug.Log("SC_NewScene:");
         IMessage IMperson = new Protomsg.SC_NewScene();
         Protomsg.SC_NewScene p1 = (Protomsg.SC_NewScene)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
+        bool needNewScene = false;
+        if(m_ScenePath != p1.Name)
+        {
+            needNewScene = true;
+        }
         //p1.Name
         m_CurFrame = p1.CurFrame;
         m_LogicFps = p1.LogicFps;
         m_ServerName = p1.ServerName;
         m_SceneID = p1.SceneID;
+        m_ScenePath = p1.Name;
         m_GameServerStartTime = Tool.GetTime() - 1.0f/p1.LogicFps* p1.CurFrame;
         Debug.Log("starttime:"+ m_GameServerStartTime+ " LogicFps: "+ p1.LogicFps+"  curframe:"+m_CurFrame+"  time:"+ Time.realtimeSinceStartup);
         CleanScene();
-
-        LoadScene(p1.SceneID,p1.Name);
+        if (needNewScene)
+        {
+            LoadScene(p1.SceneID, p1.Name);
+        }
+        else
+        {
+            //通知服务器加载完成
+            Protomsg.CS_LodingScene msg1 = new Protomsg.CS_LodingScene();
+            msg1.SceneID = m_SceneID;
+            MyKcp.Instance.SendMsg(m_ServerName, "CS_LodingScene", msg1);
+        }
+        
 
         return true;
     }
@@ -163,8 +180,8 @@ public class GameScene : MonoBehaviour {
     void CleanScene()
     {
         m_LogicFrameData = new Dictionary<int, Protomsg.SC_Update>();
-        Destroy(m_GameScene);
-        m_GameScene = null;
+        //Destroy(m_GameScene);
+        //m_GameScene = null;
         UnityEntityManager.Instance.Clear();
         HaloEntityManager.Instance.Clear();
         BulletEntityManager.Instance.Clear();

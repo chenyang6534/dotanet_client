@@ -175,7 +175,7 @@ public class GameUI : MonoBehaviour {
         var noticewords = ExcelManager.Instance.GetNoticeWordsManager().GetNoticeWordsByID(p1.TypeID);
         if(noticewords != null)
         {
-            Tool.NoticeWords(noticewords.Words);
+            Tool.NoticeWords(noticewords.Words,p1.P);
             Debug.Log("SC_NoticeWords:"+noticewords.Words+"  sound:"+noticewords.Sound);
         }
         return true;

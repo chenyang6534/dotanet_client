@@ -309,12 +309,12 @@ public class LoginUI : MonoBehaviour {
                         var txt = inputnamecom.GetChild("input").asTextInput.text;
                         if (txt.Length <= 0)
                         {
-                            Tool.NoticeWords("请输入名字！");
+                            Tool.NoticeWords("请输入名字！",null);
                             return;
                         }
                         if (Tool.IsChineseOrNumberOrWord(txt) == false)
                         {
-                            Tool.NoticeWords("名字不含有中文,字母,数字以外的其他字符！");
+                            Tool.NoticeWords("名字不含有中文,字母,数字以外的其他字符！",null);
                             return;
                         }
                         SelectHeroMsg.Name = txt;
@@ -393,7 +393,7 @@ public class LoginUI : MonoBehaviour {
             {
                 word = "找不到该角色";
             }
-            Tool.NoticeWords(word);
+            Tool.NoticeWords(word,null);
 
             
         }

@@ -19,7 +19,7 @@ MonoBehaviour:
     StartY: 7
     EndX: 143
     EndY: 143
-    Name: "\u8352\u91CE\u4E00"
+    Name: "\u4E16\u754C1-1"
   - TypeID: 2
     ScenePath: Map/Scene1
     Little_BG: ui://GameUI/little_bg1
@@ -27,4 +27,156 @@ MonoBehaviour:
     StartY: 7
     EndX: 143
     EndY: 143
-    Name: "\u8352\u91CE\u4E8C"
+    Name: "\u4E16\u754C1-2"
+  - TypeID: 3
+    ScenePath: Map/Scene1
+    Little_BG: ui://GameUI/little_bg1
+    StartX: 5
+    StartY: 7
+    EndX: 143
+    EndY: 143
+    Name: "\u4E16\u754C1-3"
+  - TypeID: 100
+    ScenePath: Map/Scene1
+    Little_BG: ui://GameUI/little_bg1
+    StartX: 5
+    StartY: 7
+    EndX: 143
+    EndY: 143
+    Name: "\u4E16\u754C2-1"
+  - TypeID: 101
+    ScenePath: Map/Scene1
+    Little_BG: ui://GameUI/little_bg1
+    StartX: 5
+    StartY: 7
+    EndX: 143
+    EndY: 143
+    Name: "\u4E16\u754C2-2"
+  - TypeID: 102
+    ScenePath: Map/Scene1
+    Little_BG: ui://GameUI/little_bg1
+    StartX: 5
+    StartY: 7
+    EndX: 143
+    EndY: 143
+    Name: "\u4E16\u754C2-3"
+  - TypeID: 200
+    ScenePath: Map/Scene1
+    Little_BG: ui://GameUI/little_bg1
+    StartX: 5
+    StartY: 7
+    EndX: 143
+    EndY: 143
+    Name: "\u4E16\u754C3-1"
+  - TypeID: 201
+    ScenePath: Map/Scene1
+    Little_BG: ui://GameUI/little_bg1
+    StartX: 5
+    StartY: 7
+    EndX: 143
+    EndY: 143
+    Name: "\u4E16\u754C3-2"
+  - TypeID: 202
+    ScenePath: Map/Scene1
+    Little_BG: ui://GameUI/little_bg1
+    StartX: 5
+    StartY: 7
+    EndX: 143
+    EndY: 143
+    Name: "\u4E16\u754C3-3"
+  - TypeID: 300
+    ScenePath: Map/Scene1
+    Little_BG: ui://GameUI/little_bg1
+    StartX: 5
+    StartY: 7
+    EndX: 143
+    EndY: 143
+    Name: "\u4E16\u754C4-1"
+  - TypeID: 301
+    ScenePath: Map/Scene1
+    Little_BG: ui://GameUI/little_bg1
+    StartX: 5
+    StartY: 7
+    EndX: 143
+    EndY: 143
+    Name: "\u4E16\u754C4-2"
+  - TypeID: 302
+    ScenePath: Map/Scene1
+    Little_BG: ui://GameUI/little_bg1
+    StartX: 5
+    StartY: 7
+    EndX: 143
+    EndY: 143
+    Name: "\u4E16\u754C4-3"
+  - TypeID: 400
+    ScenePath: Map/Scene1
+    Little_BG: ui://GameUI/little_bg1
+    StartX: 5
+    StartY: 7
+    EndX: 143
+    EndY: 143
+    Name: "\u4E16\u754C5-1"
+  - TypeID: 401
+    ScenePath: Map/Scene1
+    Little_BG: ui://GameUI/little_bg1
+    StartX: 5
+    StartY: 7
+    EndX: 143
+    EndY: 143
+    Name: "\u4E16\u754C5-2"
+  - TypeID: 402
+    ScenePath: Map/Scene1
+    Little_BG: ui://GameUI/little_bg1
+    StartX: 5
+    StartY: 7
+    EndX: 143
+    EndY: 143
+    Name: "\u4E16\u754C5-3"
+  - TypeID: 500
+    ScenePath: Map/Scene1
+    Little_BG: ui://GameUI/little_bg1
+    StartX: 5
+    StartY: 7
+    EndX: 143
+    EndY: 143
+    Name: "\u4E16\u754C6-1"
+  - TypeID: 501
+    ScenePath: Map/Scene1
+    Little_BG: ui://GameUI/little_bg1
+    StartX: 5
+    StartY: 7
+    EndX: 143
+    EndY: 143
+    Name: "\u4E16\u754C6-2"
+  - TypeID: 502
+    ScenePath: Map/Scene1
+    Little_BG: ui://GameUI/little_bg1
+    StartX: 5
+    StartY: 7
+    EndX: 143
+    EndY: 143
+    Name: "\u4E16\u754C6-3"
+  - TypeID: 600
+    ScenePath: Map/Scene1
+    Little_BG: ui://GameUI/little_bg1
+    StartX: 5
+    StartY: 7
+    EndX: 143
+    EndY: 143
+    Name: "\u4E16\u754C7-1"
+  - TypeID: 601
+    ScenePath: Map/Scene1
+    Little_BG: ui://GameUI/little_bg1
+    StartX: 5
+    StartY: 7
+    EndX: 143
+    EndY: 143
+    Name: "\u4E16\u754C7-2"
+  - TypeID: 602
+    ScenePath: Map/Scene1
+    Little_BG: ui://GameUI/little_bg1
+    StartX: 5
+    StartY: 7
+    EndX: 143
+    EndY: 143
+    Name: "\u4E16\u754C7-3"

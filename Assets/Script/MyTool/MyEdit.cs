@@ -13,7 +13,13 @@ public class MyEditor : Editor
 {
     
     static string  []SceneName = { "Map/Scene1" };
-    static string[] CreateUnits = { "Map/CreateUnits/CreateUnits1", "Map/CreateUnits/CreateUnits2" };
+    static string[] CreateUnits = { "Map/CreateUnits/CreateUnits1", "Map/CreateUnits/CreateUnits2","Map/CreateUnits/CreateUnits3"
+            ,"Map/CreateUnits/CreateUnits100","Map/CreateUnits/CreateUnits101","Map/CreateUnits/CreateUnits102"
+    ,"Map/CreateUnits/CreateUnits200","Map/CreateUnits/CreateUnits201","Map/CreateUnits/CreateUnits202"
+    ,"Map/CreateUnits/CreateUnits300","Map/CreateUnits/CreateUnits301","Map/CreateUnits/CreateUnits302"
+    ,"Map/CreateUnits/CreateUnits400","Map/CreateUnits/CreateUnits401","Map/CreateUnits/CreateUnits402"
+    ,"Map/CreateUnits/CreateUnits500","Map/CreateUnits/CreateUnits501","Map/CreateUnits/CreateUnits502"
+    ,"Map/CreateUnits/CreateUnits600","Map/CreateUnits/CreateUnits601","Map/CreateUnits/CreateUnits602"};
     static string DestPath = "D://sheshe/bin/conf/";
 
     //将所有游戏场景导出为JSON格式
@@ -219,6 +225,8 @@ public class MyEditor : Editor
                         writer.Write(obj1.R);
                         writer.WritePropertyName("NeedLevel");
                         writer.Write(obj1.NeedLevel);
+                        writer.WritePropertyName("NeedPlayer");
+                        writer.Write(obj1.NeedPlayer);
                         writer.WritePropertyName("NextX");
                         writer.Write(obj1.NextScenePosition.x);
                         writer.WritePropertyName("NextY");

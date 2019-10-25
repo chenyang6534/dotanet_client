@@ -16,13 +16,13 @@ MonoBehaviour:
     Words: "\u9B54\u6CD5\u4E0D\u8DB3!"
     Sound: test
   - TypeID: 2
-    Words: "\u6280\u80FDCD\u65F6\u95F4\u672A\u5230!"
+    Words: "{p1=\u5927}\u6280\u80FDCD\u65F6\u95F4\u672A\u5230!"
     Sound: test
   - TypeID: 3
     Words: "\u4F60\u548C\u5BF9\u65B9\u90FD\u5DF2\u7ECF\u5728\u961F\u4F0D\u91CC\u9762,\u8BF7\u5148\u9000\u51FA\u961F\u4F0D\u518D\u6765\u7EC4\u961F"
     Sound: test
   - TypeID: 4
-    Words: "\u4F60\u5DF2\u88AB\u8E22\u51FA\u961F\u4F0D"
+    Words: "\u4F60\u5DF2\u88AB{p1=\u961F\u957F}\u8E22\u51FA\u961F\u4F0D"
     Sound: test
   - TypeID: 5
     Words: "\u91D1\u5E01\u4E0D\u8DB3"

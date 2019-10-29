@@ -33,6 +33,8 @@ public class UnityEntity {
     public int TeamID;
     public int Gold;
     public int Diamond;
+    public float RemainReviveTime;
+    public int ReviveGold;
 
     public UnityEntity(Protomsg.UnitDatas data, GameScene scene)
     {
@@ -57,6 +59,8 @@ public class UnityEntity {
         TeamID = data.TeamID;
         Gold = data.Gold;
         Diamond = data.Diamond;
+        RemainReviveTime = data.RemainReviveTime;
+        ReviveGold = data.ReviveGold;
 
         X = data.X;
         Y = data.Y;
@@ -330,6 +334,8 @@ public class UnityEntity {
             TeamID += data.TeamID;
             Gold += data.Gold;
             Diamond += data.Diamond;
+            RemainReviveTime += data.RemainReviveTime;
+            ReviveGold += data.ReviveGold;
             //if( data.HP != 0)
             //{
             //    Debug.Log("hp:" + HP + "  maxhp:" + MaxHP);

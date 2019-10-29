@@ -393,8 +393,11 @@ public class GameScene : MonoBehaviour {
         msg1.IsStart = isstart;
         msg1.X = dir.x;
         msg1.Y = dir.y;
-
-        //Debug.Log(" id:" + msg1.IDs[0]);
+        if(isstart == false)
+        {
+            Debug.Log("-----------no move:");
+        }
+        //
 
         MyKcp.Instance.SendMsg(m_ServerName, "CS_PlayerMove", msg1);
         //操作提前旋转

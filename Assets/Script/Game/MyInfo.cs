@@ -405,7 +405,7 @@ public class MyInfo {
                         var onedropitem = UIPackage.CreateObject("GameUI", "dropItemButton1").asButton;
                         onedropitem.icon = clientitem.IconPath;
                         float f1 = System.Convert.ToSingle(onedrop[1]);
-                        onedropitem.GetChild("droptxt").asTextField.text = (f1 * 100).ToString("#.00")+"%";
+                        onedropitem.GetChild("droptxt").asTextField.text = (f1 * 100).ToString("0.00")+"%";
 
 
                         onedropitem.onClick.Add(() => {

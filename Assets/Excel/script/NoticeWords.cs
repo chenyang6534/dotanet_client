@@ -12,6 +12,8 @@ namespace ExcelData
         public int TypeID;
         public string Words;
         public string Sound;
+        public int Type;
+        public string AnimName;
     }
 
 

@@ -309,6 +309,8 @@ public class HeadInfo{
             maininfo.GetChild("huobi").asGroup.visible = true;
             maininfo.GetChild("gold_num").asTextField.text = unit.Gold+"";
             maininfo.GetChild("zuanshi_num").asTextField.text = unit.Diamond + "";
+
+            //Debug.Log("level:" + unit.Level);
         }
         else
         {

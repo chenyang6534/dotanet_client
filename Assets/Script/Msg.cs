@@ -83,7 +83,7 @@ namespace Protomsg {
             "ASgFIqQBCglCdWZmRGF0YXMSDgoGVHlwZUlEGAEgASgFEhIKClJlbWFpblRp",
             "bWUYAiABKAISDAoEVGltZRgDIAEoAhIOCgZUYWdOdW0YBCABKAUSFgoOQ29u",
             "bmVjdGlvblR5cGUYBSABKAUSEwoLQ29ubmVjdGlvblgYBiABKAISEwoLQ29u",
-            "bmVjdGlvblkYByABKAISEwoLQ29ubmVjdGlvbloYCCABKAIigQYKCVVuaXRE",
+            "bmVjdGlvblkYByABKAISEwoLQ29ubmVjdGlvbloYCCABKAIilQYKCVVuaXRE",
             "YXRhcxIMCgROYW1lGAEgASgJEg0KBUxldmVsGAIgASgFEgoKAkhQGAMgASgF",
             "EgoKAk1QGAQgASgFEgkKAVgYBSABKAISCQoBWRgGIAEoAhIKCgJJRBgHIAEo",
             "BRIQCghNb2RlVHlwZRgIIAEoCRINCgVNYXhIUBgJIAEoBRINCgVNYXhNUBgK",
@@ -98,46 +98,47 @@ namespace Protomsg {
             "BRIJCgFaGB0gASgCEhUKDUlzTWlycm9ySW1hZ2UYHiABKAUSEwoLQXR0YWNr",
             "UmFuZ2UYHyABKAISEgoKQXR0YWNrQW5pbRggIAEoBRIOCgZUeXBlSUQYISAB",
             "KAUSGAoQUmVtYWluUmV2aXZlVGltZRgiIAEoAhIOCgZUZWFtSUQYIyABKAUS",
-            "DAoER29sZBgkIAEoBRIPCgdEaWFtb25kGCUgASgFEiAKAlNEGCYgAygLMhQu",
-            "cHJvdG9tc2cuU2tpbGxEYXRhcxIfCgJCRBgnIAMoCzITLnByb3RvbXNnLkJ1",
-            "ZmZEYXRhcxIhCgNJU0QYKCADKAsyFC5wcm90b21zZy5Ta2lsbERhdGFzIrUB",
-            "CgtCdWxsZXREYXRhcxIKCgJJRBgBIAEoBRIQCghNb2RlVHlwZRgCIAEoCRIJ",
-            "CgFYGAMgASgCEgkKAVkYBCABKAISCQoBWhgFIAEoAhINCgVTdGF0ZRgGIAEo",
-            "BRIOCgZTdGFydFgYByABKAISDgoGU3RhcnRZGAggASgCEg4KBlN0YXJ0WhgJ",
-            "IAEoAhIMCgRFbmRYGAogASgCEgwKBEVuZFkYCyABKAISDAoERW5kWhgMIAEo",
-            "AiJCCg5TY2VuZUl0ZW1EYXRhcxIKCgJJRBgBIAEoBRIOCgZUeXBlSUQYAiAB",
-            "KAUSCQoBWBgDIAEoAhIJCgFZGAQgASgCIkoKCUhhbG9EYXRhcxIKCgJJRBgB",
-            "IAEoBRIQCghNb2RlVHlwZRgCIAEoCRIJCgFYGAMgASgCEgkKAVkYBCABKAIS",
-            "CQoBWhgFIAEoAiKCAQoRTXNnVXNlckVudGVyU2NlbmUSCwoDVWlkGAEgASgF",
-            "EhEKCUNvbm5lY3RJZBgCIAEoBRIVCg1TcmNTZXJ2ZXJOYW1lGAMgASgJEhYK",
-            "DkRlc3RTZXJ2ZXJOYW1lGAQgASgJEg8KB1NjZW5lSUQYBSABKAUSDQoFRGF0",
-            "YXMYBiABKAwicgoNTXNnUGxheWVySHVydBISCgpIdXJ0VW5pdElEGAEgASgF",
-            "EhQKDEh1cnRBbGxWYWx1ZRgCIAEoBRIWCg5IdXJ0TWFnaWNWYWx1ZRgDIAEo",
-            "BRIOCgZJc0NyaXQYBCABKAUSDwoHR2V0R29sZBgFIAEoBSLIAwoJU0NfVXBk",
-            "YXRlEhAKCEN1ckZyYW1lGAEgASgFEiUKCE5ld1VuaXRzGAIgAygLMhMucHJv",
-            "dG9tc2cuVW5pdERhdGFzEiUKCE9sZFVuaXRzGAMgAygLMhMucHJvdG9tc2cu",
-            "VW5pdERhdGFzEhMKC1JlbW92ZVVuaXRzGAQgAygFEikKCk5ld0J1bGxldHMY",
-            "BSADKAsyFS5wcm90b21zZy5CdWxsZXREYXRhcxIpCgpPbGRCdWxsZXRzGAYg",
-            "AygLMhUucHJvdG9tc2cuQnVsbGV0RGF0YXMSFQoNUmVtb3ZlQnVsbGV0cxgH",
-            "IAMoBRIlCghOZXdIYWxvcxgIIAMoCzITLnByb3RvbXNnLkhhbG9EYXRhcxIl",
-            "CghPbGRIYWxvcxgJIAMoCzITLnByb3RvbXNnLkhhbG9EYXRhcxITCgtSZW1v",
-            "dmVIYWxvcxgKIAMoBRIvCg1OZXdTY2VuZUl0ZW1zGAsgAygLMhgucHJvdG9t",
-            "c2cuU2NlbmVJdGVtRGF0YXMSGAoQUmVtb3ZlU2NlbmVJdGVtcxgMIAMoBRIr",
-            "CgpQbGF5ZXJIdXJ0GA0gAygLMhcucHJvdG9tc2cuTXNnUGxheWVySHVydCJk",
-            "CgtTQ19OZXdTY2VuZRIMCgROYW1lGAEgASgJEhAKCExvZ2ljRnBzGAIgASgF",
-            "EhAKCEN1ckZyYW1lGAMgASgFEhIKClNlcnZlck5hbWUYBCABKAkSDwoHU2Nl",
-            "bmVJRBgFIAEoBSJWChJDaGFyYWN0ZXJCYXNlRGF0YXMSEwoLQ2hhcmFjdGVy",
-            "aWQYASABKAUSDAoETmFtZRgCIAEoCRIOCgZUeXBlaWQYAyABKAUSDQoFTGV2",
-            "ZWwYBCABKAUiaAoKU0NfTG9naW5lZBIMCgRDb2RlGAEgASgFEgsKA1VpZBgC",
-            "IAEoBRINCgVFcnJvchgDIAEoCRIwCgpDaGFyYWN0ZXJzGAQgAygLMhwucHJv",
-            "dG9tc2cuQ2hhcmFjdGVyQmFzZURhdGFzIkwKGFNDX1NlbGVjdENoYXJhY3Rl",
-            "clJlc3VsdBIMCgRDb2RlGAEgASgFEhMKC0NoYXJhY3RlcmlkGAIgASgFEg0K",
-            "BUVycm9yGAMgASgFIlYKEkNvbW1vZGl0eURhdGFQcm90bxIOCgZUeXBlSUQY",
-            "ASABKAUSDgoGSXRlbUlEGAIgASgFEhEKCVByaWNlVHlwZRgDIAEoBRINCgVQ",
-            "cmljZRgEIAEoBSIfCg9DU19HZXRTdG9yZURhdGESDAoEVGVzdBgBIAEoBSJA",
-            "CgxTQ19TdG9yZURhdGESMAoKQ29tbW9kaXR5cxgBIAMoCzIcLnByb3RvbXNn",
-            "LkNvbW1vZGl0eURhdGFQcm90byIhCg9DU19CdXlDb21tb2RpdHkSDgoGVHlw",
-            "ZUlEGAEgASgFYgZwcm90bzM="));
+            "DAoER29sZBgkIAEoBRIPCgdEaWFtb25kGCUgASgFEhIKClJldml2ZUdvbGQY",
+            "JiABKAUSIAoCU0QYJyADKAsyFC5wcm90b21zZy5Ta2lsbERhdGFzEh8KAkJE",
+            "GCggAygLMhMucHJvdG9tc2cuQnVmZkRhdGFzEiEKA0lTRBgpIAMoCzIULnBy",
+            "b3RvbXNnLlNraWxsRGF0YXMitQEKC0J1bGxldERhdGFzEgoKAklEGAEgASgF",
+            "EhAKCE1vZGVUeXBlGAIgASgJEgkKAVgYAyABKAISCQoBWRgEIAEoAhIJCgFa",
+            "GAUgASgCEg0KBVN0YXRlGAYgASgFEg4KBlN0YXJ0WBgHIAEoAhIOCgZTdGFy",
+            "dFkYCCABKAISDgoGU3RhcnRaGAkgASgCEgwKBEVuZFgYCiABKAISDAoERW5k",
+            "WRgLIAEoAhIMCgRFbmRaGAwgASgCIkIKDlNjZW5lSXRlbURhdGFzEgoKAklE",
+            "GAEgASgFEg4KBlR5cGVJRBgCIAEoBRIJCgFYGAMgASgCEgkKAVkYBCABKAIi",
+            "SgoJSGFsb0RhdGFzEgoKAklEGAEgASgFEhAKCE1vZGVUeXBlGAIgASgJEgkK",
+            "AVgYAyABKAISCQoBWRgEIAEoAhIJCgFaGAUgASgCIoIBChFNc2dVc2VyRW50",
+            "ZXJTY2VuZRILCgNVaWQYASABKAUSEQoJQ29ubmVjdElkGAIgASgFEhUKDVNy",
+            "Y1NlcnZlck5hbWUYAyABKAkSFgoORGVzdFNlcnZlck5hbWUYBCABKAkSDwoH",
+            "U2NlbmVJRBgFIAEoBRINCgVEYXRhcxgGIAEoDCJyCg1Nc2dQbGF5ZXJIdXJ0",
+            "EhIKCkh1cnRVbml0SUQYASABKAUSFAoMSHVydEFsbFZhbHVlGAIgASgFEhYK",
+            "Dkh1cnRNYWdpY1ZhbHVlGAMgASgFEg4KBklzQ3JpdBgEIAEoBRIPCgdHZXRH",
+            "b2xkGAUgASgFIsgDCglTQ19VcGRhdGUSEAoIQ3VyRnJhbWUYASABKAUSJQoI",
+            "TmV3VW5pdHMYAiADKAsyEy5wcm90b21zZy5Vbml0RGF0YXMSJQoIT2xkVW5p",
+            "dHMYAyADKAsyEy5wcm90b21zZy5Vbml0RGF0YXMSEwoLUmVtb3ZlVW5pdHMY",
+            "BCADKAUSKQoKTmV3QnVsbGV0cxgFIAMoCzIVLnByb3RvbXNnLkJ1bGxldERh",
+            "dGFzEikKCk9sZEJ1bGxldHMYBiADKAsyFS5wcm90b21zZy5CdWxsZXREYXRh",
+            "cxIVCg1SZW1vdmVCdWxsZXRzGAcgAygFEiUKCE5ld0hhbG9zGAggAygLMhMu",
+            "cHJvdG9tc2cuSGFsb0RhdGFzEiUKCE9sZEhhbG9zGAkgAygLMhMucHJvdG9t",
+            "c2cuSGFsb0RhdGFzEhMKC1JlbW92ZUhhbG9zGAogAygFEi8KDU5ld1NjZW5l",
+            "SXRlbXMYCyADKAsyGC5wcm90b21zZy5TY2VuZUl0ZW1EYXRhcxIYChBSZW1v",
+            "dmVTY2VuZUl0ZW1zGAwgAygFEisKClBsYXllckh1cnQYDSADKAsyFy5wcm90",
+            "b21zZy5Nc2dQbGF5ZXJIdXJ0ImQKC1NDX05ld1NjZW5lEgwKBE5hbWUYASAB",
+            "KAkSEAoITG9naWNGcHMYAiABKAUSEAoIQ3VyRnJhbWUYAyABKAUSEgoKU2Vy",
+            "dmVyTmFtZRgEIAEoCRIPCgdTY2VuZUlEGAUgASgFIlYKEkNoYXJhY3RlckJh",
+            "c2VEYXRhcxITCgtDaGFyYWN0ZXJpZBgBIAEoBRIMCgROYW1lGAIgASgJEg4K",
+            "BlR5cGVpZBgDIAEoBRINCgVMZXZlbBgEIAEoBSJoCgpTQ19Mb2dpbmVkEgwK",
+            "BENvZGUYASABKAUSCwoDVWlkGAIgASgFEg0KBUVycm9yGAMgASgJEjAKCkNo",
+            "YXJhY3RlcnMYBCADKAsyHC5wcm90b21zZy5DaGFyYWN0ZXJCYXNlRGF0YXMi",
+            "TAoYU0NfU2VsZWN0Q2hhcmFjdGVyUmVzdWx0EgwKBENvZGUYASABKAUSEwoL",
+            "Q2hhcmFjdGVyaWQYAiABKAUSDQoFRXJyb3IYAyABKAUiVgoSQ29tbW9kaXR5",
+            "RGF0YVByb3RvEg4KBlR5cGVJRBgBIAEoBRIOCgZJdGVtSUQYAiABKAUSEQoJ",
+            "UHJpY2VUeXBlGAMgASgFEg0KBVByaWNlGAQgASgFIh8KD0NTX0dldFN0b3Jl",
+            "RGF0YRIMCgRUZXN0GAEgASgFIkAKDFNDX1N0b3JlRGF0YRIwCgpDb21tb2Rp",
+            "dHlzGAEgAygLMhwucHJvdG9tc2cuQ29tbW9kaXR5RGF0YVByb3RvIiEKD0NT",
+            "X0J1eUNvbW1vZGl0eRIOCgZUeXBlSUQYASABKAUiJAoOQ1NfUXVpY2tSZXZp",
+            "dmUSEgoKUmV2aXZlVHlwZRgBIAEoBWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -168,7 +169,7 @@ namespace Protomsg {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_NoticeWords), global::Protomsg.SC_NoticeWords.Parser, new[]{ "TypeID", "P" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SkillDatas), global::Protomsg.SkillDatas.Parser, new[]{ "TypeID", "Level", "RemainCDTime", "CanUpgrade", "Index", "CastType", "CastTargetType", "UnitTargetTeam", "UnitTargetCamp", "NoCareMagicImmune", "CastRange", "Cooldown", "HurtRange", "ManaCost", "AttackAutoActive", "Visible", "RemainSkillCount", "MaxLevel", "RequiredLevel", "LevelsBetweenUpgrades", "InitLevel" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.BuffDatas), global::Protomsg.BuffDatas.Parser, new[]{ "TypeID", "RemainTime", "Time", "TagNum", "ConnectionType", "ConnectionX", "ConnectionY", "ConnectionZ" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.UnitDatas), global::Protomsg.UnitDatas.Parser, new[]{ "Name", "Level", "HP", "MP", "X", "Y", "ID", "ModeType", "MaxHP", "MaxMP", "Experience", "MaxExperience", "ControlID", "AnimotorState", "AttackTime", "DirectionX", "DirectionY", "UnitType", "AttackAcpabilities", "AttackMode", "IsMain", "IsDeath", "Invisible", "Camp", "IsMiss", "AnimotorPause", "SkillEnable", "ItemEnable", "Z", "IsMirrorImage", "AttackRange", "AttackAnim", "TypeID", "RemainReviveTime", "TeamID", "Gold", "Diamond", "SD", "BD", "ISD" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.UnitDatas), global::Protomsg.UnitDatas.Parser, new[]{ "Name", "Level", "HP", "MP", "X", "Y", "ID", "ModeType", "MaxHP", "MaxMP", "Experience", "MaxExperience", "ControlID", "AnimotorState", "AttackTime", "DirectionX", "DirectionY", "UnitType", "AttackAcpabilities", "AttackMode", "IsMain", "IsDeath", "Invisible", "Camp", "IsMiss", "AnimotorPause", "SkillEnable", "ItemEnable", "Z", "IsMirrorImage", "AttackRange", "AttackAnim", "TypeID", "RemainReviveTime", "TeamID", "Gold", "Diamond", "ReviveGold", "SD", "BD", "ISD" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.BulletDatas), global::Protomsg.BulletDatas.Parser, new[]{ "ID", "ModeType", "X", "Y", "Z", "State", "StartX", "StartY", "StartZ", "EndX", "EndY", "EndZ" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SceneItemDatas), global::Protomsg.SceneItemDatas.Parser, new[]{ "ID", "TypeID", "X", "Y" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.HaloDatas), global::Protomsg.HaloDatas.Parser, new[]{ "ID", "ModeType", "X", "Y", "Z" }, null, null, null),
@@ -182,7 +183,8 @@ namespace Protomsg {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CommodityDataProto), global::Protomsg.CommodityDataProto.Parser, new[]{ "TypeID", "ItemID", "PriceType", "Price" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GetStoreData), global::Protomsg.CS_GetStoreData.Parser, new[]{ "Test" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_StoreData), global::Protomsg.SC_StoreData.Parser, new[]{ "Commoditys" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_BuyCommodity), global::Protomsg.CS_BuyCommodity.Parser, new[]{ "TypeID" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_BuyCommodity), global::Protomsg.CS_BuyCommodity.Parser, new[]{ "TypeID" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_QuickRevive), global::Protomsg.CS_QuickRevive.Parser, new[]{ "ReviveType" }, null, null, null)
           }));
     }
     #endregion
@@ -6428,6 +6430,7 @@ namespace Protomsg {
       teamID_ = other.teamID_;
       gold_ = other.gold_;
       diamond_ = other.diamond_;
+      reviveGold_ = other.reviveGold_;
       sD_ = other.sD_.Clone();
       bD_ = other.bD_.Clone();
       iSD_ = other.iSD_.Clone();
@@ -6924,10 +6927,24 @@ namespace Protomsg {
       }
     }
 
+    /// <summary>Field number for the "ReviveGold" field.</summary>
+    public const int ReviveGoldFieldNumber = 38;
+    private int reviveGold_;
+    /// <summary>
+    ///复活需要的金币
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ReviveGold {
+      get { return reviveGold_; }
+      set {
+        reviveGold_ = value;
+      }
+    }
+
     /// <summary>Field number for the "SD" field.</summary>
-    public const int SDFieldNumber = 38;
+    public const int SDFieldNumber = 39;
     private static readonly pb::FieldCodec<global::Protomsg.SkillDatas> _repeated_sD_codec
-        = pb::FieldCodec.ForMessage(306, global::Protomsg.SkillDatas.Parser);
+        = pb::FieldCodec.ForMessage(314, global::Protomsg.SkillDatas.Parser);
     private readonly pbc::RepeatedField<global::Protomsg.SkillDatas> sD_ = new pbc::RepeatedField<global::Protomsg.SkillDatas>();
     /// <summary>
     ///技能数据
@@ -6938,9 +6955,9 @@ namespace Protomsg {
     }
 
     /// <summary>Field number for the "BD" field.</summary>
-    public const int BDFieldNumber = 39;
+    public const int BDFieldNumber = 40;
     private static readonly pb::FieldCodec<global::Protomsg.BuffDatas> _repeated_bD_codec
-        = pb::FieldCodec.ForMessage(314, global::Protomsg.BuffDatas.Parser);
+        = pb::FieldCodec.ForMessage(322, global::Protomsg.BuffDatas.Parser);
     private readonly pbc::RepeatedField<global::Protomsg.BuffDatas> bD_ = new pbc::RepeatedField<global::Protomsg.BuffDatas>();
     /// <summary>
     ///buff数据
@@ -6951,9 +6968,9 @@ namespace Protomsg {
     }
 
     /// <summary>Field number for the "ISD" field.</summary>
-    public const int ISDFieldNumber = 40;
+    public const int ISDFieldNumber = 41;
     private static readonly pb::FieldCodec<global::Protomsg.SkillDatas> _repeated_iSD_codec
-        = pb::FieldCodec.ForMessage(322, global::Protomsg.SkillDatas.Parser);
+        = pb::FieldCodec.ForMessage(330, global::Protomsg.SkillDatas.Parser);
     private readonly pbc::RepeatedField<global::Protomsg.SkillDatas> iSD_ = new pbc::RepeatedField<global::Protomsg.SkillDatas>();
     /// <summary>
     ///道具技能数据
@@ -7013,6 +7030,7 @@ namespace Protomsg {
       if (TeamID != other.TeamID) return false;
       if (Gold != other.Gold) return false;
       if (Diamond != other.Diamond) return false;
+      if (ReviveGold != other.ReviveGold) return false;
       if(!sD_.Equals(other.sD_)) return false;
       if(!bD_.Equals(other.bD_)) return false;
       if(!iSD_.Equals(other.iSD_)) return false;
@@ -7059,6 +7077,7 @@ namespace Protomsg {
       if (TeamID != 0) hash ^= TeamID.GetHashCode();
       if (Gold != 0) hash ^= Gold.GetHashCode();
       if (Diamond != 0) hash ^= Diamond.GetHashCode();
+      if (ReviveGold != 0) hash ^= ReviveGold.GetHashCode();
       hash ^= sD_.GetHashCode();
       hash ^= bD_.GetHashCode();
       hash ^= iSD_.GetHashCode();
@@ -7223,6 +7242,10 @@ namespace Protomsg {
         output.WriteRawTag(168, 2);
         output.WriteInt32(Diamond);
       }
+      if (ReviveGold != 0) {
+        output.WriteRawTag(176, 2);
+        output.WriteInt32(ReviveGold);
+      }
       sD_.WriteTo(output, _repeated_sD_codec);
       bD_.WriteTo(output, _repeated_bD_codec);
       iSD_.WriteTo(output, _repeated_iSD_codec);
@@ -7344,6 +7367,9 @@ namespace Protomsg {
       }
       if (Diamond != 0) {
         size += 2 + pb::CodedOutputStream.ComputeInt32Size(Diamond);
+      }
+      if (ReviveGold != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(ReviveGold);
       }
       size += sD_.CalculateSize(_repeated_sD_codec);
       size += bD_.CalculateSize(_repeated_bD_codec);
@@ -7469,6 +7495,9 @@ namespace Protomsg {
       }
       if (other.Diamond != 0) {
         Diamond = other.Diamond;
+      }
+      if (other.ReviveGold != 0) {
+        ReviveGold = other.ReviveGold;
       }
       sD_.Add(other.sD_);
       bD_.Add(other.bD_);
@@ -7632,15 +7661,19 @@ namespace Protomsg {
             Diamond = input.ReadInt32();
             break;
           }
-          case 306: {
-            sD_.AddEntriesFrom(input, _repeated_sD_codec);
+          case 304: {
+            ReviveGold = input.ReadInt32();
             break;
           }
           case 314: {
-            bD_.AddEntriesFrom(input, _repeated_bD_codec);
+            sD_.AddEntriesFrom(input, _repeated_sD_codec);
             break;
           }
           case 322: {
+            bD_.AddEntriesFrom(input, _repeated_bD_codec);
+            break;
+          }
+          case 330: {
             iSD_.AddEntriesFrom(input, _repeated_iSD_codec);
             break;
           }
@@ -11013,6 +11046,141 @@ namespace Protomsg {
             break;
           case 8: {
             TypeID = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///立即复活
+  /// </summary>
+  public sealed partial class CS_QuickRevive : pb::IMessage<CS_QuickRevive> {
+    private static readonly pb::MessageParser<CS_QuickRevive> _parser = new pb::MessageParser<CS_QuickRevive>(() => new CS_QuickRevive());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CS_QuickRevive> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[42]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_QuickRevive() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_QuickRevive(CS_QuickRevive other) : this() {
+      reviveType_ = other.reviveType_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_QuickRevive Clone() {
+      return new CS_QuickRevive(this);
+    }
+
+    /// <summary>Field number for the "ReviveType" field.</summary>
+    public const int ReviveTypeFieldNumber = 1;
+    private int reviveType_;
+    /// <summary>
+    ///1金币复活 2看视频复活
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ReviveType {
+      get { return reviveType_; }
+      set {
+        reviveType_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CS_QuickRevive);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CS_QuickRevive other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ReviveType != other.ReviveType) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ReviveType != 0) hash ^= ReviveType.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (ReviveType != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(ReviveType);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (ReviveType != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ReviveType);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CS_QuickRevive other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ReviveType != 0) {
+        ReviveType = other.ReviveType;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            ReviveType = input.ReadInt32();
             break;
           }
         }

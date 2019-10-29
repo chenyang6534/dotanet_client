@@ -206,6 +206,8 @@ public class ExcelReader
                 item.TypeID = int.Parse(collect[i][0].ToString());
                 item.Words = collect[i][1].ToString();
                 item.Sound = collect[i][2].ToString();
+                item.Type = int.Parse(collect[i][3].ToString());
+                item.AnimName = collect[i][4].ToString();
                 array[i - 1] = item;
 
             }

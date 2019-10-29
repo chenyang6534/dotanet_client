@@ -88,18 +88,17 @@ public static class Tool {
         Vector2 logicScreenPos = GRoot.inst.GlobalToLocal(screenPos);
         return logicScreenPos;
     }
-
-    public static void NoticeWords(string word,Google.Protobuf.Collections.RepeatedField<string> p)
+    public static void NoticeWordsAnim(string word, Google.Protobuf.Collections.RepeatedField<string> p,string anim)
     {
         GComponent words = UIPackage.CreateObject("GameUI", "NoticeWords").asCom;
         //1，直接加到GRoot显示出来
         GRoot.inst.AddChild(words);
         GRoot.inst.SetChildIndex(words, 1);
-        words.xy = Tool.GetPosition(0.5f, 0.25f);
+        words.xy = Tool.GetPosition(0.5f, 0.2f);
         //var root = words.GetComponent<FairyGUI.UIPanel>().ui;
-        
+
         words.GetChild("word").asTextField.text = word;// noticewords.Words;
-        if( p != null && p.Count > 0)
+        if (p != null && p.Count > 0)
         {
             int index = 1;
             foreach (var item in p)
@@ -110,13 +109,18 @@ public static class Tool {
             }
             words.GetChild("word").asTextField.FlushVars();
         }
-        
 
-        FairyGUI.Transition trans = words.GetTransition("anim1");
+
+        FairyGUI.Transition trans = words.GetTransition(anim);
         trans.Play();
         trans.SetHook("over", () => {
             words.Dispose();
         });
+    }
+
+    public static void NoticeWords(string word,Google.Protobuf.Collections.RepeatedField<string> p)
+    {
+        NoticeWordsAnim(word, p, "warning");
     }
 
 

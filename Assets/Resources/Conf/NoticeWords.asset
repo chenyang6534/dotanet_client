@@ -14,34 +14,101 @@ MonoBehaviour:
   dataArray:
   - TypeID: 1
     Words: "\u9B54\u6CD5\u4E0D\u8DB3!"
-    Sound: test
+    Sound: 
+    Type: 1
+    AnimName: warning
   - TypeID: 2
     Words: "{p1=\u5927}\u6280\u80FDCD\u65F6\u95F4\u672A\u5230!"
-    Sound: test
+    Sound: 
+    Type: 1
+    AnimName: warning
   - TypeID: 3
     Words: "\u4F60\u548C\u5BF9\u65B9\u90FD\u5DF2\u7ECF\u5728\u961F\u4F0D\u91CC\u9762,\u8BF7\u5148\u9000\u51FA\u961F\u4F0D\u518D\u6765\u7EC4\u961F"
-    Sound: test
+    Sound: 
+    Type: 1
+    AnimName: warning
   - TypeID: 4
     Words: "\u4F60\u5DF2\u88AB{p1=\u961F\u957F}\u8E22\u51FA\u961F\u4F0D"
-    Sound: test
+    Sound: 
+    Type: 1
+    AnimName: warning
   - TypeID: 5
     Words: "\u91D1\u5E01\u4E0D\u8DB3"
-    Sound: test
+    Sound: 
+    Type: 1
+    AnimName: warning
   - TypeID: 6
     Words: "\u94BB\u77F3\u4E0D\u8DB3"
-    Sound: test
+    Sound: 
+    Type: 1
+    AnimName: warning
   - TypeID: 7
     Words: "\u80CC\u5305\u5DF2\u6EE1"
-    Sound: test
+    Sound: 
+    Type: 1
+    AnimName: warning
   - TypeID: 8
     Words: "\u8D2D\u4E70\u6210\u529F"
-    Sound: test
+    Sound: 
+    Type: 1
+    AnimName: warning
   - TypeID: 9
-    Words: 
-    Sound: test
+    Words: "\u7B49\u7EA7\u4E0D\u8DB3{p1=1}\u7EA7,\u65E0\u6CD5\u8FDB\u5165\u4E0B\u4E00\u4E2A\u4E16\u754C"
+    Sound: 
+    Type: 1
+    AnimName: warning
   - TypeID: 10
     Words: 
-    Sound: test
+    Sound: 
+    Type: 1
+    AnimName: warning
   - TypeID: 11
     Words: 
-    Sound: test
+    Sound: sound/kill/firstblood
+    Type: 1
+    AnimName: showlong
+  - TypeID: 12
+    Words: 
+    Sound: sound/kill/Double_Kill
+    Type: 1
+    AnimName: showlong
+  - TypeID: 13
+    Words: "[color=#3473F7]{p1=1}[/color]\u6B63\u5728[color=#00FE3F]\u5927\u6740\u7279\u6740[/color]"
+    Sound: sound/kill/Killing_Spree
+    Type: 1
+    AnimName: showlong
+  - TypeID: 14
+    Words: "[color=#3473F7]{p1=1}[/color]\u5DF2\u7ECF[color=#5C01BA]\u4E3B\u5BB0\u6BD4\u8D5B[/color]"
+    Sound: sound/kill/Dominating
+    Type: 1
+    AnimName: showlong
+  - TypeID: 15
+    Words: "[color=#3473F7]{p1=1}[/color]\u5DF2\u7ECF[color=#FB057E]\u6740\u4EBA\u5982\u9EBB[/color]"
+    Sound: sound/kill/MegaKill
+    Type: 1
+    AnimName: showlong
+  - TypeID: 16
+    Words: "[color=#3473F7]{p1=1}[/color]\u5DF2\u7ECF[color=#F97D04]\u65E0\u4EBA\u80FD\u6321[/color]"
+    Sound: sound/kill/Unstoppable
+    Type: 1
+    AnimName: showlong
+  - TypeID: 17
+    Words: "[color=#3473F7]{p1=1}[/color]\u5DF2\u7ECF[color=#7F7F00]\u53D8\u6001\u6740\u622E[/color]"
+    Sound: sound/kill/WhickedSick
+    Type: 1
+    AnimName: showlong
+  - TypeID: 18
+    Words: "[color=#3473F7]{p1=1}[/color]\u5DF2\u7ECF[color=#F179F1]\u5996\u602A\u822C\u7684\u6740\u622E[/color]"
+    Sound: sound/kill/monster_kill
+    Type: 1
+    AnimName: showlong
+  - TypeID: 19
+    Words: "[color=#3473F7]{p1=1}[/color]\u5DF2\u7ECF[color=#DB1213]\u5982\u540C\u795E\u4E00\u822C[/color]"
+    Sound: sound/kill/GodLike
+    Type: 1
+    AnimName: showlong
+  - TypeID: 20
+    Words: "[color=#3473F7]{p1=1}[/color]\u5DF2\u7ECF[color=#DB1213]\u8D85\u8D8A\u795E\u7684\u6740\u622E,\u62DC\u6258\u8C01\u53BB\u6740\u4E86\u4ED6\u5427!![/color]"
+    Sound: sound/kill/HolyShit
+    Type: 1
+    AnimName: showlong

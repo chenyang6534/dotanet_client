@@ -34,6 +34,8 @@ public class GameUI : MonoBehaviour {
     protected GComponent TeamInfo;
     protected int SceneID;
 
+    protected GComponent DieUI;
+
     void Start () {
         SceneID = -1;
         SkillCom = new Dictionary<int, Skillstick>();
@@ -53,6 +55,16 @@ public class GameUI : MonoBehaviour {
         TargetHeadInfo = new HeadInfo(mainUI.GetChild("targetHeadInfo").asCom);
         TargetHeadInfo.IsMy = false;
         LittleMapCom = mainUI.GetChild("littlemap").asCom;
+
+        //死亡界面
+        DieUI = mainUI.GetChild("dieui").asCom;
+        DieUI.visible = false;
+        DieUI.GetChild("goldbtn").asButton.onClick.Add(()=> {
+            //金币立即复活
+            Protomsg.CS_QuickRevive msg1 = new Protomsg.CS_QuickRevive();
+            msg1.ReviveType = 1;
+            MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_QuickRevive", msg1);
+        });
 
 
         //显示隐藏组队界面按钮
@@ -175,7 +187,11 @@ public class GameUI : MonoBehaviour {
         var noticewords = ExcelManager.Instance.GetNoticeWordsManager().GetNoticeWordsByID(p1.TypeID);
         if(noticewords != null)
         {
-            Tool.NoticeWords(noticewords.Words,p1.P);
+            Tool.NoticeWordsAnim(noticewords.Words,p1.P,noticewords.AnimName);
+            if( noticewords.Sound != null && noticewords.Sound.Length > 0)
+            {
+                AudioManager.Am.Play2DSound(noticewords.Sound);
+            }
             Debug.Log("SC_NoticeWords:"+noticewords.Words+"  sound:"+noticewords.Sound);
         }
         return true;
@@ -806,6 +822,27 @@ public class GameUI : MonoBehaviour {
 
     }
 
+    public void CheckDieUI()
+    {
+        if(GameScene.Singleton.m_MyMainUnit == null)
+        {
+            return;
+        }
+        //死亡
+        if(GameScene.Singleton.m_MyMainUnit.IsDeath == 1)
+        {
+            DieUI.visible = true;
+        }
+        else
+        {
+            DieUI.visible = false;
+        }
+
+        DieUI.GetChild("time").asTextField.text = (int)(GameScene.Singleton.m_MyMainUnit.RemainReviveTime) + "";
+        DieUI.GetChild("needgold").asTextField.text = GameScene.Singleton.m_MyMainUnit.ReviveGold + "";
+        //
+    }
+
     // Update is called once per frame
     void Update () {
         gPing.text = "" + MyKcp.PingValue;
@@ -815,6 +852,7 @@ public class GameUI : MonoBehaviour {
         FreshBuf();
         FreshLittleMap();
         UpdateTeamInfo();
+        CheckDieUI();
         //Debug.Log("aaaa time:" + Tool.GetTime());
     }
 }

@@ -70,6 +70,19 @@ namespace cocosocket4unity
         {
             base.HandleException(ex);
             UnityEngine.Debug.Log("HandleException"+ex.ToString());
+
+            Protomsg.CC_Disconnect msg = new Protomsg.CC_Disconnect();
+            msg.Err = ex.ToString();
+
+            Protomsg.MsgBase msg1 = new Protomsg.MsgBase();
+            msg1.ModeType = "";
+            msg1.MsgType = "CC_Disconnect";
+            if (msg != null)
+            {
+                msg1.Datas = ByteString.CopyFrom(msg.ToByteArray());
+            }
+            MsgManager.Instance.AddMessage(msg1);
+
         }
         /// <summary>
         /// 超时

@@ -120,14 +120,36 @@ public class GameUI : MonoBehaviour {
         MsgManager.Instance.AddListener("SC_UpdateTeamInfo", new HandleMsg(this.SC_UpdateTeamInfo));
         MsgManager.Instance.AddListener("SC_NoticeWords", new HandleMsg(this.SC_NoticeWords));
         MsgManager.Instance.AddListener("SC_RequestTeam", new HandleMsg(this.SC_RequestTeam));
-
+        MsgManager.Instance.AddListener("CC_Disconnect", new HandleMsg(this.CC_Disconnect));
+        
     }
     void OnDestroy()
     {
         MsgManager.Instance.RemoveListener("SC_UpdateTeamInfo");
         MsgManager.Instance.RemoveListener("SC_NoticeWords");
         MsgManager.Instance.RemoveListener("SC_RequestTeam");
+        MsgManager.Instance.RemoveListener("CC_Disconnect");
     }
+
+    //掉线
+    public bool CC_Disconnect(Protomsg.MsgBase d1)
+    {
+        Debug.Log("CC_Disconnect:");
+        IMessage IMperson = new Protomsg.CC_Disconnect();
+        Protomsg.CC_Disconnect p1 = (Protomsg.CC_Disconnect)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
+        //
+        //弹出组队请求框
+        var teamrequest = UIPackage.CreateObject("GameUI", "noticeWindow").asCom;
+        GRoot.inst.AddChild(teamrequest);
+        teamrequest.xy = Tool.GetPosition(0.5f, 0.5f);
+        AudioManager.Am.Play2DSound(AudioManager.Sound_OpenLittleUI);
+        teamrequest.GetChild("ok").onClick.Add(() => {
+            teamrequest.Dispose();
+            SceneManager.LoadScene(0);
+        });
+        return true;
+    }
+
     //组队请求
     public bool SC_RequestTeam(Protomsg.MsgBase d1)
     {

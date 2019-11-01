@@ -189,7 +189,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 239870036}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.185759, y: -5, z: 0}
+  m_LocalPosition: {x: 11.313993, y: -5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -368,8 +368,8 @@ Light:
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
-    m_Resolution: -1
+    m_Type: 2
+    m_Resolution: 1
     m_CustomResolution: -1
     m_Strength: 1
     m_Bias: 0.05
@@ -396,13 +396,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 813081452}
-  m_LocalRotation: {x: 0.8567867, y: -0.11950931, z: 0.22957526, w: 0.44601488}
+  m_LocalRotation: {x: 0.410619, y: 0.5756666, z: -0.5756666, w: 0.410619}
   m_LocalPosition: {x: 8.445984, y: -4.809525, z: 13.8491}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 125, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 109, z: 0}
 --- !u!1 &1243345369
 GameObject:
   m_ObjectHideFlags: 0
@@ -728,6 +728,7 @@ MonoBehaviour:
   m_GameScene: {fileID: 0}
   m_ServerName: 
   m_SceneID: 0
+  m_ScenePath: 
   m_MaxFrame: 0
 --- !u!4 &2002430995
 Transform:

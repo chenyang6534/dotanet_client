@@ -138,7 +138,8 @@ namespace Protomsg {
             "RGF0YRIMCgRUZXN0GAEgASgFIkAKDFNDX1N0b3JlRGF0YRIwCgpDb21tb2Rp",
             "dHlzGAEgAygLMhwucHJvdG9tc2cuQ29tbW9kaXR5RGF0YVByb3RvIiEKD0NT",
             "X0J1eUNvbW1vZGl0eRIOCgZUeXBlSUQYASABKAUiJAoOQ1NfUXVpY2tSZXZp",
-            "dmUSEgoKUmV2aXZlVHlwZRgBIAEoBWIGcHJvdG8z"));
+            "dmUSEgoKUmV2aXZlVHlwZRgBIAEoBSIcCg1DQ19EaXNjb25uZWN0EgsKA0Vy",
+            "chgBIAEoCWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -184,7 +185,8 @@ namespace Protomsg {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GetStoreData), global::Protomsg.CS_GetStoreData.Parser, new[]{ "Test" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_StoreData), global::Protomsg.SC_StoreData.Parser, new[]{ "Commoditys" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_BuyCommodity), global::Protomsg.CS_BuyCommodity.Parser, new[]{ "TypeID" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_QuickRevive), global::Protomsg.CS_QuickRevive.Parser, new[]{ "ReviveType" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_QuickRevive), global::Protomsg.CS_QuickRevive.Parser, new[]{ "ReviveType" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CC_Disconnect), global::Protomsg.CC_Disconnect.Parser, new[]{ "Err" }, null, null, null)
           }));
     }
     #endregion
@@ -11181,6 +11183,141 @@ namespace Protomsg {
             break;
           case 8: {
             ReviveType = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///掉线 客户端自己发给自己的消息
+  /// </summary>
+  public sealed partial class CC_Disconnect : pb::IMessage<CC_Disconnect> {
+    private static readonly pb::MessageParser<CC_Disconnect> _parser = new pb::MessageParser<CC_Disconnect>(() => new CC_Disconnect());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CC_Disconnect> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[43]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CC_Disconnect() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CC_Disconnect(CC_Disconnect other) : this() {
+      err_ = other.err_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CC_Disconnect Clone() {
+      return new CC_Disconnect(this);
+    }
+
+    /// <summary>Field number for the "Err" field.</summary>
+    public const int ErrFieldNumber = 1;
+    private string err_ = "";
+    /// <summary>
+    ///掉线原因
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Err {
+      get { return err_; }
+      set {
+        err_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CC_Disconnect);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CC_Disconnect other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Err != other.Err) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Err.Length != 0) hash ^= Err.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Err.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Err);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Err.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Err);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CC_Disconnect other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Err.Length != 0) {
+        Err = other.Err;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Err = input.ReadString();
             break;
           }
         }

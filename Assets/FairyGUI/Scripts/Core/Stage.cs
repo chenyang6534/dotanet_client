@@ -536,6 +536,7 @@ namespace FairyGUI
 
 		void GetHitTarget()
 		{
+            //Debug.Log("GetHitTarget  :"+ _frameGotHitTarget +"   :"+ Time.frameCount);
 			if (_frameGotHitTarget == Time.frameCount)
 				return;
 
@@ -549,15 +550,19 @@ namespace FairyGUI
 				TouchInfo touch = _touches[0];
 				_touchTarget = HitTest(pos, true);
 				touch.target = _touchTarget;
-			}
+                //Debug.Log("_customInput  :" + _customInput);
+            }
 			else if (touchScreen)
 			{
 				_touchTarget = null;
-				for (int i = 0; i < Input.touchCount; ++i)
+                
+                for (int i = 0; i < Input.touchCount; ++i)
 				{
-					Touch uTouch = Input.GetTouch(i);
+                    
+                    Touch uTouch = Input.GetTouch(i);
+                    //Debug.Log("Input.touchCount  :" + Input.touchCount);
 
-					Vector2 pos = uTouch.position;
+                    Vector2 pos = uTouch.position;
 					pos.y = stageHeight - pos.y;
 
 					TouchInfo touch = null;
@@ -587,6 +592,7 @@ namespace FairyGUI
 					else
 					{
 						_touchTarget = HitTest(pos, true);
+                        //Debug.Log("hittest:" + _touchTarget);
 						touch.target = _touchTarget;
 					}
 				}
@@ -812,7 +818,7 @@ namespace FairyGUI
 
 					touch.UpdateEvent();
 					touch.target.onTouchBegin.BubbleCall(touch.evt);
-				}
+                }
 			}
 			if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1) || Input.GetMouseButtonUp(2))
 			{
@@ -859,7 +865,8 @@ namespace FairyGUI
 						break;
 					}
 				}
-				if (touch == null)
+                //Debug.Log("touch == "+touch);
+                if (touch == null)
 					continue;
 
 				if (touch.x != pos.x || touch.y != pos.y)
@@ -884,6 +891,7 @@ namespace FairyGUI
 
 						touch.UpdateEvent();
 						touch.target.onTouchBegin.BubbleCall(touch.evt);
+                        //Debug.Log("touch began");
 					}
 				}
 				else if (uTouch.phase == TouchPhase.Canceled || uTouch.phase == TouchPhase.Ended)

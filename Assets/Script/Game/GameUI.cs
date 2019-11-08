@@ -37,6 +37,9 @@ public class GameUI : MonoBehaviour {
     protected GComponent DieUI;
 
     void Start () {
+        //Debug.Log("gameui:" + Input.multiTouchEnabled + "  " + Input.touchSupported+"  "+ Input.stylusTouchSupported);
+
+        //Input.multiTouchEnabled = true;
         SceneID = -1;
         SkillCom = new Dictionary<int, Skillstick>();
         ItemSkillCom = new Dictionary<int, Skillstick>();
@@ -44,6 +47,8 @@ public class GameUI : MonoBehaviour {
         mainUI = GetComponent<UIPanel>().ui;
         touchID = -1;
         startTime = Tool.GetTime();
+
+        //mainUI.touchable = true;
 
         center = mainUI.GetChild("center").asCom;
         //Debug.Log("center---------------------------:"+ center.name);
@@ -867,6 +872,10 @@ public class GameUI : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+        //if(Input.touchCount > 0)
+        //{
+        //    Debug.Log("update Input.touchCount:" + Input.touchCount);
+        //}
         gPing.text = "" + MyKcp.PingValue;
         FreshSkillUI();
         FreshItemSkillUI();
@@ -877,4 +886,11 @@ public class GameUI : MonoBehaviour {
         CheckDieUI();
         //Debug.Log("aaaa time:" + Tool.GetTime());
     }
+    //void LateUpdate()
+    //{
+    //    if (Input.touchCount > 0)
+    //    {
+    //        Debug.Log("lateupdate Input.touchCount:" + Input.touchCount);
+    //    }
+    //}
 }

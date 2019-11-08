@@ -251,6 +251,24 @@ public class Skillstick : EventDispatcher
             touchArea.asCom.GetChild("active").visible = false;
         }
 
+
+        //
+        touchArea.asCom.GetChild("mana_not").visible = false;
+        touchArea.asCom.GetChild("use_not").visible = false;
+        if (GameScene.Singleton.m_MyMainUnit != null)
+        {
+            if (m_IsItem == false && GameScene.Singleton.m_MyMainUnit.SkillEnable == 2)
+            {
+                //能否使用主动技能 (比如 被眩晕和沉默不能使用主动技能) 1:可以 2:不可以
+                touchArea.asCom.GetChild("use_not").visible = true;
+            }
+            else if(m_IsItem == true && GameScene.Singleton.m_MyMainUnit.ItemEnable == 2)
+            {
+                touchArea.asCom.GetChild("use_not").visible = true;
+            }
+        }
+       
+
     }
     public void Destroy()
     {

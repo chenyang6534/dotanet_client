@@ -42,7 +42,7 @@ public class Joystick : EventDispatcher
 
        
         touchID = -1;
-        radius = 150;
+        radius = 250;
 
         touchArea.onTouchBegin.Add(OnTouchBegin);
         touchArea.onTouchMove.Add(OnTouchMove);

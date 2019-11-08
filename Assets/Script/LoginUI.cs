@@ -139,16 +139,10 @@ public class LoginUI : MonoBehaviour {
         });
     }
 	
-	// Update is called once per frame
-	void Update () {
-        //Debug.Log("update:");
-        MsgManager.Instance.UpdateMessage();
-        
-
-    }
+	
     void OnDestroy()
     {
-        //Debug.Log("OnDestroy:");
+        Debug.Log("main OnDestroy:");
         MsgManager.Instance.RemoveListener("SC_Logined");
         MsgManager.Instance.RemoveListener("SC_SelectCharacterResult");
     }
@@ -399,14 +393,36 @@ public class LoginUI : MonoBehaviour {
         }
         else
         {
+            
             SaveDataManager.Save();
             SelectLayer.Dispose();
-
+            Debug.Log("main OnDestroy:aaaa");
             SceneManager.LoadScene(1);
+
+            Debug.Log("main OnDestroy:bbbbb");
         }
 
         return false; //中断解析数据
     }
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.touchCount > 0)
+        {
+            Debug.Log("login update Input.touchCount:" + Input.touchCount);
+        }
+        //Debug.Log("update:");
+        MsgManager.Instance.UpdateMessage();
 
-    
+
+    }
+    void LateUpdate()
+    {
+        if (Input.touchCount > 0)
+        {
+            Debug.Log("login lateupdate Input.touchCount:" + Input.touchCount);
+        }
+    }
+
+
 }

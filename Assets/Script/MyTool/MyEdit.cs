@@ -142,6 +142,15 @@ public class MyEditor : Editor
     [MenuItem("GameObject/ExportCreateUnitsJSON")]
     static void ExportCreateUnitsJSON()
     {
+        //Debug.Log("111111111");
+        //var scene222 = (GameObject)(GameObject.Instantiate(Resources.Load("D://unity3d/dotaNet/Assets/Output/CreateUnits602")));
+        //if (scene222 != null)
+        //{
+        //    Debug.Log("222222222");
+        //}
+        //Debug.Log("333333333");
+
+
         //string filepath = Application.dataPath + @"/Output/SceneCollides.sc";
         string filepath = DestPath + "CreateUnits.sc";
         FileInfo t = new FileInfo(filepath);

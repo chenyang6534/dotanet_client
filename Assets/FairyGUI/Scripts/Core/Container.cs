@@ -494,6 +494,7 @@ namespace FairyGUI
 				else
 					return null;
 			}
+            //Debug.Log("hittest:"+ stagePoint);
 
 			HitTestContext.screenPoint = new Vector2(stagePoint.x, Screen.height - stagePoint.y);
 			HitTestContext.worldPoint = StageCamera.main.ScreenToWorldPoint(HitTestContext.screenPoint);
@@ -501,7 +502,9 @@ namespace FairyGUI
 			HitTestContext.forTouch = forTouch;
 
 			DisplayObject ret = HitTest();
-			if (ret != null)
+            //Debug.Log("HitTest info:" + HitTestContext.screenPoint + " "+ HitTestContext.worldPoint);
+            //Debug.Log("HitTest ret:" + ret);
+            if (ret != null)
 				return ret;
 			else if (this is Stage)
 				return this;

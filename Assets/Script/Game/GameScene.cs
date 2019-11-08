@@ -4,6 +4,7 @@ using Google.Protobuf;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameScene : MonoBehaviour {
 
@@ -159,6 +160,8 @@ public class GameScene : MonoBehaviour {
                 m_PlaneScene.SetNormalAndPosition(m_GameScene.transform.up, pos);
                 loading.Dispose();
 
+                //SceneManager.LoadScene(0);
+
                 //通知服务器加载完成
                 Protomsg.CS_LodingScene msg1 = new Protomsg.CS_LodingScene();
                 msg1.SceneID = sceneid;
@@ -284,17 +287,17 @@ public class GameScene : MonoBehaviour {
                 //光环
                 foreach (var item in p1.NewHalos)
                 {
-                    Debug.Log("new halo:" + item.ID);
+                    //Debug.Log("new halo:" + item.ID);
                     HaloEntityManager.Instance.CreateHaloEntity(this, item);
                 }
                 foreach (var item in p1.OldHalos)
                 {
-                    Debug.Log("old halo:" + item.ID);
+                    //Debug.Log("old halo:" + item.ID);
                     HaloEntityManager.Instance.ChangeHaloEntity(item);
                 }
                 foreach (var item in p1.RemoveHalos)
                 {
-                    Debug.Log("remove halo:" + item);
+                    //Debug.Log("remove halo:" + item);
                     HaloEntityManager.Instance.DestroyHaloEntity(item);
                 }
                 //场景道具
@@ -991,14 +994,14 @@ public class GameScene : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+        
         //Debug.Log("update time:" + Tool.GetTime());
         MsgManager.Instance.UpdateMessage();
 
-        LogicUpdate();
-        Input.multiTouchEnabled = true;
 
+        LogicUpdate();
         //删除目标
-        if(m_TargetUnit != null)
+        if (m_TargetUnit != null)
         {
             if(m_TargetUnit.IsDeath == 1 || UnityEntityManager.Instance.GetUnityEntity(m_TargetUnit.ID) == null)
             {
@@ -1009,62 +1012,19 @@ public class GameScene : MonoBehaviour {
             else
             {
                 //距离我自己太远
-                //if(m_MyMainUnit != null)
-                //{
-                //    var dis = Vector2.Distance(new Vector2(m_TargetUnit.X, m_TargetUnit.Y), new Vector2(m_MyMainUnit.X, m_MyMainUnit.Y));
-                //    if(dis > AttackSelectTargetDis && dis > m_MyMainUnit.AttackRange)
-                //    {
-                //        //m_TargetUnit.TargetShow(false);
-                //        //m_TargetUnit.TargetShowRedCircle(false);
-                //        //m_TargetUnit = null;
-
-                        
-                //    }
-                //}
+               
                 
             }
             
         }
-
+        
+        
         UnityEntityManager.Instance.Update(Time.deltaTime);
         if(Time.deltaTime >= 0.033)
         {
             //Debug.Log("deltaTime:" + Time.deltaTime);
         }
-        //Debug.Log("66time:" + Tool.GetTime());
-
-        //if(Input.touchCount > 0)
-        //{
-        //    Debug.Log("Input.touchCount:" + Input.touchCount);
-        //    Debug.Log("TouchPhase:" + Input.GetTouch(0).phase);
-        //}
-
-
-        //if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved) //[color=Red]如果点击手指touch了  并且手指touch的状态为移动的[/color]
-        //{
-        //    Debug.Log("TouchPhase.Moved:" + Input.GetTouch(0).deltaPosition);//[color=Red]获取手指touch最后一帧移动的xy轴距离[/color]
-
-
-        //}
-
-        //if (Input.GetMouseButtonDown(0))
-        //{
-        //    Debug.Log("GetMouseButtonDown:" + Input.mousePosition);
-        //    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);  //摄像机需要设置MainCamera的Tag这里才能找到
-        //    //RaycastHit hitInfo;
-        //    float dis;
-
-        //    m_PlaneScene.Raycast(ray, out dis);
-        //    ////根据距离获得鼠标点击的目标点三维坐标
-        //    Vector3 _vec3Target = ray.GetPoint(dis);
-        //    //Debug.Log(" hit point " + _vec3Target);
-
-        //    //Debug.Log(" idaa:" + m_MyControlUnit[0]);
-
-
-
-
-        //}
+        
     }
 
     

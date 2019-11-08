@@ -29,7 +29,7 @@ MonoBehaviour:
   - TypeID: 3
     HeroName: "\u5251\u5723"
     IconPath: "ui://GameUI/\u5251\u5723"
-    Des: "\u6765\u81EA\u5200\u5854\u7684\u5251\u5723"
+    Des: 
     Attack_Range: "\u8FD1\u6218"
     AttributePrimary: 2
     Skills_ID: 5,6,8,7
@@ -43,112 +43,112 @@ MonoBehaviour:
   - TypeID: 5
     HeroName: "\u5C0F\u9ED1"
     IconPath: "ui://GameUI/\u5C0F\u9ED1"
-    Des: "\u6765\u81EA\u5200\u5854\u7684\u5C0F\u9ED1"
+    Des: 
     Attack_Range: "\u8FDC\u7A0B"
     AttributePrimary: 2
     Skills_ID: 9,10,11,12
   - TypeID: 6
     HeroName: "\u865A\u7A7A"
     IconPath: "ui://GameUI/\u865A\u7A7A"
-    Des: "\u6765\u81EA\u5200\u5854\u7684\u865A\u7A7A"
+    Des: 
     Attack_Range: "\u8FD1\u6218"
     AttributePrimary: 2
     Skills_ID: 13,14,15,16
   - TypeID: 7
     HeroName: "\u6DF7\u6C8C\u9A91\u58EB"
     IconPath: "ui://GameUI/\u6DF7\u6C8C\u9A91\u58EB"
-    Des: "\u6765\u81EA\u5200\u5854\u7684\u6DF7\u6C8C\u9A91\u58EB"
+    Des: 
     Attack_Range: "\u8FD1\u6218"
     AttributePrimary: 1
     Skills_ID: 17,18,19,20
   - TypeID: 8
     HeroName: "\u718A\u6218\u58EB"
     IconPath: "ui://GameUI/\u62CD\u62CD\u718A"
-    Des: "\u6765\u81EA\u5200\u5854\u7684\u718A\u6218\u58EB"
+    Des: 
     Attack_Range: "\u8FD1\u6218"
     AttributePrimary: 2
     Skills_ID: 21,22,23,24
   - TypeID: 9
     HeroName: "\u8840\u9B54"
     IconPath: "ui://GameUI/\u8840\u9B54"
-    Des: "\u6765\u81EA\u5200\u5854\u7684\u8840\u9B54"
+    Des: 
     Attack_Range: "\u8FD1\u6218"
     AttributePrimary: 2
     Skills_ID: 25,26,27,28
   - TypeID: 10
     HeroName: "\u5C0F\u5A1C\u8FE6"
     IconPath: "ui://GameUI/\u5A1C\u8FE6"
-    Des: "\u6765\u81EA\u5200\u5854\u7684\u5C0F\u5A1C\u8FE6"
+    Des: 
     Attack_Range: "\u8FD1\u6218"
     AttributePrimary: 2
     Skills_ID: 29,30,31,32
   - TypeID: 11
     HeroName: "\u5C0F\u5C0F"
     IconPath: "ui://GameUI/\u5C0F\u5C0F"
-    Des: "\u6765\u81EA\u5200\u5854\u7684\u5C0F\u5C0F"
+    Des: 
     Attack_Range: "\u8FD1\u6218"
     AttributePrimary: 1
     Skills_ID: 33,34,35,36
   - TypeID: 12
     HeroName: "\u98CE\u884C"
     IconPath: "ui://GameUI/\u98CE\u884C"
-    Des: "\u6765\u81EA\u5200\u5854\u7684\u98CE\u884C"
+    Des: 
     Attack_Range: "\u8FDC\u7A0B"
     AttributePrimary: 3
     Skills_ID: 37,38,39,40
   - TypeID: 13
     HeroName: "\u5E15\u514B"
     IconPath: "ui://GameUI/\u5E15\u514B"
-    Des: "\u6765\u81EA\u5200\u5854\u7684\u5E15\u514B"
+    Des: 
     Attack_Range: "\u8FDC\u7A0B"
     AttributePrimary: 3
     Skills_ID: 41,43,44,45
   - TypeID: 14
     HeroName: "\u5F71\u9B54"
     IconPath: "ui://GameUI/\u5F71\u9B54"
-    Des: "\u6765\u81EA\u5200\u5854\u7684\u5F71\u9B54"
+    Des: 
     Attack_Range: "\u8FDC\u7A0B"
     AttributePrimary: 2
     Skills_ID: 46,47,48,49
   - TypeID: 15
     HeroName: "\u5E7D\u9B3C"
     IconPath: "ui://GameUI/\u5E7D\u9B3C"
-    Des: "\u6765\u81EA\u5200\u5854\u7684\u5E7D\u9B3C"
+    Des: 
     Attack_Range: "\u8FDC\u7A0B"
     AttributePrimary: 2
     Skills_ID: 50,51,52,53
   - TypeID: 16
     HeroName: "\u706B\u67AA"
     IconPath: "ui://GameUI/\u706B\u67AA"
-    Des: "\u6765\u81EA\u5200\u5854\u7684\u706B\u67AA"
+    Des: 
     Attack_Range: "\u8FDC\u7A0B"
     AttributePrimary: 2
     Skills_ID: 55,56,57,58
   - TypeID: 17
     HeroName: "\u65A7\u738B"
     IconPath: "ui://GameUI/\u65A7\u738B"
-    Des: "\u6765\u81EA\u5200\u5854\u7684\u65A7\u738B"
+    Des: 
     Attack_Range: "\u8FD1\u6218"
     AttributePrimary: 1
     Skills_ID: 59,60,61,62
   - TypeID: 18
     HeroName: "\u6708\u9A91"
     IconPath: "ui://GameUI/\u6708\u9A91"
-    Des: "\u6765\u81EA\u5200\u5854\u7684\u6708\u9A91"
+    Des: 
     Attack_Range: "\u8FDC\u7A0B"
     AttributePrimary: 2
     Skills_ID: 63,64,65,66
   - TypeID: 19
     HeroName: "\u6BD2\u9F99"
     IconPath: "ui://GameUI/\u6BD2\u9F99"
-    Des: "\u6765\u81EA\u5200\u5854\u7684\u6BD2\u9F99"
+    Des: 
     Attack_Range: "\u8FDC\u7A0B"
     AttributePrimary: 2
     Skills_ID: 67,68,69,70
   - TypeID: 20
     HeroName: "\u84DD\u732B"
     IconPath: "ui://GameUI/\u84DD\u732B"
-    Des: "\u6765\u81EA\u5200\u5854\u7684\u84DD\u732B"
+    Des: 
     Attack_Range: "\u8FDC\u7A0B"
     AttributePrimary: 3
     Skills_ID: 71,72,73,74

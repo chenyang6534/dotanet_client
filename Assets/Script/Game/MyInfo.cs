@@ -40,6 +40,12 @@ public class MyInfo {
         Init();
         //FreshData();
     }
+    public void SendDestroyItem(int srcpos)
+    {
+        Protomsg.CS_DestroyItem msg1 = new Protomsg.CS_DestroyItem();
+        msg1.SrcPos = srcpos;
+        MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_DestroyItem", msg1);
+    }
 
     //发送交换位置
     public void SendChangePos(int srcpos,int destpos, int srctype, int desttype)
@@ -81,6 +87,8 @@ public class MyInfo {
     {
         if(GameScene.Singleton.m_MyMainUnit == unit)
         {
+            
+
             //道具拖动
             for (var i = 0; i < 6; i++)
             {
@@ -142,6 +150,23 @@ public class MyInfo {
                 });
             }
             //baginfo
+            //删除道具
+            var destroyitem = baginfo.GetChild("destroy").asButton;
+            destroyitem.onDrop.Add((EventContext context) =>
+            {
+                string[] sArray = ((string)context.data).Split(',');
+                if (sArray.Length != 2)
+                {
+                    return;
+                }
+                //背包
+                if (int.Parse(sArray[1]) != 2)
+                {
+                    return;
+                }
+
+                SendDestroyItem(int.Parse(sArray[0]));
+            });
             for (var i = 0; i < 25; i++)
             {
                 //道具

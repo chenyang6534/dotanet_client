@@ -89,7 +89,20 @@ public class GameUI : MonoBehaviour {
         //设置 退出
         LittleMapCom.GetChild("set_btn").asButton.onClick.Add(() =>
         {
-            SceneManager.LoadScene(0);
+            //弹出断开连接
+            var teamrequest = UIPackage.CreateObject("GameUI", "noticeExit").asCom;
+            GRoot.inst.AddChild(teamrequest);
+            teamrequest.xy = Tool.GetPosition(0.5f, 0.5f);
+            AudioManager.Am.Play2DSound(AudioManager.Sound_OpenLittleUI);
+            teamrequest.GetChild("ok").onClick.Add(() => {
+                teamrequest.Dispose();
+                SceneManager.LoadScene(0);
+            });
+            teamrequest.GetChild("no").onClick.Add(() => {
+                teamrequest.Dispose();
+
+            });
+            //SceneManager.LoadScene(0);
         });
         //商店
         LittleMapCom.GetChild("store").asButton.onClick.Add(() =>
@@ -143,7 +156,7 @@ public class GameUI : MonoBehaviour {
         IMessage IMperson = new Protomsg.CC_Disconnect();
         Protomsg.CC_Disconnect p1 = (Protomsg.CC_Disconnect)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
         //
-        //弹出组队请求框
+        //弹出断开连接
         var teamrequest = UIPackage.CreateObject("GameUI", "noticeWindow").asCom;
         GRoot.inst.AddChild(teamrequest);
         teamrequest.xy = Tool.GetPosition(0.5f, 0.5f);

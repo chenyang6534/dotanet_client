@@ -87,7 +87,7 @@ public class GameScene : MonoBehaviour {
 
         m_LogicFrameData[p1.CurFrame] = p1;
         m_MaxFrame = p1.CurFrame;
-        Debug.Log("SC_Update time:" + Tool.GetTime()+"  frame:"+p1.CurFrame);
+        //Debug.Log("SC_Update time:" + Tool.GetTime()+"  frame:"+p1.CurFrame);
         //var m2 = System.GC.GetTotalMemory(true);
 
         //Debug.Log("gc size:"+ d1.Datas.Length+" str:"+ d1.Datas.ToString());
@@ -1023,7 +1023,7 @@ public class GameScene : MonoBehaviour {
         UnityEntityManager.Instance.Update(Time.deltaTime);
         if(Time.deltaTime >= 0.033)
         {
-            Debug.Log("deltaTime:" + Time.deltaTime);
+            //Debug.Log("deltaTime:" + Time.deltaTime);
         }
         
     }

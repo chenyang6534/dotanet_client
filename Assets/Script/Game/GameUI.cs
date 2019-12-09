@@ -89,6 +89,9 @@ public class GameUI : MonoBehaviour {
         //设置 退出
         LittleMapCom.GetChild("set_btn").asButton.onClick.Add(() =>
         {
+
+            GameScene.Singleton.gameObject.GetComponent<GoogleAdmob>().UserChoseToWatchAd();
+
             //弹出断开连接
             var teamrequest = UIPackage.CreateObject("GameUI", "noticeExit").asCom;
             GRoot.inst.AddChild(teamrequest);

@@ -27,18 +27,23 @@ public class GameUI : MonoBehaviour {
     private HeadInfo MyHeadInfo;
     private HeadInfo TargetHeadInfo;
 
-    protected GComponent LittleMapCom;
+    protected GComponent LittleMapCom;//小地图
+
+    
 
     protected GButton ShowOffBtn;
 
-    protected GComponent TeamInfo;
+    protected GComponent TeamInfo; //队伍信息
     protected int SceneID;
 
     protected GComponent DieUI;
 
+    protected GComponent LittleChat; //聊天信息
+
+    static GameUI sInstanse = null;
     void Start () {
         //Debug.Log("gameui:" + Input.multiTouchEnabled + "  " + Input.touchSupported+"  "+ Input.stylusTouchSupported);
-
+        sInstanse = this;
         //Input.multiTouchEnabled = true;
         SceneID = -1;
         SkillCom = new Dictionary<int, Skillstick>();
@@ -61,6 +66,8 @@ public class GameUI : MonoBehaviour {
         TargetHeadInfo.IsMy = false;
         LittleMapCom = mainUI.GetChild("littlemap").asCom;
 
+
+
         //死亡界面
         DieUI = mainUI.GetChild("dieui").asCom;
         DieUI.visible = false;
@@ -70,28 +77,51 @@ public class GameUI : MonoBehaviour {
             msg1.ReviveType = 1;
             MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_QuickRevive", msg1);
         });
+        DieUI.GetChild("diamondbtn").asButton.onClick.Add(() => {
+            //砖石立即复活
+            Protomsg.CS_QuickRevive msg1 = new Protomsg.CS_QuickRevive();
+            msg1.ReviveType = 2;
+            MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_QuickRevive", msg1);
+        });
 
 
         //显示隐藏组队界面按钮
         ShowOffBtn = mainUI.GetChild("showoffbtn1").asButton;
-        ShowOffBtn.selected = true;
-        ShowOffBtn.onChanged.Add((EventContext context) => {
+        //ShowOffBtn.selected = false;
+        ShowOffBtn.onClick.Add((EventContext context) => {
             //ShowOffBtn.selected = true;
-            TeamInfoShow(ShowOffBtn.selected);
-            Debug.Log("-----------ShowOffBtn:" + ShowOffBtn.selected);
+            TeamInfo.visible = !TeamInfo.visible;
+            //if(TeamInfo.visible)
+            //TeamInfoShow(ShowOffBtn.selected);
+            Debug.Log("-----------ShowOffBtn:" + TeamInfo.visible);
         });
+
+        //聊天信息
+        LittleChat = mainUI.GetChild("littlechat").asCom;
+        Tool.AddClick(LittleChat.GetChild("contentlist").asList, () => {
+            ChatUI.SOpenChatBox("zonghe", "", 0);
+        });
+        //LittleChat.GetChild("contentlist").asList.onTouchBegin.Add((EventContext context) =>
+        //{
+        //    InputEvent inputEvent = (InputEvent)context.data;
+        //});
+        //LittleChat.GetChild("contentlist").asList.onTouchEnd.Add((EventContext context) =>
+        //{
+        //    //gameObject.GetComponent<ChatUI>().testchat();
+        //    ChatUI.SOpenChatBox("zonghe", "", 0);
+        //    return;
+        //}); ;
 
         //组队信息
         TeamInfo = mainUI.GetChild("teaminfo").asCom;
-        TeamInfoShow(ShowOffBtn.selected);
+        TeamInfoShow(false);
 
-
+        
         //设置 退出
         LittleMapCom.GetChild("set_btn").asButton.onClick.Add(() =>
         {
-
-            GameScene.Singleton.gameObject.GetComponent<GoogleAdmob>().UserChoseToWatchAd();
-
+            
+            
             //弹出断开连接
             var teamrequest = UIPackage.CreateObject("GameUI", "noticeExit").asCom;
             GRoot.inst.AddChild(teamrequest);
@@ -112,6 +142,18 @@ public class GameUI : MonoBehaviour {
         {
             //SceneManager.LoadScene(0);
             new StoreInfo();
+        });
+        //聊天
+        LittleMapCom.GetChild("chat").asButton.onClick.Add(() =>
+        {
+            //gameObject.GetComponent<ChatUI>().testchat();
+            ChatUI.SOpenChatBox("zonghe", "", 0);
+            return;
+        });
+        //好友
+        LittleMapCom.GetChild("friend").asButton.onClick.Add(() =>
+        {
+            Friends.SOpen();
         });
 
         //屏幕点击
@@ -143,6 +185,7 @@ public class GameUI : MonoBehaviour {
         MsgManager.Instance.AddListener("SC_RequestTeam", new HandleMsg(this.SC_RequestTeam));
         MsgManager.Instance.AddListener("CC_Disconnect", new HandleMsg(this.CC_Disconnect));
         
+
     }
     void OnDestroy()
     {
@@ -151,6 +194,30 @@ public class GameUI : MonoBehaviour {
         MsgManager.Instance.RemoveListener("SC_RequestTeam");
         MsgManager.Instance.RemoveListener("CC_Disconnect");
     }
+
+    //添加聊天信息
+    public static void AddChatMsg(string content)
+    {
+        //content
+        //组装内容
+        var msgui = UIPackage.CreateObject("GameUI", "showchatliaotian_content").asCom;
+        msgui.GetChild("content").asTextField.text = content;
+        var list = sInstanse.LittleChat.GetChild("contentlist").asList;
+        list.AddChild(msgui);
+
+        //msgui.onClick.Add(() =>
+        //{
+        //    ChatUI.SOpenChatBox("zonghe", "", 0);
+        //});
+
+        if (list.GetChildIndex(msgui) > 0 && list.IsChildInView(list.GetChildAt(list.GetChildIndex(msgui) - 1)))
+        {
+            list.ScrollToView(list.GetChildIndex(msgui));
+        }
+
+        Debug.Log("AddChatMsg:" + content);
+    }
+
 
     //掉线
     public bool CC_Disconnect(Protomsg.MsgBase d1)
@@ -249,11 +316,18 @@ public class GameUI : MonoBehaviour {
         Protomsg.SC_UpdateTeamInfo p1 = (Protomsg.SC_UpdateTeamInfo)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
 
         var teamlist = TeamInfo.GetChild("unitslist").asList;
+        var oldcount = teamlist.GetChildren().Length;
         teamlist.RemoveChildren();
 
         if(p1.TPInfo.Count <= 1)
         {
             return true;
+        }
+        //自动打开组队界面
+        if(oldcount == 0 && p1.TPInfo.Count > 1)
+        {
+
+            TeamInfoShow(true);
         }
 
         //处理排序
@@ -308,7 +382,10 @@ public class GameUI : MonoBehaviour {
                         }
                         GRoot.inst.HidePopup(headselect);
                     });
-                }else if( GameScene.Singleton.m_MyMainUnit != null && GameScene.Singleton.m_MyMainUnit.ControlID == p1.MainUID)
+
+                    
+                }
+                else if( GameScene.Singleton.m_MyMainUnit != null && GameScene.Singleton.m_MyMainUnit.ControlID == p1.MainUID)
                 {
                     //TeamPlayerInfo//自己是否是队伍的队长
                     var headselect = UIPackage.CreateObject("GameUI", "TeamPlayerInfo").asCom;
@@ -333,14 +410,41 @@ public class GameUI : MonoBehaviour {
                         }
                         GRoot.inst.HidePopup(headselect);
                     });
+
+                    headselect.GetChild("siliao").asButton.onClick.Add(() =>
+                    {
+
+                        ChatUI.SOpenChatBox("zonghe", item.Name, item.UID);
+                        GRoot.inst.HidePopup(headselect);
+                    });
                 }
                 else
                 {
-                    var unit = UnityEntityManager.Instance.GetUnityEntity(item.ID);
-                    if (unit != null)
+                    var headselect = UIPackage.CreateObject("GameUI", "TeamPlayerInfo").asCom;
+                    GRoot.inst.ShowPopup(headselect);
+                    headselect.GetChild("leave").visible = false;
+                    headselect.GetChild("out").visible = false;
+                    headselect.GetChild("info").asButton.onClick.Add(() =>
                     {
-                        MyInfo myinfo = new MyInfo(unit);
-                    }
+                        var unit = UnityEntityManager.Instance.GetUnityEntity(item.ID);
+                        if (unit != null)
+                        {
+                            MyInfo myinfo = new MyInfo(unit);
+                        }
+                        GRoot.inst.HidePopup(headselect);
+                    });
+
+                    headselect.GetChild("siliao").asButton.onClick.Add(() =>
+                    {
+
+                        ChatUI.SOpenChatBox("zonghe", item.Name, item.UID);
+                        GRoot.inst.HidePopup(headselect);
+                    });
+                    //var unit = UnityEntityManager.Instance.GetUnityEntity(item.ID);
+                    //if (unit != null)
+                    //{
+                    //    MyInfo myinfo = new MyInfo(unit);
+                    //}
                 }
 
                 
@@ -367,6 +471,10 @@ public class GameUI : MonoBehaviour {
             {
                 var teamlist = TeamInfo.GetChild("unitslist").asList;
                 teamlist.RemoveChildren();
+
+                //自动关闭组队界面
+                //ShowOffBtn.selected = false;
+                TeamInfoShow(false);
             }
         }
     }
@@ -773,7 +881,7 @@ public class GameUI : MonoBehaviour {
 
     }
 
-    protected List<GImage> allunitImage = new List<GImage>();
+    protected List<GGraph> allunitImage = new List<GGraph>();
     protected double LastFreshLittleMapTime = Tool.GetTime();
     void FreshLittleMap()
     {
@@ -818,11 +926,22 @@ public class GameUI : MonoBehaviour {
         var allunit = UnityEntityManager.Instance.GetAllUnity();
         foreach(var unit in allunit)
         {
+            var color1 = new Color(1, 0.1f, 0.1f);
+            var scale = new Vector2(1, 1);
             string iconpath = "Minimap_UnitPin_Foreground_Leader";
             if (unit.Value == GameScene.Singleton.m_MyMainUnit)
             {
+                //自己
                 iconpath = "Minimap_UnitPin_Foreground_Leader";
                 //iconpath = "Minimap_UnitPin_Foreground_Friendly";
+                color1 = new Color(0.1f, 1f, 0.1f);
+                scale = new Vector2(2, 2);
+            }
+            else if (unit.Value.TeamID == GameScene.Singleton.m_MyMainUnit.TeamID && GameScene.Singleton.m_MyMainUnit.TeamID > 0)
+            {
+                //队伍
+                color1 = new Color(1f, 0.8f, 0.2f);
+                scale = new Vector2(2, 2);
             }
             else
             {
@@ -830,26 +949,34 @@ public class GameUI : MonoBehaviour {
                 if(isenemy == true)
                 {
                     iconpath = "Minimap_UnitPin_Enemy";
+                    color1 = new Color(1, 0.1f, 0.1f);
                 }
                 else
                 {
                     iconpath = "Minimap_UnitPin_Foreground_Friendly";
+                    color1 = new Color(0.5f, 1f, 0.5f);
                 }
             }
-            GImage aImage = UIPackage.CreateObject("GameUI", iconpath).asImage;
+
+            GGraph aImage = new GGraph();
+            aImage.SetSize(5, 5);
+            aImage.DrawEllipse(5, 5, color1);
+
+            //GImage aImage = UIPackage.CreateObject("GameUI", iconpath).asImage;
             aImage.pivot = new Vector2(0.5f, 0.5f);
             aImage.pivotAsAnchor = true;
             LittleMapCom.AddChild(aImage);
             if (unit.Value == GameScene.Singleton.m_MyMainUnit)
             {
                 aImage.sortingOrder = 100;
-                aImage.scale = new Vector2(2, 2);
+                //aImage.scale = new Vector2(2, 2);
             }
             else
             {
                 aImage.sortingOrder = 10;
-                aImage.scale = new Vector2(1, 1);
+                
             }
+            aImage.scale = scale;
             allunitImage.Add(aImage);
 
             var item = ExcelManager.Instance.GetSceneManager().GetSceneByID(SceneID);
@@ -883,6 +1010,7 @@ public class GameUI : MonoBehaviour {
 
         DieUI.GetChild("time").asTextField.text = (int)(GameScene.Singleton.m_MyMainUnit.RemainReviveTime) + "";
         DieUI.GetChild("needgold").asTextField.text = GameScene.Singleton.m_MyMainUnit.ReviveGold + "";
+        DieUI.GetChild("needdiamond").asTextField.text = GameScene.Singleton.m_MyMainUnit.ReviveDiamond + "";
         //
     }
 

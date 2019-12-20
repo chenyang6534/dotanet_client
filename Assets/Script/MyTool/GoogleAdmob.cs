@@ -1,4 +1,5 @@
-﻿using GoogleMobileAds.Api;
+﻿using cocosocket4unity;
+using GoogleMobileAds.Api;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -17,7 +18,8 @@ public class GoogleAdmob : MonoBehaviour {
 #if UNITY_ANDROID
             string adUnitId = "ca-app-pub-3940256099942544/5224354917";
 #elif UNITY_IPHONE
-            string adUnitId = "ca-app-pub-3940256099942544/1712485313";
+        //string adUnitId = "ca-app-pub-3940256099942544/1712485313";//测试
+        string adUnitId = "ca-app-pub-3664269345038379/6857936057";//正式
 #else
             string adUnitId = "unexpected_platform";
 #endif
@@ -72,6 +74,10 @@ public class GoogleAdmob : MonoBehaviour {
         Debug.Log(
             "HandleRewardedAdRewarded event received for "
                         + amount.ToString() + " " + type);
+        Protomsg.CS_LookVedioSucc msg1 = new Protomsg.CS_LookVedioSucc();
+        msg1.ID = 1;
+        MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_LookVedioSucc", msg1);
+
     }
     public void HandleRewardedAdClosed(object sender, EventArgs args)
     {

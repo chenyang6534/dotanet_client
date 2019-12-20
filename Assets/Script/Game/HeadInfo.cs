@@ -155,6 +155,11 @@ public class HeadInfo{
             GRoot.inst.HidePopup(headselect);
             MyInfo myinfo = new MyInfo(unit);
         });
+        headselect.GetChild("siliao").asButton.onClick.Add(() =>
+        {
+            ChatUI.SOpenChatBox("zonghe", unit.Name, unit.ControlID);
+            GRoot.inst.HidePopup(headselect);
+        });
     }
 
 
@@ -223,6 +228,33 @@ public class HeadInfo{
                 MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_ChangeAttackMode", msg1);
             }
         });
+
+        maininfo.GetChild("moneybtn").asButton.onClick.Add(() =>
+        {
+            if (GameScene.Singleton.GetMyMainUnit().ID == id)
+            {
+                //弹出观看视频界面
+                var teamrequest = UIPackage.CreateObject("GameUI", "vedio").asCom;
+                GRoot.inst.AddChild(teamrequest);
+                teamrequest.xy = Tool.GetPosition(0.5f, 0.5f);
+                AudioManager.Am.Play2DSound(AudioManager.Sound_OpenLittleUI);
+                teamrequest.GetChild("close").onClick.Add(() => {
+                    teamrequest.Dispose();
+                });
+                //teamrequest.GetChild("gold_btn").onClick.Add(() => {
+                //    GameScene.Singleton.gameObject.GetComponent<GoogleAdmob>().UserChoseToWatchAd();
+
+                //});
+                teamrequest.GetChild("zhuanshi_btn").onClick.Add(() => {
+                    GameScene.Singleton.gameObject.GetComponent<GoogleAdmob>().UserChoseToWatchAd();
+
+                    
+
+                });
+            }
+        });
+
+       
 
 
 

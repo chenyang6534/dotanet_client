@@ -35,6 +35,7 @@ public class UnityEntity {
     public int Diamond;
     public float RemainReviveTime;
     public int ReviveGold;
+    public int ReviveDiamond;
     public int SkillEnable;//能否使用主动技能 (比如 被眩晕和沉默不能使用主动技能) 1:可以 2:不可以
     public int ItemEnable;//能否使用主动道具 (比如 被眩晕和禁用道具不能使用主动道具) 1:可以 2:不可以
 
@@ -63,6 +64,7 @@ public class UnityEntity {
         Diamond = data.Diamond;
         RemainReviveTime = data.RemainReviveTime;
         ReviveGold = data.ReviveGold;
+        ReviveDiamond = data.ReviveDiamond;
         SkillEnable = data.SkillEnable;
         ItemEnable = data.ItemEnable;
 
@@ -340,6 +342,7 @@ public class UnityEntity {
             Diamond += data.Diamond;
             RemainReviveTime += data.RemainReviveTime;
             ReviveGold += data.ReviveGold;
+            ReviveDiamond += data.ReviveDiamond;
             SkillEnable += data.SkillEnable;
             ItemEnable += data.ItemEnable;
             //if( data.HP != 0)

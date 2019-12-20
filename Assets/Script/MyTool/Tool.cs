@@ -133,4 +133,73 @@ public static class Tool {
         return re;
     }
 
+    //通过频道类型获取频道文字
+    public static string GetTextFromChatChanel(int chanel)
+    {
+        //////聊天频道 1附近 2全服 3私聊 4队伍
+        switch (chanel)
+        {
+            case 1:
+                return "地图";
+            case 2:
+                return "全服";
+            case 3:
+                return "私聊";
+            case 4:
+                return "队伍";
+        }
+
+        return "附近";
+    }
+    public delegate void ClickDo();
+    public static void AddClick(GObject obj, ClickDo cd)
+    {
+        if(obj == null)
+        {
+            return;
+        }
+        var touchbeginpos = new Vector2(0, 0);
+        var touchbegintime = GetTime();
+        obj.onTouchBegin.Add((EventContext context) =>
+        {
+            InputEvent inputEvent = (InputEvent)context.data;
+            touchbegintime = GetTime();
+            touchbeginpos = inputEvent.position;
+        });
+        obj.onTouchEnd.Add((EventContext context) =>
+        {
+            InputEvent inputEvent = (InputEvent)context.data;
+            var endpos = inputEvent.position;
+            var t1 = GetTime();
+            if(t1 - touchbegintime > 0.2)
+            {
+                return;
+            }
+            if(Vector2.Distance(endpos, touchbeginpos) > 15)
+            {
+                return;
+            }
+            cd();
+        });
+    }
+    
+    //通过频道类型获取频道内容颜色
+    public static string GetContetColorFromChatChanel(int chanel)
+    {
+        //////聊天频道 1附近 2全服 3私聊 4队伍
+        switch (chanel)
+        {
+            case 1:
+                return "[color=#FFFFFF]";
+            case 2:
+                return "[color=#FFFFFF]";
+            case 3:
+                return "[color=#ff00ff]";
+            case 4:
+                return "[color=#FFFF33]";
+        }
+
+        return "[color=#FFFFFF]";
+    }
+
 }

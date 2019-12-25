@@ -36,7 +36,7 @@ public class GameUI : MonoBehaviour {
     protected GComponent TeamInfo; //队伍信息
     protected int SceneID;
 
-    protected GComponent DieUI;
+    protected GComponent DieUI; //死亡UI
 
     protected GComponent LittleChat; //聊天信息
 
@@ -352,7 +352,7 @@ public class GameUI : MonoBehaviour {
             onedropitem.GetChild("name").asTextField.text = item.Name;
             teamlist.AddChild(onedropitem);
 
-
+            
 
             onedropitem.onClick.Add(() => {
                 Debug.Log("----teamclick :" + p1.MainUID + "  :" + item.ID);

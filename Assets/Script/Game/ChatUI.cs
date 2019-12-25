@@ -226,6 +226,7 @@ public class ChatUI : MonoBehaviour {
         }
         AudioManager.Am.Play2DSound(AudioManager.Sound_OpenLittleUI);
         ChatBoxCom.visible = true;
+        ChatBoxCom.parent.AddChild(ChatBoxCom);
 
         ChatBoxCom.GetController("page").selectedPage = pagename;
 

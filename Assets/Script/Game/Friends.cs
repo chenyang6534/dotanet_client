@@ -4,6 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Google.Protobuf;
+using System;
+
 public class Friends : MonoBehaviour {
     protected GComponent FriendsCom;//好友界面
     static Friends sInstanse = null;
@@ -62,7 +64,26 @@ public class Friends : MonoBehaviour {
             });
         }
 
-        foreach (var p1 in p2.Friends)
+        //处理排序
+        Protomsg.FriendInfoMsg[] allplayer = new Protomsg.FriendInfoMsg[p2.Friends.Count];
+        int index = 0;
+        foreach (var item in p2.Friends)
+        {
+            allplayer[index++] = item;
+        }
+        //排序
+        System.Array.Sort(allplayer, (s1, s2) => {
+            if (s1.State > s2.State)
+            {
+                return 1;
+            }else if(s1.State == s2.State)
+            {
+                return 0;
+            }
+            return -1;
+        });
+
+        foreach (var p1 in allplayer)
         {
             var teamrequest = UIPackage.CreateObject("GameUI", "FriendOne").asCom;
             list.AddChild(teamrequest);
@@ -80,6 +101,27 @@ public class Friends : MonoBehaviour {
                 //在线
                 teamrequest.GetChild("discript").asTextField.text = "在线";
                 teamrequest.GetChild("discript").asTextField.color = new Color(1, 1, 1);
+
+                teamrequest.onClick.Add(() => {
+                    //onlinefriendclick
+                    var headselect = UIPackage.CreateObject("GameUI", "onlinefriendclick").asCom;
+                    GRoot.inst.ShowPopup(headselect);
+                    headselect.GetChild("siliao").asButton.onClick.Add(() =>
+                    {
+                        ChatUI.SOpenChatBox("zonghe", p1.Name, p1.Uid);
+                        GRoot.inst.HidePopup(headselect);
+                    });
+                    headselect.GetChild("zudui").asButton.onClick.Add(() =>
+                    {
+                        Protomsg.CS_OrganizeTeam msg1 = new Protomsg.CS_OrganizeTeam();
+                        msg1.Player1 = GameScene.Singleton.m_MyMainUnit.ControlID;
+                        msg1.Player2 = p1.Uid;
+                        MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_OrganizeTeam", msg1);
+                        GRoot.inst.HidePopup(headselect);
+                    });
+                });
+                
+                
             }
             else
             {
@@ -107,8 +149,52 @@ public class Friends : MonoBehaviour {
             FriendsCom.GetChild("close").onClick.Add(() => {
                 FriendsCom.visible = false;
             });
-
             
+            FriendsCom.GetChild("add").onClick.Add(() => {
+                //输入名字
+                var inputnamecom = UIPackage.CreateObject("GameUI", "InputFriendID").asCom;
+                GRoot.inst.AddChild(inputnamecom);
+                inputnamecom.xy = Tool.GetPosition(0.5f, 0.5f);
+
+                inputnamecom.GetChild("ok").asButton.onClick.Add(() =>
+                {
+                    var txt = inputnamecom.GetChild("input").asTextInput.text;
+                    if (txt.Length <= 0)
+                    {
+                        Tool.NoticeWords("请输入ID！", null);
+                        return;
+                    }
+                    var idarray = txt.Split('_');
+                    if(idarray.Length != 2)
+                    {
+                        Tool.NoticeWords("ID错误！", null);
+                        return;
+                    }
+                    int uid = 0;
+                    int cid = 0;
+                    try
+                    {
+                        uid = Convert.ToInt32(idarray[0]); //报异常
+                        cid = Convert.ToInt32(idarray[1]); //报异常 
+                    }
+                    catch (SystemException e)
+                    {
+                        Tool.NoticeWords("ID错误！", null);
+                        return;
+                    }
+                    
+
+                    Protomsg.CS_AddFriendRequest msg1 = new Protomsg.CS_AddFriendRequest();
+                    msg1.Uid = uid;
+                    msg1.Characterid = cid;
+                    MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_AddFriendRequest", msg1);
+                    
+                    inputnamecom.Dispose();
+                });
+            });
+
+
+
         }
     }
 
@@ -119,10 +205,15 @@ public class Friends : MonoBehaviour {
         if(sInstanse != null)
         {
             sInstanse.FriendsCom.visible = true;
+            sInstanse.FriendsCom.parent.AddChild(sInstanse.FriendsCom);
             //解析分隔数据
             Protomsg.CS_GetFriendsList msg = new Protomsg.CS_GetFriendsList();
             MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetFriendsList", msg);
-            
+            if (GameScene.Singleton.m_MyMainUnit != null)
+            {
+                var id = GameScene.Singleton.m_MyMainUnit.ControlID + "_" + GameScene.Singleton.m_MyMainUnit.CharacterID;
+                sInstanse.FriendsCom.GetChild("id").asTextField.text = id;
+            }
         }
     }
 

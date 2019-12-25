@@ -245,6 +245,10 @@ public class HeadInfo{
                 //    GameScene.Singleton.gameObject.GetComponent<GoogleAdmob>().UserChoseToWatchAd();
 
                 //});
+                teamrequest.GetChild("zhuanshi_reward").asTextField.text = GameScene.Singleton.GetMyMainUnit().WatchVedioAddDiamond+"";
+                Debug.Log("----RemainWatchVedioCountToday:" + GameScene.Singleton.GetMyMainUnit().RemainWatchVedioCountToday);
+                teamrequest.GetChild("count").asTextField.SetVar("count", GameScene.Singleton.GetMyMainUnit().RemainWatchVedioCountToday+"");
+                teamrequest.GetChild("count").asTextField.FlushVars();
                 teamrequest.GetChild("zhuanshi_btn").onClick.Add(() => {
                     GameScene.Singleton.gameObject.GetComponent<GoogleAdmob>().UserChoseToWatchAd();
 

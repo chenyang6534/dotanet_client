@@ -93,7 +93,7 @@ public static class Tool {
         GComponent words = UIPackage.CreateObject("GameUI", "NoticeWords").asCom;
         //1，直接加到GRoot显示出来
         GRoot.inst.AddChild(words);
-        GRoot.inst.SetChildIndex(words, 1);
+        //GRoot.inst.SetChildIndex(words, 1);
         words.xy = Tool.GetPosition(0.5f, 0.2f);
         //var root = words.GetComponent<FairyGUI.UIPanel>().ui;
 

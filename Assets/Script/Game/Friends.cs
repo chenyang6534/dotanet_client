@@ -162,12 +162,14 @@ public class Friends : MonoBehaviour {
                     if (txt.Length <= 0)
                     {
                         Tool.NoticeWords("请输入ID！", null);
+                        inputnamecom.Dispose();
                         return;
                     }
                     var idarray = txt.Split('_');
                     if(idarray.Length != 2)
                     {
                         Tool.NoticeWords("ID错误！", null);
+                        inputnamecom.Dispose();
                         return;
                     }
                     int uid = 0;
@@ -180,6 +182,7 @@ public class Friends : MonoBehaviour {
                     catch (SystemException e)
                     {
                         Tool.NoticeWords("ID错误！", null);
+                        inputnamecom.Dispose();
                         return;
                     }
                     

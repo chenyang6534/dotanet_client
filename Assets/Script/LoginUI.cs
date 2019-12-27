@@ -387,6 +387,10 @@ public class LoginUI : MonoBehaviour {
             {
                 word = "找不到该角色";
             }
+            else if (p1.Error == 4)
+            {
+                word = "名字中含有非法字符!";
+            }
             Tool.NoticeWords(word,null);
 
             

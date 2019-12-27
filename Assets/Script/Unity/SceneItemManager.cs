@@ -42,7 +42,7 @@ public class SceneItemManager
         hero.transform.localPosition = new Vector3(data.X, 0.1f, data.Y);
         Material mat = Resources.Load<Material>("Item/itemMa");
         mat.mainTexture = Resources.Load<Texture>(clientitem.SceneItem);
-        //mat.mainTexture = Resources.Load<Texture>("Item/Icon/怨灵系带 (1)");
+        //mat.mainTexture = Resources.Load<Texture>("Item/Icon/达贡之神力");
         hero.GetComponent<MeshRenderer>().materials[0] = mat;
 
         hero.GetComponent<ItemName>().LoadName(clientitem.Name);

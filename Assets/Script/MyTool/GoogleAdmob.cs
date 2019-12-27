@@ -18,8 +18,8 @@ public class GoogleAdmob : MonoBehaviour {
 #if UNITY_ANDROID
             string adUnitId = "ca-app-pub-3940256099942544/5224354917";
 #elif UNITY_IPHONE
-        //string adUnitId = "ca-app-pub-3940256099942544/1712485313";//测试
-        string adUnitId = "ca-app-pub-3664269345038379/6857936057";//正式
+        string adUnitId = "ca-app-pub-3940256099942544/1712485313";//测试
+        //string adUnitId = "ca-app-pub-3664269345038379/6857936057";//正式
 #else
             string adUnitId = "unexpected_platform";
 #endif

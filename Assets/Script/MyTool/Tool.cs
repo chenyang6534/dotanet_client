@@ -88,6 +88,27 @@ public static class Tool {
         Vector2 logicScreenPos = GRoot.inst.GlobalToLocal(screenPos);
         return logicScreenPos;
     }
+    public delegate void OkDo();
+    public static void NoticeWindonw(string txt, OkDo ok)
+    {
+        //弹出断开连接
+        var teamrequest = UIPackage.CreateObject("GameUI", "noticeWindow1").asCom;
+        GRoot.inst.AddChild(teamrequest);
+        teamrequest.xy = Tool.GetPosition(0.5f, 0.5f);
+        AudioManager.Am.Play2DSound(AudioManager.Sound_OpenLittleUI);
+        teamrequest.GetChild("word1").asTextField.text = txt;
+        teamrequest.GetChild("ok").onClick.Add(() => {
+            teamrequest.Dispose();
+            if(ok != null)
+            {
+                ok();
+            }
+        });
+        teamrequest.GetChild("no").onClick.Add(() => {
+            teamrequest.Dispose();
+        });
+    }
+
     public static void NoticeWordsAnim(string word, Google.Protobuf.Collections.RepeatedField<string> p,string anim)
     {
         GComponent words = UIPackage.CreateObject("GameUI", "NoticeWords").asCom;

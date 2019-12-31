@@ -681,7 +681,8 @@ public class UnityEntity {
             {
                 GameObject.Destroy(m_Mode);
             }
-            m_Mode = (GameObject)(GameObject.Instantiate(Resources.Load(m_ModeType)));
+            //m_Mode = (GameObject)(GameObject.Instantiate(Resources.Load(m_ModeType)));
+            m_Mode = (GameObject)(GameObject.Instantiate(ABManager.LoadHero(m_ModeType)));
             //if(ControlID > 0)
             {
                 //Debug.Log("111add special:" + Name);

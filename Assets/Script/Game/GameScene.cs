@@ -156,6 +156,8 @@ public class GameScene : MonoBehaviour {
                 m_GameScene = (GameObject)Instantiate(re.asset);
 
                 //System.Threading.Thread.Sleep(5000);
+                //ab
+                ABManager.LoadAB();
 
                 var pos = new Vector3(m_GameScene.transform.position.x, 0, m_GameScene.transform.position.z);
                 m_PlaneScene.SetNormalAndPosition(m_GameScene.transform.up, pos);

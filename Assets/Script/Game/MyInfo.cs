@@ -165,7 +165,26 @@ public class MyInfo {
                     return;
                 }
 
-                SendDestroyItem(int.Parse(sArray[0]));
+                //获取位置上的道具
+                for (var j = 0; j < BagDataInfo.Equips.Count; j++)
+                {
+                    if (BagDataInfo.Equips[j].Pos == int.Parse(sArray[0]))
+                    {
+                        var clientitem = ExcelManager.Instance.GetItemManager().GetItemByID(BagDataInfo.Equips[j].TypdID);
+                        if (clientitem == null)
+                        {
+                            return;
+                        }
+                        Tool.NoticeWindonw("你确定要删除道具("+ clientitem.Name+")吗?", () =>
+                        {
+                            SendDestroyItem(int.Parse(sArray[0]));
+                        });
+                        
+                    }
+                }
+
+                
+                
             });
             for (var i = 0; i < 25; i++)
             {

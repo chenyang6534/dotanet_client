@@ -146,8 +146,8 @@ public class GameUI : MonoBehaviour {
         //聊天
         LittleMapCom.GetChild("chat").asButton.onClick.Add(() =>
         {
-            //gameObject.GetComponent<ChatUI>().testchat();
-            ChatUI.SOpenChatBox("zonghe", "", 0);
+            //ChatUI.SOpenChatBox("zonghe", "", 0);
+            Mails.SOpen();
             return;
         });
         //好友

@@ -158,17 +158,18 @@ namespace Protomsg {
             "ZXRGcmllbmRzTGlzdBILCgNVaWQYASABKAUibgoRU0NfR2V0RnJpZW5kc0xp",
             "c3QSKAoHRnJpZW5kcxgBIAMoCzIXLnByb3RvbXNnLkZyaWVuZEluZm9Nc2cS",
             "LwoORnJpZW5kc1JlcXVlc3QYAiADKAsyFy5wcm90b21zZy5GcmllbmRJbmZv",
-            "TXNnIk4KEE1haWxTaG9ydEluZm9Nc2cSCgoCSWQYASABKAUSEAoIU2VuZE5h",
-            "bWUYAiABKAkSDQoFVGl0bGUYAyABKAkSDQoFU3RhdGUYBCABKAUiLgoLTWFp",
-            "bFJld2FyZHMSEAoISXRlbVR5cGUYASABKAUSDQoFQ291bnQYAiABKAUiHgoP",
-            "Q1NfR2V0TWFpbHNMaXN0EgsKA1VpZBgBIAEoBSI8Cg9TQ19HZXRNYWlsc0xp",
-            "c3QSKQoFTWFpbHMYASADKAsyGi5wcm90b21zZy5NYWlsU2hvcnRJbmZvTXNn",
-            "IhwKDkNTX0dldE1haWxJbmZvEgoKAklkGAEgASgFIoUBCg5TQ19HZXRNYWls",
-            "SW5mbxIKCgJJZBgBIAEoBRIQCghTZW5kTmFtZRgCIAEoCRINCgVUaXRsZRgD",
-            "IAEoCRIPCgdDb250ZW50GAQgASgJEiYKB1Jld2FyZHMYBSADKAsyFS5wcm90",
-            "b21zZy5NYWlsUmV3YXJkcxINCgVTdGF0ZRgGIAEoBSIfChFDU19HZXRNYWls",
-            "UmV3YXJkcxIKCgJJZBgBIAEoBSIvChFTQ19HZXRNYWlsUmV3YXJkcxIKCgJJ",
-            "ZBgBIAEoBRIOCgZSZXN1bHQYAiABKAViBnByb3RvMw=="));
+            "TXNnIlwKEE1haWxTaG9ydEluZm9Nc2cSCgoCSWQYASABKAUSEAoIU2VuZE5h",
+            "bWUYAiABKAkSDQoFVGl0bGUYAyABKAkSDAoERGF0ZRgEIAEoCRINCgVTdGF0",
+            "ZRgFIAEoBSIuCgtNYWlsUmV3YXJkcxIQCghJdGVtVHlwZRgBIAEoBRINCgVD",
+            "b3VudBgCIAEoBSIeCg9DU19HZXRNYWlsc0xpc3QSCwoDVWlkGAEgASgFIjwK",
+            "D1NDX0dldE1haWxzTGlzdBIpCgVNYWlscxgBIAMoCzIaLnByb3RvbXNnLk1h",
+            "aWxTaG9ydEluZm9Nc2ciHAoOQ1NfR2V0TWFpbEluZm8SCgoCSWQYASABKAUi",
+            "kwEKDlNDX0dldE1haWxJbmZvEgoKAklkGAEgASgFEhAKCFNlbmROYW1lGAIg",
+            "ASgJEg0KBVRpdGxlGAMgASgJEg8KB0NvbnRlbnQYBCABKAkSDAoERGF0ZRgF",
+            "IAEoCRImCgdSZXdhcmRzGAYgAygLMhUucHJvdG9tc2cuTWFpbFJld2FyZHMS",
+            "DQoFU3RhdGUYByABKAUiHwoRQ1NfR2V0TWFpbFJld2FyZHMSCgoCSWQYASAB",
+            "KAUiLwoRU0NfR2V0TWFpbFJld2FyZHMSCgoCSWQYASABKAUSDgoGUmVzdWx0",
+            "GAIgASgFYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -227,12 +228,12 @@ namespace Protomsg {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.FriendInfoMsg), global::Protomsg.FriendInfoMsg.Parser, new[]{ "Uid", "Characterid", "Name", "Level", "Typeid", "State" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GetFriendsList), global::Protomsg.CS_GetFriendsList.Parser, new[]{ "Uid" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetFriendsList), global::Protomsg.SC_GetFriendsList.Parser, new[]{ "Friends", "FriendsRequest" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.MailShortInfoMsg), global::Protomsg.MailShortInfoMsg.Parser, new[]{ "Id", "SendName", "Title", "State" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.MailShortInfoMsg), global::Protomsg.MailShortInfoMsg.Parser, new[]{ "Id", "SendName", "Title", "Date", "State" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.MailRewards), global::Protomsg.MailRewards.Parser, new[]{ "ItemType", "Count" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GetMailsList), global::Protomsg.CS_GetMailsList.Parser, new[]{ "Uid" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetMailsList), global::Protomsg.SC_GetMailsList.Parser, new[]{ "Mails" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GetMailInfo), global::Protomsg.CS_GetMailInfo.Parser, new[]{ "Id" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetMailInfo), global::Protomsg.SC_GetMailInfo.Parser, new[]{ "Id", "SendName", "Title", "Content", "Rewards", "State" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetMailInfo), global::Protomsg.SC_GetMailInfo.Parser, new[]{ "Id", "SendName", "Title", "Content", "Date", "Rewards", "State" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GetMailRewards), global::Protomsg.CS_GetMailRewards.Parser, new[]{ "Id" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetMailRewards), global::Protomsg.SC_GetMailRewards.Parser, new[]{ "Id", "Result" }, null, null, null)
           }));
@@ -13490,6 +13491,7 @@ namespace Protomsg {
       id_ = other.id_;
       sendName_ = other.sendName_;
       title_ = other.title_;
+      date_ = other.date_;
       state_ = other.state_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -13541,8 +13543,22 @@ namespace Protomsg {
       }
     }
 
+    /// <summary>Field number for the "Date" field.</summary>
+    public const int DateFieldNumber = 4;
+    private string date_ = "";
+    /// <summary>
+    ///日期
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Date {
+      get { return date_; }
+      set {
+        date_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     /// <summary>Field number for the "State" field.</summary>
-    public const int StateFieldNumber = 4;
+    public const int StateFieldNumber = 5;
     private int state_;
     /// <summary>
     ///领取状态 0表示未领取，1表示已领取
@@ -13571,6 +13587,7 @@ namespace Protomsg {
       if (Id != other.Id) return false;
       if (SendName != other.SendName) return false;
       if (Title != other.Title) return false;
+      if (Date != other.Date) return false;
       if (State != other.State) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -13581,6 +13598,7 @@ namespace Protomsg {
       if (Id != 0) hash ^= Id.GetHashCode();
       if (SendName.Length != 0) hash ^= SendName.GetHashCode();
       if (Title.Length != 0) hash ^= Title.GetHashCode();
+      if (Date.Length != 0) hash ^= Date.GetHashCode();
       if (State != 0) hash ^= State.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -13607,8 +13625,12 @@ namespace Protomsg {
         output.WriteRawTag(26);
         output.WriteString(Title);
       }
+      if (Date.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(Date);
+      }
       if (State != 0) {
-        output.WriteRawTag(32);
+        output.WriteRawTag(40);
         output.WriteInt32(State);
       }
       if (_unknownFields != null) {
@@ -13627,6 +13649,9 @@ namespace Protomsg {
       }
       if (Title.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Title);
+      }
+      if (Date.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Date);
       }
       if (State != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(State);
@@ -13650,6 +13675,9 @@ namespace Protomsg {
       }
       if (other.Title.Length != 0) {
         Title = other.Title;
+      }
+      if (other.Date.Length != 0) {
+        Date = other.Date;
       }
       if (other.State != 0) {
         State = other.State;
@@ -13677,7 +13705,11 @@ namespace Protomsg {
             Title = input.ReadString();
             break;
           }
-          case 32: {
+          case 34: {
+            Date = input.ReadString();
+            break;
+          }
+          case 40: {
             State = input.ReadInt32();
             break;
           }
@@ -14279,6 +14311,7 @@ namespace Protomsg {
       sendName_ = other.sendName_;
       title_ = other.title_;
       content_ = other.content_;
+      date_ = other.date_;
       rewards_ = other.rewards_.Clone();
       state_ = other.state_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -14345,10 +14378,24 @@ namespace Protomsg {
       }
     }
 
+    /// <summary>Field number for the "Date" field.</summary>
+    public const int DateFieldNumber = 5;
+    private string date_ = "";
+    /// <summary>
+    ///日期
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Date {
+      get { return date_; }
+      set {
+        date_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     /// <summary>Field number for the "Rewards" field.</summary>
-    public const int RewardsFieldNumber = 5;
+    public const int RewardsFieldNumber = 6;
     private static readonly pb::FieldCodec<global::Protomsg.MailRewards> _repeated_rewards_codec
-        = pb::FieldCodec.ForMessage(42, global::Protomsg.MailRewards.Parser);
+        = pb::FieldCodec.ForMessage(50, global::Protomsg.MailRewards.Parser);
     private readonly pbc::RepeatedField<global::Protomsg.MailRewards> rewards_ = new pbc::RepeatedField<global::Protomsg.MailRewards>();
     /// <summary>
     ///邮件奖励
@@ -14359,7 +14406,7 @@ namespace Protomsg {
     }
 
     /// <summary>Field number for the "State" field.</summary>
-    public const int StateFieldNumber = 6;
+    public const int StateFieldNumber = 7;
     private int state_;
     /// <summary>
     ///领取状态 0表示未领取，1表示已领取
@@ -14389,6 +14436,7 @@ namespace Protomsg {
       if (SendName != other.SendName) return false;
       if (Title != other.Title) return false;
       if (Content != other.Content) return false;
+      if (Date != other.Date) return false;
       if(!rewards_.Equals(other.rewards_)) return false;
       if (State != other.State) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -14401,6 +14449,7 @@ namespace Protomsg {
       if (SendName.Length != 0) hash ^= SendName.GetHashCode();
       if (Title.Length != 0) hash ^= Title.GetHashCode();
       if (Content.Length != 0) hash ^= Content.GetHashCode();
+      if (Date.Length != 0) hash ^= Date.GetHashCode();
       hash ^= rewards_.GetHashCode();
       if (State != 0) hash ^= State.GetHashCode();
       if (_unknownFields != null) {
@@ -14432,9 +14481,13 @@ namespace Protomsg {
         output.WriteRawTag(34);
         output.WriteString(Content);
       }
+      if (Date.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(Date);
+      }
       rewards_.WriteTo(output, _repeated_rewards_codec);
       if (State != 0) {
-        output.WriteRawTag(48);
+        output.WriteRawTag(56);
         output.WriteInt32(State);
       }
       if (_unknownFields != null) {
@@ -14456,6 +14509,9 @@ namespace Protomsg {
       }
       if (Content.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Content);
+      }
+      if (Date.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Date);
       }
       size += rewards_.CalculateSize(_repeated_rewards_codec);
       if (State != 0) {
@@ -14483,6 +14539,9 @@ namespace Protomsg {
       }
       if (other.Content.Length != 0) {
         Content = other.Content;
+      }
+      if (other.Date.Length != 0) {
+        Date = other.Date;
       }
       rewards_.Add(other.rewards_);
       if (other.State != 0) {
@@ -14516,10 +14575,14 @@ namespace Protomsg {
             break;
           }
           case 42: {
+            Date = input.ReadString();
+            break;
+          }
+          case 50: {
             rewards_.AddEntriesFrom(input, _repeated_rewards_codec);
             break;
           }
-          case 48: {
+          case 56: {
             State = input.ReadInt32();
             break;
           }

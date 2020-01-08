@@ -603,3 +603,13 @@ MonoBehaviour:
     SceneItem: "Item/Icon/\u6D3B\u529B\u4E4B\u7403 (1)"
     Name: "\u6D3B\u529B\u7403"
     Des: "+[color=#D8D8D8] 250 [/color]\u751F\u547D\u503C"
+  - TypeID: 10000
+    IconPath: ui://GameUI/gold1
+    SceneItem: "Item/Icon/\u6D3B\u529B\u4E4B\u7403 (1)"
+    Name: "\u91D1\u5E01"
+    Des: "\u91D1\u5E01"
+  - TypeID: 10001
+    IconPath: ui://GameUI/jingzuan
+    SceneItem: "Item/Icon/\u6D3B\u529B\u4E4B\u7403 (1)"
+    Name: "\u7816\u77F3"
+    Des: "\u7816\u77F3"

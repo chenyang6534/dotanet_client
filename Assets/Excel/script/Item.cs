@@ -12,6 +12,7 @@ namespace ExcelData
         public string SceneItem;
         public string Name;
         public string Des;
+        public int ShowLevel;//显示等级 1表示显示 0表示不显示
     }
 
    

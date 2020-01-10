@@ -105,6 +105,7 @@ public class ExcelReader
                 item.SceneItem = collect[i][2].ToString();
                 item.Name = collect[i][3].ToString();
                 item.Des = collect[i][4].ToString();
+                item.ShowLevel = int.Parse(collect[i][5].ToString());
                 array[i - 1] = item;
             }
             return array;

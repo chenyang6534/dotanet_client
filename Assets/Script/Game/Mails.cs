@@ -55,6 +55,7 @@ public class Mails : MonoBehaviour {
         FriendsCom.GetChild("day").asTextField.text = p2.Date;
         FriendsCom.GetChild("sendname").asTextField.text = p2.SendName;
         FriendsCom.GetChild("contentwords").asTextField.text = p2.Content;
+        
         //领取状态 0表示未领取，1表示已领取
         if (p2.State == 1)
         {
@@ -79,8 +80,25 @@ public class Mails : MonoBehaviour {
             if (clientitem != null)
             {
                 teamrequest.GetChild("icon").asLoader.url = clientitem.IconPath;
+                if(clientitem.ShowLevel == 1)
+                {
+                    teamrequest.GetChild("level").visible = true;
+                }
+                else
+                {
+                    teamrequest.GetChild("level").visible = false;
+                }
             }
-            teamrequest.GetChild("count").asTextField.text = p1.Count+"";
+            if(p1.Count <= 1)
+            {
+                teamrequest.GetChild("count").asTextField.text = "";
+            }
+            else
+            {
+                teamrequest.GetChild("count").asTextField.text = p1.Count + "";
+            }
+            
+            teamrequest.GetChild("level").asTextField.text = "Lv."+p1.Level+"";
         }
 
 

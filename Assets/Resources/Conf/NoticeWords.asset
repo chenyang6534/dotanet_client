@@ -112,3 +112,13 @@ MonoBehaviour:
     Sound: sound/kill/HolyShit
     Type: 1
     AnimName: showlong
+  - TypeID: 21
+    Words: "\u5DF2\u7ECF\u4E3A\u6700\u9AD8\u7B49\u7EA7\u4E86!"
+    Sound: sound/other/warning
+    Type: 1
+    AnimName: warning
+  - TypeID: 22
+    Words: "\u5408\u6210\u6210\u529F"
+    Sound: sound/other/warning
+    Type: 1
+    AnimName: warning

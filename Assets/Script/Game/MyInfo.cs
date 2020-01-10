@@ -16,7 +16,7 @@ public class MyInfo {
     private Protomsg.SC_BagInfo BagDataInfo;
     private Protomsg.UnitBoardDatas UnitDataInfo;
 
-    protected bool IsDestroy;
+    public bool IsDestroy;
     public MyInfo(UnityEntity unit)
     {
         AudioManager.Am.Play2DSound(AudioManager.Sound_OpenUI);
@@ -50,6 +50,8 @@ public class MyInfo {
     //发送交换位置
     public void SendChangePos(int srcpos,int destpos, int srctype, int desttype)
     {
+        
+
         Protomsg.CS_ChangeItemPos msg1 = new Protomsg.CS_ChangeItemPos();
         msg1.SrcPos = srcpos;
         msg1.DestPos = destpos;
@@ -81,6 +83,20 @@ public class MyInfo {
             MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetUnitInfo", msg2);
         }
         
+    }
+
+    //获取背包里的装备信息通过位置
+    public Protomsg.UnitEquip GetUnitEquipByPos(int pos)
+    {
+        for (var j = 0; j < BagDataInfo.Equips.Count; j++)
+        {
+            if (BagDataInfo.Equips[j].Pos == pos)
+            {
+                return BagDataInfo.Equips[j];
+            }
+        }
+        return null;
+
     }
 
     public void InitItemDrag()
@@ -166,22 +182,27 @@ public class MyInfo {
                 }
 
                 //获取位置上的道具
-                for (var j = 0; j < BagDataInfo.Equips.Count; j++)
+                var bagequip = GetUnitEquipByPos(int.Parse(sArray[0]));
+                if(bagequip != null)
                 {
-                    if (BagDataInfo.Equips[j].Pos == int.Parse(sArray[0]))
+                    var clientitem = ExcelManager.Instance.GetItemManager().GetItemByID(bagequip.TypdID);
+                    if (clientitem == null)
                     {
-                        var clientitem = ExcelManager.Instance.GetItemManager().GetItemByID(BagDataInfo.Equips[j].TypdID);
-                        if (clientitem == null)
-                        {
-                            return;
-                        }
-                        Tool.NoticeWindonw("你确定要删除道具("+ clientitem.Name+")吗?", () =>
-                        {
-                            SendDestroyItem(int.Parse(sArray[0]));
-                        });
-                        
+                        return;
                     }
+                    Tool.NoticeWindonw("你确定要删除道具(" + clientitem.Name + ")吗?", () =>
+                    {
+                        SendDestroyItem(int.Parse(sArray[0]));
+                    });
                 }
+                //for (var j = 0; j < BagDataInfo.Equips.Count; j++)
+                //{
+                //    if (BagDataInfo.Equips[j].Pos == int.Parse(sArray[0]))
+                //    {
+                        
+                        
+                //    }
+                //}
 
                 
                 
@@ -207,6 +228,27 @@ public class MyInfo {
                     if (sArray.Length != 2)
                     {
                         return;
+                    }
+                    //判断是否是合成
+                    if(int.Parse(sArray[1]) == 2)//背包里
+                    {
+                        var bagequip = GetUnitEquipByPos(int.Parse(sArray[0]));
+                        var bagequip1 = GetUnitEquipByPos((int)item.data);
+                        if (bagequip != null && bagequip1 != null && bagequip1.TypdID == bagequip.TypdID && bagequip1.Level == bagequip.Level)
+                        {
+                            //道具相同且等级相同则合成
+                            var clientitem = ExcelManager.Instance.GetItemManager().GetItemByID(bagequip.TypdID);
+                            if (clientitem == null)
+                            {
+                                return;
+                            }
+                            Tool.NoticeWindonw("你确定要合成道具(" + clientitem.Name + ")到更高等级吗?", () =>
+                            {
+                                //SendDestroyItem(int.Parse(sArray[0]));
+                                SendChangePos(int.Parse(sArray[0]), (int)item.data, int.Parse(sArray[1]), 2);
+                            });
+                            return;
+                        }
                     }
                     SendChangePos(int.Parse(sArray[0]), (int)item.data, int.Parse(sArray[1]), 2);
                 });
@@ -401,6 +443,7 @@ public class MyInfo {
         {
             //道具
             baginfo.GetChild("bagitem" + (i + 1)).asButton.icon = "";
+            baginfo.GetChild("bagitem" + (i + 1)).asButton.GetChild("level").asTextField.text = "";
         }
         for (var i = 0; i < data.Equips.Count; i++)
         {
@@ -417,11 +460,13 @@ public class MyInfo {
                 //道具"n71"
                 //unitinfo.GetChild("item" + (itemdata.Pos + 1)).asLoader.url = "";// "ui://GameUI/黯灭";
                 baginfo.GetChild("bagitem" + (itemdata.Pos + 1)).asButton.icon = "";
+                baginfo.GetChild("bagitem" + (itemdata.Pos + 1)).asButton.GetChild("level").asTextField.text = "";
                 continue;
             }
             //道具
             //unitinfo.GetChild("item" + (itemdata.Pos + 1)).asLoader.url = clientitem.IconPath;// "ui://GameUI/黯灭";
             baginfo.GetChild("bagitem" + (itemdata.Pos + 1)).asButton.icon = clientitem.IconPath;
+            baginfo.GetChild("bagitem" + (itemdata.Pos + 1)).asButton.GetChild("level").asTextField.text = "Lv." + itemdata.Level + "";
         }
         
 
@@ -494,11 +539,13 @@ public class MyInfo {
                 //道具"n71"
                 //unitinfo.GetChild("item" + (itemdata.Pos + 1)).asLoader.url = "";// "ui://GameUI/黯灭";
                 unitinfo.GetChild("item" + (itemdata.Pos + 1)).asButton.icon = "";
+                unitinfo.GetChild("item" + (itemdata.Pos + 1)).asButton.GetChild("level").asTextField.text = "";
                 continue;
             }
             //道具
             //unitinfo.GetChild("item" + (itemdata.Pos + 1)).asLoader.url = clientitem.IconPath;// "ui://GameUI/黯灭";
             unitinfo.GetChild("item" + (itemdata.Pos + 1)).asButton.icon = clientitem.IconPath;
+            unitinfo.GetChild("item" + (itemdata.Pos + 1)).asButton.GetChild("level").asTextField.text = "Lv." + itemdata.Level + "";
         }
 
 

@@ -82,6 +82,7 @@ public class StoreInfo
                 new ItemInfo(item.ItemID);
             });
             onedropitem.GetChild("n4").asTextField.text = item.Price + "";
+            onedropitem.GetChild("level").asTextField.text = "Lv." + item.Level + "";
             onedropitem.GetChild("n1").asButton.onClick.Add(() =>
             {
                 //购买

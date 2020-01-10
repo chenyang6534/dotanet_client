@@ -241,7 +241,7 @@ public class LoginUI : MonoBehaviour {
                 SelectLayer.GetChild("des").asTextField.text = heroinfo.Des;
                 //技能
                 var skillcom = SelectLayer.GetChild("skill_list").asList;
-                skillcom.RemoveChildren();
+                skillcom.RemoveChildren(0,-1,true);
                 var skills_str = heroinfo.Skills_ID.Split(',');
                 foreach(var skilltype in skills_str)
                 {

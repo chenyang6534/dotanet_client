@@ -67,7 +67,7 @@ public class Mails : MonoBehaviour {
         }
 
         var list = FriendsCom.GetChild("rewardslist").asList;
-        list.RemoveChildren();
+        list.RemoveChildren(0, -1, true);
 
         foreach (var p1 in p2.Rewards)
         {
@@ -112,7 +112,7 @@ public class Mails : MonoBehaviour {
         Protomsg.SC_GetMailsList p2 = (Protomsg.SC_GetMailsList)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
 
         var list = FriendsCom.GetChild("list").asList;
-        list.RemoveChildren();
+        list.RemoveChildren(0, -1, true);
 
         
         //处理排序

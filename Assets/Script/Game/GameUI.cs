@@ -155,6 +155,11 @@ public class GameUI : MonoBehaviour {
         {
             Friends.SOpen();
         });
+        //交易所
+        LittleMapCom.GetChild("exchange").asButton.onClick.Add(() =>
+        {
+            new ExchangeInfo();
+        });
 
         //屏幕点击
         GObject touch = mainUI.GetChild("touchArea");

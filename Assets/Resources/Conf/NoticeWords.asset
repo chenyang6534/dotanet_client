@@ -122,3 +122,23 @@ MonoBehaviour:
     Sound: sound/other/warning
     Type: 1
     AnimName: warning
+  - TypeID: 10000
+    Words: "\u91D1\u5E01\u4E0D\u8DB3"
+    Sound: sound/other/warning
+    Type: 1
+    AnimName: warning
+  - TypeID: 10001
+    Words: "\u94BB\u77F3\u4E0D\u8DB3"
+    Sound: sound/other/warning
+    Type: 1
+    AnimName: warning
+  - TypeID: 23
+    Words: "\u552E\u5356\u7684\u9053\u5177\u6570\u91CF\u8D85\u8FC7\u4E0A\u9650"
+    Sound: sound/other/warning
+    Type: 1
+    AnimName: warning
+  - TypeID: 24
+    Words: "\u8BE5\u5546\u54C1\u5DF2\u4E0B\u67B6,\u65E0\u6CD5\u8D2D\u4E70\u8BE5\u5546\u54C1!"
+    Sound: sound/other/warning
+    Type: 1
+    AnimName: warning

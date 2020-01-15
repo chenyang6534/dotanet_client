@@ -12,14 +12,44 @@ public static class Tool {
         //var t1 = Time.realtimeSinceStartup;
         return t1;
     }
+    public static string Set2(int t)
+    {
+        if(t < 10)
+        {
+            return "0" + t;
+        }
+        return t+"";
+    }
+    public static string Time2String(int time)
+    {
+        //Debug.Log("Time2String:" + time+" hour:"+ (time / 60)+ " hour:" + (time / 60/60));
+        var hour = time / 60 / 60;
+        var minute = time / 60 % 60;
+        var second = time % 60;
+
+        if(hour > 0)
+        {
+            return Set2(hour) + ":" + Set2(minute) + ":" + Set2(second) + "";
+        }
+        else
+        {
+            return Set2(minute) + ":" + Set2(second) + "";
+
+        }
+        return "00:00:00";
+    }
 
     public static string GetPriceTypeIcon(int pricetype)
     {
-        if(pricetype == 1)
+        if(pricetype == 10000)
         {
             return "ui://GameUI/gold1";
         }
-        else
+        else if (pricetype == 10001)
+        {
+            return "ui://GameUI/jingzuan";
+        }
+        else 
         {
             return "ui://GameUI/jingzuan";
         }

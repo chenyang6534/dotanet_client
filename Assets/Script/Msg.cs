@@ -162,15 +162,36 @@ namespace Protomsg {
             "dEluZm9Nc2cSCgoCSWQYASABKAUSEAoIU2VuZE5hbWUYAiABKAkSDQoFVGl0",
             "bGUYAyABKAkSDAoERGF0ZRgEIAEoCRINCgVTdGF0ZRgFIAEoBSI9CgtNYWls",
             "UmV3YXJkcxIQCghJdGVtVHlwZRgBIAEoBRINCgVDb3VudBgCIAEoBRINCgVM",
-            "ZXZlbBgDIAEoBSIeCg9DU19HZXRNYWlsc0xpc3QSCwoDVWlkGAEgASgFIjwK",
+            "ZXZlbBgDIAEoBSIeCg9DU19HZXRNYWlsc0xpc3QSCwoDVWlkGAEgASgFIlQK",
             "D1NDX0dldE1haWxzTGlzdBIpCgVNYWlscxgBIAMoCzIaLnByb3RvbXNnLk1h",
-            "aWxTaG9ydEluZm9Nc2ciHAoOQ1NfR2V0TWFpbEluZm8SCgoCSWQYASABKAUi",
-            "kwEKDlNDX0dldE1haWxJbmZvEgoKAklkGAEgASgFEhAKCFNlbmROYW1lGAIg",
-            "ASgJEg0KBVRpdGxlGAMgASgJEg8KB0NvbnRlbnQYBCABKAkSDAoERGF0ZRgF",
-            "IAEoCRImCgdSZXdhcmRzGAYgAygLMhUucHJvdG9tc2cuTWFpbFJld2FyZHMS",
-            "DQoFU3RhdGUYByABKAUiHwoRQ1NfR2V0TWFpbFJld2FyZHMSCgoCSWQYASAB",
-            "KAUiLwoRU0NfR2V0TWFpbFJld2FyZHMSCgoCSWQYASABKAUSDgoGUmVzdWx0",
-            "GAIgASgFYgZwcm90bzM="));
+            "aWxTaG9ydEluZm9Nc2cSFgoOTWFpbFVwcGVyTGltaXQYAiABKAUiHAoOQ1Nf",
+            "R2V0TWFpbEluZm8SCgoCSWQYASABKAUikwEKDlNDX0dldE1haWxJbmZvEgoK",
+            "AklkGAEgASgFEhAKCFNlbmROYW1lGAIgASgJEg0KBVRpdGxlGAMgASgJEg8K",
+            "B0NvbnRlbnQYBCABKAkSDAoERGF0ZRgFIAEoCRImCgdSZXdhcmRzGAYgAygL",
+            "MhUucHJvdG9tc2cuTWFpbFJld2FyZHMSDQoFU3RhdGUYByABKAUiHwoRQ1Nf",
+            "R2V0TWFpbFJld2FyZHMSCgoCSWQYASABKAUiLwoRU0NfR2V0TWFpbFJld2Fy",
+            "ZHMSCgoCSWQYASABKAUSDgoGUmVzdWx0GAIgASgFIisKHUNTX0dldEV4Y2hh",
+            "bmdlU2hvcnRDb21tb2RpdHlzEgoKAklkGAEgASgFIj8KGkV4Y2hhbmdlU2hv",
+            "cnRDb21tb2RpdHlEYXRhEg4KBkl0ZW1JRBgBIAEoBRIRCglTZWxsQ291bnQY",
+            "AiABKAUiWQodU0NfR2V0RXhjaGFuZ2VTaG9ydENvbW1vZGl0eXMSOAoKQ29t",
+            "bW9kaXR5cxgBIAMoCzIkLnByb3RvbXNnLkV4Y2hhbmdlU2hvcnRDb21tb2Rp",
+            "dHlEYXRhIjIKIENTX0dldEV4Y2hhbmdlRGV0YWlsZWRDb21tb2RpdHlzEg4K",
+            "Bkl0ZW1JRBgBIAEoBSJpCh1FeGNoYW5nZURldGFpbGVkQ29tbW9kaXR5RGF0",
+            "YRIzCg1Db21tb2RpdHlEYXRhGAEgASgLMhwucHJvdG9tc2cuQ29tbW9kaXR5",
+            "RGF0YVByb3RvEhMKC1JlbWFpbmRUaW1lGAIgASgFIl8KIFNDX0dldEV4Y2hh",
+            "bmdlRGV0YWlsZWRDb21tb2RpdHlzEjsKCkNvbW1vZGl0eXMYASADKAsyJy5w",
+            "cm90b21zZy5FeGNoYW5nZURldGFpbGVkQ29tbW9kaXR5RGF0YSIlChdDU19C",
+            "dXlFeGNoYW5nZUNvbW1vZGl0eRIKCgJJRBgBIAEoBSJNChlDU19TaGVsZkV4",
+            "Y2hhbmdlQ29tbW9kaXR5Eg4KBkJhZ1BvcxgBIAEoBRIRCglQcmljZVR5cGUY",
+            "AiABKAUSDQoFUHJpY2UYAyABKAUiKQobQ1NfVW5TaGVsZkV4Y2hhbmdlQ29t",
+            "bW9kaXR5EgoKAklEGAEgASgFIh4KEENTX0dldFNlbGxVSUluZm8SCgoCSUQY",
+            "ASABKAUihAIKEFNDX0dldFNlbGxVSUluZm8SGgoSU2hlbGZFeGNoYW5nZUxp",
+            "bWl0GAEgASgFEhcKD1NlbGxFeGNoYW5nZVRheBgCIAEoAhIhChlTaGVsZkV4",
+            "Y2hhbmdlRmVlUHJpY2VUeXBlGAMgASgFEh0KFVNoZWxmRXhjaGFuZ2VGZWVQ",
+            "cmljZRgEIAEoBRIXCg9BdXRvVW5TaGVsZlRpbWUYBSABKAUSOwoKQ29tbW9k",
+            "aXR5cxgGIAMoCzInLnByb3RvbXNnLkV4Y2hhbmdlRGV0YWlsZWRDb21tb2Rp",
+            "dHlEYXRhEiMKBkVxdWlwcxgHIAMoCzITLnByb3RvbXNnLlVuaXRFcXVpcGIG",
+            "cHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -232,11 +253,22 @@ namespace Protomsg {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.MailShortInfoMsg), global::Protomsg.MailShortInfoMsg.Parser, new[]{ "Id", "SendName", "Title", "Date", "State" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.MailRewards), global::Protomsg.MailRewards.Parser, new[]{ "ItemType", "Count", "Level" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GetMailsList), global::Protomsg.CS_GetMailsList.Parser, new[]{ "Uid" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetMailsList), global::Protomsg.SC_GetMailsList.Parser, new[]{ "Mails" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetMailsList), global::Protomsg.SC_GetMailsList.Parser, new[]{ "Mails", "MailUpperLimit" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GetMailInfo), global::Protomsg.CS_GetMailInfo.Parser, new[]{ "Id" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetMailInfo), global::Protomsg.SC_GetMailInfo.Parser, new[]{ "Id", "SendName", "Title", "Content", "Date", "Rewards", "State" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GetMailRewards), global::Protomsg.CS_GetMailRewards.Parser, new[]{ "Id" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetMailRewards), global::Protomsg.SC_GetMailRewards.Parser, new[]{ "Id", "Result" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetMailRewards), global::Protomsg.SC_GetMailRewards.Parser, new[]{ "Id", "Result" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GetExchangeShortCommoditys), global::Protomsg.CS_GetExchangeShortCommoditys.Parser, new[]{ "Id" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.ExchangeShortCommodityData), global::Protomsg.ExchangeShortCommodityData.Parser, new[]{ "ItemID", "SellCount" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetExchangeShortCommoditys), global::Protomsg.SC_GetExchangeShortCommoditys.Parser, new[]{ "Commoditys" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GetExchangeDetailedCommoditys), global::Protomsg.CS_GetExchangeDetailedCommoditys.Parser, new[]{ "ItemID" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.ExchangeDetailedCommodityData), global::Protomsg.ExchangeDetailedCommodityData.Parser, new[]{ "CommodityData", "RemaindTime" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetExchangeDetailedCommoditys), global::Protomsg.SC_GetExchangeDetailedCommoditys.Parser, new[]{ "Commoditys" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_BuyExchangeCommodity), global::Protomsg.CS_BuyExchangeCommodity.Parser, new[]{ "ID" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_ShelfExchangeCommodity), global::Protomsg.CS_ShelfExchangeCommodity.Parser, new[]{ "BagPos", "PriceType", "Price" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_UnShelfExchangeCommodity), global::Protomsg.CS_UnShelfExchangeCommodity.Parser, new[]{ "ID" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GetSellUIInfo), global::Protomsg.CS_GetSellUIInfo.Parser, new[]{ "ID" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetSellUIInfo), global::Protomsg.SC_GetSellUIInfo.Parser, new[]{ "ShelfExchangeLimit", "SellExchangeTax", "ShelfExchangeFeePriceType", "ShelfExchangeFeePrice", "AutoUnShelfTime", "Commoditys", "Equips" }, null, null, null)
           }));
     }
     #endregion
@@ -14140,6 +14172,7 @@ namespace Protomsg {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public SC_GetMailsList(SC_GetMailsList other) : this() {
       mails_ = other.mails_.Clone();
+      mailUpperLimit_ = other.mailUpperLimit_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -14161,6 +14194,20 @@ namespace Protomsg {
       get { return mails_; }
     }
 
+    /// <summary>Field number for the "MailUpperLimit" field.</summary>
+    public const int MailUpperLimitFieldNumber = 2;
+    private int mailUpperLimit_;
+    /// <summary>
+    ///邮件数量上限
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int MailUpperLimit {
+      get { return mailUpperLimit_; }
+      set {
+        mailUpperLimit_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as SC_GetMailsList);
@@ -14175,6 +14222,7 @@ namespace Protomsg {
         return true;
       }
       if(!mails_.Equals(other.mails_)) return false;
+      if (MailUpperLimit != other.MailUpperLimit) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -14182,6 +14230,7 @@ namespace Protomsg {
     public override int GetHashCode() {
       int hash = 1;
       hash ^= mails_.GetHashCode();
+      if (MailUpperLimit != 0) hash ^= MailUpperLimit.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -14196,6 +14245,10 @@ namespace Protomsg {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       mails_.WriteTo(output, _repeated_mails_codec);
+      if (MailUpperLimit != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(MailUpperLimit);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -14205,6 +14258,9 @@ namespace Protomsg {
     public int CalculateSize() {
       int size = 0;
       size += mails_.CalculateSize(_repeated_mails_codec);
+      if (MailUpperLimit != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(MailUpperLimit);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -14217,6 +14273,9 @@ namespace Protomsg {
         return;
       }
       mails_.Add(other.mails_);
+      if (other.MailUpperLimit != 0) {
+        MailUpperLimit = other.MailUpperLimit;
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -14230,6 +14289,10 @@ namespace Protomsg {
             break;
           case 10: {
             mails_.AddEntriesFrom(input, _repeated_mails_codec);
+            break;
+          }
+          case 16: {
+            MailUpperLimit = input.ReadInt32();
             break;
           }
         }
@@ -14979,6 +15042,1768 @@ namespace Protomsg {
           }
           case 16: {
             Result = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///交易所相关
+  ///获取正在售卖的道具
+  /// </summary>
+  public sealed partial class CS_GetExchangeShortCommoditys : pb::IMessage<CS_GetExchangeShortCommoditys> {
+    private static readonly pb::MessageParser<CS_GetExchangeShortCommoditys> _parser = new pb::MessageParser<CS_GetExchangeShortCommoditys>(() => new CS_GetExchangeShortCommoditys());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CS_GetExchangeShortCommoditys> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[63]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetExchangeShortCommoditys() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetExchangeShortCommoditys(CS_GetExchangeShortCommoditys other) : this() {
+      id_ = other.id_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetExchangeShortCommoditys Clone() {
+      return new CS_GetExchangeShortCommoditys(this);
+    }
+
+    /// <summary>Field number for the "Id" field.</summary>
+    public const int IdFieldNumber = 1;
+    private int id_;
+    /// <summary>
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Id {
+      get { return id_; }
+      set {
+        id_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CS_GetExchangeShortCommoditys);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CS_GetExchangeShortCommoditys other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Id != other.Id) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Id != 0) hash ^= Id.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Id != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(Id);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Id != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Id);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CS_GetExchangeShortCommoditys other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Id != 0) {
+        Id = other.Id;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Id = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///正在售卖的道具数据
+  /// </summary>
+  public sealed partial class ExchangeShortCommodityData : pb::IMessage<ExchangeShortCommodityData> {
+    private static readonly pb::MessageParser<ExchangeShortCommodityData> _parser = new pb::MessageParser<ExchangeShortCommodityData>(() => new ExchangeShortCommodityData());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<ExchangeShortCommodityData> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[64]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ExchangeShortCommodityData() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ExchangeShortCommodityData(ExchangeShortCommodityData other) : this() {
+      itemID_ = other.itemID_;
+      sellCount_ = other.sellCount_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ExchangeShortCommodityData Clone() {
+      return new ExchangeShortCommodityData(this);
+    }
+
+    /// <summary>Field number for the "ItemID" field.</summary>
+    public const int ItemIDFieldNumber = 1;
+    private int itemID_;
+    /// <summary>
+    ///道具ID
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ItemID {
+      get { return itemID_; }
+      set {
+        itemID_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "SellCount" field.</summary>
+    public const int SellCountFieldNumber = 2;
+    private int sellCount_;
+    /// <summary>
+    ///售卖数量
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int SellCount {
+      get { return sellCount_; }
+      set {
+        sellCount_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as ExchangeShortCommodityData);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(ExchangeShortCommodityData other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ItemID != other.ItemID) return false;
+      if (SellCount != other.SellCount) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ItemID != 0) hash ^= ItemID.GetHashCode();
+      if (SellCount != 0) hash ^= SellCount.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (ItemID != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(ItemID);
+      }
+      if (SellCount != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(SellCount);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (ItemID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ItemID);
+      }
+      if (SellCount != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(SellCount);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(ExchangeShortCommodityData other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ItemID != 0) {
+        ItemID = other.ItemID;
+      }
+      if (other.SellCount != 0) {
+        SellCount = other.SellCount;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            ItemID = input.ReadInt32();
+            break;
+          }
+          case 16: {
+            SellCount = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///返回正在售卖的相同种类道具数据
+  /// </summary>
+  public sealed partial class SC_GetExchangeShortCommoditys : pb::IMessage<SC_GetExchangeShortCommoditys> {
+    private static readonly pb::MessageParser<SC_GetExchangeShortCommoditys> _parser = new pb::MessageParser<SC_GetExchangeShortCommoditys>(() => new SC_GetExchangeShortCommoditys());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<SC_GetExchangeShortCommoditys> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[65]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetExchangeShortCommoditys() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetExchangeShortCommoditys(SC_GetExchangeShortCommoditys other) : this() {
+      commoditys_ = other.commoditys_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetExchangeShortCommoditys Clone() {
+      return new SC_GetExchangeShortCommoditys(this);
+    }
+
+    /// <summary>Field number for the "Commoditys" field.</summary>
+    public const int CommoditysFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::Protomsg.ExchangeShortCommodityData> _repeated_commoditys_codec
+        = pb::FieldCodec.ForMessage(10, global::Protomsg.ExchangeShortCommodityData.Parser);
+    private readonly pbc::RepeatedField<global::Protomsg.ExchangeShortCommodityData> commoditys_ = new pbc::RepeatedField<global::Protomsg.ExchangeShortCommodityData>();
+    /// <summary>
+    ///所有商品
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::Protomsg.ExchangeShortCommodityData> Commoditys {
+      get { return commoditys_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as SC_GetExchangeShortCommoditys);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(SC_GetExchangeShortCommoditys other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if(!commoditys_.Equals(other.commoditys_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= commoditys_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      commoditys_.WriteTo(output, _repeated_commoditys_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      size += commoditys_.CalculateSize(_repeated_commoditys_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(SC_GetExchangeShortCommoditys other) {
+      if (other == null) {
+        return;
+      }
+      commoditys_.Add(other.commoditys_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            commoditys_.AddEntriesFrom(input, _repeated_commoditys_codec);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///返回正在售卖的道具
+  /// </summary>
+  public sealed partial class CS_GetExchangeDetailedCommoditys : pb::IMessage<CS_GetExchangeDetailedCommoditys> {
+    private static readonly pb::MessageParser<CS_GetExchangeDetailedCommoditys> _parser = new pb::MessageParser<CS_GetExchangeDetailedCommoditys>(() => new CS_GetExchangeDetailedCommoditys());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CS_GetExchangeDetailedCommoditys> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[66]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetExchangeDetailedCommoditys() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetExchangeDetailedCommoditys(CS_GetExchangeDetailedCommoditys other) : this() {
+      itemID_ = other.itemID_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetExchangeDetailedCommoditys Clone() {
+      return new CS_GetExchangeDetailedCommoditys(this);
+    }
+
+    /// <summary>Field number for the "ItemID" field.</summary>
+    public const int ItemIDFieldNumber = 1;
+    private int itemID_;
+    /// <summary>
+    /////道具ID
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ItemID {
+      get { return itemID_; }
+      set {
+        itemID_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CS_GetExchangeDetailedCommoditys);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CS_GetExchangeDetailedCommoditys other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ItemID != other.ItemID) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ItemID != 0) hash ^= ItemID.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (ItemID != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(ItemID);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (ItemID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ItemID);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CS_GetExchangeDetailedCommoditys other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ItemID != 0) {
+        ItemID = other.ItemID;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            ItemID = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///商品数据
+  ///message CommodityDataProto{
+  ///    int32 TypeID = 1;    //商品ID
+  ///    int32 ItemID = 2;    //道具ID
+  ///    int32 PriceType = 3; //价格类型 1金币 2砖石
+  ///    int32 Price = 4;    //价格
+  ///    int32 Level = 5; //道具等级
+  ///}
+  ///正在售卖的道具数据
+  /// </summary>
+  public sealed partial class ExchangeDetailedCommodityData : pb::IMessage<ExchangeDetailedCommodityData> {
+    private static readonly pb::MessageParser<ExchangeDetailedCommodityData> _parser = new pb::MessageParser<ExchangeDetailedCommodityData>(() => new ExchangeDetailedCommodityData());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<ExchangeDetailedCommodityData> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[67]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ExchangeDetailedCommodityData() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ExchangeDetailedCommodityData(ExchangeDetailedCommodityData other) : this() {
+      commodityData_ = other.commodityData_ != null ? other.commodityData_.Clone() : null;
+      remaindTime_ = other.remaindTime_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ExchangeDetailedCommodityData Clone() {
+      return new ExchangeDetailedCommodityData(this);
+    }
+
+    /// <summary>Field number for the "CommodityData" field.</summary>
+    public const int CommodityDataFieldNumber = 1;
+    private global::Protomsg.CommodityDataProto commodityData_;
+    /// <summary>
+    ///道具信息
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Protomsg.CommodityDataProto CommodityData {
+      get { return commodityData_; }
+      set {
+        commodityData_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "RemaindTime" field.</summary>
+    public const int RemaindTimeFieldNumber = 2;
+    private int remaindTime_;
+    /// <summary>
+    ///剩余时间
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int RemaindTime {
+      get { return remaindTime_; }
+      set {
+        remaindTime_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as ExchangeDetailedCommodityData);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(ExchangeDetailedCommodityData other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(CommodityData, other.CommodityData)) return false;
+      if (RemaindTime != other.RemaindTime) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (commodityData_ != null) hash ^= CommodityData.GetHashCode();
+      if (RemaindTime != 0) hash ^= RemaindTime.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (commodityData_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(CommodityData);
+      }
+      if (RemaindTime != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(RemaindTime);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (commodityData_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(CommodityData);
+      }
+      if (RemaindTime != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(RemaindTime);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(ExchangeDetailedCommodityData other) {
+      if (other == null) {
+        return;
+      }
+      if (other.commodityData_ != null) {
+        if (commodityData_ == null) {
+          commodityData_ = new global::Protomsg.CommodityDataProto();
+        }
+        CommodityData.MergeFrom(other.CommodityData);
+      }
+      if (other.RemaindTime != 0) {
+        RemaindTime = other.RemaindTime;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (commodityData_ == null) {
+              commodityData_ = new global::Protomsg.CommodityDataProto();
+            }
+            input.ReadMessage(commodityData_);
+            break;
+          }
+          case 16: {
+            RemaindTime = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///返回正在售卖的道具数据
+  /// </summary>
+  public sealed partial class SC_GetExchangeDetailedCommoditys : pb::IMessage<SC_GetExchangeDetailedCommoditys> {
+    private static readonly pb::MessageParser<SC_GetExchangeDetailedCommoditys> _parser = new pb::MessageParser<SC_GetExchangeDetailedCommoditys>(() => new SC_GetExchangeDetailedCommoditys());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<SC_GetExchangeDetailedCommoditys> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[68]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetExchangeDetailedCommoditys() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetExchangeDetailedCommoditys(SC_GetExchangeDetailedCommoditys other) : this() {
+      commoditys_ = other.commoditys_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetExchangeDetailedCommoditys Clone() {
+      return new SC_GetExchangeDetailedCommoditys(this);
+    }
+
+    /// <summary>Field number for the "Commoditys" field.</summary>
+    public const int CommoditysFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::Protomsg.ExchangeDetailedCommodityData> _repeated_commoditys_codec
+        = pb::FieldCodec.ForMessage(10, global::Protomsg.ExchangeDetailedCommodityData.Parser);
+    private readonly pbc::RepeatedField<global::Protomsg.ExchangeDetailedCommodityData> commoditys_ = new pbc::RepeatedField<global::Protomsg.ExchangeDetailedCommodityData>();
+    /// <summary>
+    ///所有商品
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::Protomsg.ExchangeDetailedCommodityData> Commoditys {
+      get { return commoditys_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as SC_GetExchangeDetailedCommoditys);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(SC_GetExchangeDetailedCommoditys other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if(!commoditys_.Equals(other.commoditys_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= commoditys_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      commoditys_.WriteTo(output, _repeated_commoditys_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      size += commoditys_.CalculateSize(_repeated_commoditys_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(SC_GetExchangeDetailedCommoditys other) {
+      if (other == null) {
+        return;
+      }
+      commoditys_.Add(other.commoditys_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            commoditys_.AddEntriesFrom(input, _repeated_commoditys_codec);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///购买商品
+  /// </summary>
+  public sealed partial class CS_BuyExchangeCommodity : pb::IMessage<CS_BuyExchangeCommodity> {
+    private static readonly pb::MessageParser<CS_BuyExchangeCommodity> _parser = new pb::MessageParser<CS_BuyExchangeCommodity>(() => new CS_BuyExchangeCommodity());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CS_BuyExchangeCommodity> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[69]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_BuyExchangeCommodity() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_BuyExchangeCommodity(CS_BuyExchangeCommodity other) : this() {
+      iD_ = other.iD_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_BuyExchangeCommodity Clone() {
+      return new CS_BuyExchangeCommodity(this);
+    }
+
+    /// <summary>Field number for the "ID" field.</summary>
+    public const int IDFieldNumber = 1;
+    private int iD_;
+    /// <summary>
+    ///商品ID 
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ID {
+      get { return iD_; }
+      set {
+        iD_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CS_BuyExchangeCommodity);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CS_BuyExchangeCommodity other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ID != other.ID) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ID != 0) hash ^= ID.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (ID != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(ID);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (ID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ID);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CS_BuyExchangeCommodity other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ID != 0) {
+        ID = other.ID;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            ID = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///上架商品(只能上架背包里面的道具)
+  /// </summary>
+  public sealed partial class CS_ShelfExchangeCommodity : pb::IMessage<CS_ShelfExchangeCommodity> {
+    private static readonly pb::MessageParser<CS_ShelfExchangeCommodity> _parser = new pb::MessageParser<CS_ShelfExchangeCommodity>(() => new CS_ShelfExchangeCommodity());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CS_ShelfExchangeCommodity> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[70]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_ShelfExchangeCommodity() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_ShelfExchangeCommodity(CS_ShelfExchangeCommodity other) : this() {
+      bagPos_ = other.bagPos_;
+      priceType_ = other.priceType_;
+      price_ = other.price_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_ShelfExchangeCommodity Clone() {
+      return new CS_ShelfExchangeCommodity(this);
+    }
+
+    /// <summary>Field number for the "BagPos" field.</summary>
+    public const int BagPosFieldNumber = 1;
+    private int bagPos_;
+    /// <summary>
+    ///背包里的位置
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int BagPos {
+      get { return bagPos_; }
+      set {
+        bagPos_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "PriceType" field.</summary>
+    public const int PriceTypeFieldNumber = 2;
+    private int priceType_;
+    /// <summary>
+    ///价格类型 10000金币 10001砖石
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int PriceType {
+      get { return priceType_; }
+      set {
+        priceType_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Price" field.</summary>
+    public const int PriceFieldNumber = 3;
+    private int price_;
+    /// <summary>
+    ///价格
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Price {
+      get { return price_; }
+      set {
+        price_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CS_ShelfExchangeCommodity);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CS_ShelfExchangeCommodity other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (BagPos != other.BagPos) return false;
+      if (PriceType != other.PriceType) return false;
+      if (Price != other.Price) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (BagPos != 0) hash ^= BagPos.GetHashCode();
+      if (PriceType != 0) hash ^= PriceType.GetHashCode();
+      if (Price != 0) hash ^= Price.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (BagPos != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(BagPos);
+      }
+      if (PriceType != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(PriceType);
+      }
+      if (Price != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(Price);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (BagPos != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(BagPos);
+      }
+      if (PriceType != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(PriceType);
+      }
+      if (Price != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Price);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CS_ShelfExchangeCommodity other) {
+      if (other == null) {
+        return;
+      }
+      if (other.BagPos != 0) {
+        BagPos = other.BagPos;
+      }
+      if (other.PriceType != 0) {
+        PriceType = other.PriceType;
+      }
+      if (other.Price != 0) {
+        Price = other.Price;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            BagPos = input.ReadInt32();
+            break;
+          }
+          case 16: {
+            PriceType = input.ReadInt32();
+            break;
+          }
+          case 24: {
+            Price = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///下架商品()
+  /// </summary>
+  public sealed partial class CS_UnShelfExchangeCommodity : pb::IMessage<CS_UnShelfExchangeCommodity> {
+    private static readonly pb::MessageParser<CS_UnShelfExchangeCommodity> _parser = new pb::MessageParser<CS_UnShelfExchangeCommodity>(() => new CS_UnShelfExchangeCommodity());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CS_UnShelfExchangeCommodity> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[71]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_UnShelfExchangeCommodity() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_UnShelfExchangeCommodity(CS_UnShelfExchangeCommodity other) : this() {
+      iD_ = other.iD_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_UnShelfExchangeCommodity Clone() {
+      return new CS_UnShelfExchangeCommodity(this);
+    }
+
+    /// <summary>Field number for the "ID" field.</summary>
+    public const int IDFieldNumber = 1;
+    private int iD_;
+    /// <summary>
+    ///商品ID
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ID {
+      get { return iD_; }
+      set {
+        iD_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CS_UnShelfExchangeCommodity);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CS_UnShelfExchangeCommodity other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ID != other.ID) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ID != 0) hash ^= ID.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (ID != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(ID);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (ID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ID);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CS_UnShelfExchangeCommodity other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ID != 0) {
+        ID = other.ID;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            ID = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///获取我要出售界面信息
+  /// </summary>
+  public sealed partial class CS_GetSellUIInfo : pb::IMessage<CS_GetSellUIInfo> {
+    private static readonly pb::MessageParser<CS_GetSellUIInfo> _parser = new pb::MessageParser<CS_GetSellUIInfo>(() => new CS_GetSellUIInfo());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CS_GetSellUIInfo> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[72]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetSellUIInfo() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetSellUIInfo(CS_GetSellUIInfo other) : this() {
+      iD_ = other.iD_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetSellUIInfo Clone() {
+      return new CS_GetSellUIInfo(this);
+    }
+
+    /// <summary>Field number for the "ID" field.</summary>
+    public const int IDFieldNumber = 1;
+    private int iD_;
+    /// <summary>
+    /////
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ID {
+      get { return iD_; }
+      set {
+        iD_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CS_GetSellUIInfo);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CS_GetSellUIInfo other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ID != other.ID) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ID != 0) hash ^= ID.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (ID != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(ID);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (ID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ID);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CS_GetSellUIInfo other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ID != 0) {
+        ID = other.ID;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            ID = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///获取我要出售界面信息
+  /// </summary>
+  public sealed partial class SC_GetSellUIInfo : pb::IMessage<SC_GetSellUIInfo> {
+    private static readonly pb::MessageParser<SC_GetSellUIInfo> _parser = new pb::MessageParser<SC_GetSellUIInfo>(() => new SC_GetSellUIInfo());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<SC_GetSellUIInfo> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[73]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetSellUIInfo() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetSellUIInfo(SC_GetSellUIInfo other) : this() {
+      shelfExchangeLimit_ = other.shelfExchangeLimit_;
+      sellExchangeTax_ = other.sellExchangeTax_;
+      shelfExchangeFeePriceType_ = other.shelfExchangeFeePriceType_;
+      shelfExchangeFeePrice_ = other.shelfExchangeFeePrice_;
+      autoUnShelfTime_ = other.autoUnShelfTime_;
+      commoditys_ = other.commoditys_.Clone();
+      equips_ = other.equips_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetSellUIInfo Clone() {
+      return new SC_GetSellUIInfo(this);
+    }
+
+    /// <summary>Field number for the "ShelfExchangeLimit" field.</summary>
+    public const int ShelfExchangeLimitFieldNumber = 1;
+    private int shelfExchangeLimit_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ShelfExchangeLimit {
+      get { return shelfExchangeLimit_; }
+      set {
+        shelfExchangeLimit_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "SellExchangeTax" field.</summary>
+    public const int SellExchangeTaxFieldNumber = 2;
+    private float sellExchangeTax_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float SellExchangeTax {
+      get { return sellExchangeTax_; }
+      set {
+        sellExchangeTax_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "ShelfExchangeFeePriceType" field.</summary>
+    public const int ShelfExchangeFeePriceTypeFieldNumber = 3;
+    private int shelfExchangeFeePriceType_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ShelfExchangeFeePriceType {
+      get { return shelfExchangeFeePriceType_; }
+      set {
+        shelfExchangeFeePriceType_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "ShelfExchangeFeePrice" field.</summary>
+    public const int ShelfExchangeFeePriceFieldNumber = 4;
+    private int shelfExchangeFeePrice_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ShelfExchangeFeePrice {
+      get { return shelfExchangeFeePrice_; }
+      set {
+        shelfExchangeFeePrice_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "AutoUnShelfTime" field.</summary>
+    public const int AutoUnShelfTimeFieldNumber = 5;
+    private int autoUnShelfTime_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int AutoUnShelfTime {
+      get { return autoUnShelfTime_; }
+      set {
+        autoUnShelfTime_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Commoditys" field.</summary>
+    public const int CommoditysFieldNumber = 6;
+    private static readonly pb::FieldCodec<global::Protomsg.ExchangeDetailedCommodityData> _repeated_commoditys_codec
+        = pb::FieldCodec.ForMessage(50, global::Protomsg.ExchangeDetailedCommodityData.Parser);
+    private readonly pbc::RepeatedField<global::Protomsg.ExchangeDetailedCommodityData> commoditys_ = new pbc::RepeatedField<global::Protomsg.ExchangeDetailedCommodityData>();
+    /// <summary>
+    ///我正在卖的商品
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::Protomsg.ExchangeDetailedCommodityData> Commoditys {
+      get { return commoditys_; }
+    }
+
+    /// <summary>Field number for the "Equips" field.</summary>
+    public const int EquipsFieldNumber = 7;
+    private static readonly pb::FieldCodec<global::Protomsg.UnitEquip> _repeated_equips_codec
+        = pb::FieldCodec.ForMessage(58, global::Protomsg.UnitEquip.Parser);
+    private readonly pbc::RepeatedField<global::Protomsg.UnitEquip> equips_ = new pbc::RepeatedField<global::Protomsg.UnitEquip>();
+    /// <summary>
+    ///装备 背包里可以卖的装备
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::Protomsg.UnitEquip> Equips {
+      get { return equips_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as SC_GetSellUIInfo);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(SC_GetSellUIInfo other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ShelfExchangeLimit != other.ShelfExchangeLimit) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(SellExchangeTax, other.SellExchangeTax)) return false;
+      if (ShelfExchangeFeePriceType != other.ShelfExchangeFeePriceType) return false;
+      if (ShelfExchangeFeePrice != other.ShelfExchangeFeePrice) return false;
+      if (AutoUnShelfTime != other.AutoUnShelfTime) return false;
+      if(!commoditys_.Equals(other.commoditys_)) return false;
+      if(!equips_.Equals(other.equips_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ShelfExchangeLimit != 0) hash ^= ShelfExchangeLimit.GetHashCode();
+      if (SellExchangeTax != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(SellExchangeTax);
+      if (ShelfExchangeFeePriceType != 0) hash ^= ShelfExchangeFeePriceType.GetHashCode();
+      if (ShelfExchangeFeePrice != 0) hash ^= ShelfExchangeFeePrice.GetHashCode();
+      if (AutoUnShelfTime != 0) hash ^= AutoUnShelfTime.GetHashCode();
+      hash ^= commoditys_.GetHashCode();
+      hash ^= equips_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (ShelfExchangeLimit != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(ShelfExchangeLimit);
+      }
+      if (SellExchangeTax != 0F) {
+        output.WriteRawTag(21);
+        output.WriteFloat(SellExchangeTax);
+      }
+      if (ShelfExchangeFeePriceType != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(ShelfExchangeFeePriceType);
+      }
+      if (ShelfExchangeFeePrice != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(ShelfExchangeFeePrice);
+      }
+      if (AutoUnShelfTime != 0) {
+        output.WriteRawTag(40);
+        output.WriteInt32(AutoUnShelfTime);
+      }
+      commoditys_.WriteTo(output, _repeated_commoditys_codec);
+      equips_.WriteTo(output, _repeated_equips_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (ShelfExchangeLimit != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ShelfExchangeLimit);
+      }
+      if (SellExchangeTax != 0F) {
+        size += 1 + 4;
+      }
+      if (ShelfExchangeFeePriceType != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ShelfExchangeFeePriceType);
+      }
+      if (ShelfExchangeFeePrice != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ShelfExchangeFeePrice);
+      }
+      if (AutoUnShelfTime != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(AutoUnShelfTime);
+      }
+      size += commoditys_.CalculateSize(_repeated_commoditys_codec);
+      size += equips_.CalculateSize(_repeated_equips_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(SC_GetSellUIInfo other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ShelfExchangeLimit != 0) {
+        ShelfExchangeLimit = other.ShelfExchangeLimit;
+      }
+      if (other.SellExchangeTax != 0F) {
+        SellExchangeTax = other.SellExchangeTax;
+      }
+      if (other.ShelfExchangeFeePriceType != 0) {
+        ShelfExchangeFeePriceType = other.ShelfExchangeFeePriceType;
+      }
+      if (other.ShelfExchangeFeePrice != 0) {
+        ShelfExchangeFeePrice = other.ShelfExchangeFeePrice;
+      }
+      if (other.AutoUnShelfTime != 0) {
+        AutoUnShelfTime = other.AutoUnShelfTime;
+      }
+      commoditys_.Add(other.commoditys_);
+      equips_.Add(other.equips_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            ShelfExchangeLimit = input.ReadInt32();
+            break;
+          }
+          case 21: {
+            SellExchangeTax = input.ReadFloat();
+            break;
+          }
+          case 24: {
+            ShelfExchangeFeePriceType = input.ReadInt32();
+            break;
+          }
+          case 32: {
+            ShelfExchangeFeePrice = input.ReadInt32();
+            break;
+          }
+          case 40: {
+            AutoUnShelfTime = input.ReadInt32();
+            break;
+          }
+          case 50: {
+            commoditys_.AddEntriesFrom(input, _repeated_commoditys_codec);
+            break;
+          }
+          case 58: {
+            equips_.AddEntriesFrom(input, _repeated_equips_codec);
             break;
           }
         }

@@ -34,6 +34,21 @@ public class Mails : MonoBehaviour {
         {
             Tool.NoticeWords("领取成功", null);
             FriendsCom.GetChild("get").visible = false;
+            var list = FriendsCom.GetChild("list").asList;
+            foreach(var one in list.GetChildren())
+            {
+                if(one.data == null)
+                {
+                    continue;
+                }
+                var shortinfo = (Protomsg.MailShortInfoMsg)one.data;
+                if(shortinfo.Id == p2.Id)
+                {
+                    one.alpha = 0.5f;
+                    //teamrequest.GetChild("bg").asImage.color = new Color(0.7f, 0.7f, 0.7f);
+                }
+
+            }
         }
         else
         {
@@ -114,7 +129,9 @@ public class Mails : MonoBehaviour {
         var list = FriendsCom.GetChild("list").asList;
         list.RemoveChildren(0, -1, true);
 
-        
+        FriendsCom.GetChild("noticeinfo").asTextField.SetVar("count", p2.MailUpperLimit + "");
+        FriendsCom.GetChild("noticeinfo").asTextField.FlushVars();
+        FriendsCom.GetChild("count").asTextField.text = p2.Mails.Count + "/" + p2.MailUpperLimit;
         //处理排序
         Protomsg.MailShortInfoMsg[] allplayer = new Protomsg.MailShortInfoMsg[p2.Mails.Count];
         int index = 0;
@@ -124,7 +141,7 @@ public class Mails : MonoBehaviour {
         }
         //排序
         System.Array.Sort(allplayer, (s1, s2) => {
-            if (s1.Id > s2.Id)
+            if (s1.Id < s2.Id)
             {
                 return 1;
             }else if(s1.Id == s2.Id)
@@ -137,6 +154,7 @@ public class Mails : MonoBehaviour {
         foreach (var p1 in allplayer)
         {
             var teamrequest = UIPackage.CreateObject("GameUI", "MailOne").asCom;
+            teamrequest.data = p1;
             list.AddChild(teamrequest);
             AudioManager.Am.Play2DSound(AudioManager.Sound_OpenLittleUI);
             
@@ -146,11 +164,13 @@ public class Mails : MonoBehaviour {
             //领取状态 0表示未领取，1表示已领取
             if ( p1.State == 1)
             {
-                teamrequest.GetChild("bg").asImage.color = new Color(0.5f, 0.5f, 0.5f);
+                teamrequest.alpha = 0.5f;
+                //teamrequest.GetChild("bg").asImage.color = new Color(0.7f, 0.7f, 0.7f);
             }
             else
             {
-                teamrequest.GetChild("bg").asImage.color = new Color(1, 1, 1);
+                teamrequest.alpha = 1;
+                //teamrequest.GetChild("bg").asImage.color = new Color(1, 1, 1);
             }
             //查看详细信息
             teamrequest.onClick.Add(() => {
@@ -181,7 +201,7 @@ public class Mails : MonoBehaviour {
                 FriendsCom.visible = false;
             });
 
-            FriendsCom.GetChild("count").visible = false;
+            //FriendsCom.GetChild("count").visible = false;
 
             FriendsCom.GetChild("get").onClick.Add(() => {
                 //解析分隔数据

@@ -125,7 +125,7 @@ public class Mails : MonoBehaviour {
         Debug.Log("SC_GetMailsList:");
         IMessage IMperson = new Protomsg.SC_GetMailsList();
         Protomsg.SC_GetMailsList p2 = (Protomsg.SC_GetMailsList)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
-
+        sInstanse.FriendsCom.GetChild("content").asGroup.visible = false;
         var list = FriendsCom.GetChild("list").asList;
         list.RemoveChildren(0, -1, true);
 
@@ -208,6 +208,16 @@ public class Mails : MonoBehaviour {
                 Protomsg.CS_GetMailRewards msg = new Protomsg.CS_GetMailRewards();
                 msg.Id = this.ShowID;
                 MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetMailRewards", msg);
+            });
+
+            FriendsCom.GetChild("delete").onClick.Add(() => {
+                //解析分隔数据
+                Tool.NoticeWindonw("你确定要删除已经领取过附件的邮件吗?", () =>
+                {
+                    Protomsg.CS_DeleteNoRewardMails msg = new Protomsg.CS_DeleteNoRewardMails();
+                    MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_DeleteNoRewardMails", msg);
+                    Debug.Log("delete"); 
+                });
             });
 
         }

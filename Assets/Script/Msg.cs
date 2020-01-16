@@ -170,28 +170,28 @@ namespace Protomsg {
             "B0NvbnRlbnQYBCABKAkSDAoERGF0ZRgFIAEoCRImCgdSZXdhcmRzGAYgAygL",
             "MhUucHJvdG9tc2cuTWFpbFJld2FyZHMSDQoFU3RhdGUYByABKAUiHwoRQ1Nf",
             "R2V0TWFpbFJld2FyZHMSCgoCSWQYASABKAUiLwoRU0NfR2V0TWFpbFJld2Fy",
-            "ZHMSCgoCSWQYASABKAUSDgoGUmVzdWx0GAIgASgFIisKHUNTX0dldEV4Y2hh",
-            "bmdlU2hvcnRDb21tb2RpdHlzEgoKAklkGAEgASgFIj8KGkV4Y2hhbmdlU2hv",
-            "cnRDb21tb2RpdHlEYXRhEg4KBkl0ZW1JRBgBIAEoBRIRCglTZWxsQ291bnQY",
-            "AiABKAUiWQodU0NfR2V0RXhjaGFuZ2VTaG9ydENvbW1vZGl0eXMSOAoKQ29t",
-            "bW9kaXR5cxgBIAMoCzIkLnByb3RvbXNnLkV4Y2hhbmdlU2hvcnRDb21tb2Rp",
-            "dHlEYXRhIjIKIENTX0dldEV4Y2hhbmdlRGV0YWlsZWRDb21tb2RpdHlzEg4K",
-            "Bkl0ZW1JRBgBIAEoBSJpCh1FeGNoYW5nZURldGFpbGVkQ29tbW9kaXR5RGF0",
-            "YRIzCg1Db21tb2RpdHlEYXRhGAEgASgLMhwucHJvdG9tc2cuQ29tbW9kaXR5",
-            "RGF0YVByb3RvEhMKC1JlbWFpbmRUaW1lGAIgASgFIl8KIFNDX0dldEV4Y2hh",
-            "bmdlRGV0YWlsZWRDb21tb2RpdHlzEjsKCkNvbW1vZGl0eXMYASADKAsyJy5w",
-            "cm90b21zZy5FeGNoYW5nZURldGFpbGVkQ29tbW9kaXR5RGF0YSIlChdDU19C",
-            "dXlFeGNoYW5nZUNvbW1vZGl0eRIKCgJJRBgBIAEoBSJNChlDU19TaGVsZkV4",
-            "Y2hhbmdlQ29tbW9kaXR5Eg4KBkJhZ1BvcxgBIAEoBRIRCglQcmljZVR5cGUY",
-            "AiABKAUSDQoFUHJpY2UYAyABKAUiKQobQ1NfVW5TaGVsZkV4Y2hhbmdlQ29t",
-            "bW9kaXR5EgoKAklEGAEgASgFIh4KEENTX0dldFNlbGxVSUluZm8SCgoCSUQY",
-            "ASABKAUihAIKEFNDX0dldFNlbGxVSUluZm8SGgoSU2hlbGZFeGNoYW5nZUxp",
-            "bWl0GAEgASgFEhcKD1NlbGxFeGNoYW5nZVRheBgCIAEoAhIhChlTaGVsZkV4",
-            "Y2hhbmdlRmVlUHJpY2VUeXBlGAMgASgFEh0KFVNoZWxmRXhjaGFuZ2VGZWVQ",
-            "cmljZRgEIAEoBRIXCg9BdXRvVW5TaGVsZlRpbWUYBSABKAUSOwoKQ29tbW9k",
-            "aXR5cxgGIAMoCzInLnByb3RvbXNnLkV4Y2hhbmdlRGV0YWlsZWRDb21tb2Rp",
-            "dHlEYXRhEiMKBkVxdWlwcxgHIAMoCzITLnByb3RvbXNnLlVuaXRFcXVpcGIG",
-            "cHJvdG8z"));
+            "ZHMSCgoCSWQYASABKAUSDgoGUmVzdWx0GAIgASgFIiQKFkNTX0RlbGV0ZU5v",
+            "UmV3YXJkTWFpbHMSCgoCSWQYASABKAUiKwodQ1NfR2V0RXhjaGFuZ2VTaG9y",
+            "dENvbW1vZGl0eXMSCgoCSWQYASABKAUiPwoaRXhjaGFuZ2VTaG9ydENvbW1v",
+            "ZGl0eURhdGESDgoGSXRlbUlEGAEgASgFEhEKCVNlbGxDb3VudBgCIAEoBSJZ",
+            "Ch1TQ19HZXRFeGNoYW5nZVNob3J0Q29tbW9kaXR5cxI4CgpDb21tb2RpdHlz",
+            "GAEgAygLMiQucHJvdG9tc2cuRXhjaGFuZ2VTaG9ydENvbW1vZGl0eURhdGEi",
+            "MgogQ1NfR2V0RXhjaGFuZ2VEZXRhaWxlZENvbW1vZGl0eXMSDgoGSXRlbUlE",
+            "GAEgASgFImkKHUV4Y2hhbmdlRGV0YWlsZWRDb21tb2RpdHlEYXRhEjMKDUNv",
+            "bW1vZGl0eURhdGEYASABKAsyHC5wcm90b21zZy5Db21tb2RpdHlEYXRhUHJv",
+            "dG8SEwoLUmVtYWluZFRpbWUYAiABKAUiXwogU0NfR2V0RXhjaGFuZ2VEZXRh",
+            "aWxlZENvbW1vZGl0eXMSOwoKQ29tbW9kaXR5cxgBIAMoCzInLnByb3RvbXNn",
+            "LkV4Y2hhbmdlRGV0YWlsZWRDb21tb2RpdHlEYXRhIiUKF0NTX0J1eUV4Y2hh",
+            "bmdlQ29tbW9kaXR5EgoKAklEGAEgASgFIk0KGUNTX1NoZWxmRXhjaGFuZ2VD",
+            "b21tb2RpdHkSDgoGQmFnUG9zGAEgASgFEhEKCVByaWNlVHlwZRgCIAEoBRIN",
+            "CgVQcmljZRgDIAEoBSIpChtDU19VblNoZWxmRXhjaGFuZ2VDb21tb2RpdHkS",
+            "CgoCSUQYASABKAUiHgoQQ1NfR2V0U2VsbFVJSW5mbxIKCgJJRBgBIAEoBSKE",
+            "AgoQU0NfR2V0U2VsbFVJSW5mbxIaChJTaGVsZkV4Y2hhbmdlTGltaXQYASAB",
+            "KAUSFwoPU2VsbEV4Y2hhbmdlVGF4GAIgASgCEiEKGVNoZWxmRXhjaGFuZ2VG",
+            "ZWVQcmljZVR5cGUYAyABKAUSHQoVU2hlbGZFeGNoYW5nZUZlZVByaWNlGAQg",
+            "ASgFEhcKD0F1dG9VblNoZWxmVGltZRgFIAEoBRI7CgpDb21tb2RpdHlzGAYg",
+            "AygLMicucHJvdG9tc2cuRXhjaGFuZ2VEZXRhaWxlZENvbW1vZGl0eURhdGES",
+            "IwoGRXF1aXBzGAcgAygLMhMucHJvdG9tc2cuVW5pdEVxdWlwYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -258,6 +258,7 @@ namespace Protomsg {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetMailInfo), global::Protomsg.SC_GetMailInfo.Parser, new[]{ "Id", "SendName", "Title", "Content", "Date", "Rewards", "State" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GetMailRewards), global::Protomsg.CS_GetMailRewards.Parser, new[]{ "Id" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetMailRewards), global::Protomsg.SC_GetMailRewards.Parser, new[]{ "Id", "Result" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_DeleteNoRewardMails), global::Protomsg.CS_DeleteNoRewardMails.Parser, new[]{ "Id" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GetExchangeShortCommoditys), global::Protomsg.CS_GetExchangeShortCommoditys.Parser, new[]{ "Id" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.ExchangeShortCommodityData), global::Protomsg.ExchangeShortCommodityData.Parser, new[]{ "ItemID", "SellCount" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetExchangeShortCommoditys), global::Protomsg.SC_GetExchangeShortCommoditys.Parser, new[]{ "Commoditys" }, null, null, null),
@@ -15051,6 +15052,141 @@ namespace Protomsg {
   }
 
   /// <summary>
+  ///删除已经领取附件的邮件(没有附件)
+  /// </summary>
+  public sealed partial class CS_DeleteNoRewardMails : pb::IMessage<CS_DeleteNoRewardMails> {
+    private static readonly pb::MessageParser<CS_DeleteNoRewardMails> _parser = new pb::MessageParser<CS_DeleteNoRewardMails>(() => new CS_DeleteNoRewardMails());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CS_DeleteNoRewardMails> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[63]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_DeleteNoRewardMails() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_DeleteNoRewardMails(CS_DeleteNoRewardMails other) : this() {
+      id_ = other.id_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_DeleteNoRewardMails Clone() {
+      return new CS_DeleteNoRewardMails(this);
+    }
+
+    /// <summary>Field number for the "Id" field.</summary>
+    public const int IdFieldNumber = 1;
+    private int id_;
+    /// <summary>
+    ///ID
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Id {
+      get { return id_; }
+      set {
+        id_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CS_DeleteNoRewardMails);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CS_DeleteNoRewardMails other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Id != other.Id) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Id != 0) hash ^= Id.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Id != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(Id);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Id != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Id);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CS_DeleteNoRewardMails other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Id != 0) {
+        Id = other.Id;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Id = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
   ///交易所相关
   ///获取正在售卖的道具
   /// </summary>
@@ -15062,7 +15198,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[63]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[64]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -15196,7 +15332,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[64]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[65]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -15362,7 +15498,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[65]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[66]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -15489,7 +15625,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[66]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[67]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -15632,7 +15768,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[67]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[68]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -15804,7 +15940,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[68]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[69]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -15931,7 +16067,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[69]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[70]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -16066,7 +16202,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[70]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[71]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -16263,7 +16399,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[71]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[72]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -16398,7 +16534,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[72]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[73]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -16533,7 +16669,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[73]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[74]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

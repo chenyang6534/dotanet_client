@@ -139,13 +139,28 @@ public static class Tool {
         });
     }
 
-    public static void NoticeWordsAnim(string word, Google.Protobuf.Collections.RepeatedField<string> p,string anim)
+    public static void NoticeWordsAnim(string word, Google.Protobuf.Collections.RepeatedField<string> p,string anim,int pos = 1)
     {
+        
+        // pos 1上 2中 3下
+        var showpos = Tool.GetPosition(0.5f, 0.2f);
+        if (pos == 1)
+        {
+            showpos = Tool.GetPosition(0.5f, 0.2f);
+        }
+        else if(pos == 2)
+        {
+            showpos = Tool.GetPosition(0.5f, 0.5f);
+        }
+        else if (pos == 3)
+        {
+            showpos = Tool.GetPosition(0.5f, 0.8f);
+        }
         GComponent words = UIPackage.CreateObject("GameUI", "NoticeWords").asCom;
         //1，直接加到GRoot显示出来
         GRoot.inst.AddChild(words);
         //GRoot.inst.SetChildIndex(words, 1);
-        words.xy = Tool.GetPosition(0.5f, 0.2f);
+        words.xy = showpos;// Tool.GetPosition(0.5f, 0.2f);
         //var root = words.GetComponent<FairyGUI.UIPanel>().ui;
 
         words.GetChild("word").asTextField.text = word;// noticewords.Words;

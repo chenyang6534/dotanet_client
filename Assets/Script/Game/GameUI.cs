@@ -40,6 +40,8 @@ public class GameUI : MonoBehaviour {
 
     protected GComponent LittleChat; //聊天信息
 
+    protected double LastShowNoticeTime;//上次显示提示的时间
+
     static GameUI sInstanse = null;
     void Start () {
         //Debug.Log("gameui:" + Input.multiTouchEnabled + "  " + Input.touchSupported+"  "+ Input.stylusTouchSupported);
@@ -294,20 +296,35 @@ public class GameUI : MonoBehaviour {
 
         return true;
     }
+    public IEnumerator ShowNotice(Protomsg.SC_NoticeWords p1,float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        var noticewords = ExcelManager.Instance.GetNoticeWordsManager().GetNoticeWordsByID(p1.TypeID);
+        if (noticewords != null)
+        {
+            Tool.NoticeWordsAnim(noticewords.Words, p1.P, noticewords.AnimName, noticewords.Pos);
+            if (noticewords.Sound != null && noticewords.Sound.Length > 0)
+            {
+                AudioManager.Am.Play2DSound(noticewords.Sound);
+            }
+            Debug.Log("SC_NoticeWords:" + noticewords.Words + "  sound:" + noticewords.Sound);
+        }
+    }
     public bool SC_NoticeWords(Protomsg.MsgBase d1)
     {
         //Debug.Log("SC_NoticeWords:");
         IMessage IMperson = new Protomsg.SC_NoticeWords();
         Protomsg.SC_NoticeWords p1 = (Protomsg.SC_NoticeWords)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
-        var noticewords = ExcelManager.Instance.GetNoticeWordsManager().GetNoticeWordsByID(p1.TypeID);
-        if(noticewords != null)
+        double delaytime = 1 - (Tool.GetTime() - LastShowNoticeTime);
+        if (delaytime <= 0)
         {
-            Tool.NoticeWordsAnim(noticewords.Words,p1.P,noticewords.AnimName);
-            if( noticewords.Sound != null && noticewords.Sound.Length > 0)
-            {
-                AudioManager.Am.Play2DSound(noticewords.Sound);
-            }
-            Debug.Log("SC_NoticeWords:"+noticewords.Words+"  sound:"+noticewords.Sound);
+            LastShowNoticeTime = Tool.GetTime();
+            StartCoroutine(ShowNotice(p1,0));
+        }
+        else
+        {
+            LastShowNoticeTime = Tool.GetTime() + delaytime;
+            StartCoroutine(ShowNotice(p1, (float)delaytime)); 
         }
         return true;
     }

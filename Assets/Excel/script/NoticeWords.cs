@@ -14,6 +14,7 @@ namespace ExcelData
         public string Sound;
         public int Type;
         public string AnimName;
+        public int Pos;//位置 1上 2中 3下
     }
 
 

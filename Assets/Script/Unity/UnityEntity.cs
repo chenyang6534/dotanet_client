@@ -691,9 +691,8 @@ public class UnityEntity {
                 {
                     m_Mode.AddComponent<UnityEntitySpecial>();
                 }
-                
                 //m_Mode.GetComponent<UnityEntitySpecial>().SetGreen();
-                
+
                 //Debug.Log("222add special:" + Name);
             }
             

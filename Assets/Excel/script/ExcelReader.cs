@@ -209,6 +209,7 @@ public class ExcelReader
                 item.Sound = collect[i][2].ToString();
                 item.Type = int.Parse(collect[i][3].ToString());
                 item.AnimName = collect[i][4].ToString();
+                item.Pos = int.Parse(collect[i][5].ToString());
                 array[i - 1] = item;
 
             }

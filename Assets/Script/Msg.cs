@@ -191,7 +191,23 @@ namespace Protomsg {
             "ZWVQcmljZVR5cGUYAyABKAUSHQoVU2hlbGZFeGNoYW5nZUZlZVByaWNlGAQg",
             "ASgFEhcKD0F1dG9VblNoZWxmVGltZRgFIAEoBRI7CgpDb21tb2RpdHlzGAYg",
             "AygLMicucHJvdG9tc2cuRXhjaGFuZ2VEZXRhaWxlZENvbW1vZGl0eURhdGES",
-            "IwoGRXF1aXBzGAcgAygLMhMucHJvdG9tc2cuVW5pdEVxdWlwYgZwcm90bzM="));
+            "IwoGRXF1aXBzGAcgAygLMhMucHJvdG9tc2cuVW5pdEVxdWlwIiEKE0NTX0dl",
+            "dEFsbEd1aWxkc0luZm8SCgoCSUQYASABKAUi0AEKDkd1aWxkU2hvcnRJbmZv",
+            "EgoKAklEGAEgASgFEgwKBE5hbWUYAiABKAkSDQoFTGV2ZWwYAyABKAUSEgoK",
+            "RXhwZXJpZW5jZRgEIAEoBRIVCg1NYXhFeHBlcmllbmNlGAUgASgFEhYKDkNo",
+            "YXJhY3RlckNvdW50GAYgASgFEhAKCE1heENvdW50GAcgASgFEhUKDVByZXNp",
+            "ZGVudE5hbWUYCCABKAkSEQoJSm9pbmF1ZGl0GAkgASgFEhYKDkpvaW5sZXZl",
+            "bGxpbWl0GAogASgFIm0KE1NDX0dldEFsbEd1aWxkc0luZm8SKAoGR3VpbGRz",
+            "GAEgAygLMhgucHJvdG9tc2cuR3VpbGRTaG9ydEluZm8SFwoPQ3JlYXRlUHJp",
+            "Y2VUeXBlGAIgASgFEhMKC0NyZWF0ZVByaWNlGAMgASgFIh4KDkNTX0NyZWF0",
+            "ZUd1aWxkEgwKBE5hbWUYASABKAkiGgoMQ1NfSm9pbkd1aWxkEgoKAklEGAEg",
+            "ASgJIh0KD0NTX0dldEd1aWxkSW5mbxIKCgJJRBgBIAEoBSJuCg9TQ19HZXRH",
+            "dWlsZEluZm8SLwoNR3VpbGRCYXNlSW5mbxgBIAEoCzIYLnByb3RvbXNnLkd1",
+            "aWxkU2hvcnRJbmZvEioKCkNoYXJhY3RlcnMYAiADKAsyFi5wcm90b21zZy5H",
+            "dWlsZENoYUluZm8ilAEKDEd1aWxkQ2hhSW5mbxILCgNVaWQYASABKAUSEwoL",
+            "Q2hhcmFjdGVyaWQYAiABKAUSDAoETmFtZRgDIAEoCRINCgVMZXZlbBgEIAEo",
+            "BRIOCgZUeXBlaWQYBSABKAUSEAoIUGluTGV2ZWwYBiABKAUSFQoNUGluRXhw",
+            "ZXJpZW5jZRgHIAEoBRIMCgRQb3N0GAggASgFYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -269,7 +285,15 @@ namespace Protomsg {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_ShelfExchangeCommodity), global::Protomsg.CS_ShelfExchangeCommodity.Parser, new[]{ "BagPos", "PriceType", "Price" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_UnShelfExchangeCommodity), global::Protomsg.CS_UnShelfExchangeCommodity.Parser, new[]{ "ID" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GetSellUIInfo), global::Protomsg.CS_GetSellUIInfo.Parser, new[]{ "ID" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetSellUIInfo), global::Protomsg.SC_GetSellUIInfo.Parser, new[]{ "ShelfExchangeLimit", "SellExchangeTax", "ShelfExchangeFeePriceType", "ShelfExchangeFeePrice", "AutoUnShelfTime", "Commoditys", "Equips" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetSellUIInfo), global::Protomsg.SC_GetSellUIInfo.Parser, new[]{ "ShelfExchangeLimit", "SellExchangeTax", "ShelfExchangeFeePriceType", "ShelfExchangeFeePrice", "AutoUnShelfTime", "Commoditys", "Equips" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GetAllGuildsInfo), global::Protomsg.CS_GetAllGuildsInfo.Parser, new[]{ "ID" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.GuildShortInfo), global::Protomsg.GuildShortInfo.Parser, new[]{ "ID", "Name", "Level", "Experience", "MaxExperience", "CharacterCount", "MaxCount", "PresidentName", "Joinaudit", "Joinlevellimit" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetAllGuildsInfo), global::Protomsg.SC_GetAllGuildsInfo.Parser, new[]{ "Guilds", "CreatePriceType", "CreatePrice" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_CreateGuild), global::Protomsg.CS_CreateGuild.Parser, new[]{ "Name" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_JoinGuild), global::Protomsg.CS_JoinGuild.Parser, new[]{ "ID" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GetGuildInfo), global::Protomsg.CS_GetGuildInfo.Parser, new[]{ "ID" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetGuildInfo), global::Protomsg.SC_GetGuildInfo.Parser, new[]{ "GuildBaseInfo", "Characters" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.GuildChaInfo), global::Protomsg.GuildChaInfo.Parser, new[]{ "Uid", "Characterid", "Name", "Level", "Typeid", "PinLevel", "PinExperience", "Post" }, null, null, null)
           }));
     }
     #endregion
@@ -16940,6 +16964,1639 @@ namespace Protomsg {
           }
           case 58: {
             equips_.AddEntriesFrom(input, _repeated_equips_codec);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///-------------公会相关------------
+  ///查看所有公会简短信息
+  /// </summary>
+  public sealed partial class CS_GetAllGuildsInfo : pb::IMessage<CS_GetAllGuildsInfo> {
+    private static readonly pb::MessageParser<CS_GetAllGuildsInfo> _parser = new pb::MessageParser<CS_GetAllGuildsInfo>(() => new CS_GetAllGuildsInfo());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CS_GetAllGuildsInfo> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[75]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetAllGuildsInfo() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetAllGuildsInfo(CS_GetAllGuildsInfo other) : this() {
+      iD_ = other.iD_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetAllGuildsInfo Clone() {
+      return new CS_GetAllGuildsInfo(this);
+    }
+
+    /// <summary>Field number for the "ID" field.</summary>
+    public const int IDFieldNumber = 1;
+    private int iD_;
+    /// <summary>
+    /////
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ID {
+      get { return iD_; }
+      set {
+        iD_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CS_GetAllGuildsInfo);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CS_GetAllGuildsInfo other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ID != other.ID) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ID != 0) hash ^= ID.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (ID != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(ID);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (ID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ID);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CS_GetAllGuildsInfo other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ID != 0) {
+        ID = other.ID;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            ID = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///公会简短信息
+  /// </summary>
+  public sealed partial class GuildShortInfo : pb::IMessage<GuildShortInfo> {
+    private static readonly pb::MessageParser<GuildShortInfo> _parser = new pb::MessageParser<GuildShortInfo>(() => new GuildShortInfo());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<GuildShortInfo> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[76]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public GuildShortInfo() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public GuildShortInfo(GuildShortInfo other) : this() {
+      iD_ = other.iD_;
+      name_ = other.name_;
+      level_ = other.level_;
+      experience_ = other.experience_;
+      maxExperience_ = other.maxExperience_;
+      characterCount_ = other.characterCount_;
+      maxCount_ = other.maxCount_;
+      presidentName_ = other.presidentName_;
+      joinaudit_ = other.joinaudit_;
+      joinlevellimit_ = other.joinlevellimit_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public GuildShortInfo Clone() {
+      return new GuildShortInfo(this);
+    }
+
+    /// <summary>Field number for the "ID" field.</summary>
+    public const int IDFieldNumber = 1;
+    private int iD_;
+    /// <summary>
+    ///id
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ID {
+      get { return iD_; }
+      set {
+        iD_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Name" field.</summary>
+    public const int NameFieldNumber = 2;
+    private string name_ = "";
+    /// <summary>
+    ///名字
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Name {
+      get { return name_; }
+      set {
+        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Level" field.</summary>
+    public const int LevelFieldNumber = 3;
+    private int level_;
+    /// <summary>
+    ///等级
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Level {
+      get { return level_; }
+      set {
+        level_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Experience" field.</summary>
+    public const int ExperienceFieldNumber = 4;
+    private int experience_;
+    /// <summary>
+    ///经验值
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Experience {
+      get { return experience_; }
+      set {
+        experience_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "MaxExperience" field.</summary>
+    public const int MaxExperienceFieldNumber = 5;
+    private int maxExperience_;
+    /// <summary>
+    ///最大经验值
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int MaxExperience {
+      get { return maxExperience_; }
+      set {
+        maxExperience_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "CharacterCount" field.</summary>
+    public const int CharacterCountFieldNumber = 6;
+    private int characterCount_;
+    /// <summary>
+    ///当前成员数量
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CharacterCount {
+      get { return characterCount_; }
+      set {
+        characterCount_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "MaxCount" field.</summary>
+    public const int MaxCountFieldNumber = 7;
+    private int maxCount_;
+    /// <summary>
+    ///最大成员数量
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int MaxCount {
+      get { return maxCount_; }
+      set {
+        maxCount_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "PresidentName" field.</summary>
+    public const int PresidentNameFieldNumber = 8;
+    private string presidentName_ = "";
+    /// <summary>
+    ///会长名字
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string PresidentName {
+      get { return presidentName_; }
+      set {
+        presidentName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Joinaudit" field.</summary>
+    public const int JoinauditFieldNumber = 9;
+    private int joinaudit_;
+    /// <summary>
+    ///加入是否需要审批
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Joinaudit {
+      get { return joinaudit_; }
+      set {
+        joinaudit_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Joinlevellimit" field.</summary>
+    public const int JoinlevellimitFieldNumber = 10;
+    private int joinlevellimit_;
+    /// <summary>
+    ///加入等级限制
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Joinlevellimit {
+      get { return joinlevellimit_; }
+      set {
+        joinlevellimit_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as GuildShortInfo);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(GuildShortInfo other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ID != other.ID) return false;
+      if (Name != other.Name) return false;
+      if (Level != other.Level) return false;
+      if (Experience != other.Experience) return false;
+      if (MaxExperience != other.MaxExperience) return false;
+      if (CharacterCount != other.CharacterCount) return false;
+      if (MaxCount != other.MaxCount) return false;
+      if (PresidentName != other.PresidentName) return false;
+      if (Joinaudit != other.Joinaudit) return false;
+      if (Joinlevellimit != other.Joinlevellimit) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ID != 0) hash ^= ID.GetHashCode();
+      if (Name.Length != 0) hash ^= Name.GetHashCode();
+      if (Level != 0) hash ^= Level.GetHashCode();
+      if (Experience != 0) hash ^= Experience.GetHashCode();
+      if (MaxExperience != 0) hash ^= MaxExperience.GetHashCode();
+      if (CharacterCount != 0) hash ^= CharacterCount.GetHashCode();
+      if (MaxCount != 0) hash ^= MaxCount.GetHashCode();
+      if (PresidentName.Length != 0) hash ^= PresidentName.GetHashCode();
+      if (Joinaudit != 0) hash ^= Joinaudit.GetHashCode();
+      if (Joinlevellimit != 0) hash ^= Joinlevellimit.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (ID != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(ID);
+      }
+      if (Name.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Name);
+      }
+      if (Level != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(Level);
+      }
+      if (Experience != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(Experience);
+      }
+      if (MaxExperience != 0) {
+        output.WriteRawTag(40);
+        output.WriteInt32(MaxExperience);
+      }
+      if (CharacterCount != 0) {
+        output.WriteRawTag(48);
+        output.WriteInt32(CharacterCount);
+      }
+      if (MaxCount != 0) {
+        output.WriteRawTag(56);
+        output.WriteInt32(MaxCount);
+      }
+      if (PresidentName.Length != 0) {
+        output.WriteRawTag(66);
+        output.WriteString(PresidentName);
+      }
+      if (Joinaudit != 0) {
+        output.WriteRawTag(72);
+        output.WriteInt32(Joinaudit);
+      }
+      if (Joinlevellimit != 0) {
+        output.WriteRawTag(80);
+        output.WriteInt32(Joinlevellimit);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (ID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ID);
+      }
+      if (Name.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+      }
+      if (Level != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Level);
+      }
+      if (Experience != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Experience);
+      }
+      if (MaxExperience != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(MaxExperience);
+      }
+      if (CharacterCount != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(CharacterCount);
+      }
+      if (MaxCount != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(MaxCount);
+      }
+      if (PresidentName.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(PresidentName);
+      }
+      if (Joinaudit != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Joinaudit);
+      }
+      if (Joinlevellimit != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Joinlevellimit);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(GuildShortInfo other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ID != 0) {
+        ID = other.ID;
+      }
+      if (other.Name.Length != 0) {
+        Name = other.Name;
+      }
+      if (other.Level != 0) {
+        Level = other.Level;
+      }
+      if (other.Experience != 0) {
+        Experience = other.Experience;
+      }
+      if (other.MaxExperience != 0) {
+        MaxExperience = other.MaxExperience;
+      }
+      if (other.CharacterCount != 0) {
+        CharacterCount = other.CharacterCount;
+      }
+      if (other.MaxCount != 0) {
+        MaxCount = other.MaxCount;
+      }
+      if (other.PresidentName.Length != 0) {
+        PresidentName = other.PresidentName;
+      }
+      if (other.Joinaudit != 0) {
+        Joinaudit = other.Joinaudit;
+      }
+      if (other.Joinlevellimit != 0) {
+        Joinlevellimit = other.Joinlevellimit;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            ID = input.ReadInt32();
+            break;
+          }
+          case 18: {
+            Name = input.ReadString();
+            break;
+          }
+          case 24: {
+            Level = input.ReadInt32();
+            break;
+          }
+          case 32: {
+            Experience = input.ReadInt32();
+            break;
+          }
+          case 40: {
+            MaxExperience = input.ReadInt32();
+            break;
+          }
+          case 48: {
+            CharacterCount = input.ReadInt32();
+            break;
+          }
+          case 56: {
+            MaxCount = input.ReadInt32();
+            break;
+          }
+          case 66: {
+            PresidentName = input.ReadString();
+            break;
+          }
+          case 72: {
+            Joinaudit = input.ReadInt32();
+            break;
+          }
+          case 80: {
+            Joinlevellimit = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///返回所有公会信息
+  /// </summary>
+  public sealed partial class SC_GetAllGuildsInfo : pb::IMessage<SC_GetAllGuildsInfo> {
+    private static readonly pb::MessageParser<SC_GetAllGuildsInfo> _parser = new pb::MessageParser<SC_GetAllGuildsInfo>(() => new SC_GetAllGuildsInfo());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<SC_GetAllGuildsInfo> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[77]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetAllGuildsInfo() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetAllGuildsInfo(SC_GetAllGuildsInfo other) : this() {
+      guilds_ = other.guilds_.Clone();
+      createPriceType_ = other.createPriceType_;
+      createPrice_ = other.createPrice_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetAllGuildsInfo Clone() {
+      return new SC_GetAllGuildsInfo(this);
+    }
+
+    /// <summary>Field number for the "Guilds" field.</summary>
+    public const int GuildsFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::Protomsg.GuildShortInfo> _repeated_guilds_codec
+        = pb::FieldCodec.ForMessage(10, global::Protomsg.GuildShortInfo.Parser);
+    private readonly pbc::RepeatedField<global::Protomsg.GuildShortInfo> guilds_ = new pbc::RepeatedField<global::Protomsg.GuildShortInfo>();
+    /// <summary>
+    ///所有公会信息
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::Protomsg.GuildShortInfo> Guilds {
+      get { return guilds_; }
+    }
+
+    /// <summary>Field number for the "CreatePriceType" field.</summary>
+    public const int CreatePriceTypeFieldNumber = 2;
+    private int createPriceType_;
+    /// <summary>
+    ///创建公会 价格类型 10000金币 10001砖石
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CreatePriceType {
+      get { return createPriceType_; }
+      set {
+        createPriceType_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "CreatePrice" field.</summary>
+    public const int CreatePriceFieldNumber = 3;
+    private int createPrice_;
+    /// <summary>
+    ///创建公会 价格 
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CreatePrice {
+      get { return createPrice_; }
+      set {
+        createPrice_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as SC_GetAllGuildsInfo);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(SC_GetAllGuildsInfo other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if(!guilds_.Equals(other.guilds_)) return false;
+      if (CreatePriceType != other.CreatePriceType) return false;
+      if (CreatePrice != other.CreatePrice) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= guilds_.GetHashCode();
+      if (CreatePriceType != 0) hash ^= CreatePriceType.GetHashCode();
+      if (CreatePrice != 0) hash ^= CreatePrice.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      guilds_.WriteTo(output, _repeated_guilds_codec);
+      if (CreatePriceType != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(CreatePriceType);
+      }
+      if (CreatePrice != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(CreatePrice);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      size += guilds_.CalculateSize(_repeated_guilds_codec);
+      if (CreatePriceType != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(CreatePriceType);
+      }
+      if (CreatePrice != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(CreatePrice);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(SC_GetAllGuildsInfo other) {
+      if (other == null) {
+        return;
+      }
+      guilds_.Add(other.guilds_);
+      if (other.CreatePriceType != 0) {
+        CreatePriceType = other.CreatePriceType;
+      }
+      if (other.CreatePrice != 0) {
+        CreatePrice = other.CreatePrice;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            guilds_.AddEntriesFrom(input, _repeated_guilds_codec);
+            break;
+          }
+          case 16: {
+            CreatePriceType = input.ReadInt32();
+            break;
+          }
+          case 24: {
+            CreatePrice = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///创建公会
+  /// </summary>
+  public sealed partial class CS_CreateGuild : pb::IMessage<CS_CreateGuild> {
+    private static readonly pb::MessageParser<CS_CreateGuild> _parser = new pb::MessageParser<CS_CreateGuild>(() => new CS_CreateGuild());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CS_CreateGuild> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[78]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_CreateGuild() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_CreateGuild(CS_CreateGuild other) : this() {
+      name_ = other.name_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_CreateGuild Clone() {
+      return new CS_CreateGuild(this);
+    }
+
+    /// <summary>Field number for the "Name" field.</summary>
+    public const int NameFieldNumber = 1;
+    private string name_ = "";
+    /// <summary>
+    ///名字
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Name {
+      get { return name_; }
+      set {
+        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CS_CreateGuild);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CS_CreateGuild other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Name != other.Name) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Name.Length != 0) hash ^= Name.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Name.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Name);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Name.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CS_CreateGuild other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Name.Length != 0) {
+        Name = other.Name;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Name = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///申请加入公会
+  /// </summary>
+  public sealed partial class CS_JoinGuild : pb::IMessage<CS_JoinGuild> {
+    private static readonly pb::MessageParser<CS_JoinGuild> _parser = new pb::MessageParser<CS_JoinGuild>(() => new CS_JoinGuild());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CS_JoinGuild> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[79]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_JoinGuild() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_JoinGuild(CS_JoinGuild other) : this() {
+      iD_ = other.iD_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_JoinGuild Clone() {
+      return new CS_JoinGuild(this);
+    }
+
+    /// <summary>Field number for the "ID" field.</summary>
+    public const int IDFieldNumber = 1;
+    private string iD_ = "";
+    /// <summary>
+    ///公会ID
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string ID {
+      get { return iD_; }
+      set {
+        iD_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CS_JoinGuild);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CS_JoinGuild other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ID != other.ID) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ID.Length != 0) hash ^= ID.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (ID.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(ID);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (ID.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ID);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CS_JoinGuild other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ID.Length != 0) {
+        ID = other.ID;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            ID = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///查看公会详情
+  /// </summary>
+  public sealed partial class CS_GetGuildInfo : pb::IMessage<CS_GetGuildInfo> {
+    private static readonly pb::MessageParser<CS_GetGuildInfo> _parser = new pb::MessageParser<CS_GetGuildInfo>(() => new CS_GetGuildInfo());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CS_GetGuildInfo> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[80]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetGuildInfo() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetGuildInfo(CS_GetGuildInfo other) : this() {
+      iD_ = other.iD_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetGuildInfo Clone() {
+      return new CS_GetGuildInfo(this);
+    }
+
+    /// <summary>Field number for the "ID" field.</summary>
+    public const int IDFieldNumber = 1;
+    private int iD_;
+    /// <summary>
+    ///公会ID
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ID {
+      get { return iD_; }
+      set {
+        iD_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CS_GetGuildInfo);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CS_GetGuildInfo other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ID != other.ID) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ID != 0) hash ^= ID.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (ID != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(ID);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (ID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ID);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CS_GetGuildInfo other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ID != 0) {
+        ID = other.ID;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            ID = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class SC_GetGuildInfo : pb::IMessage<SC_GetGuildInfo> {
+    private static readonly pb::MessageParser<SC_GetGuildInfo> _parser = new pb::MessageParser<SC_GetGuildInfo>(() => new SC_GetGuildInfo());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<SC_GetGuildInfo> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[81]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetGuildInfo() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetGuildInfo(SC_GetGuildInfo other) : this() {
+      guildBaseInfo_ = other.guildBaseInfo_ != null ? other.guildBaseInfo_.Clone() : null;
+      characters_ = other.characters_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetGuildInfo Clone() {
+      return new SC_GetGuildInfo(this);
+    }
+
+    /// <summary>Field number for the "GuildBaseInfo" field.</summary>
+    public const int GuildBaseInfoFieldNumber = 1;
+    private global::Protomsg.GuildShortInfo guildBaseInfo_;
+    /// <summary>
+    ///公会基本信息
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Protomsg.GuildShortInfo GuildBaseInfo {
+      get { return guildBaseInfo_; }
+      set {
+        guildBaseInfo_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Characters" field.</summary>
+    public const int CharactersFieldNumber = 2;
+    private static readonly pb::FieldCodec<global::Protomsg.GuildChaInfo> _repeated_characters_codec
+        = pb::FieldCodec.ForMessage(18, global::Protomsg.GuildChaInfo.Parser);
+    private readonly pbc::RepeatedField<global::Protomsg.GuildChaInfo> characters_ = new pbc::RepeatedField<global::Protomsg.GuildChaInfo>();
+    /// <summary>
+    ///公会所有成员信息
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::Protomsg.GuildChaInfo> Characters {
+      get { return characters_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as SC_GetGuildInfo);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(SC_GetGuildInfo other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(GuildBaseInfo, other.GuildBaseInfo)) return false;
+      if(!characters_.Equals(other.characters_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (guildBaseInfo_ != null) hash ^= GuildBaseInfo.GetHashCode();
+      hash ^= characters_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (guildBaseInfo_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(GuildBaseInfo);
+      }
+      characters_.WriteTo(output, _repeated_characters_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (guildBaseInfo_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(GuildBaseInfo);
+      }
+      size += characters_.CalculateSize(_repeated_characters_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(SC_GetGuildInfo other) {
+      if (other == null) {
+        return;
+      }
+      if (other.guildBaseInfo_ != null) {
+        if (guildBaseInfo_ == null) {
+          guildBaseInfo_ = new global::Protomsg.GuildShortInfo();
+        }
+        GuildBaseInfo.MergeFrom(other.GuildBaseInfo);
+      }
+      characters_.Add(other.characters_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (guildBaseInfo_ == null) {
+              guildBaseInfo_ = new global::Protomsg.GuildShortInfo();
+            }
+            input.ReadMessage(guildBaseInfo_);
+            break;
+          }
+          case 18: {
+            characters_.AddEntriesFrom(input, _repeated_characters_codec);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///公会成员信息
+  /// </summary>
+  public sealed partial class GuildChaInfo : pb::IMessage<GuildChaInfo> {
+    private static readonly pb::MessageParser<GuildChaInfo> _parser = new pb::MessageParser<GuildChaInfo>(() => new GuildChaInfo());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<GuildChaInfo> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[82]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public GuildChaInfo() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public GuildChaInfo(GuildChaInfo other) : this() {
+      uid_ = other.uid_;
+      characterid_ = other.characterid_;
+      name_ = other.name_;
+      level_ = other.level_;
+      typeid_ = other.typeid_;
+      pinLevel_ = other.pinLevel_;
+      pinExperience_ = other.pinExperience_;
+      post_ = other.post_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public GuildChaInfo Clone() {
+      return new GuildChaInfo(this);
+    }
+
+    /// <summary>Field number for the "Uid" field.</summary>
+    public const int UidFieldNumber = 1;
+    private int uid_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Uid {
+      get { return uid_; }
+      set {
+        uid_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Characterid" field.</summary>
+    public const int CharacteridFieldNumber = 2;
+    private int characterid_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Characterid {
+      get { return characterid_; }
+      set {
+        characterid_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Name" field.</summary>
+    public const int NameFieldNumber = 3;
+    private string name_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Name {
+      get { return name_; }
+      set {
+        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Level" field.</summary>
+    public const int LevelFieldNumber = 4;
+    private int level_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Level {
+      get { return level_; }
+      set {
+        level_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Typeid" field.</summary>
+    public const int TypeidFieldNumber = 5;
+    private int typeid_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Typeid {
+      get { return typeid_; }
+      set {
+        typeid_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "PinLevel" field.</summary>
+    public const int PinLevelFieldNumber = 6;
+    private int pinLevel_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int PinLevel {
+      get { return pinLevel_; }
+      set {
+        pinLevel_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "PinExperience" field.</summary>
+    public const int PinExperienceFieldNumber = 7;
+    private int pinExperience_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int PinExperience {
+      get { return pinExperience_; }
+      set {
+        pinExperience_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Post" field.</summary>
+    public const int PostFieldNumber = 8;
+    private int post_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Post {
+      get { return post_; }
+      set {
+        post_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as GuildChaInfo);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(GuildChaInfo other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Uid != other.Uid) return false;
+      if (Characterid != other.Characterid) return false;
+      if (Name != other.Name) return false;
+      if (Level != other.Level) return false;
+      if (Typeid != other.Typeid) return false;
+      if (PinLevel != other.PinLevel) return false;
+      if (PinExperience != other.PinExperience) return false;
+      if (Post != other.Post) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Uid != 0) hash ^= Uid.GetHashCode();
+      if (Characterid != 0) hash ^= Characterid.GetHashCode();
+      if (Name.Length != 0) hash ^= Name.GetHashCode();
+      if (Level != 0) hash ^= Level.GetHashCode();
+      if (Typeid != 0) hash ^= Typeid.GetHashCode();
+      if (PinLevel != 0) hash ^= PinLevel.GetHashCode();
+      if (PinExperience != 0) hash ^= PinExperience.GetHashCode();
+      if (Post != 0) hash ^= Post.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Uid != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(Uid);
+      }
+      if (Characterid != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(Characterid);
+      }
+      if (Name.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(Name);
+      }
+      if (Level != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(Level);
+      }
+      if (Typeid != 0) {
+        output.WriteRawTag(40);
+        output.WriteInt32(Typeid);
+      }
+      if (PinLevel != 0) {
+        output.WriteRawTag(48);
+        output.WriteInt32(PinLevel);
+      }
+      if (PinExperience != 0) {
+        output.WriteRawTag(56);
+        output.WriteInt32(PinExperience);
+      }
+      if (Post != 0) {
+        output.WriteRawTag(64);
+        output.WriteInt32(Post);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Uid != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Uid);
+      }
+      if (Characterid != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Characterid);
+      }
+      if (Name.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+      }
+      if (Level != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Level);
+      }
+      if (Typeid != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Typeid);
+      }
+      if (PinLevel != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(PinLevel);
+      }
+      if (PinExperience != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(PinExperience);
+      }
+      if (Post != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Post);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(GuildChaInfo other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Uid != 0) {
+        Uid = other.Uid;
+      }
+      if (other.Characterid != 0) {
+        Characterid = other.Characterid;
+      }
+      if (other.Name.Length != 0) {
+        Name = other.Name;
+      }
+      if (other.Level != 0) {
+        Level = other.Level;
+      }
+      if (other.Typeid != 0) {
+        Typeid = other.Typeid;
+      }
+      if (other.PinLevel != 0) {
+        PinLevel = other.PinLevel;
+      }
+      if (other.PinExperience != 0) {
+        PinExperience = other.PinExperience;
+      }
+      if (other.Post != 0) {
+        Post = other.Post;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Uid = input.ReadInt32();
+            break;
+          }
+          case 16: {
+            Characterid = input.ReadInt32();
+            break;
+          }
+          case 26: {
+            Name = input.ReadString();
+            break;
+          }
+          case 32: {
+            Level = input.ReadInt32();
+            break;
+          }
+          case 40: {
+            Typeid = input.ReadInt32();
+            break;
+          }
+          case 48: {
+            PinLevel = input.ReadInt32();
+            break;
+          }
+          case 56: {
+            PinExperience = input.ReadInt32();
+            break;
+          }
+          case 64: {
+            Post = input.ReadInt32();
             break;
           }
         }

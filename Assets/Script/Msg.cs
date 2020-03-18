@@ -201,7 +201,7 @@ namespace Protomsg {
             "GAEgAygLMhgucHJvdG9tc2cuR3VpbGRTaG9ydEluZm8SFwoPQ3JlYXRlUHJp",
             "Y2VUeXBlGAIgASgFEhMKC0NyZWF0ZVByaWNlGAMgASgFIh4KDkNTX0NyZWF0",
             "ZUd1aWxkEgwKBE5hbWUYASABKAkiGgoMQ1NfSm9pbkd1aWxkEgoKAklEGAEg",
-            "ASgJIh0KD0NTX0dldEd1aWxkSW5mbxIKCgJJRBgBIAEoBSJuCg9TQ19HZXRH",
+            "ASgFIh0KD0NTX0dldEd1aWxkSW5mbxIKCgJJRBgBIAEoBSJuCg9TQ19HZXRH",
             "dWlsZEluZm8SLwoNR3VpbGRCYXNlSW5mbxgBIAEoCzIYLnByb3RvbXNnLkd1",
             "aWxkU2hvcnRJbmZvEioKCkNoYXJhY3RlcnMYAiADKAsyFi5wcm90b21zZy5H",
             "dWlsZENoYUluZm8ilAEKDEd1aWxkQ2hhSW5mbxILCgNVaWQYASABKAUSEwoL",
@@ -17885,15 +17885,15 @@ namespace Protomsg {
 
     /// <summary>Field number for the "ID" field.</summary>
     public const int IDFieldNumber = 1;
-    private string iD_ = "";
+    private int iD_;
     /// <summary>
     ///公会ID
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string ID {
+    public int ID {
       get { return iD_; }
       set {
-        iD_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        iD_ = value;
       }
     }
 
@@ -17917,7 +17917,7 @@ namespace Protomsg {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (ID.Length != 0) hash ^= ID.GetHashCode();
+      if (ID != 0) hash ^= ID.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -17931,9 +17931,9 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (ID.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(ID);
+      if (ID != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(ID);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -17943,8 +17943,8 @@ namespace Protomsg {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (ID.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(ID);
+      if (ID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ID);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -17957,7 +17957,7 @@ namespace Protomsg {
       if (other == null) {
         return;
       }
-      if (other.ID.Length != 0) {
+      if (other.ID != 0) {
         ID = other.ID;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -17971,8 +17971,8 @@ namespace Protomsg {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            ID = input.ReadString();
+          case 8: {
+            ID = input.ReadInt32();
             break;
           }
         }

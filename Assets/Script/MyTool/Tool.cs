@@ -198,6 +198,10 @@ public static class Tool {
         Debug.Log("IsChineseOrNumberOrWord:" + value+" :"+re);
         return re;
     }
+    //公会成员品级对应
+    public static string[] GuildPinLevelWords = { "无", "一品", "二品", "三品", "四品", "五品", "六品", "七品", "八品", "九品", "大宗师" };
+    //公会职位对应
+    public static string[] GuildPostWords = { "普通会员", "普通会员", "普通会员", "普通会员", "普通会员", "普通会员", "普通会员", "普通会员", "普通会员", "普通会员", "会长" };
 
     //通过频道类型获取频道文字
     public static string GetTextFromChatChanel(int chanel)

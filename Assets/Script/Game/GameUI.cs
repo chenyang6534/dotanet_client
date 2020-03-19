@@ -163,6 +163,12 @@ public class GameUI : MonoBehaviour {
             new ExchangeInfo();
         });
 
+        //公会
+        LittleMapCom.GetChild("guild").asButton.onClick.Add(() =>
+        {
+            new GuildInfo();
+        });
+
         //屏幕点击
         GObject touch = mainUI.GetChild("touchArea");
         touch.onTouchBegin.Add(OnTouchBegin);

@@ -18937,7 +18937,7 @@ namespace Protomsg {
   }
 
   /// <summary>
-  ///同意玩家加入公会
+  ///回复玩家加入公会
   /// </summary>
   public sealed partial class CS_ResponseJoinGuildPlayer : pb::IMessage<CS_ResponseJoinGuildPlayer> {
     private static readonly pb::MessageParser<CS_ResponseJoinGuildPlayer> _parser = new pb::MessageParser<CS_ResponseJoinGuildPlayer>(() => new CS_ResponseJoinGuildPlayer());

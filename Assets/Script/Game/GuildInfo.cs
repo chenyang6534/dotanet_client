@@ -143,6 +143,9 @@ public class GuildInfo
             onedropitem.GetChild("add").onClick.Add(() =>
             {
                 //申请加入公会
+                Protomsg.CS_JoinGuild msg1 = new Protomsg.CS_JoinGuild();
+                msg1.ID = item.ID;
+                MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_JoinGuild", msg1);
             });
             onedropitem.GetChild("name").asTextField.text = item.Name;
             onedropitem.GetChild("level").asTextField.text = item.Level+"";
@@ -172,6 +175,15 @@ public class GuildInfo
         {
             this.Destroy();
         });
+        //
+        main.GetChild("request").asButton.onClick.Add(() =>
+        {
+            //查看申请列表
+            Protomsg.CS_GetJoinGuildPlayer msg1 = new Protomsg.CS_GetJoinGuildPlayer();
+            msg1.ID = p1.GuildBaseInfo.ID;
+            MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetJoinGuildPlayer", msg1);
+        });
+
         //-------------------------公会成员--------------------------
         //处理排序
         Protomsg.GuildChaInfo[] allplayer = new Protomsg.GuildChaInfo[p1.Characters.Count];
@@ -221,6 +233,9 @@ public class GuildInfo
             onedropitem.GetChild("add").onClick.Add(() =>
             {
                 //踢出公会
+                Protomsg.CS_DeleteGuildPlayer msg1 = new Protomsg.CS_DeleteGuildPlayer();
+                msg1.Characterid = item.Characterid;
+                MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_DeleteGuildPlayer", msg1);
             });
             onedropitem.GetChild("name").asTextField.text = item.Name;
             onedropitem.GetChild("level").asTextField.text = item.Level + "";
@@ -278,9 +293,21 @@ public class GuildInfo
         {
             var onedropitem = UIPackage.CreateObject("GameUI", "GuildRequestPlayerOne").asCom;
 
-            onedropitem.GetChild("add").onClick.Add(() =>
+            onedropitem.GetChild("agree").onClick.Add(() =>
             {
                 //同意
+                Protomsg.CS_ResponseJoinGuildPlayer msg1 = new Protomsg.CS_ResponseJoinGuildPlayer();
+                msg1.Characterid = item.Characterid;
+                msg1.Result = 1;
+                MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_ResponseJoinGuildPlayer", msg1);
+            });
+            onedropitem.GetChild("no").onClick.Add(() =>
+            {
+                //拒绝
+                Protomsg.CS_ResponseJoinGuildPlayer msg1 = new Protomsg.CS_ResponseJoinGuildPlayer();
+                msg1.Characterid = item.Characterid;
+                msg1.Result = 0;
+                MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_ResponseJoinGuildPlayer", msg1);
             });
             onedropitem.GetChild("name").asTextField.text = item.Name;
             onedropitem.GetChild("level").asTextField.text = item.Level + "";

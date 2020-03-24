@@ -49,6 +49,17 @@ public class ItemInfo {
         main.GetChild("des").asTextField.text = clientitem.Des;
     }
 
+    //增加额外的描述文字
+    public void AddDes(string adddes)
+    {
+        if (main == null)
+        {
+            return;
+        }
+        //描述
+        main.GetChild("des").asTextField.text = main.GetChild("des").asTextField.text + adddes;
+    }
+
     //
     public void Destroy()
     {

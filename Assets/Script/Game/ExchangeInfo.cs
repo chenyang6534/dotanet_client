@@ -16,6 +16,7 @@ public class ExchangeInfo
         MsgManager.Instance.AddListener("SC_GetExchangeShortCommoditys", new HandleMsg(this.SC_GetExchangeShortCommoditys));
         MsgManager.Instance.AddListener("SC_GetExchangeDetailedCommoditys", new HandleMsg(this.SC_GetExchangeDetailedCommoditys));
         MsgManager.Instance.AddListener("SC_GetSellUIInfo", new HandleMsg(this.SC_GetSellUIInfo));
+        MsgManager.Instance.AddListener("SC_GetAuctionItems", new HandleMsg(this.SC_GetAuctionItems));
         //获取数据
         Protomsg.CS_GetExchangeShortCommoditys msg1 = new Protomsg.CS_GetExchangeShortCommoditys();
         MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetExchangeShortCommoditys", msg1);
@@ -163,7 +164,7 @@ public class ExchangeInfo
             onedropitem.GetChild("price").asTextField.text = item.CommodityData.Price + "";
             onedropitem.GetChild("level").asTextField.text = item.CommodityData.Level + "";
             onedropitem.GetChild("pricetype").asLoader.url = Tool.GetPriceTypeIcon(item.CommodityData.PriceType);
-            onedropitem.onClick.Add(() =>
+            onedropitem.GetChild("n2").onClick.Add(() =>
             {
                 //购买
                 var sellwindow = UIPackage.CreateObject("GameUI", "exchangebuy").asCom;
@@ -192,6 +193,61 @@ public class ExchangeInfo
         }
         return true;
     }
+
+    //
+
+    public bool SC_GetAuctionItems(Protomsg.MsgBase d1)
+    {
+        Debug.Log("SC_GetAuctionItems:");
+        IMessage IMperson = new Protomsg.SC_GetAuctionItems();
+        Protomsg.SC_GetAuctionItems p1 = (Protomsg.SC_GetAuctionItems)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
+        if(main == null)
+        {
+            return true;
+        }
+        main.GetChild("auctionlist").asList.RemoveChildren(0, -1, true);
+        //处理排序
+        Protomsg.AuctionItem[] allplayer = new Protomsg.AuctionItem[p1.Items.Count];
+        p1.Items.CopyTo(allplayer, 0);
+        System.Array.Sort(allplayer, (a, b) => {
+
+            if (a.RemainTime > b.RemainTime)
+            {
+                return -1;
+            }
+            else if (a.RemainTime < b.RemainTime)
+            {
+                return 1;
+            }
+            return 0;
+        });
+
+        //遍历
+        foreach (var item in allplayer)
+        {
+            var clientitem = ExcelManager.Instance.GetItemManager().GetItemByID(item.ItemID);
+            if (clientitem == null)
+            {
+                continue;
+            }
+
+            var onedropitem = UIPackage.CreateObject("GameUI", "AuctionOne").asCom;
+            onedropitem.GetChild("name").asTextField.text = clientitem.Name;
+            onedropitem.GetChild("item").asCom.GetChild("icon").asLoader.url = clientitem.IconPath;
+            onedropitem.GetChild("item").asCom.GetChild("level").asTextField.text = item.Level+"";
+
+            onedropitem.GetChild("pricetype").asLoader.url = Tool.GetPriceTypeIcon(item.PriceType);
+            onedropitem.GetChild("price").asTextField.text = item.Price+"";
+            onedropitem.GetChild("playername").asTextField.text = item.BidderCharacterName;
+            onedropitem.GetChild("remaintime").asTextField.text = item.RemainTime+"s";
+
+            main.GetChild("auctionlist").asList.AddChild(onedropitem);
+
+        }
+
+        return true;
+    }
+
     public bool SC_GetSellUIInfo(Protomsg.MsgBase d1)
     {
         Debug.Log("SC_GetSellUIInfo:");
@@ -364,6 +420,7 @@ public class ExchangeInfo
         MsgManager.Instance.RemoveListener("SC_GetExchangeShortCommoditys");
         MsgManager.Instance.RemoveListener("SC_GetExchangeDetailedCommoditys"); 
         MsgManager.Instance.RemoveListener("SC_GetSellUIInfo");
+        MsgManager.Instance.RemoveListener("SC_GetAuctionItems");
         AudioManager.Am.Play2DSound(AudioManager.Sound_CloseUI);
         if (main != null)
         {

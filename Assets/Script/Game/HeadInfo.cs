@@ -130,25 +130,23 @@ public class HeadInfo{
         headselect.x += 50;
         headselect.y += 50;
 
-        //-------
-        //headselect.onClick.Add(() => {
-        //    Debug.Log(" 组件点击测试");
+        
+        //注销组队功能
+        //headselect.GetChild("team").asButton.onClick.Add(() =>
+        //{
+
+        //    if (GameScene.Singleton.m_MyMainUnit == null || unit == null)
+        //    {
+        //        GRoot.inst.HidePopup(headselect);
+        //        return;
+        //    }
+
+        //    Protomsg.CS_OrganizeTeam msg1 = new Protomsg.CS_OrganizeTeam();
+        //    msg1.Player1 = GameScene.Singleton.m_MyMainUnit.ControlID;
+        //    msg1.Player2 = unit.ControlID;
+        //    MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_OrganizeTeam", msg1);
+        //    GRoot.inst.HidePopup(headselect);
         //});
-
-        headselect.GetChild("team").asButton.onClick.Add(() =>
-        {
-            if(GameScene.Singleton.m_MyMainUnit == null || unit == null)
-            {
-                GRoot.inst.HidePopup(headselect);
-                return;
-            }
-
-            Protomsg.CS_OrganizeTeam msg1 = new Protomsg.CS_OrganizeTeam();
-            msg1.Player1 = GameScene.Singleton.m_MyMainUnit.ControlID;
-            msg1.Player2 = unit.ControlID;
-            MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_OrganizeTeam", msg1);
-            GRoot.inst.HidePopup(headselect);
-        });
 
         headselect.GetChild("info").asButton.onClick.Add(() =>
         {

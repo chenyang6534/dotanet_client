@@ -111,14 +111,15 @@ public class Friends : MonoBehaviour {
                         ChatUI.SOpenChatBox("zonghe", p1.Name, p1.Uid);
                         GRoot.inst.HidePopup(headselect);
                     });
-                    headselect.GetChild("zudui").asButton.onClick.Add(() =>
-                    {
-                        Protomsg.CS_OrganizeTeam msg1 = new Protomsg.CS_OrganizeTeam();
-                        msg1.Player1 = GameScene.Singleton.m_MyMainUnit.ControlID;
-                        msg1.Player2 = p1.Uid;
-                        MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_OrganizeTeam", msg1);
-                        GRoot.inst.HidePopup(headselect);
-                    });
+                    //注销组队功能
+                    //headselect.GetChild("zudui").asButton.onClick.Add(() =>
+                    //{
+                    //    Protomsg.CS_OrganizeTeam msg1 = new Protomsg.CS_OrganizeTeam();
+                    //    msg1.Player1 = GameScene.Singleton.m_MyMainUnit.ControlID;
+                    //    msg1.Player2 = p1.Uid;
+                    //    MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_OrganizeTeam", msg1);
+                    //    GRoot.inst.HidePopup(headselect);
+                    //});
                 });
                 
                 

@@ -177,11 +177,11 @@ public class GuildInfo
 
             if (a.RemainTime > b.RemainTime)
             {
-                return -1;
+                return 1;
             }
             else if (a.RemainTime < b.RemainTime)
             {
-                return 1;
+                return -1;
             }
             return 0;
         });
@@ -303,6 +303,28 @@ public class GuildInfo
         {
             this.Destroy();
         });
+        //自己退出公会
+        main.GetChild("exit").asButton.onClick.Add(() =>
+        {
+            Tool.NoticeWindonw("你确定要退出公会吗?", () =>
+            {
+                Protomsg.CS_GuildOperate msg1 = new Protomsg.CS_GuildOperate();
+                msg1.Code = 1;//
+                MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GuildOperate", msg1);
+            });
+        });
+        //解散公会
+        main.GetChild("dismiss").asButton.onClick.Add(() =>
+        {
+            Tool.NoticeWindonw("你确定要解散公会吗?", () =>
+            {
+                Protomsg.CS_GuildOperate msg1 = new Protomsg.CS_GuildOperate();
+                msg1.Code = 2;//
+                MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GuildOperate", msg1);
+            });
+        });
+
+
         //
         main.GetChild("request").asButton.onClick.Add(() =>
         {
@@ -370,9 +392,13 @@ public class GuildInfo
             onedropitem.GetChild("add").onClick.Add(() =>
             {
                 //踢出公会
-                Protomsg.CS_DeleteGuildPlayer msg1 = new Protomsg.CS_DeleteGuildPlayer();
-                msg1.Characterid = item.Characterid;
-                MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_DeleteGuildPlayer", msg1);
+                Tool.NoticeWindonw("你确定要把("+ item.Name+")踢出公会吗?", () =>
+                {
+                    Protomsg.CS_DeleteGuildPlayer msg1 = new Protomsg.CS_DeleteGuildPlayer();
+                    msg1.Characterid = item.Characterid;
+                    MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_DeleteGuildPlayer", msg1);
+                });
+                
             });
             onedropitem.GetChild("name").asTextField.text = item.Name;
             onedropitem.GetChild("level").asTextField.text = item.Level + "";

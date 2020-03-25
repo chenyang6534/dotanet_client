@@ -217,6 +217,8 @@ public static class Tool {
                 return "私聊";
             case 4:
                 return "队伍";
+            case 5:
+                return "公会";
         }
 
         return "附近";
@@ -256,7 +258,7 @@ public static class Tool {
     //通过频道类型获取频道内容颜色
     public static string GetContetColorFromChatChanel(int chanel)
     {
-        //////聊天频道 1附近 2全服 3私聊 4队伍
+        //////聊天频道 1附近 2全服 3私聊 4队伍 5公会
         switch (chanel)
         {
             case 1:
@@ -266,6 +268,8 @@ public static class Tool {
             case 3:
                 return "[color=#ff00ff]";
             case 4:
+                return "[color=#FFFF33]";
+            case 5:
                 return "[color=#FFFF33]";
         }
 

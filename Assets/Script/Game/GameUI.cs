@@ -88,15 +88,12 @@ public class GameUI : MonoBehaviour {
 
 
         //显示隐藏组队界面按钮
-        ShowOffBtn = mainUI.GetChild("showoffbtn1").asButton;
-        //ShowOffBtn.selected = false;
-        ShowOffBtn.onClick.Add((EventContext context) => {
-            //ShowOffBtn.selected = true;
-            TeamInfo.visible = !TeamInfo.visible;
-            //if(TeamInfo.visible)
-            //TeamInfoShow(ShowOffBtn.selected);
-            Debug.Log("-----------ShowOffBtn:" + TeamInfo.visible);
-        });
+        //ShowOffBtn = mainUI.GetChild("showoffbtn1").asButton;
+        //ShowOffBtn.visible = false;//注销组队功能
+        //ShowOffBtn.onClick.Add((EventContext context) => {
+        //    TeamInfo.visible = !TeamInfo.visible;
+        //    Debug.Log("-----------ShowOffBtn:" + TeamInfo.visible);
+        //});
 
         //聊天信息
         LittleChat = mainUI.GetChild("littlechat").asCom;
@@ -487,6 +484,7 @@ public class GameUI : MonoBehaviour {
     protected void TeamInfoShow(bool isshow)
     {
         TeamInfo.visible = isshow;
+        TeamInfo.visible = false;//注销组队功能
     }
 
     //更新组队信息

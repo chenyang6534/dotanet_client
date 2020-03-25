@@ -7,7 +7,7 @@ using Google.Protobuf;
 public class ChatUI : MonoBehaviour {
     protected GComponent ChatBoxCom;//聊天界面
 
-    //////聊天频道 1附近 2全服 3私聊 4队伍
+    //////聊天频道 1附近 2全服 3私聊 4队伍 5公会
     protected int ZongHe_Chanel;//综合页面 发现消息的频道
     //输入框
     protected GTextInput InputContent;//输入框
@@ -82,6 +82,12 @@ public class ChatUI : MonoBehaviour {
             InputContent.text = ChangeTextDest(InputContent.text, "team");
             //Debug.Log("changedest2:" + InputContent.text);
         }
+        else if (chanel == 5)
+        {
+            //Debug.Log("changedest1:" + InputContent.text);
+            InputContent.text = ChangeTextDest(InputContent.text, "公会");
+            //Debug.Log("changedest2:" + InputContent.text);
+        }
     }
 
     //设置发送消息频道
@@ -114,6 +120,10 @@ public class ChatUI : MonoBehaviour {
             }else if(curpagename == "siliao")
             {
                 chanel = 3;
+            }
+            else if (curpagename == "guild")
+            {
+                chanel = 5;
             }
         }
 
@@ -180,6 +190,16 @@ public class ChatUI : MonoBehaviour {
                 ChatBoxCom.GetChild("selectchanel").visible = false;
                 SetSendMsgChanel(4);
             });
+            //公会
+            ChatBoxCom.GetChild("selectchanel").asCom.GetChild("guild").onClick.Add(() => {
+                var curpagename = ChatBoxCom.GetController("page").selectedPage;
+                if (curpagename != "guild" && curpagename != "zonghe")
+                {
+                    OpenChatBox("guild", "", 0);
+                }
+                ChatBoxCom.GetChild("selectchanel").visible = false;
+                SetSendMsgChanel(5);
+            });
             //地图
             ChatBoxCom.GetChild("selectchanel").asCom.GetChild("fujin").onClick.Add(() => {
                 var curpagename = ChatBoxCom.GetController("page").selectedPage;
@@ -205,6 +225,10 @@ public class ChatUI : MonoBehaviour {
                     else if (curpagename == "duiwu")
                     {
                         chanel = 4;
+                    }
+                    else if (curpagename == "guild")
+                    {
+                        chanel = 5;
                     }
                     ChangeDest(chanel, DestPlayerName, DestPlayerUID);
                 }
@@ -321,14 +345,15 @@ public class ChatUI : MonoBehaviour {
 
                     GRoot.inst.HidePopup(headselect);
                 });
-                headselect.GetChild("zudui").asButton.onClick.Add(() =>
-                {
-                    Protomsg.CS_OrganizeTeam msg1 = new Protomsg.CS_OrganizeTeam();
-                    msg1.Player1 = GameScene.Singleton.m_MyMainUnit.ControlID;
-                    msg1.Player2 = msg.SrcPlayerUID;
-                    MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_OrganizeTeam", msg1);
-                    GRoot.inst.HidePopup(headselect);
-                });
+                //注销组队功能
+                //headselect.GetChild("zudui").asButton.onClick.Add(() =>
+                //{
+                //    Protomsg.CS_OrganizeTeam msg1 = new Protomsg.CS_OrganizeTeam();
+                //    msg1.Player1 = GameScene.Singleton.m_MyMainUnit.ControlID;
+                //    msg1.Player2 = msg.SrcPlayerUID;
+                //    MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_OrganizeTeam", msg1);
+                //    GRoot.inst.HidePopup(headselect);
+                //});
                 headselect.GetChild("haoyou").asButton.onClick.Add(() =>
                 {
                     Protomsg.CS_AddFriendRequest msg1 = new Protomsg.CS_AddFriendRequest();
@@ -378,6 +403,10 @@ public class ChatUI : MonoBehaviour {
         if (p1.Channel == 4)
         {
             AddChatMsg2Chanel(p1, "duiwu");
+        }
+        if (p1.Channel == 5)
+        {
+            AddChatMsg2Chanel(p1, "guild");
         }
 
         return true;

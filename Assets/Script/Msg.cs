@@ -213,14 +213,15 @@ namespace Protomsg {
             "YXJhY3RlcnMYASADKAsyFi5wcm90b21zZy5HdWlsZENoYUluZm8iQQoaQ1Nf",
             "UmVzcG9uc2VKb2luR3VpbGRQbGF5ZXISEwoLQ2hhcmFjdGVyaWQYASABKAUS",
             "DgoGUmVzdWx0GAIgASgFIisKFENTX0RlbGV0ZUd1aWxkUGxheWVyEhMKC0No",
-            "YXJhY3RlcmlkGAEgASgFIiAKEkNTX0dldEF1Y3Rpb25JdGVtcxIKCgJJRBgB",
-            "IAEoBSI6ChJTQ19HZXRBdWN0aW9uSXRlbXMSJAoFSXRlbXMYASADKAsyFS5w",
-            "cm90b21zZy5BdWN0aW9uSXRlbSKqAQoLQXVjdGlvbkl0ZW0SCgoCSUQYASAB",
-            "KAUSDgoGSXRlbUlEGAIgASgFEhEKCVByaWNlVHlwZRgDIAEoBRINCgVQcmlj",
-            "ZRgEIAEoBRINCgVMZXZlbBgFIAEoBRIbChNCaWRkZXJDaGFyYWN0ZXJOYW1l",
-            "GAYgASgJEh0KFVJlY2VpdmVjaGFyYWN0ZXJzTmFtZRgHIAMoCRISCgpSZW1h",
-            "aW5UaW1lGAggASgFIjMKFkNTX05ld1ByaWNlQXVjdGlvbkl0ZW0SCgoCSUQY",
-            "ASABKAUSDQoFUHJpY2UYAiABKAViBnByb3RvMw=="));
+            "YXJhY3RlcmlkGAEgASgFIh8KD0NTX0d1aWxkT3BlcmF0ZRIMCgRDb2RlGAEg",
+            "ASgFIiAKEkNTX0dldEF1Y3Rpb25JdGVtcxIKCgJJRBgBIAEoBSI6ChJTQ19H",
+            "ZXRBdWN0aW9uSXRlbXMSJAoFSXRlbXMYASADKAsyFS5wcm90b21zZy5BdWN0",
+            "aW9uSXRlbSKqAQoLQXVjdGlvbkl0ZW0SCgoCSUQYASABKAUSDgoGSXRlbUlE",
+            "GAIgASgFEhEKCVByaWNlVHlwZRgDIAEoBRINCgVQcmljZRgEIAEoBRINCgVM",
+            "ZXZlbBgFIAEoBRIbChNCaWRkZXJDaGFyYWN0ZXJOYW1lGAYgASgJEh0KFVJl",
+            "Y2VpdmVjaGFyYWN0ZXJzTmFtZRgHIAMoCRISCgpSZW1haW5UaW1lGAggASgF",
+            "IjMKFkNTX05ld1ByaWNlQXVjdGlvbkl0ZW0SCgoCSUQYASABKAUSDQoFUHJp",
+            "Y2UYAiABKAViBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -311,6 +312,7 @@ namespace Protomsg {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetJoinGuildPlayer), global::Protomsg.SC_GetJoinGuildPlayer.Parser, new[]{ "RequestCharacters" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_ResponseJoinGuildPlayer), global::Protomsg.CS_ResponseJoinGuildPlayer.Parser, new[]{ "Characterid", "Result" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_DeleteGuildPlayer), global::Protomsg.CS_DeleteGuildPlayer.Parser, new[]{ "Characterid" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GuildOperate), global::Protomsg.CS_GuildOperate.Parser, new[]{ "Code" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GetAuctionItems), global::Protomsg.CS_GetAuctionItems.Parser, new[]{ "ID" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetAuctionItems), global::Protomsg.SC_GetAuctionItems.Parser, new[]{ "Items" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.AuctionItem), global::Protomsg.AuctionItem.Parser, new[]{ "ID", "ItemID", "PriceType", "Price", "Level", "BidderCharacterName", "ReceivecharactersName", "RemainTime" }, null, null, null),
@@ -19243,6 +19245,141 @@ namespace Protomsg {
   }
 
   /// <summary>
+  ///公会操作
+  /// </summary>
+  public sealed partial class CS_GuildOperate : pb::IMessage<CS_GuildOperate> {
+    private static readonly pb::MessageParser<CS_GuildOperate> _parser = new pb::MessageParser<CS_GuildOperate>(() => new CS_GuildOperate());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CS_GuildOperate> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[87]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GuildOperate() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GuildOperate(CS_GuildOperate other) : this() {
+      code_ = other.code_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GuildOperate Clone() {
+      return new CS_GuildOperate(this);
+    }
+
+    /// <summary>Field number for the "Code" field.</summary>
+    public const int CodeFieldNumber = 1;
+    private int code_;
+    /// <summary>
+    ///1表示自己退出公会 2表示解散公会
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Code {
+      get { return code_; }
+      set {
+        code_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CS_GuildOperate);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CS_GuildOperate other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Code != other.Code) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Code != 0) hash ^= Code.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Code != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(Code);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Code != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Code);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CS_GuildOperate other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Code != 0) {
+        Code = other.Code;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Code = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
   ///获取公会拍卖物品
   /// </summary>
   public sealed partial class CS_GetAuctionItems : pb::IMessage<CS_GetAuctionItems> {
@@ -19253,7 +19390,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[87]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[88]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -19382,7 +19519,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[88]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[89]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -19508,7 +19645,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[89]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[90]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -19852,7 +19989,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[90]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[91]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

@@ -402,8 +402,9 @@ public class GuildInfo
             });
             onedropitem.GetChild("name").asTextField.text = item.Name;
             onedropitem.GetChild("level").asTextField.text = item.Level + "";
-            onedropitem.GetChild("pinlevel").asTextField.text = Tool.GuildPinLevelWords[item.PinLevel];
-            onedropitem.GetChild("post").asTextField.text = Tool.GuildPostWords[item.Post];
+            onedropitem.GetChild("pinlevel").asTextField.text = item.PinLevelName;
+            onedropitem.GetChild("post").asTextField.text = item.PostName;
+            onedropitem.GetChild("experience").asTextField.text = item.PinExperience+"/"+item.PinMaxExperience;
 
             var clientitem = ExcelManager.Instance.GetUnitInfoManager().GetUnitInfoByID(item.Typeid);
             if (clientitem != null)

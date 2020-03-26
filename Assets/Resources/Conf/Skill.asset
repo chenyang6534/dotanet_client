@@ -616,3 +616,8 @@ MonoBehaviour:
     Name: "\u6492\u65E6"
     Des: 
     AutoAimType: 1
+  - TypeID: 121
+    IconPath: "ui://GameUI/\u56DE\u57CE\u5377\u8F74"
+    Name: "\u56DE\u57CE"
+    Des: 
+    AutoAimType: 1

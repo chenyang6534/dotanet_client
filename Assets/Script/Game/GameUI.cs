@@ -690,7 +690,7 @@ public class GameUI : MonoBehaviour {
         }
     }
 
-    public Vector2[] ItemSkillPos =
+    public Vector2[] ItemSkillPos1 =
     {
         new Vector2(780-1109,624-579),
         new Vector2(680-1109,624-579),
@@ -698,6 +698,7 @@ public class GameUI : MonoBehaviour {
         new Vector2(480-1109,624-579),
         new Vector2(380-1109,624-579),
         new Vector2(280-1109,624-579),
+        new Vector2(980-1109+20,624-579+20), //回城券位置
     };
     public Dictionary<int, Skillstick> ItemSkillCom;
     //刷新道具技能显示FreshItemSkill(data.ISD);
@@ -728,16 +729,30 @@ public class GameUI : MonoBehaviour {
             if (ItemSkillCom.ContainsKey(item.TypeID))
             {
                 ItemSkillCom[item.TypeID].SkillDatas = item;
-                ItemSkillCom[item.TypeID].SetXY(ItemSkillPos[index]);
+                
+                if (item.Index == 7)
+                {
+                    ItemSkillCom[item.TypeID].SetXY(ItemSkillPos1[6]);
+                }
+                else
+                {
+                    ItemSkillCom[item.TypeID].SetXY(ItemSkillPos1[index]);
+                }
+                
             }
             else
             {
+                Debug.Log("  len:" + ItemSkillPos1.Length);
                 GComponent view = UIPackage.CreateObject("GameUI", "Skillstick").asCom;
                 //GRoot.inst.AddChild(view);
                 mainUI.GetChild("attack").asCom.AddChild(view);
                 if (index < 6)
                 {
-                    view.xy = ItemSkillPos[index];
+                    view.xy = ItemSkillPos1[index];
+                }
+                if (item.Index == 7)
+                {
+                    view.xy = ItemSkillPos1[6];
                 }
                 ItemSkillCom[item.TypeID] = new Skillstick(view,true);
                 ItemSkillCom[item.TypeID].SkillDatas = item;

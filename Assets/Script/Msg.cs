@@ -205,23 +205,24 @@ namespace Protomsg {
             "dEd1aWxkSW5mbxIKCgJJRBgBIAEoBSJuCg9TQ19HZXRHdWlsZEluZm8SLwoN",
             "R3VpbGRCYXNlSW5mbxgBIAEoCzIYLnByb3RvbXNnLkd1aWxkU2hvcnRJbmZv",
             "EioKCkNoYXJhY3RlcnMYAiADKAsyFi5wcm90b21zZy5HdWlsZENoYUluZm8i",
-            "lAEKDEd1aWxkQ2hhSW5mbxILCgNVaWQYASABKAUSEwoLQ2hhcmFjdGVyaWQY",
+            "1gEKDEd1aWxkQ2hhSW5mbxILCgNVaWQYASABKAUSEwoLQ2hhcmFjdGVyaWQY",
             "AiABKAUSDAoETmFtZRgDIAEoCRINCgVMZXZlbBgEIAEoBRIOCgZUeXBlaWQY",
             "BSABKAUSEAoIUGluTGV2ZWwYBiABKAUSFQoNUGluRXhwZXJpZW5jZRgHIAEo",
-            "BRIMCgRQb3N0GAggASgFIiMKFUNTX0dldEpvaW5HdWlsZFBsYXllchIKCgJJ",
-            "RBgBIAEoBSJKChVTQ19HZXRKb2luR3VpbGRQbGF5ZXISMQoRUmVxdWVzdENo",
-            "YXJhY3RlcnMYASADKAsyFi5wcm90b21zZy5HdWlsZENoYUluZm8iQQoaQ1Nf",
-            "UmVzcG9uc2VKb2luR3VpbGRQbGF5ZXISEwoLQ2hhcmFjdGVyaWQYASABKAUS",
-            "DgoGUmVzdWx0GAIgASgFIisKFENTX0RlbGV0ZUd1aWxkUGxheWVyEhMKC0No",
-            "YXJhY3RlcmlkGAEgASgFIh8KD0NTX0d1aWxkT3BlcmF0ZRIMCgRDb2RlGAEg",
-            "ASgFIiAKEkNTX0dldEF1Y3Rpb25JdGVtcxIKCgJJRBgBIAEoBSI6ChJTQ19H",
-            "ZXRBdWN0aW9uSXRlbXMSJAoFSXRlbXMYASADKAsyFS5wcm90b21zZy5BdWN0",
-            "aW9uSXRlbSKqAQoLQXVjdGlvbkl0ZW0SCgoCSUQYASABKAUSDgoGSXRlbUlE",
-            "GAIgASgFEhEKCVByaWNlVHlwZRgDIAEoBRINCgVQcmljZRgEIAEoBRINCgVM",
-            "ZXZlbBgFIAEoBRIbChNCaWRkZXJDaGFyYWN0ZXJOYW1lGAYgASgJEh0KFVJl",
-            "Y2VpdmVjaGFyYWN0ZXJzTmFtZRgHIAMoCRISCgpSZW1haW5UaW1lGAggASgF",
-            "IjMKFkNTX05ld1ByaWNlQXVjdGlvbkl0ZW0SCgoCSUQYASABKAUSDQoFUHJp",
-            "Y2UYAiABKAViBnByb3RvMw=="));
+            "BRIMCgRQb3N0GAggASgFEhQKDFBpbkxldmVsTmFtZRgJIAEoCRIQCghQb3N0",
+            "TmFtZRgKIAEoCRIYChBQaW5NYXhFeHBlcmllbmNlGAsgASgFIiMKFUNTX0dl",
+            "dEpvaW5HdWlsZFBsYXllchIKCgJJRBgBIAEoBSJKChVTQ19HZXRKb2luR3Vp",
+            "bGRQbGF5ZXISMQoRUmVxdWVzdENoYXJhY3RlcnMYASADKAsyFi5wcm90b21z",
+            "Zy5HdWlsZENoYUluZm8iQQoaQ1NfUmVzcG9uc2VKb2luR3VpbGRQbGF5ZXIS",
+            "EwoLQ2hhcmFjdGVyaWQYASABKAUSDgoGUmVzdWx0GAIgASgFIisKFENTX0Rl",
+            "bGV0ZUd1aWxkUGxheWVyEhMKC0NoYXJhY3RlcmlkGAEgASgFIh8KD0NTX0d1",
+            "aWxkT3BlcmF0ZRIMCgRDb2RlGAEgASgFIiAKEkNTX0dldEF1Y3Rpb25JdGVt",
+            "cxIKCgJJRBgBIAEoBSI6ChJTQ19HZXRBdWN0aW9uSXRlbXMSJAoFSXRlbXMY",
+            "ASADKAsyFS5wcm90b21zZy5BdWN0aW9uSXRlbSKqAQoLQXVjdGlvbkl0ZW0S",
+            "CgoCSUQYASABKAUSDgoGSXRlbUlEGAIgASgFEhEKCVByaWNlVHlwZRgDIAEo",
+            "BRINCgVQcmljZRgEIAEoBRINCgVMZXZlbBgFIAEoBRIbChNCaWRkZXJDaGFy",
+            "YWN0ZXJOYW1lGAYgASgJEh0KFVJlY2VpdmVjaGFyYWN0ZXJzTmFtZRgHIAMo",
+            "CRISCgpSZW1haW5UaW1lGAggASgFIjMKFkNTX05ld1ByaWNlQXVjdGlvbkl0",
+            "ZW0SCgoCSUQYASABKAUSDQoFUHJpY2UYAiABKAViBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -307,7 +308,7 @@ namespace Protomsg {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_JoinGuild), global::Protomsg.CS_JoinGuild.Parser, new[]{ "ID" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GetGuildInfo), global::Protomsg.CS_GetGuildInfo.Parser, new[]{ "ID" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetGuildInfo), global::Protomsg.SC_GetGuildInfo.Parser, new[]{ "GuildBaseInfo", "Characters" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.GuildChaInfo), global::Protomsg.GuildChaInfo.Parser, new[]{ "Uid", "Characterid", "Name", "Level", "Typeid", "PinLevel", "PinExperience", "Post" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.GuildChaInfo), global::Protomsg.GuildChaInfo.Parser, new[]{ "Uid", "Characterid", "Name", "Level", "Typeid", "PinLevel", "PinExperience", "Post", "PinLevelName", "PostName", "PinMaxExperience" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GetJoinGuildPlayer), global::Protomsg.CS_GetJoinGuildPlayer.Parser, new[]{ "ID" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetJoinGuildPlayer), global::Protomsg.SC_GetJoinGuildPlayer.Parser, new[]{ "RequestCharacters" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_ResponseJoinGuildPlayer), global::Protomsg.CS_ResponseJoinGuildPlayer.Parser, new[]{ "Characterid", "Result" }, null, null, null),
@@ -18398,6 +18399,9 @@ namespace Protomsg {
       pinLevel_ = other.pinLevel_;
       pinExperience_ = other.pinExperience_;
       post_ = other.post_;
+      pinLevelName_ = other.pinLevelName_;
+      postName_ = other.postName_;
+      pinMaxExperience_ = other.pinMaxExperience_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -18494,6 +18498,39 @@ namespace Protomsg {
       }
     }
 
+    /// <summary>Field number for the "PinLevelName" field.</summary>
+    public const int PinLevelNameFieldNumber = 9;
+    private string pinLevelName_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string PinLevelName {
+      get { return pinLevelName_; }
+      set {
+        pinLevelName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "PostName" field.</summary>
+    public const int PostNameFieldNumber = 10;
+    private string postName_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string PostName {
+      get { return postName_; }
+      set {
+        postName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "PinMaxExperience" field.</summary>
+    public const int PinMaxExperienceFieldNumber = 11;
+    private int pinMaxExperience_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int PinMaxExperience {
+      get { return pinMaxExperience_; }
+      set {
+        pinMaxExperience_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as GuildChaInfo);
@@ -18515,6 +18552,9 @@ namespace Protomsg {
       if (PinLevel != other.PinLevel) return false;
       if (PinExperience != other.PinExperience) return false;
       if (Post != other.Post) return false;
+      if (PinLevelName != other.PinLevelName) return false;
+      if (PostName != other.PostName) return false;
+      if (PinMaxExperience != other.PinMaxExperience) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -18529,6 +18569,9 @@ namespace Protomsg {
       if (PinLevel != 0) hash ^= PinLevel.GetHashCode();
       if (PinExperience != 0) hash ^= PinExperience.GetHashCode();
       if (Post != 0) hash ^= Post.GetHashCode();
+      if (PinLevelName.Length != 0) hash ^= PinLevelName.GetHashCode();
+      if (PostName.Length != 0) hash ^= PostName.GetHashCode();
+      if (PinMaxExperience != 0) hash ^= PinMaxExperience.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -18574,6 +18617,18 @@ namespace Protomsg {
         output.WriteRawTag(64);
         output.WriteInt32(Post);
       }
+      if (PinLevelName.Length != 0) {
+        output.WriteRawTag(74);
+        output.WriteString(PinLevelName);
+      }
+      if (PostName.Length != 0) {
+        output.WriteRawTag(82);
+        output.WriteString(PostName);
+      }
+      if (PinMaxExperience != 0) {
+        output.WriteRawTag(88);
+        output.WriteInt32(PinMaxExperience);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -18605,6 +18660,15 @@ namespace Protomsg {
       }
       if (Post != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Post);
+      }
+      if (PinLevelName.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(PinLevelName);
+      }
+      if (PostName.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(PostName);
+      }
+      if (PinMaxExperience != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(PinMaxExperience);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -18640,6 +18704,15 @@ namespace Protomsg {
       }
       if (other.Post != 0) {
         Post = other.Post;
+      }
+      if (other.PinLevelName.Length != 0) {
+        PinLevelName = other.PinLevelName;
+      }
+      if (other.PostName.Length != 0) {
+        PostName = other.PostName;
+      }
+      if (other.PinMaxExperience != 0) {
+        PinMaxExperience = other.PinMaxExperience;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -18682,6 +18755,18 @@ namespace Protomsg {
           }
           case 64: {
             Post = input.ReadInt32();
+            break;
+          }
+          case 74: {
+            PinLevelName = input.ReadString();
+            break;
+          }
+          case 82: {
+            PostName = input.ReadString();
+            break;
+          }
+          case 88: {
+            PinMaxExperience = input.ReadInt32();
             break;
           }
         }

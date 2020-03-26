@@ -13,7 +13,7 @@ public class MyEditor : Editor
 {
     
     static string  []SceneName = { "Map/Scene1" };
-    static string[] CreateUnits = { "Map/CreateUnits/CreateUnits1", "Map/CreateUnits/CreateUnits2","Map/CreateUnits/CreateUnits3"
+    static string[] CreateUnits = { "Map/CreateUnits/CreateUnits0","Map/CreateUnits/CreateUnits1", "Map/CreateUnits/CreateUnits2","Map/CreateUnits/CreateUnits3"
             ,"Map/CreateUnits/CreateUnits100","Map/CreateUnits/CreateUnits101","Map/CreateUnits/CreateUnits102"
     ,"Map/CreateUnits/CreateUnits200","Map/CreateUnits/CreateUnits201","Map/CreateUnits/CreateUnits202"
     ,"Map/CreateUnits/CreateUnits300","Map/CreateUnits/CreateUnits301","Map/CreateUnits/CreateUnits302"

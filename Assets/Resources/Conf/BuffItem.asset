@@ -1132,3 +1132,19 @@ MonoBehaviour:
     IconPath: 
     IconTimeEnable: 1
     IsShowControl: 1
+  - TypeID: 237
+    BodyEffect: 
+    FootEffect: 
+    Enable: 1
+    HeadEffect: 
+    TopBarEffect: 
+    RenderColor: 1
+    OutEffect: 
+    NativeTopBarEffect: 
+    HandsEffect: 
+    FootsEffect: 
+    MaterialEffect: 
+    ModeEnable: 1
+    IconPath: "ui://GameUI/\u56DE\u57CE\u5377\u8F74"
+    IconTimeEnable: 1
+    IsShowControl: 0

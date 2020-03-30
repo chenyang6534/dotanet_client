@@ -23,6 +23,9 @@ public class GuildInfo
         MsgManager.Instance.AddListener("SC_GetJoinGuildPlayer", new HandleMsg(this.SC_GetJoinGuildPlayer));
         MsgManager.Instance.AddListener("SC_GetAuctionItems", new HandleMsg(this.SC_GetAuctionItems));
 
+        MsgManager.Instance.AddListener("SC_GetGuildMapsInfo", new HandleMsg(this.SC_GetGuildMapsInfo));
+
+        MsgManager.Instance.AddListener("SC_GotoGuildMap", new HandleMsg(this.SC_GotoGuildMap));
 
         if (GameScene.Singleton.m_MyMainUnit.GuildID > 0)
         {
@@ -160,6 +163,86 @@ public class GuildInfo
         return true;
     }
 
+
+    //进入公会地图
+    public bool SC_GotoGuildMap(Protomsg.MsgBase d1)
+    {
+        Debug.Log("SC_GotoGuildMap:");
+        IMessage IMperson = new Protomsg.SC_GotoGuildMap();
+        Protomsg.SC_GotoGuildMap p1 = (Protomsg.SC_GotoGuildMap)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
+        if (main == null)
+        {
+            return true;
+        }
+
+        if(p1.Result == 1)
+        {
+            this.Destroy();
+        }
+        return true;
+    }
+
+    //获取公会地图信息
+    public bool SC_GetGuildMapsInfo(Protomsg.MsgBase d1)
+    {
+        Debug.Log("CS_GetGuildMapsInfo:");
+        IMessage IMperson = new Protomsg.SC_GetGuildMapsInfo();
+        Protomsg.SC_GetGuildMapsInfo p1 = (Protomsg.SC_GetGuildMapsInfo)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
+        if (main == null)
+        {
+            return true;
+        }
+        main.GetChild("maplist").asList.RemoveChildren(0, -1, true);
+
+        Protomsg.GuildMapInfo[] allplayer = new Protomsg.GuildMapInfo[p1.Maps.Count];
+        p1.Maps.CopyTo(allplayer, 0);
+        System.Array.Sort(allplayer, (a, b) => {
+
+            if (a.ID > b.ID)
+            {
+                return 1;
+            }
+            else if (a.ID < b.ID)
+            {
+                return -1;
+            }
+            return 0;
+        });
+
+        //遍历
+        foreach (var item in allplayer)
+        {
+            var clientitem = ExcelManager.Instance.GetSceneManager().GetSceneByID(item.NextSceneID);
+            if (clientitem == null)
+            {
+                continue;
+            }
+
+            var onedropitem = UIPackage.CreateObject("GameUI", "GuildMapInfo").asCom;
+           
+
+            //onedropitem.GetChild("item").asCom.GetChild("icon").asLoader.url = clientitem.IconPath;
+            onedropitem.GetChild("guildlevel").asTextField.text = item.NeedGuildLevel + "";
+            onedropitem.GetChild("time").asTextField.text = item.OpenStartTime + "--"+item.OpenEndTime;
+            onedropitem.GetChild("week").asTextField.text = "周"+item.OpenWeekhDay;
+
+            //进入
+            onedropitem.GetChild("goto").asButton.onClick.Add(() =>
+            {
+                Protomsg.CS_GotoGuildMap msg1 = new Protomsg.CS_GotoGuildMap();
+                msg1.ID = item.ID;
+                MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GotoGuildMap", msg1);
+            });
+
+
+            main.GetChild("maplist").asList.AddChild(onedropitem);
+
+        }
+
+        return true;
+    }
+        
+
     public bool SC_GetAuctionItems(Protomsg.MsgBase d1)
     {
         Debug.Log("SC_GetAuctionItems:");
@@ -286,6 +369,9 @@ public class GuildInfo
         return true;
     }
 
+
+    
+
     public bool SC_GetGuildInfo(Protomsg.MsgBase d1)
     {
         Debug.Log("SC_GetGuildInfo:");
@@ -339,6 +425,15 @@ public class GuildInfo
             //查看申请列表
             Protomsg.CS_GetAuctionItems msg1 = new Protomsg.CS_GetAuctionItems();
             MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetAuctionItems", msg1);
+        });
+
+        //查看公会地图
+        main.GetChild("huodong").asButton.onClick.Add(() =>
+        {
+            //查看申请列表
+            Protomsg.CS_GetGuildMapsInfo msg1 = new Protomsg.CS_GetGuildMapsInfo();
+            msg1.ID = p1.GuildBaseInfo.ID;
+            MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetGuildMapsInfo", msg1);
         });
 
         //-------------------------公会成员--------------------------
@@ -497,6 +592,9 @@ public class GuildInfo
         MsgManager.Instance.RemoveListener("SC_GetGuildInfo");
         MsgManager.Instance.RemoveListener("SC_GetJoinGuildPlayer");
         MsgManager.Instance.RemoveListener("SC_GetAuctionItems");
+
+        MsgManager.Instance.RemoveListener("SC_GetGuildMapsInfo");
+        MsgManager.Instance.RemoveListener("SC_GotoGuildMap");
         AudioManager.Am.Play2DSound(AudioManager.Sound_CloseUI);
         if (main != null)
         {

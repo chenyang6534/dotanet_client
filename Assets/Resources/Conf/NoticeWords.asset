@@ -228,3 +228,9 @@ MonoBehaviour:
     Type: 1
     AnimName: warning
     Pos: 1
+  - TypeID: 35
+    Words: "\u65F6\u95F4\u4E0D\u5BF9\u6216\u8005\u516C\u4F1A\u7B49\u7EA7\u4E0D\u591F,\u65E0\u6CD5\u8FDB\u5165\u8BE5\u5730\u56FE"
+    Sound: sound/other/warning
+    Type: 1
+    AnimName: warning
+    Pos: 1

@@ -222,7 +222,15 @@ namespace Protomsg {
             "BRINCgVQcmljZRgEIAEoBRINCgVMZXZlbBgFIAEoBRIbChNCaWRkZXJDaGFy",
             "YWN0ZXJOYW1lGAYgASgJEh0KFVJlY2VpdmVjaGFyYWN0ZXJzTmFtZRgHIAMo",
             "CRISCgpSZW1haW5UaW1lGAggASgFIjMKFkNTX05ld1ByaWNlQXVjdGlvbkl0",
-            "ZW0SCgoCSUQYASABKAUSDQoFUHJpY2UYAiABKAViBnByb3RvMw=="));
+            "ZW0SCgoCSUQYASABKAUSDQoFUHJpY2UYAiABKAUiIQoTQ1NfR2V0R3VpbGRN",
+            "YXBzSW5mbxIKCgJJRBgBIAEoBSI7ChNTQ19HZXRHdWlsZE1hcHNJbmZvEiQK",
+            "BE1hcHMYASADKAsyFi5wcm90b21zZy5HdWlsZE1hcEluZm8inwEKDEd1aWxk",
+            "TWFwSW5mbxIKCgJJRBgBIAEoBRIUCgxPcGVuTW9udGhEYXkYAiABKAUSFAoM",
+            "T3BlbldlZWtoRGF5GAMgASgFEhUKDU9wZW5TdGFydFRpbWUYBCABKAkSEwoL",
+            "T3BlbkVuZFRpbWUYBSABKAkSFgoOTmVlZEd1aWxkTGV2ZWwYBiABKAUSEwoL",
+            "TmV4dFNjZW5lSUQYByABKAUiHQoPQ1NfR290b0d1aWxkTWFwEgoKAklEGAEg",
+            "ASgFIiEKD1NDX0dvdG9HdWlsZE1hcBIOCgZSZXN1bHQYASABKAViBnByb3Rv",
+            "Mw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -317,7 +325,12 @@ namespace Protomsg {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GetAuctionItems), global::Protomsg.CS_GetAuctionItems.Parser, new[]{ "ID" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetAuctionItems), global::Protomsg.SC_GetAuctionItems.Parser, new[]{ "Items" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.AuctionItem), global::Protomsg.AuctionItem.Parser, new[]{ "ID", "ItemID", "PriceType", "Price", "Level", "BidderCharacterName", "ReceivecharactersName", "RemainTime" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_NewPriceAuctionItem), global::Protomsg.CS_NewPriceAuctionItem.Parser, new[]{ "ID", "Price" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_NewPriceAuctionItem), global::Protomsg.CS_NewPriceAuctionItem.Parser, new[]{ "ID", "Price" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GetGuildMapsInfo), global::Protomsg.CS_GetGuildMapsInfo.Parser, new[]{ "ID" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetGuildMapsInfo), global::Protomsg.SC_GetGuildMapsInfo.Parser, new[]{ "Maps" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.GuildMapInfo), global::Protomsg.GuildMapInfo.Parser, new[]{ "ID", "OpenMonthDay", "OpenWeekhDay", "OpenStartTime", "OpenEndTime", "NeedGuildLevel", "NextSceneID" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GotoGuildMap), global::Protomsg.CS_GotoGuildMap.Parser, new[]{ "ID" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GotoGuildMap), global::Protomsg.SC_GotoGuildMap.Parser, new[]{ "Result" }, null, null, null)
           }));
     }
     #endregion
@@ -20221,6 +20234,852 @@ namespace Protomsg {
           }
           case 16: {
             Price = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///获取公会地图信息
+  /// </summary>
+  public sealed partial class CS_GetGuildMapsInfo : pb::IMessage<CS_GetGuildMapsInfo> {
+    private static readonly pb::MessageParser<CS_GetGuildMapsInfo> _parser = new pb::MessageParser<CS_GetGuildMapsInfo>(() => new CS_GetGuildMapsInfo());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CS_GetGuildMapsInfo> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[92]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetGuildMapsInfo() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetGuildMapsInfo(CS_GetGuildMapsInfo other) : this() {
+      iD_ = other.iD_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetGuildMapsInfo Clone() {
+      return new CS_GetGuildMapsInfo(this);
+    }
+
+    /// <summary>Field number for the "ID" field.</summary>
+    public const int IDFieldNumber = 1;
+    private int iD_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ID {
+      get { return iD_; }
+      set {
+        iD_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CS_GetGuildMapsInfo);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CS_GetGuildMapsInfo other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ID != other.ID) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ID != 0) hash ^= ID.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (ID != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(ID);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (ID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ID);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CS_GetGuildMapsInfo other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ID != 0) {
+        ID = other.ID;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            ID = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///返回公会地图信息
+  /// </summary>
+  public sealed partial class SC_GetGuildMapsInfo : pb::IMessage<SC_GetGuildMapsInfo> {
+    private static readonly pb::MessageParser<SC_GetGuildMapsInfo> _parser = new pb::MessageParser<SC_GetGuildMapsInfo>(() => new SC_GetGuildMapsInfo());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<SC_GetGuildMapsInfo> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[93]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetGuildMapsInfo() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetGuildMapsInfo(SC_GetGuildMapsInfo other) : this() {
+      maps_ = other.maps_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetGuildMapsInfo Clone() {
+      return new SC_GetGuildMapsInfo(this);
+    }
+
+    /// <summary>Field number for the "Maps" field.</summary>
+    public const int MapsFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::Protomsg.GuildMapInfo> _repeated_maps_codec
+        = pb::FieldCodec.ForMessage(10, global::Protomsg.GuildMapInfo.Parser);
+    private readonly pbc::RepeatedField<global::Protomsg.GuildMapInfo> maps_ = new pbc::RepeatedField<global::Protomsg.GuildMapInfo>();
+    /// <summary>
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::Protomsg.GuildMapInfo> Maps {
+      get { return maps_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as SC_GetGuildMapsInfo);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(SC_GetGuildMapsInfo other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if(!maps_.Equals(other.maps_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= maps_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      maps_.WriteTo(output, _repeated_maps_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      size += maps_.CalculateSize(_repeated_maps_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(SC_GetGuildMapsInfo other) {
+      if (other == null) {
+        return;
+      }
+      maps_.Add(other.maps_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            maps_.AddEntriesFrom(input, _repeated_maps_codec);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///公会地图信息
+  /// </summary>
+  public sealed partial class GuildMapInfo : pb::IMessage<GuildMapInfo> {
+    private static readonly pb::MessageParser<GuildMapInfo> _parser = new pb::MessageParser<GuildMapInfo>(() => new GuildMapInfo());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<GuildMapInfo> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[94]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public GuildMapInfo() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public GuildMapInfo(GuildMapInfo other) : this() {
+      iD_ = other.iD_;
+      openMonthDay_ = other.openMonthDay_;
+      openWeekhDay_ = other.openWeekhDay_;
+      openStartTime_ = other.openStartTime_;
+      openEndTime_ = other.openEndTime_;
+      needGuildLevel_ = other.needGuildLevel_;
+      nextSceneID_ = other.nextSceneID_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public GuildMapInfo Clone() {
+      return new GuildMapInfo(this);
+    }
+
+    /// <summary>Field number for the "ID" field.</summary>
+    public const int IDFieldNumber = 1;
+    private int iD_;
+    /// <summary>
+    ///ID
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ID {
+      get { return iD_; }
+      set {
+        iD_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "OpenMonthDay" field.</summary>
+    public const int OpenMonthDayFieldNumber = 2;
+    private int openMonthDay_;
+    /// <summary>
+    ///在月份的几号开启    -1表示所有 10表示10号
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int OpenMonthDay {
+      get { return openMonthDay_; }
+      set {
+        openMonthDay_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "OpenWeekhDay" field.</summary>
+    public const int OpenWeekhDayFieldNumber = 3;
+    private int openWeekhDay_;
+    /// <summary>
+    ///在一周中的星期几开启 -1表示所有 5表示星期五
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int OpenWeekhDay {
+      get { return openWeekhDay_; }
+      set {
+        openWeekhDay_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "OpenStartTime" field.</summary>
+    public const int OpenStartTimeFieldNumber = 4;
+    private string openStartTime_ = "";
+    /// <summary>
+    ///开始时间 字符串
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string OpenStartTime {
+      get { return openStartTime_; }
+      set {
+        openStartTime_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "OpenEndTime" field.</summary>
+    public const int OpenEndTimeFieldNumber = 5;
+    private string openEndTime_ = "";
+    /// <summary>
+    ///结束时间 字符串
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string OpenEndTime {
+      get { return openEndTime_; }
+      set {
+        openEndTime_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "NeedGuildLevel" field.</summary>
+    public const int NeedGuildLevelFieldNumber = 6;
+    private int needGuildLevel_;
+    /// <summary>
+    ///需要的公会等级
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int NeedGuildLevel {
+      get { return needGuildLevel_; }
+      set {
+        needGuildLevel_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "NextSceneID" field.</summary>
+    public const int NextSceneIDFieldNumber = 7;
+    private int nextSceneID_;
+    /// <summary>
+    ///场景ID
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int NextSceneID {
+      get { return nextSceneID_; }
+      set {
+        nextSceneID_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as GuildMapInfo);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(GuildMapInfo other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ID != other.ID) return false;
+      if (OpenMonthDay != other.OpenMonthDay) return false;
+      if (OpenWeekhDay != other.OpenWeekhDay) return false;
+      if (OpenStartTime != other.OpenStartTime) return false;
+      if (OpenEndTime != other.OpenEndTime) return false;
+      if (NeedGuildLevel != other.NeedGuildLevel) return false;
+      if (NextSceneID != other.NextSceneID) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ID != 0) hash ^= ID.GetHashCode();
+      if (OpenMonthDay != 0) hash ^= OpenMonthDay.GetHashCode();
+      if (OpenWeekhDay != 0) hash ^= OpenWeekhDay.GetHashCode();
+      if (OpenStartTime.Length != 0) hash ^= OpenStartTime.GetHashCode();
+      if (OpenEndTime.Length != 0) hash ^= OpenEndTime.GetHashCode();
+      if (NeedGuildLevel != 0) hash ^= NeedGuildLevel.GetHashCode();
+      if (NextSceneID != 0) hash ^= NextSceneID.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (ID != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(ID);
+      }
+      if (OpenMonthDay != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(OpenMonthDay);
+      }
+      if (OpenWeekhDay != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(OpenWeekhDay);
+      }
+      if (OpenStartTime.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(OpenStartTime);
+      }
+      if (OpenEndTime.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(OpenEndTime);
+      }
+      if (NeedGuildLevel != 0) {
+        output.WriteRawTag(48);
+        output.WriteInt32(NeedGuildLevel);
+      }
+      if (NextSceneID != 0) {
+        output.WriteRawTag(56);
+        output.WriteInt32(NextSceneID);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (ID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ID);
+      }
+      if (OpenMonthDay != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(OpenMonthDay);
+      }
+      if (OpenWeekhDay != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(OpenWeekhDay);
+      }
+      if (OpenStartTime.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(OpenStartTime);
+      }
+      if (OpenEndTime.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(OpenEndTime);
+      }
+      if (NeedGuildLevel != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(NeedGuildLevel);
+      }
+      if (NextSceneID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(NextSceneID);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(GuildMapInfo other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ID != 0) {
+        ID = other.ID;
+      }
+      if (other.OpenMonthDay != 0) {
+        OpenMonthDay = other.OpenMonthDay;
+      }
+      if (other.OpenWeekhDay != 0) {
+        OpenWeekhDay = other.OpenWeekhDay;
+      }
+      if (other.OpenStartTime.Length != 0) {
+        OpenStartTime = other.OpenStartTime;
+      }
+      if (other.OpenEndTime.Length != 0) {
+        OpenEndTime = other.OpenEndTime;
+      }
+      if (other.NeedGuildLevel != 0) {
+        NeedGuildLevel = other.NeedGuildLevel;
+      }
+      if (other.NextSceneID != 0) {
+        NextSceneID = other.NextSceneID;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            ID = input.ReadInt32();
+            break;
+          }
+          case 16: {
+            OpenMonthDay = input.ReadInt32();
+            break;
+          }
+          case 24: {
+            OpenWeekhDay = input.ReadInt32();
+            break;
+          }
+          case 34: {
+            OpenStartTime = input.ReadString();
+            break;
+          }
+          case 42: {
+            OpenEndTime = input.ReadString();
+            break;
+          }
+          case 48: {
+            NeedGuildLevel = input.ReadInt32();
+            break;
+          }
+          case 56: {
+            NextSceneID = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///进入公会地图
+  /// </summary>
+  public sealed partial class CS_GotoGuildMap : pb::IMessage<CS_GotoGuildMap> {
+    private static readonly pb::MessageParser<CS_GotoGuildMap> _parser = new pb::MessageParser<CS_GotoGuildMap>(() => new CS_GotoGuildMap());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CS_GotoGuildMap> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[95]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GotoGuildMap() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GotoGuildMap(CS_GotoGuildMap other) : this() {
+      iD_ = other.iD_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GotoGuildMap Clone() {
+      return new CS_GotoGuildMap(this);
+    }
+
+    /// <summary>Field number for the "ID" field.</summary>
+    public const int IDFieldNumber = 1;
+    private int iD_;
+    /// <summary>
+    ///公会地图ID
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ID {
+      get { return iD_; }
+      set {
+        iD_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CS_GotoGuildMap);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CS_GotoGuildMap other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ID != other.ID) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ID != 0) hash ^= ID.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (ID != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(ID);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (ID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ID);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CS_GotoGuildMap other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ID != 0) {
+        ID = other.ID;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            ID = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class SC_GotoGuildMap : pb::IMessage<SC_GotoGuildMap> {
+    private static readonly pb::MessageParser<SC_GotoGuildMap> _parser = new pb::MessageParser<SC_GotoGuildMap>(() => new SC_GotoGuildMap());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<SC_GotoGuildMap> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[96]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GotoGuildMap() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GotoGuildMap(SC_GotoGuildMap other) : this() {
+      result_ = other.result_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GotoGuildMap Clone() {
+      return new SC_GotoGuildMap(this);
+    }
+
+    /// <summary>Field number for the "Result" field.</summary>
+    public const int ResultFieldNumber = 1;
+    private int result_;
+    /// <summary>
+    ///1表示成功 其他表示失败
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Result {
+      get { return result_; }
+      set {
+        result_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as SC_GotoGuildMap);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(SC_GotoGuildMap other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Result != other.Result) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Result != 0) hash ^= Result.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Result != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(Result);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Result != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Result);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(SC_GotoGuildMap other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Result != 0) {
+        Result = other.Result;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Result = input.ReadInt32();
             break;
           }
         }

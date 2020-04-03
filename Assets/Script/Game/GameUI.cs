@@ -166,6 +166,12 @@ public class GameUI : MonoBehaviour {
             new GuildInfo();
         });
 
+        //活动地图
+        LittleMapCom.GetChild("activitymap").asButton.onClick.Add(() =>
+        {
+            new ActivityMap();
+        });
+
         //屏幕点击
         GObject touch = mainUI.GetChild("touchArea");
         touch.onTouchBegin.Add(OnTouchBegin);

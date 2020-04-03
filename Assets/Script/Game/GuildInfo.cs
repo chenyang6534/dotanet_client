@@ -27,6 +27,8 @@ public class GuildInfo
 
         MsgManager.Instance.AddListener("SC_GotoGuildMap", new HandleMsg(this.SC_GotoGuildMap));
 
+        MsgManager.Instance.AddListener("SC_GetMapInfo", new HandleMsg(this.SC_GetMapInfo));
+
         if (GameScene.Singleton.m_MyMainUnit.GuildID > 0)
         {
             //自己有公会
@@ -224,7 +226,7 @@ public class GuildInfo
             //onedropitem.GetChild("item").asCom.GetChild("icon").asLoader.url = clientitem.IconPath;
             onedropitem.GetChild("guildlevel").asTextField.text = item.NeedGuildLevel + "";
             onedropitem.GetChild("time").asTextField.text = item.OpenStartTime + "--"+item.OpenEndTime;
-            onedropitem.GetChild("week").asTextField.text = "周"+item.OpenWeekhDay;
+            onedropitem.GetChild("week").asTextField.text = "周"+item.OpenWeekDay;
 
             //进入
             onedropitem.GetChild("goto").asButton.onClick.Add(() =>
@@ -233,7 +235,13 @@ public class GuildInfo
                 msg1.ID = item.ID;
                 MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GotoGuildMap", msg1);
             });
-
+            //地图信息
+            onedropitem.GetChild("icon").asLoader.onClick.Add(() =>
+            {
+                Protomsg.CS_GetMapInfo msg1 = new Protomsg.CS_GetMapInfo();
+                msg1.SceneID = item.NextSceneID;
+                MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetMapInfo", msg1);
+            });
 
             main.GetChild("maplist").asList.AddChild(onedropitem);
 
@@ -370,7 +378,61 @@ public class GuildInfo
     }
 
 
-    
+    public bool SC_GetMapInfo(Protomsg.MsgBase d1)
+    {
+        Debug.Log("SC_GetMapInfo:");
+        IMessage IMperson = new Protomsg.SC_GetMapInfo();
+        Protomsg.SC_GetMapInfo p1 = (Protomsg.SC_GetMapInfo)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
+
+        var mapinfo = UIPackage.CreateObject("GameUI", "MapInfo").asCom;
+        GRoot.inst.AddChild(mapinfo);
+        mapinfo.xy = Tool.GetPosition(0.5f, 0.5f);
+        mapinfo.GetChild("close").asButton.onClick.Add(() =>
+        {
+            mapinfo.Dispose();
+        });
+        var sceneitem = ExcelManager.Instance.GetSceneManager().GetSceneByID(p1.SceneID);
+        if (sceneitem != null)
+        {
+            mapinfo.GetChild("name").asTextField.text = sceneitem.Name;
+        }
+
+        mapinfo.GetChild("time").asTextField.text = Tool.Time2String(p1.BossFreshTime);
+
+        //掉落道具
+        mapinfo.GetChild("maplist").asList.RemoveChildren(0, -1, true);
+        int[] allplayer = new int[p1.DropItems.Count];
+        p1.DropItems.CopyTo(allplayer, 0);
+        System.Array.Sort(allplayer, (a, b) => {
+
+            if (a > b)
+            {
+                return 1;
+            }
+            else if (a < b)
+            {
+                return -1;
+            }
+            return 0;
+        });
+        foreach (var item in allplayer)
+        {
+            var clientitem = ExcelManager.Instance.GetItemManager().GetItemByID(item);
+            if (clientitem == null)
+            {
+                continue;
+            }
+            var onedropitem = UIPackage.CreateObject("GameUI", "sellable").asCom;
+            onedropitem.GetChild("icon").asLoader.url = clientitem.IconPath;
+            onedropitem.GetChild("icon").onClick.Add(() =>
+            {
+                new ItemInfo(item);
+            });
+            onedropitem.GetChild("level").asTextField.text = "lv.1";
+            mapinfo.GetChild("maplist").asList.AddChild(onedropitem);
+        }
+        return true;
+    }
 
     public bool SC_GetGuildInfo(Protomsg.MsgBase d1)
     {
@@ -595,6 +657,8 @@ public class GuildInfo
 
         MsgManager.Instance.RemoveListener("SC_GetGuildMapsInfo");
         MsgManager.Instance.RemoveListener("SC_GotoGuildMap");
+        MsgManager.Instance.RemoveListener("SC_GetMapInfo");
+
         AudioManager.Am.Play2DSound(AudioManager.Sound_CloseUI);
         if (main != null)
         {

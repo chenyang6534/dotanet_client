@@ -147,7 +147,8 @@ public class MyInfo {
                 });
 
                 item.onClick.Add(() => {
-                    //Debug.Log("onClick");
+                    Debug.Log("item click:"+ UnitDataInfo.Equips);
+                    Debug.Log("index:" + (int)item.data);
                     var index = (int)item.data;
                     var typeid = -1;
                     for (var j = 0; j < UnitDataInfo.Equips.Count; j++)
@@ -275,7 +276,31 @@ public class MyInfo {
         else
         {
             baginfo.visible = false;
-        }
+            //道具拖动
+            for (var i = 0; i < 6; i++)
+            {
+                //道具
+                var item = unitinfo.GetChild("item" + (i + 1)).asButton;
+                item.data = i;
+                item.onClick.Add(() => {
+                    var index = (int)item.data;
+                    var typeid = -1;
+                    for (var j = 0; j < UnitDataInfo.Equips.Count; j++)
+                    {
+                        if (UnitDataInfo.Equips[j].Pos == index)
+                        {
+                            typeid = UnitDataInfo.Equips[j].TypdID;
+                        }
+                    }
+                    if (typeid != -1)
+                    {
+                        new ItemInfo(typeid);
+                    }
+
+
+                });
+            }
+         }
     }
 
     public void InitDropItem()

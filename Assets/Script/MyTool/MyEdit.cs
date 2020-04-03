@@ -19,7 +19,13 @@ public class MyEditor : Editor
     ,"Map/CreateUnits/CreateUnits300","Map/CreateUnits/CreateUnits301","Map/CreateUnits/CreateUnits302"
     ,"Map/CreateUnits/CreateUnits400","Map/CreateUnits/CreateUnits401","Map/CreateUnits/CreateUnits402"
     ,"Map/CreateUnits/CreateUnits500","Map/CreateUnits/CreateUnits501","Map/CreateUnits/CreateUnits502"
-    ,"Map/CreateUnits/CreateUnits600","Map/CreateUnits/CreateUnits601","Map/CreateUnits/CreateUnits602"};
+    ,"Map/CreateUnits/CreateUnits600","Map/CreateUnits/CreateUnits601","Map/CreateUnits/CreateUnits602"
+    ,"Map/CreateUnits/CreateUnitsGuild1","Map/CreateUnits/CreateUnitsGuild2","Map/CreateUnits/CreateUnitsGuild3"
+    ,"Map/CreateUnits/CreateUnitsGuild4","Map/CreateUnits/CreateUnitsGuild5","Map/CreateUnits/CreateUnitsGuild6"
+    ,"Map/CreateUnits/CreateUnitsGuild7","Map/CreateUnits/CreateUnitsGuild8","Map/CreateUnits/CreateUnitsGuild9"
+    ,"Map/CreateUnits/CreateUnitsActivity1","Map/CreateUnits/CreateUnitsActivity2","Map/CreateUnits/CreateUnitsActivity3"
+    ,"Map/CreateUnits/CreateUnitsActivity4","Map/CreateUnits/CreateUnitsActivity5","Map/CreateUnits/CreateUnitsActivity6"
+    ,"Map/CreateUnits/CreateUnitsActivity7","Map/CreateUnits/CreateUnitsActivity8","Map/CreateUnits/CreateUnitsActivity9"};
     static string DestPath = "D://sheshe/bin/conf/";
 
     //将所有游戏场景导出为JSON格式

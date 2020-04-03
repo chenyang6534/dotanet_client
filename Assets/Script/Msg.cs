@@ -224,13 +224,23 @@ namespace Protomsg {
             "CRISCgpSZW1haW5UaW1lGAggASgFIjMKFkNTX05ld1ByaWNlQXVjdGlvbkl0",
             "ZW0SCgoCSUQYASABKAUSDQoFUHJpY2UYAiABKAUiIQoTQ1NfR2V0R3VpbGRN",
             "YXBzSW5mbxIKCgJJRBgBIAEoBSI7ChNTQ19HZXRHdWlsZE1hcHNJbmZvEiQK",
-            "BE1hcHMYASADKAsyFi5wcm90b21zZy5HdWlsZE1hcEluZm8inwEKDEd1aWxk",
-            "TWFwSW5mbxIKCgJJRBgBIAEoBRIUCgxPcGVuTW9udGhEYXkYAiABKAUSFAoM",
-            "T3BlbldlZWtoRGF5GAMgASgFEhUKDU9wZW5TdGFydFRpbWUYBCABKAkSEwoL",
-            "T3BlbkVuZFRpbWUYBSABKAkSFgoOTmVlZEd1aWxkTGV2ZWwYBiABKAUSEwoL",
-            "TmV4dFNjZW5lSUQYByABKAUiHQoPQ1NfR290b0d1aWxkTWFwEgoKAklEGAEg",
-            "ASgFIiEKD1NDX0dvdG9HdWlsZE1hcBIOCgZSZXN1bHQYASABKAViBnByb3Rv",
-            "Mw=="));
+            "BE1hcHMYASADKAsyFi5wcm90b21zZy5HdWlsZE1hcEluZm8ingEKDEd1aWxk",
+            "TWFwSW5mbxIKCgJJRBgBIAEoBRIUCgxPcGVuTW9udGhEYXkYAiABKAUSEwoL",
+            "T3BlbldlZWtEYXkYAyABKAkSFQoNT3BlblN0YXJ0VGltZRgEIAEoCRITCgtP",
+            "cGVuRW5kVGltZRgFIAEoCRIWCg5OZWVkR3VpbGRMZXZlbBgGIAEoBRITCgtO",
+            "ZXh0U2NlbmVJRBgHIAEoBSIdCg9DU19Hb3RvR3VpbGRNYXASCgoCSUQYASAB",
+            "KAUiIQoPU0NfR290b0d1aWxkTWFwEg4KBlJlc3VsdBgBIAEoBSIkChZDU19H",
+            "ZXRBY3Rpdml0eU1hcHNJbmZvEgoKAklEGAEgASgFIkEKFlNDX0dldEFjdGl2",
+            "aXR5TWFwc0luZm8SJwoETWFwcxgBIAMoCzIZLnByb3RvbXNnLkFjdGl2aXR5",
+            "TWFwSW5mbyK+AQoPQWN0aXZpdHlNYXBJbmZvEgoKAklEGAEgASgFEhQKDE9w",
+            "ZW5Nb250aERheRgCIAEoBRITCgtPcGVuV2Vla0RheRgDIAEoCRIVCg1PcGVu",
+            "U3RhcnRUaW1lGAQgASgJEhMKC09wZW5FbmRUaW1lGAUgASgJEhEKCU5lZWRM",
+            "ZXZlbBgGIAEoBRITCgtOZXh0U2NlbmVJRBgHIAEoBRIRCglQcmljZVR5cGUY",
+            "CCABKAUSDQoFUHJpY2UYCSABKAUiIAoNQ1NfR2V0TWFwSW5mbxIPCgdTY2Vu",
+            "ZUlEGAEgASgFIkoKDVNDX0dldE1hcEluZm8SDwoHU2NlbmVJRBgBIAEoBRIV",
+            "Cg1Cb3NzRnJlc2hUaW1lGAIgASgFEhEKCURyb3BJdGVtcxgDIAMoBSIgChJD",
+            "U19Hb3RvQWN0aXZpdHlNYXASCgoCSUQYASABKAUiJAoSU0NfR290b0FjdGl2",
+            "aXR5TWFwEg4KBlJlc3VsdBgBIAEoBWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -328,9 +338,16 @@ namespace Protomsg {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_NewPriceAuctionItem), global::Protomsg.CS_NewPriceAuctionItem.Parser, new[]{ "ID", "Price" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GetGuildMapsInfo), global::Protomsg.CS_GetGuildMapsInfo.Parser, new[]{ "ID" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetGuildMapsInfo), global::Protomsg.SC_GetGuildMapsInfo.Parser, new[]{ "Maps" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.GuildMapInfo), global::Protomsg.GuildMapInfo.Parser, new[]{ "ID", "OpenMonthDay", "OpenWeekhDay", "OpenStartTime", "OpenEndTime", "NeedGuildLevel", "NextSceneID" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.GuildMapInfo), global::Protomsg.GuildMapInfo.Parser, new[]{ "ID", "OpenMonthDay", "OpenWeekDay", "OpenStartTime", "OpenEndTime", "NeedGuildLevel", "NextSceneID" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GotoGuildMap), global::Protomsg.CS_GotoGuildMap.Parser, new[]{ "ID" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GotoGuildMap), global::Protomsg.SC_GotoGuildMap.Parser, new[]{ "Result" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GotoGuildMap), global::Protomsg.SC_GotoGuildMap.Parser, new[]{ "Result" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GetActivityMapsInfo), global::Protomsg.CS_GetActivityMapsInfo.Parser, new[]{ "ID" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetActivityMapsInfo), global::Protomsg.SC_GetActivityMapsInfo.Parser, new[]{ "Maps" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.ActivityMapInfo), global::Protomsg.ActivityMapInfo.Parser, new[]{ "ID", "OpenMonthDay", "OpenWeekDay", "OpenStartTime", "OpenEndTime", "NeedLevel", "NextSceneID", "PriceType", "Price" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GetMapInfo), global::Protomsg.CS_GetMapInfo.Parser, new[]{ "SceneID" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetMapInfo), global::Protomsg.SC_GetMapInfo.Parser, new[]{ "SceneID", "BossFreshTime", "DropItems" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GotoActivityMap), global::Protomsg.CS_GotoActivityMap.Parser, new[]{ "ID" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GotoActivityMap), global::Protomsg.SC_GotoActivityMap.Parser, new[]{ "Result" }, null, null, null)
           }));
     }
     #endregion
@@ -20530,7 +20547,7 @@ namespace Protomsg {
     public GuildMapInfo(GuildMapInfo other) : this() {
       iD_ = other.iD_;
       openMonthDay_ = other.openMonthDay_;
-      openWeekhDay_ = other.openWeekhDay_;
+      openWeekDay_ = other.openWeekDay_;
       openStartTime_ = other.openStartTime_;
       openEndTime_ = other.openEndTime_;
       needGuildLevel_ = other.needGuildLevel_;
@@ -20571,17 +20588,17 @@ namespace Protomsg {
       }
     }
 
-    /// <summary>Field number for the "OpenWeekhDay" field.</summary>
-    public const int OpenWeekhDayFieldNumber = 3;
-    private int openWeekhDay_;
+    /// <summary>Field number for the "OpenWeekDay" field.</summary>
+    public const int OpenWeekDayFieldNumber = 3;
+    private string openWeekDay_ = "";
     /// <summary>
     ///在一周中的星期几开启 -1表示所有 5表示星期五
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int OpenWeekhDay {
-      get { return openWeekhDay_; }
+    public string OpenWeekDay {
+      get { return openWeekDay_; }
       set {
-        openWeekhDay_ = value;
+        openWeekDay_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -20656,7 +20673,7 @@ namespace Protomsg {
       }
       if (ID != other.ID) return false;
       if (OpenMonthDay != other.OpenMonthDay) return false;
-      if (OpenWeekhDay != other.OpenWeekhDay) return false;
+      if (OpenWeekDay != other.OpenWeekDay) return false;
       if (OpenStartTime != other.OpenStartTime) return false;
       if (OpenEndTime != other.OpenEndTime) return false;
       if (NeedGuildLevel != other.NeedGuildLevel) return false;
@@ -20669,7 +20686,7 @@ namespace Protomsg {
       int hash = 1;
       if (ID != 0) hash ^= ID.GetHashCode();
       if (OpenMonthDay != 0) hash ^= OpenMonthDay.GetHashCode();
-      if (OpenWeekhDay != 0) hash ^= OpenWeekhDay.GetHashCode();
+      if (OpenWeekDay.Length != 0) hash ^= OpenWeekDay.GetHashCode();
       if (OpenStartTime.Length != 0) hash ^= OpenStartTime.GetHashCode();
       if (OpenEndTime.Length != 0) hash ^= OpenEndTime.GetHashCode();
       if (NeedGuildLevel != 0) hash ^= NeedGuildLevel.GetHashCode();
@@ -20695,9 +20712,9 @@ namespace Protomsg {
         output.WriteRawTag(16);
         output.WriteInt32(OpenMonthDay);
       }
-      if (OpenWeekhDay != 0) {
-        output.WriteRawTag(24);
-        output.WriteInt32(OpenWeekhDay);
+      if (OpenWeekDay.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(OpenWeekDay);
       }
       if (OpenStartTime.Length != 0) {
         output.WriteRawTag(34);
@@ -20729,8 +20746,8 @@ namespace Protomsg {
       if (OpenMonthDay != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(OpenMonthDay);
       }
-      if (OpenWeekhDay != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(OpenWeekhDay);
+      if (OpenWeekDay.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(OpenWeekDay);
       }
       if (OpenStartTime.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(OpenStartTime);
@@ -20761,8 +20778,8 @@ namespace Protomsg {
       if (other.OpenMonthDay != 0) {
         OpenMonthDay = other.OpenMonthDay;
       }
-      if (other.OpenWeekhDay != 0) {
-        OpenWeekhDay = other.OpenWeekhDay;
+      if (other.OpenWeekDay.Length != 0) {
+        OpenWeekDay = other.OpenWeekDay;
       }
       if (other.OpenStartTime.Length != 0) {
         OpenStartTime = other.OpenStartTime;
@@ -20795,8 +20812,8 @@ namespace Protomsg {
             OpenMonthDay = input.ReadInt32();
             break;
           }
-          case 24: {
-            OpenWeekhDay = input.ReadInt32();
+          case 26: {
+            OpenWeekDay = input.ReadString();
             break;
           }
           case 34: {
@@ -21061,6 +21078,1233 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(SC_GotoGuildMap other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Result != 0) {
+        Result = other.Result;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Result = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///获取活动地图
+  /// </summary>
+  public sealed partial class CS_GetActivityMapsInfo : pb::IMessage<CS_GetActivityMapsInfo> {
+    private static readonly pb::MessageParser<CS_GetActivityMapsInfo> _parser = new pb::MessageParser<CS_GetActivityMapsInfo>(() => new CS_GetActivityMapsInfo());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CS_GetActivityMapsInfo> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[97]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetActivityMapsInfo() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetActivityMapsInfo(CS_GetActivityMapsInfo other) : this() {
+      iD_ = other.iD_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetActivityMapsInfo Clone() {
+      return new CS_GetActivityMapsInfo(this);
+    }
+
+    /// <summary>Field number for the "ID" field.</summary>
+    public const int IDFieldNumber = 1;
+    private int iD_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ID {
+      get { return iD_; }
+      set {
+        iD_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CS_GetActivityMapsInfo);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CS_GetActivityMapsInfo other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ID != other.ID) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ID != 0) hash ^= ID.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (ID != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(ID);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (ID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ID);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CS_GetActivityMapsInfo other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ID != 0) {
+        ID = other.ID;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            ID = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///返回活动地图信息
+  /// </summary>
+  public sealed partial class SC_GetActivityMapsInfo : pb::IMessage<SC_GetActivityMapsInfo> {
+    private static readonly pb::MessageParser<SC_GetActivityMapsInfo> _parser = new pb::MessageParser<SC_GetActivityMapsInfo>(() => new SC_GetActivityMapsInfo());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<SC_GetActivityMapsInfo> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[98]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetActivityMapsInfo() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetActivityMapsInfo(SC_GetActivityMapsInfo other) : this() {
+      maps_ = other.maps_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetActivityMapsInfo Clone() {
+      return new SC_GetActivityMapsInfo(this);
+    }
+
+    /// <summary>Field number for the "Maps" field.</summary>
+    public const int MapsFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::Protomsg.ActivityMapInfo> _repeated_maps_codec
+        = pb::FieldCodec.ForMessage(10, global::Protomsg.ActivityMapInfo.Parser);
+    private readonly pbc::RepeatedField<global::Protomsg.ActivityMapInfo> maps_ = new pbc::RepeatedField<global::Protomsg.ActivityMapInfo>();
+    /// <summary>
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::Protomsg.ActivityMapInfo> Maps {
+      get { return maps_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as SC_GetActivityMapsInfo);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(SC_GetActivityMapsInfo other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if(!maps_.Equals(other.maps_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= maps_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      maps_.WriteTo(output, _repeated_maps_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      size += maps_.CalculateSize(_repeated_maps_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(SC_GetActivityMapsInfo other) {
+      if (other == null) {
+        return;
+      }
+      maps_.Add(other.maps_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            maps_.AddEntriesFrom(input, _repeated_maps_codec);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///活动地图信息
+  /// </summary>
+  public sealed partial class ActivityMapInfo : pb::IMessage<ActivityMapInfo> {
+    private static readonly pb::MessageParser<ActivityMapInfo> _parser = new pb::MessageParser<ActivityMapInfo>(() => new ActivityMapInfo());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<ActivityMapInfo> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[99]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ActivityMapInfo() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ActivityMapInfo(ActivityMapInfo other) : this() {
+      iD_ = other.iD_;
+      openMonthDay_ = other.openMonthDay_;
+      openWeekDay_ = other.openWeekDay_;
+      openStartTime_ = other.openStartTime_;
+      openEndTime_ = other.openEndTime_;
+      needLevel_ = other.needLevel_;
+      nextSceneID_ = other.nextSceneID_;
+      priceType_ = other.priceType_;
+      price_ = other.price_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ActivityMapInfo Clone() {
+      return new ActivityMapInfo(this);
+    }
+
+    /// <summary>Field number for the "ID" field.</summary>
+    public const int IDFieldNumber = 1;
+    private int iD_;
+    /// <summary>
+    ///ID
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ID {
+      get { return iD_; }
+      set {
+        iD_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "OpenMonthDay" field.</summary>
+    public const int OpenMonthDayFieldNumber = 2;
+    private int openMonthDay_;
+    /// <summary>
+    ///在月份的几号开启    -1表示所有 10表示10号
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int OpenMonthDay {
+      get { return openMonthDay_; }
+      set {
+        openMonthDay_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "OpenWeekDay" field.</summary>
+    public const int OpenWeekDayFieldNumber = 3;
+    private string openWeekDay_ = "";
+    /// <summary>
+    ///在一周中的星期几开启 -1表示所有 5表示星期五
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string OpenWeekDay {
+      get { return openWeekDay_; }
+      set {
+        openWeekDay_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "OpenStartTime" field.</summary>
+    public const int OpenStartTimeFieldNumber = 4;
+    private string openStartTime_ = "";
+    /// <summary>
+    ///开始时间 字符串
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string OpenStartTime {
+      get { return openStartTime_; }
+      set {
+        openStartTime_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "OpenEndTime" field.</summary>
+    public const int OpenEndTimeFieldNumber = 5;
+    private string openEndTime_ = "";
+    /// <summary>
+    ///结束时间 字符串
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string OpenEndTime {
+      get { return openEndTime_; }
+      set {
+        openEndTime_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "NeedLevel" field.</summary>
+    public const int NeedLevelFieldNumber = 6;
+    private int needLevel_;
+    /// <summary>
+    ///需要的公会等级
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int NeedLevel {
+      get { return needLevel_; }
+      set {
+        needLevel_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "NextSceneID" field.</summary>
+    public const int NextSceneIDFieldNumber = 7;
+    private int nextSceneID_;
+    /// <summary>
+    ///场景ID
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int NextSceneID {
+      get { return nextSceneID_; }
+      set {
+        nextSceneID_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "PriceType" field.</summary>
+    public const int PriceTypeFieldNumber = 8;
+    private int priceType_;
+    /// <summary>
+    ///价格类型
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int PriceType {
+      get { return priceType_; }
+      set {
+        priceType_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Price" field.</summary>
+    public const int PriceFieldNumber = 9;
+    private int price_;
+    /// <summary>
+    /// 价格
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Price {
+      get { return price_; }
+      set {
+        price_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as ActivityMapInfo);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(ActivityMapInfo other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ID != other.ID) return false;
+      if (OpenMonthDay != other.OpenMonthDay) return false;
+      if (OpenWeekDay != other.OpenWeekDay) return false;
+      if (OpenStartTime != other.OpenStartTime) return false;
+      if (OpenEndTime != other.OpenEndTime) return false;
+      if (NeedLevel != other.NeedLevel) return false;
+      if (NextSceneID != other.NextSceneID) return false;
+      if (PriceType != other.PriceType) return false;
+      if (Price != other.Price) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ID != 0) hash ^= ID.GetHashCode();
+      if (OpenMonthDay != 0) hash ^= OpenMonthDay.GetHashCode();
+      if (OpenWeekDay.Length != 0) hash ^= OpenWeekDay.GetHashCode();
+      if (OpenStartTime.Length != 0) hash ^= OpenStartTime.GetHashCode();
+      if (OpenEndTime.Length != 0) hash ^= OpenEndTime.GetHashCode();
+      if (NeedLevel != 0) hash ^= NeedLevel.GetHashCode();
+      if (NextSceneID != 0) hash ^= NextSceneID.GetHashCode();
+      if (PriceType != 0) hash ^= PriceType.GetHashCode();
+      if (Price != 0) hash ^= Price.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (ID != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(ID);
+      }
+      if (OpenMonthDay != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(OpenMonthDay);
+      }
+      if (OpenWeekDay.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(OpenWeekDay);
+      }
+      if (OpenStartTime.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(OpenStartTime);
+      }
+      if (OpenEndTime.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(OpenEndTime);
+      }
+      if (NeedLevel != 0) {
+        output.WriteRawTag(48);
+        output.WriteInt32(NeedLevel);
+      }
+      if (NextSceneID != 0) {
+        output.WriteRawTag(56);
+        output.WriteInt32(NextSceneID);
+      }
+      if (PriceType != 0) {
+        output.WriteRawTag(64);
+        output.WriteInt32(PriceType);
+      }
+      if (Price != 0) {
+        output.WriteRawTag(72);
+        output.WriteInt32(Price);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (ID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ID);
+      }
+      if (OpenMonthDay != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(OpenMonthDay);
+      }
+      if (OpenWeekDay.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(OpenWeekDay);
+      }
+      if (OpenStartTime.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(OpenStartTime);
+      }
+      if (OpenEndTime.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(OpenEndTime);
+      }
+      if (NeedLevel != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(NeedLevel);
+      }
+      if (NextSceneID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(NextSceneID);
+      }
+      if (PriceType != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(PriceType);
+      }
+      if (Price != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Price);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(ActivityMapInfo other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ID != 0) {
+        ID = other.ID;
+      }
+      if (other.OpenMonthDay != 0) {
+        OpenMonthDay = other.OpenMonthDay;
+      }
+      if (other.OpenWeekDay.Length != 0) {
+        OpenWeekDay = other.OpenWeekDay;
+      }
+      if (other.OpenStartTime.Length != 0) {
+        OpenStartTime = other.OpenStartTime;
+      }
+      if (other.OpenEndTime.Length != 0) {
+        OpenEndTime = other.OpenEndTime;
+      }
+      if (other.NeedLevel != 0) {
+        NeedLevel = other.NeedLevel;
+      }
+      if (other.NextSceneID != 0) {
+        NextSceneID = other.NextSceneID;
+      }
+      if (other.PriceType != 0) {
+        PriceType = other.PriceType;
+      }
+      if (other.Price != 0) {
+        Price = other.Price;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            ID = input.ReadInt32();
+            break;
+          }
+          case 16: {
+            OpenMonthDay = input.ReadInt32();
+            break;
+          }
+          case 26: {
+            OpenWeekDay = input.ReadString();
+            break;
+          }
+          case 34: {
+            OpenStartTime = input.ReadString();
+            break;
+          }
+          case 42: {
+            OpenEndTime = input.ReadString();
+            break;
+          }
+          case 48: {
+            NeedLevel = input.ReadInt32();
+            break;
+          }
+          case 56: {
+            NextSceneID = input.ReadInt32();
+            break;
+          }
+          case 64: {
+            PriceType = input.ReadInt32();
+            break;
+          }
+          case 72: {
+            Price = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///获取地图信息包括boss刷新时间和掉落道具
+  /// </summary>
+  public sealed partial class CS_GetMapInfo : pb::IMessage<CS_GetMapInfo> {
+    private static readonly pb::MessageParser<CS_GetMapInfo> _parser = new pb::MessageParser<CS_GetMapInfo>(() => new CS_GetMapInfo());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CS_GetMapInfo> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[100]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetMapInfo() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetMapInfo(CS_GetMapInfo other) : this() {
+      sceneID_ = other.sceneID_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetMapInfo Clone() {
+      return new CS_GetMapInfo(this);
+    }
+
+    /// <summary>Field number for the "SceneID" field.</summary>
+    public const int SceneIDFieldNumber = 1;
+    private int sceneID_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int SceneID {
+      get { return sceneID_; }
+      set {
+        sceneID_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CS_GetMapInfo);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CS_GetMapInfo other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (SceneID != other.SceneID) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (SceneID != 0) hash ^= SceneID.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (SceneID != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(SceneID);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (SceneID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(SceneID);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CS_GetMapInfo other) {
+      if (other == null) {
+        return;
+      }
+      if (other.SceneID != 0) {
+        SceneID = other.SceneID;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            SceneID = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///返回地图信息
+  /// </summary>
+  public sealed partial class SC_GetMapInfo : pb::IMessage<SC_GetMapInfo> {
+    private static readonly pb::MessageParser<SC_GetMapInfo> _parser = new pb::MessageParser<SC_GetMapInfo>(() => new SC_GetMapInfo());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<SC_GetMapInfo> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[101]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetMapInfo() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetMapInfo(SC_GetMapInfo other) : this() {
+      sceneID_ = other.sceneID_;
+      bossFreshTime_ = other.bossFreshTime_;
+      dropItems_ = other.dropItems_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetMapInfo Clone() {
+      return new SC_GetMapInfo(this);
+    }
+
+    /// <summary>Field number for the "SceneID" field.</summary>
+    public const int SceneIDFieldNumber = 1;
+    private int sceneID_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int SceneID {
+      get { return sceneID_; }
+      set {
+        sceneID_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "BossFreshTime" field.</summary>
+    public const int BossFreshTimeFieldNumber = 2;
+    private int bossFreshTime_;
+    /// <summary>
+    ///boss刷新时间
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int BossFreshTime {
+      get { return bossFreshTime_; }
+      set {
+        bossFreshTime_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "DropItems" field.</summary>
+    public const int DropItemsFieldNumber = 3;
+    private static readonly pb::FieldCodec<int> _repeated_dropItems_codec
+        = pb::FieldCodec.ForInt32(26);
+    private readonly pbc::RepeatedField<int> dropItems_ = new pbc::RepeatedField<int>();
+    /// <summary>
+    ///掉落道具类型ID
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<int> DropItems {
+      get { return dropItems_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as SC_GetMapInfo);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(SC_GetMapInfo other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (SceneID != other.SceneID) return false;
+      if (BossFreshTime != other.BossFreshTime) return false;
+      if(!dropItems_.Equals(other.dropItems_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (SceneID != 0) hash ^= SceneID.GetHashCode();
+      if (BossFreshTime != 0) hash ^= BossFreshTime.GetHashCode();
+      hash ^= dropItems_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (SceneID != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(SceneID);
+      }
+      if (BossFreshTime != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(BossFreshTime);
+      }
+      dropItems_.WriteTo(output, _repeated_dropItems_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (SceneID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(SceneID);
+      }
+      if (BossFreshTime != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(BossFreshTime);
+      }
+      size += dropItems_.CalculateSize(_repeated_dropItems_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(SC_GetMapInfo other) {
+      if (other == null) {
+        return;
+      }
+      if (other.SceneID != 0) {
+        SceneID = other.SceneID;
+      }
+      if (other.BossFreshTime != 0) {
+        BossFreshTime = other.BossFreshTime;
+      }
+      dropItems_.Add(other.dropItems_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            SceneID = input.ReadInt32();
+            break;
+          }
+          case 16: {
+            BossFreshTime = input.ReadInt32();
+            break;
+          }
+          case 26:
+          case 24: {
+            dropItems_.AddEntriesFrom(input, _repeated_dropItems_codec);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///进入活动地图
+  /// </summary>
+  public sealed partial class CS_GotoActivityMap : pb::IMessage<CS_GotoActivityMap> {
+    private static readonly pb::MessageParser<CS_GotoActivityMap> _parser = new pb::MessageParser<CS_GotoActivityMap>(() => new CS_GotoActivityMap());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CS_GotoActivityMap> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[102]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GotoActivityMap() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GotoActivityMap(CS_GotoActivityMap other) : this() {
+      iD_ = other.iD_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GotoActivityMap Clone() {
+      return new CS_GotoActivityMap(this);
+    }
+
+    /// <summary>Field number for the "ID" field.</summary>
+    public const int IDFieldNumber = 1;
+    private int iD_;
+    /// <summary>
+    ///活动地图ID
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ID {
+      get { return iD_; }
+      set {
+        iD_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CS_GotoActivityMap);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CS_GotoActivityMap other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ID != other.ID) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ID != 0) hash ^= ID.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (ID != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(ID);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (ID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ID);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CS_GotoActivityMap other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ID != 0) {
+        ID = other.ID;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            ID = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class SC_GotoActivityMap : pb::IMessage<SC_GotoActivityMap> {
+    private static readonly pb::MessageParser<SC_GotoActivityMap> _parser = new pb::MessageParser<SC_GotoActivityMap>(() => new SC_GotoActivityMap());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<SC_GotoActivityMap> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[103]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GotoActivityMap() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GotoActivityMap(SC_GotoActivityMap other) : this() {
+      result_ = other.result_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GotoActivityMap Clone() {
+      return new SC_GotoActivityMap(this);
+    }
+
+    /// <summary>Field number for the "Result" field.</summary>
+    public const int ResultFieldNumber = 1;
+    private int result_;
+    /// <summary>
+    ///1表示成功 其他表示失败
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Result {
+      get { return result_; }
+      set {
+        result_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as SC_GotoActivityMap);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(SC_GotoActivityMap other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Result != other.Result) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Result != 0) hash ^= Result.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Result != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(Result);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Result != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Result);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(SC_GotoActivityMap other) {
       if (other == null) {
         return;
       }

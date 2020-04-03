@@ -1148,3 +1148,19 @@ MonoBehaviour:
     IconPath: "ui://GameUI/\u56DE\u57CE\u5377\u8F74"
     IconTimeEnable: 1
     IsShowControl: 0
+  - TypeID: 238
+    BodyEffect: Buff/xuanfengzhan_boss
+    FootEffect: 
+    Enable: 1
+    HeadEffect: 
+    TopBarEffect: 
+    RenderColor: 0
+    OutEffect: 
+    NativeTopBarEffect: 
+    HandsEffect: 
+    FootsEffect: 
+    MaterialEffect: 
+    ModeEnable: 1
+    IconPath: 
+    IconTimeEnable: 1
+    IsShowControl: 0

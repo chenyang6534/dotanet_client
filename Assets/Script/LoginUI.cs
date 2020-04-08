@@ -36,8 +36,8 @@ public class LoginUI : MonoBehaviour {
         mRoot = GetComponent<UIPanel>().ui;
         //mRoot.GetChild("center")..AddChild(view);
         mRoot.GetChild("login").asButton.onClick.Add(()=> {
-            MyKcp.Instance.Destroy();
-            MyKcp.Instance.Create(SelectServer.ip, SelectServer.port);
+            //MyKcp.Instance.Destroy();
+            //MyKcp.Instance.Create(SelectServer.ip, SelectServer.port);
 
 
             Protomsg.CS_MsgQuickLogin msg1 = new Protomsg.CS_MsgQuickLogin();
@@ -118,7 +118,7 @@ public class LoginUI : MonoBehaviour {
         var defaultserver = serverlist[defaultid];
         SelectServer = defaultserver;
         //建立连接
-        //MyKcp.Instance.Create(defaultserver.ip, defaultserver.port);
+        MyKcp.Instance.Create(defaultserver.ip, defaultserver.port);
         //
         string[] names = new string[serverlist.Length];
         string[] values = new string[serverlist.Length];
@@ -134,8 +134,8 @@ public class LoginUI : MonoBehaviour {
         combo.onChanged.Add(() => {
             SelectServer = serverlist[int.Parse(combo.value)];
             //重新建立连接
-            //MyKcp.Instance.Destroy();
-            //MyKcp.Instance.Create(SelectServer.ip, SelectServer.port);
+            MyKcp.Instance.Destroy();
+            MyKcp.Instance.Create(SelectServer.ip, SelectServer.port);
         });
     }
 	

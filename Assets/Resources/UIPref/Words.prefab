@@ -66,7 +66,7 @@ MonoBehaviour:
   packageName: GameUI
   componentName: Words
   fitScreen: 0
-  sortingOrder: 1
+  sortingOrder: 0
   packagePath: FairyGui/GameUI
   renderMode: 0
   renderCamera: {fileID: 0}

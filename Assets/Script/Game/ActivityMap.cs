@@ -65,8 +65,9 @@ public class ActivityMap
             }
 
             var onedropitem = UIPackage.CreateObject("GameUI", "ActivityMapInfo").asCom;
-            
+
             //onedropitem.GetChild("item").asCom.GetChild("icon").asLoader.url = clientitem.IconPath;
+            onedropitem.GetChild("name").asTextField.text = clientitem.Name;
             onedropitem.GetChild("guildlevel").asTextField.text = item.NeedLevel + "";
             onedropitem.GetChild("time").asTextField.text = item.OpenStartTime + "--" + item.OpenEndTime;
             onedropitem.GetChild("week").asTextField.text = "周" + item.OpenWeekDay;

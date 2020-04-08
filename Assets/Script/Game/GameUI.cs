@@ -42,6 +42,8 @@ public class GameUI : MonoBehaviour {
 
     protected double LastShowNoticeTime;//上次显示提示的时间
 
+    protected bool IsShowAll;//是否显示所有
+
     static GameUI sInstanse = null;
     void Start () {
         //Debug.Log("gameui:" + Input.multiTouchEnabled + "  " + Input.touchSupported+"  "+ Input.stylusTouchSupported);
@@ -142,10 +144,9 @@ public class GameUI : MonoBehaviour {
             //SceneManager.LoadScene(0);
             new StoreInfo();
         });
-        //聊天
-        LittleMapCom.GetChild("chat").asButton.onClick.Add(() =>
+        //邮件
+        LittleMapCom.GetChild("mail").asButton.onClick.Add(() =>
         {
-            //ChatUI.SOpenChatBox("zonghe", "", 0);
             Mails.SOpen();
             return;
         });
@@ -170,6 +171,13 @@ public class GameUI : MonoBehaviour {
         LittleMapCom.GetChild("activitymap").asButton.onClick.Add(() =>
         {
             new ActivityMap();
+        });
+
+        //显示所有
+        ShowAllBtn(false);
+        LittleMapCom.GetChild("showbtn").asButton.onClick.Add(() =>
+        {
+            ShowAllBtn(!IsShowAll);
         });
 
         //屏幕点击
@@ -209,6 +217,31 @@ public class GameUI : MonoBehaviour {
         MsgManager.Instance.RemoveListener("SC_NoticeWords");
         MsgManager.Instance.RemoveListener("SC_RequestTeam");
         MsgManager.Instance.RemoveListener("CC_Disconnect");
+    }
+    //显示所有按钮
+    public void ShowAllBtn(bool show)
+    {
+        IsShowAll = show;
+        if (IsShowAll)
+        {
+            LittleMapCom.GetChild("set_btn").visible = true;
+            LittleMapCom.GetChild("store").visible = true;
+            LittleMapCom.GetChild("mail").visible = true;
+            LittleMapCom.GetChild("friend").visible = true;
+            LittleMapCom.GetChild("exchange").visible = true;
+            LittleMapCom.GetChild("guild").visible = true;
+            LittleMapCom.GetChild("activitymap").visible = true;
+        }
+        else
+        {
+            LittleMapCom.GetChild("set_btn").visible = false;
+            LittleMapCom.GetChild("store").visible = false;
+            LittleMapCom.GetChild("mail").visible = false;
+            LittleMapCom.GetChild("friend").visible = false;
+            LittleMapCom.GetChild("exchange").visible = false;
+            LittleMapCom.GetChild("guild").visible = false;
+            LittleMapCom.GetChild("activitymap").visible = false;
+        }
     }
 
     //添加聊天信息

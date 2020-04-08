@@ -40,12 +40,11 @@ public class SceneItemManager
         GameObject hero = (GameObject)(GameObject.Instantiate(Resources.Load("Item/prefabs/itemprefabs")));
         hero.transform.parent = gs.transform;
         hero.transform.localPosition = new Vector3(data.X, 0.1f, data.Y);
-        Material mat = Resources.Load<Material>("Item/itemMa");
-        mat.mainTexture = Resources.Load<Texture>(clientitem.SceneItem);
-        //mat.mainTexture = Resources.Load<Texture>("Item/Icon/达贡之神力");
-        hero.GetComponent<MeshRenderer>().materials[0] = mat;
+        //Material mat = Resources.Load<Material>("Item/itemMa");
+        //mat.mainTexture = Resources.Load<Texture>(clientitem.SceneItem);
+        //hero.GetComponent<MeshRenderer>().materials[0] = mat;
 
-        hero.GetComponent<ItemName>().LoadName(clientitem.Name);
+        hero.transform.Find("words").GetComponent<ItemName>().LoadName(clientitem.Name);
 
         //hero.GetComponent<>
         m_SceneItems[data.ID] = hero;

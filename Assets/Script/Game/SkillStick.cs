@@ -266,6 +266,11 @@ public class Skillstick : EventDispatcher
             {
                 touchArea.asCom.GetChild("use_not").visible = true;
             }
+
+            if(GameScene.Singleton.m_MyMainUnit.MP < m_SkillDatas.ManaCost)
+            {
+                touchArea.asCom.GetChild("mana_not").visible = true;
+            }
         }
        
 

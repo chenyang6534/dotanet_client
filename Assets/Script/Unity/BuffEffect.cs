@@ -76,7 +76,9 @@ public class BuffEffect
             if (modeeffect != null)
             {
                 modeeffect.transform.parent = ParentEntity.Mode.transform;
-                modeeffect.transform.position = ParentEntity.Mode.transform.position;
+                modeeffect.transform.localPosition = Vector3.zero;
+                modeeffect.transform.localRotation = Quaternion.identity;
+                //modeeffect.transform.position = ParentEntity.Mode.transform.position;
                 //modeeffect.transform.rotation = ParentEntity.Mode.transform.rotation;
                 Debug.Log("modeeffect:" + modeeffect);
 

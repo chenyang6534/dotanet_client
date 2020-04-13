@@ -17,10 +17,11 @@ public class LoginUI : MonoBehaviour {
     protected Protomsg.CharacterBaseDatas SelectHeroMsg;
     // Use this for initialization
     void Start () {
+        Screen.fullScreen = false;
         MyKcp.Instance.Destroy();
         //读取存档
         SaveDataManager.Read();
-
+        
         //UIPackage.AddPackage("FairyGui/GameUI");
         //GComponent view = UIPackage.CreateObject("GameUI","MyInfo").asCom;
         //以下几种方式都可以将view显示出来：
@@ -61,7 +62,8 @@ public class LoginUI : MonoBehaviour {
             //msg1.Machineid = "10017";   //蓝猫 (技能特效完结)
             //msg1.Machineid = "10018";   //瘟疫法师
             //msg1.Machineid = "10019";   //天怒法师
-            msg1.Machineid = SystemInfo.deviceUniqueIdentifier;
+            Environment.GetCommandLineArgs();
+            msg1.Machineid = SystemInfo.deviceUniqueIdentifier+"1";
             msg1.Platform = "test";
             MyKcp.Instance.SendMsg("Login", "CS_MsgQuickLogin", msg1);
             UnityEngine.Debug.Log("login onClick");

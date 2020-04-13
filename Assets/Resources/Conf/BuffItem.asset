@@ -669,7 +669,7 @@ MonoBehaviour:
     IconTimeEnable: 1
     IsShowControl: 1
   - TypeID: 167
-    BodyEffect: Hero/Toon Chick
+    BodyEffect: Hero/Monster_Bat_Prefab
     FootEffect: 
     Enable: 1
     HeadEffect: 

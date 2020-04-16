@@ -44,6 +44,8 @@ public class GameUI : MonoBehaviour {
 
     protected bool IsShowAll;//是否显示所有
 
+    
+
     static GameUI sInstanse = null;
     void Start () {
         //Debug.Log("gameui:" + Input.multiTouchEnabled + "  " + Input.touchSupported+"  "+ Input.stylusTouchSupported);
@@ -56,6 +58,8 @@ public class GameUI : MonoBehaviour {
         mainUI = GetComponent<UIPanel>().ui;
         touchID = -1;
         startTime = Tool.GetTime();
+
+        
 
         //mainUI.touchable = true;
 
@@ -1093,6 +1097,8 @@ public class GameUI : MonoBehaviour {
         DieUI.GetChild("needdiamond").asTextField.text = GameScene.Singleton.m_MyMainUnit.ReviveDiamond + "";
         //
     }
+
+    
 
     // Update is called once per frame
     void Update () {

@@ -1096,14 +1096,11 @@ public class UnityEntity {
         });
     }
 
-    //创建获得金币
-    public void ShowGetGold(int gold)
+    //创建获得砖石
+    public void ShowGetDiamond(int gold)
     {
 
-        Debug.Log("------------ShowMiss------------");
-        //var words = (GameObject)(GameObject.Instantiate(Resources.Load("UIPref/HurtWords")));
-        //words.transform.parent = m_Mode.transform.parent;
-        //words.transform.position = m_Mode.transform.position + new Vector3(0, m_MeshHeight, -0.1f);
+        Debug.Log("------------ShowGetDiamond------------:" + gold);
         GComponent words = UIPackage.CreateObject("GameUI", "HurtInfo").asCom;
         WordsInfo wd = AddWordsInfo(words);
         wd.RandomX(-30, 30);
@@ -1112,7 +1109,35 @@ public class UnityEntity {
         //1，直接加到GRoot显示出来
         GRoot.inst.AddChild(words);
         GRoot.inst.SetChildIndex(words, 1);
-        //var root = words.GetComponent<FairyGUI.UIPanel>().ui;
+        words.GetChild("num").asTextField.text = "" + gold;
+        words.GetChild("num").asTextField.color = new Color(0, 0.4f, 0.8f);
+        words.GetChild("num").asTextField.shadowOffset = new Vector2(1, 1);
+        words.GetChild("num").asTextField.textFormat.bold = true;
+        FairyGUI.Transition trans = words.GetTransition("getgold");
+        trans.Play();
+        trans.SetHook("over", () => {
+            RemoveWordsInfo(wd);
+        });
+
+        //音效
+        AudioManager.Am.Play3DSound(AudioManager.Sound_Gold, this.Mode.transform.position);
+
+
+    }
+
+    //创建获得金币
+    public void ShowGetGold(int gold)
+    {
+
+        Debug.Log("------------ShowGetGold------------");
+        GComponent words = UIPackage.CreateObject("GameUI", "HurtInfo").asCom;
+        WordsInfo wd = AddWordsInfo(words);
+        wd.RandomX(-30, 30);
+
+        //words.z = 0;
+        //1，直接加到GRoot显示出来
+        GRoot.inst.AddChild(words);
+        GRoot.inst.SetChildIndex(words, 1);
         words.GetChild("num").asTextField.text = ""+ gold;
         words.GetChild("num").asTextField.color = new Color(245/255.0f, 218/255.0f, 0);
         words.GetChild("num").asTextField.shadowOffset = new Vector2(1, 1);
@@ -1185,9 +1210,16 @@ public class UnityEntity {
     {
         //Vector2 pt = World2FairyUIPoint();
         //pt.x += UnityEngine.Random.Range(-30, 30);
+        //如果是加钻石
+        //Debug.Log("------CreateHurtWords:" + hurt);
+        if (hurt.GetDiamond > 0)
+        {
+            ShowGetDiamond(hurt.GetDiamond);
+            return;
+        }
 
         //如果是加金币
-        if( hurt.GetGold > 0)
+        if ( hurt.GetGold > 0)
         {
             ShowGetGold(hurt.GetGold);
             return;

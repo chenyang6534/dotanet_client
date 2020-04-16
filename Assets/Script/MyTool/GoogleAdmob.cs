@@ -9,6 +9,8 @@ public class GoogleAdmob : MonoBehaviour {
     private RewardedAd rewardedAd;
     // Use this for initialization
     void Start () {
+
+
         MobileAds.Initialize(initStatus => { });
         this.CreateAndLoadRewardedAd();
     }

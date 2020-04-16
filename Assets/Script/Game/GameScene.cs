@@ -51,6 +51,7 @@ public class GameScene : MonoBehaviour {
 
     void Init()
     {
+        NextAutoAttackTime = 10000;
 
         m_LogicDelayTime = 0.05f;//延时0.02s
         MsgManager.Instance.AddListener("SC_Update", new HandleMsg(this.SC_Update));
@@ -947,6 +948,8 @@ public class GameScene : MonoBehaviour {
             msg1.TargetUnitID = m_TargetUnit.ID;
             MyKcp.Instance.SendMsg(m_ServerName, "CS_PlayerAttack", msg1);
 
+            NextAutoAttackTime = 1;
+
             //Debug.Log("PressAttackBtn");
 
             m_TargetUnit.TargetShow(false);
@@ -992,7 +995,17 @@ public class GameScene : MonoBehaviour {
             //Debug.Log(hit.collider.gameObject);
         }
     }
-
+    //自动攻击
+    protected double NextAutoAttackTime; //下一次自动攻击时间
+    void AutoAttack()
+    {
+        NextAutoAttackTime -= Time.deltaTime;
+        if(NextAutoAttackTime <= 0)
+        {
+            GameScene.Singleton.PressAttackBtn(3, Vector2.zero);
+        }
+        
+    }
 
 
     // Update is called once per frame
@@ -1027,7 +1040,9 @@ public class GameScene : MonoBehaviour {
         {
             //Debug.Log("deltaTime:" + Time.deltaTime);
         }
-        
+
+
+        //AutoAttack();
     }
 
     

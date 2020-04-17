@@ -49,6 +49,7 @@ public class UnityEntity {
 
         m_Scene = scene;
         Name = data.Name;
+        GuildName = data.GuildName;
         Level = data.Level;
         Experience = data.Experience;
         MaxExperience = data.MaxExperience;
@@ -368,6 +369,10 @@ public class UnityEntity {
             if (data.Name != "")
             {
                 Name = data.Name;
+            }
+            if (data.GuildName != "")
+            {
+                GuildName = data.GuildName;
             }
 
             ControlID += data.ControlID;
@@ -706,8 +711,20 @@ public class UnityEntity {
             //Debug.Log("m_MeshHeight:" + m_MeshHeight);
         }
     }
-    
 
+    // 公会名字
+    protected string m_GuildName;
+    public string GuildName
+    {
+        get
+        {
+            return m_GuildName;
+        }
+        set
+        {
+            m_GuildName = value;
+        }
+    }
     // 名字
     protected string m_Name;
     public string Name
@@ -1308,6 +1325,7 @@ public class UnityEntity {
             m_TopBar.GetComponent<UnityEntityTopBar>().SetMP((int)((float)MP / MaxMP * 100));
             m_TopBar.GetComponent<UnityEntityTopBar>().SetName(Name);
             m_TopBar.GetComponent<UnityEntityTopBar>().SetLevel(Level);
+            m_TopBar.GetComponent<UnityEntityTopBar>().SetGuildName(GuildName);
 
             var isEnemy = UnityEntityManager.Instance.CheckIsEnemy(this, GameScene.Singleton.GetMyMainUnit());
 

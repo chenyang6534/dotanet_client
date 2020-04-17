@@ -8,6 +8,7 @@ public class UnityEntityTopBar : MonoBehaviour
     // Use this for initialization
 
     protected GTextField m_Name;
+    protected GTextField m_GuildName;
     protected GTextField m_Level;
 
     protected GProgressBar m_DebuffPro;
@@ -40,6 +41,10 @@ public class UnityEntityTopBar : MonoBehaviour
         if (mRoot.GetChild("name") != null)
         {
             m_Name = mRoot.GetChild("name").asTextField;
+        }
+        if (mRoot.GetChild("guildname") != null)
+        {
+            m_GuildName = mRoot.GetChild("guildname").asTextField;
         }
         if (mRoot.GetChild("level") != null)
         {
@@ -162,6 +167,21 @@ public class UnityEntityTopBar : MonoBehaviour
         if (m_Name != null)
         {
             m_Name.text = name;
+        }
+    }
+    public void SetGuildName(string name)
+    {
+        if (m_GuildName != null)
+        {
+            if(name == "")
+            {
+                m_GuildName.text = name ;
+            }
+            else
+            {
+                m_GuildName.text = "(" + name + ")";
+            }
+            
         }
     }
     // Update is called once per frame

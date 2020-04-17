@@ -229,6 +229,7 @@ public class HeadInfo{
 
         maininfo.GetChild("moneybtn").asButton.onClick.Add(() =>
         {
+            return;
             if (GameScene.Singleton.GetMyMainUnit().ID == id)
             {
                 //弹出观看视频界面

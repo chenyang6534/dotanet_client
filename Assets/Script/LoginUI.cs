@@ -104,8 +104,9 @@ public class LoginUI : MonoBehaviour {
     void InitServerList()
     {
         //测试数据
-        ServerListInfo[] allServerList = {new ServerListInfo("本地服","127.0.0.1",1118), new ServerListInfo("外网", "119.23.8.72", 1118) };
-        
+        //ServerListInfo[] allServerList = {new ServerListInfo("本地服","127.0.0.1",1118), new ServerListInfo("外网", "119.23.8.72", 1118) };
+        ServerListInfo[] allServerList = { new ServerListInfo("删档测试服", "119.23.8.72", 1118) };
+
         ServerListInfoArr t1 = new ServerListInfoArr();
         t1.servers = allServerList;
         var jsonstr = JsonUtility.ToJson(t1);
@@ -113,7 +114,7 @@ public class LoginUI : MonoBehaviour {
         Debug.Log("-------------InitServerList:" + jsonstr);
 
         //默认id
-        var defaultid = 1;
+        var defaultid = 0;
         var t2 = JsonUtility.FromJson<ServerListInfoArr>(jsonstr);
         var serverlist = t2.servers;
         Debug.Log("-------------len:" + serverlist.Length);

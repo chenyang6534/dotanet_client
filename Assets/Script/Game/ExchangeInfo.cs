@@ -162,7 +162,7 @@ public class ExchangeInfo
                 new ItemInfo(item.CommodityData.ItemID);
             });
             onedropitem.GetChild("price").asTextField.text = item.CommodityData.Price + "";
-            onedropitem.GetChild("level").asTextField.text = item.CommodityData.Level + "";
+            onedropitem.GetChild("level").asTextField.text = "lv." + item.CommodityData.Level + "";
             onedropitem.GetChild("pricetype").asLoader.url = Tool.GetPriceTypeIcon(item.CommodityData.PriceType);
             onedropitem.GetChild("n2").onClick.Add(() =>
             {
@@ -182,7 +182,7 @@ public class ExchangeInfo
                     sellwindow.Dispose();
                 });
                 sellwindow.GetChild("item").asCom.GetChild("icon").asLoader.url = clientitem.IconPath;
-                sellwindow.GetChild("item").asCom.GetChild("level").asTextField.text = item.CommodityData.Level + "";
+                sellwindow.GetChild("item").asCom.GetChild("level").asTextField.text = "lv." + item.CommodityData.Level + "";
                 sellwindow.GetChild("name").asTextField.text = clientitem.Name;
                 sellwindow.GetChild("pricetype").asLoader.url = Tool.GetPriceTypeIcon(item.CommodityData.PriceType);
                 sellwindow.GetChild("price").asTextField.text = item.CommodityData.Price + "";
@@ -277,7 +277,7 @@ public class ExchangeInfo
                     sellwindow.Dispose();
                 });
                 sellwindow.GetChild("item").asCom.GetChild("icon").asLoader.url = clientitem.IconPath;
-                sellwindow.GetChild("item").asCom.GetChild("level").asTextField.text = item.Level + "";
+                sellwindow.GetChild("item").asCom.GetChild("level").asTextField.text = "lv." + item.Level + "";
                 sellwindow.GetChild("name").asTextField.text = clientitem.Name;
                 sellwindow.GetChild("pricetype_shouxufei").asLoader.url = Tool.GetPriceTypeIcon(p1.ShelfExchangeFeePriceType);
                 sellwindow.GetChild("pricetype").asLoader.url = Tool.GetPriceTypeIcon(10001);
@@ -286,7 +286,7 @@ public class ExchangeInfo
                 sellwindow.GetChild("unshelf_time").asTextField.FlushVars();
 
             });
-            onedropitem.GetChild("level").asTextField.text = item.Level + "";
+            onedropitem.GetChild("level").asTextField.text = "lv."+item.Level;
             main.GetChild("sellablelist").asList.AddChild(onedropitem);
         }
 
@@ -343,13 +343,13 @@ public class ExchangeInfo
                     sellwindow.Dispose();
                 });
                 sellwindow.GetChild("item").asCom.GetChild("icon").asLoader.url = clientitem.IconPath;
-                sellwindow.GetChild("item").asCom.GetChild("level").asTextField.text = item.CommodityData.Level + "";
+                sellwindow.GetChild("item").asCom.GetChild("level").asTextField.text = "lv." + item.CommodityData.Level + "";
                 sellwindow.GetChild("name").asTextField.text = clientitem.Name;
                 sellwindow.GetChild("pricetype").asLoader.url = Tool.GetPriceTypeIcon(item.CommodityData.PriceType);
                 sellwindow.GetChild("price").asTextField.text = item.CommodityData.Price + "";
             });
             onedropitem.GetChild("price").asTextField.text = item.CommodityData.Price + "";
-            onedropitem.GetChild("level").asTextField.text = item.CommodityData.Level + "";
+            onedropitem.GetChild("level").asTextField.text = "lv." + item.CommodityData.Level + "";
             onedropitem.GetChild("pricetype").asLoader.url = Tool.GetPriceTypeIcon(item.CommodityData.PriceType);
             onedropitem.GetChild("name").asTextField.text = clientitem.Name;
             main.GetChild("sellinglist").asList.AddChild(onedropitem);

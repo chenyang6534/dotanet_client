@@ -233,6 +233,11 @@ public class MyInfo {
                     //判断是否是合成
                     if(int.Parse(sArray[1]) == 2)//背包里
                     {
+                        if(int.Parse(sArray[0]) == (int)item.data)//位置相同 不处理
+                        {
+                            return;
+                        }
+
                         var bagequip = GetUnitEquipByPos(int.Parse(sArray[0]));
                         var bagequip1 = GetUnitEquipByPos((int)item.data);
                         if (bagequip != null && bagequip1 != null && bagequip1.TypdID == bagequip.TypdID && bagequip1.Level == bagequip.Level)

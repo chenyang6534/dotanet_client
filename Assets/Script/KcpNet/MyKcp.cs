@@ -33,12 +33,7 @@ namespace cocosocket4unity
         }
 
         private MyKcp() { }
-
-        public void Destroy()
-        {
-            this.Stop();
-            _instance = new MyKcp();
-        }
+        
 
 
         protected override void HandleReceive(ByteBuf bb)
@@ -98,8 +93,12 @@ namespace cocosocket4unity
 
 
         }
-        
-        
+        public void Destroy()
+        {
+            this.Stop();
+            _instance = new MyKcp();
+        }
+
 
         public void Create(String ip,int port)
         {

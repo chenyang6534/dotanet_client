@@ -479,6 +479,20 @@ public class UnityEntity {
         var be = m_BuffEffects[buffdata.TypeID];
         be.FreshData(buffdata);
     }
+    //清除所有buff特效
+    public void ClearAllBuffSpecial()
+    {
+        foreach (var item in m_BuffEffects)
+        {
+            if (item.Value != null)
+            {
+                item.Value.Delete();
+            }
+
+        }
+        m_BuffEffects.Clear();
+    }
+
     //根据buffid 删除单位特效
     public void RemoveBuffSpecial(int typeid)
     {
@@ -651,6 +665,7 @@ public class UnityEntity {
 
     public void Destroy()
     {
+        ClearAllBuffSpecial();
         if (m_Mode != null)
         {
             GameObject.Destroy(m_Mode);
@@ -1325,7 +1340,13 @@ public class UnityEntity {
             m_TopBar.GetComponent<UnityEntityTopBar>().SetMP((int)((float)MP / MaxMP * 100));
             m_TopBar.GetComponent<UnityEntityTopBar>().SetName(Name);
             m_TopBar.GetComponent<UnityEntityTopBar>().SetLevel(Level);
-            m_TopBar.GetComponent<UnityEntityTopBar>().SetGuildName(GuildName);
+            var ismyguild = false;
+            UnityEntity mainunit = GameScene.Singleton.GetMyMainUnit();
+            if (mainunit != null && mainunit.GuildID == GuildID)
+            {
+                ismyguild = true;
+            }
+            m_TopBar.GetComponent<UnityEntityTopBar>().SetGuildName(GuildName, ismyguild);
 
             var isEnemy = UnityEntityManager.Instance.CheckIsEnemy(this, GameScene.Singleton.GetMyMainUnit());
 

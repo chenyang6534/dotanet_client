@@ -49,6 +49,20 @@ public class SceneItemManager
         //hero.GetComponent<>
         m_SceneItems[data.ID] = hero;
     }
+    //删除所有场景道具
+    public void Clear()
+    {
+        foreach (var item in m_SceneItems)
+        {
+            if(item.Value != null)
+            {
+                GameObject.Destroy(item.Value);
+            }
+            
+        }
+        m_SceneItems.Clear();
+    }
+
     //删除单位
     public void DestroySceneItem(int id)
     {

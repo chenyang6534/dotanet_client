@@ -192,6 +192,7 @@ public class GameScene : MonoBehaviour {
         UnityEntityManager.Instance.Clear();
         HaloEntityManager.Instance.Clear();
         BulletEntityManager.Instance.Clear();
+        SceneItemManager.Instance.Clear();
 
 
     }
@@ -227,7 +228,7 @@ public class GameScene : MonoBehaviour {
     void DoDelay(double frame)
     {
         //动态处理延时 使过程平滑
-        if (m_MaxFrame - frame > 1.3)
+        if (m_MaxFrame - frame > 2)
         {
             //超过2帧缓存数据 降低延时
             m_LogicDelayTime -= 0.01f;//10毫秒
@@ -381,14 +382,16 @@ public class GameScene : MonoBehaviour {
     private bool m_IsMove = false;
     public void SendControlData(float degree,bool isstart)
     {
-        if(m_IsMove == true && isstart == true && (Mathf.Abs(m_LastDegree-degree) <= 10 || Tool.GetTime()- m_LastControlTime <= 1/m_LogicFps))
+        Debug.Log(" SendControlData data:"+ isstart+" " + m_LastDegree + "  :" + degree + " " + Tool.GetTime() + " " + m_LastControlTime + " " + 1 / m_LogicFps);
+        //if (m_IsMove == true && isstart == true && (Mathf.Abs(m_LastDegree-degree) <= 5 || Tool.GetTime()- m_LastControlTime <= 1.0f/m_LogicFps))
+        if (m_IsMove == true && isstart == true && (Mathf.Abs(m_LastDegree - degree) <= 5))
         {
-            //Debug.Log(" SendControlData no:");
+            Debug.Log(" SendControlData no:");
             return;
         }
         else
         {
-            //Debug.Log(" SendControlData yes:");
+            Debug.Log(" SendControlData yes:");
         }
         m_IsMove = isstart;
         m_LastControlTime = Tool.GetTime();
@@ -402,7 +405,7 @@ public class GameScene : MonoBehaviour {
         msg1.Y = dir.y;
         if(isstart == false)
         {
-            Debug.Log("-----------no move:");
+            //Debug.Log("-----------no move:");
         }
         //
 

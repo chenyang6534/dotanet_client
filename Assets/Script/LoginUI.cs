@@ -94,6 +94,7 @@ public class LoginUI : MonoBehaviour {
             this.name = name;
         }
 
+
     }
     [Serializable]
     public class ServerListInfoArr
@@ -114,7 +115,7 @@ public class LoginUI : MonoBehaviour {
         Debug.Log("-------------InitServerList:" + jsonstr);
 
         //默认id
-        var defaultid = 0;
+        var defaultid = 1;
         var t2 = JsonUtility.FromJson<ServerListInfoArr>(jsonstr);
         var serverlist = t2.servers;
         Debug.Log("-------------len:" + serverlist.Length);
@@ -136,6 +137,7 @@ public class LoginUI : MonoBehaviour {
         combo.selectedIndex = defaultid;
         combo.onChanged.Add(() => {
             SelectServer = serverlist[int.Parse(combo.value)];
+            Debug.Log("-------------MyKcp.Instance.Destroy:" + SelectServer);
             //重新建立连接
             MyKcp.Instance.Destroy();
             MyKcp.Instance.Create(SelectServer.ip, SelectServer.port);

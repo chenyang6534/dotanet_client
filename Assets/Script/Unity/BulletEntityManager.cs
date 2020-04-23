@@ -28,7 +28,7 @@ public class BulletEntityManager
     //获取子弹模型路径
     public string GetBulletModePath(string paths)
     {
-        Debug.Log("GetBulletModePath:" + paths);
+        //Debug.Log("GetBulletModePath:" + paths);
         if(paths.Length <= 0)
         {
             return "";

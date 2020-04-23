@@ -457,7 +457,7 @@ public class UnityEntity {
         }
         else
         {
-            Debug.Log("------- CreateBuffSpecial : faild" + buffdata.TypeID + " " + m_BuffEffects);
+            //Debug.Log("------- CreateBuffSpecial : faild" + buffdata.TypeID + " " + m_BuffEffects);
         }
         
 
@@ -496,10 +496,10 @@ public class UnityEntity {
     //根据buffid 删除单位特效
     public void RemoveBuffSpecial(int typeid)
     {
-        Debug.Log("------- RemoveBuffSpecial :" + typeid);
+        //Debug.Log("------- RemoveBuffSpecial :" + typeid);
         if (m_BuffEffects.ContainsKey(typeid) == false)
         {
-            Debug.Log("-------no RemoveBuffSpecial :" + typeid);
+            //Debug.Log("-------no RemoveBuffSpecial :" + typeid);
             return;
         }
         var be = m_BuffEffects[typeid];
@@ -1563,7 +1563,7 @@ public class UnityEntity {
 
                 if (this.UnitType == 1)
                 {
-                    Debug.Log("------animistate:" + m_AnimotorState + "   time:" + m_AttackTime);
+                    //Debug.Log("------animistate:" + m_AnimotorState + "   time:" + m_AttackTime);
                 }
             }
             

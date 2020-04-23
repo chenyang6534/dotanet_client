@@ -57,7 +57,7 @@ public class BuffEffect
             return;
         }
 
-        Debug.Log("init:"+ BIdata.BodyEffect);
+        //Debug.Log("init:"+ BIdata.BodyEffect);
 
 
         if(BIdata.IsShowControl == 1)
@@ -347,7 +347,7 @@ public class BuffEffect
         
         
 
-        Debug.Log("Delete:" + TypeID);
+        //Debug.Log("Delete:" + TypeID);
         foreach (GameObject p in ModeEffect)
         {
             Object.Destroy(p);

@@ -28,7 +28,7 @@ public class GameScene : MonoBehaviour {
     protected List<int> m_MyControlUnit;//我自己控制的单位的ID
     public UnityEntity m_MyMainUnit;//我自己的主单位
 
-    
+    public int NoDataCount;//没有数据次数
 
     private static GameScene singleton = null;
     public static GameScene Singleton
@@ -228,16 +228,17 @@ public class GameScene : MonoBehaviour {
     void DoDelay(double frame)
     {
         //动态处理延时 使过程平滑
-        if (m_MaxFrame - frame > 2)
+        if (m_MaxFrame - frame > 2.5)
         {
             //超过2帧缓存数据 降低延时
             m_LogicDelayTime -= 0.01f;//10毫秒
             //Debug.Log("m_LogicDelayTime+:" + m_LogicDelayTime);
         }
-        else if (frame - m_MaxFrame >= 0)
+        //else if (frame - m_MaxFrame >= 0)
+        else if(m_MaxFrame-frame <= 2)
         {
             //缓存中没有需要执行的数据 增加延时
-            m_LogicDelayTime += 0.01f;//10毫秒
+            m_LogicDelayTime += 0.015f;//10毫秒
             //Debug.Log("m_LogicDelayTime-:" + m_LogicDelayTime);
         }
     }
@@ -340,7 +341,7 @@ public class GameScene : MonoBehaviour {
             }
             else
             {
-                //Debug.Log("no data-------------------------------");
+                Debug.Log("no data-------------------------------");
             }
         }
 
@@ -360,6 +361,10 @@ public class GameScene : MonoBehaviour {
                     BulletEntityManager.Instance.ChangeShowPos(item, scale);
                 }
                 //BulletEntityManager.Instance.DestroyBulletEntity(item);
+            }
+            else
+            {
+                Debug.Log("no pos data-------------------------------");
             }
         }
 
@@ -382,16 +387,16 @@ public class GameScene : MonoBehaviour {
     private bool m_IsMove = false;
     public void SendControlData(float degree,bool isstart)
     {
-        Debug.Log(" SendControlData data:"+ isstart+" " + m_LastDegree + "  :" + degree + " " + Tool.GetTime() + " " + m_LastControlTime + " " + 1 / m_LogicFps);
+        //Debug.Log(" SendControlData data:"+ isstart+" " + m_LastDegree + "  :" + degree + " " + Tool.GetTime() + " " + m_LastControlTime + " " + 1 / m_LogicFps);
         //if (m_IsMove == true && isstart == true && (Mathf.Abs(m_LastDegree-degree) <= 5 || Tool.GetTime()- m_LastControlTime <= 1.0f/m_LogicFps))
         if (m_IsMove == true && isstart == true && (Mathf.Abs(m_LastDegree - degree) <= 5))
         {
-            Debug.Log(" SendControlData no:");
+            //Debug.Log(" SendControlData no:");
             return;
         }
         else
         {
-            Debug.Log(" SendControlData yes:");
+           // Debug.Log(" SendControlData yes:");
         }
         m_IsMove = isstart;
         m_LastControlTime = Tool.GetTime();

@@ -1034,6 +1034,11 @@ public class GameUI : MonoBehaviour {
                 {
                     iconpath = "Minimap_UnitPin_Enemy";
                     color1 = new Color(1, 0.1f, 0.1f);
+                    if(unit.Value.UnitType == 1 || unit.Value.UnitType == 4) //英雄 boss
+                    {
+                        color1 = new Color(0.1f, 0.8f, 0.8f);
+                        scale = new Vector2(1.5f, 1.5f);
+                    }
                 }
                 else
                 {

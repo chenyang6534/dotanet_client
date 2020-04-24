@@ -79,17 +79,19 @@ namespace cocosocket4unity
       }
       private void Received(IAsyncResult ar)
       {
-          UdpClient client = (UdpClient)ar.AsyncState;
+            
+            
+            UdpClient client = (UdpClient)ar.AsyncState;
           try
           {
               byte[] data = client.EndReceive(ar, ref this.curAddr);
           lock(LOCK)
           {
-            this.received.AddLast(new ByteBuf(data));
-            this.needUpdate = true;
-			this.lastTime = DateTime.Now;
+                this.received.AddLast(new ByteBuf(data));
+                this.needUpdate = true;
+			    this.lastTime = DateTime.Now;
           }
-            client.BeginReceive(Received, ar.AsyncState);
+                client.BeginReceive(Received, ar.AsyncState);
            }catch(Exception ex)
            {
                this.HandleException(ex);
@@ -130,7 +132,8 @@ namespace cocosocket4unity
       int n = kcp.Receive(bb);
       if (n > 0)
       {
-        this.HandleReceive(bb);
+            
+            this.HandleReceive(bb);
       }
     }
      //send
@@ -139,6 +142,7 @@ namespace cocosocket4unity
         while (this.sendList.Count > 0)
         {
             ByteBuf item = this.sendList.First.Value;
+              
             this.kcp.Send(item);
             this.sendList.RemoveFirst();
         }

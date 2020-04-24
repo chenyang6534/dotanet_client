@@ -1,6 +1,7 @@
 ﻿using FairyGUI;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using UnityEngine;
 
@@ -254,7 +255,15 @@ public static class Tool {
             cd();
         });
     }
-    
+    public static string getMemory(object o) // 获取引用类型的内存地址方法  
+    {
+        GCHandle h = GCHandle.Alloc(o, GCHandleType.WeakTrackResurrection);
+
+        System.IntPtr addr = GCHandle.ToIntPtr(h);
+
+        return "0x" + addr.ToString("X");
+    }
+
     //通过频道类型获取频道内容颜色
     public static string GetContetColorFromChatChanel(int chanel)
     {

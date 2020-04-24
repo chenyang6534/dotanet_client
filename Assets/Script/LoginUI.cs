@@ -140,6 +140,7 @@ public class LoginUI : MonoBehaviour {
             Debug.Log("-------------MyKcp.Instance.Destroy:" + SelectServer);
             //重新建立连接
             MyKcp.Instance.Destroy();
+            //System.Threading.Thread.Sleep(3000);
             MyKcp.Instance.Create(SelectServer.ip, SelectServer.port);
         });
     }

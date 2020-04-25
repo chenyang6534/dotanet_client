@@ -43,16 +43,18 @@ namespace cocosocket4unity
        {
            if(running)
            { 
-           running = false;
-           try 
-           {
-            this.client.Close();
+                running = false;
+                try 
+                {
+                    this.client.Close();
             //this.client = new UdpClient(0);
-            }
-            catch (Exception ex)
-           {
+                }
+                catch (Exception ex)
+                {
+
+                }
            }
-           }
+           UnityEngine.Debug.Log("----------------------------Stop1:" + running);
        }
        protected override void HandleException(Exception ex)
        {
@@ -74,13 +76,14 @@ namespace cocosocket4unity
                t.IsBackground = true;
                t.Start();
            }
-       }
+            UnityEngine.Debug.Log("----------------------------Start:" + running);
+        }
        private void run()
        {
            while (running)
            {
                DateTime st = DateTime.Now;
-               this.Update(); 
+               this.Update();
                if (this.needUpdate)
                {
                    continue;

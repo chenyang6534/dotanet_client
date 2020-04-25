@@ -63,7 +63,8 @@ namespace cocosocket4unity
           }
           catch (Exception ex)
           {
-              this.HandleException(ex);
+                UnityEngine.Debug.Log("-------------111:"+ex);
+                this.HandleException(ex);
           }
       }
         /// <summary>
@@ -94,7 +95,8 @@ namespace cocosocket4unity
                 client.BeginReceive(Received, ar.AsyncState);
            }catch(Exception ex)
            {
-               this.HandleException(ex);
+                UnityEngine.Debug.Log("-------------222:" + ex);
+                this.HandleException(ex);
            }
       }
         /// <summary>

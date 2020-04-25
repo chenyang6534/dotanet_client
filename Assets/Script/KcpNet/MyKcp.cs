@@ -41,14 +41,14 @@ namespace cocosocket4unity
 
             IMessage IMperson = new Protomsg.MsgBase();
             Protomsg.MsgBase p1 = (Protomsg.MsgBase)IMperson.Descriptor.Parser.ParseFrom(bb.GetRaw());
-
-            if( p1.MsgType == "SC_Heart")
+            //UnityEngine.Debug.Log("HandleReceive:" + p1.MsgType);
+            if ( p1.MsgType == "SC_Heart")
             {
-                UnityEngine.Debug.Log("heart");
+                
                 //this.SendHeartMsg();
                 var time = Tool.GetTime();
                 PingValue = (int)Math.Floor((time - m_SendHeartTime) * 1000);
-                UnityEngine.Debug.Log("ping:"+ PingValue);
+                //UnityEngine.Debug.Log("ping:"+ PingValue);
                 return;
             }
 
@@ -64,8 +64,8 @@ namespace cocosocket4unity
         protected override void HandleException(Exception ex)
         {
             base.HandleException(ex);
-            UnityEngine.Debug.Log("HandleException"+ex.ToString());
-            UnityEngine.Debug.Log("HandleException:" + Tool.getMemory(this));
+            UnityEngine.Debug.Log("-------HandleException"+ex.ToString());
+            //UnityEngine.Debug.Log("HandleException:" + Tool.getMemory(this));
             Protomsg.CC_Disconnect msg = new Protomsg.CC_Disconnect();
             msg.Err = ex.ToString();
 
@@ -95,30 +95,42 @@ namespace cocosocket4unity
         }
         public void Destroy()
         {
+            UnityEngine.Debug.Log("----------------------------Destroy:");
             this.Stop();
-            Thread.Sleep(3000);
+            //Thread.Sleep(3000);
         }
 
 
-        public void Create(String ip,int port)
+        public static void Create(String ip,int port)
         {
             //this.Stop();
             //Thread.Sleep(1000);
+
+            if (_instance != null)
+            {
+                _instance.Destroy();
+                _instance = null;
+            }
+
             _instance = new MyKcp();
 
-            this.NoDelay(1, 10, 2, 1);//fast
-            this.WndSize(128, 128);
-            this.Timeout(10 * 1000);
+            _instance.NoDelay(1, 10, 2, 1);//fast
+            _instance.WndSize(128, 128);
+            _instance.Timeout(10 * 1000);
             //client.SetMtu(512);
-            this.SetMinRto(10);
+            _instance.SetMinRto(10);
             //client.SetConv(121106);
-            UnityEngine.Debug.Log("Create");
-            this.Connect(ip, port);
-            this.Start();
+            //UnityEngine.Debug.Log("111HeartThread:" + Tool.getMemory(this));
+            UnityEngine.Debug.Log("Create111:");
+            _instance.Connect(ip, port);
+            UnityEngine.Debug.Log("Create222:");
+            _instance.Start();
+            UnityEngine.Debug.Log("Create333:");
 
             //this.SendHeartMsg();
 
-            this.DoHeart();
+            _instance.DoHeart();
+            UnityEngine.Debug.Log("Create444:");
 
         }
 
@@ -165,7 +177,7 @@ namespace cocosocket4unity
         {
             while (this.running)
             {
-                UnityEngine.Debug.Log("111HeartThread:" + Tool.getMemory(this));
+                //UnityEngine.Debug.Log("111HeartThread:" + Tool.getMemory(this));
                 this.SendHeartMsg();
                 Thread.Sleep(3000);
             }
@@ -176,7 +188,7 @@ namespace cocosocket4unity
             Protomsg.MsgBase msg1 = new Protomsg.MsgBase();
             msg1.MsgType = "CS_Heart";
             ByteBuf bb = new ByteBuf(msg1.ToByteArray());
-            UnityEngine.Debug.Log("SendHeartMsg:"+ Tool.getMemory(this));
+            //UnityEngine.Debug.Log("SendHeartMsg:"+ Tool.getMemory(this));
             this.Send(bb);
 
             m_SendHeartTime = Tool.GetTime();

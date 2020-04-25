@@ -18,7 +18,7 @@ public class LoginUI : MonoBehaviour {
     // Use this for initialization
     void Start () {
         Screen.fullScreen = false;
-        MyKcp.Instance.Destroy();
+        //MyKcp.Instance.Destroy();
         //读取存档
         SaveDataManager.Read();
         
@@ -39,7 +39,7 @@ public class LoginUI : MonoBehaviour {
         mRoot.GetChild("login").asButton.onClick.Add(()=> {
             //MyKcp.Instance.Destroy();
             //MyKcp.Instance.Create(SelectServer.ip, SelectServer.port);
-
+            MyKcp.Create(SelectServer.ip, SelectServer.port);
 
             Protomsg.CS_MsgQuickLogin msg1 = new Protomsg.CS_MsgQuickLogin();
             //msg1.Machineid = "100001"; //PA
@@ -115,14 +115,14 @@ public class LoginUI : MonoBehaviour {
         Debug.Log("-------------InitServerList:" + jsonstr);
 
         //默认id
-        var defaultid = 1;
+        var defaultid = 0;
         var t2 = JsonUtility.FromJson<ServerListInfoArr>(jsonstr);
         var serverlist = t2.servers;
         Debug.Log("-------------len:" + serverlist.Length);
         var defaultserver = serverlist[defaultid];
         SelectServer = defaultserver;
         //建立连接
-        MyKcp.Instance.Create(defaultserver.ip, defaultserver.port);
+        MyKcp.Create(defaultserver.ip, defaultserver.port);
         //
         string[] names = new string[serverlist.Length];
         string[] values = new string[serverlist.Length];
@@ -136,12 +136,12 @@ public class LoginUI : MonoBehaviour {
         combo.values = values;
         combo.selectedIndex = defaultid;
         combo.onChanged.Add(() => {
-            SelectServer = serverlist[int.Parse(combo.value)];
-            Debug.Log("-------------MyKcp.Instance.Destroy:" + SelectServer);
+            SelectServer = serverlist[combo.selectedIndex];
+            //Debug.Log("-------------MyKcp.Instance.Destroy:" + SelectServer.ip+"  "+ combo.selectedIndex);
             //重新建立连接
-            MyKcp.Instance.Destroy();
+            //MyKcp.Instance.Destroy();
             //System.Threading.Thread.Sleep(3000);
-            MyKcp.Instance.Create(SelectServer.ip, SelectServer.port);
+            //MyKcp.Create(SelectServer.ip, SelectServer.port);
         });
     }
 	

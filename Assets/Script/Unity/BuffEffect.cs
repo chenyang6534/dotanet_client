@@ -332,7 +332,11 @@ public class BuffEffect
             if (ParentEntity != null)
             {
                 var topbar = ParentEntity.GetTopBar();
-                topbar.RemoveBuff(TopBarObj);
+                if(topbar != null)
+                {
+                    topbar.RemoveBuff(TopBarObj);
+                }
+                
             }
         }
         if(BIdata.MaterialEffect.Length > 0)

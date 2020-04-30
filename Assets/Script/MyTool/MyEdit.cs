@@ -23,6 +23,7 @@ public class MyEditor : Editor
     ,"Map/CreateUnits/CreateUnitsGuild1","Map/CreateUnits/CreateUnitsGuild2","Map/CreateUnits/CreateUnitsGuild3"
     ,"Map/CreateUnits/CreateUnitsGuild4","Map/CreateUnits/CreateUnitsGuild5","Map/CreateUnits/CreateUnitsGuild6"
     ,"Map/CreateUnits/CreateUnitsGuild7","Map/CreateUnits/CreateUnitsGuild8","Map/CreateUnits/CreateUnitsGuild9"
+    ,"Map/CreateUnits/CreateUnitsGuildRank"
     ,"Map/CreateUnits/CreateUnitsActivity1","Map/CreateUnits/CreateUnitsActivity2","Map/CreateUnits/CreateUnitsActivity3"
     ,"Map/CreateUnits/CreateUnitsActivity4","Map/CreateUnits/CreateUnitsActivity5","Map/CreateUnits/CreateUnitsActivity6"
     ,"Map/CreateUnits/CreateUnitsActivity7","Map/CreateUnits/CreateUnitsActivity8","Map/CreateUnits/CreateUnitsActivity9"};

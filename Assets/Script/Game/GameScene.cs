@@ -1,6 +1,7 @@
 ﻿using cocosocket4unity;
 using FairyGUI;
 using Google.Protobuf;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -31,6 +32,11 @@ public class GameScene : MonoBehaviour {
     public int NoDataCount;//没有数据次数
 
     private static GameScene singleton = null;
+
+    //显示服务器时间差值
+    public int TimeHourDiffer;
+    public int TimeMinuteDiffer;
+    public int TimeSecondDiffer;
     public static GameScene Singleton
     {
         get
@@ -118,6 +124,14 @@ public class GameScene : MonoBehaviour {
         m_ScenePath = p1.Name;
         m_GameServerStartTime = Tool.GetTime() - 1.0f/p1.LogicFps* p1.CurFrame;
         Debug.Log("starttime:"+ m_GameServerStartTime+ " LogicFps: "+ p1.LogicFps+"  curframe:"+m_CurFrame+"  time:"+ Time.realtimeSinceStartup);
+
+        //显示服务器时间差值
+        var timenow = DateTime.Now;
+        Debug.Log("111:" + p1.TimeHour+"  :"+ timenow.Hour);
+        TimeHourDiffer = p1.TimeHour - timenow.Hour;
+        TimeMinuteDiffer = p1.TimeMinute - timenow.Minute;
+        TimeSecondDiffer = p1.TimeSecond - timenow.Second;
+
         CleanScene();
         if (needNewScene)
         {
@@ -341,7 +355,7 @@ public class GameScene : MonoBehaviour {
             }
             else
             {
-                Debug.Log("no data-------------------------------");
+                //Debug.Log("no data-------------------------------");
             }
         }
 
@@ -364,7 +378,7 @@ public class GameScene : MonoBehaviour {
             }
             else
             {
-                Debug.Log("no pos data-------------------------------");
+                //Debug.Log("no pos data-------------------------------");
             }
         }
 

@@ -51,6 +51,48 @@ public class GuildInfo
 
 
     }
+
+    //弹出修改公告对话框
+    public void createguildeditornotice(string notice)
+    {
+        var createguildwd = UIPackage.CreateObject("GameUI", "EditorGuildNotice").asCom;
+        GRoot.inst.AddChild(createguildwd);
+        createguildwd.xy = Tool.GetPosition(0.5f, 0.5f);
+        createguildwd.GetChild("close").asButton.onClick.Add(() =>
+        {
+            createguildwd.Dispose();
+        });
+
+        //默认文字
+        createguildwd.GetChild("input").asTextInput.text = notice;
+
+        createguildwd.GetChild("create").asButton.onClick.Add(() =>
+        {
+            var txt = createguildwd.GetChild("input").asTextInput.text;
+            if (txt.Length <= 0)
+            {
+                Tool.NoticeWords("请输入文字！", null);
+                return;
+            }
+            //if (Tool.IsChineseOrNumberOrWord(txt) == false)
+            //{
+            //    Tool.NoticeWords("名字不能含有中文,字母,数字以外的其他字符！", null);
+            //    return;
+            //}
+
+            Tool.NoticeWindonw("你确定修改公会公告吗?", () =>
+            {
+                //创建 
+                Protomsg.CS_EditorGuildNotice msg1 = new Protomsg.CS_EditorGuildNotice();
+                msg1.Notice = txt;
+                MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_EditorGuildNotice", msg1);
+                createguildwd.Dispose();
+            });
+
+            
+        });
+    }
+
     //弹出创建公会对话框
     public void createguildwindow(int price,int pricetype)
     {
@@ -473,6 +515,13 @@ public class GuildInfo
             });
         });
 
+        //修改公告
+        main.GetChild("editornotice").asButton.onClick.Add(() =>
+        {
+            createguildeditornotice(p1.GuildBaseInfo.Notice);
+            
+        });
+
 
         //
         main.GetChild("request").asButton.onClick.Add(() =>
@@ -509,43 +558,102 @@ public class GuildInfo
             Debug.Log("SC_GetGuildInfo111   :" + item.Level + " name:" + item.Name);
         }
         Array.Sort(allplayer, (a, b) => {
-            if (a.Level > b.Level)
+            if(a.Post > b.Post)
             {
                 return -1;
-            }
-            else if (a.Level == b.Level)
+            }else if(a.Post == b.Post)
             {
-                //return 0;
-                if (a.PinLevel > b.PinLevel)
+                if (a.Level > b.Level)
                 {
                     return -1;
                 }
-                else if (a.PinLevel == b.PinLevel)
+                else if (a.Level == b.Level)
                 {
-                    if (a.PinExperience > b.PinExperience)
+                    //return 0;
+                    if (a.PinLevel > b.PinLevel)
                     {
                         return -1;
+                    }
+                    else if (a.PinLevel == b.PinLevel)
+                    {
+                        if (a.PinExperience > b.PinExperience)
+                        {
+                            return -1;
+                        }
+                        else
+                        {
+                            return 1;
+                        }
                     }
                     else
                     {
                         return 1;
                     }
+
                 }
                 else
                 {
                     return 1;
                 }
-
             }
             else
             {
                 return 1;
             }
+
+
         });
         foreach (var item in allplayer)
         {
             Debug.Log("SC_GetGuildInfo   :"+item.Level+" name:"+item.Name );
             var onedropitem = UIPackage.CreateObject("GameUI", "GuildPlayerOne").asCom;
+            onedropitem.GetChild("heroicon").onClick.Add(() =>
+            {
+                new HeroSimpleInfo(item.Characterid);
+
+            });
+            //改变职位
+            onedropitem.GetChild("changepost").onClick.Add(() =>
+            {
+                var teamrequest = UIPackage.CreateObject("GameUI", "ChangePost").asCom;
+                GRoot.inst.AddChild(teamrequest);
+                teamrequest.xy = Tool.GetPosition(0.5f, 0.5f);
+                teamrequest.GetChild("close").asButton.onClick.Add(() =>
+                {
+                    teamrequest.Dispose();
+                });
+
+                AudioManager.Am.Play2DSound(AudioManager.Sound_OpenLittleUI);
+                //SrcUnitTypeID
+                var clientcha = ExcelManager.Instance.GetUnitInfoManager().GetUnitInfoByID(item.Typeid);
+                if (clientcha != null)
+                {
+                    teamrequest.GetChild("headicon").asLoader.url = clientcha.IconPath;
+                }
+                teamrequest.GetChild("name").asTextField.text = item.Name;
+                teamrequest.GetChild("level").asTextField.text = item.Level + "";
+
+                teamrequest.GetChild("post1").asButton.onClick.Add(() =>
+                {
+                    //回复拒绝好友请求
+                    Protomsg.CS_ChangePost msg1 = new Protomsg.CS_ChangePost();
+                    msg1.Characterid = item.Characterid;
+                    msg1.Post = 1;
+                    MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_ChangePost", msg1);
+                    teamrequest.Dispose();
+                });
+
+                teamrequest.GetChild("post9").asButton.onClick.Add(() =>
+                {
+                    //回复同意组队请求
+                    Protomsg.CS_ChangePost msg1 = new Protomsg.CS_ChangePost();
+                    msg1.Characterid = item.Characterid;
+                    msg1.Post = 9;
+                    MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_ChangePost", msg1);
+                    teamrequest.Dispose();
+                });
+
+            });
 
             onedropitem.GetChild("add").onClick.Add(() =>
             {
@@ -614,7 +722,11 @@ public class GuildInfo
         foreach (var item in allplayer)
         {
             var onedropitem = UIPackage.CreateObject("GameUI", "GuildRequestPlayerOne").asCom;
+            onedropitem.GetChild("heroicon").onClick.Add(() =>
+            {
+                new HeroSimpleInfo(item.Characterid);
 
+            });
             onedropitem.GetChild("agree").onClick.Add(() =>
             {
                 //同意

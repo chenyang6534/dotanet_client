@@ -63,9 +63,9 @@ namespace FairyGUI
 		virtual protected void SetTextFieldText()
 		{
 			string str = _text;
-			if (_templateVars != null)
+            if (_templateVars != null)
 				str = ParseTemplate(str);
-
+            //--
 			if (_ubbEnabled)
 				_textField.htmlText = UBBParser.inst.Parse(XMLUtils.EncodeString(str));
 			else
@@ -127,7 +127,7 @@ namespace FairyGUI
 
 		protected string ParseTemplate(string template)
 		{
-			int pos1 = 0, pos2 = 0;
+            int pos1 = 0, pos2 = 0;
 			int pos3;
 			string tag;
 			string value;

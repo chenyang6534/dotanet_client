@@ -573,7 +573,7 @@ MonoBehaviour:
     IconTimeEnable: 1
     IsShowControl: 0
   - TypeID: 138
-    BodyEffect: Buff/xuanmingduanpai
+    BodyEffect: 
     FootEffect: 
     Enable: 1
     HeadEffect: 
@@ -585,7 +585,7 @@ MonoBehaviour:
     FootsEffect: 
     MaterialEffect: 
     ModeEnable: 1
-    IconPath: 
+    IconPath: "ui://GameUI/\u7384\u51A5\u76FE\u724C"
     IconTimeEnable: 1
     IsShowControl: 0
   - TypeID: 152
@@ -1150,6 +1150,22 @@ MonoBehaviour:
     IsShowControl: 0
   - TypeID: 238
     BodyEffect: Buff/xuanfengzhan_boss
+    FootEffect: 
+    Enable: 1
+    HeadEffect: 
+    TopBarEffect: 
+    RenderColor: 0
+    OutEffect: 
+    NativeTopBarEffect: 
+    HandsEffect: 
+    FootsEffect: 
+    MaterialEffect: 
+    ModeEnable: 1
+    IconPath: 
+    IconTimeEnable: 1
+    IsShowControl: 0
+  - TypeID: 200
+    BodyEffect: Buff/xuanmingduanpai
     FootEffect: 
     Enable: 1
     HeadEffect: 

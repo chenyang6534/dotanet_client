@@ -1,7 +1,9 @@
 ﻿using FairyGUI;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using System.Text;
 using System.Text.RegularExpressions;
 using UnityEngine;
 
@@ -13,6 +15,19 @@ public static class Tool {
         //var t1 = Time.realtimeSinceStartup;
         return t1;
     }
+
+    public static string GetShowTime(int addhour,int addminute,int addsecond)
+    {
+        //Debug.Log(" :" + addhour + " :" + addminute + " :" + addsecond);
+        var timenow = DateTime.Now;
+        //Debug.Log("---:" + string.Format("{0:D2}:{1:D2}:{2:D2} ", timenow.Hour, timenow.Minute, timenow.Second));
+        timenow = timenow.AddHours(addhour);
+        timenow = timenow.AddMinutes(addminute);
+        timenow = timenow.AddSeconds(addsecond);
+        //CurrrentTimeText.text = string.Format("{0:D2}:{1:D2}:{2:D2} " + "{3:D4}/{4:D2}/{5:D2}", hour, minute, second, year, month, day);
+        return string.Format("{0:D2}:{1:D2}:{2:D2} ", timenow.Hour, timenow.Minute, timenow.Second);
+    }
+
     public static string Set2(int t)
     {
         if(t < 10)
@@ -51,6 +66,22 @@ public static class Tool {
             return "ui://GameUI/jingzuan";
         }
         else 
+        {
+            return "ui://GameUI/jingzuan";
+        }
+        return "";
+    }
+    public static string GetPriceTypeName(int pricetype)
+    {
+        if (pricetype == 10000)
+        {
+            return "金币";
+        }
+        else if (pricetype == 10001)
+        {
+            return "砖石";
+        }
+        else
         {
             return "ui://GameUI/jingzuan";
         }
@@ -184,6 +215,75 @@ public static class Tool {
             words.Dispose();
         });
     }
+    //文本参数解析 同fairygui
+    public static string ParseTemplate(string template, Dictionary<string, string> _templateVars)
+    {
+        int pos1 = 0, pos2 = 0;
+        int pos3;
+        string tag;
+        string value;
+        StringBuilder buffer = new StringBuilder();
+
+        while ((pos2 = template.IndexOf('{', pos1)) != -1)
+        {
+            if (pos2 > 0 && template[pos2 - 1] == '\\')
+            {
+                buffer.Append(template, pos1, pos2 - pos1 - 1);
+                buffer.Append('{');
+                pos1 = pos2 + 1;
+                continue;
+            }
+
+            buffer.Append(template, pos1, pos2 - pos1);
+            pos1 = pos2;
+            pos2 = template.IndexOf('}', pos1);
+            if (pos2 == -1)
+                break;
+
+            if (pos2 == pos1 + 1)
+            {
+                buffer.Append(template, pos1, 2);
+                pos1 = pos2 + 1;
+                continue;
+            }
+
+            tag = template.Substring(pos1 + 1, pos2 - pos1 - 1);
+            pos3 = tag.IndexOf('=');
+            if (pos3 != -1)
+            {
+                if (!_templateVars.TryGetValue(tag.Substring(0, pos3), out value))
+                    value = tag.Substring(pos3 + 1);
+            }
+            else
+            {
+                if (!_templateVars.TryGetValue(tag, out value))
+                    value = "";
+            }
+            buffer.Append(value);
+            pos1 = pos2 + 1;
+        }
+        if (pos1 < template.Length)
+            buffer.Append(template, pos1, template.Length - pos1);
+
+        return buffer.ToString();
+    }
+
+    //public static string WordsUBB(string text, Dictionary<string, string> p)
+    //{
+    //    GTextField WordsUBBText = new GTextField(); //LayaAir平台用new GBasicTextField
+    //    WordsUBBText.UBBEnabled = true;
+    //    WordsUBBText.text = text;
+    //    int index = 1;
+    //    foreach (var item in p)
+    //    {
+    //        WordsUBBText.SetVar("p" + index, item);
+    //        Debug.Log("---WordsUBB---:" + item);
+    //        index++;
+    //    }
+    //    WordsUBBText.FlushVars();
+    //    Debug.Log("---WordsUBB---:" + WordsUBBText.text);
+    //    return WordsUBBText.text;
+    //}
 
     public static void NoticeWords(string word,Google.Protobuf.Collections.RepeatedField<string> p)
     {
@@ -273,7 +373,7 @@ public static class Tool {
             case 1:
                 return "[color=#FFFFFF]";
             case 2:
-                return "[color=#FFFFFF]";
+                return "[color=#EE1111]";
             case 3:
                 return "[color=#ff00ff]";
             case 4:

@@ -873,7 +873,7 @@ public class GameUI : MonoBehaviour {
         if (mainunit == null || mainunit.BuffDatas == null || mainunit.BuffDatas.Length <= 0)
         {
             BufsRes.Clear();
-            Bufs.RemoveChildren();
+            Bufs.RemoveChildren(0, -1, true);
             return;
         }
 
@@ -912,7 +912,7 @@ public class GameUI : MonoBehaviour {
     {
         if (BufsRes.ContainsKey(key))
         {
-            Bufs.RemoveChild(BufsRes[key]);
+            Bufs.RemoveChild(BufsRes[key],true);
             BufsRes.Remove(key);
         }
         
@@ -1012,6 +1012,7 @@ public class GameUI : MonoBehaviour {
         {
             var color1 = new Color(1, 0.1f, 0.1f);
             var scale = new Vector2(1, 1);
+            var drawsize = 5.0f;
             string iconpath = "Minimap_UnitPin_Foreground_Leader";
             if (unit.Value == GameScene.Singleton.m_MyMainUnit)
             {
@@ -1020,12 +1021,14 @@ public class GameUI : MonoBehaviour {
                 //iconpath = "Minimap_UnitPin_Foreground_Friendly";
                 color1 = new Color(0.1f, 1f, 0.1f);
                 scale = new Vector2(2, 2);
+                drawsize = 10;
             }
             else if (unit.Value.TeamID == GameScene.Singleton.m_MyMainUnit.TeamID && GameScene.Singleton.m_MyMainUnit.TeamID > 0)
             {
                 //队伍
                 color1 = new Color(1f, 0.8f, 0.2f);
                 scale = new Vector2(2, 2);
+                drawsize = 10;
             }
             else
             {
@@ -1038,6 +1041,7 @@ public class GameUI : MonoBehaviour {
                     {
                         color1 = new Color(0.1f, 0.8f, 0.8f);
                         scale = new Vector2(1.5f, 1.5f);
+                        drawsize = 7.5f;
                     }
                 }
                 else
@@ -1048,8 +1052,9 @@ public class GameUI : MonoBehaviour {
             }
 
             GGraph aImage = new GGraph();
-            aImage.SetSize(5, 5);
-            aImage.DrawEllipse(5, 5, color1);
+            //aImage.SetSize(5, 5);
+            //aImage.DrawEllipse(5, 5, color1);
+            aImage.DrawRect(drawsize, drawsize, 1, new Color(0, 0, 0), color1);
 
             //GImage aImage = UIPackage.CreateObject("GameUI", iconpath).asImage;
             aImage.pivot = new Vector2(0.5f, 0.5f);
@@ -1065,7 +1070,7 @@ public class GameUI : MonoBehaviour {
                 aImage.sortingOrder = 10;
                 
             }
-            aImage.scale = scale;
+            //aImage.scale = scale;
             allunitImage.Add(aImage);
 
             var item = ExcelManager.Instance.GetSceneManager().GetSceneByID(SceneID);
@@ -1111,7 +1116,8 @@ public class GameUI : MonoBehaviour {
         //{
         //    Debug.Log("update Input.touchCount:" + Input.touchCount);
         //}
-        gPing.text = "" + MyKcp.PingValue;
+        var showtimestr = Tool.GetShowTime(GameScene.Singleton.TimeHourDiffer, GameScene.Singleton.TimeMinuteDiffer, GameScene.Singleton.TimeSecondDiffer);
+        gPing.text = showtimestr + " ping:" + MyKcp.PingValue;
         FreshSkillUI();
         FreshItemSkillUI();
         FreshHead();

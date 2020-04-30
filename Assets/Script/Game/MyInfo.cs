@@ -46,6 +46,12 @@ public class MyInfo {
         msg1.SrcPos = srcpos;
         MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_DestroyItem", msg1);
     }
+    public void SendHuiShouItem(int srcpos)
+    {
+        Protomsg.CS_SystemHuiShouItem msg1 = new Protomsg.CS_SystemHuiShouItem();
+        msg1.SrcPos = srcpos;
+        MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_SystemHuiShouItem", msg1);
+    }
 
     //发送交换位置
     public void SendChangePos(int srcpos,int destpos, int srctype, int desttype)
@@ -127,6 +133,10 @@ public class MyInfo {
                     //Debug.Log("onDragStart");
 
                     //1表示装备栏 2表示背包
+                    DragDropManager.inst.dragAgent.autoSize = false;
+                    DragDropManager.inst.dragAgent.SetPivot(0.5f, 1, true);
+                    DragDropManager.inst.dragAgent.fill = FillType.Scale;
+                    DragDropManager.inst.dragAgent.SetSize(item.width, item.height);
                     DragDropManager.inst.StartDrag(item, item.icon, item.data + ",1", (int)context.data);
                 });
                 //DragDropManager.inst.dragAgent.onDragEnd.Add((EventContext context) =>
@@ -191,9 +201,10 @@ public class MyInfo {
                     {
                         return;
                     }
-                    Tool.NoticeWindonw("你确定要删除道具(" + clientitem.Name + ")吗?", () =>
+                    
+                    Tool.NoticeWindonw("你确定要以"+ bagequip.Price * Mathf.Pow(2, bagequip.Level - 1) + Tool.GetPriceTypeName(bagequip.PriceType) + "的价格卖出道具(" + clientitem.Name + ")吗?", () =>
                     {
-                        SendDestroyItem(int.Parse(sArray[0]));
+                        SendHuiShouItem(int.Parse(sArray[0]));
                     });
                 }
                 //for (var j = 0; j < BagDataInfo.Equips.Count; j++)
@@ -220,7 +231,14 @@ public class MyInfo {
                     context.PreventDefault();
                     InputEvent inputEvent = (context.inputEvent);
                     Stage.inst.CancelClick(inputEvent.touchId);
+                    DragDropManager.inst.dragAgent.autoSize = false;
+                    DragDropManager.inst.dragAgent.SetPivot(0.5f, 1, true);
+                    DragDropManager.inst.dragAgent.fill = FillType.Scale;
+                    DragDropManager.inst.dragAgent.SetSize(item.width, item.height);
                     DragDropManager.inst.StartDrag(item, item.icon, item.data + ",2", (int)context.data);
+                    
+                    //DragDropManager.inst.dragAgent.width = 10;
+                    //DragDropManager.inst.dragAgent.height = 10;
                 });
 
                 item.onDrop.Add((EventContext context) =>
@@ -379,6 +397,28 @@ public class MyInfo {
         //关闭按钮
         unitinfo.GetChild("close").asButton.onClick.Add(() => { Destroy(); });
 
+        var item = ExcelManager.Instance.GetSceneManager().GetSceneByID(GameScene.Singleton.m_SceneID);
+        if (item != null)
+        {
+            var scenename = item.Name;
+            var postext = "(" + (int)unit.X + "," + (int)unit.Y + ")";
+            var noticewords = ExcelManager.Instance.GetNoticeWordsManager().GetNoticeWordsByID(38);
+            Dictionary<string, string> p = new Dictionary<string, string>();
+            p["p1"] = item.Name;
+            p["p2"] = ("" + (int)unit.X);
+            p["p3"] = ("" + (int)unit.Y);
+            p["p4"] = (unit.Name);
+            if (noticewords != null)
+            {
+                //定位信息
+                unitinfo.GetChild("localpos").asButton.onClick.Add(() => {
+                    ChatUI.SOpenChatBoxWithMsg("quanfu", "", 0,Tool.ParseTemplate(noticewords.Words,p));
+                });
+            }
+            
+        }
+        
+
 
         InitItemDrag();
         InitDropItem();
@@ -387,7 +427,7 @@ public class MyInfo {
 
         //模型
         var modeeffect = (GameObject)(GameObject.Instantiate(Resources.Load(unit.ModeType)));
-        modeeffect.transform.localPosition = new Vector3(0, 0, 0);
+        modeeffect.transform.localPosition = new Vector3(0, 0, 100);
         var box = modeeffect.GetComponent<BoxCollider>();
         modeeffect.transform.localScale = new Vector3(100, 100, 100);
         if (box != null)

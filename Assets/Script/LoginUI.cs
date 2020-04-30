@@ -15,9 +15,12 @@ public class LoginUI : MonoBehaviour {
 
     protected GComponent SelectLayer;
     protected Protomsg.CharacterBaseDatas SelectHeroMsg;
+
+    protected double m_LastQuickLoginTime;
     // Use this for initialization
     void Start () {
         Screen.fullScreen = false;
+        m_LastQuickLoginTime = 0;
         //MyKcp.Instance.Destroy();
         //读取存档
         SaveDataManager.Read();
@@ -37,6 +40,13 @@ public class LoginUI : MonoBehaviour {
         mRoot = GetComponent<UIPanel>().ui;
         //mRoot.GetChild("center")..AddChild(view);
         mRoot.GetChild("login").asButton.onClick.Add(()=> {
+            //两秒内不能重复登录
+            if(Tool.GetTime()-m_LastQuickLoginTime <= 2)
+            {
+                return;
+            }
+            m_LastQuickLoginTime = Tool.GetTime();
+
             //MyKcp.Instance.Destroy();
             //MyKcp.Instance.Create(SelectServer.ip, SelectServer.port);
             MyKcp.Create(SelectServer.ip, SelectServer.port);

@@ -63,6 +63,9 @@ public class ChatUI : MonoBehaviour {
         if(chanel == 1)
         {
             InputContent.text = RemoveTextDest(InputContent.text);
+        }else if(chanel == 2)
+        {
+            InputContent.text = ChangeTextDest(InputContent.text, "全服");
         }
         else if (chanel == 3)
         {
@@ -124,6 +127,10 @@ public class ChatUI : MonoBehaviour {
             else if (curpagename == "guild")
             {
                 chanel = 5;
+            }
+            else if (curpagename == "quanfu")
+            {
+                chanel = 2;
             }
         }
 
@@ -210,6 +217,16 @@ public class ChatUI : MonoBehaviour {
                 ChatBoxCom.GetChild("selectchanel").visible = false;
                 SetSendMsgChanel(1);
             });
+            //quanfu
+            ChatBoxCom.GetChild("selectchanel").asCom.GetChild("quanfu").onClick.Add(() => {
+                var curpagename = ChatBoxCom.GetController("page").selectedPage;
+                if (curpagename != "quanfu" && curpagename != "zonghe")
+                {
+                    OpenChatBox("quanfu", "", 0);
+                }
+                ChatBoxCom.GetChild("selectchanel").visible = false;
+                SetSendMsgChanel(2);
+            });
 
             //
             ChatBoxCom.GetController("page").onChanged.Add(() => {
@@ -229,6 +246,10 @@ public class ChatUI : MonoBehaviour {
                     else if (curpagename == "guild")
                     {
                         chanel = 5;
+                    }
+                    else if (curpagename == "quanfu")
+                    {
+                        chanel = 2;
                     }
                     ChangeDest(chanel, DestPlayerName, DestPlayerUID);
                 }
@@ -290,6 +311,26 @@ public class ChatUI : MonoBehaviour {
         }
 
     }
+    //设置文本
+    public void SetText(string msg)
+    {
+        InputContent.text = RemoveTextContent(InputContent.text);
+        InputContent.text += msg;
+    }
+
+    public static void SOpenChatBoxWithMsg(string pagename, string destname, int destuid,string msg)
+    {
+
+        //selectedPage
+        if (sInstanse != null)
+        {
+            sInstanse.OpenChatBox(pagename, destname, destuid);
+            sInstanse.SetText(msg);
+            //sInstanse.InputContent.text = msg;
+            //sInstanse.ChangeDest()
+        }
+
+    }
 
     //通过频道类型获取频道文字
 
@@ -325,6 +366,7 @@ public class ChatUI : MonoBehaviour {
                 return;
             }
             if(msg.SrcPlayerUID > 0 && msg.SrcPlayerUID != GameScene.Singleton.m_MyMainUnit.ControlID)
+            //if (msg.SrcPlayerUID > 0)
             {
                 var headselect = UIPackage.CreateObject("GameUI", "playerclick").asCom;
                 GRoot.inst.ShowPopup(headselect);
@@ -361,7 +403,13 @@ public class ChatUI : MonoBehaviour {
                     MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_AddFriendRequest", msg1);
                     GRoot.inst.HidePopup(headselect);
                 });
-                
+                //玩家信息
+                headselect.GetChild("info").asButton.onClick.Add(() =>
+                {
+                    new HeroSimpleInfo(msg.SrcCharacterID);
+                    GRoot.inst.HidePopup(headselect);
+                });
+
 
             }
         });
@@ -407,6 +455,10 @@ public class ChatUI : MonoBehaviour {
         if (p1.Channel == 5)
         {
             AddChatMsg2Chanel(p1, "guild");
+        }
+        if (p1.Channel == 2)
+        {
+            AddChatMsg2Chanel(p1, "quanfu");
         }
 
         return true;

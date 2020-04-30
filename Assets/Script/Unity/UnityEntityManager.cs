@@ -69,8 +69,8 @@ public class UnityEntityManager  {
         return m_UnityEntitys[id];
     }
     //检查单位是否满足技能释放条件
-    //int32 UnitTargetTeam = 8;//目标单位关系 1:友方  2:敌方 3:友方敌方都行包括自己  4:友方敌方都行不包括自己 5:自己 10:除自己外的其他 20 自己控制的单位(不包括自己)
-    //int32 UnitTargetCamp = 9;////目标单位阵营 (1:英雄 2:普通单位 3:远古 4:boss) 5:都行
+    //int32 UnitTargetTeam = 8;//目标单位关系 1:友方  2:敌方 3:友方敌方都行包括自己  4:友方敌方都行不包括自己 5:自己 6:自己和敌方 10:除自己外的其他 20 自己控制的单位(不包括自己)
+    //int32 UnitTargetCamp = 9;////目标单位阵营 (1:英雄 2:普通单位 3:远古 4:boss) 5:都行 6:除了boss都行
     public bool CheckCastSkillTarget(UnityEntity target, UnityEntity my,Protomsg.SkillDatas skilldata)
     {
         if(target == null || my == null)
@@ -105,7 +105,15 @@ public class UnityEntityManager  {
             {
                 return false;
             }
-        }else if(skilldata.UnitTargetTeam == 20)
+        }
+        else if (skilldata.UnitTargetTeam == 6)
+        {
+            if (target != my && CheckIsEnemy(target, my) == false)
+            {
+                return false;
+            }
+        }
+        else if(skilldata.UnitTargetTeam == 20)
         {
             //Debug.Log("-------:" + target.ControlID + "   :" + my.ControlID);
             if(target.ControlID != my.ControlID || target == my)
@@ -116,6 +124,16 @@ public class UnityEntityManager  {
 
         if(skilldata.UnitTargetCamp != 5)
         {
+        
+            if(skilldata.UnitTargetCamp == 6)
+            {
+                if (target.UnitType == 4)
+                {
+                    return false;
+                }
+                return true;
+            }
+
             if (target.UnitType != skilldata.UnitTargetCamp)
             {
                 return false;

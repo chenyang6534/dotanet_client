@@ -41,7 +41,7 @@ public class LoginUI : MonoBehaviour {
         //mRoot.GetChild("center")..AddChild(view);
         mRoot.GetChild("login").asButton.onClick.Add(()=> {
             //两秒内不能重复登录
-            if(Tool.GetTime()-m_LastQuickLoginTime <= 2)
+            if(Tool.GetTime()-m_LastQuickLoginTime <= 2 || SelectServer == null)
             {
                 return;
             }
@@ -49,7 +49,7 @@ public class LoginUI : MonoBehaviour {
 
             //MyKcp.Instance.Destroy();
             //MyKcp.Instance.Create(SelectServer.ip, SelectServer.port);
-            MyKcp.Create(SelectServer.ip, SelectServer.port);
+            MyKcp.Create(SelectServer.Ip, SelectServer.Port);
 
             Protomsg.CS_MsgQuickLogin msg1 = new Protomsg.CS_MsgQuickLogin();
             //msg1.Machineid = "100001"; //PA
@@ -73,7 +73,7 @@ public class LoginUI : MonoBehaviour {
             //msg1.Machineid = "10018";   //瘟疫法师
             //msg1.Machineid = "10019";   //天怒法师
             Environment.GetCommandLineArgs();
-            msg1.Machineid = SystemInfo.deviceUniqueIdentifier+"2";
+            msg1.Machineid = SystemInfo.deviceUniqueIdentifier+"3";
             msg1.Platform = "test";
             MyKcp.Instance.SendMsg("Login", "CS_MsgQuickLogin", msg1);
             UnityEngine.Debug.Log("login onClick");
@@ -92,16 +92,16 @@ public class LoginUI : MonoBehaviour {
     [Serializable]
     public class ServerListInfo
     {
-        public string name;
-        public string ip;
-        public int port;
-        public int state; // 1表示空闲 2表示拥挤 3表示已满
-        public int index;//唯一索引
+        public string Name;
+        public string Ip;
+        public int Port;
+        public int State; // 1表示空闲 2表示拥挤 3表示已满
+        public int Index;//唯一索引
         public ServerListInfo(string name,string ip, int port)
         {
-            this.ip = ip;
-            this.port = port;
-            this.name = name;
+            this.Ip = ip;
+            this.Port = port;
+            this.Name = name;
         }
 
 
@@ -109,50 +109,81 @@ public class LoginUI : MonoBehaviour {
     [Serializable]
     public class ServerListInfoArr
     {
-        public ServerListInfo[] servers;
+        public ServerListInfo[] Servers;
+        public int Code;
+        public string UpdateUrl;
     }
 
     void InitServerList()
     {
         //测试数据
-        ServerListInfo[] allServerList = {new ServerListInfo("本地服","127.0.0.1",1118), new ServerListInfo("外网", "119.23.8.72", 1118) };
-        //ServerListInfo[] allServerList = { new ServerListInfo("删档测试服", "119.23.8.72", 1118) };
+        //ServerListInfo[] allServerList = {new ServerListInfo("本地服","127.0.0.1",1118), new ServerListInfo("外网", "119.23.8.72", 1118) };
+        ////ServerListInfo[] allServerList = { new ServerListInfo("删档测试服", "119.23.8.72", 1118) };
 
-        ServerListInfoArr t1 = new ServerListInfoArr();
-        t1.servers = allServerList;
-        var jsonstr = JsonUtility.ToJson(t1);
+        //ServerListInfoArr t1 = new ServerListInfoArr();
+        //t1.Servers = allServerList;
+        //var jsonstr = JsonUtility.ToJson(t1);
 
-        Debug.Log("-------------InitServerList:" + jsonstr);
+        //获取公告
+        StartCoroutine(Tool.SendGet("http://119.23.8.72:6666/getnotice", (WWW data) => {
+            //data.text
 
-        //默认id
-        var defaultid = 0;
-        var t2 = JsonUtility.FromJson<ServerListInfoArr>(jsonstr);
-        var serverlist = t2.servers;
-        Debug.Log("-------------len:" + serverlist.Length);
-        var defaultserver = serverlist[defaultid];
-        SelectServer = defaultserver;
-        //建立连接
-        MyKcp.Create(defaultserver.ip, defaultserver.port);
-        //
-        string[] names = new string[serverlist.Length];
-        string[] values = new string[serverlist.Length];
-        for (var i = 0; i < serverlist.Length; i++)
-        {
-            names[i] = serverlist[i].name;
-            values[i] = ""+serverlist[i].index;
-        }
-        GComboBox combo = mRoot.GetChild("server").asComboBox;
-        combo.items = names;
-        combo.values = values;
-        combo.selectedIndex = defaultid;
-        combo.onChanged.Add(() => {
-            SelectServer = serverlist[combo.selectedIndex];
-            //Debug.Log("-------------MyKcp.Instance.Destroy:" + SelectServer.ip+"  "+ combo.selectedIndex);
-            //重新建立连接
-            //MyKcp.Instance.Destroy();
-            //System.Threading.Thread.Sleep(3000);
-            //MyKcp.Create(SelectServer.ip, SelectServer.port);
-        });
+            if (data.error != null)
+            {
+                Debug.Log("获取失败:" + data.error);
+                return;
+            }
+            Debug.Log("公告:" + data.text);
+
+        }));
+
+
+        //获取服务器列表
+        StartCoroutine(Tool.SendGet("http://119.23.8.72:6666/getserverlist?Platform=win32&Version=1.0.0", (WWW data) => {
+            //data.text
+
+            if(data.error != null)
+            {
+                Debug.Log("获取失败:"+ data.error);
+                return;
+            }
+
+            //默认id
+            var defaultid = 0;
+            var t2 = JsonUtility.FromJson<ServerListInfoArr>(data.text);
+
+            if(t2.Code != 1)
+            {
+                Debug.Log("获取失败");
+                return;
+            }
+
+            var serverlist = t2.Servers;
+            Debug.Log("-------------len:" + serverlist.Length);
+            var defaultserver = serverlist[defaultid];
+            SelectServer = defaultserver;
+            //建立连接
+            //MyKcp.Create(defaultserver.ip, defaultserver.port);
+            //
+            string[] names = new string[serverlist.Length];
+            string[] values = new string[serverlist.Length];
+            for (var i = 0; i < serverlist.Length; i++)
+            {
+                names[i] = serverlist[i].Name;
+                values[i] = "" + i;
+            }
+            GComboBox combo = mRoot.GetChild("server").asComboBox;
+            combo.items = names;
+            combo.values = values;
+            combo.selectedIndex = defaultid;
+            combo.onChanged.Add(() => {
+                SelectServer = serverlist[combo.selectedIndex];
+            });
+        }));
+
+        //Debug.Log("-------------InitServerList:" + jsonstr);
+
+        
     }
 	
 	

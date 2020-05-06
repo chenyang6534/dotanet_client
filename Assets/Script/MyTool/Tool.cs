@@ -103,6 +103,42 @@ public static class Tool {
         return re;
        
     }
+    public delegate void HandleHttpResponse(WWW data);
+    public static IEnumerator SendGet(string _url, HandleHttpResponse fun)
+    {
+        WWW getData = new WWW(_url);
+        yield return getData;
+        if(fun != null)
+        {
+            fun(getData);
+        }
+
+        if (getData.error != null)
+        {
+            Debug.Log(getData.error);
+        }
+        else
+        {
+            Debug.Log(getData.text);
+        }
+    }
+    public static IEnumerator SendPost(string _url, WWWForm _wForm, HandleHttpResponse fun)
+    {
+        WWW postData = new WWW(_url, _wForm);
+        yield return postData;
+        if (fun != null)
+        {
+            fun(postData);
+        }
+        if (postData.error != null)
+        {
+            Debug.Log(postData.error);
+        }
+        else
+        {
+            Debug.Log(postData.text);
+        }
+    }
 
     public static float GetClipLength(this Animator animator, string clip)
     {

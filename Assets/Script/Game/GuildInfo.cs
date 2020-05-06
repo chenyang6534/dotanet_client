@@ -29,6 +29,9 @@ public class GuildInfo
 
         MsgManager.Instance.AddListener("SC_GetMapInfo", new HandleMsg(this.SC_GetMapInfo));
 
+        MsgManager.Instance.AddListener("SC_GetGuildRankInfo", new HandleMsg(this.SC_GetGuildRankInfo));
+        MsgManager.Instance.AddListener("SC_GetGuildRankBattleInfo", new HandleMsg(this.SC_GetGuildRankBattleInfo));
+
         if (GameScene.Singleton.m_MyMainUnit.GuildID > 0)
         {
             //自己有公会
@@ -163,26 +166,35 @@ public class GuildInfo
         }
         System.Array.Sort(allplayer, (a, b) => {
 
-            if(a.Level > b.Level)
+            if (a.Rank < b.Rank)
             {
                 return 1;
             }
-            else if(a.Level == b.Level)
+            else if(a.Rank == b.Rank)
             {
-                if( a.Experience > b.Experience)
+                if (a.Level > b.Level)
                 {
                     return 1;
+                }
+                else if (a.Level == b.Level)
+                {
+                    if (a.Experience > b.Experience)
+                    {
+                        return 1;
+                    }
+                    else
+                    {
+                        return -1;
+                    }
+
                 }
                 else
                 {
                     return -1;
                 }
-                
             }
-            else
-            {
-                return -1;
-            }
+            return 0;
+            
         });
         foreach (var item in allplayer)
         {
@@ -419,7 +431,149 @@ public class GuildInfo
 
         return true;
     }
+    public bool SC_GetGuildRankInfo(Protomsg.MsgBase d1)
+    {
+        Debug.Log("SC_GetGuildRankInfo:");
+        IMessage IMperson = new Protomsg.SC_GetGuildRankInfo();
+        Protomsg.SC_GetGuildRankInfo p1 = (Protomsg.SC_GetGuildRankInfo)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
+        //创建界面
+        if (main == null)
+        {
+            return true;
+        }
 
+        
+        //-------------------------公会排名--------------------------
+        main.GetChild("ranklist").asList.RemoveChildren(0, -1, true);
+        //处理排序
+        Protomsg.GuildShortInfo[] allplayer = new Protomsg.GuildShortInfo[p1.Guilds.Count];
+        int index = 0;
+        foreach (var item in p1.Guilds)
+        {
+            allplayer[index++] = item;
+            Debug.Log("11SC_GetGuildRankInfo:" + item.Rank);
+        }
+        System.Array.Sort(allplayer, (a, b) => {
+
+            if (a.Rank > b.Rank)
+            {
+                return 1;
+            }else if(a.Rank == b.Rank)
+            {
+                return 0;
+            }
+            else
+            {
+                return -1;
+            }
+        });
+        foreach (var item in allplayer)
+        {
+            var onerank = UIPackage.CreateObject("GameUI", "GuildRankOne").asCom;
+
+            onerank.GetChild("rank").asTextField.text = item.Rank+"";
+            onerank.GetChild("name").asTextField.text = item.Name;
+            onerank.GetChild("level").asTextField.text = "lv."+item.Level;
+            onerank.GetChild("count").asTextField.text = item.CharacterCount + "/"+item.MaxCount;
+            main.GetChild("ranklist").asList.AddChild(onerank);
+        }
+
+        //地图信息
+        var clientitem = ExcelManager.Instance.GetSceneManager().GetSceneByID(p1.MapInfo.NextSceneID);
+        if (clientitem == null)
+        {
+            return true;
+        }
+        
+        main.GetChild("rankuiname").asTextField.text = clientitem.Name;
+        main.GetChild("rankuiguildlevel").asTextField.text = p1.MapInfo.NeedGuildLevel + "";
+        main.GetChild("rankuitime").asTextField.text = p1.MapInfo.OpenStartTime + "--" + p1.MapInfo.OpenEndTime;
+        main.GetChild("rankuiweek").asTextField.text = "周" + p1.MapInfo.OpenWeekDay;
+
+        //进入
+        main.GetChild("rankuigoto").asButton.onClick.Add(() =>
+        {
+            Protomsg.CS_GotoGuildMap msg1 = new Protomsg.CS_GotoGuildMap();
+            msg1.ID = p1.MapInfo.ID;
+            MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GotoGuildMap", msg1);
+        });
+
+        //击杀情况 CS_GetGuildRankBattleInfo
+        main.GetChild("rankuikillinfo").asButton.onClick.Add(() =>
+        {
+            Protomsg.CS_GetGuildRankBattleInfo msg1 = new Protomsg.CS_GetGuildRankBattleInfo();
+            msg1.ID = p1.MapInfo.ID;
+            MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetGuildRankBattleInfo", msg1);
+        });
+
+        return true;
+    }
+    public bool SC_GetGuildRankBattleInfo(Protomsg.MsgBase d1)
+    {
+        Debug.Log("SC_GetGuildRankBattleInfo:");
+        IMessage IMperson = new Protomsg.SC_GetGuildRankBattleInfo();
+        Protomsg.SC_GetGuildRankBattleInfo p1 = (Protomsg.SC_GetGuildRankBattleInfo)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
+
+        var mapinfo = UIPackage.CreateObject("GameUI", "KillInfo").asCom;
+        GRoot.inst.AddChild(mapinfo);
+        mapinfo.xy = Tool.GetPosition(0.5f, 0.5f);
+        mapinfo.GetChild("close").asButton.onClick.Add(() =>
+        {
+            mapinfo.Dispose();
+        });
+        
+
+        //掉落道具
+        mapinfo.GetChild("list").asList.RemoveChildren(0, -1, true);
+        Protomsg.GuildRankBattleChaInfo[] allplayer = new Protomsg.GuildRankBattleChaInfo[p1.AllCha.Count];
+        p1.AllCha.CopyTo(allplayer, 0);
+        Debug.Log("11----");
+        System.Array.Sort(allplayer, (a, b) => {
+
+            if (a.KillCount-a.DeathCount > b.KillCount-b.DeathCount)
+            {
+                return -1;
+            }
+            else if (a.KillCount - a.DeathCount == b.KillCount - b.DeathCount)
+            {
+                if(a.KillCount > b.KillCount)
+                {
+                    return -1;
+                }else if( a.KillCount == b.KillCount)
+                {
+                    if(a.Characterid > b.Characterid)
+                    {
+                        return -1;
+                    }
+                    return 1;
+                }
+                return 1;
+            }
+            return 1;
+        });
+        foreach (var item in allplayer)
+        {
+            var clientitem = ExcelManager.Instance.GetUnitInfoManager().GetUnitInfoByID(item.Typeid);
+            if (clientitem == null)
+            {
+                continue;
+            }
+            var onedropitem = UIPackage.CreateObject("GameUI", "HeroKillInfoOne").asCom;
+            onedropitem.GetChild("heroicon").asLoader.url = clientitem.IconPath;
+            onedropitem.GetChild("heroicon").onClick.Add(() =>
+            {
+                new HeroSimpleInfo(item.Characterid);
+            });
+            onedropitem.GetChild("name").asTextField.text = item.Name;
+            onedropitem.GetChild("guildname").asTextField.text = item.GuildName;
+            onedropitem.GetChild("level").asTextField.text = "lv."+item.Level;
+            onedropitem.GetChild("killcount").asTextField.text = item.KillCount+"";
+            onedropitem.GetChild("deathcount").asTextField.text = item.DeathCount+"";
+            mapinfo.GetChild("list").asList.AddChild(onedropitem);
+        }
+        return true;
+    }
+    
 
     public bool SC_GetMapInfo(Protomsg.MsgBase d1)
     {
@@ -546,6 +700,13 @@ public class GuildInfo
             Protomsg.CS_GetGuildMapsInfo msg1 = new Protomsg.CS_GetGuildMapsInfo();
             msg1.ID = p1.GuildBaseInfo.ID;
             MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetGuildMapsInfo", msg1);
+        });
+
+        //查看公会排名信息
+        main.GetChild("rank").asButton.onClick.Add(() =>
+        {
+            Protomsg.CS_GetGuildRankInfo msg1 = new Protomsg.CS_GetGuildRankInfo();
+            MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetGuildRankInfo", msg1);
         });
 
         //-------------------------公会成员--------------------------
@@ -771,7 +932,9 @@ public class GuildInfo
         MsgManager.Instance.RemoveListener("SC_GetGuildMapsInfo");
         MsgManager.Instance.RemoveListener("SC_GotoGuildMap");
         MsgManager.Instance.RemoveListener("SC_GetMapInfo");
-
+        MsgManager.Instance.RemoveListener("SC_GetGuildRankInfo");
+        MsgManager.Instance.RemoveListener("SC_GetGuildRankBattleInfo");
+        
         AudioManager.Am.Play2DSound(AudioManager.Sound_CloseUI);
         if (main != null)
         {

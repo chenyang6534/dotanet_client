@@ -134,6 +134,20 @@ public class LoginUI : MonoBehaviour {
                 return;
             }
             Debug.Log("公告:" + data.text);
+            if(data.text != null && data.text.Length > 0)
+            {
+                //NetNotice
+                var createguildwd = UIPackage.CreateObject("GameUI", "NetNotice").asCom;
+                GRoot.inst.AddChild(createguildwd);
+                createguildwd.xy = Tool.GetPosition(0.5f, 0.5f);
+                createguildwd.GetChild("close").asButton.onClick.Add(() =>
+                {
+                    createguildwd.Dispose();
+                });
+
+                //默认文字
+                createguildwd.GetChild("words").asTextField.text = data.text;
+            }
 
         }));
 

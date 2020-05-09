@@ -264,3 +264,15 @@ MonoBehaviour:
     Type: 1
     AnimName: warning
     Pos: 1
+  - TypeID: 41
+    Words: "[color=#3473F7]{p1=1}[/color]\u643A\u5E26\u7740\u5B9D\u7BB1"
+    Sound: sound/other/warning
+    Type: 1
+    AnimName: showlong
+    Pos: 1
+  - TypeID: 42
+    Words: "\u606D\u559C[color=#3473F7]{p1=1}[/color]\u901A\u8FC7\u593A\u5B9D\u5947\u5175\u83B7\u5F97\u9053\u5177[color=#FB057E]{p2=\u62A4\u8155}[/color][color=#FFFFFF]{p3=lv.1}[/color]"
+    Sound: sound/other/warning
+    Type: 2
+    AnimName: showlong
+    Pos: 1

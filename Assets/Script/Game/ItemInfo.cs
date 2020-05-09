@@ -19,6 +19,11 @@ public class ItemInfo {
             return;
         }
 
+        MsgManager.Instance.AddListener("SC_GetItemExtraInfo", new HandleMsg(this.SC_GetItemExtraInfo));
+        Protomsg.CS_GetItemExtraInfo msg1 = new Protomsg.CS_GetItemExtraInfo();
+        msg1.TypeId = typeid;
+        MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetItemExtraInfo", msg1);
+
         main = UIPackage.CreateObject("GameUI", "ItemInfo").asCom;
         GRoot.inst.AddChild(main);
         Vector2 screenPos = new Vector2(Screen.width / 2, Screen.height / 2);
@@ -27,7 +32,50 @@ public class ItemInfo {
         Init(clientitem);
     }
 
-   
+    public bool SC_GetItemExtraInfo(Protomsg.MsgBase d1)
+    {
+        Debug.Log("SC_GetItemExtraInfo:");
+        IMessage IMperson = new Protomsg.SC_GetItemExtraInfo();
+        Protomsg.SC_GetItemExtraInfo p1 = (Protomsg.SC_GetItemExtraInfo)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
+        if(p1.TypeId != TypeID)
+        {
+            return false;
+        }
+
+        main.GetChild("droplist").asList.RemoveChildren(0, -1, true);
+        //宝箱
+        if (p1.Exception == 1)
+        {
+            var items = p1.ExceptionParam.Split(';');
+            for(var i = 0; i < items.Length; i++)
+            {
+                var oneitem = items[i].Split(':');
+                if(oneitem.Length <= 0)
+                {
+                    continue;
+                }
+                var item = int.Parse(oneitem[0]);
+
+                var clientitem = ExcelManager.Instance.GetItemManager().GetItemByID(item);
+                if (clientitem == null)
+                {
+                    continue;
+                }
+                var onedropitem = UIPackage.CreateObject("GameUI", "sellable").asCom;
+                onedropitem.GetChild("icon").asLoader.url = clientitem.IconPath;
+                onedropitem.GetChild("icon").onClick.Add(() =>
+                {
+                    new ItemInfo(item);
+                });
+                onedropitem.GetChild("level").asTextField.text = "lv.1";
+                main.GetChild("droplist").asList.AddChild(onedropitem);
+
+            }
+        }
+        
+
+        return true;
+    }
 
 
     //初始化
@@ -63,7 +111,8 @@ public class ItemInfo {
     //
     public void Destroy()
     {
-        if(main != null)
+        MsgManager.Instance.RemoveListener("SC_GetItemExtraInfo");
+        if (main != null)
         {
             main.Dispose();
         }

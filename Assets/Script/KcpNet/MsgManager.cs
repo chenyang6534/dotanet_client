@@ -32,6 +32,10 @@ namespace cocosocket4unity
         Dictionary<string, HandleMsg> m_Handler = new Dictionary<string, HandleMsg>();
         public void AddListener(string key, HandleMsg handle)
         {
+            if (m_Handler.ContainsKey(key))
+            {
+                m_Handler.Remove(key);
+            }
             m_Handler.Add(key, handle);
         }
         public void RemoveListener(string key)

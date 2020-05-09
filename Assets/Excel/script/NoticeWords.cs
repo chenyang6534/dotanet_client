@@ -12,7 +12,7 @@ namespace ExcelData
         public int TypeID;
         public string Words;
         public string Sound;
-        public int Type;
+        public int Type;//1 弹出文字 2 跑马灯
         public string AnimName;
         public int Pos;//位置 1上 2中 3下
     }

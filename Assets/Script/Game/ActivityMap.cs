@@ -17,6 +17,7 @@ public class ActivityMap
         MsgManager.Instance.AddListener("SC_GetActivityMapsInfo", new HandleMsg(this.SC_GetActivityMapsInfo));
         MsgManager.Instance.AddListener("SC_GetMapInfo", new HandleMsg(this.SC_GetMapInfo));
         MsgManager.Instance.AddListener("SC_GotoActivityMap", new HandleMsg(this.SC_GotoActivityMap));
+        MsgManager.Instance.AddListener("SC_GetDuoBaoInfo", new HandleMsg(this.SC_GetDuoBaoInfo));
 
         main = UIPackage.CreateObject("GameUI", "ActivityMap").asCom;
         GRoot.inst.AddChild(main);
@@ -29,6 +30,17 @@ public class ActivityMap
         Protomsg.CS_GetActivityMapsInfo msg1 = new Protomsg.CS_GetActivityMapsInfo();
         MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetActivityMapsInfo", msg1);
 
+
+        main.GetChild("normal").asButton.onClick.Add(() =>
+        {
+            Protomsg.CS_GetActivityMapsInfo msg = new Protomsg.CS_GetActivityMapsInfo();
+            MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetActivityMapsInfo", msg);
+        });
+        main.GetChild("duobao").asButton.onClick.Add(() =>
+        {
+            Protomsg.CS_GetDuoBaoInfo msg = new Protomsg.CS_GetDuoBaoInfo();
+            MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetDuoBaoInfo", msg);
+        });
     }
   
 
@@ -96,6 +108,75 @@ public class ActivityMap
         
         return true;
     }
+    //夺宝奇兵 SC_GetDuoBaoInfo
+    public bool SC_GetDuoBaoInfo(Protomsg.MsgBase d1)
+    {
+        Debug.Log("SC_GetDuoBaoInfo:");
+        IMessage IMperson = new Protomsg.SC_GetDuoBaoInfo();
+        Protomsg.SC_GetDuoBaoInfo p1 = (Protomsg.SC_GetDuoBaoInfo)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
+        var item = p1.MapGoInInfo;
+        var clientitem = ExcelManager.Instance.GetSceneManager().GetSceneByID(item.NextSceneID);
+        if (clientitem == null)
+        {
+            return true;
+        }
+        var onedropitem = main.GetChild("duobaocom").asCom;
+
+        onedropitem.GetChild("des").asTextField.SetVar("p1", p1.Minute+"");
+        onedropitem.GetChild("des").asTextField.FlushVars();
+
+        //onedropitem.GetChild("item").asCom.GetChild("icon").asLoader.url = clientitem.IconPath;
+        onedropitem.GetChild("name").asTextField.text = clientitem.Name;
+        onedropitem.GetChild("guildlevel").asTextField.text = item.NeedLevel + "";
+        onedropitem.GetChild("time").asTextField.text = item.OpenStartTime + "--" + item.OpenEndTime;
+        onedropitem.GetChild("week").asTextField.text = "周" + item.OpenWeekDay;
+        onedropitem.GetChild("pricetype").asLoader.url = Tool.GetPriceTypeIcon(item.PriceType);
+        onedropitem.GetChild("price").asTextField.text = item.Price + "";
+        //进入
+        onedropitem.GetChild("goto").asButton.onClick.Set(() =>
+        {
+            Protomsg.CS_GotoActivityMap msg1 = new Protomsg.CS_GotoActivityMap();
+            msg1.ID = item.ID;
+            MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GotoActivityMap", msg1);
+        });
+
+        //地图信息
+        //掉落道具
+        onedropitem.GetChild("droplist").asList.RemoveChildren(0, -1, true);
+        int[] allplayer = new int[p1.MapInfo.DropItems.Count];
+        p1.MapInfo.DropItems.CopyTo(allplayer, 0);
+        System.Array.Sort(allplayer, (a, b) => {
+
+            if (a > b)
+            {
+                return 1;
+            }
+            else if (a < b)
+            {
+                return -1;
+            }
+            return 0;
+        });
+        foreach (var itemdrop in allplayer)
+        {
+            var clientitemdrop = ExcelManager.Instance.GetItemManager().GetItemByID(itemdrop);
+            if (clientitemdrop == null)
+            {
+                continue;
+            }
+            var onedropitemdrop = UIPackage.CreateObject("GameUI", "sellable").asCom;
+            onedropitemdrop.GetChild("icon").asLoader.url = clientitemdrop.IconPath;
+            onedropitemdrop.GetChild("icon").onClick.Add(() =>
+            {
+                new ItemInfo(itemdrop);
+            });
+            onedropitemdrop.GetChild("level").asTextField.text = "lv.1";
+            onedropitem.GetChild("droplist").asList.AddChild(onedropitemdrop);
+        }
+
+        return true;
+    }
+
     public bool SC_GetMapInfo(Protomsg.MsgBase d1)
     {
         Debug.Log("SC_GetMapInfo:");
@@ -174,6 +255,8 @@ public class ActivityMap
         MsgManager.Instance.RemoveListener("SC_GetActivityMapsInfo");
         MsgManager.Instance.RemoveListener("SC_GetMapInfo");
         MsgManager.Instance.RemoveListener("SC_GotoActivityMap");
+        MsgManager.Instance.RemoveListener("SC_GetDuoBaoInfo");
+        
         AudioManager.Am.Play2DSound(AudioManager.Sound_CloseUI);
         if (main != null)
         {

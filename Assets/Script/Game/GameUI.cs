@@ -361,17 +361,33 @@ public class GameUI : MonoBehaviour {
         //Debug.Log("SC_NoticeWords:");
         IMessage IMperson = new Protomsg.SC_NoticeWords();
         Protomsg.SC_NoticeWords p1 = (Protomsg.SC_NoticeWords)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
-        double delaytime = 1 - (Tool.GetTime() - LastShowNoticeTime);
-        if (delaytime <= 0)
+
+        var noticewords = ExcelManager.Instance.GetNoticeWordsManager().GetNoticeWordsByID(p1.TypeID);
+        if (noticewords == null)
         {
-            LastShowNoticeTime = Tool.GetTime();
-            StartCoroutine(ShowNotice(p1,0));
+            return true;
         }
-        else
+        //弹出文字
+        if(noticewords.Type == 1)
         {
-            LastShowNoticeTime = Tool.GetTime() + delaytime;
-            StartCoroutine(ShowNotice(p1, (float)delaytime)); 
+            double delaytime = 1 - (Tool.GetTime() - LastShowNoticeTime);
+            if (delaytime <= 0)
+            {
+                LastShowNoticeTime = Tool.GetTime();
+                StartCoroutine(ShowNotice(p1, 0));
+            }
+            else
+            {
+                LastShowNoticeTime = Tool.GetTime() + delaytime;
+                StartCoroutine(ShowNotice(p1, (float)delaytime));
+            }
+        }else if(noticewords.Type == 2)//跑马灯
+        {
+            Tool.PaoMaDeng(noticewords.Words, p1.P);
         }
+
+
+        
         return true;
     }
 

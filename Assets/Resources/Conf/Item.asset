@@ -716,6 +716,12 @@ MonoBehaviour:
     Name: "\u6D3B\u529B\u7403"
     Des: "+[color=#D8D8D8] 250/350/400/450/500 [/color]\u751F\u547D\u503C"
     ShowLevel: 1
+  - TypeID: 200
+    IconPath: "ui://GameUI/\u593A\u5B9D\u5947\u5175\u5B9D\u7BB1"
+    SceneItem: "Item/Icon/\u6D3B\u529B\u4E4B\u7403 (1)"
+    Name: "\u5B9D\u7BB1"
+    Des: "\u5B9D\u7BB1\u4E2D\u88C5\u6709\u5F88\u591A\u88C5\u5907,\u6253\u5F00\u540E\u4F1A\u968F\u673A\u83B7\u5F97\u5176\u4E2D\u4E00\u79CD\u3002"
+    ShowLevel: 0
   - TypeID: 10000
     IconPath: ui://GameUI/gold1
     SceneItem: "Item/Icon/\u6D3B\u529B\u4E4B\u7403 (1)"

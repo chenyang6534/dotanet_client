@@ -206,6 +206,82 @@ public static class Tool {
             teamrequest.Dispose();
         });
     }
+    public static GComponent PaoMaDengCom = null;
+    public static double LastPlayTime = 0;
+    public static void PaoMaDeng(string word, Google.Protobuf.Collections.RepeatedField<string> p)
+    {
+        //处理文字
+        Dictionary<string, string> pa = new Dictionary<string, string>();
+        if (p != null && p.Count > 0)
+        {
+            int index = 1;
+            foreach (var item in p)
+            {
+                pa["p" + index] = item;
+                index++;
+            }
+        }
+        word = Tool.ParseTemplate(word, pa);
+
+        if (PaoMaDengCom == null)
+        {
+            PaoMaDengCom = UIPackage.CreateObject("GameUI", "PaoMaDeng").asCom;
+            GRoot.inst.AddChild(PaoMaDengCom);
+            PaoMaDengCom.xy = Tool.GetPosition(0.5f, 0.2f);
+
+            PaoMaDengCom.GetChild("word").asTextField.text = word;
+            
+
+            FairyGUI.Transition trans = PaoMaDengCom.GetTransition("move2left");
+
+            var speed = 200.0f;
+            var distanse = 800 + PaoMaDengCom.GetChild("word").width;
+            var time = distanse / speed;
+            trans.SetValue("over", -PaoMaDengCom.GetChild("word").width, 5);
+            trans.SetDuration("start", time);
+
+            trans.Play();
+            LastPlayTime = GetTime();
+            trans.SetHook("over", () => {
+                PaoMaDengCom.Dispose();
+                PaoMaDengCom = null;
+            });
+        }
+        else
+        {
+            var lasttext = PaoMaDengCom.GetChild("word").asTextField.text;
+            PaoMaDengCom.GetChild("word").asTextField.text = " ";
+            for (;;)
+            {
+                if(PaoMaDengCom.GetChild("word").width >= 800)
+                {
+                    break;
+                }
+                PaoMaDengCom.GetChild("word").asTextField.text += " ";
+            }
+            var space = PaoMaDengCom.GetChild("word").asTextField.text;
+            PaoMaDengCom.GetChild("word").asTextField.text = lasttext+ space + word;
+            FairyGUI.Transition trans = PaoMaDengCom.GetTransition("move2left");
+            //trans.SetPaused(true);
+            var speed = 200.0f;
+            var distanse = 800 + PaoMaDengCom.GetChild("word").width;
+            Debug.Log("distanse:" + distanse);
+            var time = distanse / speed;
+            trans.SetValue("over", -PaoMaDengCom.GetChild("word").width, 5);
+            trans.SetDuration("start", time);
+            trans.SetHook("over", null);
+            
+            trans.Play(1,0, (float)(GetTime()- LastPlayTime), time, null);
+            trans.SetHook("over", () => {
+                PaoMaDengCom.Dispose();
+                PaoMaDengCom = null;
+            });
+            //trans.SetPaused(false);
+        }
+        
+        
+        
+    }
 
     public static void NoticeWordsAnim(string word, Google.Protobuf.Collections.RepeatedField<string> p,string anim,int pos = 1)
     {
@@ -232,6 +308,7 @@ public static class Tool {
         //var root = words.GetComponent<FairyGUI.UIPanel>().ui;
 
         words.GetChild("word").asTextField.text = word;// noticewords.Words;
+
         if (p != null && p.Count > 0)
         {
             int index = 1;

@@ -26,7 +26,8 @@ public class MyEditor : Editor
     ,"Map/CreateUnits/CreateUnitsGuildRank"
     ,"Map/CreateUnits/CreateUnitsActivity1","Map/CreateUnits/CreateUnitsActivity2","Map/CreateUnits/CreateUnitsActivity3"
     ,"Map/CreateUnits/CreateUnitsActivity4","Map/CreateUnits/CreateUnitsActivity5","Map/CreateUnits/CreateUnitsActivity6"
-    ,"Map/CreateUnits/CreateUnitsActivity7","Map/CreateUnits/CreateUnitsActivity8","Map/CreateUnits/CreateUnitsActivity9"};
+    ,"Map/CreateUnits/CreateUnitsActivity7","Map/CreateUnits/CreateUnitsActivity8","Map/CreateUnits/CreateUnitsActivity9"
+    ,"Map/CreateUnits/CreateUnitsGuildDuoBao"};
     static string DestPath = "D://sheshe/bin/conf/";
 
     //将所有游戏场景导出为JSON格式
@@ -60,6 +61,7 @@ public class MyEditor : Editor
                 writer.WriteObjectStart();
                 writer.WritePropertyName("name");
                 writer.Write(name);
+                UnityEngine.Debug.Log("ExportMapJSON name:" + name);
 
                 var collides = scene.GetComponentsInChildren<BoxCollider>();
                 if(collides.Length <= 0)
@@ -70,7 +72,7 @@ public class MyEditor : Editor
                 writer.WriteArrayStart();
                 foreach (BoxCollider obj1 in collides)
                 {
-                    UnityEngine.Debug.Log("y:" + obj1.transform.rotation.y + " name:" + obj1.name);
+                    //UnityEngine.Debug.Log("y:" + obj1.transform.rotation.y + " name:" + obj1.name);
 
                     Vector3[] vectors = GetBoxColliderVertexPositions(obj1);
 
@@ -185,6 +187,7 @@ public class MyEditor : Editor
                 writer.WriteObjectStart();
                 writer.WritePropertyName("name");
                 writer.Write(name);
+                UnityEngine.Debug.Log("ExportCreateUnitsJSON name:" + name);
 
                 var scenetag = scene.GetComponentsInChildren<SceneTag>();
                 if (scenetag != null)
@@ -194,7 +197,7 @@ public class MyEditor : Editor
                     foreach (SceneTag obj1 in scenetag)
                     {
                         //this.transform.localEulerAngles.x
-                        UnityEngine.Debug.Log("y:" + obj1.transform.localEulerAngles.y + " name:" + obj1.name);
+                        
                         int typeid = obj1.EnemyID;
                         var pos = obj1.transform.position;
                         float recreatetime = obj1.ReCreateTime;

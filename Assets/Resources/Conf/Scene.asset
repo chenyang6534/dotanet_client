@@ -340,6 +340,14 @@ MonoBehaviour:
     EndX: 143
     EndY: 143
     Name: "\u6D3B\u52A8\u5730\u56FE9"
+  - TypeID: 3010
+    ScenePath: Map/Scene1
+    Little_BG: ui://GameUI/little_bg1
+    StartX: 5
+    StartY: 7
+    EndX: 143
+    EndY: 143
+    Name: "\u593A\u5B9D\u5947\u5175"
   - TypeID: 4000
     ScenePath: Map/Scene1
     Little_BG: ui://GameUI/little_bg1

@@ -34,14 +34,17 @@ public class LoginUI : MonoBehaviour {
         Debug.Log("width:" + Screen.width + " height:" + Screen.height);
         UIPackage.AddPackage("FairyGui/GameUI");
 
+        
 
         //MyKcp.Instance.Create("119.23.8.72", 1118);
         //MyKcp.Instance.Create("119.23.8.72", 1118);
         mRoot = GetComponent<UIPanel>().ui;
         //mRoot.GetChild("center")..AddChild(view);
         mRoot.GetChild("login").asButton.onClick.Add(()=> {
+            
+
             //两秒内不能重复登录
-            if(Tool.GetTime()-m_LastQuickLoginTime <= 2 || SelectServer == null)
+            if (Tool.GetTime()-m_LastQuickLoginTime <= 2 || SelectServer == null)
             {
                 return;
             }
@@ -73,7 +76,7 @@ public class LoginUI : MonoBehaviour {
             //msg1.Machineid = "10018";   //瘟疫法师
             //msg1.Machineid = "10019";   //天怒法师
             Environment.GetCommandLineArgs();
-            msg1.Machineid = SystemInfo.deviceUniqueIdentifier+"3";
+            msg1.Machineid = SystemInfo.deviceUniqueIdentifier+"2";
             msg1.Platform = "test";
             MyKcp.Instance.SendMsg("Login", "CS_MsgQuickLogin", msg1);
             UnityEngine.Debug.Log("login onClick");

@@ -83,6 +83,9 @@ public class MyEditor : Editor
                         writer.WritePropertyName("IsRect");
                         writer.Write(true);
 
+                        writer.WritePropertyName("Name");
+                        writer.Write(obj1.name);
+
                         Vector3 center = getRectCenter(vectors);
 
                         writer.WritePropertyName("CenterX");
@@ -104,6 +107,9 @@ public class MyEditor : Editor
                         writer.WriteObjectStart();
                         writer.WritePropertyName("IsRect");
                         writer.Write(false);
+
+                        writer.WritePropertyName("Name");
+                        writer.Write(obj1.name);
 
                         Vector3 center = getRectCenter(vectors);
 

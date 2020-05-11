@@ -247,7 +247,7 @@ MonoBehaviour:
     AnimName: warning
     Pos: 1
   - TypeID: 38
-    Words: "\u6211\u5728[color=#3473F7]{p1=1}({p2=1},{p3=1})[/color]\u53D1\u73B0\u4E86[color=#F179F1]{p4=1}[/color]"
+    Words: "\u6211\u5728{p1=1}({p2=1},{p3=1})\u53D1\u73B0\u4E86{p4=1}"
     Sound: sound/other/warning
     Type: 1
     AnimName: warning

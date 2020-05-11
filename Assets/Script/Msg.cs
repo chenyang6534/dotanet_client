@@ -269,7 +269,13 @@ namespace Protomsg {
             "CgoCSUQYASABKAUifAoQU0NfR2V0RHVvQmFvSW5mbxIuCgtNYXBHb0luSW5m",
             "bxgBIAEoCzIZLnByb3RvbXNnLkFjdGl2aXR5TWFwSW5mbxIoCgdNYXBJbmZv",
             "GAIgASgLMhcucHJvdG9tc2cuU0NfR2V0TWFwSW5mbxIOCgZNaW51dGUYAyAB",
-            "KAViBnByb3RvMw=="));
+            "KAUiIAoSQ1NfR2V0Q29weU1hcHNJbmZvEgoKAklEGAEgASgFIlIKElNDX0dl",
+            "dENvcHlNYXBzSW5mbxIjCgRNYXBzGAEgAygLMhUucHJvdG9tc2cuQ29weU1h",
+            "cEluZm8SFwoPUmVtYWluUGxheVRpbWVzGAIgASgFImUKC0NvcHlNYXBJbmZv",
+            "EgoKAklEGAEgASgFEhEKCU5lZWRMZXZlbBgCIAEoBRITCgtOZXh0U2NlbmVJ",
+            "RBgDIAEoBRITCgtQbGF5ZXJDb3VudBgEIAEoBRINCgVTdGF0ZRgFIAEoBSIk",
+            "Cg9DU19Db3B5TWFwUGlQZWkSEQoJQ29weU1hcElEGAEgASgFIiUKEENTX0Nv",
+            "cHlNYXBDYW5jZWwSEQoJQ29weU1hcElEGAEgASgFYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -391,7 +397,12 @@ namespace Protomsg {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GotoActivityMap), global::Protomsg.CS_GotoActivityMap.Parser, new[]{ "ID" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GotoActivityMap), global::Protomsg.SC_GotoActivityMap.Parser, new[]{ "Result" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GetDuoBaoInfo), global::Protomsg.CS_GetDuoBaoInfo.Parser, new[]{ "ID" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetDuoBaoInfo), global::Protomsg.SC_GetDuoBaoInfo.Parser, new[]{ "MapGoInInfo", "MapInfo", "Minute" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetDuoBaoInfo), global::Protomsg.SC_GetDuoBaoInfo.Parser, new[]{ "MapGoInInfo", "MapInfo", "Minute" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GetCopyMapsInfo), global::Protomsg.CS_GetCopyMapsInfo.Parser, new[]{ "ID" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetCopyMapsInfo), global::Protomsg.SC_GetCopyMapsInfo.Parser, new[]{ "Maps", "RemainPlayTimes" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CopyMapInfo), global::Protomsg.CopyMapInfo.Parser, new[]{ "ID", "NeedLevel", "NextSceneID", "PlayerCount", "State" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_CopyMapPiPei), global::Protomsg.CS_CopyMapPiPei.Parser, new[]{ "CopyMapID" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_CopyMapCancel), global::Protomsg.CS_CopyMapCancel.Parser, new[]{ "CopyMapID" }, null, null, null)
           }));
     }
     #endregion
@@ -25264,6 +25275,818 @@ namespace Protomsg {
           }
           case 24: {
             Minute = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///获取所有副本地图信息
+  /// </summary>
+  public sealed partial class CS_GetCopyMapsInfo : pb::IMessage<CS_GetCopyMapsInfo> {
+    private static readonly pb::MessageParser<CS_GetCopyMapsInfo> _parser = new pb::MessageParser<CS_GetCopyMapsInfo>(() => new CS_GetCopyMapsInfo());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CS_GetCopyMapsInfo> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[119]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetCopyMapsInfo() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetCopyMapsInfo(CS_GetCopyMapsInfo other) : this() {
+      iD_ = other.iD_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetCopyMapsInfo Clone() {
+      return new CS_GetCopyMapsInfo(this);
+    }
+
+    /// <summary>Field number for the "ID" field.</summary>
+    public const int IDFieldNumber = 1;
+    private int iD_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ID {
+      get { return iD_; }
+      set {
+        iD_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CS_GetCopyMapsInfo);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CS_GetCopyMapsInfo other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ID != other.ID) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ID != 0) hash ^= ID.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (ID != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(ID);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (ID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ID);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CS_GetCopyMapsInfo other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ID != 0) {
+        ID = other.ID;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            ID = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///返回副本地图信息
+  /// </summary>
+  public sealed partial class SC_GetCopyMapsInfo : pb::IMessage<SC_GetCopyMapsInfo> {
+    private static readonly pb::MessageParser<SC_GetCopyMapsInfo> _parser = new pb::MessageParser<SC_GetCopyMapsInfo>(() => new SC_GetCopyMapsInfo());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<SC_GetCopyMapsInfo> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[120]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetCopyMapsInfo() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetCopyMapsInfo(SC_GetCopyMapsInfo other) : this() {
+      maps_ = other.maps_.Clone();
+      remainPlayTimes_ = other.remainPlayTimes_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetCopyMapsInfo Clone() {
+      return new SC_GetCopyMapsInfo(this);
+    }
+
+    /// <summary>Field number for the "Maps" field.</summary>
+    public const int MapsFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::Protomsg.CopyMapInfo> _repeated_maps_codec
+        = pb::FieldCodec.ForMessage(10, global::Protomsg.CopyMapInfo.Parser);
+    private readonly pbc::RepeatedField<global::Protomsg.CopyMapInfo> maps_ = new pbc::RepeatedField<global::Protomsg.CopyMapInfo>();
+    /// <summary>
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::Protomsg.CopyMapInfo> Maps {
+      get { return maps_; }
+    }
+
+    /// <summary>Field number for the "RemainPlayTimes" field.</summary>
+    public const int RemainPlayTimesFieldNumber = 2;
+    private int remainPlayTimes_;
+    /// <summary>
+    ///剩余进入副本次数
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int RemainPlayTimes {
+      get { return remainPlayTimes_; }
+      set {
+        remainPlayTimes_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as SC_GetCopyMapsInfo);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(SC_GetCopyMapsInfo other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if(!maps_.Equals(other.maps_)) return false;
+      if (RemainPlayTimes != other.RemainPlayTimes) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= maps_.GetHashCode();
+      if (RemainPlayTimes != 0) hash ^= RemainPlayTimes.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      maps_.WriteTo(output, _repeated_maps_codec);
+      if (RemainPlayTimes != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(RemainPlayTimes);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      size += maps_.CalculateSize(_repeated_maps_codec);
+      if (RemainPlayTimes != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(RemainPlayTimes);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(SC_GetCopyMapsInfo other) {
+      if (other == null) {
+        return;
+      }
+      maps_.Add(other.maps_);
+      if (other.RemainPlayTimes != 0) {
+        RemainPlayTimes = other.RemainPlayTimes;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            maps_.AddEntriesFrom(input, _repeated_maps_codec);
+            break;
+          }
+          case 16: {
+            RemainPlayTimes = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///副本地图信息
+  /// </summary>
+  public sealed partial class CopyMapInfo : pb::IMessage<CopyMapInfo> {
+    private static readonly pb::MessageParser<CopyMapInfo> _parser = new pb::MessageParser<CopyMapInfo>(() => new CopyMapInfo());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CopyMapInfo> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[121]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CopyMapInfo() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CopyMapInfo(CopyMapInfo other) : this() {
+      iD_ = other.iD_;
+      needLevel_ = other.needLevel_;
+      nextSceneID_ = other.nextSceneID_;
+      playerCount_ = other.playerCount_;
+      state_ = other.state_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CopyMapInfo Clone() {
+      return new CopyMapInfo(this);
+    }
+
+    /// <summary>Field number for the "ID" field.</summary>
+    public const int IDFieldNumber = 1;
+    private int iD_;
+    /// <summary>
+    ///ID   
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ID {
+      get { return iD_; }
+      set {
+        iD_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "NeedLevel" field.</summary>
+    public const int NeedLevelFieldNumber = 2;
+    private int needLevel_;
+    /// <summary>
+    ///需要的玩家等级
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int NeedLevel {
+      get { return needLevel_; }
+      set {
+        needLevel_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "NextSceneID" field.</summary>
+    public const int NextSceneIDFieldNumber = 3;
+    private int nextSceneID_;
+    /// <summary>
+    ///场景ID
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int NextSceneID {
+      get { return nextSceneID_; }
+      set {
+        nextSceneID_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "PlayerCount" field.</summary>
+    public const int PlayerCountFieldNumber = 4;
+    private int playerCount_;
+    /// <summary>
+    ///玩家数量
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int PlayerCount {
+      get { return playerCount_; }
+      set {
+        playerCount_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "State" field.</summary>
+    public const int StateFieldNumber = 5;
+    private int state_;
+    /// <summary>
+    ///状态 1可以匹配 2匹配中
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int State {
+      get { return state_; }
+      set {
+        state_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CopyMapInfo);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CopyMapInfo other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ID != other.ID) return false;
+      if (NeedLevel != other.NeedLevel) return false;
+      if (NextSceneID != other.NextSceneID) return false;
+      if (PlayerCount != other.PlayerCount) return false;
+      if (State != other.State) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ID != 0) hash ^= ID.GetHashCode();
+      if (NeedLevel != 0) hash ^= NeedLevel.GetHashCode();
+      if (NextSceneID != 0) hash ^= NextSceneID.GetHashCode();
+      if (PlayerCount != 0) hash ^= PlayerCount.GetHashCode();
+      if (State != 0) hash ^= State.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (ID != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(ID);
+      }
+      if (NeedLevel != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(NeedLevel);
+      }
+      if (NextSceneID != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(NextSceneID);
+      }
+      if (PlayerCount != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(PlayerCount);
+      }
+      if (State != 0) {
+        output.WriteRawTag(40);
+        output.WriteInt32(State);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (ID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ID);
+      }
+      if (NeedLevel != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(NeedLevel);
+      }
+      if (NextSceneID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(NextSceneID);
+      }
+      if (PlayerCount != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(PlayerCount);
+      }
+      if (State != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(State);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CopyMapInfo other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ID != 0) {
+        ID = other.ID;
+      }
+      if (other.NeedLevel != 0) {
+        NeedLevel = other.NeedLevel;
+      }
+      if (other.NextSceneID != 0) {
+        NextSceneID = other.NextSceneID;
+      }
+      if (other.PlayerCount != 0) {
+        PlayerCount = other.PlayerCount;
+      }
+      if (other.State != 0) {
+        State = other.State;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            ID = input.ReadInt32();
+            break;
+          }
+          case 16: {
+            NeedLevel = input.ReadInt32();
+            break;
+          }
+          case 24: {
+            NextSceneID = input.ReadInt32();
+            break;
+          }
+          case 32: {
+            PlayerCount = input.ReadInt32();
+            break;
+          }
+          case 40: {
+            State = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///匹配副本
+  /// </summary>
+  public sealed partial class CS_CopyMapPiPei : pb::IMessage<CS_CopyMapPiPei> {
+    private static readonly pb::MessageParser<CS_CopyMapPiPei> _parser = new pb::MessageParser<CS_CopyMapPiPei>(() => new CS_CopyMapPiPei());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CS_CopyMapPiPei> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[122]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_CopyMapPiPei() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_CopyMapPiPei(CS_CopyMapPiPei other) : this() {
+      copyMapID_ = other.copyMapID_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_CopyMapPiPei Clone() {
+      return new CS_CopyMapPiPei(this);
+    }
+
+    /// <summary>Field number for the "CopyMapID" field.</summary>
+    public const int CopyMapIDFieldNumber = 1;
+    private int copyMapID_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CopyMapID {
+      get { return copyMapID_; }
+      set {
+        copyMapID_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CS_CopyMapPiPei);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CS_CopyMapPiPei other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (CopyMapID != other.CopyMapID) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (CopyMapID != 0) hash ^= CopyMapID.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (CopyMapID != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(CopyMapID);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (CopyMapID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(CopyMapID);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CS_CopyMapPiPei other) {
+      if (other == null) {
+        return;
+      }
+      if (other.CopyMapID != 0) {
+        CopyMapID = other.CopyMapID;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            CopyMapID = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///取消匹配
+  /// </summary>
+  public sealed partial class CS_CopyMapCancel : pb::IMessage<CS_CopyMapCancel> {
+    private static readonly pb::MessageParser<CS_CopyMapCancel> _parser = new pb::MessageParser<CS_CopyMapCancel>(() => new CS_CopyMapCancel());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CS_CopyMapCancel> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[123]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_CopyMapCancel() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_CopyMapCancel(CS_CopyMapCancel other) : this() {
+      copyMapID_ = other.copyMapID_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_CopyMapCancel Clone() {
+      return new CS_CopyMapCancel(this);
+    }
+
+    /// <summary>Field number for the "CopyMapID" field.</summary>
+    public const int CopyMapIDFieldNumber = 1;
+    private int copyMapID_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CopyMapID {
+      get { return copyMapID_; }
+      set {
+        copyMapID_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CS_CopyMapCancel);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CS_CopyMapCancel other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (CopyMapID != other.CopyMapID) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (CopyMapID != 0) hash ^= CopyMapID.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (CopyMapID != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(CopyMapID);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (CopyMapID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(CopyMapID);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CS_CopyMapCancel other) {
+      if (other == null) {
+        return;
+      }
+      if (other.CopyMapID != 0) {
+        CopyMapID = other.CopyMapID;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            CopyMapID = input.ReadInt32();
             break;
           }
         }

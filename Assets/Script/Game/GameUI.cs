@@ -74,7 +74,7 @@ public class GameUI : MonoBehaviour {
         TargetHeadInfo.IsMy = false;
         LittleMapCom = mainUI.GetChild("littlemap").asCom;
 
-
+        mainUI.GetChild("pipeinoticeword").visible = false;
 
         //死亡界面
         DieUI = mainUI.GetChild("dieui").asCom;
@@ -218,7 +218,7 @@ public class GameUI : MonoBehaviour {
         MsgManager.Instance.AddListener("SC_NoticeWords", new HandleMsg(this.SC_NoticeWords));
         MsgManager.Instance.AddListener("SC_RequestTeam", new HandleMsg(this.SC_RequestTeam));
         MsgManager.Instance.AddListener("CC_Disconnect", new HandleMsg(this.CC_Disconnect));
-        
+        MsgManager.Instance.AddListener("SC_ShowPiPeiInfo", new HandleMsg(this.SC_ShowPiPeiInfo));
 
     }
     void OnDestroy()
@@ -227,6 +227,7 @@ public class GameUI : MonoBehaviour {
         MsgManager.Instance.RemoveListener("SC_NoticeWords");
         MsgManager.Instance.RemoveListener("SC_RequestTeam");
         MsgManager.Instance.RemoveListener("CC_Disconnect");
+        MsgManager.Instance.RemoveListener("SC_ShowPiPeiInfo");
     }
     //显示所有按钮
     public void ShowAllBtn(bool show)
@@ -279,7 +280,24 @@ public class GameUI : MonoBehaviour {
 
         Debug.Log("AddChatMsg:" + content);
     }
-
+    //
+    public bool SC_ShowPiPeiInfo(Protomsg.MsgBase d1)
+    {
+        Debug.Log("SC_ShowPiPeiInfo:");
+        IMessage IMperson = new Protomsg.SC_ShowPiPeiInfo();
+        Protomsg.SC_ShowPiPeiInfo p1 = (Protomsg.SC_ShowPiPeiInfo)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
+        //
+        //弹出断开连接
+        if(p1.PiPeiState == 2)
+        {
+            mainUI.GetChild("pipeinoticeword").visible = true;
+        }
+        else
+        {
+            mainUI.GetChild("pipeinoticeword").visible = false;
+        }
+        return true;
+    }
 
     //掉线
     public bool CC_Disconnect(Protomsg.MsgBase d1)
@@ -888,6 +906,16 @@ public class GameUI : MonoBehaviour {
         TargetHeadInfo.FreshData(targetid);
     }
 
+    //UI下面的经验条
+    void FreshOther()
+    {
+        if (GameScene.Singleton.m_MyMainUnit != null)
+        {
+            mainUI.GetChild("bottomexperience").asProgress.value = (int)((float)GameScene.Singleton.m_MyMainUnit.Experience / GameScene.Singleton.m_MyMainUnit.MaxExperience * 100);
+            mainUI.GetChild("bottomexperience").asProgress.GetChild("experiencenum").asTextField.text = GameScene.Singleton.m_MyMainUnit.Experience + "/" + GameScene.Singleton.m_MyMainUnit.MaxExperience;
+        }
+    }
+
 
 
     public Dictionary<int, GComponent> BufsRes;
@@ -1146,6 +1174,7 @@ public class GameUI : MonoBehaviour {
         FreshSkillUI();
         FreshItemSkillUI();
         FreshHead();
+        FreshOther();
         FreshBuf();
         FreshLittleMap();
         UpdateTeamInfo();

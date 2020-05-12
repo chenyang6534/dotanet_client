@@ -276,3 +276,27 @@ MonoBehaviour:
     Type: 2
     AnimName: showlong
     Pos: 1
+  - TypeID: 43
+    Words: "\u6B64\u5730\u56FE\u4E0D\u652F\u6301\u5207\u6362\u653B\u51FB\u6A21\u5F0F"
+    Sound: sound/other/warning
+    Type: 1
+    AnimName: warning
+    Pos: 1
+  - TypeID: 44
+    Words: "\u4ECA\u65E5\u8FDB\u5165\u526F\u672C\u6B21\u6570\u5DF2\u7ECF\u7528\u5B8C,\u8BF7\u660E\u65E5\u518D\u6765!"
+    Sound: sound/other/warning
+    Type: 1
+    AnimName: warning
+    Pos: 1
+  - TypeID: 45
+    Words: "\u7B49\u7EA7\u4E0D\u591F!"
+    Sound: sound/other/warning
+    Type: 1
+    AnimName: warning
+    Pos: 1
+  - TypeID: 46
+    Words: "\u6B64\u9053\u5177\u53EA\u6709\u5206\u7EA2\u7684\u6210\u5458\u53EF\u4EE5\u53C2\u4E0E\u62CD\u5356!"
+    Sound: sound/other/warning
+    Type: 1
+    AnimName: warning
+    Pos: 1

@@ -205,77 +205,82 @@ namespace Protomsg {
             "U2hlbGZFeGNoYW5nZUZlZVByaWNlGAQgASgFEhcKD0F1dG9VblNoZWxmVGlt",
             "ZRgFIAEoBRI7CgpDb21tb2RpdHlzGAYgAygLMicucHJvdG9tc2cuRXhjaGFu",
             "Z2VEZXRhaWxlZENvbW1vZGl0eURhdGESIwoGRXF1aXBzGAcgAygLMhMucHJv",
-            "dG9tc2cuVW5pdEVxdWlwIiEKE0NTX0dldEFsbEd1aWxkc0luZm8SCgoCSUQY",
-            "ASABKAUi7gEKDkd1aWxkU2hvcnRJbmZvEgoKAklEGAEgASgFEgwKBE5hbWUY",
-            "AiABKAkSDQoFTGV2ZWwYAyABKAUSEgoKRXhwZXJpZW5jZRgEIAEoBRIVCg1N",
-            "YXhFeHBlcmllbmNlGAUgASgFEhYKDkNoYXJhY3RlckNvdW50GAYgASgFEhAK",
-            "CE1heENvdW50GAcgASgFEhUKDVByZXNpZGVudE5hbWUYCCABKAkSEQoJSm9p",
-            "bmF1ZGl0GAkgASgFEhYKDkpvaW5sZXZlbGxpbWl0GAogASgFEg4KBk5vdGlj",
-            "ZRgLIAEoCRIMCgRSYW5rGAwgASgFIm0KE1NDX0dldEFsbEd1aWxkc0luZm8S",
-            "KAoGR3VpbGRzGAEgAygLMhgucHJvdG9tc2cuR3VpbGRTaG9ydEluZm8SFwoP",
-            "Q3JlYXRlUHJpY2VUeXBlGAIgASgFEhMKC0NyZWF0ZVByaWNlGAMgASgFIh4K",
-            "DkNTX0NyZWF0ZUd1aWxkEgwKBE5hbWUYASABKAkiGgoMQ1NfSm9pbkd1aWxk",
-            "EgoKAklEGAEgASgFIh0KD0NTX0dldEd1aWxkSW5mbxIKCgJJRBgBIAEoBSJu",
-            "Cg9TQ19HZXRHdWlsZEluZm8SLwoNR3VpbGRCYXNlSW5mbxgBIAEoCzIYLnBy",
-            "b3RvbXNnLkd1aWxkU2hvcnRJbmZvEioKCkNoYXJhY3RlcnMYAiADKAsyFi5w",
-            "cm90b21zZy5HdWlsZENoYUluZm8i1gEKDEd1aWxkQ2hhSW5mbxILCgNVaWQY",
-            "ASABKAUSEwoLQ2hhcmFjdGVyaWQYAiABKAUSDAoETmFtZRgDIAEoCRINCgVM",
-            "ZXZlbBgEIAEoBRIOCgZUeXBlaWQYBSABKAUSEAoIUGluTGV2ZWwYBiABKAUS",
-            "FQoNUGluRXhwZXJpZW5jZRgHIAEoBRIMCgRQb3N0GAggASgFEhQKDFBpbkxl",
-            "dmVsTmFtZRgJIAEoCRIQCghQb3N0TmFtZRgKIAEoCRIYChBQaW5NYXhFeHBl",
-            "cmllbmNlGAsgASgFIiMKFUNTX0dldEpvaW5HdWlsZFBsYXllchIKCgJJRBgB",
-            "IAEoBSJKChVTQ19HZXRKb2luR3VpbGRQbGF5ZXISMQoRUmVxdWVzdENoYXJh",
-            "Y3RlcnMYASADKAsyFi5wcm90b21zZy5HdWlsZENoYUluZm8iQQoaQ1NfUmVz",
-            "cG9uc2VKb2luR3VpbGRQbGF5ZXISEwoLQ2hhcmFjdGVyaWQYASABKAUSDgoG",
-            "UmVzdWx0GAIgASgFIisKFENTX0RlbGV0ZUd1aWxkUGxheWVyEhMKC0NoYXJh",
-            "Y3RlcmlkGAEgASgFIh8KD0NTX0d1aWxkT3BlcmF0ZRIMCgRDb2RlGAEgASgF",
-            "IjIKDUNTX0NoYW5nZVBvc3QSEwoLQ2hhcmFjdGVyaWQYASABKAUSDAoEUG9z",
-            "dBgCIAEoBSImChRDU19FZGl0b3JHdWlsZE5vdGljZRIOCgZOb3RpY2UYASAB",
-            "KAkiIAoSQ1NfR2V0QXVjdGlvbkl0ZW1zEgoKAklEGAEgASgFIjoKElNDX0dl",
-            "dEF1Y3Rpb25JdGVtcxIkCgVJdGVtcxgBIAMoCzIVLnByb3RvbXNnLkF1Y3Rp",
-            "b25JdGVtIqoBCgtBdWN0aW9uSXRlbRIKCgJJRBgBIAEoBRIOCgZJdGVtSUQY",
-            "AiABKAUSEQoJUHJpY2VUeXBlGAMgASgFEg0KBVByaWNlGAQgASgFEg0KBUxl",
-            "dmVsGAUgASgFEhsKE0JpZGRlckNoYXJhY3Rlck5hbWUYBiABKAkSHQoVUmVj",
-            "ZWl2ZWNoYXJhY3RlcnNOYW1lGAcgAygJEhIKClJlbWFpblRpbWUYCCABKAUi",
-            "MwoWQ1NfTmV3UHJpY2VBdWN0aW9uSXRlbRIKCgJJRBgBIAEoBRINCgVQcmlj",
-            "ZRgCIAEoBSIhChNDU19HZXRHdWlsZFJhbmtJbmZvEgoKAklEGAEgASgFImgK",
-            "E1NDX0dldEd1aWxkUmFua0luZm8SKAoGR3VpbGRzGAEgAygLMhgucHJvdG9t",
-            "c2cuR3VpbGRTaG9ydEluZm8SJwoHTWFwSW5mbxgCIAEoCzIWLnByb3RvbXNn",
-            "Lkd1aWxkTWFwSW5mbyInChlDU19HZXRHdWlsZFJhbmtCYXR0bGVJbmZvEgoK",
-            "AklEGAEgASgFIqUBChZHdWlsZFJhbmtCYXR0bGVDaGFJbmZvEhMKC0NoYXJh",
-            "Y3RlcmlkGAEgASgFEgwKBE5hbWUYAiABKAkSDQoFTGV2ZWwYAyABKAUSEQoJ",
-            "S2lsbENvdW50GAQgASgFEhIKCkRlYXRoQ291bnQYBSABKAUSDwoHR3VpbGRJ",
-            "ZBgGIAEoBRIRCglHdWlsZE5hbWUYByABKAkSDgoGVHlwZWlkGAggASgFIk0K",
-            "GVNDX0dldEd1aWxkUmFua0JhdHRsZUluZm8SMAoGQWxsQ2hhGAEgAygLMiAu",
-            "cHJvdG9tc2cuR3VpbGRSYW5rQmF0dGxlQ2hhSW5mbyIhChNDU19HZXRHdWls",
-            "ZE1hcHNJbmZvEgoKAklEGAEgASgFIjsKE1NDX0dldEd1aWxkTWFwc0luZm8S",
-            "JAoETWFwcxgBIAMoCzIWLnByb3RvbXNnLkd1aWxkTWFwSW5mbyKeAQoMR3Vp",
-            "bGRNYXBJbmZvEgoKAklEGAEgASgFEhQKDE9wZW5Nb250aERheRgCIAEoBRIT",
-            "CgtPcGVuV2Vla0RheRgDIAEoCRIVCg1PcGVuU3RhcnRUaW1lGAQgASgJEhMK",
-            "C09wZW5FbmRUaW1lGAUgASgJEhYKDk5lZWRHdWlsZExldmVsGAYgASgFEhMK",
-            "C05leHRTY2VuZUlEGAcgASgFIh0KD0NTX0dvdG9HdWlsZE1hcBIKCgJJRBgB",
-            "IAEoBSIhCg9TQ19Hb3RvR3VpbGRNYXASDgoGUmVzdWx0GAEgASgFIiQKFkNT",
-            "X0dldEFjdGl2aXR5TWFwc0luZm8SCgoCSUQYASABKAUiQQoWU0NfR2V0QWN0",
-            "aXZpdHlNYXBzSW5mbxInCgRNYXBzGAEgAygLMhkucHJvdG9tc2cuQWN0aXZp",
-            "dHlNYXBJbmZvIr4BCg9BY3Rpdml0eU1hcEluZm8SCgoCSUQYASABKAUSFAoM",
-            "T3Blbk1vbnRoRGF5GAIgASgFEhMKC09wZW5XZWVrRGF5GAMgASgJEhUKDU9w",
-            "ZW5TdGFydFRpbWUYBCABKAkSEwoLT3BlbkVuZFRpbWUYBSABKAkSEQoJTmVl",
-            "ZExldmVsGAYgASgFEhMKC05leHRTY2VuZUlEGAcgASgFEhEKCVByaWNlVHlw",
-            "ZRgIIAEoBRINCgVQcmljZRgJIAEoBSIgCg1DU19HZXRNYXBJbmZvEg8KB1Nj",
-            "ZW5lSUQYASABKAUiSgoNU0NfR2V0TWFwSW5mbxIPCgdTY2VuZUlEGAEgASgF",
-            "EhUKDUJvc3NGcmVzaFRpbWUYAiABKAUSEQoJRHJvcEl0ZW1zGAMgAygFIiAK",
-            "EkNTX0dvdG9BY3Rpdml0eU1hcBIKCgJJRBgBIAEoBSIkChJTQ19Hb3RvQWN0",
-            "aXZpdHlNYXASDgoGUmVzdWx0GAEgASgFIh4KEENTX0dldER1b0Jhb0luZm8S",
-            "CgoCSUQYASABKAUifAoQU0NfR2V0RHVvQmFvSW5mbxIuCgtNYXBHb0luSW5m",
-            "bxgBIAEoCzIZLnByb3RvbXNnLkFjdGl2aXR5TWFwSW5mbxIoCgdNYXBJbmZv",
-            "GAIgASgLMhcucHJvdG9tc2cuU0NfR2V0TWFwSW5mbxIOCgZNaW51dGUYAyAB",
-            "KAUiIAoSQ1NfR2V0Q29weU1hcHNJbmZvEgoKAklEGAEgASgFIlIKElNDX0dl",
-            "dENvcHlNYXBzSW5mbxIjCgRNYXBzGAEgAygLMhUucHJvdG9tc2cuQ29weU1h",
-            "cEluZm8SFwoPUmVtYWluUGxheVRpbWVzGAIgASgFImUKC0NvcHlNYXBJbmZv",
-            "EgoKAklEGAEgASgFEhEKCU5lZWRMZXZlbBgCIAEoBRITCgtOZXh0U2NlbmVJ",
-            "RBgDIAEoBRITCgtQbGF5ZXJDb3VudBgEIAEoBRINCgVTdGF0ZRgFIAEoBSIk",
-            "Cg9DU19Db3B5TWFwUGlQZWkSEQoJQ29weU1hcElEGAEgASgFIiUKEENTX0Nv",
-            "cHlNYXBDYW5jZWwSEQoJQ29weU1hcElEGAEgASgFYgZwcm90bzM="));
+            "dG9tc2cuVW5pdEVxdWlwIiUKF0NTX0dldFdvcmxkQXVjdGlvbkl0ZW1zEgoK",
+            "AklEGAEgASgFIj8KF1NDX0dldFdvcmxkQXVjdGlvbkl0ZW1zEiQKBUl0ZW1z",
+            "GAEgAygLMhUucHJvdG9tc2cuQXVjdGlvbkl0ZW0iOAobQ1NfTmV3UHJpY2VX",
+            "b3JsZEF1Y3Rpb25JdGVtEgoKAklEGAEgASgFEg0KBVByaWNlGAIgASgFIiEK",
+            "E0NTX0dldEFsbEd1aWxkc0luZm8SCgoCSUQYASABKAUi7gEKDkd1aWxkU2hv",
+            "cnRJbmZvEgoKAklEGAEgASgFEgwKBE5hbWUYAiABKAkSDQoFTGV2ZWwYAyAB",
+            "KAUSEgoKRXhwZXJpZW5jZRgEIAEoBRIVCg1NYXhFeHBlcmllbmNlGAUgASgF",
+            "EhYKDkNoYXJhY3RlckNvdW50GAYgASgFEhAKCE1heENvdW50GAcgASgFEhUK",
+            "DVByZXNpZGVudE5hbWUYCCABKAkSEQoJSm9pbmF1ZGl0GAkgASgFEhYKDkpv",
+            "aW5sZXZlbGxpbWl0GAogASgFEg4KBk5vdGljZRgLIAEoCRIMCgRSYW5rGAwg",
+            "ASgFIm0KE1NDX0dldEFsbEd1aWxkc0luZm8SKAoGR3VpbGRzGAEgAygLMhgu",
+            "cHJvdG9tc2cuR3VpbGRTaG9ydEluZm8SFwoPQ3JlYXRlUHJpY2VUeXBlGAIg",
+            "ASgFEhMKC0NyZWF0ZVByaWNlGAMgASgFIh4KDkNTX0NyZWF0ZUd1aWxkEgwK",
+            "BE5hbWUYASABKAkiGgoMQ1NfSm9pbkd1aWxkEgoKAklEGAEgASgFIh0KD0NT",
+            "X0dldEd1aWxkSW5mbxIKCgJJRBgBIAEoBSJuCg9TQ19HZXRHdWlsZEluZm8S",
+            "LwoNR3VpbGRCYXNlSW5mbxgBIAEoCzIYLnByb3RvbXNnLkd1aWxkU2hvcnRJ",
+            "bmZvEioKCkNoYXJhY3RlcnMYAiADKAsyFi5wcm90b21zZy5HdWlsZENoYUlu",
+            "Zm8i1gEKDEd1aWxkQ2hhSW5mbxILCgNVaWQYASABKAUSEwoLQ2hhcmFjdGVy",
+            "aWQYAiABKAUSDAoETmFtZRgDIAEoCRINCgVMZXZlbBgEIAEoBRIOCgZUeXBl",
+            "aWQYBSABKAUSEAoIUGluTGV2ZWwYBiABKAUSFQoNUGluRXhwZXJpZW5jZRgH",
+            "IAEoBRIMCgRQb3N0GAggASgFEhQKDFBpbkxldmVsTmFtZRgJIAEoCRIQCghQ",
+            "b3N0TmFtZRgKIAEoCRIYChBQaW5NYXhFeHBlcmllbmNlGAsgASgFIiMKFUNT",
+            "X0dldEpvaW5HdWlsZFBsYXllchIKCgJJRBgBIAEoBSJKChVTQ19HZXRKb2lu",
+            "R3VpbGRQbGF5ZXISMQoRUmVxdWVzdENoYXJhY3RlcnMYASADKAsyFi5wcm90",
+            "b21zZy5HdWlsZENoYUluZm8iQQoaQ1NfUmVzcG9uc2VKb2luR3VpbGRQbGF5",
+            "ZXISEwoLQ2hhcmFjdGVyaWQYASABKAUSDgoGUmVzdWx0GAIgASgFIisKFENT",
+            "X0RlbGV0ZUd1aWxkUGxheWVyEhMKC0NoYXJhY3RlcmlkGAEgASgFIh8KD0NT",
+            "X0d1aWxkT3BlcmF0ZRIMCgRDb2RlGAEgASgFIjIKDUNTX0NoYW5nZVBvc3QS",
+            "EwoLQ2hhcmFjdGVyaWQYASABKAUSDAoEUG9zdBgCIAEoBSImChRDU19FZGl0",
+            "b3JHdWlsZE5vdGljZRIOCgZOb3RpY2UYASABKAkiIAoSQ1NfR2V0QXVjdGlv",
+            "bkl0ZW1zEgoKAklEGAEgASgFIjoKElNDX0dldEF1Y3Rpb25JdGVtcxIkCgVJ",
+            "dGVtcxgBIAMoCzIVLnByb3RvbXNnLkF1Y3Rpb25JdGVtIr4BCgtBdWN0aW9u",
+            "SXRlbRIKCgJJRBgBIAEoBRIOCgZJdGVtSUQYAiABKAUSEQoJUHJpY2VUeXBl",
+            "GAMgASgFEg0KBVByaWNlGAQgASgFEg0KBUxldmVsGAUgASgFEhsKE0JpZGRl",
+            "ckNoYXJhY3Rlck5hbWUYBiABKAkSHQoVUmVjZWl2ZWNoYXJhY3RlcnNOYW1l",
+            "GAcgAygJEhIKClJlbWFpblRpbWUYCCABKAUSEgoKQmlkZGVyVHlwZRgJIAEo",
+            "BSIzChZDU19OZXdQcmljZUF1Y3Rpb25JdGVtEgoKAklEGAEgASgFEg0KBVBy",
+            "aWNlGAIgASgFIiEKE0NTX0dldEd1aWxkUmFua0luZm8SCgoCSUQYASABKAUi",
+            "aAoTU0NfR2V0R3VpbGRSYW5rSW5mbxIoCgZHdWlsZHMYASADKAsyGC5wcm90",
+            "b21zZy5HdWlsZFNob3J0SW5mbxInCgdNYXBJbmZvGAIgASgLMhYucHJvdG9t",
+            "c2cuR3VpbGRNYXBJbmZvIicKGUNTX0dldEd1aWxkUmFua0JhdHRsZUluZm8S",
+            "CgoCSUQYASABKAUipQEKFkd1aWxkUmFua0JhdHRsZUNoYUluZm8SEwoLQ2hh",
+            "cmFjdGVyaWQYASABKAUSDAoETmFtZRgCIAEoCRINCgVMZXZlbBgDIAEoBRIR",
+            "CglLaWxsQ291bnQYBCABKAUSEgoKRGVhdGhDb3VudBgFIAEoBRIPCgdHdWls",
+            "ZElkGAYgASgFEhEKCUd1aWxkTmFtZRgHIAEoCRIOCgZUeXBlaWQYCCABKAUi",
+            "TQoZU0NfR2V0R3VpbGRSYW5rQmF0dGxlSW5mbxIwCgZBbGxDaGEYASADKAsy",
+            "IC5wcm90b21zZy5HdWlsZFJhbmtCYXR0bGVDaGFJbmZvIiEKE0NTX0dldEd1",
+            "aWxkTWFwc0luZm8SCgoCSUQYASABKAUiOwoTU0NfR2V0R3VpbGRNYXBzSW5m",
+            "bxIkCgRNYXBzGAEgAygLMhYucHJvdG9tc2cuR3VpbGRNYXBJbmZvIp4BCgxH",
+            "dWlsZE1hcEluZm8SCgoCSUQYASABKAUSFAoMT3Blbk1vbnRoRGF5GAIgASgF",
+            "EhMKC09wZW5XZWVrRGF5GAMgASgJEhUKDU9wZW5TdGFydFRpbWUYBCABKAkS",
+            "EwoLT3BlbkVuZFRpbWUYBSABKAkSFgoOTmVlZEd1aWxkTGV2ZWwYBiABKAUS",
+            "EwoLTmV4dFNjZW5lSUQYByABKAUiHQoPQ1NfR290b0d1aWxkTWFwEgoKAklE",
+            "GAEgASgFIiEKD1NDX0dvdG9HdWlsZE1hcBIOCgZSZXN1bHQYASABKAUiJAoW",
+            "Q1NfR2V0QWN0aXZpdHlNYXBzSW5mbxIKCgJJRBgBIAEoBSJBChZTQ19HZXRB",
+            "Y3Rpdml0eU1hcHNJbmZvEicKBE1hcHMYASADKAsyGS5wcm90b21zZy5BY3Rp",
+            "dml0eU1hcEluZm8ivgEKD0FjdGl2aXR5TWFwSW5mbxIKCgJJRBgBIAEoBRIU",
+            "CgxPcGVuTW9udGhEYXkYAiABKAUSEwoLT3BlbldlZWtEYXkYAyABKAkSFQoN",
+            "T3BlblN0YXJ0VGltZRgEIAEoCRITCgtPcGVuRW5kVGltZRgFIAEoCRIRCglO",
+            "ZWVkTGV2ZWwYBiABKAUSEwoLTmV4dFNjZW5lSUQYByABKAUSEQoJUHJpY2VU",
+            "eXBlGAggASgFEg0KBVByaWNlGAkgASgFIiAKDUNTX0dldE1hcEluZm8SDwoH",
+            "U2NlbmVJRBgBIAEoBSJKCg1TQ19HZXRNYXBJbmZvEg8KB1NjZW5lSUQYASAB",
+            "KAUSFQoNQm9zc0ZyZXNoVGltZRgCIAEoBRIRCglEcm9wSXRlbXMYAyADKAUi",
+            "IAoSQ1NfR290b0FjdGl2aXR5TWFwEgoKAklEGAEgASgFIiQKElNDX0dvdG9B",
+            "Y3Rpdml0eU1hcBIOCgZSZXN1bHQYASABKAUiHgoQQ1NfR2V0RHVvQmFvSW5m",
+            "bxIKCgJJRBgBIAEoBSJ8ChBTQ19HZXREdW9CYW9JbmZvEi4KC01hcEdvSW5J",
+            "bmZvGAEgASgLMhkucHJvdG9tc2cuQWN0aXZpdHlNYXBJbmZvEigKB01hcElu",
+            "Zm8YAiABKAsyFy5wcm90b21zZy5TQ19HZXRNYXBJbmZvEg4KBk1pbnV0ZRgD",
+            "IAEoBSIgChJDU19HZXRDb3B5TWFwc0luZm8SCgoCSUQYASABKAUiUgoSU0Nf",
+            "R2V0Q29weU1hcHNJbmZvEiMKBE1hcHMYASADKAsyFS5wcm90b21zZy5Db3B5",
+            "TWFwSW5mbxIXCg9SZW1haW5QbGF5VGltZXMYAiABKAUiZQoLQ29weU1hcElu",
+            "Zm8SCgoCSUQYASABKAUSEQoJTmVlZExldmVsGAIgASgFEhMKC05leHRTY2Vu",
+            "ZUlEGAMgASgFEhMKC1BsYXllckNvdW50GAQgASgFEg0KBVN0YXRlGAUgASgF",
+            "IiQKD0NTX0NvcHlNYXBQaVBlaRIRCglDb3B5TWFwSUQYASABKAUiJQoQQ1Nf",
+            "Q29weU1hcENhbmNlbBIRCglDb3B5TWFwSUQYASABKAUiJgoQU0NfU2hvd1Bp",
+            "UGVpSW5mbxISCgpQaVBlaVN0YXRlGAEgASgFYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -360,6 +365,9 @@ namespace Protomsg {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_UnShelfExchangeCommodity), global::Protomsg.CS_UnShelfExchangeCommodity.Parser, new[]{ "ID" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GetSellUIInfo), global::Protomsg.CS_GetSellUIInfo.Parser, new[]{ "ID" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetSellUIInfo), global::Protomsg.SC_GetSellUIInfo.Parser, new[]{ "ShelfExchangeLimit", "SellExchangeTax", "ShelfExchangeFeePriceType", "ShelfExchangeFeePrice", "AutoUnShelfTime", "Commoditys", "Equips" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GetWorldAuctionItems), global::Protomsg.CS_GetWorldAuctionItems.Parser, new[]{ "ID" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetWorldAuctionItems), global::Protomsg.SC_GetWorldAuctionItems.Parser, new[]{ "Items" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_NewPriceWorldAuctionItem), global::Protomsg.CS_NewPriceWorldAuctionItem.Parser, new[]{ "ID", "Price" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GetAllGuildsInfo), global::Protomsg.CS_GetAllGuildsInfo.Parser, new[]{ "ID" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.GuildShortInfo), global::Protomsg.GuildShortInfo.Parser, new[]{ "ID", "Name", "Level", "Experience", "MaxExperience", "CharacterCount", "MaxCount", "PresidentName", "Joinaudit", "Joinlevellimit", "Notice", "Rank" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetAllGuildsInfo), global::Protomsg.SC_GetAllGuildsInfo.Parser, new[]{ "Guilds", "CreatePriceType", "CreatePrice" }, null, null, null),
@@ -377,7 +385,7 @@ namespace Protomsg {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_EditorGuildNotice), global::Protomsg.CS_EditorGuildNotice.Parser, new[]{ "Notice" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GetAuctionItems), global::Protomsg.CS_GetAuctionItems.Parser, new[]{ "ID" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetAuctionItems), global::Protomsg.SC_GetAuctionItems.Parser, new[]{ "Items" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.AuctionItem), global::Protomsg.AuctionItem.Parser, new[]{ "ID", "ItemID", "PriceType", "Price", "Level", "BidderCharacterName", "ReceivecharactersName", "RemainTime" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.AuctionItem), global::Protomsg.AuctionItem.Parser, new[]{ "ID", "ItemID", "PriceType", "Price", "Level", "BidderCharacterName", "ReceivecharactersName", "RemainTime", "BidderType" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_NewPriceAuctionItem), global::Protomsg.CS_NewPriceAuctionItem.Parser, new[]{ "ID", "Price" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GetGuildRankInfo), global::Protomsg.CS_GetGuildRankInfo.Parser, new[]{ "ID" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetGuildRankInfo), global::Protomsg.SC_GetGuildRankInfo.Parser, new[]{ "Guilds", "MapInfo" }, null, null, null),
@@ -402,7 +410,8 @@ namespace Protomsg {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetCopyMapsInfo), global::Protomsg.SC_GetCopyMapsInfo.Parser, new[]{ "Maps", "RemainPlayTimes" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CopyMapInfo), global::Protomsg.CopyMapInfo.Parser, new[]{ "ID", "NeedLevel", "NextSceneID", "PlayerCount", "State" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_CopyMapPiPei), global::Protomsg.CS_CopyMapPiPei.Parser, new[]{ "CopyMapID" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_CopyMapCancel), global::Protomsg.CS_CopyMapCancel.Parser, new[]{ "CopyMapID" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_CopyMapCancel), global::Protomsg.CS_CopyMapCancel.Parser, new[]{ "CopyMapID" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_ShowPiPeiInfo), global::Protomsg.SC_ShowPiPeiInfo.Parser, new[]{ "PiPeiState" }, null, null, null)
           }));
     }
     #endregion
@@ -18456,6 +18465,430 @@ namespace Protomsg {
   }
 
   /// <summary>
+  ///获取世界拍卖行信息
+  /// </summary>
+  public sealed partial class CS_GetWorldAuctionItems : pb::IMessage<CS_GetWorldAuctionItems> {
+    private static readonly pb::MessageParser<CS_GetWorldAuctionItems> _parser = new pb::MessageParser<CS_GetWorldAuctionItems>(() => new CS_GetWorldAuctionItems());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CS_GetWorldAuctionItems> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[81]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetWorldAuctionItems() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetWorldAuctionItems(CS_GetWorldAuctionItems other) : this() {
+      iD_ = other.iD_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetWorldAuctionItems Clone() {
+      return new CS_GetWorldAuctionItems(this);
+    }
+
+    /// <summary>Field number for the "ID" field.</summary>
+    public const int IDFieldNumber = 1;
+    private int iD_;
+    /// <summary>
+    /////
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ID {
+      get { return iD_; }
+      set {
+        iD_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CS_GetWorldAuctionItems);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CS_GetWorldAuctionItems other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ID != other.ID) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ID != 0) hash ^= ID.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (ID != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(ID);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (ID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ID);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CS_GetWorldAuctionItems other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ID != 0) {
+        ID = other.ID;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            ID = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class SC_GetWorldAuctionItems : pb::IMessage<SC_GetWorldAuctionItems> {
+    private static readonly pb::MessageParser<SC_GetWorldAuctionItems> _parser = new pb::MessageParser<SC_GetWorldAuctionItems>(() => new SC_GetWorldAuctionItems());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<SC_GetWorldAuctionItems> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[82]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetWorldAuctionItems() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetWorldAuctionItems(SC_GetWorldAuctionItems other) : this() {
+      items_ = other.items_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetWorldAuctionItems Clone() {
+      return new SC_GetWorldAuctionItems(this);
+    }
+
+    /// <summary>Field number for the "Items" field.</summary>
+    public const int ItemsFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::Protomsg.AuctionItem> _repeated_items_codec
+        = pb::FieldCodec.ForMessage(10, global::Protomsg.AuctionItem.Parser);
+    private readonly pbc::RepeatedField<global::Protomsg.AuctionItem> items_ = new pbc::RepeatedField<global::Protomsg.AuctionItem>();
+    /// <summary>
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::Protomsg.AuctionItem> Items {
+      get { return items_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as SC_GetWorldAuctionItems);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(SC_GetWorldAuctionItems other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if(!items_.Equals(other.items_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= items_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      items_.WriteTo(output, _repeated_items_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      size += items_.CalculateSize(_repeated_items_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(SC_GetWorldAuctionItems other) {
+      if (other == null) {
+        return;
+      }
+      items_.Add(other.items_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            items_.AddEntriesFrom(input, _repeated_items_codec);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///出价公会拍卖物品
+  /// </summary>
+  public sealed partial class CS_NewPriceWorldAuctionItem : pb::IMessage<CS_NewPriceWorldAuctionItem> {
+    private static readonly pb::MessageParser<CS_NewPriceWorldAuctionItem> _parser = new pb::MessageParser<CS_NewPriceWorldAuctionItem>(() => new CS_NewPriceWorldAuctionItem());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CS_NewPriceWorldAuctionItem> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[83]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_NewPriceWorldAuctionItem() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_NewPriceWorldAuctionItem(CS_NewPriceWorldAuctionItem other) : this() {
+      iD_ = other.iD_;
+      price_ = other.price_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_NewPriceWorldAuctionItem Clone() {
+      return new CS_NewPriceWorldAuctionItem(this);
+    }
+
+    /// <summary>Field number for the "ID" field.</summary>
+    public const int IDFieldNumber = 1;
+    private int iD_;
+    /// <summary>
+    ///商品ID
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ID {
+      get { return iD_; }
+      set {
+        iD_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Price" field.</summary>
+    public const int PriceFieldNumber = 2;
+    private int price_;
+    /// <summary>
+    ///价格
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Price {
+      get { return price_; }
+      set {
+        price_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CS_NewPriceWorldAuctionItem);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CS_NewPriceWorldAuctionItem other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ID != other.ID) return false;
+      if (Price != other.Price) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ID != 0) hash ^= ID.GetHashCode();
+      if (Price != 0) hash ^= Price.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (ID != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(ID);
+      }
+      if (Price != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(Price);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (ID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ID);
+      }
+      if (Price != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Price);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CS_NewPriceWorldAuctionItem other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ID != 0) {
+        ID = other.ID;
+      }
+      if (other.Price != 0) {
+        Price = other.Price;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            ID = input.ReadInt32();
+            break;
+          }
+          case 16: {
+            Price = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
   ///-------------公会相关------------
   ///查看所有公会简短信息
   /// </summary>
@@ -18467,7 +18900,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[81]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[84]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -18602,7 +19035,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[82]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[85]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -19078,7 +19511,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[83]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[86]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -19267,7 +19700,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[84]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[87]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -19402,7 +19835,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[85]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[88]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -19537,7 +19970,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[86]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[89]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -19669,7 +20102,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[87]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[90]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -19833,7 +20266,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[88]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[91]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -20245,7 +20678,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[89]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[92]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -20377,7 +20810,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[90]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[93]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -20504,7 +20937,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[91]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[94]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -20667,7 +21100,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[92]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[95]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -20799,7 +21232,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[93]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[96]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -20934,7 +21367,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[94]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[97]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -21100,7 +21533,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[95]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[98]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -21235,7 +21668,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[96]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[99]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -21364,7 +21797,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[97]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[100]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -21490,7 +21923,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[98]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[101]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -21515,6 +21948,7 @@ namespace Protomsg {
       bidderCharacterName_ = other.bidderCharacterName_;
       receivecharactersName_ = other.receivecharactersName_.Clone();
       remainTime_ = other.remainTime_;
+      bidderType_ = other.bidderType_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -21634,6 +22068,20 @@ namespace Protomsg {
       }
     }
 
+    /// <summary>Field number for the "BidderType" field.</summary>
+    public const int BidderTypeFieldNumber = 9;
+    private int bidderType_;
+    /// <summary>
+    /////出价者类型 1表示所有人 2表示参与分红的人
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int BidderType {
+      get { return bidderType_; }
+      set {
+        bidderType_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as AuctionItem);
@@ -21655,6 +22103,7 @@ namespace Protomsg {
       if (BidderCharacterName != other.BidderCharacterName) return false;
       if(!receivecharactersName_.Equals(other.receivecharactersName_)) return false;
       if (RemainTime != other.RemainTime) return false;
+      if (BidderType != other.BidderType) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -21669,6 +22118,7 @@ namespace Protomsg {
       if (BidderCharacterName.Length != 0) hash ^= BidderCharacterName.GetHashCode();
       hash ^= receivecharactersName_.GetHashCode();
       if (RemainTime != 0) hash ^= RemainTime.GetHashCode();
+      if (BidderType != 0) hash ^= BidderType.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -21711,6 +22161,10 @@ namespace Protomsg {
         output.WriteRawTag(64);
         output.WriteInt32(RemainTime);
       }
+      if (BidderType != 0) {
+        output.WriteRawTag(72);
+        output.WriteInt32(BidderType);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -21740,6 +22194,9 @@ namespace Protomsg {
       size += receivecharactersName_.CalculateSize(_repeated_receivecharactersName_codec);
       if (RemainTime != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(RemainTime);
+      }
+      if (BidderType != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(BidderType);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -21773,6 +22230,9 @@ namespace Protomsg {
       receivecharactersName_.Add(other.receivecharactersName_);
       if (other.RemainTime != 0) {
         RemainTime = other.RemainTime;
+      }
+      if (other.BidderType != 0) {
+        BidderType = other.BidderType;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -21817,6 +22277,10 @@ namespace Protomsg {
             RemainTime = input.ReadInt32();
             break;
           }
+          case 72: {
+            BidderType = input.ReadInt32();
+            break;
+          }
         }
       }
     }
@@ -21834,7 +22298,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[99]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[102]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -22000,7 +22464,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[100]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[103]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -22132,7 +22596,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[101]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[104]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -22295,7 +22759,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[102]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[105]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -22427,7 +22891,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[103]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[106]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -22755,7 +23219,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[104]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[107]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -22882,7 +23346,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[105]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[108]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -23014,7 +23478,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[106]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[109]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -23140,7 +23604,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[107]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[110]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -23461,7 +23925,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[108]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[111]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -23593,7 +24057,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[109]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[112]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -23728,7 +24192,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[110]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[113]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -23860,7 +24324,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[111]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[114]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -23986,7 +24450,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[112]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[115]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -24369,7 +24833,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[113]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[116]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -24501,7 +24965,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[114]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[117]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -24688,7 +25152,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[115]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[118]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -24820,7 +25284,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[116]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[119]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -24955,7 +25419,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[117]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[120]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -25087,7 +25551,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[118]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[121]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -25294,7 +25758,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[119]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[122]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -25426,7 +25890,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[120]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[123]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -25583,7 +26047,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[121]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[124]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -25842,7 +26306,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[122]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[125]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -25974,7 +26438,7 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[123]; }
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[126]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -26087,6 +26551,141 @@ namespace Protomsg {
             break;
           case 8: {
             CopyMapID = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///匹配信息(gameui上的显示)
+  /// </summary>
+  public sealed partial class SC_ShowPiPeiInfo : pb::IMessage<SC_ShowPiPeiInfo> {
+    private static readonly pb::MessageParser<SC_ShowPiPeiInfo> _parser = new pb::MessageParser<SC_ShowPiPeiInfo>(() => new SC_ShowPiPeiInfo());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<SC_ShowPiPeiInfo> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[127]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_ShowPiPeiInfo() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_ShowPiPeiInfo(SC_ShowPiPeiInfo other) : this() {
+      piPeiState_ = other.piPeiState_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_ShowPiPeiInfo Clone() {
+      return new SC_ShowPiPeiInfo(this);
+    }
+
+    /// <summary>Field number for the "PiPeiState" field.</summary>
+    public const int PiPeiStateFieldNumber = 1;
+    private int piPeiState_;
+    /// <summary>
+    ///状态 1可以匹配 2匹配中(显示正在匹配中的提示)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int PiPeiState {
+      get { return piPeiState_; }
+      set {
+        piPeiState_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as SC_ShowPiPeiInfo);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(SC_ShowPiPeiInfo other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (PiPeiState != other.PiPeiState) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (PiPeiState != 0) hash ^= PiPeiState.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (PiPeiState != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(PiPeiState);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (PiPeiState != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(PiPeiState);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(SC_ShowPiPeiInfo other) {
+      if (other == null) {
+        return;
+      }
+      if (other.PiPeiState != 0) {
+        PiPeiState = other.PiPeiState;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            PiPeiState = input.ReadInt32();
             break;
           }
         }

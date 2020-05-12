@@ -16,7 +16,8 @@ public class ExchangeInfo
         MsgManager.Instance.AddListener("SC_GetExchangeShortCommoditys", new HandleMsg(this.SC_GetExchangeShortCommoditys));
         MsgManager.Instance.AddListener("SC_GetExchangeDetailedCommoditys", new HandleMsg(this.SC_GetExchangeDetailedCommoditys));
         MsgManager.Instance.AddListener("SC_GetSellUIInfo", new HandleMsg(this.SC_GetSellUIInfo));
-        
+        MsgManager.Instance.AddListener("SC_GetWorldAuctionItems", new HandleMsg(this.SC_GetWorldAuctionItems));
+
         //获取数据
         Protomsg.CS_GetExchangeShortCommoditys msg1 = new Protomsg.CS_GetExchangeShortCommoditys();
         MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetExchangeShortCommoditys", msg1);
@@ -35,12 +36,19 @@ public class ExchangeInfo
                 Protomsg.CS_GetExchangeShortCommoditys msg2 = new Protomsg.CS_GetExchangeShortCommoditys();
                 MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetExchangeShortCommoditys", msg2);
             }
-            else
+            else if(curpagename == "sell")
             {
                 //获取数据
                 Debug.Log("CS_GetSellUIInfo");
                 Protomsg.CS_GetSellUIInfo msg2 = new Protomsg.CS_GetSellUIInfo();
                 MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetSellUIInfo", msg2);
+            }
+            else if (curpagename == "auction")
+            {
+                //获取数据
+                Debug.Log("CS_GetWorldAuctionItems");
+                Protomsg.CS_GetWorldAuctionItems msg2 = new Protomsg.CS_GetWorldAuctionItems();
+                MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetWorldAuctionItems", msg2);
             }
         });
 
@@ -362,7 +370,131 @@ public class ExchangeInfo
         main.GetChild("Tax").asTextField.FlushVars();
         return true;
     }
-    
+    public bool SC_GetWorldAuctionItems(Protomsg.MsgBase d1)
+    {
+        Debug.Log("SC_GetWorldAuctionItems:");
+        IMessage IMperson = new Protomsg.SC_GetWorldAuctionItems();
+        Protomsg.SC_GetWorldAuctionItems p1 = (Protomsg.SC_GetWorldAuctionItems)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
+        if (main == null)
+        {
+            return true;
+        }
+        main.GetChild("auctionlist").asList.RemoveChildren(0, -1, true);
+        //处理排序
+        Protomsg.AuctionItem[] allplayer = new Protomsg.AuctionItem[p1.Items.Count];
+        p1.Items.CopyTo(allplayer, 0);
+        System.Array.Sort(allplayer, (a, b) => {
+
+            if (a.RemainTime > b.RemainTime)
+            {
+                return 1;
+            }
+            else if (a.RemainTime < b.RemainTime)
+            {
+                return -1;
+            }
+            return 0;
+        });
+
+        //遍历
+        foreach (var item in allplayer)
+        {
+            var clientitem = ExcelManager.Instance.GetItemManager().GetItemByID(item.ItemID);
+            if (clientitem == null)
+            {
+                continue;
+            }
+
+            var onedropitem = UIPackage.CreateObject("GameUI", "worldAuctionOne").asCom;
+            if (clientitem.Name == "")
+            {
+                onedropitem.GetChild("name").asTextField.text = "无";
+            }
+            else
+            {
+                onedropitem.GetChild("name").asTextField.text = clientitem.Name;
+            }
+
+            onedropitem.GetChild("item").asCom.GetChild("icon").asLoader.url = clientitem.IconPath;
+            onedropitem.GetChild("item").asCom.GetChild("level").asTextField.text = item.Level + "";
+            onedropitem.GetChild("item").asCom.onClick.Add(() =>
+            {
+                string des = "\n\n参与分红的成员:\n";
+                foreach (var item1 in item.ReceivecharactersName)
+                {
+                    if (item1 == item.ReceivecharactersName[item.ReceivecharactersName.Count - 1])
+                    {
+                        des += item1;
+                    }
+                    else
+                    {
+                        des += item1 + ",";
+                    }
+
+                }
+                new ItemInfo(item.ItemID).AddDes(des);
+            });
+
+            onedropitem.GetChild("pricetype").asLoader.url = Tool.GetPriceTypeIcon(item.PriceType);
+            onedropitem.GetChild("price").asTextField.text = item.Price + "";
+            onedropitem.GetChild("playername").asTextField.text = item.BidderCharacterName;
+            onedropitem.GetChild("remaintime").asTextField.text = Tool.Time2String(item.RemainTime);
+
+            //出价
+            onedropitem.GetChild("add").asButton.onClick.Add(() =>
+            {
+                //售卖
+                var sellwindow = UIPackage.CreateObject("GameUI", "NewPrice").asCom;
+                GRoot.inst.AddChild(sellwindow);
+                sellwindow.xy = Tool.GetPosition(0.5f, 0.5f);
+                sellwindow.GetChild("close").onClick.Add(() =>
+                {
+                    sellwindow.Dispose();
+                });
+                sellwindow.GetChild("yes_btn").onClick.Add(() =>
+                {
+                    var txt = sellwindow.GetChild("input").asTextInput.text;
+                    if (txt.Length <= 0)
+                    {
+                        Tool.NoticeWords("请输入价格！", null);
+                        return;
+                    }
+
+                    int price = 0;
+                    try
+                    {
+                        price = Convert.ToInt32(txt); //报异常
+                    }
+                    catch (SystemException e)
+                    {
+                        Tool.NoticeWords("请输入正确的价格！", null);
+                        return;
+                    }
+                    if (price <= 0)
+                    {
+                        Tool.NoticeWords("请输入正确的价格！", null);
+                        return;
+                    }
+                    //上架
+                    Protomsg.CS_NewPriceWorldAuctionItem msg1 = new Protomsg.CS_NewPriceWorldAuctionItem();
+                    msg1.Price = price;
+                    msg1.ID = item.ID;
+                    MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_NewPriceWorldAuctionItem", msg1);
+                    sellwindow.Dispose();
+                });
+                sellwindow.GetChild("item").asCom.GetChild("icon").asLoader.url = clientitem.IconPath;
+                sellwindow.GetChild("item").asCom.GetChild("level").asTextField.text = item.Level + "";
+                sellwindow.GetChild("name").asTextField.text = clientitem.Name;
+                sellwindow.GetChild("pricetype").asLoader.url = Tool.GetPriceTypeIcon(item.PriceType);
+                sellwindow.GetChild("input").asTextInput.text = (item.Price + 1) + "";
+            });
+
+            main.GetChild("auctionlist").asList.AddChild(onedropitem);
+
+        }
+
+        return true;
+    }
 
     //
     public void Destroy()
@@ -370,7 +502,10 @@ public class ExchangeInfo
         MsgManager.Instance.RemoveListener("SC_GetExchangeShortCommoditys");
         MsgManager.Instance.RemoveListener("SC_GetExchangeDetailedCommoditys"); 
         MsgManager.Instance.RemoveListener("SC_GetSellUIInfo");
+        MsgManager.Instance.RemoveListener("SC_GetWorldAuctionItems");
         
+
+
         AudioManager.Am.Play2DSound(AudioManager.Sound_CloseUI);
         if (main != null)
         {

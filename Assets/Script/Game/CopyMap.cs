@@ -41,6 +41,9 @@ public class CopyMap
         Protomsg.SC_GetCopyMapsInfo p1 = (Protomsg.SC_GetCopyMapsInfo)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
         main.GetChild("maplist").asList.RemoveChildren(0, -1, true);
 
+        main.GetChild("playcount").asTextField.SetVar("p1", p1.RemainPlayTimes+"");
+        main.GetChild("playcount").asTextField.FlushVars();
+
         Protomsg.CopyMapInfo[] allplayer = new Protomsg.CopyMapInfo[p1.Maps.Count];
         p1.Maps.CopyTo(allplayer, 0);
         System.Array.Sort(allplayer, (a, b) => {

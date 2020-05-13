@@ -28,7 +28,9 @@ public class MyEditor : Editor
     ,"Map/CreateUnits/CreateUnitsActivity4","Map/CreateUnits/CreateUnitsActivity5","Map/CreateUnits/CreateUnitsActivity6"
     ,"Map/CreateUnits/CreateUnitsActivity7","Map/CreateUnits/CreateUnitsActivity8","Map/CreateUnits/CreateUnitsActivity9"
     ,"Map/CreateUnits/CreateUnitsGuildDuoBao"
-    ,"Map/CreateUnits/CreateUnitsCopyMap1"};
+    ,"Map/CreateUnits/CreateUnitsCopyMap1","Map/CreateUnits/CreateUnitsCopyMap2","Map/CreateUnits/CreateUnitsCopyMap3"
+    ,"Map/CreateUnits/CreateUnitsCopyMap4","Map/CreateUnits/CreateUnitsCopyMap5","Map/CreateUnits/CreateUnitsCopyMap6"
+    ,"Map/CreateUnits/CreateUnitsCopyMap7"};
     static string DestPath = "D://sheshe/bin/conf/";
 
     //将所有游戏场景导出为JSON格式

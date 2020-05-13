@@ -300,3 +300,15 @@ MonoBehaviour:
     Type: 1
     AnimName: warning
     Pos: 1
+  - TypeID: 47
+    Words: "\u5339\u914D\u526F\u672C\u6210\u529F!"
+    Sound: sound/other/warning
+    Type: 1
+    AnimName: showlong
+    Pos: 1
+  - TypeID: 48
+    Words: "\u606D\u559C[color=#3473F7]{p1=1}[/color]\u5728\u516C\u4F1A\u6392\u540D\u6218\u4E2D\u52C7\u593A\u7B2C\u4E00\u540D!"
+    Sound: sound/other/warning
+    Type: 2
+    AnimName: showlong
+    Pos: 1

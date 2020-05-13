@@ -1064,24 +1064,37 @@ public class GameUI : MonoBehaviour {
         foreach(var unit in allunit)
         {
             var color1 = new Color(1, 0.1f, 0.1f);
-            var scale = new Vector2(1, 1);
             var drawsize = 5.0f;
             string iconpath = "Minimap_UnitPin_Foreground_Leader";
+            var order = 1;
             if (unit.Value == GameScene.Singleton.m_MyMainUnit)
             {
                 //自己
                 iconpath = "Minimap_UnitPin_Foreground_Leader";
                 //iconpath = "Minimap_UnitPin_Foreground_Friendly";
                 color1 = new Color(0.1f, 1f, 0.1f);
-                scale = new Vector2(2, 2);
                 drawsize = 10;
+                order = 100;
             }
             else if (unit.Value.TeamID == GameScene.Singleton.m_MyMainUnit.TeamID && GameScene.Singleton.m_MyMainUnit.TeamID > 0)
             {
                 //队伍
                 color1 = new Color(1f, 0.8f, 0.2f);
-                scale = new Vector2(2, 2);
                 drawsize = 10;
+                order = 90;
+            }
+            else if (unit.Value.GroupID == GameScene.Singleton.m_MyMainUnit.GroupID && GameScene.Singleton.m_MyMainUnit.GroupID > 0)
+            {
+                //小组
+                color1 = new Color(1f, 0.8f, 0.2f);
+                drawsize = 10;
+                order = 90;
+            }
+            else if(unit.Value.GuildID == GameScene.Singleton.m_MyMainUnit.GuildID && unit.Value.GuildID > 0)
+            {
+                color1 = new Color(1f, 0.8f, 0.2f);
+                drawsize = 10;
+                order = 90;
             }
             else
             {
@@ -1092,15 +1105,22 @@ public class GameUI : MonoBehaviour {
                     color1 = new Color(1, 0.1f, 0.1f);
                     if(unit.Value.UnitType == 1 || unit.Value.UnitType == 4) //英雄 boss
                     {
-                        color1 = new Color(0.1f, 0.8f, 0.8f);
-                        scale = new Vector2(1.5f, 1.5f);
+                        color1 = new Color(0.98f, 0.1f, 0.98f);
                         drawsize = 7.5f;
+                        order = 80;
                     }
                 }
                 else
                 {
                     iconpath = "Minimap_UnitPin_Foreground_Friendly";
-                    color1 = new Color(0.5f, 1f, 0.5f);
+                    color1 = new Color(0.3f, 1f, 0.3f);
+                    drawsize = 7.5f;
+                    if (unit.Value.UnitType == 1) //英雄 boss
+                    {
+                        color1 = new Color(0.2f, 0.8f, 0.2f);
+                        drawsize = 7.5f;
+                        order = 70;
+                    }
                 }
             }
 
@@ -1113,17 +1133,16 @@ public class GameUI : MonoBehaviour {
             aImage.pivot = new Vector2(0.5f, 0.5f);
             aImage.pivotAsAnchor = true;
             LittleMapCom.AddChild(aImage);
-            if (unit.Value == GameScene.Singleton.m_MyMainUnit)
-            {
-                aImage.sortingOrder = 100;
-                //aImage.scale = new Vector2(2, 2);
-            }
-            else
-            {
-                aImage.sortingOrder = 10;
-                
-            }
-            //aImage.scale = scale;
+            aImage.sortingOrder = order;
+            //if (unit.Value == GameScene.Singleton.m_MyMainUnit)
+            //{
+            //    aImage.sortingOrder = 100;
+            //}
+            //else
+            //{
+            //    aImage.sortingOrder = 10;
+
+            //}
             allunitImage.Add(aImage);
 
             var item = ExcelManager.Instance.GetSceneManager().GetSceneByID(SceneID);

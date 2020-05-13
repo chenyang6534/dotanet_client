@@ -32,6 +32,7 @@ public class UnityEntity {
     public int CharacterID;
     public int TeamID;
     public int GuildID; //公会ID
+    public int GroupID; //公会ID
     public int Gold;
     public int Diamond;
     public float RemainReviveTime;
@@ -64,6 +65,7 @@ public class UnityEntity {
         TypeID = data.TypeID;
         TeamID = data.TeamID;
         GuildID = data.GuildID;
+        GroupID = data.GroupID;
         Gold = data.Gold;
         Diamond = data.Diamond;
         RemainReviveTime = data.RemainReviveTime;
@@ -346,6 +348,7 @@ public class UnityEntity {
             MaxMP += data.MaxMP;
             TeamID += data.TeamID;
             GuildID += data.GuildID;
+            GroupID += data.GroupID;
             CharacterID += data.Characterid;
             Gold += data.Gold;
             Diamond += data.Diamond;

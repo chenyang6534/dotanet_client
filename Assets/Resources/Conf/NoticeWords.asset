@@ -312,3 +312,9 @@ MonoBehaviour:
     Type: 2
     AnimName: showlong
     Pos: 1
+  - TypeID: 49
+    Words: "\u60A8\u6240\u5728\u7684\u5730\u56FE\u4E0D\u80FD\u8FDB\u884C\u5339\u914D!"
+    Sound: sound/other/warning
+    Type: 1
+    AnimName: showlong
+    Pos: 1

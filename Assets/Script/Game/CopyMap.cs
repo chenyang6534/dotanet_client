@@ -47,18 +47,9 @@ public class CopyMap
         Protomsg.CopyMapInfo[] allplayer = new Protomsg.CopyMapInfo[p1.Maps.Count];
         p1.Maps.CopyTo(allplayer, 0);
         System.Array.Sort(allplayer, (a, b) => {
-
-            if (a.State > b.State)
+            if(a.NeedLevel > b.NeedLevel)
             {
                 return -1;
-            }
-            else if (a.State == b.State)
-            {
-                if(a.NeedLevel > b.NeedLevel)
-                {
-                    return -1;
-                }
-                return 1;
             }
             return 1;
         });

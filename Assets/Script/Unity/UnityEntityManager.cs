@@ -181,7 +181,12 @@ public class UnityEntityManager  {
         {
             return false;
         }
-        
+        //不同小组一定是敌人
+        if (target.GroupID > 0 && my.GroupID > 0 && target.GroupID != my.GroupID)
+        {
+            return true;
+        }
+
         //攻击模式(1:和平模式 2:组队模式 3:全体模式 4:阵营模式(玩家,NPC) 5:行会模式)
         if (my.AttackMode == 1)
         {

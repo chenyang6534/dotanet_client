@@ -182,6 +182,11 @@ public class GameUI : MonoBehaviour {
         {
             new CopyMap();
         });
+        //副本地图
+        LittleMapCom.GetChild("battlebtn").asButton.onClick.Add(() =>
+        {
+            new Battle();
+        });
 
         //显示所有
         ShowAllBtn(false);
@@ -243,7 +248,8 @@ public class GameUI : MonoBehaviour {
             LittleMapCom.GetChild("guild").visible = true;
             LittleMapCom.GetChild("activitymap").visible = true;
             LittleMapCom.GetChild("copymap").visible = true;
-            
+            LittleMapCom.GetChild("battlebtn").visible = true;
+
         }
         else
         {
@@ -255,6 +261,7 @@ public class GameUI : MonoBehaviour {
             LittleMapCom.GetChild("guild").visible = false;
             LittleMapCom.GetChild("activitymap").visible = false;
             LittleMapCom.GetChild("copymap").visible = false;
+            LittleMapCom.GetChild("battlebtn").visible = false;
         }
     }
 

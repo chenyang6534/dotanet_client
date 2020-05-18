@@ -280,8 +280,18 @@ namespace Protomsg {
             "AiABKAUSEwoLTmV4dFNjZW5lSUQYAyABKAUSEwoLUGxheWVyQ291bnQYBCAB",
             "KAUSDQoFU3RhdGUYBSABKAUiJAoPQ1NfQ29weU1hcFBpUGVpEhEKCUNvcHlN",
             "YXBJRBgBIAEoBSIlChBDU19Db3B5TWFwQ2FuY2VsEhEKCUNvcHlNYXBJRBgB",
-            "IAEoBSImChBTQ19TaG93UGlQZWlJbmZvEhIKClBpUGVpU3RhdGUYASABKAVi",
-            "BnByb3RvMw=="));
+            "IAEoBSImChBTQ19TaG93UGlQZWlJbmZvEhIKClBpUGVpU3RhdGUYASABKAUi",
+            "PAoUQ1NfR2V0QmF0dGxlUmFua0luZm8SEQoJUmFua1N0YXJ0GAEgASgFEhEK",
+            "CVJhbmtDb3VudBgCIAEoBSIhChNDU19HZXRCYXR0bGVNYXBJbmZvEgoKAklE",
+            "GAEgASgFInYKFFNDX0dldEJhdHRsZVJhbmtJbmZvEi0KCFJhbmtJbmZvGAEg",
+            "AygLMhsucHJvdG9tc2cuQmF0dGxlUmFua09uZUluZm8SLwoKTXlSYW5rSW5m",
+            "bxgCIAEoCzIbLnByb3RvbXNnLkJhdHRsZVJhbmtPbmVJbmZvIkMKE1NDX0dl",
+            "dEJhdHRsZU1hcEluZm8SLAoNQmF0dGxlTWFwSW5mbxgBIAEoCzIVLnByb3Rv",
+            "bXNnLkNvcHlNYXBJbmZvImMKEUJhdHRsZVJhbmtPbmVJbmZvEhMKC0NoYXJh",
+            "Y3RlcmlkGAEgASgFEgwKBE5hbWUYAiABKAkSDgoGVHlwZWlkGAMgASgFEgwK",
+            "BFJhbmsYBCABKAUSDQoFU2NvcmUYBSABKAUiIwoOQ1NfQmF0dGxlUGlQZWkS",
+            "EQoJQ29weU1hcElEGAEgASgFIiQKD0NTX0JhdHRsZUNhbmNlbBIRCglDb3B5",
+            "TWFwSUQYASABKAViBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -412,7 +422,14 @@ namespace Protomsg {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CopyMapInfo), global::Protomsg.CopyMapInfo.Parser, new[]{ "ID", "NeedLevel", "NextSceneID", "PlayerCount", "State" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_CopyMapPiPei), global::Protomsg.CS_CopyMapPiPei.Parser, new[]{ "CopyMapID" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_CopyMapCancel), global::Protomsg.CS_CopyMapCancel.Parser, new[]{ "CopyMapID" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_ShowPiPeiInfo), global::Protomsg.SC_ShowPiPeiInfo.Parser, new[]{ "PiPeiState" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_ShowPiPeiInfo), global::Protomsg.SC_ShowPiPeiInfo.Parser, new[]{ "PiPeiState" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GetBattleRankInfo), global::Protomsg.CS_GetBattleRankInfo.Parser, new[]{ "RankStart", "RankCount" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GetBattleMapInfo), global::Protomsg.CS_GetBattleMapInfo.Parser, new[]{ "ID" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetBattleRankInfo), global::Protomsg.SC_GetBattleRankInfo.Parser, new[]{ "RankInfo", "MyRankInfo" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetBattleMapInfo), global::Protomsg.SC_GetBattleMapInfo.Parser, new[]{ "BattleMapInfo" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.BattleRankOneInfo), global::Protomsg.BattleRankOneInfo.Parser, new[]{ "Characterid", "Name", "Typeid", "Rank", "Score" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_BattlePiPei), global::Protomsg.CS_BattlePiPei.Parser, new[]{ "CopyMapID" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_BattleCancel), global::Protomsg.CS_BattleCancel.Parser, new[]{ "CopyMapID" }, null, null, null)
           }));
     }
     #endregion
@@ -26718,6 +26735,1130 @@ namespace Protomsg {
             break;
           case 8: {
             PiPeiState = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///获取竞技场排行信息
+  /// </summary>
+  public sealed partial class CS_GetBattleRankInfo : pb::IMessage<CS_GetBattleRankInfo> {
+    private static readonly pb::MessageParser<CS_GetBattleRankInfo> _parser = new pb::MessageParser<CS_GetBattleRankInfo>(() => new CS_GetBattleRankInfo());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CS_GetBattleRankInfo> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[128]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetBattleRankInfo() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetBattleRankInfo(CS_GetBattleRankInfo other) : this() {
+      rankStart_ = other.rankStart_;
+      rankCount_ = other.rankCount_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetBattleRankInfo Clone() {
+      return new CS_GetBattleRankInfo(this);
+    }
+
+    /// <summary>Field number for the "RankStart" field.</summary>
+    public const int RankStartFieldNumber = 1;
+    private int rankStart_;
+    /// <summary>
+    ///起始排名
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int RankStart {
+      get { return rankStart_; }
+      set {
+        rankStart_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "RankCount" field.</summary>
+    public const int RankCountFieldNumber = 2;
+    private int rankCount_;
+    /// <summary>
+    ///排名个数
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int RankCount {
+      get { return rankCount_; }
+      set {
+        rankCount_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CS_GetBattleRankInfo);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CS_GetBattleRankInfo other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (RankStart != other.RankStart) return false;
+      if (RankCount != other.RankCount) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (RankStart != 0) hash ^= RankStart.GetHashCode();
+      if (RankCount != 0) hash ^= RankCount.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (RankStart != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(RankStart);
+      }
+      if (RankCount != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(RankCount);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (RankStart != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(RankStart);
+      }
+      if (RankCount != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(RankCount);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CS_GetBattleRankInfo other) {
+      if (other == null) {
+        return;
+      }
+      if (other.RankStart != 0) {
+        RankStart = other.RankStart;
+      }
+      if (other.RankCount != 0) {
+        RankCount = other.RankCount;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            RankStart = input.ReadInt32();
+            break;
+          }
+          case 16: {
+            RankCount = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///获取竞技场地图信息
+  /// </summary>
+  public sealed partial class CS_GetBattleMapInfo : pb::IMessage<CS_GetBattleMapInfo> {
+    private static readonly pb::MessageParser<CS_GetBattleMapInfo> _parser = new pb::MessageParser<CS_GetBattleMapInfo>(() => new CS_GetBattleMapInfo());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CS_GetBattleMapInfo> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[129]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetBattleMapInfo() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetBattleMapInfo(CS_GetBattleMapInfo other) : this() {
+      iD_ = other.iD_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetBattleMapInfo Clone() {
+      return new CS_GetBattleMapInfo(this);
+    }
+
+    /// <summary>Field number for the "ID" field.</summary>
+    public const int IDFieldNumber = 1;
+    private int iD_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ID {
+      get { return iD_; }
+      set {
+        iD_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CS_GetBattleMapInfo);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CS_GetBattleMapInfo other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ID != other.ID) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ID != 0) hash ^= ID.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (ID != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(ID);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (ID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ID);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CS_GetBattleMapInfo other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ID != 0) {
+        ID = other.ID;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            ID = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///返回竞技场排名
+  /// </summary>
+  public sealed partial class SC_GetBattleRankInfo : pb::IMessage<SC_GetBattleRankInfo> {
+    private static readonly pb::MessageParser<SC_GetBattleRankInfo> _parser = new pb::MessageParser<SC_GetBattleRankInfo>(() => new SC_GetBattleRankInfo());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<SC_GetBattleRankInfo> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[130]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetBattleRankInfo() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetBattleRankInfo(SC_GetBattleRankInfo other) : this() {
+      rankInfo_ = other.rankInfo_.Clone();
+      myRankInfo_ = other.myRankInfo_ != null ? other.myRankInfo_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetBattleRankInfo Clone() {
+      return new SC_GetBattleRankInfo(this);
+    }
+
+    /// <summary>Field number for the "RankInfo" field.</summary>
+    public const int RankInfoFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::Protomsg.BattleRankOneInfo> _repeated_rankInfo_codec
+        = pb::FieldCodec.ForMessage(10, global::Protomsg.BattleRankOneInfo.Parser);
+    private readonly pbc::RepeatedField<global::Protomsg.BattleRankOneInfo> rankInfo_ = new pbc::RepeatedField<global::Protomsg.BattleRankOneInfo>();
+    /// <summary>
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::Protomsg.BattleRankOneInfo> RankInfo {
+      get { return rankInfo_; }
+    }
+
+    /// <summary>Field number for the "MyRankInfo" field.</summary>
+    public const int MyRankInfoFieldNumber = 2;
+    private global::Protomsg.BattleRankOneInfo myRankInfo_;
+    /// <summary>
+    /// 自己的排名
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Protomsg.BattleRankOneInfo MyRankInfo {
+      get { return myRankInfo_; }
+      set {
+        myRankInfo_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as SC_GetBattleRankInfo);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(SC_GetBattleRankInfo other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if(!rankInfo_.Equals(other.rankInfo_)) return false;
+      if (!object.Equals(MyRankInfo, other.MyRankInfo)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= rankInfo_.GetHashCode();
+      if (myRankInfo_ != null) hash ^= MyRankInfo.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      rankInfo_.WriteTo(output, _repeated_rankInfo_codec);
+      if (myRankInfo_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(MyRankInfo);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      size += rankInfo_.CalculateSize(_repeated_rankInfo_codec);
+      if (myRankInfo_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(MyRankInfo);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(SC_GetBattleRankInfo other) {
+      if (other == null) {
+        return;
+      }
+      rankInfo_.Add(other.rankInfo_);
+      if (other.myRankInfo_ != null) {
+        if (myRankInfo_ == null) {
+          myRankInfo_ = new global::Protomsg.BattleRankOneInfo();
+        }
+        MyRankInfo.MergeFrom(other.MyRankInfo);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            rankInfo_.AddEntriesFrom(input, _repeated_rankInfo_codec);
+            break;
+          }
+          case 18: {
+            if (myRankInfo_ == null) {
+              myRankInfo_ = new global::Protomsg.BattleRankOneInfo();
+            }
+            input.ReadMessage(myRankInfo_);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///获取竞技场地图信息
+  /// </summary>
+  public sealed partial class SC_GetBattleMapInfo : pb::IMessage<SC_GetBattleMapInfo> {
+    private static readonly pb::MessageParser<SC_GetBattleMapInfo> _parser = new pb::MessageParser<SC_GetBattleMapInfo>(() => new SC_GetBattleMapInfo());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<SC_GetBattleMapInfo> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[131]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetBattleMapInfo() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetBattleMapInfo(SC_GetBattleMapInfo other) : this() {
+      battleMapInfo_ = other.battleMapInfo_ != null ? other.battleMapInfo_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetBattleMapInfo Clone() {
+      return new SC_GetBattleMapInfo(this);
+    }
+
+    /// <summary>Field number for the "BattleMapInfo" field.</summary>
+    public const int BattleMapInfoFieldNumber = 1;
+    private global::Protomsg.CopyMapInfo battleMapInfo_;
+    /// <summary>
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Protomsg.CopyMapInfo BattleMapInfo {
+      get { return battleMapInfo_; }
+      set {
+        battleMapInfo_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as SC_GetBattleMapInfo);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(SC_GetBattleMapInfo other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(BattleMapInfo, other.BattleMapInfo)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (battleMapInfo_ != null) hash ^= BattleMapInfo.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (battleMapInfo_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(BattleMapInfo);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (battleMapInfo_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(BattleMapInfo);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(SC_GetBattleMapInfo other) {
+      if (other == null) {
+        return;
+      }
+      if (other.battleMapInfo_ != null) {
+        if (battleMapInfo_ == null) {
+          battleMapInfo_ = new global::Protomsg.CopyMapInfo();
+        }
+        BattleMapInfo.MergeFrom(other.BattleMapInfo);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (battleMapInfo_ == null) {
+              battleMapInfo_ = new global::Protomsg.CopyMapInfo();
+            }
+            input.ReadMessage(battleMapInfo_);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///竞技场排名单个信息
+  /// </summary>
+  public sealed partial class BattleRankOneInfo : pb::IMessage<BattleRankOneInfo> {
+    private static readonly pb::MessageParser<BattleRankOneInfo> _parser = new pb::MessageParser<BattleRankOneInfo>(() => new BattleRankOneInfo());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<BattleRankOneInfo> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[132]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public BattleRankOneInfo() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public BattleRankOneInfo(BattleRankOneInfo other) : this() {
+      characterid_ = other.characterid_;
+      name_ = other.name_;
+      typeid_ = other.typeid_;
+      rank_ = other.rank_;
+      score_ = other.score_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public BattleRankOneInfo Clone() {
+      return new BattleRankOneInfo(this);
+    }
+
+    /// <summary>Field number for the "Characterid" field.</summary>
+    public const int CharacteridFieldNumber = 1;
+    private int characterid_;
+    /// <summary>
+    ///Characterid   
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Characterid {
+      get { return characterid_; }
+      set {
+        characterid_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Name" field.</summary>
+    public const int NameFieldNumber = 2;
+    private string name_ = "";
+    /// <summary>
+    ///  
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Name {
+      get { return name_; }
+      set {
+        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Typeid" field.</summary>
+    public const int TypeidFieldNumber = 3;
+    private int typeid_;
+    /// <summary>
+    ///  
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Typeid {
+      get { return typeid_; }
+      set {
+        typeid_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Rank" field.</summary>
+    public const int RankFieldNumber = 4;
+    private int rank_;
+    /// <summary>
+    ///  
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Rank {
+      get { return rank_; }
+      set {
+        rank_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Score" field.</summary>
+    public const int ScoreFieldNumber = 5;
+    private int score_;
+    /// <summary>
+    ///  
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Score {
+      get { return score_; }
+      set {
+        score_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as BattleRankOneInfo);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(BattleRankOneInfo other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Characterid != other.Characterid) return false;
+      if (Name != other.Name) return false;
+      if (Typeid != other.Typeid) return false;
+      if (Rank != other.Rank) return false;
+      if (Score != other.Score) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Characterid != 0) hash ^= Characterid.GetHashCode();
+      if (Name.Length != 0) hash ^= Name.GetHashCode();
+      if (Typeid != 0) hash ^= Typeid.GetHashCode();
+      if (Rank != 0) hash ^= Rank.GetHashCode();
+      if (Score != 0) hash ^= Score.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Characterid != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(Characterid);
+      }
+      if (Name.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Name);
+      }
+      if (Typeid != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(Typeid);
+      }
+      if (Rank != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(Rank);
+      }
+      if (Score != 0) {
+        output.WriteRawTag(40);
+        output.WriteInt32(Score);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Characterid != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Characterid);
+      }
+      if (Name.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+      }
+      if (Typeid != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Typeid);
+      }
+      if (Rank != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Rank);
+      }
+      if (Score != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Score);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(BattleRankOneInfo other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Characterid != 0) {
+        Characterid = other.Characterid;
+      }
+      if (other.Name.Length != 0) {
+        Name = other.Name;
+      }
+      if (other.Typeid != 0) {
+        Typeid = other.Typeid;
+      }
+      if (other.Rank != 0) {
+        Rank = other.Rank;
+      }
+      if (other.Score != 0) {
+        Score = other.Score;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Characterid = input.ReadInt32();
+            break;
+          }
+          case 18: {
+            Name = input.ReadString();
+            break;
+          }
+          case 24: {
+            Typeid = input.ReadInt32();
+            break;
+          }
+          case 32: {
+            Rank = input.ReadInt32();
+            break;
+          }
+          case 40: {
+            Score = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///匹配竞技场
+  /// </summary>
+  public sealed partial class CS_BattlePiPei : pb::IMessage<CS_BattlePiPei> {
+    private static readonly pb::MessageParser<CS_BattlePiPei> _parser = new pb::MessageParser<CS_BattlePiPei>(() => new CS_BattlePiPei());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CS_BattlePiPei> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[133]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_BattlePiPei() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_BattlePiPei(CS_BattlePiPei other) : this() {
+      copyMapID_ = other.copyMapID_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_BattlePiPei Clone() {
+      return new CS_BattlePiPei(this);
+    }
+
+    /// <summary>Field number for the "CopyMapID" field.</summary>
+    public const int CopyMapIDFieldNumber = 1;
+    private int copyMapID_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CopyMapID {
+      get { return copyMapID_; }
+      set {
+        copyMapID_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CS_BattlePiPei);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CS_BattlePiPei other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (CopyMapID != other.CopyMapID) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (CopyMapID != 0) hash ^= CopyMapID.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (CopyMapID != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(CopyMapID);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (CopyMapID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(CopyMapID);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CS_BattlePiPei other) {
+      if (other == null) {
+        return;
+      }
+      if (other.CopyMapID != 0) {
+        CopyMapID = other.CopyMapID;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            CopyMapID = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///取消匹配竞技场
+  /// </summary>
+  public sealed partial class CS_BattleCancel : pb::IMessage<CS_BattleCancel> {
+    private static readonly pb::MessageParser<CS_BattleCancel> _parser = new pb::MessageParser<CS_BattleCancel>(() => new CS_BattleCancel());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CS_BattleCancel> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[134]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_BattleCancel() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_BattleCancel(CS_BattleCancel other) : this() {
+      copyMapID_ = other.copyMapID_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_BattleCancel Clone() {
+      return new CS_BattleCancel(this);
+    }
+
+    /// <summary>Field number for the "CopyMapID" field.</summary>
+    public const int CopyMapIDFieldNumber = 1;
+    private int copyMapID_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CopyMapID {
+      get { return copyMapID_; }
+      set {
+        copyMapID_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CS_BattleCancel);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CS_BattleCancel other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (CopyMapID != other.CopyMapID) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (CopyMapID != 0) hash ^= CopyMapID.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (CopyMapID != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(CopyMapID);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (CopyMapID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(CopyMapID);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CS_BattleCancel other) {
+      if (other == null) {
+        return;
+      }
+      if (other.CopyMapID != 0) {
+        CopyMapID = other.CopyMapID;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            CopyMapID = input.ReadInt32();
             break;
           }
         }

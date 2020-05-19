@@ -101,6 +101,14 @@ public class GameUI : MonoBehaviour {
         //    Debug.Log("-----------ShowOffBtn:" + TeamInfo.visible);
         //});
 
+        mainUI.GetChild("datashowtype").asButton.onClick.Add((EventContext context) => {
+            if(GameScene.Singleton.m_DataShowType == 2)//竞技场数据
+            {
+                Protomsg.CS_GetBattleHeroInfo msg1 = new Protomsg.CS_GetBattleHeroInfo();
+                MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetBattleHeroInfo", msg1);
+            }
+        });
+
         //聊天信息
         LittleChat = mainUI.GetChild("littlechat").asCom;
         Tool.AddClick(LittleChat.GetChild("contentlist").asList, () => {
@@ -224,6 +232,8 @@ public class GameUI : MonoBehaviour {
         MsgManager.Instance.AddListener("SC_RequestTeam", new HandleMsg(this.SC_RequestTeam));
         MsgManager.Instance.AddListener("CC_Disconnect", new HandleMsg(this.CC_Disconnect));
         MsgManager.Instance.AddListener("SC_ShowPiPeiInfo", new HandleMsg(this.SC_ShowPiPeiInfo));
+        MsgManager.Instance.AddListener("SC_GetBattleHeroInfo", new HandleMsg(this.SC_GetBattleHeroInfo));
+        
 
     }
     void OnDestroy()
@@ -233,6 +243,7 @@ public class GameUI : MonoBehaviour {
         MsgManager.Instance.RemoveListener("SC_RequestTeam");
         MsgManager.Instance.RemoveListener("CC_Disconnect");
         MsgManager.Instance.RemoveListener("SC_ShowPiPeiInfo");
+        MsgManager.Instance.RemoveListener("SC_GetBattleHeroInfo");
     }
     //显示所有按钮
     public void ShowAllBtn(bool show)
@@ -287,7 +298,210 @@ public class GameUI : MonoBehaviour {
 
         Debug.Log("AddChatMsg:" + content);
     }
-    //
+    //SC_GetBattleHeroInfo
+    public bool SC_GetBattleHeroInfo(Protomsg.MsgBase d1)
+    {
+        Debug.Log("SC_GetBattleHeroInfo:");
+        IMessage IMperson = new Protomsg.SC_GetBattleHeroInfo();
+        Protomsg.SC_GetBattleHeroInfo p1 = (Protomsg.SC_GetBattleHeroInfo)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
+
+        var battleover = UIPackage.CreateObject("GameUI", "BattleOver").asCom;
+        GRoot.inst.AddChild(battleover);
+        battleover.xy = Tool.GetPosition(0.5f, 0.5f);
+        AudioManager.Am.Play2DSound(AudioManager.Sound_OpenLittleUI);
+        battleover.GetChild("close").onClick.Add(() => {
+            battleover.Dispose();
+        });
+        //胜利失败显示
+        if(p1.WinnerGroup == 0)
+        {
+            battleover.GetChild("group1").asCom.GetChild("result").visible = false;
+            battleover.GetChild("group2").asCom.GetChild("result").visible = false;
+        }
+        else
+        {
+            battleover.GetChild("group1").asCom.GetChild("result").visible = true;
+            battleover.GetChild("group2").asCom.GetChild("result").visible = true;
+            if (p1.WinnerGroup == 1)
+            {
+                battleover.GetChild("group1").asCom.GetChild("result").asTextField.text = "胜利!";
+                battleover.GetChild("group2").asCom.GetChild("result").asTextField.text = "失败!";
+                battleover.GetChild("group2").asCom.grayed = true;
+            }
+            else if(p1.WinnerGroup == 2)
+            {
+                battleover.GetChild("group1").asCom.GetChild("result").asTextField.text = "失败!";
+                battleover.GetChild("group2").asCom.GetChild("result").asTextField.text = "胜利!";
+                battleover.GetChild("group1").asCom.grayed = true;
+            }else if (p1.WinnerGroup == 3)
+            {//平局
+                battleover.GetChild("group1").asCom.GetChild("result").asTextField.text = "平局!";
+                battleover.GetChild("group2").asCom.GetChild("result").asTextField.text = "平局!";
+            }
+        }
+
+        //队伍1的英雄数据
+        battleover.GetChild("group1").asCom.GetChild("grouplist").asList.RemoveChildren(0, -1, true);
+        Protomsg.BattleOverPlayerOneInfo[] allplayergroup1 = new Protomsg.BattleOverPlayerOneInfo[p1.Group1.Count];
+        p1.Group1.CopyTo(allplayergroup1, 0);
+        System.Array.Sort(allplayergroup1, (a, b) => {
+
+            if (a.KillCount - a.DeathCount > b.KillCount - b.DeathCount)
+            {
+                return -1;
+            }
+            else if (a.KillCount - a.DeathCount == b.KillCount - b.DeathCount)
+            {
+                if (a.KillCount > b.KillCount)
+                {
+                    return -1;
+                }
+                else if (a.KillCount == b.KillCount)
+                {
+                    if (a.Characterid > b.Characterid)
+                    {
+                        return -1;
+                    }
+                    return 1;
+                }
+                return 1;
+            }
+            return 1;
+        });
+        var group1score = 0;
+        foreach (var item in allplayergroup1)
+        {
+
+            group1score += item.KillCount-item.DeathCount;
+
+            var clientitem = ExcelManager.Instance.GetUnitInfoManager().GetUnitInfoByID(item.Typeid);
+            if (clientitem == null)
+            {
+                continue;
+            }
+            var onedropitem = UIPackage.CreateObject("GameUI", "BattleOverOne").asCom;
+            onedropitem.GetChild("heroicon").asLoader.url = clientitem.IconPath;
+            onedropitem.GetChild("heroicon").onClick.Add(() =>
+            {
+                new HeroSimpleInfo(item.Characterid);
+            });
+            onedropitem.GetChild("name").asTextField.text = item.Name;
+            onedropitem.GetChild("level").asTextField.text = "lv." + item.Level;
+            onedropitem.GetChild("killcount").asTextField.text = item.KillCount + "";
+            onedropitem.GetChild("deathcount").asTextField.text = item.DeathCount + "";
+            onedropitem.GetChild("score").asTextField.text = item.Score + "";
+            onedropitem.GetChild("itemlist").asList.RemoveChildren(0, -1, true);
+            foreach (var itemone in item.EquipItems)
+            {
+                var itemarr = itemone.Split(',');
+                if(itemarr.Length < 2)
+                {
+                    continue;
+                }
+                var itemid = int.Parse(itemarr[0]);
+                var itemlevel = itemarr[1];
+                var clientitemone = ExcelManager.Instance.GetItemManager().GetItemByID(itemid);
+                if (clientitemone == null)
+                {
+                    continue;
+                }
+                var onedropitemone = UIPackage.CreateObject("GameUI", "liitleitem").asCom;
+                onedropitemone.GetChild("icon").asLoader.url = clientitemone.IconPath;
+                onedropitemone.GetChild("icon").onClick.Add(() =>
+                {
+                    new ItemInfo(itemid);
+                });
+                onedropitemone.GetChild("level").asTextField.text = ""+ itemlevel;
+                onedropitem.GetChild("itemlist").asList.AddChild(onedropitemone);
+            }
+
+            battleover.GetChild("group1").asCom.GetChild("grouplist").asList.AddChild(onedropitem);
+        }
+        battleover.GetChild("group1").asCom.GetChild("score").asTextField.SetVar("p1",""+group1score);
+        battleover.GetChild("group1").asCom.GetChild("score").asTextField.FlushVars();
+
+        //队伍2的英雄数据
+        battleover.GetChild("group2").asCom.GetChild("grouplist").asList.RemoveChildren(0, -1, true);
+        Protomsg.BattleOverPlayerOneInfo[] allplayergroup2 = new Protomsg.BattleOverPlayerOneInfo[p1.Group2.Count];
+        p1.Group2.CopyTo(allplayergroup2, 0);
+        System.Array.Sort(allplayergroup2, (a, b) => {
+
+            if (a.KillCount - a.DeathCount > b.KillCount - b.DeathCount)
+            {
+                return -1;
+            }
+            else if (a.KillCount - a.DeathCount == b.KillCount - b.DeathCount)
+            {
+                if (a.KillCount > b.KillCount)
+                {
+                    return -1;
+                }
+                else if (a.KillCount == b.KillCount)
+                {
+                    if (a.Characterid > b.Characterid)
+                    {
+                        return -1;
+                    }
+                    return 1;
+                }
+                return 1;
+            }
+            return 1;
+        });
+        var group2score = 0;
+        foreach (var item in allplayergroup2)
+        {
+            group2score += item.KillCount - item.DeathCount;
+            var clientitem = ExcelManager.Instance.GetUnitInfoManager().GetUnitInfoByID(item.Typeid);
+            if (clientitem == null)
+            {
+                continue;
+            }
+            var onedropitem = UIPackage.CreateObject("GameUI", "BattleOverOne").asCom;
+            onedropitem.GetChild("heroicon").asLoader.url = clientitem.IconPath;
+            onedropitem.GetChild("heroicon").onClick.Add(() =>
+            {
+                new HeroSimpleInfo(item.Characterid);
+            });
+            onedropitem.GetChild("name").asTextField.text = item.Name;
+            onedropitem.GetChild("level").asTextField.text = "lv." + item.Level;
+            onedropitem.GetChild("killcount").asTextField.text = item.KillCount + "";
+            onedropitem.GetChild("deathcount").asTextField.text = item.DeathCount + "";
+            onedropitem.GetChild("score").asTextField.text = item.Score + "";
+            onedropitem.GetChild("itemlist").asList.RemoveChildren(0, -1, true);
+            foreach (var itemone in item.EquipItems)
+            {
+                var itemarr = itemone.Split(',');
+                if (itemarr.Length < 2)
+                {
+                    continue;
+                }
+                var itemid = int.Parse(itemarr[0]);
+                var itemlevel = itemarr[1];
+                var clientitemone = ExcelManager.Instance.GetItemManager().GetItemByID(itemid);
+                if (clientitemone == null)
+                {
+                    continue;
+                }
+                var onedropitemone = UIPackage.CreateObject("GameUI", "liitleitem").asCom;
+                onedropitemone.GetChild("icon").asLoader.url = clientitemone.IconPath;
+                onedropitemone.GetChild("icon").onClick.Add(() =>
+                {
+                    new ItemInfo(itemid);
+                });
+                onedropitemone.GetChild("level").asTextField.text = "lv." + itemlevel;
+                onedropitem.GetChild("itemlist").asList.AddChild(onedropitemone);
+            }
+
+            battleover.GetChild("group2").asCom.GetChild("grouplist").asList.AddChild(onedropitem);
+        }
+        battleover.GetChild("group2").asCom.GetChild("score").asTextField.SetVar("p1", "" + group2score);
+        battleover.GetChild("group2").asCom.GetChild("score").asTextField.FlushVars();
+
+
+        return true;
+    }
+        //
     public bool SC_ShowPiPeiInfo(Protomsg.MsgBase d1)
     {
         Debug.Log("SC_ShowPiPeiInfo:");
@@ -1186,7 +1400,17 @@ public class GameUI : MonoBehaviour {
         DieUI.GetChild("needdiamond").asTextField.text = GameScene.Singleton.m_MyMainUnit.ReviveDiamond + "";
         //
     }
-
+    void FreshDataShowType()
+    {
+        if(GameScene.Singleton.m_DataShowType > 0)
+        {
+            mainUI.GetChild("datashowtype").visible = true;
+        }
+        else
+        {
+            mainUI.GetChild("datashowtype").visible = false;
+        }
+    }
     
 
     // Update is called once per frame
@@ -1205,6 +1429,7 @@ public class GameUI : MonoBehaviour {
         FreshLittleMap();
         UpdateTeamInfo();
         CheckDieUI();
+        FreshDataShowType();
         //Debug.Log("aaaa time:" + Tool.GetTime());
     }
     //void LateUpdate()

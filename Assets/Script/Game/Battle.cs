@@ -68,6 +68,10 @@ public class Battle
             var onedropitem = UIPackage.CreateObject("GameUI", "BattleInfoOne").asCom;
 
             onedropitem.GetChild("heroicon").asLoader.url = clientitem.IconPath;
+            onedropitem.GetChild("heroicon").onClick.Add(() =>
+            {
+                new HeroSimpleInfo(item.Characterid);
+            });
             onedropitem.GetChild("name").asTextField.text = item.Name;
             onedropitem.GetChild("rank").asTextField.text = item.Rank+"";
             onedropitem.GetChild("score").asTextField.text = item.Score + "";

@@ -41,6 +41,11 @@ public class ItemInfo {
         {
             return false;
         }
+        //需要等级
+        main.GetChild("needlevel").asTextField.SetVar("p1", p1.EquipNeedLevel+"");
+        main.GetChild("needlevel").asTextField.FlushVars();
+
+        
 
         main.GetChild("droplist").asList.RemoveChildren(0, -1, true);
         //宝箱
@@ -95,6 +100,10 @@ public class ItemInfo {
 
         //描述
         main.GetChild("des").asTextField.text = clientitem.Des;
+
+        ////需要等级
+        //main.GetChild("needlevel").asTextField.text = "";
+        
     }
 
     //增加额外的描述文字

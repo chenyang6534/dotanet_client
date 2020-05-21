@@ -11,16 +11,23 @@ public class LoginUI : MonoBehaviour {
     public static int Characterid;
     protected GComponent mRoot;
 
+    protected GComponent mLineUp;
+
     protected ServerListInfo SelectServer;
 
     protected GComponent SelectLayer;
     protected Protomsg.CharacterBaseDatas SelectHeroMsg;
 
     protected double m_LastQuickLoginTime;
+
+    public static string GameLauncherUrl = "http://119.23.8.72:6666";
+    public static string GameNotice = "";
+    public static string winMachineid = "2";
     // Use this for initialization
     void Start () {
         Screen.fullScreen = false;
         m_LastQuickLoginTime = 0;
+        SaveDataManager.SetFileName(winMachineid);
         //MyKcp.Instance.Destroy();
         //读取存档
         SaveDataManager.Read();
@@ -39,6 +46,35 @@ public class LoginUI : MonoBehaviour {
         //MyKcp.Instance.Create("119.23.8.72", 1118);
         //MyKcp.Instance.Create("119.23.8.72", 1118);
         mRoot = GetComponent<UIPanel>().ui;
+        ToolManager();
+
+
+        //打开gm窗口
+        mLineUp = UIPackage.CreateObject("GameUI", "LineUp").asCom;
+        GRoot.inst.AddChild(mLineUp);
+        mLineUp.visible = false;
+        mLineUp.xy = Tool.GetPosition(0.5f, 0.5f);
+        mLineUp.GetChild("close").asButton.onClick.Add(() =>
+        {
+            Tool.NoticeWindonw("你确定要退出排队吗?", () =>
+            {
+                Protomsg.CS_CancelLineUp msg1 = new Protomsg.CS_CancelLineUp();
+                MyKcp.Instance.SendMsg("Login", "CS_CancelLineUp", msg1);
+                mLineUp.visible = false;
+            });
+            
+        });
+        mLineUp.GetChild("fresh").asButton.onClick.Add(() =>
+        {
+            Tool.NoticeWindonw("你确定要查看排在你前面的玩家人数吗?", () =>
+            {
+                Protomsg.CS_GetLineUpFrontCount msg1 = new Protomsg.CS_GetLineUpFrontCount();
+                MyKcp.Instance.SendMsg("Login", "CS_GetLineUpFrontCount", msg1);
+            });
+
+        });
+
+
         //mRoot.GetChild("center")..AddChild(view);
         mRoot.GetChild("login").asButton.onClick.Add(()=> {
             
@@ -76,7 +112,7 @@ public class LoginUI : MonoBehaviour {
             //msg1.Machineid = "10018";   //瘟疫法师
             //msg1.Machineid = "10019";   //天怒法师
             Environment.GetCommandLineArgs();
-            msg1.Machineid = SystemInfo.deviceUniqueIdentifier+"3";
+            msg1.Machineid = SystemInfo.deviceUniqueIdentifier+ winMachineid;
             msg1.Platform = "test";
             MyKcp.Instance.SendMsg("Login", "CS_MsgQuickLogin", msg1);
             UnityEngine.Debug.Log("login onClick");
@@ -88,7 +124,9 @@ public class LoginUI : MonoBehaviour {
         MsgManager.Instance.AddListener("SC_Logined", new HandleMsg(this.Logined));
 
         MsgManager.Instance.AddListener("SC_SelectCharacterResult", new HandleMsg(this.SelectCharacterResult));
-        
+
+        MsgManager.Instance.AddListener("SC_NeedLineUp", new HandleMsg(this.SC_NeedLineUp));
+        MsgManager.Instance.AddListener("SC_GetLineUpFrontCount", new HandleMsg(this.SC_GetLineUpFrontCount));
 
 
     }
@@ -129,7 +167,7 @@ public class LoginUI : MonoBehaviour {
         //var jsonstr = JsonUtility.ToJson(t1);
 
         //获取公告
-        StartCoroutine(Tool.SendGet("http://119.23.8.72:6666/getnotice", (WWW data) => {
+        StartCoroutine(Tool.SendGet(GameLauncherUrl+"/getnotice", (WWW data) => {
             //data.text
 
             if (data.error != null)
@@ -140,6 +178,9 @@ public class LoginUI : MonoBehaviour {
             Debug.Log("公告:" + data.text);
             if(data.text != null && data.text.Length > 0)
             {
+
+                GameNotice = data.text;
+
                 //NetNotice
                 var createguildwd = UIPackage.CreateObject("GameUI", "NetNotice").asCom;
                 GRoot.inst.AddChild(createguildwd);
@@ -157,7 +198,7 @@ public class LoginUI : MonoBehaviour {
 
 
         //获取服务器列表
-        StartCoroutine(Tool.SendGet("http://119.23.8.72:6666/getserverlist?Platform=win32&Version=1.0.0", (WWW data) => {
+        StartCoroutine(Tool.SendGet(GameLauncherUrl + "/getserverlist?Platform=win32&Version=1.0.0", (WWW data) => {
             //data.text
 
             if(data.error != null)
@@ -210,6 +251,8 @@ public class LoginUI : MonoBehaviour {
         Debug.Log("main OnDestroy:");
         MsgManager.Instance.RemoveListener("SC_Logined");
         MsgManager.Instance.RemoveListener("SC_SelectCharacterResult");
+        MsgManager.Instance.RemoveListener("SC_NeedLineUp");
+        MsgManager.Instance.RemoveListener("SC_GetLineUpFrontCount");
     }
 
     //开放的英雄
@@ -341,7 +384,7 @@ public class LoginUI : MonoBehaviour {
     public void showSelectHero()
         {
             SelectLayer = UIPackage.CreateObject("Package1", "SelectHero").asCom;
-            GRoot.inst.AddChild(SelectLayer);
+            GRoot.inst.AddChildAt(SelectLayer,0);
             Vector2 screenPos = new Vector2(Screen.width / 2, Screen.height / 2);
             Vector2 logicScreenPos = GRoot.inst.GlobalToLocal(screenPos);
             SelectLayer.xy = logicScreenPos;
@@ -430,6 +473,27 @@ public class LoginUI : MonoBehaviour {
         
         return false; //中断解析数据
     }
+    //MsgManager.Instance.AddListener("SC_NeedLineUp", new HandleMsg(this.SC_NeedLineUp));
+    //    MsgManager.Instance.AddListener("SC_GetLineUpFrontCount", new HandleMsg(this.SC_GetLineUpFrontCount));
+    public bool SC_NeedLineUp(Protomsg.MsgBase d1)
+    {
+        Google.Protobuf.IMessage IMperson = new Protomsg.SC_NeedLineUp();
+        Protomsg.SC_NeedLineUp p1 = (Protomsg.SC_NeedLineUp)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
+
+        mLineUp.visible = true;
+        mLineUp.GetChild("playercount").asTextField.text = p1.FrontCount + "";
+
+        return true;
+    }
+    public bool SC_GetLineUpFrontCount(Protomsg.MsgBase d1)
+    {
+        Google.Protobuf.IMessage IMperson = new Protomsg.SC_GetLineUpFrontCount();
+        Protomsg.SC_GetLineUpFrontCount p1 = (Protomsg.SC_GetLineUpFrontCount)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
+        mLineUp.visible = true;
+        mLineUp.GetChild("playercount").asTextField.text = p1.FrontCount + "";
+
+        return true;
+    }
 
     public bool SelectCharacterResult(Protomsg.MsgBase d1)
     {
@@ -464,15 +528,139 @@ public class LoginUI : MonoBehaviour {
         {
             
             SaveDataManager.Save();
-            SelectLayer.Dispose();
-            Debug.Log("main OnDestroy:aaaa");
             SceneManager.LoadScene(1);
+            SelectLayer.Dispose();
+            mLineUp.Dispose();
+            Debug.Log("main OnDestroy:aaaa");
+            
 
             Debug.Log("main OnDestroy:bbbbb");
         }
 
         return false; //中断解析数据
     }
+
+    void ToolManager()
+    {
+        Debug.Log("platform:" + Application.platform);
+        mRoot.GetChild("gmset").visible = false;
+
+
+        //if (Application.platform == RuntimePlatform.Android)
+        if (Application.platform == RuntimePlatform.IPhonePlayer ||
+            Application.platform == RuntimePlatform.WindowsPlayer ||
+            Application.platform == RuntimePlatform.WindowsEditor)
+        {
+            mRoot.GetChild("gmset").visible = true;
+            mRoot.GetChild("gmset").asButton.onClick.Add(() => {
+                //打开gm窗口
+                var gmtool = UIPackage.CreateObject("GameUI", "GMTool").asCom;
+                GRoot.inst.AddChild(gmtool);
+                gmtool.xy = Tool.GetPosition(0.5f, 0.5f);
+                gmtool.GetChild("close").asButton.onClick.Add(() =>
+                {
+                    gmtool.Dispose();
+                });
+                //开服
+                gmtool.GetChild("opengame").asButton.onClick.Add(() =>
+                {
+                    Tool.NoticeWindonw("你确定要打开服务器吗?", () =>
+                    {
+                        //获取服务器列表
+                        StartCoroutine(Tool.SendGet(GameLauncherUrl + "/startgame", (WWW data) => {
+                            //data.text
+                            if (data.error != null)
+                            {
+                                Tool.NoticeWords("打开失败:" + data.error, null);
+                                return;
+                            }
+                            Tool.NoticeWords("开服服务器返回:" + data.text, null);
+                        }));
+                    });
+                    
+                });
+                //关服
+                gmtool.GetChild("closegame").asButton.onClick.Add(() =>
+                {
+                    Tool.NoticeWindonw("你确定要关闭服务器吗?", () =>
+                    {
+                        //获取服务器列表
+                        StartCoroutine(Tool.SendGet(GameLauncherUrl + "/endgame", (WWW data) => {
+                            //data.text
+                            if (data.error != null)
+                            {
+                                Tool.NoticeWords("关服失败:" + data.error, null);
+                                return;
+                            }
+                            Tool.NoticeWords("关服服务器返回:" + data.text, null);
+                        }));
+                    });
+                    
+                });
+
+                //刷新人数
+                gmtool.GetChild("freshplayercount").asButton.onClick.Add(() =>
+                {
+                    //获取服务器列表
+                    StartCoroutine(Tool.SendGet("http://119.23.8.72:9999/sd", (WWW data) => {
+                        //data.text
+                        if (data.error != null)
+                        {
+                            Tool.NoticeWords("刷新人数失败:" + data.error, null);
+                            return;
+                        }
+                        gmtool.GetChild("playercount").asTextField.text = data.text;
+                        Tool.NoticeWords("刷新人数服务器返回:" + data.text, null);
+                    }));
+                });
+
+                //修改公告
+                gmtool.GetChild("editnotice").asButton.onClick.Add(() =>
+                {
+                    var createguildwd = UIPackage.CreateObject("GameUI", "EditorGuildNotice").asCom;
+                    GRoot.inst.AddChild(createguildwd);
+                    createguildwd.xy = Tool.GetPosition(0.5f, 0.5f);
+                    createguildwd.GetChild("close").asButton.onClick.Add(() =>
+                    {
+                        createguildwd.Dispose();
+                    });
+
+                    //默认文字
+                    createguildwd.GetChild("input").asTextInput.text = GameNotice;
+
+                    createguildwd.GetChild("create").asButton.onClick.Add(() =>
+                    {
+                        var txt = createguildwd.GetChild("input").asTextInput.text;
+                        if (txt.Length <= 0)
+                        {
+                            Tool.NoticeWords("请输入文字！", null);
+                            return;
+                        }
+                        Tool.NoticeWindonw("你确定修改公告吗?", () =>
+                        {
+                            //创建 
+                            //获取服务器列表
+                            StartCoroutine(Tool.SendGet(GameLauncherUrl + "/setnotice?txt="+ txt, (WWW data) => {
+                                //data.text
+                                if (data.error != null)
+                                {
+                                    Tool.NoticeWords("修改公告失败:" + data.error, null);
+                                    return;
+                                }
+                                gmtool.GetChild("playercount").asTextField.text = data.text;
+                                Tool.NoticeWords("修改公告服务器返回:" + data.text,null);
+                            }));
+                            createguildwd.Dispose();
+                        });
+
+
+                    });
+                });
+
+            });
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {

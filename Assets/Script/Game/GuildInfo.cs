@@ -30,7 +30,7 @@ public class GuildInfo
         MsgManager.Instance.AddListener("SC_GetMapInfo", new HandleMsg(this.SC_GetMapInfo));
 
         MsgManager.Instance.AddListener("SC_GetGuildRankInfo", new HandleMsg(this.SC_GetGuildRankInfo));
-        MsgManager.Instance.AddListener("SC_GetGuildRankBattleInfo", new HandleMsg(this.SC_GetGuildRankBattleInfo));
+        //MsgManager.Instance.AddListener("SC_GetGuildRankBattleInfo", new HandleMsg(this.SC_GetGuildRankBattleInfo));
 
         if (GameScene.Singleton.m_MyMainUnit.GuildID > 0)
         {
@@ -508,71 +508,7 @@ public class GuildInfo
 
         return true;
     }
-    public bool SC_GetGuildRankBattleInfo(Protomsg.MsgBase d1)
-    {
-        Debug.Log("SC_GetGuildRankBattleInfo:");
-        IMessage IMperson = new Protomsg.SC_GetGuildRankBattleInfo();
-        Protomsg.SC_GetGuildRankBattleInfo p1 = (Protomsg.SC_GetGuildRankBattleInfo)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
-
-        var mapinfo = UIPackage.CreateObject("GameUI", "KillInfo").asCom;
-        GRoot.inst.AddChild(mapinfo);
-        mapinfo.xy = Tool.GetPosition(0.5f, 0.5f);
-        mapinfo.GetChild("close").asButton.onClick.Add(() =>
-        {
-            mapinfo.Dispose();
-        });
-        
-
-        //掉落道具
-        mapinfo.GetChild("list").asList.RemoveChildren(0, -1, true);
-        Protomsg.GuildRankBattleChaInfo[] allplayer = new Protomsg.GuildRankBattleChaInfo[p1.AllCha.Count];
-        p1.AllCha.CopyTo(allplayer, 0);
-        Debug.Log("11----");
-        System.Array.Sort(allplayer, (a, b) => {
-
-            if (a.KillCount-a.DeathCount > b.KillCount-b.DeathCount)
-            {
-                return -1;
-            }
-            else if (a.KillCount - a.DeathCount == b.KillCount - b.DeathCount)
-            {
-                if(a.KillCount > b.KillCount)
-                {
-                    return -1;
-                }else if( a.KillCount == b.KillCount)
-                {
-                    if(a.Characterid > b.Characterid)
-                    {
-                        return -1;
-                    }
-                    return 1;
-                }
-                return 1;
-            }
-            return 1;
-        });
-        foreach (var item in allplayer)
-        {
-            var clientitem = ExcelManager.Instance.GetUnitInfoManager().GetUnitInfoByID(item.Typeid);
-            if (clientitem == null)
-            {
-                continue;
-            }
-            var onedropitem = UIPackage.CreateObject("GameUI", "HeroKillInfoOne").asCom;
-            onedropitem.GetChild("heroicon").asLoader.url = clientitem.IconPath;
-            onedropitem.GetChild("heroicon").onClick.Add(() =>
-            {
-                new HeroSimpleInfo(item.Characterid);
-            });
-            onedropitem.GetChild("name").asTextField.text = item.Name;
-            onedropitem.GetChild("guildname").asTextField.text = item.GuildName;
-            onedropitem.GetChild("level").asTextField.text = "lv."+item.Level;
-            onedropitem.GetChild("killcount").asTextField.text = item.KillCount+"";
-            onedropitem.GetChild("deathcount").asTextField.text = item.DeathCount+"";
-            mapinfo.GetChild("list").asList.AddChild(onedropitem);
-        }
-        return true;
-    }
+    
     
 
     public bool SC_GetMapInfo(Protomsg.MsgBase d1)
@@ -933,7 +869,7 @@ public class GuildInfo
         MsgManager.Instance.RemoveListener("SC_GotoGuildMap");
         MsgManager.Instance.RemoveListener("SC_GetMapInfo");
         MsgManager.Instance.RemoveListener("SC_GetGuildRankInfo");
-        MsgManager.Instance.RemoveListener("SC_GetGuildRankBattleInfo");
+        //MsgManager.Instance.RemoveListener("SC_GetGuildRankBattleInfo");
         
         AudioManager.Am.Play2DSound(AudioManager.Sound_CloseUI);
         if (main != null)

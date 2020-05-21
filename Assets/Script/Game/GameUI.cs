@@ -106,6 +106,10 @@ public class GameUI : MonoBehaviour {
             {
                 Protomsg.CS_GetBattleHeroInfo msg1 = new Protomsg.CS_GetBattleHeroInfo();
                 MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetBattleHeroInfo", msg1);
+            }else if (GameScene.Singleton.m_DataShowType == 1)//公会战
+            {
+                Protomsg.CS_GetGuildRankBattleInfo msg1 = new Protomsg.CS_GetGuildRankBattleInfo();
+                MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetGuildRankBattleInfo", msg1);
             }
         });
 
@@ -233,7 +237,7 @@ public class GameUI : MonoBehaviour {
         MsgManager.Instance.AddListener("CC_Disconnect", new HandleMsg(this.CC_Disconnect));
         MsgManager.Instance.AddListener("SC_ShowPiPeiInfo", new HandleMsg(this.SC_ShowPiPeiInfo));
         MsgManager.Instance.AddListener("SC_GetBattleHeroInfo", new HandleMsg(this.SC_GetBattleHeroInfo));
-        
+        MsgManager.Instance.AddListener("SC_GetGuildRankBattleInfo", new HandleMsg(this.SC_GetGuildRankBattleInfo));
 
     }
     void OnDestroy()
@@ -244,6 +248,7 @@ public class GameUI : MonoBehaviour {
         MsgManager.Instance.RemoveListener("CC_Disconnect");
         MsgManager.Instance.RemoveListener("SC_ShowPiPeiInfo");
         MsgManager.Instance.RemoveListener("SC_GetBattleHeroInfo");
+        MsgManager.Instance.RemoveListener("SC_GetGuildRankBattleInfo");
     }
     //显示所有按钮
     public void ShowAllBtn(bool show)
@@ -297,6 +302,72 @@ public class GameUI : MonoBehaviour {
         }
 
         Debug.Log("AddChatMsg:" + content);
+    }
+    public bool SC_GetGuildRankBattleInfo(Protomsg.MsgBase d1)
+    {
+        Debug.Log("SC_GetGuildRankBattleInfo:");
+        IMessage IMperson = new Protomsg.SC_GetGuildRankBattleInfo();
+        Protomsg.SC_GetGuildRankBattleInfo p1 = (Protomsg.SC_GetGuildRankBattleInfo)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
+
+        var mapinfo = UIPackage.CreateObject("GameUI", "KillInfo").asCom;
+        GRoot.inst.AddChild(mapinfo);
+        mapinfo.xy = Tool.GetPosition(0.5f, 0.5f);
+        mapinfo.GetChild("close").asButton.onClick.Add(() =>
+        {
+            mapinfo.Dispose();
+        });
+
+
+        //掉落道具
+        mapinfo.GetChild("list").asList.RemoveChildren(0, -1, true);
+        Protomsg.GuildRankBattleChaInfo[] allplayer = new Protomsg.GuildRankBattleChaInfo[p1.AllCha.Count];
+        p1.AllCha.CopyTo(allplayer, 0);
+        Debug.Log("11----");
+        System.Array.Sort(allplayer, (a, b) => {
+
+            if (a.KillCount - a.DeathCount > b.KillCount - b.DeathCount)
+            {
+                return -1;
+            }
+            else if (a.KillCount - a.DeathCount == b.KillCount - b.DeathCount)
+            {
+                if (a.KillCount > b.KillCount)
+                {
+                    return -1;
+                }
+                else if (a.KillCount == b.KillCount)
+                {
+                    if (a.Characterid > b.Characterid)
+                    {
+                        return -1;
+                    }
+                    return 1;
+                }
+                return 1;
+            }
+            return 1;
+        });
+        foreach (var item in allplayer)
+        {
+            var clientitem = ExcelManager.Instance.GetUnitInfoManager().GetUnitInfoByID(item.Typeid);
+            if (clientitem == null)
+            {
+                continue;
+            }
+            var onedropitem = UIPackage.CreateObject("GameUI", "HeroKillInfoOne").asCom;
+            onedropitem.GetChild("heroicon").asLoader.url = clientitem.IconPath;
+            onedropitem.GetChild("heroicon").onClick.Add(() =>
+            {
+                new HeroSimpleInfo(item.Characterid);
+            });
+            onedropitem.GetChild("name").asTextField.text = item.Name;
+            onedropitem.GetChild("guildname").asTextField.text = item.GuildName;
+            onedropitem.GetChild("level").asTextField.text = "lv." + item.Level;
+            onedropitem.GetChild("killcount").asTextField.text = item.KillCount + "";
+            onedropitem.GetChild("deathcount").asTextField.text = item.DeathCount + "";
+            mapinfo.GetChild("list").asList.AddChild(onedropitem);
+        }
+        return true;
     }
     //SC_GetBattleHeroInfo
     public bool SC_GetBattleHeroInfo(Protomsg.MsgBase d1)
@@ -1134,6 +1205,9 @@ public class GameUI : MonoBehaviour {
         {
             mainUI.GetChild("bottomexperience").asProgress.value = (int)((float)GameScene.Singleton.m_MyMainUnit.Experience / GameScene.Singleton.m_MyMainUnit.MaxExperience * 100);
             mainUI.GetChild("bottomexperience").asProgress.GetChild("experiencenum").asTextField.text = GameScene.Singleton.m_MyMainUnit.Experience + "/" + GameScene.Singleton.m_MyMainUnit.MaxExperience;
+            mainUI.GetChild("bottomexperience").asProgress.GetChild("remainexp").asTextField.SetVar("p1", GameScene.Singleton.m_MyMainUnit.RemainExperience+"");
+            mainUI.GetChild("bottomexperience").asProgress.GetChild("remainexp").asTextField.FlushVars();
+
         }
     }
 

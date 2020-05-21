@@ -621,13 +621,14 @@ public class MyInfo {
 
 
         //等级
-        unitinfo.GetChild("level").asTextField.text = ((int)unit.Level).ToString();
+        unitinfo.GetChild("level").asTextField.text = "Lv."+((int)unit.Level).ToString();
         //经验值
         unitinfo.GetChild("experience").asTextField.text = ((int)unit.Experience).ToString()+"/"+ ((int)unit.MaxExperience).ToString();
 
         //今日剩余经验值
         unitinfo.GetChild("remainexperience").asTextField.text = ((int)data.RemainExperience).ToString();
-        if(unit.UnitType != 1)
+        //if(unit.UnitType != 1)
+        if(true)
         {
             unitinfo.GetChild("remainexperience").asTextField.visible = false;
             unitinfo.GetChild("remainexlable").asTextField.visible = false;

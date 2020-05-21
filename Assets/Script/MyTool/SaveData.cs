@@ -13,6 +13,11 @@ public static class SaveDataManager
 {
     public static string sFilePath = Application.persistentDataPath + "/savedata.sd";
     public static SaveData sData;
+
+    public static void SetFileName(string name)
+    {
+        sFilePath = Application.persistentDataPath + "/savedata"+name+".sd";
+    }
     public static void Read()
     {
         //

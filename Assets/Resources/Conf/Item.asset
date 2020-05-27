@@ -191,7 +191,7 @@ MonoBehaviour:
   - TypeID: 30
     IconPath: "ui://GameUI/\u5E7D\u9B42\u6743\u6756"
     SceneItem: "Item/Icon/\u5E7D\u9B42\u6743\u6756 (1)"
-    Name: "\u7EFF\u6756"
+    Name: "\u7EFF\u6212"
     Des: "+[color=#D8D8D8] 5/7/8/9/10 [/color]\u6240\u6709\u5C5E\u6027\n[color=#D8D8D8]\u4E3B\u52A8:\u5E7D\u7075\u5F62\u6001
       [/color]\n\u6301\u7EED4\u79D2,\u671F\u95F4\u4E0D\u4F1A\u53D7\u5230\u666E\u901A\u4F24\u5BB3,\u4E5F\u4E0D\u80FD\u653B\u51FB\u3002\u4F1A\u53D7\u5230\u989D\u591640%\u7684\u9B54\u6CD5\u4F24\u5BB3\u3002"
     ShowLevel: 1
@@ -355,7 +355,7 @@ MonoBehaviour:
   - TypeID: 51
     IconPath: "ui://GameUI/EUL\u7684\u795E\u5723\u6CD5\u6756"
     SceneItem: "Item/Icon/EUL\u7684\u795E\u5723\u6CD5\u6756 (1)"
-    Name: "\u5439\u98CE"
+    Name: "\u5439\u98CE\u4E66"
     Des: "+[color=#D8D8D8] 0.2 [/color]\u79FB\u52A8\u901F\u5EA6\n+[color=#D8D8D8]
       5 [/color]\u9B54\u6CD5\u6062\u590D\n+[color=#D8D8D8] 10/14/16/18/20 [/color]\u667A\u529B\n[color=#D8D8D8]\u4E3B\u52A8:\u9F99\u5377\u98CE
       [/color]\n\u4F7F\u76EE\u6807\u5377\u5165\u9F99\u5377\u98CE\u4E2D2.5\u79D2,\u5E76\u5904\u4E8E\u65E0\u654C\u72B6\u6001,\u843D\u5730\u540E\u654C\u65B9\u5C06\u53D7\u523050\u70B9\u9B54\u6CD5\u4F24\u5BB3\n\u65BD\u6CD5\u8DDD\u79BB:5.75\u7C73\n\u9A71\u6563\u7C7B\u578B:\u5F31\u9A71\u6563\n\u961F\u53CB\u4E0Eboss\u4E0D\u80FD\u4F5C\u4E3A\u76EE\u6807\nCD:23

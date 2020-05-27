@@ -1,4 +1,4 @@
-#if UNITY_ANDROID
+#if UNITY_ANDROID1
 
 using UnityEditor;
 using UnityEditor.Callbacks;

@@ -424,6 +424,10 @@ public static class Tool {
         switch (chanel)
         {
             case 1:
+                if(GameScene.Singleton.m_MyMainUnit != null && GameScene.Singleton.m_MyMainUnit.GroupID > 0)
+                {
+                    return "队伍";
+                }
                 return "地图";
             case 2:
                 return "全服";

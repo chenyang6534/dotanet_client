@@ -638,20 +638,20 @@ public class MyInfo {
         }
 
         //力量 敏捷 智力
-        unitinfo.GetChild("strength").asTextField.text = ((int)data.AttributeStrength).ToString();
-        unitinfo.GetChild("agility").asTextField.text = ((int)data.AttributeAgility).ToString();
-        unitinfo.GetChild("intelligence").asTextField.text = ((int)data.AttributeIntelligence).ToString();
+        unitinfo.GetChild("strength").asTextField.text = ((int)data.RawAttributeStrength).ToString()+ "[color=#00EE00]+" + ((int)data.AttributeStrength- (int)data.RawAttributeStrength).ToString()+ "[/color]";
+        unitinfo.GetChild("agility").asTextField.text = ((int)data.RawAttributeAgility).ToString() + "[color=#00EE00]+" + ((int)data.AttributeAgility - (int)data.RawAttributeAgility).ToString() + "[/color]"; //((int)data.AttributeAgility).ToString();
+        unitinfo.GetChild("intelligence").asTextField.text = ((int)data.RawAttributeIntelligence).ToString() + "[color=#00EE00]+" + ((int)data.AttributeIntelligence - (int)data.RawAttributeIntelligence).ToString() + "[/color]"; //((int)data.AttributeIntelligence).ToString();
         //主属性(1:力量 2:敏捷 3:智力)
         if (data.AttributePrimary == 1)
         {
-            unitinfo.GetChild("strength").asTextField.color = new Color(0.1f, 0.8f, 0.4f);
+            unitinfo.GetChild("strength").asTextField.color = new Color(0.8f, 0.1f, 0.4f);
             unitinfo.GetChild("agility").asTextField.color = new Color(1, 1, 1);
             unitinfo.GetChild("intelligence").asTextField.color = new Color(1, 1, 1);
         }
         else if(data.AttributePrimary == 2)
         {
             unitinfo.GetChild("strength").asTextField.color = new Color(1, 1, 1);
-            unitinfo.GetChild("agility").asTextField.color = new Color(0.1f, 0.8f, 0.4f);
+            unitinfo.GetChild("agility").asTextField.color = new Color(0.8f, 0.1f, 0.4f);
             unitinfo.GetChild("intelligence").asTextField.color = new Color(1, 1, 1);
             
         }
@@ -659,22 +659,22 @@ public class MyInfo {
         {
             unitinfo.GetChild("strength").asTextField.color = new Color(1, 1, 1);
             unitinfo.GetChild("agility").asTextField.color = new Color(1, 1, 1);
-            unitinfo.GetChild("intelligence").asTextField.color = new Color(0.1f, 0.8f, 0.4f);
+            unitinfo.GetChild("intelligence").asTextField.color = new Color(0.8f, 0.1f, 0.4f);
         }
         //攻击
-        unitinfo.GetChild("attack").asTextField.text = ((int)data.Attack).ToString();
-        unitinfo.GetChild("attackspeed").asTextField.text = ((int)data.AttackSpeed).ToString();
-        unitinfo.GetChild("attackrange").asTextField.text = (data.AttackRange).ToString("f2");
-        unitinfo.GetChild("movespeed").asTextField.text = (data.MoveSpeed).ToString("f2");
+        unitinfo.GetChild("attack").asTextField.text = ((int)data.RawAttack).ToString() + "[color=#00EE00]+" + ((int)data.Attack - (int)data.RawAttack).ToString() + "[/color]"; //((int)data.Attack).ToString();
+        unitinfo.GetChild("attackspeed").asTextField.text = ((int)data.RawAttackSpeed).ToString() + "[color=#00EE00]+" + ((int)data.AttackSpeed - (int)data.RawAttackSpeed).ToString() + "[/color]"; //((int)data.AttackSpeed).ToString();
+        unitinfo.GetChild("attackrange").asTextField.text = (data.RawAttackRange).ToString("f2") + "[color=#00EE00]+" + (data.AttackRange - data.RawAttackRange).ToString("f2") + "[/color]"; //(data.AttackRange).ToString("f2");
+        unitinfo.GetChild("movespeed").asTextField.text = (data.RawMoveSpeed).ToString("f2") + "[color=#00EE00]+" + (data.MoveSpeed - data.RawMoveSpeed).ToString("f2") + "[/color]"; //(data.MoveSpeed).ToString("f2");
         unitinfo.GetChild("magicscale").asTextField.text = ((int)(data.MagicScale*100)).ToString()+"%";
-        unitinfo.GetChild("mpregain").asTextField.text = (data.MPRegain).ToString("f2");
+        unitinfo.GetChild("mpregain").asTextField.text = (data.RawMPRegain).ToString("f2") + "[color=#00EE00]+" + (data.MPRegain - data.RawMPRegain).ToString("f2") + "[/color]"; //(data.MPRegain).ToString("f2");
         //防御
-        unitinfo.GetChild("physicalamaor").asTextField.text = ((int)data.PhysicalAmaor).ToString();
+        unitinfo.GetChild("physicalamaor").asTextField.text = ((int)data.RawPhysicalAmaor).ToString() + "[color=#00EE00]+" + ((int)data.PhysicalAmaor - (int)data.RawPhysicalAmaor).ToString() + "[/color]"; //((int)data.PhysicalAmaor).ToString();
         unitinfo.GetChild("physicalresist").asTextField.text = ((int)(data.PhysicalResist * 100)).ToString() + "%";
         unitinfo.GetChild("magicamaor").asTextField.text = ((int)(data.MagicAmaor * 100)).ToString() + "%";
         unitinfo.GetChild("stateamaor").asTextField.text = ((int)(data.StatusAmaor * 100)).ToString() + "%";
         unitinfo.GetChild("dodge").asTextField.text = ((int)(data.Dodge * 100)).ToString() + "%";
-        unitinfo.GetChild("hpregain").asTextField.text = (data.HPRegain).ToString("f2");
+        unitinfo.GetChild("hpregain").asTextField.text = (data.RawHPRegain).ToString("f2") + "[color=#00EE00]+" + (data.HPRegain - data.RawHPRegain).ToString("f2") + "[/color]"; //(data.HPRegain).ToString("f2");
 
 
         FreshDropItem(data.DropItems);

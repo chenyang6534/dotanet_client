@@ -77,7 +77,9 @@ public class LoginUI : MonoBehaviour {
 
         //mRoot.GetChild("center")..AddChild(view);
         mRoot.GetChild("login").asButton.onClick.Add(()=> {
+
             
+
 
             //两秒内不能重复登录
             if (Tool.GetTime()-m_LastQuickLoginTime <= 2 || SelectServer == null)

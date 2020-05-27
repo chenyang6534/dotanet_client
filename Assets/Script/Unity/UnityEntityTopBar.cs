@@ -10,6 +10,9 @@ public class UnityEntityTopBar : MonoBehaviour
     protected GTextField m_Name;
     protected GTextField m_GuildName;
     protected GTextField m_Level;
+    
+
+    protected GTextField m_BattleRank;
 
     protected GProgressBar m_DebuffPro;
     protected GProgressBar m_HP;
@@ -49,6 +52,10 @@ public class UnityEntityTopBar : MonoBehaviour
         if (mRoot.GetChild("level") != null)
         {
             m_Level = mRoot.GetChild("level").asTextField;
+        }
+        if (mRoot.GetChild("rank") != null)
+        {
+            m_BattleRank = mRoot.GetChild("rank").asTextField;
         }
         if (mRoot.GetChild("buff") != null)
         {
@@ -161,6 +168,32 @@ public class UnityEntityTopBar : MonoBehaviour
             m_Level.text = level+"";
         }
     }
+    public void SetBattleRank(int rank)
+    {
+        if (m_BattleRank != null)
+        {
+            if(rank > 0)
+            {
+                m_BattleRank.text = rank + "";
+                if (mRoot.GetChild("rankbg") != null)
+                {
+                    mRoot.GetChild("rankbg").visible = true;
+                }
+            }
+            else
+            {
+                m_BattleRank.text = "";
+                if (mRoot.GetChild("rankbg") != null)
+                {
+                    mRoot.GetChild("rankbg").visible = false;
+                }
+                    
+            }
+            
+        }
+    }
+
+    
 
     public void SetName(string name)
     {

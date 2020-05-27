@@ -91,6 +91,37 @@ public class GameUI : MonoBehaviour {
             msg1.ReviveType = 2;
             MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_QuickRevive", msg1);
         });
+        DieUI.GetChild("lookvideo").asButton.onClick.Add(() => {
+            //看视频复活
+            MintegralMgr.ShowVideo((succ) => {
+                if(succ == true)
+                {
+                    Protomsg.CS_QuickRevive msg1 = new Protomsg.CS_QuickRevive();
+                    msg1.ReviveType = 3;
+                    msg1.LookVideoState = 1;////看视频状态 1开始看 2结束看成功 3结束看失败
+                    MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_QuickRevive", msg1);
+                }
+                else
+                {
+                    Tool.NoticeWords("观看失败！观看视频太过频繁,请稍后再试！", null);
+                }
+            }, (succ) => {
+                if(succ == true)
+                {
+                    Protomsg.CS_QuickRevive msg1 = new Protomsg.CS_QuickRevive();
+                    msg1.ReviveType = 3;
+                    msg1.LookVideoState = 2;////看视频状态 1开始看 2结束看成功 3结束看失败
+                    MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_QuickRevive", msg1);
+                }
+                else
+                {
+                    Protomsg.CS_QuickRevive msg1 = new Protomsg.CS_QuickRevive();
+                    msg1.ReviveType = 3;
+                    msg1.LookVideoState = 3;////看视频状态 1开始看 2结束看成功 3结束看失败
+                    MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_QuickRevive", msg1);
+                }
+            });
+        });
 
 
         //显示隐藏组队界面按钮
@@ -1452,7 +1483,7 @@ public class GameUI : MonoBehaviour {
 
 
     }
-
+    
     public void CheckDieUI()
     {
         if(GameScene.Singleton.m_MyMainUnit == null)
@@ -1462,7 +1493,13 @@ public class GameUI : MonoBehaviour {
         //死亡
         if(GameScene.Singleton.m_MyMainUnit.IsDeath == 1)
         {
-            DieUI.visible = true;
+            if(DieUI.visible == false)
+            {
+                DieUI.visible = true;
+                FairyGUI.Transition trans = DieUI.GetTransition("start");
+                trans.Play();
+            }
+            
         }
         else
         {

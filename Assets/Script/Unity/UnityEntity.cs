@@ -32,7 +32,8 @@ public class UnityEntity {
     public int CharacterID;
     public int TeamID;
     public int GuildID; //公会ID
-    public int GroupID; //公会ID
+    public int GroupID; //队伍ID
+    public int BattleRank;//竞技场排名
     public int Gold;
     public int Diamond;
     public float RemainReviveTime;
@@ -67,6 +68,7 @@ public class UnityEntity {
         TeamID = data.TeamID;
         GuildID = data.GuildID;
         GroupID = data.GroupID;
+        BattleRank = data.BattleRank;
         Gold = data.Gold;
         Diamond = data.Diamond;
         RemainReviveTime = data.RemainReviveTime;
@@ -351,6 +353,7 @@ public class UnityEntity {
             TeamID += data.TeamID;
             GuildID += data.GuildID;
             GroupID += data.GroupID;
+            BattleRank += data.BattleRank;
             CharacterID += data.Characterid;
             Gold += data.Gold;
             Diamond += data.Diamond;
@@ -1346,6 +1349,8 @@ public class UnityEntity {
             m_TopBar.GetComponent<UnityEntityTopBar>().SetMP((int)((float)MP / MaxMP * 100));
             m_TopBar.GetComponent<UnityEntityTopBar>().SetName(Name);
             m_TopBar.GetComponent<UnityEntityTopBar>().SetLevel(Level);
+            m_TopBar.GetComponent<UnityEntityTopBar>().SetBattleRank(BattleRank);
+            
             var ismyguild = false;
             UnityEntity mainunit = GameScene.Singleton.GetMyMainUnit();
             if (mainunit != null && mainunit.GuildID == GuildID)

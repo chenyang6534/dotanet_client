@@ -485,6 +485,19 @@ public class ChatUI : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-		
+		if(GameScene.Singleton.m_MyMainUnit != null)
+        {
+            //当有队伍的时候 把地图聊天换成队伍聊天
+            if(GameScene.Singleton.m_MyMainUnit.GroupID > 0)
+            {
+                ChatBoxCom.GetChild("fujinbtn").asButton.title = "队伍";
+                ChatBoxCom.GetChild("selectchanel").asCom.GetChild("fujin").asButton.title = "队伍";
+            }
+            else
+            {
+                ChatBoxCom.GetChild("fujinbtn").asButton.title = "地图";
+                ChatBoxCom.GetChild("selectchanel").asCom.GetChild("fujin").asButton.title = "地图";
+            }
+        }
 	}
 }

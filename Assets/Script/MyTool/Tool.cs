@@ -490,7 +490,7 @@ public static class Tool {
             case 1:
                 return "[color=#FFFFFF]";
             case 2:
-                return "[color=#EE1111]";
+                return "[color=#FFFFFF]";
             case 3:
                 return "[color=#ff00ff]";
             case 4:

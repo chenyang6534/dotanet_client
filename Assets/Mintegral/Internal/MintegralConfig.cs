@@ -95,16 +95,15 @@ public class MintegralConfig
 	{
 		if (Application.platform != RuntimePlatform.OSXEditor) {
 
-#if UNITY_IPHONE
+			#if UNITY_IPHONE
 
 			return getAuthPrivateInfoStatus(statusKey);
 
-#elif UNITY_ANDROID
+			#elif UNITY_ANDROID
 
 			return _staticObject.Call <int> ("getAuthPrivateInfoStatus", statusKey);  
 
-#endif
-            return 0;
+			#endif
 		} else {
 			return 0;
 		}

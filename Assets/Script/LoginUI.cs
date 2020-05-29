@@ -191,16 +191,24 @@ public class LoginUI : MonoBehaviour {
                 {
                     createguildwd.Dispose();
                 });
-
+                var test = data.text;
+                //test = "    本次测试为[color=#FF1111]删档测试[/color],截止到[color=#FF1111]6.14号24点[/color]停止测试!\r\n    游戏过程中如有任何建议或者不满都可以去[color=#FF1111]好游快爆[/color]官方论坛发帖留言，我们会认真对待每一位玩家的意见与建议！";
+                
                 //默认文字
-                createguildwd.GetChild("words").asTextField.text = data.text;
+                createguildwd.GetChild("words").asTextField.text = test;
             }
 
         }));
 
+        var platformstr = "Android";
+        if (Application.platform == RuntimePlatform.WindowsPlayer ||
+            Application.platform == RuntimePlatform.WindowsEditor)
+        {
+            platformstr = "Win32";
+        }
 
-        //获取服务器列表
-        StartCoroutine(Tool.SendGet(GameLauncherUrl + "/getserverlist?Platform=win32&Version=1.0.0", (WWW data) => {
+            //获取服务器列表
+            StartCoroutine(Tool.SendGet(GameLauncherUrl + "/getserverlist?Platform="+ platformstr+"&Version=1.0.0", (WWW data) => {
             //data.text
 
             if(data.error != null)
@@ -460,6 +468,7 @@ public class LoginUI : MonoBehaviour {
         UID = p1.Uid;
         if(p1.Code != 1)
         {
+            Tool.NoticeWords("登录失败！请2秒钟后重试", null);
             Debug.Log("login fail");
         }
         else
@@ -633,14 +642,15 @@ public class LoginUI : MonoBehaviour {
                     createguildwd.GetChild("create").asButton.onClick.Add(() =>
                     {
                         var txt = createguildwd.GetChild("input").asTextInput.text;
-                        if (txt.Length <= 0)
-                        {
-                            Tool.NoticeWords("请输入文字！", null);
-                            return;
-                        }
+                        //if (txt.Length <= 0)
+                        //{
+                        //    Tool.NoticeWords("请输入文字！", null);
+                        //    return;
+                        //}
                         Tool.NoticeWindonw("你确定修改公告吗?", () =>
                         {
                             //创建 
+                            Debug.Log(txt);
                             //获取服务器列表
                             StartCoroutine(Tool.SendGet(GameLauncherUrl + "/setnotice?txt="+ txt, (WWW data) => {
                                 //data.text
@@ -649,7 +659,6 @@ public class LoginUI : MonoBehaviour {
                                     Tool.NoticeWords("修改公告失败:" + data.error, null);
                                     return;
                                 }
-                                gmtool.GetChild("playercount").asTextField.text = data.text;
                                 Tool.NoticeWords("修改公告服务器返回:" + data.text,null);
                             }));
                             createguildwd.Dispose();

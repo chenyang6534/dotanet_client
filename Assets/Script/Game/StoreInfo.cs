@@ -21,6 +21,7 @@ public class StoreInfo
         main = UIPackage.CreateObject("GameUI", "StoreMain").asCom;
         GRoot.inst.AddChild(main);
         main.xy = Tool.GetPosition(0.5f,0.5f);
+        //main.fairyBatching = true;
 
         main.GetChild("close").asButton.onClick.Add(() =>
         {

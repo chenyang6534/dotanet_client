@@ -22,31 +22,31 @@ public class BuildPostProcessor
 {
 
 
-    [PostProcessBuildAttribute(1)]
-    public static void OnPostProcessBuild(BuildTarget target, string path)
-    {
-        if (target == BuildTarget.iOS)
-        {
-            // Read.
-            string projectPath = PBXProject.GetPBXProjectPath(path);
-            PBXProject project = new PBXProject();
-            project.ReadFromString(File.ReadAllText(projectPath));
-            string targetName = PBXProject.GetUnityTargetName();
-            string targetGUID = project.TargetGuidByName(targetName);
+	[PostProcessBuildAttribute(1)]
+	public static void OnPostProcessBuild(BuildTarget target, string path)
+	{
+		if (target == BuildTarget.iOS)
+		{
+			// Read.
+			string projectPath = PBXProject.GetPBXProjectPath(path);
+			PBXProject project = new PBXProject();
+			project.ReadFromString(File.ReadAllText(projectPath));
+			string targetName = PBXProject.GetUnityTargetName();
+			string targetGUID = project.TargetGuidByName(targetName);
 
-            AddFrameworks(project, targetGUID);
+			AddFrameworks(project, targetGUID);
 
-            // Write.
-            File.WriteAllText(projectPath, project.WriteToString());
-        }
-    }
+			// Write.
+			File.WriteAllText(projectPath, project.WriteToString());
+		}
+	}
 
-    static void AddFrameworks(PBXProject project, string targetGUID)
-    {
-        // Frameworks 
+	static void AddFrameworks(PBXProject project, string targetGUID)
+	{
+		// Frameworks 
 
-        project.AddFrameworkToProject(targetGUID, "libz.dylib", false);
-        project.AddFrameworkToProject(targetGUID, "libsqlite3.tbd", false);
+		project.AddFrameworkToProject(targetGUID, "libz.dylib", false);
+		project.AddFrameworkToProject(targetGUID, "libsqlite3.tbd", false);
         project.AddFrameworkToProject(targetGUID, "CoreTelephony.framework", false);
 
 

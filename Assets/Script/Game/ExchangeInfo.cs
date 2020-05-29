@@ -414,6 +414,16 @@ public class ExchangeInfo
             {
                 onedropitem.GetChild("name").asTextField.text = clientitem.Name;
             }
+            if(item.BidderType == 1)
+            {
+                onedropitem.GetChild("biddertype").asTextField.text = "所有人";
+            }
+            else
+            {
+                onedropitem.GetChild("biddertype").asTextField.text = "分红者";
+            }
+
+            
 
             onedropitem.GetChild("item").asCom.GetChild("icon").asLoader.url = clientitem.IconPath;
             onedropitem.GetChild("item").asCom.GetChild("level").asTextField.text = item.Level + "";

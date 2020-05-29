@@ -237,7 +237,7 @@ namespace Umeng
 			return jsonObjectFromJava( Agent.CallStatic<AndroidJavaObject>("getPreProperties", Context) );
 			
 #endif
-            return null;
+
 
         }
         public static void ClearPreProperties()

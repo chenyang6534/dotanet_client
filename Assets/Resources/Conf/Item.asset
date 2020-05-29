@@ -456,7 +456,7 @@ MonoBehaviour:
     IconPath: "ui://GameUI/\u8774\u8776\u5251"
     SceneItem: "Item/Icon/\u8774\u8776\u5251 (1)"
     Name: "\u654F\u6377\u5251"
-    Des: "+[color=#D8D8D8] 35 [/color]\u654F\u6377\n+[color=#D8D8D8] 25/35/40/45/50
+    Des: "+[color=#D8D8D8] 35/45/50/55/60 [/color]\u654F\u6377\n+[color=#D8D8D8] 25/35/40/45/50
       [/color]\u653B\u51FB\u529B\n+[color=#D8D8D8] 30 [/color]\u653B\u51FB\u901F\u5EA6\n+[color=#D8D8D8]
       35% [/color]\u95EA\u907F"
     ShowLevel: 1
@@ -534,9 +534,9 @@ MonoBehaviour:
     IconPath: "ui://GameUI/\u8840\u7CBE\u77F3"
     SceneItem: "Item/Icon/\u8840\u7CBE\u77F3 (1)"
     Name: "\u7075\u77F3"
-    Des: "+[color=#D8D8D8] 475 [/color]\u751F\u547D\u503C\n+[color=#D8D8D8] 425 [/color]\u9B54\u6CD5\u503C\n+[color=#D8D8D8]
-      10 [/color]\u751F\u547D\u6062\u590D\n+[color=#D8D8D8] 7 [/color]\u9B54\u6CD5\u6062\u590D\n+[color=#D8D8D8]
-      200% [/color]\u9B54\u6CD5\u6062\u590D\u901F\u5EA6\n[color=#D8D8D8]\u4E3B\u52A8:\u8840\u4E4B\u5951\u7EA6
+    Des: "+[color=#D8D8D8] 475/590/670/760/840 [/color]\u751F\u547D\u503C\n+[color=#D8D8D8]
+      425/540/620/710/790 [/color]\u9B54\u6CD5\u503C\n+[color=#D8D8D8] 10 [/color]\u751F\u547D\u6062\u590D\n+[color=#D8D8D8]
+      7/9/11/12/13[/color]\u9B54\u6CD5\u6062\u590D\n+[color=#D8D8D8] 200% [/color]\u9B54\u6CD5\u6062\u590D\u901F\u5EA6\n[color=#D8D8D8]\u4E3B\u52A8:\u8840\u4E4B\u5951\u7EA6
       [/color]\n\u7ACB\u5373\u6062\u590D\u6700\u5927\u9B54\u6CD5\u503C20%/28%/32%/36%/40%\u7684\u751F\u547D\u503C\nCD\uFF1A250"
     ShowLevel: 1
   - TypeID: 73
@@ -558,7 +558,7 @@ MonoBehaviour:
     IconPath: "ui://GameUI/\u6050\u9CCC\u4E4B\u5FC3"
     SceneItem: "Item/Icon/\u6050\u9CCC\u4E4B\u5FC3 (1)"
     Name: "\u9F99\u5FC3"
-    Des: "+[color=#D8D8D8] 45 [/color]\u529B\u91CF\n+[color=#D8D8D8] 400/560/640/720/800
+    Des: "+[color=#D8D8D8] 45/59/67/76/84 [/color]\u529B\u91CF\n+[color=#D8D8D8] 400/560/640/720/800
       [/color]\u751F\u547D\u503C\n+[color=#D8D8D8] 50% [/color]\u751F\u547D\u6062\u590D\u589E\u5F3A\n[color=#D8D8D8]\u88AB\u52A8:\u751F\u547D\u6062\u590D
       [/color]\n\u6BCF\u79D2\u6062\u590D\u6700\u5927\u751F\u547D\u503C\u76845%\u3002\n\u53D7\u5230\u653B\u51FB\u76847\u79D2\u5185\u5C06\u5931\u6548"
     ShowLevel: 1

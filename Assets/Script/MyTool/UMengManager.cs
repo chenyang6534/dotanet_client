@@ -21,14 +21,14 @@ public class UMengManager : MonoBehaviour
         GA.StartWithAppKeyAndChannelId(appkey, "android umeng1");
 
         //调试时开启日志 发布时设置为false  
-        GA.SetLogEnabled(true);
+        //GA.SetLogEnabled(true);
 
         //触发统计事件 开始关卡         
-        GA.StartLevel("1");
+        //GA.StartLevel("1");
 
         
-        GA.Event("test2");
-        GA.Pay(10, GA.PaySource.Paypal, 1000);
+        //GA.Event("test2");
+        //GA.Pay(10, GA.PaySource.Paypal, 1000);
 #elif UNITY_IPHONE
          //导入app key 标识应用 (ios)  
         appkey = "5e96e5df978eea0718fb785a";
@@ -37,14 +37,14 @@ public class UMengManager : MonoBehaviour
         GA.StartWithAppKeyAndChannelId(appkey, "android umeng1");
 
         //调试时开启日志 发布时设置为false  
-        GA.SetLogEnabled(true);
+        //GA.SetLogEnabled(true);
 
-        //触发统计事件 开始关卡         
-        GA.StartLevel("1");
+        ////触发统计事件 开始关卡         
+        //GA.StartLevel("1");
 
         
-        GA.Event("test2");
-        GA.Pay(10, GA.PaySource.Paypal, 1000);
+        //GA.Event("test2");
+        //GA.Pay(10, GA.PaySource.Paypal, 1000);
 #endif
 
     }

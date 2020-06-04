@@ -59,7 +59,7 @@ public class GameUI : MonoBehaviour {
         touchID = -1;
         startTime = Tool.GetTime();
 
-        
+        initfps();
 
         //mainUI.touchable = true;
 
@@ -91,6 +91,7 @@ public class GameUI : MonoBehaviour {
             msg1.ReviveType = 2;
             MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_QuickRevive", msg1);
         });
+        DieUI.GetChild("lookvideo").visible = false;
         DieUI.GetChild("lookvideo").asButton.onClick.Add(() => {
             //看视频复活
             MintegralMgr.ShowVideo((succ) => {
@@ -1291,6 +1292,7 @@ public class GameUI : MonoBehaviour {
     {
         if (BufsRes.ContainsKey(key))
         {
+            Debug.Log("remove buf:" + key);
             Bufs.RemoveChild(BufsRes[key],true);
             BufsRes.Remove(key);
         }
@@ -1393,6 +1395,8 @@ public class GameUI : MonoBehaviour {
             var drawsize = 5.0f;
             string iconpath = "Minimap_UnitPin_Foreground_Leader";
             var order = 1;
+
+            var isenemy = UnityEntityManager.Instance.CheckIsEnemy(GameScene.Singleton.m_MyMainUnit, unit.Value);
             if (unit.Value == GameScene.Singleton.m_MyMainUnit)
             {
                 //自己
@@ -1401,6 +1405,16 @@ public class GameUI : MonoBehaviour {
                 color1 = new Color(0.1f, 1f, 0.1f);
                 drawsize = 10;
                 order = 100;
+            }else if (isenemy == true)
+            {
+                iconpath = "Minimap_UnitPin_Enemy";
+                color1 = new Color(1, 0.1f, 0.1f);
+                if (unit.Value.UnitType == 1 || unit.Value.UnitType == 4) //英雄 boss
+                {
+                    color1 = new Color(0.98f, 0.1f, 0.98f);
+                    drawsize = 7.5f;
+                    order = 80;
+                }
             }
             else if (unit.Value.TeamID == GameScene.Singleton.m_MyMainUnit.TeamID && GameScene.Singleton.m_MyMainUnit.TeamID > 0)
             {
@@ -1424,20 +1438,8 @@ public class GameUI : MonoBehaviour {
             }
             else
             {
-                var isenemy = UnityEntityManager.Instance.CheckIsEnemy(GameScene.Singleton.m_MyMainUnit, unit.Value);
-                if(isenemy == true)
-                {
-                    iconpath = "Minimap_UnitPin_Enemy";
-                    color1 = new Color(1, 0.1f, 0.1f);
-                    if(unit.Value.UnitType == 1 || unit.Value.UnitType == 4) //英雄 boss
-                    {
-                        color1 = new Color(0.98f, 0.1f, 0.98f);
-                        drawsize = 7.5f;
-                        order = 80;
-                    }
-                }
-                else
-                {
+                
+                
                     iconpath = "Minimap_UnitPin_Foreground_Friendly";
                     color1 = new Color(0.3f, 1f, 0.3f);
                     drawsize = 7.5f;
@@ -1447,7 +1449,6 @@ public class GameUI : MonoBehaviour {
                         drawsize = 7.5f;
                         order = 70;
                     }
-                }
             }
 
             GGraph aImage = new GGraph();
@@ -1522,7 +1523,28 @@ public class GameUI : MonoBehaviour {
             mainUI.GetChild("datashowtype").visible = false;
         }
     }
-    
+
+    //帧率相关
+    private float _LastInterval;
+    private int _Frames = 0;
+    private int _FPS;
+
+    void initfps()
+    {
+        _LastInterval = Time.realtimeSinceStartup;
+        _Frames = 0;
+
+    }
+    void updatefps()
+    {
+        _Frames++;
+        if (Time.realtimeSinceStartup- _LastInterval > 1)
+        {
+            _FPS = _Frames;
+            _Frames = 0;
+            _LastInterval = Time.realtimeSinceStartup;
+        }
+    }
 
     // Update is called once per frame
     void Update () {
@@ -1530,8 +1552,9 @@ public class GameUI : MonoBehaviour {
         //{
         //    Debug.Log("update Input.touchCount:" + Input.touchCount);
         //}
+        updatefps();
         var showtimestr = Tool.GetShowTime(GameScene.Singleton.TimeHourDiffer, GameScene.Singleton.TimeMinuteDiffer, GameScene.Singleton.TimeSecondDiffer);
-        gPing.text = showtimestr + " ping:" + MyKcp.PingValue;
+        gPing.text = showtimestr + " ping:" + MyKcp.PingValue+"  fps:"+ _FPS;
         FreshSkillUI();
         FreshItemSkillUI();
         FreshHead();

@@ -68,7 +68,7 @@ public class GameScene : MonoBehaviour {
         
         m_LogicFrameData = new Dictionary<int, Protomsg.SC_Update>();
 
-        Application.targetFrameRate = 30;
+        Application.targetFrameRate = 60;
     }
     void OnDestroy()
     {
@@ -244,14 +244,14 @@ public class GameScene : MonoBehaviour {
     void DoDelay(double frame)
     {
         //动态处理延时 使过程平滑
-        if (m_MaxFrame - frame > 2)
+        if (m_MaxFrame - frame > 1.5)
         {
             //超过2帧缓存数据 降低延时
             m_LogicDelayTime -= 0.01f;//10毫秒
             //Debug.Log("m_LogicDelayTime+:" + m_LogicDelayTime);
         }
         //else if (frame - m_MaxFrame >= 0)
-        else if(m_MaxFrame-frame <= 1.5)
+        else if(m_MaxFrame-frame <= 1)
         {
             //缓存中没有需要执行的数据 增加延时
             m_LogicDelayTime += 0.015f;//20毫秒

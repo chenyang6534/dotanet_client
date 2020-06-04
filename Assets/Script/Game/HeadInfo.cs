@@ -249,7 +249,7 @@ public class HeadInfo{
                 teamrequest.GetChild("count").asTextField.SetVar("count", GameScene.Singleton.GetMyMainUnit().RemainWatchVedioCountToday+"");
                 teamrequest.GetChild("count").asTextField.FlushVars();
                 teamrequest.GetChild("zhuanshi_btn").onClick.Add(() => {
-                    GameScene.Singleton.gameObject.GetComponent<GoogleAdmob>().UserChoseToWatchAd();
+                    //GameScene.Singleton.gameObject.GetComponent<GoogleAdmob>().UserChoseToWatchAd();
 
                     
 

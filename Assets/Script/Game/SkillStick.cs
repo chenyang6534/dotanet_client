@@ -517,6 +517,7 @@ public class Skillstick : EventDispatcher
             moveEventContext = (InputEvent)context.data;
             touchID = inputEvent.touchId;
 
+
             if (tweener != null)
             {
                 tweener.Kill();//杀死上一个动画

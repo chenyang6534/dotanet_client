@@ -104,6 +104,7 @@ public class Friends : MonoBehaviour {
                 teamrequest.GetChild("name").asTextField.color = new Color(1, 1, 1);
                 teamrequest.GetChild("level").asTextField.color = new Color(1, 1, 1);
                 teamrequest.GetChild("levelword").asTextField.color = new Color(1, 1, 1);
+                teamrequest.GetChild("headicon").asLoader.color = new Color(1, 1, 1);
 
                 teamrequest.onClick.Add(() => {
                     //onlinefriendclick
@@ -135,10 +136,11 @@ public class Friends : MonoBehaviour {
             {
                 //离线
                 teamrequest.GetChild("discript").asTextField.text = "离线";
-                teamrequest.GetChild("discript").asTextField.color = new Color(0.2f, 0.2f, 0.2f);
-                teamrequest.GetChild("name").asTextField.color = new Color(0.2f, 0.2f, 0.2f);
-                teamrequest.GetChild("level").asTextField.color = new Color(0.2f, 0.2f, 0.2f);
-                teamrequest.GetChild("levelword").asTextField.color = new Color(0.2f, 0.2f, 0.2f);
+                teamrequest.GetChild("discript").asTextField.color = new Color(0.5f, 0.5f, 0.5f);
+                teamrequest.GetChild("name").asTextField.color = new Color(0.5f, 0.5f, 0.5f);
+                teamrequest.GetChild("level").asTextField.color = new Color(0.5f, 0.5f, 0.5f);
+                teamrequest.GetChild("levelword").asTextField.color = new Color(0.5f, 0.5f, 0.5f);
+                teamrequest.GetChild("headicon").asLoader.color = new Color(0.5f, 0.5f, 0.5f);
 
                 teamrequest.onClick.Add(() => {
                         new HeroSimpleInfo(p1.Characterid);

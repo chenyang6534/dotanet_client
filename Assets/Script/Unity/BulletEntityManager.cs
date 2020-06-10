@@ -87,6 +87,10 @@ public class BulletEntityManager
     //更改单位数据
     public void ChangeBulletEntity(Protomsg.BulletDatas data)
     {
+        if (m_BulletEntitys.ContainsKey(data.ID) == false)
+        {
+            return;
+        }
         BulletEntity unity = m_BulletEntitys[data.ID];
         if (unity != null)
         {

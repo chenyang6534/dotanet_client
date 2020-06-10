@@ -69,7 +69,9 @@ public class CopyMap
             onedropitem.GetChild("name").asTextField.text = clientitem.Name;
             onedropitem.GetChild("guildlevel").asTextField.text = item.NeedLevel + "";
             onedropitem.GetChild("playercount").asTextField.text = item.PlayerCount + "";
-            
+            onedropitem.GetChild("curpipei").asTextField.text = "(" + item.PiPeiCount + "/" + item.PlayerCount + ")";
+
+
             //进入
             onedropitem.GetChild("pipei").asButton.onClick.Add(() =>
             {

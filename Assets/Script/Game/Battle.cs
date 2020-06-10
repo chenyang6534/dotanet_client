@@ -112,6 +112,8 @@ public class Battle
         Protomsg.SC_GetBattleMapInfo p1 = (Protomsg.SC_GetBattleMapInfo)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
 
         main.GetChild("guildlevel").asTextField.text = "Lv."+p1.BattleMapInfo.NeedLevel;
+
+        main.GetChild("curpipei").asTextField.text = "(" + p1.BattleMapInfo.PiPeiCount + "/" + p1.BattleMapInfo.PlayerCount + ")";
         //进入
         main.GetChild("pipei").asButton.onClick.Add(() =>
         {

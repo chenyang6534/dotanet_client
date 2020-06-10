@@ -1180,3 +1180,19 @@ MonoBehaviour:
     IconPath: 
     IconTimeEnable: 1
     IsShowControl: 0
+  - TypeID: 28
+    BodyEffect: 
+    FootEffect: 
+    Enable: 1
+    HeadEffect: 
+    TopBarEffect: ui://fekv2twrs1b2w
+    RenderColor: 0
+    OutEffect: 
+    NativeTopBarEffect: 
+    HandsEffect: 
+    FootsEffect: 
+    MaterialEffect: 
+    ModeEnable: 1
+    IconPath: 
+    IconTimeEnable: 1
+    IsShowControl: 1

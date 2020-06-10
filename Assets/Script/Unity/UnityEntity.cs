@@ -152,6 +152,7 @@ public class UnityEntity {
             }
             float speed = animtime / time;
             m_Mode.GetComponent<Animator>().speed = speed;
+            //Tool.SetClipLoop(m_Mode.GetComponent<Animator>(), "attack", true);
 
             //m_Mode.GetComponent<Animator>()
 

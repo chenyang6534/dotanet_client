@@ -375,27 +375,12 @@ MonoBehaviour:
   - TypeID: 111
     ModePath: Bullet/Projectiles/enemy3_attack
     Level: 2
+  - TypeID: 1502
+    ModePath: Buff/xukong_skill5
+    Level: 1
   - TypeID: 112
-    ModePath: 
-    Level: 2
+    ModePath: Bullet/Projectiles/paipaixiong_skill5
+    Level: 1
   - TypeID: 113
-    ModePath: 
-    Level: 2
-  - TypeID: 114
-    ModePath: 
-    Level: 2
-  - TypeID: 115
-    ModePath: 
-    Level: 2
-  - TypeID: 116
-    ModePath: 
-    Level: 2
-  - TypeID: 117
-    ModePath: 
-    Level: 2
-  - TypeID: 118
-    ModePath: 
-    Level: 2
-  - TypeID: 119
-    ModePath: 
-    Level: 2
+    ModePath: Bullet/Projectiles/pake_skill3talent
+    Level: 10

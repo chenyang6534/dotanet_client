@@ -236,7 +236,7 @@ MonoBehaviour:
     SceneItem: "Item/Icon/\u52A8\u529B\u978B (1)"
     Name: "\u5C5E\u6027\u978B"
     Des: "+[color=#D8D8D8] 15% [/color]\u79FB\u52A8\u901F\u5EA6\n+[color=#D8D8D8]
-      10/14/16/18/20 [/color]\u4E3B\u5C5E\u6027\n+[color=#D8D8D8] 20 [/color]\u653B\u51FB\u529B"
+      10/14/16/18/20 [/color]\u4E3B\u5C5E\u6027\n+[color=#D8D8D8] 20 [/color]\u653B\u51FB\u901F\u5EA6"
     ShowLevel: 1
   - TypeID: 37
     IconPath: "ui://GameUI/\u7A7A\u660E\u6756"

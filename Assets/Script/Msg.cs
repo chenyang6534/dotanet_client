@@ -290,30 +290,31 @@ namespace Protomsg {
             "dG9tc2cuU0NfR2V0TWFwSW5mbxIOCgZNaW51dGUYAyABKAUiIAoSQ1NfR2V0",
             "Q29weU1hcHNJbmZvEgoKAklEGAEgASgFIlIKElNDX0dldENvcHlNYXBzSW5m",
             "bxIjCgRNYXBzGAEgAygLMhUucHJvdG9tc2cuQ29weU1hcEluZm8SFwoPUmVt",
-            "YWluUGxheVRpbWVzGAIgASgFImUKC0NvcHlNYXBJbmZvEgoKAklEGAEgASgF",
+            "YWluUGxheVRpbWVzGAIgASgFInkKC0NvcHlNYXBJbmZvEgoKAklEGAEgASgF",
             "EhEKCU5lZWRMZXZlbBgCIAEoBRITCgtOZXh0U2NlbmVJRBgDIAEoBRITCgtQ",
-            "bGF5ZXJDb3VudBgEIAEoBRINCgVTdGF0ZRgFIAEoBSIkCg9DU19Db3B5TWFw",
-            "UGlQZWkSEQoJQ29weU1hcElEGAEgASgFIiUKEENTX0NvcHlNYXBDYW5jZWwS",
-            "EQoJQ29weU1hcElEGAEgASgFIiYKEFNDX1Nob3dQaVBlaUluZm8SEgoKUGlQ",
-            "ZWlTdGF0ZRgBIAEoBSI8ChRDU19HZXRCYXR0bGVSYW5rSW5mbxIRCglSYW5r",
-            "U3RhcnQYASABKAUSEQoJUmFua0NvdW50GAIgASgFIiEKE0NTX0dldEJhdHRs",
-            "ZU1hcEluZm8SCgoCSUQYASABKAUidgoUU0NfR2V0QmF0dGxlUmFua0luZm8S",
-            "LQoIUmFua0luZm8YASADKAsyGy5wcm90b21zZy5CYXR0bGVSYW5rT25lSW5m",
-            "bxIvCgpNeVJhbmtJbmZvGAIgASgLMhsucHJvdG9tc2cuQmF0dGxlUmFua09u",
-            "ZUluZm8iQwoTU0NfR2V0QmF0dGxlTWFwSW5mbxIsCg1CYXR0bGVNYXBJbmZv",
-            "GAEgASgLMhUucHJvdG9tc2cuQ29weU1hcEluZm8iYwoRQmF0dGxlUmFua09u",
-            "ZUluZm8SEwoLQ2hhcmFjdGVyaWQYASABKAUSDAoETmFtZRgCIAEoCRIOCgZU",
-            "eXBlaWQYAyABKAUSDAoEUmFuaxgEIAEoBRINCgVTY29yZRgFIAEoBSIjCg5D",
-            "U19CYXR0bGVQaVBlaRIRCglDb3B5TWFwSUQYASABKAUiJAoPQ1NfQmF0dGxl",
-            "Q2FuY2VsEhEKCUNvcHlNYXBJRBgBIAEoBSInChRDU19HZXRCYXR0bGVIZXJv",
-            "SW5mbxIPCgdTY2VuZUlEGAEgASgFIpEBChRTQ19HZXRCYXR0bGVIZXJvSW5m",
-            "bxIxCgZHcm91cDEYASADKAsyIS5wcm90b21zZy5CYXR0bGVPdmVyUGxheWVy",
-            "T25lSW5mbxIxCgZHcm91cDIYAiADKAsyIS5wcm90b21zZy5CYXR0bGVPdmVy",
-            "UGxheWVyT25lSW5mbxITCgtXaW5uZXJHcm91cBgDIAEoBSKlAQoXQmF0dGxl",
-            "T3ZlclBsYXllck9uZUluZm8SEwoLQ2hhcmFjdGVyaWQYASABKAUSDAoETmFt",
-            "ZRgCIAEoCRIOCgZUeXBlaWQYAyABKAUSDQoFU2NvcmUYBCABKAUSEQoJS2ls",
-            "bENvdW50GAUgASgFEhIKCkRlYXRoQ291bnQYBiABKAUSDQoFTGV2ZWwYByAB",
-            "KAUSEgoKRXF1aXBJdGVtcxgIIAMoCWIGcHJvdG8z"));
+            "bGF5ZXJDb3VudBgEIAEoBRINCgVTdGF0ZRgFIAEoBRISCgpQaVBlaUNvdW50",
+            "GAYgASgFIiQKD0NTX0NvcHlNYXBQaVBlaRIRCglDb3B5TWFwSUQYASABKAUi",
+            "JQoQQ1NfQ29weU1hcENhbmNlbBIRCglDb3B5TWFwSUQYASABKAUiJgoQU0Nf",
+            "U2hvd1BpUGVpSW5mbxISCgpQaVBlaVN0YXRlGAEgASgFIjwKFENTX0dldEJh",
+            "dHRsZVJhbmtJbmZvEhEKCVJhbmtTdGFydBgBIAEoBRIRCglSYW5rQ291bnQY",
+            "AiABKAUiIQoTQ1NfR2V0QmF0dGxlTWFwSW5mbxIKCgJJRBgBIAEoBSJ2ChRT",
+            "Q19HZXRCYXR0bGVSYW5rSW5mbxItCghSYW5rSW5mbxgBIAMoCzIbLnByb3Rv",
+            "bXNnLkJhdHRsZVJhbmtPbmVJbmZvEi8KCk15UmFua0luZm8YAiABKAsyGy5w",
+            "cm90b21zZy5CYXR0bGVSYW5rT25lSW5mbyJDChNTQ19HZXRCYXR0bGVNYXBJ",
+            "bmZvEiwKDUJhdHRsZU1hcEluZm8YASABKAsyFS5wcm90b21zZy5Db3B5TWFw",
+            "SW5mbyJjChFCYXR0bGVSYW5rT25lSW5mbxITCgtDaGFyYWN0ZXJpZBgBIAEo",
+            "BRIMCgROYW1lGAIgASgJEg4KBlR5cGVpZBgDIAEoBRIMCgRSYW5rGAQgASgF",
+            "Eg0KBVNjb3JlGAUgASgFIiMKDkNTX0JhdHRsZVBpUGVpEhEKCUNvcHlNYXBJ",
+            "RBgBIAEoBSIkCg9DU19CYXR0bGVDYW5jZWwSEQoJQ29weU1hcElEGAEgASgF",
+            "IicKFENTX0dldEJhdHRsZUhlcm9JbmZvEg8KB1NjZW5lSUQYASABKAUikQEK",
+            "FFNDX0dldEJhdHRsZUhlcm9JbmZvEjEKBkdyb3VwMRgBIAMoCzIhLnByb3Rv",
+            "bXNnLkJhdHRsZU92ZXJQbGF5ZXJPbmVJbmZvEjEKBkdyb3VwMhgCIAMoCzIh",
+            "LnByb3RvbXNnLkJhdHRsZU92ZXJQbGF5ZXJPbmVJbmZvEhMKC1dpbm5lckdy",
+            "b3VwGAMgASgFIqUBChdCYXR0bGVPdmVyUGxheWVyT25lSW5mbxITCgtDaGFy",
+            "YWN0ZXJpZBgBIAEoBRIMCgROYW1lGAIgASgJEg4KBlR5cGVpZBgDIAEoBRIN",
+            "CgVTY29yZRgEIAEoBRIRCglLaWxsQ291bnQYBSABKAUSEgoKRGVhdGhDb3Vu",
+            "dBgGIAEoBRINCgVMZXZlbBgHIAEoBRISCgpFcXVpcEl0ZW1zGAggAygJYgZw",
+            "cm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -445,7 +446,7 @@ namespace Protomsg {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetDuoBaoInfo), global::Protomsg.SC_GetDuoBaoInfo.Parser, new[]{ "MapGoInInfo", "MapInfo", "Minute" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GetCopyMapsInfo), global::Protomsg.CS_GetCopyMapsInfo.Parser, new[]{ "ID" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetCopyMapsInfo), global::Protomsg.SC_GetCopyMapsInfo.Parser, new[]{ "Maps", "RemainPlayTimes" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CopyMapInfo), global::Protomsg.CopyMapInfo.Parser, new[]{ "ID", "NeedLevel", "NextSceneID", "PlayerCount", "State" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CopyMapInfo), global::Protomsg.CopyMapInfo.Parser, new[]{ "ID", "NeedLevel", "NextSceneID", "PlayerCount", "State", "PiPeiCount" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_CopyMapPiPei), global::Protomsg.CS_CopyMapPiPei.Parser, new[]{ "CopyMapID" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_CopyMapCancel), global::Protomsg.CS_CopyMapCancel.Parser, new[]{ "CopyMapID" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_ShowPiPeiInfo), global::Protomsg.SC_ShowPiPeiInfo.Parser, new[]{ "PiPeiState" }, null, null, null),
@@ -27304,6 +27305,7 @@ namespace Protomsg {
       nextSceneID_ = other.nextSceneID_;
       playerCount_ = other.playerCount_;
       state_ = other.state_;
+      piPeiCount_ = other.piPeiCount_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -27382,6 +27384,20 @@ namespace Protomsg {
       }
     }
 
+    /// <summary>Field number for the "PiPeiCount" field.</summary>
+    public const int PiPeiCountFieldNumber = 6;
+    private int piPeiCount_;
+    /// <summary>
+    ///当前匹配中的玩家数量
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int PiPeiCount {
+      get { return piPeiCount_; }
+      set {
+        piPeiCount_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as CopyMapInfo);
@@ -27400,6 +27416,7 @@ namespace Protomsg {
       if (NextSceneID != other.NextSceneID) return false;
       if (PlayerCount != other.PlayerCount) return false;
       if (State != other.State) return false;
+      if (PiPeiCount != other.PiPeiCount) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -27411,6 +27428,7 @@ namespace Protomsg {
       if (NextSceneID != 0) hash ^= NextSceneID.GetHashCode();
       if (PlayerCount != 0) hash ^= PlayerCount.GetHashCode();
       if (State != 0) hash ^= State.GetHashCode();
+      if (PiPeiCount != 0) hash ^= PiPeiCount.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -27444,6 +27462,10 @@ namespace Protomsg {
         output.WriteRawTag(40);
         output.WriteInt32(State);
       }
+      if (PiPeiCount != 0) {
+        output.WriteRawTag(48);
+        output.WriteInt32(PiPeiCount);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -27466,6 +27488,9 @@ namespace Protomsg {
       }
       if (State != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(State);
+      }
+      if (PiPeiCount != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(PiPeiCount);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -27492,6 +27517,9 @@ namespace Protomsg {
       }
       if (other.State != 0) {
         State = other.State;
+      }
+      if (other.PiPeiCount != 0) {
+        PiPeiCount = other.PiPeiCount;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -27522,6 +27550,10 @@ namespace Protomsg {
           }
           case 40: {
             State = input.ReadInt32();
+            break;
+          }
+          case 48: {
+            PiPeiCount = input.ReadInt32();
             break;
           }
         }

@@ -43,12 +43,29 @@ public class HeroSimpleInfo
         skilllist.RemoveChildren();
 
         var skillstrarr = skillstr.Split(';');
+        var count = 0;
+        foreach (var item in skillstrarr)
+        {
+            var itemstrarr = item.Split(',');
+            if (itemstrarr.Length < 2)
+            {
+                Debug.Log("itemstrarr.Length < 2 :" + item);
+                continue;
+            }
+            count++;
+        }
+
+
+        
+        GButton[] allplayer = new GButton[count];
+        var index = 0;
         //排序
         foreach (var item in skillstrarr)
         {
             var itemstrarr = item.Split(',');
             if (itemstrarr.Length < 2)
             {
+                Debug.Log("itemstrarr.Length < 2 :" + item);
                 continue;
             }
             var typeid = int.Parse(itemstrarr[0]);
@@ -78,8 +95,33 @@ public class HeroSimpleInfo
                         new SkillInfo(clientitem.TypeID);
                     }
                 });
-                skilllist.AddChild(onedropitem);
+                onedropitem.data = typeid;
+                allplayer[index] = onedropitem;
+                index++;
+                Debug.Log("onedropitemdata :" + onedropitem.data);
+                //skilllist.AddChild(onedropitem);
             }
+            else
+            {
+                Debug.Log("no data :" + typeid);
+            }
+        }
+        //System.Array.Sort(allplayer, (s1, s2) => (int)(s1.data) > (int)(s2.data));
+        System.Array.Sort(allplayer, (a, b) => {
+            if ((int)(a.data) > (int)(b.data))
+            {
+                return 1;
+            }
+            else if ((int)(a.data) < (int)(b.data))
+            {
+                return -1;
+            }
+            return 0;
+        });
+
+        foreach (var item in allplayer)
+        {
+            skilllist.AddChild(item);
         }
     }
 

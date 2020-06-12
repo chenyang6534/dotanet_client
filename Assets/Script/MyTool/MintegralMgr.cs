@@ -21,7 +21,7 @@ public class MintegralMgr : MonoBehaviour {
 #if UNITY_EDITOR
         // Testing UNITY_EDITOR first because the editor also responds to the currently
         // selected platform.
-# elif UNITY_IPHONE1 || UNITY_ANDROID1
+#elif UNITY_IPHONE1 || UNITY_ANDROID1
         Mintegral.initMTGSDK(appid, appkey);
         //Mintegral.setConsentStatusInfoType(int GDPR_key);
         string[] rewardVideoUnits = new string[] { adUnit };

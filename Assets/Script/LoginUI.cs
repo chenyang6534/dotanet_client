@@ -23,7 +23,7 @@ public class LoginUI : MonoBehaviour {
     public static string GameLauncherUrl = "http://119.23.8.72:6666";
     //public static string GameLauncherUrl = "http://www.game5868.top:6666";
     public static string GameNotice = "";
-    public static string winMachineid = "3";
+    public static string winMachineid = "2";
     // Use this for initialization
     void Start () {
         Screen.fullScreen = false;
@@ -115,7 +115,12 @@ public class LoginUI : MonoBehaviour {
             //msg1.Machineid = "10018";   //瘟疫法师
             //msg1.Machineid = "10019";   //天怒法师
             Environment.GetCommandLineArgs();
-            msg1.Machineid = SystemInfo.deviceUniqueIdentifier+ winMachineid;
+            msg1.Machineid = SystemInfo.deviceUniqueIdentifier;
+            if (Application.platform == RuntimePlatform.WindowsPlayer ||
+            Application.platform == RuntimePlatform.WindowsEditor)
+            {
+                msg1.Machineid += winMachineid;
+            }
             msg1.Platform = "test";
             MyKcp.Instance.SendMsg("Login", "CS_MsgQuickLogin", msg1);
             UnityEngine.Debug.Log("login onClick");

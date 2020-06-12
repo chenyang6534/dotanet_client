@@ -102,14 +102,18 @@ public class Skillstick : EventDispatcher
             m_ui.visible = false;
         }
         //
-        if(m_SkillDatas.RemainSkillCount <= 1)
+        if(m_SkillDatas.SkillCount <= 1)
         {
             touchArea.asCom.GetChild("skillcount").asTextField.text = "";
+            touchArea.asCom.GetChild("littleprogress").visible = false;
         }
         else
         {
+            touchArea.asCom.GetChild("littleprogress").visible = true;
             touchArea.asCom.GetChild("skillcount").asTextField.text = ""+ m_SkillDatas.RemainSkillCount;
+            touchArea.asCom.GetChild("littleprogress").asProgress.value = 100-(int)((float)m_SkillDatas.RemainCDTime / m_SkillDatas.Cooldown * 100);
         }
+        //littleprogress
         //图标
         var clientskill = ExcelManager.Instance.GetSkillManager().GetSkillByID(m_SkillDatas.TypeID);
         if (clientskill != null)

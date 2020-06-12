@@ -425,6 +425,7 @@ public class UnityEntity {
                         m_SkillDatas[i].AttackAutoActive += item.AttackAutoActive;
                         m_SkillDatas[i].Visible += item.Visible;
                         m_SkillDatas[i].RemainSkillCount += item.RemainSkillCount;
+                        m_SkillDatas[i].SkillCount += item.SkillCount;
 
                     }
                 }
@@ -553,6 +554,7 @@ public class UnityEntity {
                         item.AttackAutoActive += m_ItemSkillDatas[i].AttackAutoActive;
                         item.Visible += m_ItemSkillDatas[i].Visible;
                         item.RemainSkillCount += m_ItemSkillDatas[i].RemainSkillCount;
+                        item.SkillCount += m_ItemSkillDatas[i].SkillCount;
                         //isfind = true;
                         //FreshBuffSpecial(item);
                     }

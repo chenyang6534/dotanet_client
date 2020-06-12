@@ -140,29 +140,29 @@ public static class Tool {
             Debug.Log(postData.text);
         }
     }
-    public static void SetClipLoop(this Animator animator, string clip,bool isloop)
-    {
-        if (null == animator || string.IsNullOrEmpty(clip) || null == animator.runtimeAnimatorController)
-            return ;
-        RuntimeAnimatorController ac = animator.runtimeAnimatorController;
-        AnimationClip[] tAnimationClips = ac.animationClips;
-        if (null == tAnimationClips || tAnimationClips.Length <= 0) return ;
-        AnimationClip tAnimationClip;
-        for (int tCounter = 0, tLen = tAnimationClips.Length; tCounter < tLen; tCounter++)
-        {
-            tAnimationClip = ac.animationClips[tCounter];
-            if (null != tAnimationClip && tAnimationClip.name == clip)
-            {
-                AnimationClipSettings clipSetting = AnimationUtility.GetAnimationClipSettings(tAnimationClip);
-                clipSetting.loopTime = isloop;
-                AnimationUtility.SetAnimationClipSettings(tAnimationClip, clipSetting);
-                Debug.Log("loop-------------------");
-                return;
-            }
+    //public static void SetClipLoop(this Animator animator, string clip,bool isloop)
+    //{
+    //    if (null == animator || string.IsNullOrEmpty(clip) || null == animator.runtimeAnimatorController)
+    //        return ;
+    //    RuntimeAnimatorController ac = animator.runtimeAnimatorController;
+    //    AnimationClip[] tAnimationClips = ac.animationClips;
+    //    if (null == tAnimationClips || tAnimationClips.Length <= 0) return ;
+    //    AnimationClip tAnimationClip;
+    //    for (int tCounter = 0, tLen = tAnimationClips.Length; tCounter < tLen; tCounter++)
+    //    {
+    //        tAnimationClip = ac.animationClips[tCounter];
+    //        if (null != tAnimationClip && tAnimationClip.name == clip)
+    //        {
+    //            AnimationClipSettings clipSetting = AnimationUtility.GetAnimationClipSettings(tAnimationClip);
+    //            clipSetting.loopTime = isloop;
+    //            AnimationUtility.SetAnimationClipSettings(tAnimationClip, clipSetting);
+    //            Debug.Log("loop-------------------");
+    //            return;
+    //        }
                 
-        }
-        return ;
-    }
+    //    }
+    //    return ;
+    //}
 
     public static float GetClipLength(this Animator animator, string clip)
     {

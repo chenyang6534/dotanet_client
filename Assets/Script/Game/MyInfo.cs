@@ -387,6 +387,96 @@ public class MyInfo {
         }
     }
 
+    //初始化技能信息
+    public void FreshTalentInfo(string talent,bool ismyunit)
+    {
+
+        var skilllist = unitinfo.GetChild("talent_list").asList;
+        if (skilllist == null)
+        {
+            return;
+        }
+        skilllist.RemoveChildren();
+
+        var skillstrarr = talent.Split(';');
+        var count = 0;
+        foreach (var item in skillstrarr)
+        {
+            var itemstrarr = item.Split(',');
+            if (itemstrarr.Length < 2)
+            {
+                Debug.Log("itemstrarr.Length < 2 :" + item);
+                continue;
+            }
+            count++;
+        }
+
+
+
+        GButton[] allplayer = new GButton[count];
+        var index = 0;
+        //排序
+        foreach (var item in skillstrarr)
+        {
+            var itemstrarr = item.Split(',');
+            if (itemstrarr.Length < 2)
+            {
+                Debug.Log("itemstrarr.Length < 2 :" + item);
+                continue;
+            }
+            var typeid = int.Parse(itemstrarr[0]);
+            var level = int.Parse(itemstrarr[1]);
+
+            var clientitem = ExcelManager.Instance.GetTalentManager().GetTalentByID(typeid);
+            if (clientitem != null)
+            {
+                var onedropitem = UIPackage.CreateObject("GameUI", "CircleIcon").asButton;
+                //onedropitem.SetSize(80, 80);
+                onedropitem.icon = clientitem.IconPath;
+
+                //onedropitem.GetChild("level").asTextField.text = "Lv." + level;
+
+                if (level <= 0)
+                {
+                    onedropitem.asCom.alpha = 0.2f;
+                }
+                else
+                {
+                    onedropitem.asCom.alpha = 1;
+                }
+
+                onedropitem.onClick.Add(() => {
+                    //Debug.Log("onClick");
+                    if (clientitem.TypeID != -1)
+                    {
+                        var talent1 = new TalentInfo(clientitem.TypeID,level, ismyunit);
+                        talent1.LastButton = onedropitem;
+                    }
+                });
+                onedropitem.data = typeid;
+                allplayer[index] = onedropitem;
+                index++;
+            }
+            
+        }
+        System.Array.Sort(allplayer, (a, b) => {
+            if ((int)(a.data) > (int)(b.data))
+            {
+                return 1;
+            }
+            else if ((int)(a.data) < (int)(b.data))
+            {
+                return -1;
+            }
+            return 0;
+        });
+
+        foreach (var item in allplayer)
+        {
+            skilllist.AddChild(item);
+        }
+    }
+
     //初始化
     public void Init()
     {
@@ -498,6 +588,13 @@ public class MyInfo {
         Protomsg.SC_UnitInfo p1 = (Protomsg.SC_UnitInfo)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
 
         FreshUnitInfoData(p1.UnitData);
+        var ismyunit = false;
+        if(p1.UnitData.ID == GameScene.Singleton.m_MyMainUnit.ID)
+        {
+            ismyunit = true;
+        }
+        Debug.Log("--id:" + p1.UnitData.ID + "   id2:" + GameScene.Singleton.m_MyMainUnit.ID);
+        FreshTalentInfo(p1.UnitData.Talents, ismyunit);
 
         return true;
     }
@@ -622,20 +719,20 @@ public class MyInfo {
 
         //等级
         unitinfo.GetChild("level").asTextField.text = "Lv."+((int)unit.Level).ToString();
-        //经验值
-        unitinfo.GetChild("experience").asTextField.text = ((int)unit.Experience).ToString()+"/"+ ((int)unit.MaxExperience).ToString();
+        ////经验值
+        //unitinfo.GetChild("experience").asTextField.text = ((int)unit.Experience).ToString()+"/"+ ((int)unit.MaxExperience).ToString();
 
-        //今日剩余经验值
-        unitinfo.GetChild("remainexperience").asTextField.text = ((int)data.RemainExperience).ToString();
-        //if(unit.UnitType != 1)
-        if(true)
-        {
-            unitinfo.GetChild("remainexperience").asTextField.visible = false;
-            unitinfo.GetChild("remainexlable").asTextField.visible = false;
+        ////今日剩余经验值
+        //unitinfo.GetChild("remainexperience").asTextField.text = ((int)data.RemainExperience).ToString();
+        ////if(unit.UnitType != 1)
+        //if(true)
+        //{
+        //    unitinfo.GetChild("remainexperience").asTextField.visible = false;
+        //    unitinfo.GetChild("remainexlable").asTextField.visible = false;
 
-            unitinfo.GetChild("exlable").asTextField.visible = false;
-            unitinfo.GetChild("experience").asTextField.visible = false;
-        }
+        //    unitinfo.GetChild("exlable").asTextField.visible = false;
+        //    unitinfo.GetChild("experience").asTextField.visible = false;
+        //}
 
         //力量 敏捷 智力
         unitinfo.GetChild("strength").asTextField.text = ((int)data.RawAttributeStrength).ToString()+ "[color=#00EE00]+" + ((int)data.AttributeStrength- (int)data.RawAttributeStrength).ToString()+ "[/color]";

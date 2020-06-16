@@ -734,3 +734,27 @@ MonoBehaviour:
     Name: "\u7816\u77F3"
     Des: "\u7816\u77F3"
     ShowLevel: 0
+  - TypeID: 201
+    IconPath: "ui://GameUI/\u521D\u7EA7\u5929\u8D4B\u4E66"
+    SceneItem: "Item/Icon/\u521D\u7EA7\u5929\u8D4B\u4E66"
+    Name: "\u521D\u7EA7\u5929\u8D4B\u4E66"
+    Des: "\u6FC0\u6D3B\u5929\u8D4B\u6280\u80FD\u7684\u9053\u5177."
+    ShowLevel: 1
+  - TypeID: 202
+    IconPath: "ui://GameUI/\u4E2D\u7EA7\u5929\u8D4B\u4E66"
+    SceneItem: "Item/Icon/\u4E2D\u7EA7\u5929\u8D4B\u4E66"
+    Name: "\u4E2D\u7EA7\u5929\u8D4B\u4E66"
+    Des: "\u6FC0\u6D3B\u5929\u8D4B\u6280\u80FD\u7684\u9053\u5177."
+    ShowLevel: 1
+  - TypeID: 203
+    IconPath: "ui://GameUI/\u9AD8\u7EA7\u5929\u8D4B\u4E66"
+    SceneItem: "Item/Icon/\u9AD8\u7EA7\u5929\u8D4B\u4E66"
+    Name: "\u9AD8\u7EA7\u5929\u8D4B\u4E66"
+    Des: "\u6FC0\u6D3B\u5929\u8D4B\u6280\u80FD\u7684\u9053\u5177."
+    ShowLevel: 1
+  - TypeID: 204
+    IconPath: "ui://GameUI/\u53F2\u8BD7\u7EA7\u5929\u8D4B\u4E66"
+    SceneItem: "Item/Icon/\u53F2\u8BD7\u7EA7\u5929\u8D4B\u4E66"
+    Name: "\u53F2\u8BD7\u7EA7\u5929\u8D4B\u4E66"
+    Des: "\u6FC0\u6D3B\u5929\u8D4B\u6280\u80FD\u7684\u9053\u5177."
+    ShowLevel: 1

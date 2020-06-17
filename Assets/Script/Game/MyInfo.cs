@@ -202,7 +202,7 @@ public class MyInfo {
                         return;
                     }
                     
-                    Tool.NoticeWindonw("你确定要以"+ bagequip.Price * Mathf.Pow(2, bagequip.Level - 1) + Tool.GetPriceTypeName(bagequip.PriceType) + "的价格卖出道具(" + clientitem.Name + ")吗?", () =>
+                    Tool.NoticeWindonw("你确定要以[color=#FFFF00]" + bagequip.Price * Mathf.Pow(2, bagequip.Level - 1) + Tool.GetPriceTypeName(bagequip.PriceType) + "[/color]的价格卖出道具(" + clientitem.Name + ")吗?", () =>
                     {
                         SendHuiShouItem(int.Parse(sArray[0]));
                     });
@@ -413,7 +413,7 @@ public class MyInfo {
 
 
 
-        GButton[] allplayer = new GButton[count];
+        GComponent[] allplayer = new GComponent[count];
         var index = 0;
         //排序
         foreach (var item in skillstrarr)
@@ -430,7 +430,8 @@ public class MyInfo {
             var clientitem = ExcelManager.Instance.GetTalentManager().GetTalentByID(typeid);
             if (clientitem != null)
             {
-                var onedropitem = UIPackage.CreateObject("GameUI", "CircleIcon").asButton;
+                var onedropitemcom = UIPackage.CreateObject("GameUI", "CircleIcon_talent").asCom;
+                var onedropitem = onedropitemcom.GetChild("btn").asButton;
                 //onedropitem.SetSize(80, 80);
                 onedropitem.icon = clientitem.IconPath;
 
@@ -450,11 +451,10 @@ public class MyInfo {
                     if (clientitem.TypeID != -1)
                     {
                         var talent1 = new TalentInfo(clientitem.TypeID,level, ismyunit);
-                        talent1.LastButton = onedropitem;
                     }
                 });
-                onedropitem.data = typeid;
-                allplayer[index] = onedropitem;
+                onedropitemcom.data = typeid;
+                allplayer[index] = onedropitemcom;
                 index++;
             }
             

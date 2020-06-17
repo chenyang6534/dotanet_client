@@ -9,19 +9,6 @@
       </intent-filter>
       <meta-data android:name="unityplayer.UnityActivity" android:value="true" />
     </activity>
-    <activity android:name="com.mintegral.msdk.mtgjscommon.authority.activity.MTGAuthorityActivity" android:configChanges="keyboardHidden|orientation|screenSize" />
-    <!--integration interstitial needed activty end  -->
-    <!--integration offerwall needed activty start  -->
-    <!--integration offerwall needed activty end  -->
-    <activity android:name="com.mintegral.msdk.reward.player.MTGRewardVideoActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-    <activity android:name="com.mintegral.msdk.shell.MTGActivity" android:configChanges="keyboard|orientation" android:screenOrientation="portrait" />
-    <activity
-    android:name="com.mintegral.msdk.activity.MTGCommonActivity"
-    android:configChanges="keyboard|orientation"
-    android:screenOrientation="portrait"
-    android:exported="true"
-    android:theme="@android:style/Theme.Translucent.NoTitleBar">
-</activity>   
     <uses-library android:name="org.apache.http.legacy" android:required="false" />
     <receiver android:name="com.mintegral.msdk.click.AppReceiver">
       <intent-filter>
@@ -29,14 +16,6 @@
         <data android:scheme="package" />
       </intent-filter>
     </receiver>
-    <service android:name="com.mintegral.msdk.shell.MTGService">
-      <intent-filter>
-        <action android:name="com.mintegral.msdk.download.action" />
-      </intent-filter>
-    </service>
-    <provider android:name="com.mintegral.msdk.base.utils.MTGFileProvider" android:authorities="com.mintegral.templatesample.mtgFileProvider" android:exported="false" android:grantUriPermissions="true">
-      <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/mtg_provider_paths" />
-    </provider>
   </application>
   <uses-permission android:name="android.permission.INTERNET" />
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />

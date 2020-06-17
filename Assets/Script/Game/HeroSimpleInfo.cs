@@ -232,7 +232,7 @@ public class HeroSimpleInfo
 
 
 
-        GButton[] allplayer = new GButton[count];
+        GComponent[] allplayer = new GComponent[count];
         var index = 0;
         //排序
         foreach (var item in skillstrarr)
@@ -249,7 +249,8 @@ public class HeroSimpleInfo
             var clientitem = ExcelManager.Instance.GetTalentManager().GetTalentByID(typeid);
             if (clientitem != null)
             {
-                var onedropitem = UIPackage.CreateObject("GameUI", "CircleIcon").asButton;
+                var onedropitemcom = UIPackage.CreateObject("GameUI", "CircleIcon_talent").asCom;
+                var onedropitem = onedropitemcom.GetChild("btn").asButton;
                 //onedropitem.SetSize(80, 80);
                 onedropitem.icon = clientitem.IconPath;
 
@@ -269,11 +270,10 @@ public class HeroSimpleInfo
                     if (clientitem.TypeID != -1)
                     {
                         var talent1 = new TalentInfo(clientitem.TypeID, level, ismyunit);
-                        talent1.LastButton = onedropitem;
                     }
                 });
-                onedropitem.data = typeid;
-                allplayer[index] = onedropitem;
+                onedropitemcom.data = typeid;
+                allplayer[index] = onedropitemcom;
                 index++;
             }
 

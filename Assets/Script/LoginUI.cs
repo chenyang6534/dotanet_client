@@ -20,8 +20,8 @@ public class LoginUI : MonoBehaviour {
 
     protected double m_LastQuickLoginTime;
 
-    public static string GameLauncherUrl = "http://119.23.8.72:6666";
-    //public static string GameLauncherUrl = "http://www.game5868.top:6666";
+    //public static string GameLauncherUrl = "http://119.23.8.72:6666";
+    public static string GameLauncherUrl = "https://www.game5868.top:6666";
     public static string GameNotice = "";
     public static string winMachineid = "2";
     // Use this for initialization
@@ -216,27 +216,27 @@ public class LoginUI : MonoBehaviour {
 
             //获取服务器列表
             StartCoroutine(Tool.SendGet(GameLauncherUrl + "/getserverlist?Platform="+ platformstr+"&Version=1.0.0", (WWW data) => {
-            //data.text
+                //data.text
 
-            //if(data.error != null)
-            //{
-            //    Debug.Log("获取失败:"+ data.error);
-            //    return;
-            //}
+                if (data.error != null)
+                {
+                    Debug.Log("获取失败:" + data.error);
+                    return;
+                }
 
-            //默认id
-            var defaultid = 0;
-                //var t2 = JsonUtility.FromJson<ServerListInfoArr>(data.text);
+                //默认id
+                var defaultid = 0;
+                var t2 = JsonUtility.FromJson<ServerListInfoArr>(data.text);
 
-                //if(t2.Code != 1)
-                //{
-                //    Debug.Log("获取失败");
-                //    return;
-                //}
-            //ServerListInfo[] allServerList = { new ServerListInfo("删档测试服", "119.23.8.72", 1118) };
-            ServerListInfo[] allServerList = { new ServerListInfo("本地服", "127.0.0.1", 1118), new ServerListInfo("外网", "119.23.8.72", 1118) };
+                if (t2.Code != 1)
+                {
+                    Debug.Log("获取失败");
+                    return;
+                }
+                //ServerListInfo[] allServerList = { new ServerListInfo("删档测试服", "119.23.8.72", 1118) };
+                //ServerListInfo[] allServerList = { new ServerListInfo("本地服", "127.0.0.1", 1118), new ServerListInfo("外网", "119.23.8.72", 1118) };
 
-            var serverlist = allServerList;
+            var serverlist = t2.Servers;
             Debug.Log("-------------len:" + serverlist.Length);
             var defaultserver = serverlist[defaultid];
             SelectServer = defaultserver;

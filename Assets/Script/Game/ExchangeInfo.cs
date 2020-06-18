@@ -80,14 +80,11 @@ public class ExchangeInfo
         }
         System.Array.Sort(allplayer, (a, b) => {
 
-            if(a.ItemID > b.ItemID)
-            {
-                return 1;
-            }
-            else
+            if(a.ItemID < b.ItemID)
             {
                 return -1;
             }
+            return 1;
         });
         foreach (var item in allplayer)
         {

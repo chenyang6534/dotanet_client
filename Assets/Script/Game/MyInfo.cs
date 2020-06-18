@@ -10,6 +10,7 @@ public class MyInfo {
     private GComponent unitinfo;
     private GComponent baginfo;
     private GComponent itemdropinfo;
+    private GComponent storageinfo;
     private GComponent main;
     private UnityEntity unit;
 
@@ -27,6 +28,7 @@ public class MyInfo {
         unitinfo = main.GetChild("heroInfo").asCom;
         baginfo = main.GetChild("bag").asCom;
         itemdropinfo = main.GetChild("drop").asCom;
+        storageinfo = main.GetChild("storage").asCom;
         GRoot.inst.AddChild(main);
         //main.fairyBatching = true;
 
@@ -289,7 +291,19 @@ public class MyInfo {
                     }
                     if (typeid != -1)
                     {
-                        new ItemInfo(typeid);
+                        ItemInfo a = new ItemInfo(typeid);
+                        a.SetCallBackBtn("存放",()=> {
+                            Protomsg.CS_Save2Storage msg1 = new Protomsg.CS_Save2Storage();
+                            msg1.Pos = index;
+                            MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_Save2Storage", msg1);
+                            a.Destroy();
+                        });
+                        a.SetUseCallBack(() => {
+                            Protomsg.CS_UseItem msg1 = new Protomsg.CS_UseItem();
+                            msg1.SrcPos = index;
+                            MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_UseItem", msg1);
+                            a.Destroy();
+                        });
                     }
 
 
@@ -324,6 +338,25 @@ public class MyInfo {
                 });
             }
          }
+
+        var storagebtn = baginfo.GetChild("storagebtn").asButton;
+        storagebtn.onClick.Add(() => {
+            storageinfo.visible = !storageinfo.visible;
+            if(storageinfo.visible == true)
+            {
+                Protomsg.CS_OpenStorage msg1 = new Protomsg.CS_OpenStorage();
+                MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_OpenStorage", msg1);
+            }
+
+        });
+    }
+
+    public void InitStorageInfo()
+    {
+        storageinfo.visible = false;
+        storageinfo.GetChild("close").asButton.onClick.Set(() => {
+            storageinfo.visible = false;
+        });
     }
 
     public void InitDropItem()
@@ -513,6 +546,7 @@ public class MyInfo {
         InitItemDrag();
         InitDropItem();
         InitSkillInfo();
+        InitStorageInfo();
 
 
         //模型
@@ -550,6 +584,7 @@ public class MyInfo {
         }
         MsgManager.Instance.RemoveListener("SC_UnitInfo");
         MsgManager.Instance.RemoveListener("SC_BagInfo");
+        MsgManager.Instance.RemoveListener("SC_OpenStorage");
         IsDestroy = true;
     }
 
@@ -558,7 +593,7 @@ public class MyInfo {
     {
         MsgManager.Instance.AddListener("SC_UnitInfo", new HandleMsg(this.SC_UnitInfo));
         MsgManager.Instance.AddListener("SC_BagInfo", new HandleMsg(this.SC_BagInfo));
-
+        MsgManager.Instance.AddListener("SC_OpenStorage", new HandleMsg(this.SC_OpenStorage));
         Protomsg.CS_GetUnitInfo msg1 = new Protomsg.CS_GetUnitInfo();
         msg1.UnitID = unit.ID;
         MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetUnitInfo", msg1);
@@ -577,6 +612,75 @@ public class MyInfo {
         Protomsg.SC_BagInfo p1 = (Protomsg.SC_BagInfo)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
 
         FreshBagInfoData(p1);
+
+        return true;
+    }
+    public bool SC_OpenStorage(Protomsg.MsgBase d1)
+    {
+        Debug.Log("SC_OpenStorage--------------");
+        IMessage IMperson = new Protomsg.SC_OpenStorage();
+        Protomsg.SC_OpenStorage p1 = (Protomsg.SC_OpenStorage)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
+
+        Protomsg.ItemSimpleMsg[] allplayer = new Protomsg.ItemSimpleMsg[p1.StorageItems.Count];
+        p1.StorageItems.CopyTo(allplayer, 0);
+
+        storageinfo.GetChild("droplist").asList.RemoveChildren(0, -1, true);
+
+        storageinfo.GetChild("count").asTextField.text = p1.StorageItems.Count+"/"+p1.MaxCount;
+        for (var i = 0; i < p1.MaxCount; i++)
+        {
+
+            var itemid = -1;
+            var itemlevel = 0;
+            if(i >= allplayer.Length)
+            {
+
+            }
+            else
+            {
+                Protomsg.ItemSimpleMsg data = allplayer[i];
+                itemid = data.TypeID;
+                itemlevel = data.Level;
+            }
+
+            var clientitem = ExcelManager.Instance.GetItemManager().GetItemByID(itemid);
+            
+            var onedropitem = UIPackage.CreateObject("GameUI", "sellable").asCom;
+            onedropitem.GetChild("icon").asLoader.url = "";
+            if (clientitem != null)
+            {
+                var index = i;
+                onedropitem.GetChild("icon").asLoader.url = clientitem.IconPath;
+                onedropitem.GetChild("icon").onClick.Add(() =>
+                {
+                    //new ItemInfo(itemid);
+                    ItemInfo a = new ItemInfo(itemid);
+                    
+                    a.SetCallBackBtn("取出", () => {
+                        Protomsg.CS_TakeOutFromStorage msg1 = new Protomsg.CS_TakeOutFromStorage();
+                        msg1.Pos = index;
+                        Debug.Log("取出index:" + index);
+                        MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_TakeOutFromStorage", msg1);
+                        a.Destroy();
+                    });
+                });
+            }
+
+            if (clientitem != null)
+            {
+                onedropitem.GetChild("level").asTextField.text = "lv.1";
+            }
+            else
+            {
+                onedropitem.GetChild("level").asTextField.text = "";
+            }
+                
+
+
+            storageinfo.GetChild("droplist").asList.AddChild(onedropitem);
+
+        }
+
 
         return true;
     }

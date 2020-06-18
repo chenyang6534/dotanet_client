@@ -30,7 +30,8 @@ public class MyEditor : Editor
     ,"Map/CreateUnits/CreateUnitsGuildDuoBao"
     ,"Map/CreateUnits/CreateUnitsCopyMap1","Map/CreateUnits/CreateUnitsCopyMap2","Map/CreateUnits/CreateUnitsCopyMap3"
     ,"Map/CreateUnits/CreateUnitsCopyMap4","Map/CreateUnits/CreateUnitsCopyMap5","Map/CreateUnits/CreateUnitsCopyMap6"
-    ,"Map/CreateUnits/CreateUnitsCopyMap7"};
+    ,"Map/CreateUnits/CreateUnitsCopyMap7"
+    ,"Map/CreateUnits/CreateUnitszhuanshi"};
     static string DestPath = "D://sheshe/bin/conf/";
 
     //将所有游戏场景导出为JSON格式

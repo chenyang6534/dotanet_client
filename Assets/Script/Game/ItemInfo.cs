@@ -9,6 +9,8 @@ using System.Threading;
 public class ItemInfo {
     private GComponent main;
 
+    public BtnCallBack UseCallBack;
+
     private int TypeID;
     public ItemInfo(int typeid)
     {
@@ -42,9 +44,22 @@ public class ItemInfo {
             return false;
         }
         //需要等级
-        main.GetChild("needlevel").asTextField.SetVar("p1", p1.EquipNeedLevel+"");
-        main.GetChild("needlevel").asTextField.FlushVars();
+        if(p1.EquipNeedLevel <= 0)
+        {
+            main.GetChild("needlevel").visible = false;
+        }
+        else
+        {
+            main.GetChild("needlevel").asTextField.SetVar("p1", p1.EquipNeedLevel + "");
+            main.GetChild("needlevel").asTextField.FlushVars();
+        }
+        
 
+        //使用按钮
+        if(UseCallBack != null && p1.ClientUseAble == 1)
+        {
+            main.GetChild("usebtn").visible = true;
+        }
         
 
         main.GetChild("droplist").asList.RemoveChildren(0, -1, true);
@@ -82,6 +97,32 @@ public class ItemInfo {
         return true;
     }
 
+    public void SetUseCallBack(BtnCallBack callback)
+    {
+        UseCallBack = callback;
+        main.GetChild("usebtn").asButton.onClick.Set(() =>
+        {
+            if (UseCallBack != null)
+            {
+                UseCallBack();
+            }
+        });
+    }
+
+    public delegate void BtnCallBack();
+    public void SetCallBackBtn(string name, BtnCallBack callback)
+    {
+        main.GetChild("callbackbtn").visible = true;
+        main.GetChild("callbackbtn").asButton.title = name;
+
+        main.GetChild("callbackbtn").asButton.onClick.Set(() =>
+        {
+            if(callback != null)
+            {
+                callback();
+            }
+        });
+    }
 
     //初始化
     public void Init(ExcelData.Item clientitem)
@@ -101,9 +142,13 @@ public class ItemInfo {
         //描述
         main.GetChild("des").asTextField.text = clientitem.Des;
 
+        main.GetChild("callbackbtn").visible = false;
+        main.GetChild("usebtn").visible = false;
+
+
         ////需要等级
         //main.GetChild("needlevel").asTextField.text = "";
-        
+
     }
 
     //增加额外的描述文字

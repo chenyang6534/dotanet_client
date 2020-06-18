@@ -758,3 +758,21 @@ MonoBehaviour:
     Name: "\u53F2\u8BD7\u7EA7\u5929\u8D4B\u4E66"
     Des: "\u6FC0\u6D3B\u5929\u8D4B\u6280\u80FD\u7684\u9053\u5177."
     ShowLevel: 1
+  - TypeID: 205
+    IconPath: "ui://GameUI/\u521D\u7EA7\u4ED3\u5E93\u4F4D"
+    SceneItem: 
+    Name: "\u521D\u7EA7\u4ED3\u5E93\u4F4D"
+    Des: "\u4F7F\u7528\u540E\u589E\u52A01/2/4/8/16\u4ED3\u5E93\u4F4D\u7F6E."
+    ShowLevel: 1
+  - TypeID: 206
+    IconPath: "ui://GameUI/\u7ECF\u9A8C\u4E0A\u9650\u4E39"
+    SceneItem: 
+    Name: "\u7ECF\u9A8C\u4E0A\u9650\u4E39"
+    Des: "\u4F7F\u7528\u540E\u589E\u52A0\u4ECA\u65E5\u53EF\u83B7\u53D6\u5269\u4F59\u7ECF\u9A8C5000/10000/20000/40000/80000"
+    ShowLevel: 1
+  - TypeID: 207
+    IconPath: "ui://GameUI/\u7ECF\u9A8C\u4E39"
+    SceneItem: 
+    Name: "\u7ECF\u9A8C\u4E39"
+    Des: "\u4F7F\u7528\u540E\u76F4\u63A5\u589E\u52A0\u7ECF\u9A8C3000/6000/12000/24000/48000,\u4F46\u4E0D\u4F1A\u8D85\u8FC7\u4ECA\u65E5\u53EF\u83B7\u53D6\u5269\u4F59\u7ECF\u9A8C\u3002\n\u4F7F\u7528\u524D\u8BF7\u786E\u4FDD\u6709\u8DB3\u591F\u7684\u4ECA\u65E5\u53EF\u83B7\u53D6\u5269\u4F59\u7ECF\u9A8C\u3002"
+    ShowLevel: 1

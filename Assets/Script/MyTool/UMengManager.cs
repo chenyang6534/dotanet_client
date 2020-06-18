@@ -21,7 +21,7 @@ public class UMengManager : MonoBehaviour
         GA.StartWithAppKeyAndChannelId(appkey, "android umeng1");
 
         //调试时开启日志 发布时设置为false  
-        //GA.SetLogEnabled(true);
+        GA.SetLogEnabled(true);
 
         //触发统计事件 开始关卡         
         //GA.StartLevel("1");

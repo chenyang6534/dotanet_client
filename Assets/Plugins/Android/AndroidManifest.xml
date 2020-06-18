@@ -10,15 +10,11 @@
       <meta-data android:name="unityplayer.UnityActivity" android:value="true" />
     </activity>
     <uses-library android:name="org.apache.http.legacy" android:required="false" />
-    <receiver android:name="com.mintegral.msdk.click.AppReceiver">
-      <intent-filter>
-        <action android:name="android.intent.action.PACKAGE_ADDED" />
-        <data android:scheme="package" />
-      </intent-filter>
-    </receiver>
   </application>
   <uses-permission android:name="android.permission.INTERNET" />
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+  <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
   <!-- Required for China-Mainland Traffic app -->
 <!-- <uses-permission android:name="android.permission.READ_PHONE_STATE"/> -->
 <!-- <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/> -->

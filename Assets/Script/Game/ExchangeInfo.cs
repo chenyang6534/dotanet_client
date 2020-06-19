@@ -241,6 +241,7 @@ public class ExchangeInfo
             onedropitem.GetChild("icon").asLoader.url = clientitem.IconPath;
             onedropitem.GetChild("icon").onClick.Add(() =>
             {
+                var pricetype = 10001;//砖石
                 //售卖
                 var sellwindow = UIPackage.CreateObject("GameUI", "Shelf1").asCom;
                 GRoot.inst.AddChild(sellwindow);
@@ -276,7 +277,7 @@ public class ExchangeInfo
                     //上架
                     Protomsg.CS_ShelfExchangeCommodity msg1 = new Protomsg.CS_ShelfExchangeCommodity();
                     msg1.BagPos = item.Pos;
-                    msg1.PriceType = 10001;
+                    msg1.PriceType = pricetype;
                     msg1.Price = price;
                     MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_ShelfExchangeCommodity", msg1);
                     sellwindow.Dispose();
@@ -285,7 +286,16 @@ public class ExchangeInfo
                 sellwindow.GetChild("item").asCom.GetChild("level").asTextField.text = "lv." + item.Level + "";
                 sellwindow.GetChild("name").asTextField.text = clientitem.Name;
                 sellwindow.GetChild("pricetype_shouxufei").asLoader.url = Tool.GetPriceTypeIcon(p1.ShelfExchangeFeePriceType);
-                sellwindow.GetChild("pricetype").asLoader.url = Tool.GetPriceTypeIcon(10001);
+                sellwindow.GetChild("pricetype").asLoader.url = Tool.GetPriceTypeIcon(pricetype);
+                sellwindow.GetChild("pricetype").asLoader.onClick.Set(() =>
+                {
+                    pricetype++;
+                    if(pricetype > 10001)
+                    {
+                        pricetype = 10000;
+                    }
+                    sellwindow.GetChild("pricetype").asLoader.url = Tool.GetPriceTypeIcon(pricetype);
+                });
                 sellwindow.GetChild("price_shouxufei").asTextField.text = p1.ShelfExchangeFeePrice+"";
                 sellwindow.GetChild("unshelf_time").asTextField.SetVar("p1", Tool.Time2String(p1.AutoUnShelfTime));
                 sellwindow.GetChild("unshelf_time").asTextField.FlushVars();

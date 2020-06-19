@@ -29,7 +29,12 @@ public class HaloEntity
         m_Mode.transform.parent = m_Scene.transform.parent;
         m_Mode.transform.position = m_Position;
         //m_Mode.transform.LookAt(m_EndPos);
-      
+        if(m_Mode.transform.Find("words") != null && data.ClientShowWords.Length > 0)
+        {
+            m_Mode.transform.Find("words").GetComponent<ItemName>().LoadName(data.ClientShowWords);
+        }
+        
+
         //Debug.Log("1111bullet pos:" + m_Mode.transform.position + "  end pos:" + m_EndPos + "   state:" + m_State);
     }
 

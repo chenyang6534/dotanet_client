@@ -48,11 +48,12 @@ public class UnityEntity {
     {
         //m_AllWords = new Dictionary<WordsInfo, WordsInfo>();
 
-        RotateSpeed = 480;
+        RotateSpeed = 1000;
 
         m_Scene = scene;
         Name = data.Name;
         GuildName = data.GuildName;
+        GuildPostClientShowName = data.GuildPostClientShowName;
         Level = data.Level;
         Experience = data.Experience;
         MaxExperience = data.MaxExperience;
@@ -383,6 +384,10 @@ public class UnityEntity {
             if (data.GuildName != "")
             {
                 GuildName = data.GuildName;
+            }
+            if(data.GuildPostClientShowName != "")
+            {
+                GuildPostClientShowName = data.GuildPostClientShowName;
             }
 
             ControlID += data.ControlID;
@@ -752,6 +757,8 @@ public class UnityEntity {
             m_GuildName = value;
         }
     }
+    public string GuildPostClientShowName;
+
     // 名字
     protected string m_Name;
     public string Name
@@ -1360,7 +1367,7 @@ public class UnityEntity {
             {
                 ismyguild = true;
             }
-            m_TopBar.GetComponent<UnityEntityTopBar>().SetGuildName(GuildName, ismyguild);
+            m_TopBar.GetComponent<UnityEntityTopBar>().SetGuildName(GuildName, GuildPostClientShowName);
 
             var isEnemy = UnityEntityManager.Instance.CheckIsEnemy(this, GameScene.Singleton.GetMyMainUnit());
 

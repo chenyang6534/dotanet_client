@@ -202,7 +202,7 @@ public class UnityEntityTopBar : MonoBehaviour
             m_Name.text = name;
         }
     }
-    public void SetGuildName(string name,bool ismyguild)
+    public void SetGuildName(string name, string postname)
     {
         if (m_GuildName != null)
         {
@@ -212,17 +212,17 @@ public class UnityEntityTopBar : MonoBehaviour
             }
             else
             {
-                m_GuildName.text = "(" + name + ")";
+                m_GuildName.text =  name + "(" + postname+ ")";
             }
-            //颜色
-            if (ismyguild) //是自己公会 绿色
-            {
-                m_GuildName.color = new Color(169 / 255.0f, 238 / 255.0f, 96/255.0f);
-            }
-            else
-            {//红色
-                m_GuildName.color = new Color(192 / 255.0f, 50 / 255.0f, 0 / 255.0f);
-            }
+            ////颜色
+            //if (ismyguild) //是自己公会 绿色
+            //{
+            //    m_GuildName.color = new Color(169 / 255.0f, 238 / 255.0f, 96/255.0f);
+            //}
+            //else
+            //{//红色
+            //    m_GuildName.color = new Color(192 / 255.0f, 50 / 255.0f, 0 / 255.0f);
+            //}
 
 
         }

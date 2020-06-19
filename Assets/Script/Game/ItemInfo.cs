@@ -63,12 +63,20 @@ public class ItemInfo {
         
 
         main.GetChild("droplist").asList.RemoveChildren(0, -1, true);
+
+
         //宝箱
         if (p1.Exception == 1)
         {
+            Debug.Log("droplist:" + p1.ExceptionParam);
             var items = p1.ExceptionParam.Split(';');
             for(var i = 0; i < items.Length; i++)
             {
+                Debug.Log("droplistaa:" + items[i]);
+                if (items[i].Length <= 0)
+                {
+                    continue;
+                }
                 var oneitem = items[i].Split(':');
                 if(oneitem.Length <= 0)
                 {

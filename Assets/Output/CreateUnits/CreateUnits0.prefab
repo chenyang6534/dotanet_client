@@ -1113,12 +1113,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8808479663d36584aadbb941f86ca2df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NextSceneID: 600
+  NextSceneID: 602
   NeedLevel: 14
   NeedPlayer: 0
   R: 0.6
   NextScenePosition: {x: 15, y: 14}
   HaloTypeID: 1024
+  HaloShowDes: "\u4E16\u754C7-3"
 --- !u!114 &114248347221115132
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1136,6 +1137,7 @@ MonoBehaviour:
   R: 0.6
   NextScenePosition: {x: 15, y: 14}
   HaloTypeID: 1024
+  HaloShowDes: "\u4E16\u754C6-2"
 --- !u!114 &114293120326696720
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1153,6 +1155,7 @@ MonoBehaviour:
   R: 0.6
   NextScenePosition: {x: -1, y: -1}
   HaloTypeID: 1024
+  HaloShowDes: "\u4E16\u754C3-1"
 --- !u!114 &114333646230781198
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1170,6 +1173,7 @@ MonoBehaviour:
   R: 0.6
   NextScenePosition: {x: -1, y: -1}
   HaloTypeID: 1024
+  HaloShowDes: "\u4E16\u754C4-1"
 --- !u!114 &114566004835711880
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1187,6 +1191,7 @@ MonoBehaviour:
   R: 0.6
   NextScenePosition: {x: 15, y: 14}
   HaloTypeID: 1024
+  HaloShowDes: "\u4E16\u754C6-1"
 --- !u!114 &114603581624079556
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1204,6 +1209,7 @@ MonoBehaviour:
   R: 0.6
   NextScenePosition: {x: 15, y: 14}
   HaloTypeID: 1024
+  HaloShowDes: "\u4E16\u754C5-1"
 --- !u!114 &114812816900842858
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1221,6 +1227,7 @@ MonoBehaviour:
   R: 0.6
   NextScenePosition: {x: 15, y: 14}
   HaloTypeID: 1024
+  HaloShowDes: "\u4E16\u754C7-1"
 --- !u!114 &114816427917285340
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1238,6 +1245,7 @@ MonoBehaviour:
   R: 0.6
   NextScenePosition: {x: -1, y: -1}
   HaloTypeID: 1024
+  HaloShowDes: "\u4E16\u754C1-1"
 --- !u!114 &114873926040220378
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1249,12 +1257,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8808479663d36584aadbb941f86ca2df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NextSceneID: 600
+  NextSceneID: 601
   NeedLevel: 14
   NeedPlayer: 0
   R: 0.6
   NextScenePosition: {x: 15, y: 14}
   HaloTypeID: 1024
+  HaloShowDes: "\u4E16\u754C7-2"
 --- !u!114 &114942626415305074
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1272,6 +1281,7 @@ MonoBehaviour:
   R: 0.6
   NextScenePosition: {x: -1, y: -1}
   HaloTypeID: 1024
+  HaloShowDes: "\u4E16\u754C2-1"
 --- !u!114 &114969977158574912
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1289,6 +1299,7 @@ MonoBehaviour:
   R: 0.6
   NextScenePosition: {x: 15, y: 14}
   HaloTypeID: 1024
+  HaloShowDes: "\u4E16\u754C6-3"
 --- !u!198 &198000628204695896
 ParticleSystem:
   m_ObjectHideFlags: 1

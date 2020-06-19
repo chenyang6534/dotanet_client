@@ -444,39 +444,39 @@ public class GuildInfo
 
         
         //-------------------------公会排名--------------------------
-        main.GetChild("ranklist").asList.RemoveChildren(0, -1, true);
-        //处理排序
-        Protomsg.GuildShortInfo[] allplayer = new Protomsg.GuildShortInfo[p1.Guilds.Count];
-        int index = 0;
-        foreach (var item in p1.Guilds)
-        {
-            allplayer[index++] = item;
-            Debug.Log("11SC_GetGuildRankInfo:" + item.Rank);
-        }
-        System.Array.Sort(allplayer, (a, b) => {
+        //main.GetChild("ranklist").asList.RemoveChildren(0, -1, true);
+        ////处理排序
+        //Protomsg.GuildShortInfo[] allplayer = new Protomsg.GuildShortInfo[p1.Guilds.Count];
+        //int index = 0;
+        //foreach (var item in p1.Guilds)
+        //{
+        //    allplayer[index++] = item;
+        //    Debug.Log("11SC_GetGuildRankInfo:" + item.Rank);
+        //}
+        //System.Array.Sort(allplayer, (a, b) => {
 
-            if (a.Rank > b.Rank)
-            {
-                return 1;
-            }else if(a.Rank == b.Rank)
-            {
-                return 0;
-            }
-            else
-            {
-                return -1;
-            }
-        });
-        foreach (var item in allplayer)
-        {
-            var onerank = UIPackage.CreateObject("GameUI", "GuildRankOne").asCom;
+        //    if (a.Rank > b.Rank)
+        //    {
+        //        return 1;
+        //    }else if(a.Rank == b.Rank)
+        //    {
+        //        return 0;
+        //    }
+        //    else
+        //    {
+        //        return -1;
+        //    }
+        //});
+        //foreach (var item in allplayer)
+        //{
+        //    var onerank = UIPackage.CreateObject("GameUI", "GuildRankOne").asCom;
 
-            onerank.GetChild("rank").asTextField.text = item.Rank+"";
-            onerank.GetChild("name").asTextField.text = item.Name;
-            onerank.GetChild("level").asTextField.text = "lv."+item.Level;
-            onerank.GetChild("count").asTextField.text = item.CharacterCount + "/"+item.MaxCount;
-            main.GetChild("ranklist").asList.AddChild(onerank);
-        }
+        //    onerank.GetChild("rank").asTextField.text = item.Rank+"";
+        //    onerank.GetChild("name").asTextField.text = item.Name;
+        //    onerank.GetChild("level").asTextField.text = "lv."+item.Level;
+        //    onerank.GetChild("count").asTextField.text = item.CharacterCount + "/"+item.MaxCount;
+        //    main.GetChild("ranklist").asList.AddChild(onerank);
+        //}
 
         //地图信息
         var clientitem = ExcelManager.Instance.GetSceneManager().GetSceneByID(p1.MapInfo.NextSceneID);
@@ -490,6 +490,40 @@ public class GuildInfo
         main.GetChild("rankuitime").asTextField.text = p1.MapInfo.OpenStartTime + "--" + p1.MapInfo.OpenEndTime;
         main.GetChild("rankuiweek").asTextField.text = "周" + p1.MapInfo.OpenWeekDay;
 
+        //Rewardstr battlerewardlist
+        main.GetChild("battlerewardlist").asList.RemoveChildren(0, -1, true);
+        var skillstrarr = p1.Rewardstr.Split(';');
+        foreach (var item in skillstrarr)
+        {
+            if (item.Length <= 0)
+            {
+                continue;
+            }
+            var itemstrarr = item.Split(':');
+            if (itemstrarr.Length < 2)
+            {
+                Debug.Log("itemstrarr.Length < 2 :" + item);
+                continue;
+            }
+            var typeid = int.Parse(itemstrarr[0]);
+            var quanzhong = int.Parse(itemstrarr[1]);
+
+            var clientitemdrop = ExcelManager.Instance.GetItemManager().GetItemByID(typeid);
+            if (clientitemdrop == null)
+            {
+                continue;
+            }
+            var onedropitemdrop = UIPackage.CreateObject("GameUI", "sellable").asCom;
+            onedropitemdrop.GetChild("icon").asLoader.url = clientitemdrop.IconPath;
+            onedropitemdrop.GetChild("icon").onClick.Add(() =>
+            {
+                new ItemInfo(typeid);
+            });
+            onedropitemdrop.GetChild("level").asTextField.text = "lv.1";
+            main.GetChild("battlerewardlist").asList.AddChild(onedropitemdrop);
+
+        }
+
         //进入
         main.GetChild("rankuigoto").asButton.onClick.Add(() =>
         {
@@ -499,12 +533,12 @@ public class GuildInfo
         });
 
         //击杀情况 CS_GetGuildRankBattleInfo
-        main.GetChild("rankuikillinfo").asButton.onClick.Add(() =>
-        {
-            Protomsg.CS_GetGuildRankBattleInfo msg1 = new Protomsg.CS_GetGuildRankBattleInfo();
-            msg1.ID = p1.MapInfo.ID;
-            MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetGuildRankBattleInfo", msg1);
-        });
+        //main.GetChild("rankuikillinfo").asButton.onClick.Add(() =>
+        //{
+        //    Protomsg.CS_GetGuildRankBattleInfo msg1 = new Protomsg.CS_GetGuildRankBattleInfo();
+        //    msg1.ID = p1.MapInfo.ID;
+        //    MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetGuildRankBattleInfo", msg1);
+        //});
 
         return true;
     }

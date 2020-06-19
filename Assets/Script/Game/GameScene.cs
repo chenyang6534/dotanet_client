@@ -254,7 +254,7 @@ public class GameScene : MonoBehaviour {
         else if(m_MaxFrame-frame <= 1)
         {
             //缓存中没有需要执行的数据 增加延时
-            m_LogicDelayTime += 0.015f;//20毫秒
+            m_LogicDelayTime += 0.010f;//10毫秒
             //Debug.Log("m_LogicDelayTime-:" + m_LogicDelayTime);
         }
     }

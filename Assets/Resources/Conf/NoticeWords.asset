@@ -360,3 +360,9 @@ MonoBehaviour:
     Type: 1
     AnimName: showlong
     Pos: 1
+  - TypeID: 57
+    Words: "[color=#3473F7]{p1=1}[/color]\u5DF2\u7ECF\u5F00\u542F,\u8BF7\u5404\u4F4D\u82F1\u96C4\u524D\u5F80!"
+    Sound: sound/other/warning
+    Type: 2
+    AnimName: showlong
+    Pos: 1

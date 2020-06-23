@@ -47,6 +47,9 @@ public class SkillInfo {
 
         //描述
         main.GetChild("des").asTextField.text = clientitem.Des;
+
+        main.GetChild("callbackbtn").visible = false;
+        main.GetChild("usebtn").visible = false;
     }
 
     //

@@ -773,7 +773,8 @@ public class MyInfo {
                             //Debug.Log("onClick");
                             if (clientitem.TypeID != -1)
                             {
-                                new ItemInfo(clientitem.TypeID);
+                               ItemInfo iteminfoa = new ItemInfo(clientitem.TypeID);
+                                iteminfoa.AddDes("\n掉率:" + (f1 * 100).ToString("0.00") + "%");
                             }
                         });
 

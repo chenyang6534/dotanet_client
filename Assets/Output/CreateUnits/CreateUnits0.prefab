@@ -1114,7 +1114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NextSceneID: 602
-  NeedLevel: 14
+  NeedLevel: 16
   NeedPlayer: 0
   R: 0.6
   NextScenePosition: {x: 15, y: 14}
@@ -1132,7 +1132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NextSceneID: 501
-  NeedLevel: 13
+  NeedLevel: 14
   NeedPlayer: 0
   R: 0.6
   NextScenePosition: {x: 15, y: 14}
@@ -1186,7 +1186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NextSceneID: 500
-  NeedLevel: 13
+  NeedLevel: 14
   NeedPlayer: 0
   R: 0.6
   NextScenePosition: {x: 15, y: 14}
@@ -1222,7 +1222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NextSceneID: 600
-  NeedLevel: 14
+  NeedLevel: 16
   NeedPlayer: 0
   R: 0.6
   NextScenePosition: {x: 15, y: 14}
@@ -1258,7 +1258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NextSceneID: 601
-  NeedLevel: 14
+  NeedLevel: 16
   NeedPlayer: 0
   R: 0.6
   NextScenePosition: {x: 15, y: 14}
@@ -1294,7 +1294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NextSceneID: 502
-  NeedLevel: 13
+  NeedLevel: 14
   NeedPlayer: 0
   R: 0.6
   NextScenePosition: {x: 15, y: 14}

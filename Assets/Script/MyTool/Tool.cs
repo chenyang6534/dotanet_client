@@ -246,7 +246,7 @@ public static class Tool {
             }
         }
         word = Tool.ParseTemplate(word, pa);
-
+        var speed = 100.0f;
         if (PaoMaDengCom == null)
         {
             PaoMaDengCom = UIPackage.CreateObject("GameUI", "PaoMaDeng").asCom;
@@ -257,8 +257,7 @@ public static class Tool {
             
 
             FairyGUI.Transition trans = PaoMaDengCom.GetTransition("move2left");
-
-            var speed = 200.0f;
+            
             var distanse = 800 + PaoMaDengCom.GetChild("word").width;
             var time = distanse / speed;
             trans.SetValue("over", -PaoMaDengCom.GetChild("word").width, 5);
@@ -287,7 +286,7 @@ public static class Tool {
             PaoMaDengCom.GetChild("word").asTextField.text = lasttext+ space + word;
             FairyGUI.Transition trans = PaoMaDengCom.GetTransition("move2left");
             //trans.SetPaused(true);
-            var speed = 200.0f;
+            
             var distanse = 800 + PaoMaDengCom.GetChild("word").width;
             Debug.Log("distanse:" + distanse);
             var time = distanse / speed;

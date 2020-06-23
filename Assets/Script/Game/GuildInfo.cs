@@ -280,6 +280,7 @@ public class GuildInfo
             //onedropitem.GetChild("item").asCom.GetChild("icon").asLoader.url = clientitem.IconPath;
             onedropitem.GetChild("name").asTextField.text = clientitem.Name;
             onedropitem.GetChild("guildlevel").asTextField.text = item.NeedGuildLevel + "";
+            onedropitem.GetChild("playerlevel").asTextField.text = item.NeedPlayerLevel + "";
             onedropitem.GetChild("time").asTextField.text = item.OpenStartTime + "--"+item.OpenEndTime;
             onedropitem.GetChild("week").asTextField.text = "周"+item.OpenWeekDay;
 
@@ -419,7 +420,7 @@ public class GuildInfo
                     sellwindow.Dispose();
                 });
                 sellwindow.GetChild("item").asCom.GetChild("icon").asLoader.url = clientitem.IconPath;
-                sellwindow.GetChild("item").asCom.GetChild("level").asTextField.text = item.Level + "";
+                sellwindow.GetChild("item").asCom.GetChild("level").asTextField.text = "Lv."+item.Level;
                 sellwindow.GetChild("name").asTextField.text = clientitem.Name;
                 sellwindow.GetChild("pricetype").asLoader.url = Tool.GetPriceTypeIcon(item.PriceType);
                 sellwindow.GetChild("input").asTextInput.text = (item.Price+1) +"";

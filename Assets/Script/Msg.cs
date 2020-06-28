@@ -327,7 +327,12 @@ namespace Protomsg {
             "GAIgASgFIlEKDlNDX09wZW5TdG9yYWdlEi0KDFN0b3JhZ2VJdGVtcxgBIAMo",
             "CzIXLnByb3RvbXNnLkl0ZW1TaW1wbGVNc2cSEAoITWF4Q291bnQYAiABKAUi",
             "HgoPQ1NfU2F2ZTJTdG9yYWdlEgsKA1BvcxgBIAEoBSIkChVDU19UYWtlT3V0",
-            "RnJvbVN0b3JhZ2USCwoDUG9zGAEgASgFYgZwcm90bzM="));
+            "RnJvbVN0b3JhZ2USCwoDUG9zGAEgASgFIiQKFkNTX0dldEJhdHRsZUV4cFJl",
+            "d2FyZHMSCgoCSUQYASABKAUiUAoVQmF0dGxlUmV3YXJkc1Byb3RvTXNnEhEK",
+            "CUJhdHRsZUV4cBgBIAEoBRIPCgdSZXdhcmRzGAIgAygJEhMKC1Jld2FyZExl",
+            "dmVsGAMgAygFIl8KFlNDX0dldEJhdHRsZUV4cFJld2FyZHMSEwoLTXlCYXR0",
+            "bGVFeHAYASABKAUSMAoHUmV3YXJkcxgCIAMoCzIfLnByb3RvbXNnLkJhdHRs",
+            "ZVJld2FyZHNQcm90b01zZ2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -482,7 +487,10 @@ namespace Protomsg {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.ItemSimpleMsg), global::Protomsg.ItemSimpleMsg.Parser, new[]{ "TypeID", "Level" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_OpenStorage), global::Protomsg.SC_OpenStorage.Parser, new[]{ "StorageItems", "MaxCount" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_Save2Storage), global::Protomsg.CS_Save2Storage.Parser, new[]{ "Pos" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_TakeOutFromStorage), global::Protomsg.CS_TakeOutFromStorage.Parser, new[]{ "Pos" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_TakeOutFromStorage), global::Protomsg.CS_TakeOutFromStorage.Parser, new[]{ "Pos" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GetBattleExpRewards), global::Protomsg.CS_GetBattleExpRewards.Parser, new[]{ "ID" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.BattleRewardsProtoMsg), global::Protomsg.BattleRewardsProtoMsg.Parser, new[]{ "BattleExp", "Rewards", "RewardLevel" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetBattleExpRewards), global::Protomsg.SC_GetBattleExpRewards.Parser, new[]{ "MyBattleExp", "Rewards" }, null, null, null)
           }));
     }
     #endregion
@@ -31448,6 +31456,463 @@ namespace Protomsg {
             break;
           case 8: {
             Pos = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///获取竞技场经验奖励列表
+  /// </summary>
+  public sealed partial class CS_GetBattleExpRewards : pb::IMessage<CS_GetBattleExpRewards> {
+    private static readonly pb::MessageParser<CS_GetBattleExpRewards> _parser = new pb::MessageParser<CS_GetBattleExpRewards>(() => new CS_GetBattleExpRewards());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CS_GetBattleExpRewards> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[152]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetBattleExpRewards() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetBattleExpRewards(CS_GetBattleExpRewards other) : this() {
+      iD_ = other.iD_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetBattleExpRewards Clone() {
+      return new CS_GetBattleExpRewards(this);
+    }
+
+    /// <summary>Field number for the "ID" field.</summary>
+    public const int IDFieldNumber = 1;
+    private int iD_;
+    /// <summary>
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ID {
+      get { return iD_; }
+      set {
+        iD_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CS_GetBattleExpRewards);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CS_GetBattleExpRewards other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ID != other.ID) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ID != 0) hash ^= ID.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (ID != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(ID);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (ID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ID);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CS_GetBattleExpRewards other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ID != 0) {
+        ID = other.ID;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            ID = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class BattleRewardsProtoMsg : pb::IMessage<BattleRewardsProtoMsg> {
+    private static readonly pb::MessageParser<BattleRewardsProtoMsg> _parser = new pb::MessageParser<BattleRewardsProtoMsg>(() => new BattleRewardsProtoMsg());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<BattleRewardsProtoMsg> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[153]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public BattleRewardsProtoMsg() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public BattleRewardsProtoMsg(BattleRewardsProtoMsg other) : this() {
+      battleExp_ = other.battleExp_;
+      rewards_ = other.rewards_.Clone();
+      rewardLevel_ = other.rewardLevel_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public BattleRewardsProtoMsg Clone() {
+      return new BattleRewardsProtoMsg(this);
+    }
+
+    /// <summary>Field number for the "BattleExp" field.</summary>
+    public const int BattleExpFieldNumber = 1;
+    private int battleExp_;
+    /// <summary>
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int BattleExp {
+      get { return battleExp_; }
+      set {
+        battleExp_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Rewards" field.</summary>
+    public const int RewardsFieldNumber = 2;
+    private static readonly pb::FieldCodec<string> _repeated_rewards_codec
+        = pb::FieldCodec.ForString(18);
+    private readonly pbc::RepeatedField<string> rewards_ = new pbc::RepeatedField<string>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<string> Rewards {
+      get { return rewards_; }
+    }
+
+    /// <summary>Field number for the "RewardLevel" field.</summary>
+    public const int RewardLevelFieldNumber = 3;
+    private static readonly pb::FieldCodec<int> _repeated_rewardLevel_codec
+        = pb::FieldCodec.ForInt32(26);
+    private readonly pbc::RepeatedField<int> rewardLevel_ = new pbc::RepeatedField<int>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<int> RewardLevel {
+      get { return rewardLevel_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as BattleRewardsProtoMsg);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(BattleRewardsProtoMsg other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (BattleExp != other.BattleExp) return false;
+      if(!rewards_.Equals(other.rewards_)) return false;
+      if(!rewardLevel_.Equals(other.rewardLevel_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (BattleExp != 0) hash ^= BattleExp.GetHashCode();
+      hash ^= rewards_.GetHashCode();
+      hash ^= rewardLevel_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (BattleExp != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(BattleExp);
+      }
+      rewards_.WriteTo(output, _repeated_rewards_codec);
+      rewardLevel_.WriteTo(output, _repeated_rewardLevel_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (BattleExp != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(BattleExp);
+      }
+      size += rewards_.CalculateSize(_repeated_rewards_codec);
+      size += rewardLevel_.CalculateSize(_repeated_rewardLevel_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(BattleRewardsProtoMsg other) {
+      if (other == null) {
+        return;
+      }
+      if (other.BattleExp != 0) {
+        BattleExp = other.BattleExp;
+      }
+      rewards_.Add(other.rewards_);
+      rewardLevel_.Add(other.rewardLevel_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            BattleExp = input.ReadInt32();
+            break;
+          }
+          case 18: {
+            rewards_.AddEntriesFrom(input, _repeated_rewards_codec);
+            break;
+          }
+          case 26:
+          case 24: {
+            rewardLevel_.AddEntriesFrom(input, _repeated_rewardLevel_codec);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class SC_GetBattleExpRewards : pb::IMessage<SC_GetBattleExpRewards> {
+    private static readonly pb::MessageParser<SC_GetBattleExpRewards> _parser = new pb::MessageParser<SC_GetBattleExpRewards>(() => new SC_GetBattleExpRewards());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<SC_GetBattleExpRewards> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[154]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetBattleExpRewards() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetBattleExpRewards(SC_GetBattleExpRewards other) : this() {
+      myBattleExp_ = other.myBattleExp_;
+      rewards_ = other.rewards_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetBattleExpRewards Clone() {
+      return new SC_GetBattleExpRewards(this);
+    }
+
+    /// <summary>Field number for the "MyBattleExp" field.</summary>
+    public const int MyBattleExpFieldNumber = 1;
+    private int myBattleExp_;
+    /// <summary>
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int MyBattleExp {
+      get { return myBattleExp_; }
+      set {
+        myBattleExp_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Rewards" field.</summary>
+    public const int RewardsFieldNumber = 2;
+    private static readonly pb::FieldCodec<global::Protomsg.BattleRewardsProtoMsg> _repeated_rewards_codec
+        = pb::FieldCodec.ForMessage(18, global::Protomsg.BattleRewardsProtoMsg.Parser);
+    private readonly pbc::RepeatedField<global::Protomsg.BattleRewardsProtoMsg> rewards_ = new pbc::RepeatedField<global::Protomsg.BattleRewardsProtoMsg>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::Protomsg.BattleRewardsProtoMsg> Rewards {
+      get { return rewards_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as SC_GetBattleExpRewards);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(SC_GetBattleExpRewards other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (MyBattleExp != other.MyBattleExp) return false;
+      if(!rewards_.Equals(other.rewards_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (MyBattleExp != 0) hash ^= MyBattleExp.GetHashCode();
+      hash ^= rewards_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (MyBattleExp != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(MyBattleExp);
+      }
+      rewards_.WriteTo(output, _repeated_rewards_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (MyBattleExp != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(MyBattleExp);
+      }
+      size += rewards_.CalculateSize(_repeated_rewards_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(SC_GetBattleExpRewards other) {
+      if (other == null) {
+        return;
+      }
+      if (other.MyBattleExp != 0) {
+        MyBattleExp = other.MyBattleExp;
+      }
+      rewards_.Add(other.rewards_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            MyBattleExp = input.ReadInt32();
+            break;
+          }
+          case 18: {
+            rewards_.AddEntriesFrom(input, _repeated_rewards_codec);
             break;
           }
         }

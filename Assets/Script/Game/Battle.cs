@@ -17,6 +17,8 @@ public class Battle
         MsgManager.Instance.AddListener("SC_GetBattleRankInfo", new HandleMsg(this.SC_GetBattleRankInfo));
         MsgManager.Instance.AddListener("SC_GetBattleMapInfo", new HandleMsg(this.SC_GetBattleMapInfo));
 
+        MsgManager.Instance.AddListener("SC_GetBattleExpRewards", new HandleMsg(this.SC_GetBattleExpRewards));
+
         main = UIPackage.CreateObject("GameUI", "BattleInfo").asCom;
         GRoot.inst.AddChild(main);
         main.xy = Tool.GetPosition(0.5f, 0.5f);
@@ -103,7 +105,93 @@ public class Battle
 
         return true;
     }
-    
+    //SC_GetBattleExpRewards
+    public bool SC_GetBattleExpRewards(Protomsg.MsgBase d1)
+    {
+        Debug.Log("SC_GetBattleExpRewards:");
+        IMessage IMperson = new Protomsg.SC_GetBattleExpRewards();
+        Protomsg.SC_GetBattleExpRewards p1 = (Protomsg.SC_GetBattleExpRewards)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
+
+        var battleover = UIPackage.CreateObject("GameUI", "BattleRewards").asCom;
+        GRoot.inst.AddChild(battleover);
+        battleover.xy = Tool.GetPosition(0.5f, 0.5f);
+        AudioManager.Am.Play2DSound(AudioManager.Sound_OpenLittleUI);
+        battleover.GetChild("close").onClick.Add(() => {
+            battleover.Dispose();
+        });
+
+        battleover.GetChild("myexp").asTextField.SetVar("p1", "" + p1.MyBattleExp);
+        battleover.GetChild("myexp").asTextField.FlushVars();
+
+        battleover.GetChild("rankllist").asList.RemoveChildren(0, -1, true);
+        Debug.Log("rewards:"+p1.Rewards.Count);
+
+        var mylevel = 1;
+        if(GameScene.Singleton.m_MyMainUnit != null)
+        {
+            mylevel = GameScene.Singleton.m_MyMainUnit.Level;
+        }
+        foreach (var item in p1.Rewards)
+        {
+            
+            var onedropitem = UIPackage.CreateObject("GameUI", "BattleRewardsOne").asCom;
+            onedropitem.GetChild("exp").asTextField.text = item.BattleExp+"";
+            if(p1.MyBattleExp >= item.BattleExp)
+            {
+                onedropitem.grayed = true;
+            }
+            Debug.Log("exp:" + item.BattleExp);
+            onedropitem.GetChild("list1").asList.RemoveChildren(0, -1, true);
+            var lastlevel = 1;
+            for (var i = 0; i < item.RewardLevel.Count; i++)
+            {
+                var twodropitem = UIPackage.CreateObject("GameUI", "BattleRewardLevelOne").asCom;
+                twodropitem.GetChild("level").asTextField.text = lastlevel + "级-"+ item.RewardLevel[i]+"级";
+                if(lastlevel <= mylevel && mylevel <= item.RewardLevel[i])
+                {
+                    twodropitem.grayed = false;
+                }
+                else
+                {
+                    twodropitem.grayed = true;
+                }
+                lastlevel = item.RewardLevel[i] + 1;
+                twodropitem.GetChild("droplist").asList.RemoveChildren(0, -1, true);
+                var itemarr = item.Rewards[i].Split(';');
+                foreach (var item2 in itemarr)
+                {
+                    var itemdata = item2.Split(',');
+                    if(itemdata.Length <= 0)
+                    {
+                        continue;
+                    }
+                    var itemid = int.Parse(itemdata[0]);
+
+                    var clientitemone = ExcelManager.Instance.GetItemManager().GetItemByID(itemid);
+                    if (clientitemone == null)
+                    {
+                        continue;
+                    }
+
+                    var threedropitem = UIPackage.CreateObject("GameUI", "sellable").asCom;
+                    threedropitem.GetChild("icon").asLoader.url = clientitemone.IconPath;
+                    threedropitem.GetChild("icon").onClick.Add(() =>
+                    {
+                        new ItemInfo(itemid);
+                    });
+                    threedropitem.GetChild("level").asTextField.text = "lv.1";
+                    twodropitem.GetChild("droplist").asList.AddChild(threedropitem);
+                }
+
+                onedropitem.GetChild("list1").asList.AddChild(twodropitem);
+            }
+           
+
+            battleover.GetChild("rankllist").asList.AddChild(onedropitem);
+        }
+
+        return true;
+    }
 
     public bool SC_GetBattleMapInfo(Protomsg.MsgBase d1)
     {
@@ -114,6 +202,14 @@ public class Battle
         main.GetChild("guildlevel").asTextField.text = "Lv."+p1.BattleMapInfo.NeedLevel;
 
         main.GetChild("curpipei").asTextField.text = "(" + p1.BattleMapInfo.PiPeiCount + "/" + p1.BattleMapInfo.PlayerCount + ")";
+
+        //奖励信息
+        main.GetChild("rewardbtn").asButton.onClick.Add(() =>
+        {
+            Protomsg.CS_GetBattleExpRewards msg1 = new Protomsg.CS_GetBattleExpRewards();
+            MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetBattleExpRewards", msg1);
+        });
+
         //进入
         main.GetChild("pipei").asButton.onClick.Add(() =>
         {
@@ -153,6 +249,8 @@ public class Battle
     {
         MsgManager.Instance.RemoveListener("SC_GetBattleRankInfo");
         MsgManager.Instance.RemoveListener("SC_GetBattleMapInfo");
+        MsgManager.Instance.RemoveListener("SC_GetBattleExpRewards");
+        
 
         AudioManager.Am.Play2DSound(AudioManager.Sound_CloseUI);
         if (main != null)

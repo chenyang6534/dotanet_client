@@ -800,3 +800,9 @@ MonoBehaviour:
     Name: "\u53F2\u8BD7\u7EA7\u7ADE\u6280\u5B9D\u7BB1"
     Des: "\u5B9D\u7BB1\u4E2D\u88C5\u6709\u5F88\u591A\u88C5\u5907,\u6253\u5F00\u540E\u4F1A\u968F\u673A\u83B7\u5F97\u5176\u4E2D\u4E00\u79CD\u3002"
     ShowLevel: 0
+  - TypeID: 212
+    IconPath: "ui://GameUI/\u7ECF\u9A8C\u4E0A\u9650\u4E39"
+    SceneItem: 
+    Name: "\u7ADE\u6280\u573A\u7ECF\u9A8C\u4E39"
+    Des: "\u4F7F\u7528\u540E\u589E\u52A0\u7ADE\u6280\u573A\u7ECF\u9A8C50/100/200/400/800"
+    ShowLevel: 1

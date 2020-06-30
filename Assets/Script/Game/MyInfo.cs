@@ -774,7 +774,7 @@ public class MyInfo {
                             if (clientitem.TypeID != -1)
                             {
                                ItemInfo iteminfoa = new ItemInfo(clientitem.TypeID);
-                                iteminfoa.AddDes("\n掉率:" + (f1 * 100).ToString("0.00") + "%");
+                                iteminfoa.AddDes("\n[color=#66ff66]掉率:" + (f1 * 100).ToString("0.00") + "%[/color]");
                             }
                         });
 

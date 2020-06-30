@@ -50,6 +50,7 @@ public class ItemInfo {
         }
         else
         {
+            main.GetChild("needlevel").visible = true;
             main.GetChild("needlevel").asTextField.SetVar("p1", p1.EquipNeedLevel + "");
             main.GetChild("needlevel").asTextField.FlushVars();
         }
@@ -153,6 +154,7 @@ public class ItemInfo {
         main.GetChild("callbackbtn").visible = false;
         main.GetChild("usebtn").visible = false;
 
+        main.GetChild("needlevel").visible = false;
 
         ////需要等级
         //main.GetChild("needlevel").asTextField.text = "";

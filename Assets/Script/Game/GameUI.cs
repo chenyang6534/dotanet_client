@@ -231,6 +231,11 @@ public class GameUI : MonoBehaviour {
         {
             new Battle();
         });
+        //任务
+        LittleMapCom.GetChild("task").asButton.onClick.Add(() =>
+        {
+            new Task();
+        });
 
         //显示所有
         ShowAllBtn(false);
@@ -270,6 +275,7 @@ public class GameUI : MonoBehaviour {
         MsgManager.Instance.AddListener("SC_ShowPiPeiInfo", new HandleMsg(this.SC_ShowPiPeiInfo));
         MsgManager.Instance.AddListener("SC_GetBattleHeroInfo", new HandleMsg(this.SC_GetBattleHeroInfo));
         MsgManager.Instance.AddListener("SC_GetGuildRankBattleInfo", new HandleMsg(this.SC_GetGuildRankBattleInfo));
+        MsgManager.Instance.AddListener("SC_RedNotice", new HandleMsg(this.SC_RedNotice));
 
     }
     void OnDestroy()
@@ -281,6 +287,7 @@ public class GameUI : MonoBehaviour {
         MsgManager.Instance.RemoveListener("SC_ShowPiPeiInfo");
         MsgManager.Instance.RemoveListener("SC_GetBattleHeroInfo");
         MsgManager.Instance.RemoveListener("SC_GetGuildRankBattleInfo");
+        MsgManager.Instance.RemoveListener("SC_RedNotice");
     }
     //显示所有按钮
     public void ShowAllBtn(bool show)
@@ -297,6 +304,7 @@ public class GameUI : MonoBehaviour {
             LittleMapCom.GetChild("activitymap").visible = true;
             LittleMapCom.GetChild("copymap").visible = true;
             LittleMapCom.GetChild("battlebtn").visible = true;
+            LittleMapCom.GetChild("task").visible = true;
 
         }
         else
@@ -310,6 +318,7 @@ public class GameUI : MonoBehaviour {
             LittleMapCom.GetChild("activitymap").visible = false;
             LittleMapCom.GetChild("copymap").visible = false;
             LittleMapCom.GetChild("battlebtn").visible = false;
+            LittleMapCom.GetChild("task").visible = false;
         }
     }
 
@@ -335,6 +344,72 @@ public class GameUI : MonoBehaviour {
 
         Debug.Log("AddChatMsg:" + content);
     }
+
+    //红点提示SC_RedNotice
+    private int MailsCount = 0;
+    private int TaskCount = 0;
+    private int FriendCount = 0;
+
+    public bool SC_RedNotice(Protomsg.MsgBase d1)
+    {
+        Debug.Log("SC_RedNotice:");
+        IMessage IMperson = new Protomsg.SC_RedNotice();
+        Protomsg.SC_RedNotice p1 = (Protomsg.SC_RedNotice)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
+        // 1表示邮件 2表示任务 3表示好友请求
+        if (p1.Type == 1)
+        {
+            MailsCount = p1.Count;
+        }else if(p1.Type == 2)
+        {
+            TaskCount = p1.Count;
+        }
+        else if (p1.Type == 3)
+        {
+            FriendCount = p1.Count;
+        }
+        //邮件
+        if (MailsCount > 0)
+        {
+            LittleMapCom.GetChild("mail").asButton.GetChild("red").visible = true;
+        }
+        else
+        {
+            LittleMapCom.GetChild("mail").asButton.GetChild("red").visible = false;
+        }
+        //任务
+        if (TaskCount > 0)
+        {
+            LittleMapCom.GetChild("task").asButton.GetChild("red").visible = true;
+        }
+        else
+        {
+            LittleMapCom.GetChild("task").asButton.GetChild("red").visible = false;
+        }
+
+        //好友friend
+        if (FriendCount > 0)
+        {
+            LittleMapCom.GetChild("friend").asButton.GetChild("red").visible = true;
+        }
+        else
+        {
+            LittleMapCom.GetChild("friend").asButton.GetChild("red").visible = false;
+        }
+        //所有
+        if (TaskCount+ MailsCount+ FriendCount > 0)
+        {
+            LittleMapCom.GetChild("showbtn").asButton.GetChild("red").visible = true;
+        }
+        else
+        {
+            LittleMapCom.GetChild("showbtn").asButton.GetChild("red").visible = false;
+        }
+
+        
+
+        return true;
+    }
+
     public bool SC_GetGuildRankBattleInfo(Protomsg.MsgBase d1)
     {
         Debug.Log("SC_GetGuildRankBattleInfo:");

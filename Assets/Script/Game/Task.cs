@@ -11,6 +11,7 @@ public class Task
 {
     private GComponent main;
     private bool IsGetTask2;
+    private bool IsGetTask3;
     public Task()
     {
 
@@ -47,6 +48,18 @@ public class Task
             MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetTask", msg1);
             IsGetTask2 = true;
         });
+        main.GetChild("gan").asButton.onClick.Add(() =>
+        {
+            if (IsGetTask3)
+            {
+                return;
+            }
+
+            Protomsg.CS_GetTask msg1 = new Protomsg.CS_GetTask();
+            msg1.TaskType = 3;//任务类型(1:主线 2:日常 3:肝)
+            MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetTask", msg1);
+            IsGetTask3 = true;
+        });
     }
   
 
@@ -61,6 +74,9 @@ public class Task
         if(p1.TaskType == 2)
         {
             tasklist = main.GetChild("richanglist").asList;
+        }else if(p1.TaskType == 3)
+        {
+            tasklist = main.GetChild("ganlist").asList;
         }
         tasklist.RemoveChildren(0, -1, true);
 
@@ -118,6 +134,7 @@ public class Task
             if(item.State == 1)
             {
                 onedropitem.GetChild("get").visible = true;
+                onedropitem.GetChild("jindustate").asTextField.text = "";
             }
             else
             {

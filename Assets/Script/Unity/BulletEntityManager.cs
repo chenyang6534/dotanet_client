@@ -75,6 +75,10 @@ public class BulletEntityManager
     //删除单位
     public void DestroyBulletEntity(int id)
     {
+        if (m_BulletEntitys.ContainsKey(id) == false)
+        {
+            return;
+        }
         BulletEntity unity = m_BulletEntitys[id];
         if( unity != null)
         {
@@ -101,6 +105,10 @@ public class BulletEntityManager
     //更改显示位置
     public void ChangeShowPos(Protomsg.BulletDatas data, float scale)
     {
+        if (m_BulletEntitys.ContainsKey(data.ID) == false)
+        {
+            return;
+        }
         BulletEntity unity = m_BulletEntitys[data.ID];
         if (unity != null)
         {

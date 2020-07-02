@@ -52,6 +52,7 @@ public class TalentInfo {
         {
             main.GetChild("active").visible = false;
             main.GetChild("jihuozhuangtai").asTextField.text = "已激活";
+            main.GetChild("jihuozhuangtai").asTextField.color = new Color(0.4f, 1, 0.4f);
 
             //if (LastButton != null)
             //{
@@ -155,10 +156,12 @@ public class TalentInfo {
         if (Level >= 1)
         {
             main.GetChild("jihuozhuangtai").asTextField.text = "已激活";
+            main.GetChild("jihuozhuangtai").asTextField.color = new Color(0.4f, 1, 0.4f);
         }
         else
         {
             main.GetChild("jihuozhuangtai").asTextField.text = "未激活";
+            main.GetChild("jihuozhuangtai").asTextField.color = new Color(1, 0.2f, 0.2f);
             if (IsMyUnit)
             {
                 main.GetChild("active").visible = true;

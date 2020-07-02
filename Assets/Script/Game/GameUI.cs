@@ -165,7 +165,30 @@ public class GameUI : MonoBehaviour {
         TeamInfo = mainUI.GetChild("teaminfo").asCom;
         TeamInfoShow(false);
 
-        
+
+        //小地图点击
+        //Debug.Log("aaaaaa+" + LittleMapCom.GetChild("bg"));
+        LittleMapCom.GetChild("bg").onTouchEnd.Add((EventContext context)=> {
+            InputEvent inputEvent = (InputEvent)context.data;
+
+            Vector2 localPos = LittleMapCom.GetChild("bg").GlobalToLocal(inputEvent.position);
+
+            Debug.Log("touchpos:" + localPos);
+
+            var item = ExcelManager.Instance.GetSceneManager().GetSceneByID(SceneID);
+            if (item != null)
+            {
+                var scaleX = (LittleMapCom.width) / (item.EndX - item.StartX);
+                var scaleY = (LittleMapCom.height) / (item.EndY - item.StartY);
+                //aImage.SetXY((unit.Value.X - item.StartX)* scaleX , LittleMapCom.height - ((unit.Value.Y - item.StartY) * scaleY ));
+                var posx = localPos.x / scaleX + item.StartX;
+                var posy = (LittleMapCom.height- localPos.y) / scaleY + item.StartY;
+                Debug.Log("movetopos:" + posx+"   "+ posy);
+
+            }
+        });
+
+
         //设置 退出
         LittleMapCom.GetChild("set_btn").asButton.onClick.Add(() =>
         {
@@ -1529,6 +1552,7 @@ public class GameUI : MonoBehaviour {
             GGraph aImage = new GGraph();
             //aImage.SetSize(5, 5);
             //aImage.DrawEllipse(5, 5, color1);
+            aImage.touchable = false;
             aImage.DrawRect(drawsize, drawsize, 1, new Color(0, 0, 0), color1);
 
             //GImage aImage = UIPackage.CreateObject("GameUI", iconpath).asImage;

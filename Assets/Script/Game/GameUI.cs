@@ -601,6 +601,11 @@ public class GameUI : MonoBehaviour {
                 }
                 var itemid = int.Parse(itemarr[0]);
                 var itemlevel = itemarr[1];
+                var dbitemid = -1;
+                if(itemarr.Length >= 3)
+                {
+                    dbitemid = int.Parse(itemarr[2]);
+                }
                 var clientitemone = ExcelManager.Instance.GetItemManager().GetItemByID(itemid);
                 if (clientitemone == null)
                 {
@@ -610,7 +615,7 @@ public class GameUI : MonoBehaviour {
                 onedropitemone.GetChild("icon").asLoader.url = clientitemone.IconPath;
                 onedropitemone.GetChild("icon").onClick.Add(() =>
                 {
-                    new ItemInfo(itemid);
+                    new ItemInfo(itemid, dbitemid);
                 });
                 onedropitemone.GetChild("level").asTextField.text = ""+ itemlevel;
                 onedropitem.GetChild("itemlist").asList.AddChild(onedropitemone);
@@ -679,6 +684,11 @@ public class GameUI : MonoBehaviour {
                 }
                 var itemid = int.Parse(itemarr[0]);
                 var itemlevel = itemarr[1];
+                var dbitemid = -1;
+                if (itemarr.Length >= 3)
+                {
+                    dbitemid = int.Parse(itemarr[2]);
+                }
                 var clientitemone = ExcelManager.Instance.GetItemManager().GetItemByID(itemid);
                 if (clientitemone == null)
                 {
@@ -688,7 +698,7 @@ public class GameUI : MonoBehaviour {
                 onedropitemone.GetChild("icon").asLoader.url = clientitemone.IconPath;
                 onedropitemone.GetChild("icon").onClick.Add(() =>
                 {
-                    new ItemInfo(itemid);
+                    new ItemInfo(itemid, dbitemid);
                 });
                 onedropitemone.GetChild("level").asTextField.text = "lv." + itemlevel;
                 onedropitem.GetChild("itemlist").asList.AddChild(onedropitemone);

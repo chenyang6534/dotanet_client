@@ -369,7 +369,7 @@ public class GuildInfo
                     }
                     
                 }
-                new ItemInfo(item.ItemID).AddDes(des);
+                new ItemInfo(item.ItemID,item.ItemDBID).AddDes(des);
             });
 
             onedropitem.GetChild("pricetype").asLoader.url = Tool.GetPriceTypeIcon(item.PriceType);

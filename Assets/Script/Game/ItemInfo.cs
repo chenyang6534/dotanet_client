@@ -12,9 +12,14 @@ public class ItemInfo {
     public BtnCallBack UseCallBack;
 
     private int TypeID;
-    public ItemInfo(int typeid)
+    private int DBItemID;
+
+    private void newone(int typeid, int dbitemid)
     {
         TypeID = typeid;
+        DBItemID = dbitemid;
+
+
         var clientitem = ExcelManager.Instance.GetItemManager().GetItemByID(typeid);
         if (clientitem == null)
         {
@@ -32,6 +37,17 @@ public class ItemInfo {
         Vector2 logicScreenPos = GRoot.inst.GlobalToLocal(screenPos);
         main.xy = logicScreenPos;
         Init(clientitem);
+    }
+
+    public ItemInfo(int typeid)
+    {
+        newone(typeid, -1);
+    }
+    public ItemInfo(int typeid,int dbitemid)
+    {
+
+        newone(typeid, dbitemid);
+        
     }
 
     public bool SC_GetItemExtraInfo(Protomsg.MsgBase d1)
@@ -155,6 +171,12 @@ public class ItemInfo {
         main.GetChild("usebtn").visible = false;
 
         main.GetChild("needlevel").visible = false;
+
+
+        if (DBItemID > 0)
+        {
+            AddDes("\n 唯一ID:" + DBItemID);
+        }
 
         ////需要等级
         //main.GetChild("needlevel").asTextField.text = "";

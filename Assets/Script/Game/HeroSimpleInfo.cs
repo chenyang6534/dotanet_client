@@ -151,6 +151,11 @@ public class HeroSimpleInfo
             }
             var typeid = int.Parse(itemstrarr[0]);
             var level = int.Parse(itemstrarr[1]);
+            var dbitemid = -1;
+            if (itemstrarr.Length >= 3)
+            {
+                dbitemid = int.Parse(itemstrarr[2]);
+            }
 
             var clientitem = ExcelManager.Instance.GetItemManager().GetItemByID(typeid);
             if (clientitem == null)
@@ -166,7 +171,7 @@ public class HeroSimpleInfo
                
                 if (typeid != -1)
                 {
-                    new ItemInfo(typeid);
+                    new ItemInfo(typeid, dbitemid);
                 }
             });
         }

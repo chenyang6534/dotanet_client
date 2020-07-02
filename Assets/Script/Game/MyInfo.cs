@@ -163,16 +163,18 @@ public class MyInfo {
                     Debug.Log("index:" + (int)item.data);
                     var index = (int)item.data;
                     var typeid = -1;
+                    var dbitemid = -1;
                     for (var j = 0; j < UnitDataInfo.Equips.Count; j++)
                     {
                         if (UnitDataInfo.Equips[j].Pos == index)
                         {
                             typeid = UnitDataInfo.Equips[j].TypdID;
+                            dbitemid = UnitDataInfo.Equips[j].ItemDBID;
                         }
                     }
                     if (typeid != -1)
                     {
-                        new ItemInfo(typeid);
+                        new ItemInfo(typeid, dbitemid);
                     }
 
 
@@ -282,16 +284,18 @@ public class MyInfo {
                 item.onClick.Add(() => {
                     var index = (int)item.data;
                     var typeid = -1;
+                    var dbitemid = -1;
                     for (var j = 0; j < BagDataInfo.Equips.Count; j++)
                     {
                         if (BagDataInfo.Equips[j].Pos == index)
                         {
                             typeid = BagDataInfo.Equips[j].TypdID;
+                            dbitemid = BagDataInfo.Equips[j].ItemDBID;
                         }
                     }
                     if (typeid != -1)
                     {
-                        ItemInfo a = new ItemInfo(typeid);
+                        ItemInfo a = new ItemInfo(typeid, dbitemid);
                         a.SetCallBackBtn("存放",()=> {
                             Protomsg.CS_Save2Storage msg1 = new Protomsg.CS_Save2Storage();
                             msg1.Pos = index;
@@ -322,16 +326,18 @@ public class MyInfo {
                 item.onClick.Add(() => {
                     var index = (int)item.data;
                     var typeid = -1;
+                    var dbitemid = -1;
                     for (var j = 0; j < UnitDataInfo.Equips.Count; j++)
                     {
                         if (UnitDataInfo.Equips[j].Pos == index)
                         {
                             typeid = UnitDataInfo.Equips[j].TypdID;
+                            dbitemid = UnitDataInfo.Equips[j].ItemDBID;
                         }
                     }
                     if (typeid != -1)
                     {
-                        new ItemInfo(typeid);
+                        new ItemInfo(typeid, dbitemid);
                     }
 
 
@@ -621,7 +627,7 @@ public class MyInfo {
         IMessage IMperson = new Protomsg.SC_OpenStorage();
         Protomsg.SC_OpenStorage p1 = (Protomsg.SC_OpenStorage)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
 
-        Protomsg.ItemSimpleMsg[] allplayer = new Protomsg.ItemSimpleMsg[p1.StorageItems.Count];
+        Protomsg.ItemOnlyMsg[] allplayer = new Protomsg.ItemOnlyMsg[p1.StorageItems.Count];
         p1.StorageItems.CopyTo(allplayer, 0);
 
         storageinfo.GetChild("droplist").asList.RemoveChildren(0, -1, true);
@@ -632,15 +638,17 @@ public class MyInfo {
 
             var itemid = -1;
             var itemlevel = 0;
-            if(i >= allplayer.Length)
+            var dbitemid = -1;
+            if (i >= allplayer.Length)
             {
 
             }
             else
             {
-                Protomsg.ItemSimpleMsg data = allplayer[i];
+                Protomsg.ItemOnlyMsg data = allplayer[i];
                 itemid = data.TypeID;
                 itemlevel = data.Level;
+                dbitemid = data.DBItemID;
             }
 
             var clientitem = ExcelManager.Instance.GetItemManager().GetItemByID(itemid);
@@ -654,7 +662,7 @@ public class MyInfo {
                 onedropitem.GetChild("icon").onClick.Add(() =>
                 {
                     //new ItemInfo(itemid);
-                    ItemInfo a = new ItemInfo(itemid);
+                    ItemInfo a = new ItemInfo(itemid, dbitemid);
                     
                     a.SetCallBackBtn("取出", () => {
                         Protomsg.CS_TakeOutFromStorage msg1 = new Protomsg.CS_TakeOutFromStorage();

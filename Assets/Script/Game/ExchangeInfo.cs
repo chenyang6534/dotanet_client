@@ -164,7 +164,7 @@ public class ExchangeInfo
             onedropitem.GetChild("name").asTextField.text = clientitem.Name;
             onedropitem.GetChild("icon").onClick.Add(() =>
             {
-                new ItemInfo(item.CommodityData.ItemID);
+                new ItemInfo(item.CommodityData.ItemID, item.CommodityData.ItemDBID);
             });
             onedropitem.GetChild("price").asTextField.text = item.CommodityData.Price + "";
             onedropitem.GetChild("level").asTextField.text = "lv." + item.CommodityData.Level + "";
@@ -283,6 +283,10 @@ public class ExchangeInfo
                     sellwindow.Dispose();
                 });
                 sellwindow.GetChild("item").asCom.GetChild("icon").asLoader.url = clientitem.IconPath;
+                sellwindow.GetChild("item").asCom.onClick.Set(() =>
+                {
+                    new ItemInfo(item.TypdID, item.ItemDBID);
+                });
                 sellwindow.GetChild("item").asCom.GetChild("level").asTextField.text = "lv." + item.Level + "";
                 sellwindow.GetChild("name").asTextField.text = clientitem.Name;
                 sellwindow.GetChild("pricetype_shouxufei").asLoader.url = Tool.GetPriceTypeIcon(p1.ShelfExchangeFeePriceType);
@@ -337,7 +341,7 @@ public class ExchangeInfo
             onedropitem.GetChild("icon").asLoader.url = clientitem.IconPath;
             onedropitem.GetChild("icon").onClick.Add(() =>
             {
-                new ItemInfo(item.CommodityData.ItemID);
+                new ItemInfo(item.CommodityData.ItemID, item.CommodityData.ItemDBID);
                 
             });
             onedropitem.onClick.Add(() =>
@@ -433,7 +437,7 @@ public class ExchangeInfo
             
 
             onedropitem.GetChild("item").asCom.GetChild("icon").asLoader.url = clientitem.IconPath;
-            onedropitem.GetChild("item").asCom.GetChild("level").asTextField.text = item.Level + "";
+            onedropitem.GetChild("item").asCom.GetChild("level").asTextField.text = "Lv."+item.Level;
             onedropitem.GetChild("item").asCom.onClick.Add(() =>
             {
                 string des = "\n\n参与分红的成员:\n";
@@ -449,7 +453,7 @@ public class ExchangeInfo
                     }
 
                 }
-                new ItemInfo(item.ItemID).AddDes(des);
+                new ItemInfo(item.ItemID,item.ItemDBID).AddDes(des);
             });
 
             onedropitem.GetChild("pricetype").asLoader.url = Tool.GetPriceTypeIcon(item.PriceType);

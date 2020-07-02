@@ -89,7 +89,7 @@ public class Mails : MonoBehaviour {
             var teamrequest = UIPackage.CreateObject("GameUI", "Reward").asCom;
             list.AddChild(teamrequest);
             teamrequest.onClick.Add(() => {
-                new ItemInfo(p1.ItemType);
+                new ItemInfo(p1.ItemType,p1.ItemDBID);
             });
             var clientitem = ExcelManager.Instance.GetItemManager().GetItemByID(p1.ItemType);
             if (clientitem != null)

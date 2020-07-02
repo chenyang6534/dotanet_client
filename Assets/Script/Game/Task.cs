@@ -167,6 +167,7 @@ public class Task
                 threedropitem.GetChild("icon").onClick.Add(() =>
                 {
                     new ItemInfo(itemid);
+
                 });
                 threedropitem.GetChild("level").asTextField.text = "Lv."+itemlevel;
                 if(clientitemone.ShowLevel == 1)

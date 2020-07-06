@@ -12,7 +12,7 @@ public class ItemName : MonoBehaviour {
 
     void OnLoad()
     {
-        LoadName(Name);
+        LoadName(Name,0);
     }
     
 	void Start () {
@@ -24,9 +24,14 @@ public class ItemName : MonoBehaviour {
         //NameTxt = words.GetComponent<UIPanel>().ui.GetChild("text").asTextField;
     }
 
-    public void LoadName(string name)
+    public void LoadName(string name,int isbest)
     {
-        if(Obj != null)
+        if(isbest == 1)
+        {
+            name = "[color=#ff2222]" + name + "[/color]";
+        }
+        //AddDes("[color=#ff2222]");
+        if (Obj != null)
         {
             Obj.GetComponent<UIPanel>().ui.GetChild("text").asTextField.text = name;
             return;

@@ -586,6 +586,15 @@ public class GameUI : MonoBehaviour {
             {
                 new HeroSimpleInfo(item.Characterid);
             });
+            if(GameScene.Singleton.m_MyMainUnit.CharacterID == item.Characterid)
+            {
+                onedropitem.GetChild("selectbg").visible = true;
+            }
+            else
+            {
+                onedropitem.GetChild("selectbg").visible = false;
+            }
+            //item.Characterid
             onedropitem.GetChild("name").asTextField.text = item.Name;
             onedropitem.GetChild("level").asTextField.text = "lv." + item.Level;
             onedropitem.GetChild("killcount").asTextField.text = item.KillCount + "";
@@ -615,7 +624,7 @@ public class GameUI : MonoBehaviour {
                 onedropitemone.GetChild("icon").asLoader.url = clientitemone.IconPath;
                 onedropitemone.GetChild("icon").onClick.Add(() =>
                 {
-                    new ItemInfo(itemid, dbitemid);
+                    new ItemInfo(itemid, dbitemid, int.Parse(itemlevel));
                 });
                 onedropitemone.GetChild("level").asTextField.text = ""+ itemlevel;
                 onedropitem.GetChild("itemlist").asList.AddChild(onedropitemone);
@@ -669,6 +678,14 @@ public class GameUI : MonoBehaviour {
             {
                 new HeroSimpleInfo(item.Characterid);
             });
+            if (GameScene.Singleton.m_MyMainUnit.CharacterID == item.Characterid)
+            {
+                onedropitem.GetChild("selectbg").visible = true;
+            }
+            else
+            {
+                onedropitem.GetChild("selectbg").visible = false;
+            }
             onedropitem.GetChild("name").asTextField.text = item.Name;
             onedropitem.GetChild("level").asTextField.text = "lv." + item.Level;
             onedropitem.GetChild("killcount").asTextField.text = item.KillCount + "";
@@ -698,7 +715,7 @@ public class GameUI : MonoBehaviour {
                 onedropitemone.GetChild("icon").asLoader.url = clientitemone.IconPath;
                 onedropitemone.GetChild("icon").onClick.Add(() =>
                 {
-                    new ItemInfo(itemid, dbitemid);
+                    new ItemInfo(itemid, dbitemid, int.Parse(itemlevel));
                 });
                 onedropitemone.GetChild("level").asTextField.text = "lv." + itemlevel;
                 onedropitem.GetChild("itemlist").asList.AddChild(onedropitemone);

@@ -171,7 +171,7 @@ public class HeroSimpleInfo
                
                 if (typeid != -1)
                 {
-                    new ItemInfo(typeid, dbitemid);
+                    new ItemInfo(typeid, dbitemid,level);
                 }
             });
         }

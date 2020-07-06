@@ -44,7 +44,7 @@ public class SceneItemManager
         //mat.mainTexture = Resources.Load<Texture>(clientitem.SceneItem);
         //hero.GetComponent<MeshRenderer>().materials[0] = mat;
 
-        hero.transform.Find("words").GetComponent<ItemName>().LoadName(clientitem.Name);
+        hero.transform.Find("words").GetComponent<ItemName>().LoadName(clientitem.Name,data.IsBest);
 
         //hero.GetComponent<>
         m_SceneItems[data.ID] = hero;

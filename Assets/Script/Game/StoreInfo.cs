@@ -80,7 +80,7 @@ public class StoreInfo
             onedropitem.GetChild("n3").asLoader.url = Tool.GetPriceTypeIcon(item.PriceType);
             onedropitem.GetChild("n0").onClick.Add(() =>
             {
-                new ItemInfo(item.ItemID,item.ItemDBID);
+                new ItemInfo(item.ItemID,item.ItemDBID,item.Level);
             });
             onedropitem.GetChild("n4").asTextField.text = item.Price + "";
             onedropitem.GetChild("level").asTextField.text = "Lv." + item.Level + "";

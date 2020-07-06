@@ -164,7 +164,7 @@ public class ExchangeInfo
             onedropitem.GetChild("name").asTextField.text = clientitem.Name;
             onedropitem.GetChild("icon").onClick.Add(() =>
             {
-                new ItemInfo(item.CommodityData.ItemID, item.CommodityData.ItemDBID);
+                new ItemInfo(item.CommodityData.ItemID, item.CommodityData.ItemDBID,item.CommodityData.Level);
             });
             onedropitem.GetChild("price").asTextField.text = item.CommodityData.Price + "";
             onedropitem.GetChild("level").asTextField.text = "lv." + item.CommodityData.Level + "";
@@ -285,7 +285,7 @@ public class ExchangeInfo
                 sellwindow.GetChild("item").asCom.GetChild("icon").asLoader.url = clientitem.IconPath;
                 sellwindow.GetChild("item").asCom.onClick.Set(() =>
                 {
-                    new ItemInfo(item.TypdID, item.ItemDBID);
+                    new ItemInfo(item.TypdID, item.ItemDBID,item.Level);
                 });
                 sellwindow.GetChild("item").asCom.GetChild("level").asTextField.text = "lv." + item.Level + "";
                 sellwindow.GetChild("name").asTextField.text = clientitem.Name;
@@ -341,7 +341,7 @@ public class ExchangeInfo
             onedropitem.GetChild("icon").asLoader.url = clientitem.IconPath;
             onedropitem.GetChild("icon").onClick.Add(() =>
             {
-                new ItemInfo(item.CommodityData.ItemID, item.CommodityData.ItemDBID);
+                new ItemInfo(item.CommodityData.ItemID, item.CommodityData.ItemDBID,item.CommodityData.Level);
                 
             });
             onedropitem.onClick.Add(() =>
@@ -453,7 +453,7 @@ public class ExchangeInfo
                     }
 
                 }
-                new ItemInfo(item.ItemID,item.ItemDBID).AddDes(des);
+                new ItemInfo(item.ItemID,item.ItemDBID,item.Level).AddDes(des);
             });
 
             onedropitem.GetChild("pricetype").asLoader.url = Tool.GetPriceTypeIcon(item.PriceType);

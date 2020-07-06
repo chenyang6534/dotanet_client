@@ -164,17 +164,19 @@ public class MyInfo {
                     var index = (int)item.data;
                     var typeid = -1;
                     var dbitemid = -1;
+                    var level = 1;
                     for (var j = 0; j < UnitDataInfo.Equips.Count; j++)
                     {
                         if (UnitDataInfo.Equips[j].Pos == index)
                         {
                             typeid = UnitDataInfo.Equips[j].TypdID;
                             dbitemid = UnitDataInfo.Equips[j].ItemDBID;
+                            level = UnitDataInfo.Equips[j].Level;
                         }
                     }
                     if (typeid != -1)
                     {
-                        new ItemInfo(typeid, dbitemid);
+                        new ItemInfo(typeid, dbitemid, level);
                     }
 
 
@@ -285,17 +287,19 @@ public class MyInfo {
                     var index = (int)item.data;
                     var typeid = -1;
                     var dbitemid = -1;
+                    var level = 1;
                     for (var j = 0; j < BagDataInfo.Equips.Count; j++)
                     {
                         if (BagDataInfo.Equips[j].Pos == index)
                         {
                             typeid = BagDataInfo.Equips[j].TypdID;
                             dbitemid = BagDataInfo.Equips[j].ItemDBID;
+                            level = BagDataInfo.Equips[j].Level;
                         }
                     }
                     if (typeid != -1)
                     {
-                        ItemInfo a = new ItemInfo(typeid, dbitemid);
+                        ItemInfo a = new ItemInfo(typeid, dbitemid,level);
                         a.SetCallBackBtn("存放",()=> {
                             Protomsg.CS_Save2Storage msg1 = new Protomsg.CS_Save2Storage();
                             msg1.Pos = index;
@@ -327,17 +331,19 @@ public class MyInfo {
                     var index = (int)item.data;
                     var typeid = -1;
                     var dbitemid = -1;
+                    var level = 1;
                     for (var j = 0; j < UnitDataInfo.Equips.Count; j++)
                     {
                         if (UnitDataInfo.Equips[j].Pos == index)
                         {
                             typeid = UnitDataInfo.Equips[j].TypdID;
                             dbitemid = UnitDataInfo.Equips[j].ItemDBID;
+                            level = UnitDataInfo.Equips[j].Level;
                         }
                     }
                     if (typeid != -1)
                     {
-                        new ItemInfo(typeid, dbitemid);
+                        new ItemInfo(typeid, dbitemid,level);
                     }
 
 
@@ -662,7 +668,7 @@ public class MyInfo {
                 onedropitem.GetChild("icon").onClick.Add(() =>
                 {
                     //new ItemInfo(itemid);
-                    ItemInfo a = new ItemInfo(itemid, dbitemid);
+                    ItemInfo a = new ItemInfo(itemid, dbitemid,itemlevel);
                     
                     a.SetCallBackBtn("取出", () => {
                         Protomsg.CS_TakeOutFromStorage msg1 = new Protomsg.CS_TakeOutFromStorage();
@@ -879,8 +885,8 @@ public class MyInfo {
         unitinfo.GetChild("magicscale").asTextField.text = ((int)(data.MagicScale*100)).ToString()+"%";
         unitinfo.GetChild("mpregain").asTextField.text = (data.RawMPRegain).ToString("f2") + "[color=#00EE00]+" + (data.MPRegain - data.RawMPRegain).ToString("f2") + "[/color]"; //(data.MPRegain).ToString("f2");
         //防御
-        unitinfo.GetChild("physicalamaor").asTextField.text = ((int)data.RawPhysicalAmaor).ToString() + "[color=#00EE00]+" + ((int)data.PhysicalAmaor - (int)data.RawPhysicalAmaor).ToString() + "[/color]"; //((int)data.PhysicalAmaor).ToString();
-        unitinfo.GetChild("physicalresist").asTextField.text = ((int)(data.PhysicalResist * 100)).ToString() + "%";
+        unitinfo.GetChild("physicalamaor").asTextField.text = (data.RawPhysicalAmaor).ToString("f2") + "[color=#00EE00]+" + (data.PhysicalAmaor - data.RawPhysicalAmaor).ToString("f2") + "[/color]"; //((int)data.PhysicalAmaor).ToString();
+        unitinfo.GetChild("physicalresist").asTextField.text = ((data.PhysicalResist * 100)).ToString("f2") + "%";
         unitinfo.GetChild("magicamaor").asTextField.text = ((int)(data.MagicAmaor * 100)).ToString() + "%";
         unitinfo.GetChild("stateamaor").asTextField.text = ((int)(data.StatusAmaor * 100)).ToString() + "%";
         unitinfo.GetChild("dodge").asTextField.text = ((int)(data.Dodge * 100)).ToString() + "%";

@@ -13,12 +13,12 @@ public class ItemInfo {
 
     private int TypeID;
     private int DBItemID;
-
-    private void newone(int typeid, int dbitemid)
+    private int Level;
+    private void newone(int typeid, int dbitemid,int level)
     {
         TypeID = typeid;
         DBItemID = dbitemid;
-
+        Level = level;
 
         var clientitem = ExcelManager.Instance.GetItemManager().GetItemByID(typeid);
         if (clientitem == null)
@@ -29,6 +29,8 @@ public class ItemInfo {
         MsgManager.Instance.AddListener("SC_GetItemExtraInfo", new HandleMsg(this.SC_GetItemExtraInfo));
         Protomsg.CS_GetItemExtraInfo msg1 = new Protomsg.CS_GetItemExtraInfo();
         msg1.TypeId = typeid;
+        msg1.DBItemID = dbitemid;
+        msg1.Level = Level;
         MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetItemExtraInfo", msg1);
 
         main = UIPackage.CreateObject("GameUI", "ItemInfo").asCom;
@@ -41,13 +43,21 @@ public class ItemInfo {
 
     public ItemInfo(int typeid)
     {
-        newone(typeid, -1);
+        newone(typeid, -1,1);
     }
-    public ItemInfo(int typeid,int dbitemid)
+    public ItemInfo(int typeid,int dbitemid,int level)
     {
 
-        newone(typeid, dbitemid);
+        newone(typeid, dbitemid,level);
         
+    }
+    public bool JiPing(bool isshow)
+    {
+        if (isshow == false)
+        {
+            AddDes("\n极品属性:");
+        }
+        return true;
     }
 
     public bool SC_GetItemExtraInfo(Protomsg.MsgBase d1)
@@ -70,10 +80,114 @@ public class ItemInfo {
             main.GetChild("needlevel").asTextField.SetVar("p1", p1.EquipNeedLevel + "");
             main.GetChild("needlevel").asTextField.FlushVars();
         }
-        
+
+        var isshowjipingword = false;
+        AddDes("[color=#ff2222]");
+        if (Tool.IsZero(p1.AddHP) == false)
+        {
+            isshowjipingword = JiPing(isshowjipingword);
+            AddDes("\n血量上限:+" + p1.AddHP);
+        }
+        if (Tool.IsZero(p1.AddMP) == false)
+        {
+            isshowjipingword = JiPing(isshowjipingword);
+            AddDes("\n魔法上限:+" + p1.AddMP);
+        }
+        if (Tool.IsZero(p1.AttributePrimaryCV) == false)
+        {
+            isshowjipingword = JiPing(isshowjipingword);
+            AddDes("\n主属性:+" + p1.AttributePrimaryCV);
+        }
+        if (Tool.IsZero(p1.AttributeStrengthCV) == false)
+        {
+            isshowjipingword = JiPing(isshowjipingword);
+            AddDes("\n力量:+" + p1.AttributeStrengthCV);
+        }
+        if (Tool.IsZero(p1.AttributeIntelligenceCV) == false)
+        {
+            isshowjipingword = JiPing(isshowjipingword);
+            AddDes("\n智力:+" + p1.AttributeIntelligenceCV);
+        }
+        if (Tool.IsZero(p1.AttributeAgilityCV) == false)
+        {
+            isshowjipingword = JiPing(isshowjipingword);
+            AddDes("\n敏捷:+" + p1.AttributeAgilityCV);
+        }
+        if (Tool.IsZero(p1.AttackSpeedCV) == false)
+        {
+            isshowjipingword = JiPing(isshowjipingword);
+            AddDes("\n攻击速度:+" + p1.AttackSpeedCV);
+        }
+        if (Tool.IsZero(p1.AttackCV) == false)
+        {
+            isshowjipingword = JiPing(isshowjipingword);
+            AddDes("\n攻击力:+" + p1.AttackCV);
+        }
+        if (Tool.IsZero(p1.MoveSpeedCV) == false)
+        {
+            isshowjipingword = JiPing(isshowjipingword);
+            AddDes("\n移动速度:+" + p1.MoveSpeedCV);
+        }
+        if (Tool.IsZero(p1.MagicScaleCV) == false)
+        {
+            isshowjipingword = JiPing(isshowjipingword);
+            AddDes("\n技能增强:+" + (p1.MagicScaleCV * 100).ToString("0.00") + "%");
+        }
+        if (Tool.IsZero(p1.MPRegainCV) == false)
+        {
+            isshowjipingword = JiPing(isshowjipingword);
+            AddDes("\n魔法恢复:+" + p1.MPRegainCV);
+        }
+        if (Tool.IsZero(p1.PhysicalAmaorCV) == false)
+        {
+            isshowjipingword = JiPing(isshowjipingword);
+            AddDes("\n护甲:+" + p1.PhysicalAmaorCV);
+        }
+        if (Tool.IsZero(p1.MagicAmaorCV) == false)
+        {
+            isshowjipingword = JiPing(isshowjipingword);
+            AddDes("\n魔抗:+" + (p1.MagicAmaorCV * 100).ToString("0.00") + "%");
+        }
+        if (Tool.IsZero(p1.StatusAmaorCV) == false)
+        {
+            isshowjipingword = JiPing(isshowjipingword);
+            AddDes("\n状态抗性:+" + (p1.StatusAmaorCV * 100).ToString("0.00") + "%");
+        }
+        if (Tool.IsZero(p1.DodgeCV) == false)
+        {
+            isshowjipingword = JiPing(isshowjipingword);
+            AddDes("\n闪避:+" + (p1.DodgeCV * 100).ToString("0.00") + "%");
+        }
+        if (Tool.IsZero(p1.HPRegainCV) == false)
+        {
+            isshowjipingword = JiPing(isshowjipingword);
+            AddDes("\n生命恢复:+" + p1.HPRegainCV);
+        }
+        if (Tool.IsZero(p1.ManaCostCV) == false)
+        {
+            isshowjipingword = JiPing(isshowjipingword);
+            AddDes("\n使用技能魔法消耗降低:" + (-p1.ManaCostCV * 100).ToString("0.00") + "%");
+        }
+        if (Tool.IsZero(p1.MagicCDCV) == false)
+        {
+            isshowjipingword = JiPing(isshowjipingword);
+            AddDes("\n技能CD降低:" + (p1.MagicCDCV * 100).ToString("0.00") + "%");
+        }
+        if (Tool.IsZero(p1.PhysicalHurtAddHP) == false)
+        {
+            isshowjipingword = JiPing(isshowjipingword);
+            AddDes("\n吸血:+" + (p1.PhysicalHurtAddHP * 100).ToString("0.00") + "%");
+        }
+        if (Tool.IsZero(p1.MagicHurtAddHP) == false)
+        {
+            isshowjipingword = JiPing(isshowjipingword);
+            AddDes("\n技能吸血:+" + (p1.MagicHurtAddHP * 100).ToString("0.00") + "%");
+        }
+        AddDes("[/color]");
+
 
         //使用按钮
-        if(UseCallBack != null && p1.ClientUseAble == 1)
+        if (UseCallBack != null && p1.ClientUseAble == 1)
         {
             main.GetChild("usebtn").visible = true;
         }
@@ -161,6 +275,9 @@ public class ItemInfo {
 
         //图标
         main.GetChild("icon").asLoader.url = clientitem.IconPath;
+        //等级
+        main.GetChild("level").asTextField.text = "Lv."+Level;
+
         //名字
         main.GetChild("name").asTextField.text = clientitem.Name;
 
@@ -173,10 +290,7 @@ public class ItemInfo {
         main.GetChild("needlevel").visible = false;
 
 
-        if (DBItemID > 0)
-        {
-            AddDes("\n 唯一ID:" + DBItemID);
-        }
+        
 
         ////需要等级
         //main.GetChild("needlevel").asTextField.text = "";

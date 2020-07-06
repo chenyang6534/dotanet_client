@@ -89,7 +89,7 @@ public class Mails : MonoBehaviour {
             var teamrequest = UIPackage.CreateObject("GameUI", "Reward").asCom;
             list.AddChild(teamrequest);
             teamrequest.onClick.Add(() => {
-                new ItemInfo(p1.ItemType,p1.ItemDBID);
+                new ItemInfo(p1.ItemType,p1.ItemDBID,p1.Level);
             });
             var clientitem = ExcelManager.Instance.GetItemManager().GetItemByID(p1.ItemType);
             if (clientitem != null)
@@ -150,7 +150,7 @@ public class Mails : MonoBehaviour {
             }
             return -1;
         });
-
+        GComponent lastselectone = null;
         foreach (var p1 in allplayer)
         {
             var teamrequest = UIPackage.CreateObject("GameUI", "MailOne").asCom;
@@ -161,6 +161,7 @@ public class Mails : MonoBehaviour {
             teamrequest.GetChild("title").asTextField.text = p1.Title;
             teamrequest.GetChild("day").asTextField.text = p1.Date;
             teamrequest.GetChild("sendname").asTextField.text = p1.SendName;
+            teamrequest.GetChild("selectbg").visible = false;
             //领取状态 0表示未领取，1表示已领取
             if ( p1.State == 1)
             {
@@ -178,6 +179,13 @@ public class Mails : MonoBehaviour {
                 Protomsg.CS_GetMailInfo msg = new Protomsg.CS_GetMailInfo();
                 msg.Id = p1.Id;
                 MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetMailInfo", msg);
+
+                if(lastselectone != null)
+                {
+                    lastselectone.GetChild("selectbg").visible = false;
+                }
+                teamrequest.GetChild("selectbg").visible = true;
+                lastselectone = teamrequest;
             });
 
         }

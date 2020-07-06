@@ -503,9 +503,14 @@ public static class Tool {
 
         return "0x" + addr.ToString("X");
     }
+    private const double DOUBLE_DELTA = 1E-06;
+    public static bool IsZero(double value)
+    {
+        return (Math.Abs(value) < DOUBLE_DELTA);
+    }
 
-    //通过频道类型获取频道内容颜色
-    public static string GetContetColorFromChatChanel(int chanel)
+//通过频道类型获取频道内容颜色
+public static string GetContetColorFromChatChanel(int chanel)
     {
         //////聊天频道 1附近 2全服 3私聊 4队伍 5公会
         switch (chanel)

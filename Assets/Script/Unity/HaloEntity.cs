@@ -31,7 +31,7 @@ public class HaloEntity
         //m_Mode.transform.LookAt(m_EndPos);
         if(m_Mode.transform.Find("words") != null && data.ClientShowWords.Length > 0)
         {
-            m_Mode.transform.Find("words").GetComponent<ItemName>().LoadName(data.ClientShowWords);
+            m_Mode.transform.Find("words").GetComponent<ItemName>().LoadName(data.ClientShowWords,0);
         }
         
 

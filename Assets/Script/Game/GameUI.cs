@@ -215,6 +215,22 @@ public class GameUI : MonoBehaviour {
             //SceneManager.LoadScene(0);
             new StoreInfo();
         });
+        var isguaji = false;
+        LittleMapCom.GetChild("guaji").asButton.onClick.Add(() =>
+        {
+            //挂机操作
+            isguaji = !isguaji;
+            if(isguaji == true)
+            {
+                Protomsg.CS_UseAI msg1 = new Protomsg.CS_UseAI();
+                MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_UseAI", msg1);
+            }
+            else
+            {
+                Protomsg.CS_CancelUseAI msg1 = new Protomsg.CS_CancelUseAI();
+                MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_CancelUseAI", msg1);
+            }
+        });
         //邮件
         LittleMapCom.GetChild("mail").asButton.onClick.Add(() =>
         {
@@ -328,6 +344,7 @@ public class GameUI : MonoBehaviour {
             LittleMapCom.GetChild("copymap").visible = true;
             LittleMapCom.GetChild("battlebtn").visible = true;
             LittleMapCom.GetChild("task").visible = true;
+            LittleMapCom.GetChild("guaji").visible = true;
 
         }
         else
@@ -342,6 +359,15 @@ public class GameUI : MonoBehaviour {
             LittleMapCom.GetChild("copymap").visible = false;
             LittleMapCom.GetChild("battlebtn").visible = false;
             LittleMapCom.GetChild("task").visible = false;
+            LittleMapCom.GetChild("guaji").visible = false;
+        }
+
+        if (Application.platform != RuntimePlatform.IPhonePlayer &&
+            Application.platform != RuntimePlatform.WindowsPlayer &&
+            Application.platform != RuntimePlatform.WindowsEditor)
+        {
+            LittleMapCom.GetChild("store").visible = false;
+            LittleMapCom.GetChild("guaji").visible = false;
         }
     }
 

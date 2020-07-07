@@ -272,7 +272,7 @@ public class MyInfo {
                             {
                                 return;
                             }
-                            Tool.NoticeWindonw("你确定要合成道具(" + clientitem.Name + ")到更高等级吗?", () =>
+                            Tool.NoticeWindonw("你确定要合成道具(" + clientitem.Name + ")到更高等级吗?[color=#ff2222](极品属性会叠加保留)[/color]", () =>
                             {
                                 //SendDestroyItem(int.Parse(sArray[0]));
                                 SendChangePos(int.Parse(sArray[0]), (int)item.data, int.Parse(sArray[1]), 2);
@@ -403,6 +403,7 @@ public class MyInfo {
         System.Array.Sort(unit.SkillDatas, (s1, s2) => s1.Index.CompareTo(s2.Index));
         foreach (var item in unit.SkillDatas)
         {
+            Debug.Log("SkillDatas:" + item.TypeID);
             var clientitem = ExcelManager.Instance.GetSkillManager().GetSkillByID(item.TypeID);
             if (clientitem != null && item.Visible == 1)
             {

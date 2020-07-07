@@ -42,6 +42,8 @@ public class SkillInfo {
 
         //图标
         main.GetChild("icon").asLoader.url = clientitem.IconPath;
+        //等级
+        main.GetChild("level").asTextField.text = "";
         //名字
         main.GetChild("name").asTextField.text = clientitem.Name;
 

@@ -55,7 +55,7 @@ public class ItemInfo {
     {
         if (isshow == false)
         {
-            AddDes("\n极品属性:");
+            AddDes("\n极品属性:\n");
         }
         return true;
     }
@@ -86,102 +86,102 @@ public class ItemInfo {
         if (Tool.IsZero(p1.AddHP) == false)
         {
             isshowjipingword = JiPing(isshowjipingword);
-            AddDes("\n血量上限:+" + p1.AddHP);
+            AddDes("血量上限:+" + p1.AddHP + "   ");
         }
         if (Tool.IsZero(p1.AddMP) == false)
         {
             isshowjipingword = JiPing(isshowjipingword);
-            AddDes("\n魔法上限:+" + p1.AddMP);
+            AddDes("魔法上限:+" + p1.AddMP + "   ");
         }
         if (Tool.IsZero(p1.AttributePrimaryCV) == false)
         {
             isshowjipingword = JiPing(isshowjipingword);
-            AddDes("\n主属性:+" + p1.AttributePrimaryCV);
+            AddDes("主属性:+" + p1.AttributePrimaryCV + "   ");
         }
         if (Tool.IsZero(p1.AttributeStrengthCV) == false)
         {
             isshowjipingword = JiPing(isshowjipingword);
-            AddDes("\n力量:+" + p1.AttributeStrengthCV);
+            AddDes("力量:+" + p1.AttributeStrengthCV + "   ");
         }
         if (Tool.IsZero(p1.AttributeIntelligenceCV) == false)
         {
             isshowjipingword = JiPing(isshowjipingword);
-            AddDes("\n智力:+" + p1.AttributeIntelligenceCV);
+            AddDes("智力:+" + p1.AttributeIntelligenceCV + "   ");
         }
         if (Tool.IsZero(p1.AttributeAgilityCV) == false)
         {
             isshowjipingword = JiPing(isshowjipingword);
-            AddDes("\n敏捷:+" + p1.AttributeAgilityCV);
+            AddDes("敏捷:+" + p1.AttributeAgilityCV + "   ");
         }
         if (Tool.IsZero(p1.AttackSpeedCV) == false)
         {
             isshowjipingword = JiPing(isshowjipingword);
-            AddDes("\n攻击速度:+" + p1.AttackSpeedCV);
+            AddDes("攻击速度:+" + p1.AttackSpeedCV + "   ");
         }
         if (Tool.IsZero(p1.AttackCV) == false)
         {
             isshowjipingword = JiPing(isshowjipingword);
-            AddDes("\n攻击力:+" + p1.AttackCV);
+            AddDes("攻击力:+" + p1.AttackCV + "   ");
         }
         if (Tool.IsZero(p1.MoveSpeedCV) == false)
         {
             isshowjipingword = JiPing(isshowjipingword);
-            AddDes("\n移动速度:+" + p1.MoveSpeedCV);
+            AddDes("移动速度:+" + p1.MoveSpeedCV + "   ");
         }
         if (Tool.IsZero(p1.MagicScaleCV) == false)
         {
             isshowjipingword = JiPing(isshowjipingword);
-            AddDes("\n技能增强:+" + (p1.MagicScaleCV * 100).ToString("0.00") + "%");
+            AddDes("技能增强:+" + (p1.MagicScaleCV * 100).ToString("0.00") + "%" + "   ");
         }
         if (Tool.IsZero(p1.MPRegainCV) == false)
         {
             isshowjipingword = JiPing(isshowjipingword);
-            AddDes("\n魔法恢复:+" + p1.MPRegainCV);
+            AddDes("魔法恢复:+" + p1.MPRegainCV + "   ");
         }
         if (Tool.IsZero(p1.PhysicalAmaorCV) == false)
         {
             isshowjipingword = JiPing(isshowjipingword);
-            AddDes("\n护甲:+" + p1.PhysicalAmaorCV);
+            AddDes("护甲:+" + p1.PhysicalAmaorCV + "   ");
         }
         if (Tool.IsZero(p1.MagicAmaorCV) == false)
         {
             isshowjipingword = JiPing(isshowjipingword);
-            AddDes("\n魔抗:+" + (p1.MagicAmaorCV * 100).ToString("0.00") + "%");
+            AddDes("魔抗:+" + (p1.MagicAmaorCV * 100).ToString("0.00") + "%" + "   ");
         }
         if (Tool.IsZero(p1.StatusAmaorCV) == false)
         {
             isshowjipingword = JiPing(isshowjipingword);
-            AddDes("\n状态抗性:+" + (p1.StatusAmaorCV * 100).ToString("0.00") + "%");
+            AddDes("状态抗性:+" + (p1.StatusAmaorCV * 100).ToString("0.00") + "%" + "   ");
         }
         if (Tool.IsZero(p1.DodgeCV) == false)
         {
             isshowjipingword = JiPing(isshowjipingword);
-            AddDes("\n闪避:+" + (p1.DodgeCV * 100).ToString("0.00") + "%");
+            AddDes("闪避:+" + (p1.DodgeCV * 100).ToString("0.00") + "%" + "   ");
         }
         if (Tool.IsZero(p1.HPRegainCV) == false)
         {
             isshowjipingword = JiPing(isshowjipingword);
-            AddDes("\n生命恢复:+" + p1.HPRegainCV);
+            AddDes("生命恢复:+" + p1.HPRegainCV + "   ");
         }
         if (Tool.IsZero(p1.ManaCostCV) == false)
         {
             isshowjipingword = JiPing(isshowjipingword);
-            AddDes("\n使用技能魔法消耗降低:" + (-p1.ManaCostCV * 100).ToString("0.00") + "%");
+            AddDes("使用技能魔法消耗降低:" + (-p1.ManaCostCV * 100).ToString("0.00") + "%" + "   ");
         }
         if (Tool.IsZero(p1.MagicCDCV) == false)
         {
             isshowjipingword = JiPing(isshowjipingword);
-            AddDes("\n技能CD降低:" + (p1.MagicCDCV * 100).ToString("0.00") + "%");
+            AddDes("技能CD降低:" + (p1.MagicCDCV * 100).ToString("0.00") + "%" + "   ");
         }
         if (Tool.IsZero(p1.PhysicalHurtAddHP) == false)
         {
             isshowjipingword = JiPing(isshowjipingword);
-            AddDes("\n吸血:+" + (p1.PhysicalHurtAddHP * 100).ToString("0.00") + "%");
+            AddDes("吸血:+" + (p1.PhysicalHurtAddHP * 100).ToString("0.00") + "%" + "   ");
         }
         if (Tool.IsZero(p1.MagicHurtAddHP) == false)
         {
             isshowjipingword = JiPing(isshowjipingword);
-            AddDes("\n技能吸血:+" + (p1.MagicHurtAddHP * 100).ToString("0.00") + "%");
+            AddDes("技能吸血:+" + (p1.MagicHurtAddHP * 100).ToString("0.00") + "%"+"   ");
         }
         AddDes("[/color]");
 

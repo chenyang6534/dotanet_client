@@ -436,3 +436,11 @@ MonoBehaviour:
     EndX: 70
     EndY: 70
     Name: "\u95EF\u5173"
+  - TypeID: 5009
+    ScenePath: Map/Scene75X75_2
+    Little_BG: ui://GameUI/map3
+    StartX: 6
+    StartY: 7
+    EndX: 70
+    EndY: 70
+    Name: "\u7834\u788E\u4E4B\u5730"

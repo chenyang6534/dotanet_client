@@ -12,7 +12,7 @@ using UnityEditor.SceneManagement;
 public class MyEditor : Editor
 {
     
-    static string  []SceneName = { "Map/Scene1", "Map/SceneMiddleNull" };
+    static string  []SceneName = { "Map/Scene1", "Map/SceneMiddleNull", "Map/Scene75X75_2" };
     static string[] CreateUnits = { "Map/CreateUnits/CreateUnits0","Map/CreateUnits/CreateUnits1", "Map/CreateUnits/CreateUnits2","Map/CreateUnits/CreateUnits3"
             ,"Map/CreateUnits/CreateUnits100","Map/CreateUnits/CreateUnits101","Map/CreateUnits/CreateUnits102"
     ,"Map/CreateUnits/CreateUnits200","Map/CreateUnits/CreateUnits201","Map/CreateUnits/CreateUnits202"

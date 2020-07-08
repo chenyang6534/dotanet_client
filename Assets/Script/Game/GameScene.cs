@@ -203,13 +203,18 @@ public class GameScene : MonoBehaviour {
     void CleanScene()
     {
         m_LogicFrameData = new Dictionary<int, Protomsg.SC_Update>();
-        //Destroy(m_GameScene);
-        //m_GameScene = null;
+        
+
         UnityEntityManager.Instance.Clear();
         HaloEntityManager.Instance.Clear();
         BulletEntityManager.Instance.Clear();
         SceneItemManager.Instance.Clear();
 
+        if (m_GameScene != null)
+        {
+            Destroy(m_GameScene);
+            m_GameScene = null;
+        }
 
     }
 

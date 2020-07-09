@@ -218,20 +218,20 @@ public class GameUI : MonoBehaviour {
         var isguaji = false;
         LittleMapCom.GetChild("guaji").asButton.onClick.Add(() =>
         {
-            Protomsg.CS_GotoEndlessLevel msg1 = new Protomsg.CS_GotoEndlessLevel();
-            MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GotoEndlessLevel", msg1);
+            //Protomsg.CS_GotoEndlessLevel msg1 = new Protomsg.CS_GotoEndlessLevel();
+            //MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GotoEndlessLevel", msg1);
             //挂机操作
-            //isguaji = !isguaji;
-            //if(isguaji == true)
-            //{
-            //    Protomsg.CS_UseAI msg1 = new Protomsg.CS_UseAI();
-            //    MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_UseAI", msg1);
-            //}
-            //else
-            //{
-            //    Protomsg.CS_CancelUseAI msg1 = new Protomsg.CS_CancelUseAI();
-            //    MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_CancelUseAI", msg1);
-            //}
+            isguaji = !isguaji;
+            if (isguaji == true)
+            {
+                Protomsg.CS_UseAI msg1 = new Protomsg.CS_UseAI();
+                MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_UseAI", msg1);
+            }
+            else
+            {
+                Protomsg.CS_CancelUseAI msg1 = new Protomsg.CS_CancelUseAI();
+                MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_CancelUseAI", msg1);
+            }
         });
         //邮件
         LittleMapCom.GetChild("mail").asButton.onClick.Add(() =>

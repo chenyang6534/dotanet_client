@@ -378,3 +378,15 @@ MonoBehaviour:
     Type: 1
     AnimName: showlong
     Pos: 1
+  - TypeID: 60
+    Words: "[color=#3473F7]{p1=1}[/color]\u79D2\u540E\u5C06\u5237\u65B0\u7B2C[color=#3473F7]{p2=1}[/color]\u6CE2\u654C\u4EBA[color=#3473F7]({p2=1}/{p3=1})[/color]"
+    Sound: sound/other/warning
+    Type: 1
+    AnimName: showlong
+    Pos: 1
+  - TypeID: 61
+    Words: "\u606D\u559C\u4F60,\u5DF2\u7ECF\u6CA1\u6709\u66F4\u591A\u7684\u654C\u4EBA\u4E86!!"
+    Sound: sound/other/warning
+    Type: 1
+    AnimName: showlong
+    Pos: 1

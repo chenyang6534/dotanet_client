@@ -18,6 +18,7 @@ public class ActivityMap
         MsgManager.Instance.AddListener("SC_GetMapInfo", new HandleMsg(this.SC_GetMapInfo));
         MsgManager.Instance.AddListener("SC_GotoActivityMap", new HandleMsg(this.SC_GotoActivityMap));
         MsgManager.Instance.AddListener("SC_GetDuoBaoInfo", new HandleMsg(this.SC_GetDuoBaoInfo));
+        MsgManager.Instance.AddListener("SC_GetEndlessLevelInfo", new HandleMsg(this.SC_GetEndlessLevelInfo));
 
         main = UIPackage.CreateObject("GameUI", "ActivityMap").asCom;
         GRoot.inst.AddChild(main);
@@ -40,6 +41,11 @@ public class ActivityMap
         {
             Protomsg.CS_GetDuoBaoInfo msg = new Protomsg.CS_GetDuoBaoInfo();
             MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetDuoBaoInfo", msg);
+        });
+        main.GetChild("wujin").asButton.onClick.Add(() =>
+        {
+            Protomsg.CS_GetEndlessLevelInfo msg = new Protomsg.CS_GetEndlessLevelInfo();
+            MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetEndlessLevelInfo", msg);
         });
     }
   
@@ -108,6 +114,32 @@ public class ActivityMap
         
         return true;
     }
+    //无尽关卡SC_GetEndlessLevelInfo
+    public bool SC_GetEndlessLevelInfo(Protomsg.MsgBase d1)
+    {
+        Debug.Log("SC_GetEndlessLevelInfo:");
+        IMessage IMperson = new Protomsg.SC_GetEndlessLevelInfo();
+        Protomsg.SC_GetEndlessLevelInfo p1 = (Protomsg.SC_GetEndlessLevelInfo)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
+        
+        var onedropitem = main.GetChild("wujincom").asCom;
+
+        onedropitem.GetChild("guildlevel").asTextField.text = "" + p1.NeedLevel;
+        onedropitem.GetChild("pricetype").asLoader.url = Tool.GetPriceTypeIcon(p1.PriceType);
+        onedropitem.GetChild("price").asTextField.text = p1.Price + "";
+        //进入
+        onedropitem.GetChild("goto").asButton.onClick.Set(() =>
+        {
+            Protomsg.CS_GotoEndlessLevel msg1 = new Protomsg.CS_GotoEndlessLevel();
+            MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GotoEndlessLevel", msg1);
+
+            this.Destroy();
+        });
+        //onedropitem.GetChild("item").asCom.GetChild("icon").asLoader.url = clientitem.IconPath;
+
+
+        return true;
+    }
+
     //夺宝奇兵 SC_GetDuoBaoInfo
     public bool SC_GetDuoBaoInfo(Protomsg.MsgBase d1)
     {
@@ -263,6 +295,7 @@ public class ActivityMap
         MsgManager.Instance.RemoveListener("SC_GetMapInfo");
         MsgManager.Instance.RemoveListener("SC_GotoActivityMap");
         MsgManager.Instance.RemoveListener("SC_GetDuoBaoInfo");
+        MsgManager.Instance.RemoveListener("SC_GetEndlessLevelInfo");
         
         AudioManager.Am.Play2DSound(AudioManager.Sound_CloseUI);
         if (main != null)

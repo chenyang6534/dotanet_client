@@ -11,11 +11,13 @@ public class MyInfo {
     private GComponent baginfo;
     private GComponent itemdropinfo;
     private GComponent storageinfo;
+    private GComponent lianhuainfo;
     private GComponent main;
     private UnityEntity unit;
 
     private Protomsg.SC_BagInfo BagDataInfo;
     private Protomsg.UnitBoardDatas UnitDataInfo;
+    private Protomsg.SC_GetLianHuaInfo LianHuaMsgInfo;
 
     public bool IsDestroy;
     public MyInfo(UnityEntity unit)
@@ -29,6 +31,7 @@ public class MyInfo {
         baginfo = main.GetChild("bag").asCom;
         itemdropinfo = main.GetChild("drop").asCom;
         storageinfo = main.GetChild("storage").asCom;
+        lianhuainfo = main.GetChild("lianhua").asCom;
         GRoot.inst.AddChild(main);
         //main.fairyBatching = true;
 
@@ -185,6 +188,9 @@ public class MyInfo {
             //baginfo
             //删除道具
             var destroyitem = baginfo.GetChild("destroy").asButton;
+            destroyitem.onClick.Set(() => {
+                Tool.NoticeWords("需要把道具拖到此处才能回收道具!", null);
+            });
             destroyitem.onDrop.Add((EventContext context) =>
             {
                 string[] sArray = ((string)context.data).Split(',');
@@ -361,6 +367,19 @@ public class MyInfo {
             }
 
         });
+
+        var lianhuabtn = baginfo.GetChild("lianhuabtn").asButton;
+        lianhuabtn.onClick.Add(() => {
+            lianhuainfo.visible = !lianhuainfo.visible;
+            if (lianhuainfo.visible == true)
+            {
+                Protomsg.CS_GetLianHuaInfo msg1 = new Protomsg.CS_GetLianHuaInfo();
+                MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetLianHuaInfo", msg1);
+            }
+
+        });
+
+        
     }
 
     public void InitStorageInfo()
@@ -370,6 +389,118 @@ public class MyInfo {
             storageinfo.visible = false;
         });
     }
+    public void InitLianHuaInfo()
+    {
+        lianhuainfo.visible = false;
+        lianhuainfo.GetChild("close").asButton.onClick.Set(() => {
+            lianhuainfo.visible = false;
+            LianHuaMsgInfo = null;
+        });
+
+        lianhuainfo.GetChild("ok").asButton.onClick.Set(() => {
+            // 1炼化装备 2炼化材料 3辅助装备
+            Protomsg.CS_StartLianHua msg1 = new Protomsg.CS_StartLianHua();
+            MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_StartLianHua", msg1);
+        });
+
+        lianhuainfo.GetChild("lianhua1").asCom.onDrop.Add((EventContext context) =>
+        {
+            string[] sArray = ((string)context.data).Split(',');
+            if (sArray.Length != 2)
+            {
+                return;
+            }
+            //背包
+            if (int.Parse(sArray[1]) != 2)
+            {
+                return;
+            }
+
+            //获取位置上的道具
+            var bagequip = GetUnitEquipByPos(int.Parse(sArray[0]));
+            if (bagequip != null)
+            {
+                var clientitem = ExcelManager.Instance.GetItemManager().GetItemByID(bagequip.TypdID);
+                if (clientitem == null)
+                {
+                    return;
+                }
+                // 1炼化装备 2炼化材料 3辅助装备
+                Protomsg.CS_DragItem msg1 = new Protomsg.CS_DragItem();
+                msg1.SrcDBItemID = bagequip.ItemDBID;
+                msg1.Dest = 1;
+                MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_DragItem", msg1);
+
+            }
+
+        });
+
+        lianhuainfo.GetChild("lianhua2").asCom.onDrop.Add((EventContext context) =>
+        {
+            string[] sArray = ((string)context.data).Split(',');
+            if (sArray.Length != 2)
+            {
+                return;
+            }
+            //背包
+            if (int.Parse(sArray[1]) != 2)
+            {
+                return;
+            }
+
+            //获取位置上的道具
+            var bagequip = GetUnitEquipByPos(int.Parse(sArray[0]));
+            if (bagequip != null)
+            {
+                var clientitem = ExcelManager.Instance.GetItemManager().GetItemByID(bagequip.TypdID);
+                if (clientitem == null)
+                {
+                    return;
+                }
+                // 1炼化装备 2炼化材料 3辅助装备
+                Protomsg.CS_DragItem msg1 = new Protomsg.CS_DragItem();
+                msg1.SrcDBItemID = bagequip.ItemDBID;
+                msg1.Dest = 2;
+                MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_DragItem", msg1);
+
+            }
+
+        });
+
+        lianhuainfo.GetChild("droplist").asList.onDrop.Add((EventContext context) =>
+        {
+            string[] sArray = ((string)context.data).Split(',');
+            if (sArray.Length != 2)
+            {
+                return;
+            }
+            //背包
+            if (int.Parse(sArray[1]) != 2)
+            {
+                return;
+            }
+
+            //获取位置上的道具
+            var bagequip = GetUnitEquipByPos(int.Parse(sArray[0]));
+            if (bagequip != null)
+            {
+                var clientitem = ExcelManager.Instance.GetItemManager().GetItemByID(bagequip.TypdID);
+                if (clientitem == null)
+                {
+                    return;
+                }
+                // 1炼化装备 2炼化材料 3辅助装备
+                Protomsg.CS_DragItem msg1 = new Protomsg.CS_DragItem();
+                msg1.SrcDBItemID = bagequip.ItemDBID;
+                msg1.Dest = 3;
+                MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_DragItem", msg1);
+
+            }
+
+        });
+    }
+
+    
 
     public void InitDropItem()
     {
@@ -560,6 +691,7 @@ public class MyInfo {
         InitDropItem();
         InitSkillInfo();
         InitStorageInfo();
+        InitLianHuaInfo();
 
 
         //模型
@@ -598,6 +730,8 @@ public class MyInfo {
         MsgManager.Instance.RemoveListener("SC_UnitInfo");
         MsgManager.Instance.RemoveListener("SC_BagInfo");
         MsgManager.Instance.RemoveListener("SC_OpenStorage");
+
+        MsgManager.Instance.RemoveListener("SC_GetLianHuaInfo");
         IsDestroy = true;
     }
 
@@ -607,6 +741,7 @@ public class MyInfo {
         MsgManager.Instance.AddListener("SC_UnitInfo", new HandleMsg(this.SC_UnitInfo));
         MsgManager.Instance.AddListener("SC_BagInfo", new HandleMsg(this.SC_BagInfo));
         MsgManager.Instance.AddListener("SC_OpenStorage", new HandleMsg(this.SC_OpenStorage));
+        MsgManager.Instance.AddListener("SC_GetLianHuaInfo", new HandleMsg(this.SC_GetLianHuaInfo));
         Protomsg.CS_GetUnitInfo msg1 = new Protomsg.CS_GetUnitInfo();
         msg1.UnitID = unit.ID;
         MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetUnitInfo", msg1);
@@ -628,6 +763,176 @@ public class MyInfo {
 
         return true;
     }
+
+    public bool FindDBItemFromLianHuaInfo(Protomsg.SC_GetLianHuaInfo data,int dbid)
+    {
+        if(data == null)
+        {
+            return false;
+        }
+        if(data.LianHuaItem != null && data.LianHuaItem.DBItemID == dbid)
+        {
+            return true;
+        }
+        if (data.CaiLiaoItem != null && data.CaiLiaoItem.DBItemID == dbid)
+        {
+            return true;
+        }
+        foreach(var item in data.FuZhuItem)
+        {
+            if(item.DBItemID == dbid)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    //隐藏背包里的被拖入炼化道具
+    public void HideBagItemWithLianHua()
+    {
+        for (var i = 0; i < BagDataInfo.Equips.Count; i++)
+        {
+            var itemdata = BagDataInfo.Equips[i];
+            if (baginfo.GetChild("bagitem" + (itemdata.Pos + 1)) == null)
+            {
+                continue;
+            }
+            baginfo.GetChild("bagitem" + (itemdata.Pos + 1)).alpha = 1.0f;
+            if (FindDBItemFromLianHuaInfo(LianHuaMsgInfo, itemdata.ItemDBID))
+            {
+                baginfo.GetChild("bagitem" + (itemdata.Pos + 1)).alpha = 0.2f;
+            }
+
+        }
+    }
+
+    //SC_GetLianHuaInfo
+    public bool SC_GetLianHuaInfo(Protomsg.MsgBase d1)
+    {
+        Debug.Log("SC_GetLianHuaInfo--------------");
+        IMessage IMperson = new Protomsg.SC_GetLianHuaInfo();
+        Protomsg.SC_GetLianHuaInfo p1 = (Protomsg.SC_GetLianHuaInfo)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
+        LianHuaMsgInfo = p1;
+        //炼化装备
+        if (p1.LianHuaItem == null || p1.LianHuaItem.TypeID <= 0)
+        {
+            lianhuainfo.GetChild("lianhua1").asCom.GetChild("icon").asLoader.url = "";
+            lianhuainfo.GetChild("lianhua1").asCom.GetChild("icon").onClick.Set(() =>
+            {
+                Tool.NoticeWords("请把需要炼化的装备从背包拖动到这里:", null);
+            });
+            lianhuainfo.GetChild("lianhua1").asCom.GetChild("level").asTextField.text = "";
+        }
+        else
+        {
+            var clientitemdrop = ExcelManager.Instance.GetItemManager().GetItemByID(p1.LianHuaItem.TypeID);
+            if (clientitemdrop != null)
+            {
+                lianhuainfo.GetChild("lianhua1").asCom.GetChild("icon").asLoader.url = clientitemdrop.IconPath;
+                lianhuainfo.GetChild("lianhua1").asCom.GetChild("icon").onClick.Set(() =>
+                {
+                    var item1 = new ItemInfo(p1.LianHuaItem.TypeID, p1.LianHuaItem.DBItemID, p1.LianHuaItem.Level);
+                    item1.SetCallBackBtn("取消", () => {
+                        Protomsg.CS_CancelItem msg1 = new Protomsg.CS_CancelItem();
+                        msg1.SrcDBItemID = p1.LianHuaItem.DBItemID;
+                        msg1.Dest = 1;
+                        MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_CancelItem", msg1);
+                        item1.Destroy();
+                    });
+                });
+                lianhuainfo.GetChild("lianhua1").asCom.GetChild("level").asTextField.text = "Lv."+ p1.LianHuaItem.Level;
+            }
+            
+        }
+        //炼化材料
+        if (p1.CaiLiaoItem == null || p1.CaiLiaoItem.TypeID <= 0)
+        {
+            lianhuainfo.GetChild("lianhua2").asCom.GetChild("icon").asLoader.url = "";
+            lianhuainfo.GetChild("lianhua2").asCom.GetChild("icon").onClick.Set(() =>
+            {
+                Tool.NoticeWords("请把需要使用的炼化材料从背包拖动到这里:", null);
+            });
+            lianhuainfo.GetChild("lianhua2").asCom.GetChild("level").asTextField.text = "";
+        }
+        else
+        {
+            var clientitemdrop = ExcelManager.Instance.GetItemManager().GetItemByID(p1.CaiLiaoItem.TypeID);
+            if (clientitemdrop != null)
+            {
+                lianhuainfo.GetChild("lianhua2").asCom.GetChild("icon").asLoader.url = clientitemdrop.IconPath;
+                lianhuainfo.GetChild("lianhua2").asCom.GetChild("icon").onClick.Set(() =>
+                {
+                    var item1 = new ItemInfo(p1.CaiLiaoItem.TypeID, p1.CaiLiaoItem.DBItemID, p1.CaiLiaoItem.Level);
+                    item1.SetCallBackBtn("取消", () => {
+                        Protomsg.CS_CancelItem msg1 = new Protomsg.CS_CancelItem();
+                        msg1.SrcDBItemID = p1.CaiLiaoItem.DBItemID;
+                        msg1.Dest = 2;
+                        MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_CancelItem", msg1);
+                        item1.Destroy();
+                    });
+                });
+                lianhuainfo.GetChild("lianhua2").asCom.GetChild("level").asTextField.text = "Lv." + p1.CaiLiaoItem.Level;
+            }
+
+        }
+
+        //成功率
+        lianhuainfo.GetChild("succ_persent").asTextField.SetVar("p1", p1.SuccPercent + "");
+        lianhuainfo.GetChild("succ_persent").asTextField.FlushVars();
+
+        //炼化需要的时间 以分钟为单位
+        lianhuainfo.GetChild("lianhuades").asTextField.SetVar("p1", p1.LianHuaTime/60 + "");
+        lianhuainfo.GetChild("lianhuades").asTextField.FlushVars();
+
+
+        Protomsg.ItemOnlyMsg[] allplayer = new Protomsg.ItemOnlyMsg[p1.FuZhuItem.Count];
+        p1.FuZhuItem.CopyTo(allplayer, 0);
+
+        lianhuainfo.GetChild("droplist").asList.RemoveChildren(0, -1, true);
+        System.Array.Sort(allplayer, (a, b) => {
+
+            if (a.TypeID > b.TypeID)
+            {
+                return 1;
+            }
+            else if (a.TypeID < b.TypeID)
+            {
+                return -1;
+            }
+            return 0;
+        });
+        foreach (var itemdrop in allplayer)
+        {
+            var clientitemdrop = ExcelManager.Instance.GetItemManager().GetItemByID(itemdrop.TypeID);
+            if (clientitemdrop == null)
+            {
+                continue;
+            }
+            var onedropitemdrop = UIPackage.CreateObject("GameUI", "sellable").asCom;
+            onedropitemdrop.GetChild("icon").asLoader.url = clientitemdrop.IconPath;
+            onedropitemdrop.GetChild("icon").onClick.Add(() =>
+            {
+                var item1 = new ItemInfo(itemdrop.TypeID,itemdrop.DBItemID,itemdrop.Level);
+                item1.SetCallBackBtn("取消", () => {
+                    Protomsg.CS_CancelItem msg1 = new Protomsg.CS_CancelItem();
+                    msg1.SrcDBItemID = itemdrop.DBItemID;
+                    msg1.Dest = 3;
+                    MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_CancelItem", msg1);
+                    item1.Destroy();
+                });
+            });
+            onedropitemdrop.GetChild("level").asTextField.text = "Lv."+ itemdrop.Level;
+            lianhuainfo.GetChild("droplist").asList.AddChild(onedropitemdrop);
+        }
+
+
+        HideBagItemWithLianHua();
+
+        return true;
+    }
+
     public bool SC_OpenStorage(Protomsg.MsgBase d1)
     {
         Debug.Log("SC_OpenStorage--------------");
@@ -754,7 +1059,9 @@ public class MyInfo {
             baginfo.GetChild("bagitem" + (itemdata.Pos + 1)).asButton.icon = clientitem.IconPath;
             baginfo.GetChild("bagitem" + (itemdata.Pos + 1)).asButton.GetChild("level").asTextField.text = "Lv." + itemdata.Level + "";
         }
-        
+
+        HideBagItemWithLianHua();
+
 
     }
 

@@ -134,7 +134,7 @@ public class GameScene : MonoBehaviour {
         TimeMinuteDiffer = p1.TimeMinute - timenow.Minute;
         TimeSecondDiffer = p1.TimeSecond - timenow.Second;
 
-        CleanScene();
+        //CleanScene();
         if (needNewScene)
         {
             LoadScene(p1.SceneID, p1.Name);

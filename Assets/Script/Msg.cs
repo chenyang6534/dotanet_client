@@ -356,7 +356,15 @@ namespace Protomsg {
             "dW50GAUgASgFEg0KBUNvdW50GAYgASgFEg0KBVN0YXRlGAcgASgFEgwKBFNv",
             "cnQYCCABKAUiRQoKU0NfR2V0VGFzaxIQCghUYXNrVHlwZRgBIAEoBRIlCgdB",
             "bGxUYXNrGAIgAygLMhQucHJvdG9tc2cuT25lVGFza01zZyIeChBDU19HZXRU",
-            "YXNrUmV3YXJkEgoKAklEGAEgASgFYgZwcm90bzM="));
+            "YXNrUmV3YXJkEgoKAklEGAEgASgFIh8KEUNTX0dldExpYW5IdWFJbmZvEgoK",
+            "AklEGAEgASgFIr8BChFTQ19HZXRMaWFuSHVhSW5mbxIqCgtMaWFuSHVhSXRl",
+            "bRgBIAEoCzIVLnByb3RvbXNnLkl0ZW1Pbmx5TXNnEioKC0NhaUxpYW9JdGVt",
+            "GAIgASgLMhUucHJvdG9tc2cuSXRlbU9ubHlNc2cSKAoJRnVaaHVJdGVtGAMg",
+            "AygLMhUucHJvdG9tc2cuSXRlbU9ubHlNc2cSEwoLU3VjY1BlcmNlbnQYBCAB",
+            "KAISEwoLTGlhbkh1YVRpbWUYBSABKAUiMAoLQ1NfRHJhZ0l0ZW0SEwoLU3Jj",
+            "REJJdGVtSUQYASABKAUSDAoERGVzdBgCIAEoBSIyCg1DU19DYW5jZWxJdGVt",
+            "EhMKC1NyY0RCSXRlbUlEGAEgASgFEgwKBERlc3QYAiABKAUiJgoPQ1NfU3Rh",
+            "cnRMaWFuSHVhEhMKC1NyY0RCSXRlbUlEGAEgASgFYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -523,7 +531,12 @@ namespace Protomsg {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GetTask), global::Protomsg.CS_GetTask.Parser, new[]{ "TaskType" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.OneTaskMsg), global::Protomsg.OneTaskMsg.Parser, new[]{ "ID", "Name", "Des", "RewardsStr", "CurCount", "Count", "State", "Sort" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetTask), global::Protomsg.SC_GetTask.Parser, new[]{ "TaskType", "AllTask" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GetTaskReward), global::Protomsg.CS_GetTaskReward.Parser, new[]{ "ID" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GetTaskReward), global::Protomsg.CS_GetTaskReward.Parser, new[]{ "ID" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GetLianHuaInfo), global::Protomsg.CS_GetLianHuaInfo.Parser, new[]{ "ID" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetLianHuaInfo), global::Protomsg.SC_GetLianHuaInfo.Parser, new[]{ "LianHuaItem", "CaiLiaoItem", "FuZhuItem", "SuccPercent", "LianHuaTime" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_DragItem), global::Protomsg.CS_DragItem.Parser, new[]{ "SrcDBItemID", "Dest" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_CancelItem), global::Protomsg.CS_CancelItem.Parser, new[]{ "SrcDBItemID", "Dest" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_StartLianHua), global::Protomsg.CS_StartLianHua.Parser, new[]{ "SrcDBItemID" }, null, null, null)
           }));
     }
     #endregion
@@ -34278,6 +34291,865 @@ namespace Protomsg {
             break;
           case 8: {
             ID = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///---------------炼化---------------
+  /// </summary>
+  public sealed partial class CS_GetLianHuaInfo : pb::IMessage<CS_GetLianHuaInfo> {
+    private static readonly pb::MessageParser<CS_GetLianHuaInfo> _parser = new pb::MessageParser<CS_GetLianHuaInfo>(() => new CS_GetLianHuaInfo());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CS_GetLianHuaInfo> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[164]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetLianHuaInfo() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetLianHuaInfo(CS_GetLianHuaInfo other) : this() {
+      iD_ = other.iD_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetLianHuaInfo Clone() {
+      return new CS_GetLianHuaInfo(this);
+    }
+
+    /// <summary>Field number for the "ID" field.</summary>
+    public const int IDFieldNumber = 1;
+    private int iD_;
+    /// <summary>
+    ///任务ID
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ID {
+      get { return iD_; }
+      set {
+        iD_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CS_GetLianHuaInfo);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CS_GetLianHuaInfo other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ID != other.ID) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ID != 0) hash ^= ID.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (ID != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(ID);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (ID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ID);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CS_GetLianHuaInfo other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ID != 0) {
+        ID = other.ID;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            ID = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class SC_GetLianHuaInfo : pb::IMessage<SC_GetLianHuaInfo> {
+    private static readonly pb::MessageParser<SC_GetLianHuaInfo> _parser = new pb::MessageParser<SC_GetLianHuaInfo>(() => new SC_GetLianHuaInfo());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<SC_GetLianHuaInfo> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[165]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetLianHuaInfo() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetLianHuaInfo(SC_GetLianHuaInfo other) : this() {
+      lianHuaItem_ = other.lianHuaItem_ != null ? other.lianHuaItem_.Clone() : null;
+      caiLiaoItem_ = other.caiLiaoItem_ != null ? other.caiLiaoItem_.Clone() : null;
+      fuZhuItem_ = other.fuZhuItem_.Clone();
+      succPercent_ = other.succPercent_;
+      lianHuaTime_ = other.lianHuaTime_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetLianHuaInfo Clone() {
+      return new SC_GetLianHuaInfo(this);
+    }
+
+    /// <summary>Field number for the "LianHuaItem" field.</summary>
+    public const int LianHuaItemFieldNumber = 1;
+    private global::Protomsg.ItemOnlyMsg lianHuaItem_;
+    /// <summary>
+    ///炼化装备
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Protomsg.ItemOnlyMsg LianHuaItem {
+      get { return lianHuaItem_; }
+      set {
+        lianHuaItem_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "CaiLiaoItem" field.</summary>
+    public const int CaiLiaoItemFieldNumber = 2;
+    private global::Protomsg.ItemOnlyMsg caiLiaoItem_;
+    /// <summary>
+    ///炼化材料
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Protomsg.ItemOnlyMsg CaiLiaoItem {
+      get { return caiLiaoItem_; }
+      set {
+        caiLiaoItem_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "FuZhuItem" field.</summary>
+    public const int FuZhuItemFieldNumber = 3;
+    private static readonly pb::FieldCodec<global::Protomsg.ItemOnlyMsg> _repeated_fuZhuItem_codec
+        = pb::FieldCodec.ForMessage(26, global::Protomsg.ItemOnlyMsg.Parser);
+    private readonly pbc::RepeatedField<global::Protomsg.ItemOnlyMsg> fuZhuItem_ = new pbc::RepeatedField<global::Protomsg.ItemOnlyMsg>();
+    /// <summary>
+    ///辅助装备
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::Protomsg.ItemOnlyMsg> FuZhuItem {
+      get { return fuZhuItem_; }
+    }
+
+    /// <summary>Field number for the "SuccPercent" field.</summary>
+    public const int SuccPercentFieldNumber = 4;
+    private float succPercent_;
+    /// <summary>
+    ///成功率
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float SuccPercent {
+      get { return succPercent_; }
+      set {
+        succPercent_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "LianHuaTime" field.</summary>
+    public const int LianHuaTimeFieldNumber = 5;
+    private int lianHuaTime_;
+    /// <summary>
+    ///炼化需要的时间
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int LianHuaTime {
+      get { return lianHuaTime_; }
+      set {
+        lianHuaTime_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as SC_GetLianHuaInfo);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(SC_GetLianHuaInfo other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(LianHuaItem, other.LianHuaItem)) return false;
+      if (!object.Equals(CaiLiaoItem, other.CaiLiaoItem)) return false;
+      if(!fuZhuItem_.Equals(other.fuZhuItem_)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(SuccPercent, other.SuccPercent)) return false;
+      if (LianHuaTime != other.LianHuaTime) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (lianHuaItem_ != null) hash ^= LianHuaItem.GetHashCode();
+      if (caiLiaoItem_ != null) hash ^= CaiLiaoItem.GetHashCode();
+      hash ^= fuZhuItem_.GetHashCode();
+      if (SuccPercent != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(SuccPercent);
+      if (LianHuaTime != 0) hash ^= LianHuaTime.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (lianHuaItem_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(LianHuaItem);
+      }
+      if (caiLiaoItem_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(CaiLiaoItem);
+      }
+      fuZhuItem_.WriteTo(output, _repeated_fuZhuItem_codec);
+      if (SuccPercent != 0F) {
+        output.WriteRawTag(37);
+        output.WriteFloat(SuccPercent);
+      }
+      if (LianHuaTime != 0) {
+        output.WriteRawTag(40);
+        output.WriteInt32(LianHuaTime);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (lianHuaItem_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(LianHuaItem);
+      }
+      if (caiLiaoItem_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(CaiLiaoItem);
+      }
+      size += fuZhuItem_.CalculateSize(_repeated_fuZhuItem_codec);
+      if (SuccPercent != 0F) {
+        size += 1 + 4;
+      }
+      if (LianHuaTime != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(LianHuaTime);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(SC_GetLianHuaInfo other) {
+      if (other == null) {
+        return;
+      }
+      if (other.lianHuaItem_ != null) {
+        if (lianHuaItem_ == null) {
+          lianHuaItem_ = new global::Protomsg.ItemOnlyMsg();
+        }
+        LianHuaItem.MergeFrom(other.LianHuaItem);
+      }
+      if (other.caiLiaoItem_ != null) {
+        if (caiLiaoItem_ == null) {
+          caiLiaoItem_ = new global::Protomsg.ItemOnlyMsg();
+        }
+        CaiLiaoItem.MergeFrom(other.CaiLiaoItem);
+      }
+      fuZhuItem_.Add(other.fuZhuItem_);
+      if (other.SuccPercent != 0F) {
+        SuccPercent = other.SuccPercent;
+      }
+      if (other.LianHuaTime != 0) {
+        LianHuaTime = other.LianHuaTime;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (lianHuaItem_ == null) {
+              lianHuaItem_ = new global::Protomsg.ItemOnlyMsg();
+            }
+            input.ReadMessage(lianHuaItem_);
+            break;
+          }
+          case 18: {
+            if (caiLiaoItem_ == null) {
+              caiLiaoItem_ = new global::Protomsg.ItemOnlyMsg();
+            }
+            input.ReadMessage(caiLiaoItem_);
+            break;
+          }
+          case 26: {
+            fuZhuItem_.AddEntriesFrom(input, _repeated_fuZhuItem_codec);
+            break;
+          }
+          case 37: {
+            SuccPercent = input.ReadFloat();
+            break;
+          }
+          case 40: {
+            LianHuaTime = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///拖动道具到界面
+  /// </summary>
+  public sealed partial class CS_DragItem : pb::IMessage<CS_DragItem> {
+    private static readonly pb::MessageParser<CS_DragItem> _parser = new pb::MessageParser<CS_DragItem>(() => new CS_DragItem());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CS_DragItem> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[166]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_DragItem() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_DragItem(CS_DragItem other) : this() {
+      srcDBItemID_ = other.srcDBItemID_;
+      dest_ = other.dest_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_DragItem Clone() {
+      return new CS_DragItem(this);
+    }
+
+    /// <summary>Field number for the "SrcDBItemID" field.</summary>
+    public const int SrcDBItemIDFieldNumber = 1;
+    private int srcDBItemID_;
+    /// <summary>
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int SrcDBItemID {
+      get { return srcDBItemID_; }
+      set {
+        srcDBItemID_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Dest" field.</summary>
+    public const int DestFieldNumber = 2;
+    private int dest_;
+    /// <summary>
+    /// 1炼化装备 2炼化材料 3辅助装备
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Dest {
+      get { return dest_; }
+      set {
+        dest_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CS_DragItem);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CS_DragItem other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (SrcDBItemID != other.SrcDBItemID) return false;
+      if (Dest != other.Dest) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (SrcDBItemID != 0) hash ^= SrcDBItemID.GetHashCode();
+      if (Dest != 0) hash ^= Dest.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (SrcDBItemID != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(SrcDBItemID);
+      }
+      if (Dest != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(Dest);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (SrcDBItemID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(SrcDBItemID);
+      }
+      if (Dest != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Dest);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CS_DragItem other) {
+      if (other == null) {
+        return;
+      }
+      if (other.SrcDBItemID != 0) {
+        SrcDBItemID = other.SrcDBItemID;
+      }
+      if (other.Dest != 0) {
+        Dest = other.Dest;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            SrcDBItemID = input.ReadInt32();
+            break;
+          }
+          case 16: {
+            Dest = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///取消道具
+  /// </summary>
+  public sealed partial class CS_CancelItem : pb::IMessage<CS_CancelItem> {
+    private static readonly pb::MessageParser<CS_CancelItem> _parser = new pb::MessageParser<CS_CancelItem>(() => new CS_CancelItem());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CS_CancelItem> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[167]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_CancelItem() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_CancelItem(CS_CancelItem other) : this() {
+      srcDBItemID_ = other.srcDBItemID_;
+      dest_ = other.dest_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_CancelItem Clone() {
+      return new CS_CancelItem(this);
+    }
+
+    /// <summary>Field number for the "SrcDBItemID" field.</summary>
+    public const int SrcDBItemIDFieldNumber = 1;
+    private int srcDBItemID_;
+    /// <summary>
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int SrcDBItemID {
+      get { return srcDBItemID_; }
+      set {
+        srcDBItemID_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Dest" field.</summary>
+    public const int DestFieldNumber = 2;
+    private int dest_;
+    /// <summary>
+    /// 1炼化装备 2炼化材料 3辅助装备
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Dest {
+      get { return dest_; }
+      set {
+        dest_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CS_CancelItem);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CS_CancelItem other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (SrcDBItemID != other.SrcDBItemID) return false;
+      if (Dest != other.Dest) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (SrcDBItemID != 0) hash ^= SrcDBItemID.GetHashCode();
+      if (Dest != 0) hash ^= Dest.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (SrcDBItemID != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(SrcDBItemID);
+      }
+      if (Dest != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(Dest);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (SrcDBItemID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(SrcDBItemID);
+      }
+      if (Dest != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Dest);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CS_CancelItem other) {
+      if (other == null) {
+        return;
+      }
+      if (other.SrcDBItemID != 0) {
+        SrcDBItemID = other.SrcDBItemID;
+      }
+      if (other.Dest != 0) {
+        Dest = other.Dest;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            SrcDBItemID = input.ReadInt32();
+            break;
+          }
+          case 16: {
+            Dest = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///开始炼化
+  /// </summary>
+  public sealed partial class CS_StartLianHua : pb::IMessage<CS_StartLianHua> {
+    private static readonly pb::MessageParser<CS_StartLianHua> _parser = new pb::MessageParser<CS_StartLianHua>(() => new CS_StartLianHua());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CS_StartLianHua> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[168]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_StartLianHua() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_StartLianHua(CS_StartLianHua other) : this() {
+      srcDBItemID_ = other.srcDBItemID_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_StartLianHua Clone() {
+      return new CS_StartLianHua(this);
+    }
+
+    /// <summary>Field number for the "SrcDBItemID" field.</summary>
+    public const int SrcDBItemIDFieldNumber = 1;
+    private int srcDBItemID_;
+    /// <summary>
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int SrcDBItemID {
+      get { return srcDBItemID_; }
+      set {
+        srcDBItemID_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CS_StartLianHua);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CS_StartLianHua other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (SrcDBItemID != other.SrcDBItemID) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (SrcDBItemID != 0) hash ^= SrcDBItemID.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (SrcDBItemID != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(SrcDBItemID);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (SrcDBItemID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(SrcDBItemID);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CS_StartLianHua other) {
+      if (other == null) {
+        return;
+      }
+      if (other.SrcDBItemID != 0) {
+        SrcDBItemID = other.SrcDBItemID;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            SrcDBItemID = input.ReadInt32();
             break;
           }
         }

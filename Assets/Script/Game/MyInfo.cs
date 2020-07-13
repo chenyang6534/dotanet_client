@@ -22,6 +22,7 @@ public class MyInfo {
     public bool IsDestroy;
     public MyInfo(UnityEntity unit)
     {
+        UMengManager.Instanse.Event_click_myinfo();
         AudioManager.Am.Play2DSound(AudioManager.Sound_OpenUI);
         IsDestroy = false;
         this.unit = unit;

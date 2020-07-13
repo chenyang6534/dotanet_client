@@ -134,7 +134,7 @@ public class GameScene : MonoBehaviour {
         TimeMinuteDiffer = p1.TimeMinute - timenow.Minute;
         TimeSecondDiffer = p1.TimeSecond - timenow.Second;
 
-        //CleanScene();
+        CleanScene(needNewScene);
         if (needNewScene)
         {
             LoadScene(p1.SceneID, p1.Name);
@@ -146,7 +146,14 @@ public class GameScene : MonoBehaviour {
             msg1.SceneID = m_SceneID;
             MyKcp.Instance.SendMsg(m_ServerName, "CS_LodingScene", msg1);
         }
-        
+
+        //
+        var item = ExcelManager.Instance.GetSceneManager().GetSceneByID(m_SceneID);
+        if(item != null)
+        {
+            UMengManager.Instanse.Event_goin_scene(item.Name);
+        }
+
 
         return true;
     }
@@ -155,7 +162,7 @@ public class GameScene : MonoBehaviour {
     {
         if(m_GameScene != null)
         {
-            CleanScene();
+            CleanScene(false);
         }
 
 
@@ -200,7 +207,7 @@ public class GameScene : MonoBehaviour {
     }
 
     //清除场景资源 包括场景 单位 特效 
-    void CleanScene()
+    void CleanScene(bool isdestroy)
     {
         m_LogicFrameData = new Dictionary<int, Protomsg.SC_Update>();
         
@@ -210,7 +217,7 @@ public class GameScene : MonoBehaviour {
         BulletEntityManager.Instance.Clear();
         SceneItemManager.Instance.Clear();
 
-        if (m_GameScene != null)
+        if (m_GameScene != null && isdestroy)
         {
             Destroy(m_GameScene);
             m_GameScene = null;

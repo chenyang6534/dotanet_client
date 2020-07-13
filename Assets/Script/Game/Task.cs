@@ -15,6 +15,8 @@ public class Task
     public Task()
     {
 
+        UMengManager.Instanse.Event_click_taskbtn();
+
         MsgManager.Instance.AddListener("SC_GetTask", new HandleMsg(this.SC_GetTask));
 
         main = UIPackage.CreateObject("GameUI", "AllTask").asCom;

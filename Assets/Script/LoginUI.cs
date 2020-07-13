@@ -18,6 +18,8 @@ public class LoginUI : MonoBehaviour {
     protected GComponent SelectLayer;
     protected Protomsg.CharacterBaseDatas SelectHeroMsg;
 
+    public int MyHeroMaxLevel = 1;
+
     protected double m_LastQuickLoginTime;
 
     //public static string GameLauncherUrl = "http://119.23.8.72:6666";
@@ -32,7 +34,9 @@ public class LoginUI : MonoBehaviour {
         //MyKcp.Instance.Destroy();
         //读取存档
         SaveDataManager.Read();
-        
+
+        UMengManager.Instanse.Event_inlogin();
+
         //UIPackage.AddPackage("FairyGui/GameUI");
         //GComponent view = UIPackage.CreateObject("GameUI","MyInfo").asCom;
         //以下几种方式都可以将view显示出来：
@@ -87,6 +91,8 @@ public class LoginUI : MonoBehaviour {
             {
                 return;
             }
+            UMengManager.Instanse.Event_click_loginbtn();
+
             m_LastQuickLoginTime = Tool.GetTime();
 
             //MyKcp.Instance.Destroy();
@@ -329,6 +335,12 @@ public class LoginUI : MonoBehaviour {
                 Debug.Log("no hero:" + item.Name);
                 continue;
             }
+            //所有英雄中的最大等级
+            if(item.Level > MyHeroMaxLevel)
+            {
+                MyHeroMaxLevel = item.Level;
+            }
+
             var heroiconcom = UIPackage.CreateObject("Package1", "HeroIcon").asCom;
 
 
@@ -417,6 +429,16 @@ public class LoginUI : MonoBehaviour {
             freshSelectHero();
 
             SelectLayer.GetChild("startbtn").asButton.onClick.Add(()=> {
+
+                UMengManager.Instanse.Event_click_startgame();
+                if(SelectHeroMsg.Level >= MyHeroMaxLevel)
+                {
+                    UMengManager.Instanse.SetPreProperty(true);
+                }
+                else
+                {
+                    UMengManager.Instanse.SetPreProperty(false);
+                }
 
                 if (SelectHeroMsg.Name.Length <= 0)
                 {

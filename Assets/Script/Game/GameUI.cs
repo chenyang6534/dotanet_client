@@ -84,12 +84,14 @@ public class GameUI : MonoBehaviour {
             Protomsg.CS_QuickRevive msg1 = new Protomsg.CS_QuickRevive();
             msg1.ReviveType = 1;
             MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_QuickRevive", msg1);
+            UMengManager.Instanse.Event_click_goldrevive();
         });
         DieUI.GetChild("diamondbtn").asButton.onClick.Add(() => {
             //砖石立即复活
             Protomsg.CS_QuickRevive msg1 = new Protomsg.CS_QuickRevive();
             msg1.ReviveType = 2;
             MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_QuickRevive", msg1);
+            UMengManager.Instanse.Event_click_masonryrevive();
         });
         DieUI.GetChild("lookvideo").visible = false;
         DieUI.GetChild("lookvideo").asButton.onClick.Add(() => {
@@ -1653,11 +1655,17 @@ public class GameUI : MonoBehaviour {
                 DieUI.visible = true;
                 FairyGUI.Transition trans = DieUI.GetTransition("start");
                 trans.Play();
+
+                UMengManager.Instanse.Event_pop_dieui();
             }
             
         }
         else
         {
+            if(DieUI.visible == true)
+            {
+                UMengManager.Instanse.Event_hide_dieui();
+            }
             DieUI.visible = false;
         }
 

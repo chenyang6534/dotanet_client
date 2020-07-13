@@ -322,6 +322,12 @@ public class HeadInfo{
         //蓝量进度条
         maininfo.GetChild("mp").asProgress.value = (int)((float)unit.MP / unit.MaxMP * 100);
         //等级数字
+        var lastlevel = int.Parse(maininfo.GetChild("level").asTextField.text);
+        if(lastlevel > 1 && unit.Level > lastlevel)
+        {
+            //升级
+            UMengManager.Instanse.Event_levelup(unit.Level + "");
+        }
         maininfo.GetChild("level").asTextField.text = unit.Level+"";
 
         //经验条

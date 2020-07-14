@@ -6,6 +6,8 @@ using UnityEngine;
 public class SaveData
 {
     public int SelectHeroTypeID;
+    public string PhoneNumber;
+    public string Password;
 }
 
 
@@ -17,6 +19,7 @@ public static class SaveDataManager
     public static void SetFileName(string name)
     {
         sFilePath = Application.persistentDataPath + "/savedata"+name+".sd";
+        Debug.Log("savepath:" + sFilePath);
     }
     public static void Read()
     {

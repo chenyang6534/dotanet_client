@@ -7,6 +7,10 @@ using System.Text;
 using System.Text.RegularExpressions;
 using UnityEditor;
 using UnityEngine;
+using Aliyun.Acs.Core;
+using Aliyun.Acs.Core.Profile;
+using Aliyun.Acs.Core.Exceptions;
+using Aliyun.Acs.Core.Http;
 
 public static class Tool {
 
@@ -435,6 +439,15 @@ public static class Tool {
         Debug.Log("IsChineseOrNumberOrWord:" + value+" :"+re);
         return re;
     }
+    //^1[3-9]\d{9}$
+    public static bool IsPhoneNumber(string value)
+    {
+        //return System.Text.RegularExpressions.Regex.IsMatch(value, @"^[1]+[3,5]+\d{9}");
+        Regex rg = new Regex(@"^1[3-9]\d{9}$");
+        bool re = rg.IsMatch(value);
+        Debug.Log("IsPhoneNumber:" + value + " :" + re);
+        return re;
+    }
     //公会成员品级对应
     public static string[] GuildPinLevelWords = { "无", "一品", "二品", "三品", "四品", "五品", "六品", "七品", "八品", "九品", "大宗师" };
     //公会职位对应
@@ -531,6 +544,34 @@ public static string GetContetColorFromChatChanel(int chanel)
     }
 
     //创建道具节点sellable
-    
 
+    //发送验证码
+    public static void SendSMS(string phone, string code)
+    {
+        IClientProfile profile = DefaultProfile.GetProfile("cn-hangzhou", "LTAI4G3c5QBfDPC8ztnGZtZz", "FmO4kM4FNwsIt2YFU0qc892vedm039");
+        DefaultAcsClient client = new DefaultAcsClient(profile);
+        CommonRequest request = new CommonRequest();
+        request.Method = MethodType.POST;
+        request.Domain = "dysmsapi.aliyuncs.com";
+        request.Version = "2017-05-25";
+        request.Action = "SendSms";
+        // request.Protocol = ProtocolType.HTTP;
+        request.AddQueryParameters("PhoneNumbers", phone);
+        request.AddQueryParameters("SignName", "刀了游戏");
+        request.AddQueryParameters("TemplateCode", "SMS_195873160");
+        request.AddQueryParameters("TemplateParam", "{'code':'" + code + "'}");
+        try
+        {
+            CommonResponse response = client.GetCommonResponse(request);
+            Debug.Log(System.Text.Encoding.Default.GetString(response.HttpResponse.Content));
+        }
+        catch (ServerException e)
+        {
+            Debug.Log(e);
+        }
+        catch (ClientException e)
+        {
+            Debug.Log(e);
+        }
+    }
 }

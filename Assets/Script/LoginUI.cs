@@ -81,61 +81,15 @@ public class LoginUI : MonoBehaviour {
 
 
         //mRoot.GetChild("center")..AddChild(view);
-        mRoot.GetChild("login").asButton.onClick.Add(()=> {
+        
 
-            
-
-
-            //两秒内不能重复登录
-            if (Tool.GetTime()-m_LastQuickLoginTime <= 2 || SelectServer == null)
-            {
-                return;
-            }
-            UMengManager.Instanse.Event_click_loginbtn();
-
-            m_LastQuickLoginTime = Tool.GetTime();
-
-            //MyKcp.Instance.Destroy();
-            //MyKcp.Instance.Create(SelectServer.ip, SelectServer.port);
-            MyKcp.Create(SelectServer.Ip, SelectServer.Port);
-
-            Protomsg.CS_MsgQuickLogin msg1 = new Protomsg.CS_MsgQuickLogin();
-            //msg1.Machineid = "100001"; //PA
-            //msg1.Machineid = "10000";   //剑圣 (技能特效完结)
-            //msg1.Machineid = "10002";   //小黑 (技能特效完结)
-            //msg1.Machineid = "10003";   //虚空 (技能特效完结)
-            //msg1.Machineid = "10004";   //混沌骑士 (技能特效完结)
-            //msg1.Machineid = "10005";   //熊战士   (技能特效完结)
-            //msg1.Machineid = "10006";   //血魔    (技能特效完结)
-            //msg1.Machineid = "10007";   //小娜迦 (技能特效完结)
-            //msg1.Machineid = "10008";   //小小 (技能特效完结)
-            //msg1.Machineid = "10009";   //风行 (技能特效完结)
-            //msg1.Machineid = "10010";   //帕克 (技能特效完结)
-            //msg1.Machineid = "10011";   //影魔 (技能特效完结)
-            //msg1.Machineid = "10012";   //幽鬼 (技能特效完结)
-            //msg1.Machineid = "10013";   //火枪 (技能特效完结)
-            //msg1.Machineid = "10014";   //斧王 (技能特效完结)
-            //msg1.Machineid = "10015";   //月骑 (技能特效完结)
-            //msg1.Machineid = "10016";   //毒龙 (技能特效完结)
-            //msg1.Machineid = "10017";   //蓝猫 (技能特效完结)
-            //msg1.Machineid = "10018";   //瘟疫法师
-            //msg1.Machineid = "10019";   //天怒法师
-            Environment.GetCommandLineArgs();
-            msg1.Machineid = SystemInfo.deviceUniqueIdentifier;
-            if (Application.platform == RuntimePlatform.WindowsPlayer ||
-            Application.platform == RuntimePlatform.WindowsEditor)
-            {
-                msg1.Machineid += winMachineid;
-            }
-            msg1.Platform = "test";
-            MyKcp.Instance.SendMsg("Login", "CS_MsgQuickLogin", msg1);
-            UnityEngine.Debug.Log("login onClick");
-        });
-
-
+        InitAccount();
         InitServerList();
 
         MsgManager.Instance.AddListener("SC_Logined", new HandleMsg(this.Logined));
+        MsgManager.Instance.AddListener("SC_PhoneLogin", new HandleMsg(this.SC_PhoneLogin));
+        MsgManager.Instance.AddListener("SC_NoticeBindPhoneLogin", new HandleMsg(this.SC_NoticeBindPhoneLogin));
+        MsgManager.Instance.AddListener("SC_BindPhoneLogin", new HandleMsg(this.SC_BindPhoneLogin));
 
         MsgManager.Instance.AddListener("SC_SelectCharacterResult", new HandleMsg(this.SelectCharacterResult));
 
@@ -168,6 +122,232 @@ public class LoginUI : MonoBehaviour {
         public ServerListInfo[] Servers;
         public int Code;
         public string UpdateUrl;
+    }
+
+    private int YanZhengMaRemainTime = 60;
+    private GComponent PhoneLoginUI = null;
+    void YanZhengMaTimer()
+    {
+        if(PhoneLoginUI == null)
+        {
+            return;
+        }
+        YanZhengMaRemainTime--;
+        if(YanZhengMaRemainTime < 0)
+        {
+            PhoneLoginUI.GetController("c1").selectedIndex = 0;
+        }
+        else
+        {
+            PhoneLoginUI.GetChild("time").asTextField.text = YanZhengMaRemainTime + "";
+            Invoke("YanZhengMaTimer", 1.0f);
+        }
+        
+    }
+
+    //弹出短信登录界面
+    void PopPhoneLoginUI(int c2index)
+    {
+        var mapinfo = UIPackage.CreateObject("Package1", "phonelogin").asCom;
+        PhoneLoginUI = mapinfo;
+        GRoot.inst.AddChild(mapinfo);
+        mapinfo.xy = Tool.GetPosition(0.5f, 0.5f);
+        mapinfo.GetChild("close").asButton.onClick.Add(() =>
+        {
+            mapinfo.Dispose();
+            PhoneLoginUI = null;
+        });
+
+        mapinfo.GetController("c2").selectedIndex = c2index;
+
+
+        //11ff
+        //获取验证码
+        var Code = UnityEngine.Random.Range(100000, 999999).ToString();
+        mapinfo.GetChild("get").asButton.onClick.Add(() =>
+        {
+            var phonenumber = mapinfo.GetChild("phonenumberinput").asTextInput.text;
+            if (phonenumber.Length <= 0)
+            {
+                Tool.NoticeWords("请输入手机号码！", null);
+                return;
+            }
+            if(Tool.IsPhoneNumber(phonenumber) == false)
+            {
+                Tool.NoticeWords("手机号码不正确", null);
+                return;
+            }
+            //IsPhoneNumber
+            PhoneLoginUI.GetController("c1").selectedIndex = 1;
+            Invoke("YanZhengMaTimer", 1.0f);
+            YanZhengMaRemainTime = 60;
+            PhoneLoginUI.GetChild("time").asTextField.text = YanZhengMaRemainTime + "";
+            Tool.SendSMS(phonenumber, Code);
+        });
+
+        mapinfo.GetChild("ok").asButton.onClick.Add(() =>
+        {
+            var phonenumber = mapinfo.GetChild("phonenumberinput").asTextInput.text;
+            
+            if (Tool.IsPhoneNumber(phonenumber) == false)
+            {
+                Tool.NoticeWords("手机号码不正确", null);
+                return;
+            }
+            var yanzhenggma = mapinfo.GetChild("yanzhenginput").asTextInput.text;
+            if (yanzhenggma != Code)
+            {
+                Tool.NoticeWords("验证码错误", null);
+                return;
+            }
+            //IsPhoneNumber
+
+
+            Protomsg.CS_PhoneLogin msg1 = new Protomsg.CS_PhoneLogin();
+            msg1.Phonenumber = phonenumber;
+            msg1.Password = "wanneng";
+            MyKcp.Instance.SendMsg("Login", "CS_PhoneLogin", msg1);
+
+            mapinfo.Dispose();
+            PhoneLoginUI = null;
+
+        });
+
+        mapinfo.GetChild("bind").asButton.onClick.Add(() =>
+        {
+            var phonenumber = mapinfo.GetChild("phonenumberinput").asTextInput.text;
+
+            if (Tool.IsPhoneNumber(phonenumber) == false)
+            {
+                Tool.NoticeWords("手机号码不正确", null);
+                return;
+            }
+            var yanzhenggma = mapinfo.GetChild("yanzhenginput").asTextInput.text;
+            if (yanzhenggma != Code)
+            {
+                Tool.NoticeWords("验证码错误", null);
+                return;
+            }
+            //IsPhoneNumber
+
+
+            Protomsg.CS_BindPhoneLogin msg1 = new Protomsg.CS_BindPhoneLogin();
+            msg1.Phonenumber = phonenumber;
+            msg1.Password = "wanneng";
+            MyKcp.Instance.SendMsg("Login", "CS_BindPhoneLogin", msg1);
+
+            mapinfo.Dispose();
+            PhoneLoginUI = null;
+
+        });
+    }
+
+    //初始化账号信息
+    void InitAccount()
+    {
+        if(SaveDataManager.sData.PhoneNumber != null && SaveDataManager.sData.PhoneNumber.Length > 0)
+        {
+            mRoot.GetController("c1").selectedIndex = 1;
+            mRoot.GetChild("phonenumber").asTextField.text = SaveDataManager.sData.PhoneNumber;
+        }
+        else
+        {
+            mRoot.GetController("c1").selectedIndex = 0;
+        }
+        
+        
+        mRoot.GetChild("login").asButton.onClick.Set(() => {
+
+            //两秒内不能重复登录
+            if (Tool.GetTime() - m_LastQuickLoginTime <= 2 || SelectServer == null)
+            {
+                return;
+            }
+            UMengManager.Instanse.Event_click_loginbtn();
+            m_LastQuickLoginTime = Tool.GetTime();
+            MyKcp.Create(SelectServer.Ip, SelectServer.Port);
+
+            //有账号
+            if (SaveDataManager.sData.PhoneNumber != null && SaveDataManager.sData.PhoneNumber.Length > 0)
+            {
+                Protomsg.CS_PhoneLogin msg1 = new Protomsg.CS_PhoneLogin();
+                msg1.Phonenumber = SaveDataManager.sData.PhoneNumber;
+                msg1.Password = SaveDataManager.sData.Password;
+                MyKcp.Instance.SendMsg("Login", "CS_PhoneLogin", msg1);
+            }
+            else
+            {
+                PopPhoneLoginUI(0);
+            }
+
+            //Tool.SendSMS("15002830325", "866995");
+            //return;
+
+            
+
+            //Protomsg.CS_MsgQuickLogin msg1 = new Protomsg.CS_MsgQuickLogin();
+            //msg1.Machineid = "100001"; //PA
+            //msg1.Machineid = "10000";   //剑圣 (技能特效完结)
+            //msg1.Machineid = "10002";   //小黑 (技能特效完结)
+            //msg1.Machineid = "10003";   //虚空 (技能特效完结)
+            //msg1.Machineid = "10004";   //混沌骑士 (技能特效完结)
+            //msg1.Machineid = "10005";   //熊战士   (技能特效完结)
+            //msg1.Machineid = "10006";   //血魔    (技能特效完结)
+            //msg1.Machineid = "10007";   //小娜迦 (技能特效完结)
+            //msg1.Machineid = "10008";   //小小 (技能特效完结)
+            //msg1.Machineid = "10009";   //风行 (技能特效完结)
+            //msg1.Machineid = "10010";   //帕克 (技能特效完结)
+            //msg1.Machineid = "10011";   //影魔 (技能特效完结)
+            //msg1.Machineid = "10012";   //幽鬼 (技能特效完结)
+            //msg1.Machineid = "10013";   //火枪 (技能特效完结)
+            //msg1.Machineid = "10014";   //斧王 (技能特效完结)
+            //msg1.Machineid = "10015";   //月骑 (技能特效完结)
+            //msg1.Machineid = "10016";   //毒龙 (技能特效完结)
+            //msg1.Machineid = "10017";   //蓝猫 (技能特效完结)
+            //msg1.Machineid = "10018";   //瘟疫法师
+            //msg1.Machineid = "10019";   //天怒法师
+            //Environment.GetCommandLineArgs();
+            //msg1.Machineid = SystemInfo.deviceUniqueIdentifier;
+            //if (Application.platform == RuntimePlatform.WindowsPlayer ||
+            //Application.platform == RuntimePlatform.WindowsEditor)
+            //{
+            //    msg1.Machineid += winMachineid;
+            //}
+            //msg1.Platform = "test";
+            //MyKcp.Instance.SendMsg("Login", "CS_MsgQuickLogin", msg1);
+            //UnityEngine.Debug.Log("login onClick");
+        });
+
+        mRoot.GetChild("changebtn").asButton.onClick.Set(() => {
+            MyKcp.Create(SelectServer.Ip, SelectServer.Port);
+            PopPhoneLoginUI(0);
+            
+        });
+
+        mRoot.GetChild("youkelogin").asButton.onClick.Set(() => {
+
+            //两秒内不能重复登录
+            if (Tool.GetTime() - m_LastQuickLoginTime <= 2 || SelectServer == null)
+            {
+                return;
+            }
+            UMengManager.Instanse.Event_click_loginbtn();
+            m_LastQuickLoginTime = Tool.GetTime();
+            MyKcp.Create(SelectServer.Ip, SelectServer.Port);
+            
+            Protomsg.CS_MsgQuickLogin msg1 = new Protomsg.CS_MsgQuickLogin();
+            Environment.GetCommandLineArgs();
+            msg1.Machineid = SystemInfo.deviceUniqueIdentifier;
+            if (Application.platform == RuntimePlatform.WindowsPlayer ||
+            Application.platform == RuntimePlatform.WindowsEditor)
+            {
+                msg1.Machineid += winMachineid;
+            }
+            msg1.Platform = "test";
+            MyKcp.Instance.SendMsg("Login", "CS_MsgQuickLogin", msg1);
+            //UnityEngine.Debug.Log("login onClick");
+        });
+
     }
 
     void InitServerList()
@@ -278,6 +458,11 @@ public class LoginUI : MonoBehaviour {
         MsgManager.Instance.RemoveListener("SC_SelectCharacterResult");
         MsgManager.Instance.RemoveListener("SC_NeedLineUp");
         MsgManager.Instance.RemoveListener("SC_GetLineUpFrontCount");
+        MsgManager.Instance.RemoveListener("SC_PhoneLogin");
+        MsgManager.Instance.RemoveListener("SC_NoticeBindPhoneLogin");
+        MsgManager.Instance.RemoveListener("SC_BindPhoneLogin");
+        
+
     }
 
     //开放的英雄
@@ -491,6 +676,51 @@ public class LoginUI : MonoBehaviour {
             
             });
         }
+    //SC_NoticeBindPhoneLogin
+    public bool SC_NoticeBindPhoneLogin(Protomsg.MsgBase d1)
+    {
+        Google.Protobuf.IMessage IMperson = new Protomsg.SC_NoticeBindPhoneLogin();
+        Protomsg.SC_NoticeBindPhoneLogin p1 = (Protomsg.SC_NoticeBindPhoneLogin)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
+
+        PopPhoneLoginUI(1);
+
+        return false; //中断解析数据
+    }
+    //SC_BindPhoneLogin
+    public bool SC_BindPhoneLogin(Protomsg.MsgBase d1)
+    {
+        Google.Protobuf.IMessage IMperson = new Protomsg.SC_BindPhoneLogin();
+        Protomsg.SC_BindPhoneLogin p1 = (Protomsg.SC_BindPhoneLogin)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
+        Debug.Log("SC_BindPhoneLogin:" + p1.Phonenumber + "  :" + p1.Password);
+
+        if(p1.Code == 1)//成功
+        {
+            SaveDataManager.sData.PhoneNumber = p1.Phonenumber;
+            SaveDataManager.sData.Password = p1.Password;
+            SaveDataManager.Save();
+            Tool.NoticeWords("绑定手机成功", null);
+        }
+        else
+        {
+            Tool.NoticeWords("绑定手机失败", null);
+        }
+        
+
+        return false; //中断解析数据
+    }
+
+    //SC_PhoneLogin
+    public bool SC_PhoneLogin(Protomsg.MsgBase d1)
+    {
+        Google.Protobuf.IMessage IMperson = new Protomsg.SC_PhoneLogin();
+        Protomsg.SC_PhoneLogin p1 = (Protomsg.SC_PhoneLogin)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
+        Debug.Log("SC_PhoneLogin:" + p1.Phonenumber + "  :"+p1.Password);
+        SaveDataManager.sData.PhoneNumber = p1.Phonenumber;
+        SaveDataManager.sData.Password = p1.Password;
+        SaveDataManager.Save();
+
+        return false; //中断解析数据
+    }
 
     public bool Logined(Protomsg.MsgBase d1)
     {
@@ -575,8 +805,7 @@ public class LoginUI : MonoBehaviour {
             mLineUp.Dispose();
             Debug.Log("main OnDestroy:aaaa");
             
-
-            Debug.Log("main OnDestroy:bbbbb");
+            
         }
 
         return false; //中断解析数据

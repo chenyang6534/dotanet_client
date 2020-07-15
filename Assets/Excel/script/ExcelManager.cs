@@ -24,7 +24,7 @@ public class ExcelManager
 
     private ExcelManager()
     {
-        Debug.Log("ExcelManager init");
+        //Debug.Log("ExcelManager init");
         //m_BIM.Init();
         BulletIM.Init();
         BuffIM.Init();
@@ -32,9 +32,9 @@ public class ExcelManager
         SkillManager.Init();
         TalentManager.Init();
         SceneManager.Init();
-        Debug.Log("1111ExcelManager init");
+        //Debug.Log("1111ExcelManager init");
         UnitInfoManager.Init();
-        Debug.Log("2222ExcelManager init");
+        //Debug.Log("2222ExcelManager init");
         NoticeWordsManager.Init();
     }
 

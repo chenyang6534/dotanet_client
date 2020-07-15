@@ -548,7 +548,9 @@ public static string GetContetColorFromChatChanel(int chanel)
     //发送验证码
     public static void SendSMS(string phone, string code)
     {
+        Debug.Log("SendSMS11111111111111");
         IClientProfile profile = DefaultProfile.GetProfile("cn-hangzhou", "LTAI4G3c5QBfDPC8ztnGZtZz", "FmO4kM4FNwsIt2YFU0qc892vedm039");
+        
         DefaultAcsClient client = new DefaultAcsClient(profile);
         CommonRequest request = new CommonRequest();
         request.Method = MethodType.POST;
@@ -557,9 +559,27 @@ public static string GetContetColorFromChatChanel(int chanel)
         request.Action = "SendSms";
         // request.Protocol = ProtocolType.HTTP;
         request.AddQueryParameters("PhoneNumbers", phone);
-        request.AddQueryParameters("SignName", "刀了游戏");
+        request.AddQueryParameters("SignName", "daolegame");
         request.AddQueryParameters("TemplateCode", "SMS_195873160");
-        request.AddQueryParameters("TemplateParam", "{'code':'" + code + "'}");
+        var codejson = "{\'code\':\'" + code + "\'}";
+        request.AddQueryParameters("TemplateParam", codejson);
+
+        Aliyun.Acs.Core.Auth.AcsURLEncoder.Encode("PhoneNumbers");
+        Debug.Log("1111111111111");
+        Aliyun.Acs.Core.Auth.AcsURLEncoder.Encode("SignName");
+        Debug.Log("22222222222222");
+        Aliyun.Acs.Core.Auth.AcsURLEncoder.Encode("daolegame");
+        Debug.Log("333333333333333");
+        Aliyun.Acs.Core.Auth.AcsURLEncoder.Encode(phone);
+        Debug.Log("44444444444444");
+        Aliyun.Acs.Core.Auth.AcsURLEncoder.Encode("TemplateCode");
+        Debug.Log("5555555555555");
+        Aliyun.Acs.Core.Auth.AcsURLEncoder.Encode("SMS_195873160");
+        Debug.Log("666666666666");
+        Aliyun.Acs.Core.Auth.AcsURLEncoder.Encode("TemplateParam");
+        Debug.Log("777777777777:"+ codejson);
+        Aliyun.Acs.Core.Auth.AcsURLEncoder.Encode(codejson);
+        Debug.Log("8888888888888888");
         try
         {
             CommonResponse response = client.GetCommonResponse(request);

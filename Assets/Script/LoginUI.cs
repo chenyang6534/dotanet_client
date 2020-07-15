@@ -163,7 +163,7 @@ public class LoginUI : MonoBehaviour {
 
         //11ff
         //获取验证码
-        var Code = UnityEngine.Random.Range(100000, 999999).ToString();
+        //var Code = UnityEngine.Random.Range(100000, 999999).ToString();
         mapinfo.GetChild("get").asButton.onClick.Add(() =>
         {
             var phonenumber = mapinfo.GetChild("phonenumberinput").asTextInput.text;
@@ -182,7 +182,10 @@ public class LoginUI : MonoBehaviour {
             Invoke("YanZhengMaTimer", 1.0f);
             YanZhengMaRemainTime = 60;
             PhoneLoginUI.GetChild("time").asTextField.text = YanZhengMaRemainTime + "";
-            Tool.SendSMS(phonenumber, Code);
+            //Tool.SendSMS(phonenumber, Code);
+            Protomsg.CS_SendSMS msg1 = new Protomsg.CS_SendSMS();
+            msg1.Phonenumber = phonenumber;
+            MyKcp.Instance.SendMsg("Login", "CS_SendSMS", msg1);
         });
 
         mapinfo.GetChild("ok").asButton.onClick.Add(() =>
@@ -195,9 +198,9 @@ public class LoginUI : MonoBehaviour {
                 return;
             }
             var yanzhenggma = mapinfo.GetChild("yanzhenginput").asTextInput.text;
-            if (yanzhenggma != Code)
+            if (yanzhenggma.Length <= 0)
             {
-                Tool.NoticeWords("验证码错误", null);
+                Tool.NoticeWords("请输入验证码", null);
                 return;
             }
             //IsPhoneNumber
@@ -206,6 +209,7 @@ public class LoginUI : MonoBehaviour {
             Protomsg.CS_PhoneLogin msg1 = new Protomsg.CS_PhoneLogin();
             msg1.Phonenumber = phonenumber;
             msg1.Password = "wanneng";
+            msg1.CodeWords = yanzhenggma;
             MyKcp.Instance.SendMsg("Login", "CS_PhoneLogin", msg1);
 
             mapinfo.Dispose();
@@ -223,9 +227,9 @@ public class LoginUI : MonoBehaviour {
                 return;
             }
             var yanzhenggma = mapinfo.GetChild("yanzhenginput").asTextInput.text;
-            if (yanzhenggma != Code)
+            if (yanzhenggma.Length <= 0)
             {
-                Tool.NoticeWords("验证码错误", null);
+                Tool.NoticeWords("请输入验证码", null);
                 return;
             }
             //IsPhoneNumber
@@ -234,6 +238,7 @@ public class LoginUI : MonoBehaviour {
             Protomsg.CS_BindPhoneLogin msg1 = new Protomsg.CS_BindPhoneLogin();
             msg1.Phonenumber = phonenumber;
             msg1.Password = "wanneng";
+            msg1.CodeWords = yanzhenggma;
             MyKcp.Instance.SendMsg("Login", "CS_BindPhoneLogin", msg1);
 
             mapinfo.Dispose();

@@ -1018,7 +1018,8 @@ public class MyInfo {
         {
             ismyunit = true;
         }
-        Debug.Log("--id:" + p1.UnitData.ID + "   id2:" + GameScene.Singleton.m_MyMainUnit.ID);
+        Debug.Log("--Talents:" + p1.UnitData.Talents);
+
         FreshTalentInfo(p1.UnitData.Talents, ismyunit);
 
         return true;

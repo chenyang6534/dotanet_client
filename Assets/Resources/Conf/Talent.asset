@@ -556,3 +556,15 @@ MonoBehaviour:
     IconPath: "ui://GameUI/\u53F2\u8BD7\u7EA7\u5929\u8D4B\u4E66"
     Name: "\u53F2\u8BD7\u7EA7\u5929\u8D4BB"
     Des: "\u98DE\u7535\u6BCF0.2\u79D2\u91CA\u653E\u4E00\u4E2A\u7535\u5B50\u5F71\u5B50"
+  - TypeID: 137
+    IconPath: "ui://GameUI/\u53F2\u8BD7\u7EA7\u5929\u8D4B\u4E66"
+    Name: "\u53F2\u8BD7\u7EA7\u5929\u8D4BA"
+    Des: "\u6218\u6597\u9965\u6E34\u8303\u56F4+6"
+  - TypeID: 138
+    IconPath: "ui://GameUI/\u53F2\u8BD7\u7EA7\u5929\u8D4B\u4E66"
+    Name: "\u53F2\u8BD7\u7EA7\u5929\u8D4BB"
+    Des: "\u5E7D\u9B3C\u4E4B\u5203\u8303\u56F4+6"
+  - TypeID: 139
+    IconPath: "ui://GameUI/\u53F2\u8BD7\u7EA7\u5929\u8D4B\u4E66"
+    Name: "\u53F2\u8BD7\u7EA7\u5929\u8D4BA"
+    Des: "\u5E7D\u9B3C\u5927\u62DBCD-100,\u5E7D\u9B3C\u4E4B\u5203\u589E\u52A0\u4E00\u4E2A\u6BCF\u79D2+50\u4F24\u5BB3"

@@ -44,6 +44,21 @@ public class CopyMap
         main.GetChild("playcount").asTextField.SetVar("p1", p1.RemainPlayTimes+"");
         main.GetChild("playcount").asTextField.FlushVars();
 
+
+        main.GetChild("pricetype").asLoader.url = Tool.GetPriceTypeIcon(p1.BuyOnePriceType);
+        main.GetChild("price").asTextField.text = p1.BuyOnePrice + "";
+        //进入
+        main.GetChild("buy").asButton.onClick.Set(() =>
+        {
+            Tool.NoticeWindonw("你确定要以[color=#FFFF00]" + p1.BuyOnePrice + Tool.GetPriceTypeName(p1.BuyOnePriceType) + "[/color]的价格购买一次副本次数吗?", () =>
+            {
+                Protomsg.CS_BuyCopyMapsCount msg1 = new Protomsg.CS_BuyCopyMapsCount();
+                MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_BuyCopyMapsCount", msg1);
+            });
+            
+        });
+
+
         Protomsg.CopyMapInfo[] allplayer = new Protomsg.CopyMapInfo[p1.Maps.Count];
         p1.Maps.CopyTo(allplayer, 0);
         System.Array.Sort(allplayer, (a, b) => {

@@ -68,7 +68,7 @@ public class GameScene : MonoBehaviour {
         
         m_LogicFrameData = new Dictionary<int, Protomsg.SC_Update>();
 
-        Application.targetFrameRate = 60;
+        Application.targetFrameRate = 30;
     }
     void OnDestroy()
     {

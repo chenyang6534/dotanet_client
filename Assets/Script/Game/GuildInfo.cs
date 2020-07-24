@@ -564,8 +564,16 @@ public class GuildInfo
         {
             mapinfo.GetChild("name").asTextField.text = sceneitem.Name;
         }
+        if (p1.BossFreshTime <= 0)
+        {
+            mapinfo.GetChild("time").asTextField.text = "已经刷新";
+        }
+        else
+        {
+            mapinfo.GetChild("time").asTextField.text = Tool.Time2String(p1.BossFreshTime);
+        }
 
-        mapinfo.GetChild("time").asTextField.text = Tool.Time2String(p1.BossFreshTime);
+        
 
         //掉落道具
         mapinfo.GetChild("maplist").asList.RemoveChildren(0, -1, true);

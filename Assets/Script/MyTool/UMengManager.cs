@@ -93,6 +93,13 @@ public class UMengManager : MonoBehaviour
 #endif
     }
 
+    public void Event_buy_store(string name)
+    {
+#if UNITY_ANDROID
+        GA.Event("buy_store",name);
+#endif
+    }
+
     // Use this for initialization  
     void Init()
     {

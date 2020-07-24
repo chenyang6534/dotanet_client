@@ -370,7 +370,7 @@ public class GameUI : MonoBehaviour {
             Application.platform != RuntimePlatform.WindowsPlayer &&
             Application.platform != RuntimePlatform.WindowsEditor)
         {
-            LittleMapCom.GetChild("store").visible = false;
+            //LittleMapCom.GetChild("store").visible = false;
             LittleMapCom.GetChild("guaji").visible = false;
         }
     }

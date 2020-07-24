@@ -90,6 +90,8 @@ public class StoreInfo
                 Protomsg.CS_BuyCommodity msg1 = new Protomsg.CS_BuyCommodity();
                 msg1.TypeID = item.TypeID;
                 MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_BuyCommodity", msg1);
+
+                UMengManager.Instanse.Event_buy_store(clientitem.Name);
             });
             main.GetChild("n3").asList.AddChild(onedropitem);
         }

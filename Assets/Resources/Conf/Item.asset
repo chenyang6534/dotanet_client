@@ -543,9 +543,9 @@ MonoBehaviour:
     IconPath: "ui://GameUI/\u6797\u80AF\u6CD5\u7403"
     SceneItem: "Item/Icon/\u6797\u80AF\u6CD5\u7403 (1)"
     Name: "\u62B5\u6D88\u7403"
-    Des: "+[color=#D8D8D8] 13 [/color]\u6240\u6709\u5C5E\u6027\n+[color=#D8D8D8] 6.5
-      [/color]\u751F\u547D\u6062\u590D\n+[color=#D8D8D8] 5 [/color]\u9B54\u6CD5\u6062\u590D\n[color=#D8D8D8]\u88AB\u52A8:\u6CD5\u672F\u62B5\u6297
-      [/color]\n\u62B5\u6321\u4E00\u6B21\u5927\u90E8\u5206\u6307\u5411\u6027\u6CD5\u672F\nCD\uFF1A13"
+    Des: "+[color=#D8D8D8] 13/17/20/22/24 [/color]\u6240\u6709\u5C5E\u6027\n+[color=#D8D8D8]
+      6.5 [/color]\u751F\u547D\u6062\u590D\n+[color=#D8D8D8] 5/7/8/9/10 [/color]\u9B54\u6CD5\u6062\u590D\n[color=#D8D8D8]\u88AB\u52A8:\u6CD5\u672F\u62B5\u6297
+      [/color]\n\u62B5\u6321\u4E00\u6B21\u5927\u90E8\u5206\u6307\u5411\u6027\u6CD5\u672F\nCD\uFF1A15"
     ShowLevel: 1
   - TypeID: 74
     IconPath: "ui://GameUI/\u5F3A\u88AD\u80F8\u7532"

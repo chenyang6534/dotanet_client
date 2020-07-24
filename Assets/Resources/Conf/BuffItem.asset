@@ -1228,3 +1228,35 @@ MonoBehaviour:
     IconPath: 
     IconTimeEnable: 1
     IsShowControl: 1
+  - TypeID: 204
+    BodyEffect: 
+    FootEffect: 
+    Enable: 1
+    HeadEffect: 
+    TopBarEffect: 
+    RenderColor: 0
+    OutEffect: 
+    NativeTopBarEffect: 
+    HandsEffect: 
+    FootsEffect: 
+    MaterialEffect: 
+    ModeEnable: 1
+    IconPath: "ui://GameUI/\u6050\u9CCC\u4E4B\u5FC3"
+    IconTimeEnable: 0
+    IsShowControl: 0
+  - TypeID: 350
+    BodyEffect: 
+    FootEffect: 
+    Enable: 1
+    HeadEffect: 
+    TopBarEffect: 
+    RenderColor: 0
+    OutEffect: 
+    NativeTopBarEffect: 
+    HandsEffect: 
+    FootsEffect: 
+    MaterialEffect: 
+    ModeEnable: 1
+    IconPath: "ui://GameUI/\u6797\u80AF\u6CD5\u7403"
+    IconTimeEnable: 1
+    IsShowControl: 0

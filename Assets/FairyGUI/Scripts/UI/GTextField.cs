@@ -53,6 +53,10 @@ namespace FairyGUI
 			{
 				if (value == null)
 					value = string.Empty;
+                if(value == _text)
+                {
+                    return;
+                }
 				_text = value;
 				SetTextFieldText();
 				UpdateSize();

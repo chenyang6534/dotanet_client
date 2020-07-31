@@ -415,8 +415,30 @@ public class ExchangeInfo
             {
                 continue;
             }
+            //检查自己是否可以分红
+            var ismyitem = false;
+            foreach (var item1 in item.ReceivecharactersName)
+            {
+
+                if(GameScene.Singleton.m_MyMainUnit != null && GameScene.Singleton.m_MyMainUnit.Name == item1)
+                {
+                    ismyitem = true;
+                    break;
+                }
+
+            }
+
 
             var onedropitem = UIPackage.CreateObject("GameUI", "worldAuctionOne").asCom;
+
+            if(ismyitem == true)
+            {
+                onedropitem.grayed = false;
+            }
+            else
+            {
+                onedropitem.grayed = true;
+            }
             if (clientitem.Name == "")
             {
                 onedropitem.GetChild("name").asTextField.text = "无";

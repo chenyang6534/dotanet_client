@@ -989,7 +989,7 @@ public class MyInfo {
 
             if (clientitem != null)
             {
-                onedropitem.GetChild("level").asTextField.text = "lv.1";
+                onedropitem.GetChild("level").asTextField.text = "lv."+ itemlevel;
             }
             else
             {

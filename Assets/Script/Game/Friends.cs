@@ -24,7 +24,7 @@ public class Friends : MonoBehaviour {
         Debug.Log("SC_GetFriendsList:");
         IMessage IMperson = new Protomsg.SC_GetFriendsList();
         Protomsg.SC_GetFriendsList p2 = (Protomsg.SC_GetFriendsList)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
-
+        AudioManager.Am.Play2DSound(AudioManager.Sound_OpenLittleUI);
         var list = FriendsCom.GetChild("list").asList;
         list.RemoveChildren();
 
@@ -32,7 +32,7 @@ public class Friends : MonoBehaviour {
         {
             var teamrequest = UIPackage.CreateObject("GameUI", "FriendRequest").asCom;
             list.AddChild(teamrequest);
-            AudioManager.Am.Play2DSound(AudioManager.Sound_OpenLittleUI);
+            
             //SrcUnitTypeID
             var clientitem = ExcelManager.Instance.GetUnitInfoManager().GetUnitInfoByID(p1.Typeid);
             if (clientitem != null)
@@ -87,7 +87,7 @@ public class Friends : MonoBehaviour {
         {
             var teamrequest = UIPackage.CreateObject("GameUI", "FriendOne").asCom;
             list.AddChild(teamrequest);
-            AudioManager.Am.Play2DSound(AudioManager.Sound_OpenLittleUI);
+            
             //SrcUnitTypeID
             var clientitem = ExcelManager.Instance.GetUnitInfoManager().GetUnitInfoByID(p1.Typeid);
             if (clientitem != null)

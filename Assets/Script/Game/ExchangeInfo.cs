@@ -549,7 +549,7 @@ public class ExchangeInfo
         
 
 
-        AudioManager.Am.Play2DSound(AudioManager.Sound_CloseUI);
+        //AudioManager.Am.Play2DSound(AudioManager.Sound_CloseUI);
         if (main != null)
         {
             main.Dispose();

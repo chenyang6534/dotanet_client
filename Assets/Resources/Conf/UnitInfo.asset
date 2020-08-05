@@ -32,7 +32,7 @@ MonoBehaviour:
     Des: 
     Attack_Range: "\u8FD1\u6218"
     AttributePrimary: 2
-    Skills_ID: 5,6,8,7
+    Skills_ID: 5,193,8,7
   - TypeID: 4
     HeroName: "\u5200\u5723\u6CBB\u7597\u68D2"
     IconPath: 

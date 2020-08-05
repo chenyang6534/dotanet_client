@@ -128,6 +128,7 @@ public class Mails : MonoBehaviour {
         sInstanse.FriendsCom.GetChild("content").asGroup.visible = false;
         var list = FriendsCom.GetChild("list").asList;
         list.RemoveChildren(0, -1, true);
+        AudioManager.Am.Play2DSound(AudioManager.Sound_OpenLittleUI);
 
         FriendsCom.GetChild("noticeinfo").asTextField.SetVar("count", p2.MailUpperLimit + "");
         FriendsCom.GetChild("noticeinfo").asTextField.FlushVars();
@@ -156,7 +157,7 @@ public class Mails : MonoBehaviour {
             var teamrequest = UIPackage.CreateObject("GameUI", "MailOne").asCom;
             teamrequest.data = p1;
             list.AddChild(teamrequest);
-            AudioManager.Am.Play2DSound(AudioManager.Sound_OpenLittleUI);
+            
             
             teamrequest.GetChild("title").asTextField.text = p1.Title;
             teamrequest.GetChild("day").asTextField.text = p1.Date;

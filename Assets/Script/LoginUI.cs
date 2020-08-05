@@ -86,6 +86,8 @@ public class LoginUI : MonoBehaviour {
         InitAccount();
         InitServerList();
 
+        createselecthero();
+
         MsgManager.Instance.AddListener("SC_Logined", new HandleMsg(this.Logined));
         MsgManager.Instance.AddListener("SC_PhoneLogin", new HandleMsg(this.SC_PhoneLogin));
         MsgManager.Instance.AddListener("SC_NoticeBindPhoneLogin", new HandleMsg(this.SC_NoticeBindPhoneLogin));
@@ -600,25 +602,46 @@ public class LoginUI : MonoBehaviour {
         }
     }
 
+    //
+    public void createselecthero()
+    {
+        SelectLayer = UIPackage.CreateObject("Package1", "SelectHero").asCom;
+        GRoot.inst.AddChildAt(SelectLayer, 0);
+        Vector2 screenPos = new Vector2(Screen.width / 2, Screen.height / 2);
+        Vector2 logicScreenPos = GRoot.inst.GlobalToLocal(screenPos);
+        SelectLayer.xy = logicScreenPos;
+        SelectLayer.visible = false;
+    }
    
     //显示选择英雄界面
     public void showSelectHero()
+    {
+        Vector2 screenPos = new Vector2(Screen.width / 2, Screen.height / 2);
+        Vector2 logicScreenPos = GRoot.inst.GlobalToLocal(screenPos);
+        SelectLayer.visible = true;
+
+        //---设置默认选择英雄
+        if (SaveDataManager.sData.SelectHeroTypeID <= 0)
         {
-            SelectLayer = UIPackage.CreateObject("Package1", "SelectHero").asCom;
-            GRoot.inst.AddChildAt(SelectLayer,0);
-            Vector2 screenPos = new Vector2(Screen.width / 2, Screen.height / 2);
-            Vector2 logicScreenPos = GRoot.inst.GlobalToLocal(screenPos);
-            SelectLayer.xy = logicScreenPos;
+            SaveDataManager.sData.SelectHeroTypeID = openherotypeids1[0];
+        }
 
-            //---设置默认选择英雄
-            if(SaveDataManager.sData.SelectHeroTypeID <= 0)
-            {
-                SaveDataManager.sData.SelectHeroTypeID = openherotypeids1[0];
-            }
+        freshSelectHero();
+        SelectLayer.GetChild("bindphonenuber").asButton.onClick.Add(() =>
+        {
 
-            freshSelectHero();
+            PopPhoneLoginUI(1);
+        });
+        
 
-            SelectLayer.GetChild("startbtn").asButton.onClick.Add(()=> {
+        SelectLayer.GetChild("changephonenumber").asButton.onClick.Add(() => {
+
+            PopPhoneLoginUI(1);
+        });
+        SelectLayer.GetChild("bindphonenuber").visible = false;
+        SelectLayer.GetChild("changephonenumber").visible = true;
+
+        SelectLayer.GetChild("startbtn").asButton.onClick.Add(()=> {
 
                 UMengManager.Instanse.Event_click_startgame();
                 if(SelectHeroMsg.Level >= MyHeroMaxLevel)
@@ -687,7 +710,8 @@ public class LoginUI : MonoBehaviour {
         Google.Protobuf.IMessage IMperson = new Protomsg.SC_NoticeBindPhoneLogin();
         Protomsg.SC_NoticeBindPhoneLogin p1 = (Protomsg.SC_NoticeBindPhoneLogin)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
 
-        PopPhoneLoginUI(1);
+        SelectLayer.GetChild("bindphonenuber").visible = true;
+        SelectLayer.GetChild("changephonenumber").visible = false;
 
         return false; //中断解析数据
     }

@@ -420,3 +420,9 @@ MonoBehaviour:
     Type: 1
     AnimName: showlong
     Pos: 1
+  - TypeID: 67
+    Words: "\u6B64\u5730\u56FEboss\u5DF2\u51FA\u73B0"
+    Sound: sound/other/warning
+    Type: 1
+    AnimName: showlong
+    Pos: 1

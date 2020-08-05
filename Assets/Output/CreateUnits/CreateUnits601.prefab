@@ -75205,7 +75205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyID: 42
-  ReCreateTime: 3600
+  ReCreateTime: 2400
 --- !u!137 &137001780043216046
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

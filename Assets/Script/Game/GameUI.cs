@@ -1390,10 +1390,12 @@ public class GameUI : MonoBehaviour {
     {
         if (GameScene.Singleton.m_MyMainUnit != null)
         {
-            mainUI.GetChild("bottomexperience").asProgress.value = (int)((float)GameScene.Singleton.m_MyMainUnit.Experience / GameScene.Singleton.m_MyMainUnit.MaxExperience * 100);
+            var value = (int)((float)GameScene.Singleton.m_MyMainUnit.Experience / (float)GameScene.Singleton.m_MyMainUnit.MaxExperience * 100);
+            mainUI.GetChild("bottomexperience").asProgress.value = value;
             mainUI.GetChild("bottomexperience").asProgress.GetChild("experiencenum").asTextField.text = GameScene.Singleton.m_MyMainUnit.Experience + "/" + GameScene.Singleton.m_MyMainUnit.MaxExperience;
-            mainUI.GetChild("bottomexperience").asProgress.GetChild("remainexp").asTextField.SetVar("p1", GameScene.Singleton.m_MyMainUnit.RemainExperience+"");
-            mainUI.GetChild("bottomexperience").asProgress.GetChild("remainexp").asTextField.FlushVars();
+            mainUI.GetChild("bottomexperience").asProgress.GetChild("servermaxlevel").asTextField.SetVar("p1", GameScene.Singleton.m_ServerMaxLevel+"");
+            mainUI.GetChild("bottomexperience").asProgress.GetChild("servermaxlevel").asTextField.FlushVars();
+            //Debug.Log("" + (float)GameScene.Singleton.m_MyMainUnit.Experience + "  " + (float)GameScene.Singleton.m_MyMainUnit.MaxExperience+"  "+ value);
 
         }
     }

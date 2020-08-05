@@ -51021,7 +51021,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyID: 61
-  ReCreateTime: 3600
+  ReCreateTime: 1800
 --- !u!114 &114349499194813204
 MonoBehaviour:
   m_ObjectHideFlags: 1

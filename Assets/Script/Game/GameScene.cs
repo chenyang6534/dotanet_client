@@ -19,6 +19,7 @@ public class GameScene : MonoBehaviour {
     protected double m_GameServerStartTime;//游戏场景服务器第0帧的时候的本地时间
     protected float m_LogicDelayTime;//逻辑延时
     public string m_ServerName;
+    public int m_ServerMaxLevel;//当日服务器开放最高等级
     public int m_DataShowType;////数据显示类型 0不显示 1公会战数据 2竞技场数据
     public int m_SceneID;
     public string m_ScenePath;
@@ -124,6 +125,7 @@ public class GameScene : MonoBehaviour {
         m_DataShowType = p1.DataShowType;
         m_SceneID = p1.SceneID;
         m_ScenePath = p1.Name;
+        m_ServerMaxLevel = p1.ServerMaxLevel;
         m_GameServerStartTime = Tool.GetTime() - 1.0f/p1.LogicFps* p1.CurFrame;
         Debug.Log("starttime:"+ m_GameServerStartTime+ " LogicFps: "+ p1.LogicFps+"  curframe:"+m_CurFrame+"  time:"+ Time.realtimeSinceStartup);
 

@@ -473,15 +473,17 @@ public class LoginUI : MonoBehaviour {
     }
 
     //开放的英雄
-    public int[] openherotypeids1 = {3,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
+    //删除小娜迦
+    public int[] openherotypeids = { 3, 5, 6, 7, 8, 9, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
     public List<Protomsg.CharacterBaseDatas> AllOpenHeros = new List<Protomsg.CharacterBaseDatas>();
     public void initOpenHeros(Google.Protobuf.Collections.RepeatedField<Protomsg.CharacterBaseDatas> HaveHeros)
     {
         AllOpenHeros.Clear();
-        for(var i = 0; i < openherotypeids1.Length; i++)
+        for(var i = 0; i < openherotypeids.Length; i++)
         {
-            var item = openherotypeids1[i];
-            //Debug.Log("--------11----openherotypeids1:" + item);
+            var item = openherotypeids[i];
+            Debug.Log("--------11----openherotypeids:" + item);
+
 
             bool has = false;
             foreach(var havehero in HaveHeros)
@@ -623,7 +625,7 @@ public class LoginUI : MonoBehaviour {
         //---设置默认选择英雄
         if (SaveDataManager.sData.SelectHeroTypeID <= 0)
         {
-            SaveDataManager.sData.SelectHeroTypeID = openherotypeids1[0];
+            SaveDataManager.sData.SelectHeroTypeID = openherotypeids[0];
         }
 
         freshSelectHero();

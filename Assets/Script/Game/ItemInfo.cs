@@ -183,6 +183,13 @@ public class ItemInfo {
             isshowjipingword = JiPing(isshowjipingword);
             AddDes("技能吸血:+" + (p1.MagicHurtAddHP * 100).ToString("0.00") + "%"+"   ");
         }
+        if (Tool.IsZero(p1.SuccCount) == false)
+        {
+            //isshowjipingword = JiPing(isshowjipingword);
+            AddDes("\n");
+            AddDes("炼化次数:" + p1.SuccCount  + "   ");
+        }
+        
         AddDes("[/color]");
 
 

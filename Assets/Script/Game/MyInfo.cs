@@ -57,6 +57,7 @@ public class MyInfo {
         Protomsg.CS_SystemHuiShouItem msg1 = new Protomsg.CS_SystemHuiShouItem();
         msg1.SrcPos = srcpos;
         MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_SystemHuiShouItem", msg1);
+        
     }
 
     //发送交换位置
@@ -402,6 +403,7 @@ public class MyInfo {
             // 1炼化装备 2炼化材料 3辅助装备
             Protomsg.CS_StartLianHua msg1 = new Protomsg.CS_StartLianHua();
             MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_StartLianHua", msg1);
+
         });
 
         lianhuainfo.GetChild("lianhua1").asCom.onDrop.Add((EventContext context) =>

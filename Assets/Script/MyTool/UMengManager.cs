@@ -99,6 +99,12 @@ public class UMengManager : MonoBehaviour
         GA.Event("buy_store",name);
 #endif
     }
+    public void Event_lianhua(string name)
+    {
+#if UNITY_ANDROID
+        GA.Event("lianhua", name);
+#endif
+    }
 
     // Use this for initialization  
     void Init()

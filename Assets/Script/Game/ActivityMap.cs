@@ -20,6 +20,8 @@ public class ActivityMap
         MsgManager.Instance.AddListener("SC_GetDuoBaoInfo", new HandleMsg(this.SC_GetDuoBaoInfo));
         MsgManager.Instance.AddListener("SC_GetEndlessLevelInfo", new HandleMsg(this.SC_GetEndlessLevelInfo));
 
+        MsgManager.Instance.AddListener("SC_GetWorldMapsInfo", new HandleMsg(this.SC_GetWorldMapsInfo));
+
         main = UIPackage.CreateObject("GameUI", "ActivityMap").asCom;
         GRoot.inst.AddChild(main);
         main.xy = Tool.GetPosition(0.5f, 0.5f);
@@ -47,8 +49,75 @@ public class ActivityMap
             Protomsg.CS_GetEndlessLevelInfo msg = new Protomsg.CS_GetEndlessLevelInfo();
             MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetEndlessLevelInfo", msg);
         });
+        main.GetChild("world").asButton.onClick.Add(() =>
+        {
+            Protomsg.CS_GetWorldMapsInfo msg = new Protomsg.CS_GetWorldMapsInfo();
+            MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetWorldMapsInfo", msg);
+        });
     }
-  
+
+    //SC_GetWorldMapsInfo
+    public bool SC_GetWorldMapsInfo(Protomsg.MsgBase d1)
+    {
+        Debug.Log("SC_GetWorldMapsInfo:");
+        IMessage IMperson = new Protomsg.SC_GetWorldMapsInfo();
+        Protomsg.SC_GetWorldMapsInfo p1 = (Protomsg.SC_GetWorldMapsInfo)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
+        main.GetChild("worldmaplist").asList.RemoveChildren(0, -1, true);
+
+        Protomsg.WorldMapInfo[] allplayer = new Protomsg.WorldMapInfo[p1.Maps.Count];
+        p1.Maps.CopyTo(allplayer, 0);
+        System.Array.Sort(allplayer, (a, b) => {
+
+            if (a.ID > b.ID)
+            {
+                return 1;
+            }
+            else if (a.ID < b.ID)
+            {
+                return -1;
+            }
+            return 0;
+        });
+
+        //遍历
+        foreach (var item in allplayer)
+        {
+            var clientitem = ExcelManager.Instance.GetSceneManager().GetSceneByID(item.NextSceneID);
+            if (clientitem == null)
+            {
+                continue;
+            }
+
+            var onedropitem = UIPackage.CreateObject("GameUI", "WorldMapInfo").asCom;
+
+            //onedropitem.GetChild("item").asCom.GetChild("icon").asLoader.url = clientitem.IconPath;
+            onedropitem.GetChild("name").asTextField.text = clientitem.Name;
+            onedropitem.GetChild("guildlevel").asTextField.text = item.NeedLevel + "";
+            onedropitem.GetChild("pricetype").asLoader.url = Tool.GetPriceTypeIcon(item.PriceType);
+            onedropitem.GetChild("price").asTextField.text = item.Price + "";
+            //进入
+            onedropitem.GetChild("goto").asButton.onClick.Add(() =>
+            {
+                Protomsg.CS_GotoWorldMap msg1 = new Protomsg.CS_GotoWorldMap();
+                msg1.ID = item.ID;
+                MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GotoWorldMap", msg1);
+            });
+
+            //地图信息
+            onedropitem.GetChild("icon").asLoader.onClick.Add(() =>
+            {
+                Protomsg.CS_GetMapInfo msg1 = new Protomsg.CS_GetMapInfo();
+                msg1.SceneID = item.NextSceneID;
+                MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetMapInfo", msg1);
+            });
+
+
+            main.GetChild("worldmaplist").asList.AddChild(onedropitem);
+
+        }
+
+        return true;
+    }
 
     //进入公会地图
     public bool SC_GetActivityMapsInfo(Protomsg.MsgBase d1)
@@ -296,7 +365,10 @@ public class ActivityMap
         MsgManager.Instance.RemoveListener("SC_GotoActivityMap");
         MsgManager.Instance.RemoveListener("SC_GetDuoBaoInfo");
         MsgManager.Instance.RemoveListener("SC_GetEndlessLevelInfo");
+        MsgManager.Instance.RemoveListener("SC_GetWorldMapsInfo");
         
+
+
         AudioManager.Am.Play2DSound(AudioManager.Sound_CloseUI);
         if (main != null)
         {

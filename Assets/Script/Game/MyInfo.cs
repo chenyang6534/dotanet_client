@@ -667,6 +667,12 @@ public class MyInfo {
         //关闭按钮
         unitinfo.GetChild("close").asButton.onClick.Add(() => { Destroy(); });
 
+        unitinfo.GetChild("aoshu").asButton.onClick.Add(() => { new AoShuInfo(unit.CharacterID); });
+        if(unit.CharacterID <= 0)
+        {
+            unitinfo.GetChild("aoshu").visible = false;
+        }
+
         var item = ExcelManager.Instance.GetSceneManager().GetSceneByID(GameScene.Singleton.m_SceneID);
         if (item != null)
         {

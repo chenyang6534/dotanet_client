@@ -17,7 +17,8 @@ public class ExcelManager
     protected ItemManager ItemManager = Resources.Load<ItemManager>("Conf/Item");
     protected SkillManager SkillManager = Resources.Load<SkillManager>("Conf/Skill");
     protected TalentManager TalentManager = Resources.Load<TalentManager>("Conf/Talent");
-    
+    protected AoShuManager AoShuManager = Resources.Load<AoShuManager>("Conf/AoShu");
+
     protected SceneManager SceneManager = Resources.Load<SceneManager>("Conf/Scene");
     protected UnitInfoManager UnitInfoManager = Resources.Load<UnitInfoManager>("Conf/UnitInfo");
     protected NoticeWordsManager NoticeWordsManager = Resources.Load<NoticeWordsManager>("Conf/NoticeWords");
@@ -31,6 +32,7 @@ public class ExcelManager
         ItemManager.Init();
         SkillManager.Init();
         TalentManager.Init();
+        AoShuManager.Init();
         SceneManager.Init();
         //Debug.Log("1111ExcelManager init");
         UnitInfoManager.Init();
@@ -58,7 +60,11 @@ public class ExcelManager
     {
         return TalentManager;
     }
-    
+    public AoShuManager GetAoShuManager()
+    {
+        return AoShuManager;
+    }
+
     public SceneManager GetSceneManager()
     {
         return SceneManager;

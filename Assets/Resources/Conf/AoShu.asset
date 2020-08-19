@@ -1,0 +1,179 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ad4ee878e89c6547ae58e6250c67de9, type: 3}
+  m_Name: AoShu
+  m_EditorClassIdentifier: 
+  dataArray:
+  - TypeID: 1
+    IconPath: "ui://GameUI/\u529B\u91CF1"
+    Name: "\u529B\u91CF1"
+    Des: "\u529B\u91CF+5"
+    Type: 1
+  - TypeID: 2
+    IconPath: "ui://GameUI/\u654F\u63771"
+    Name: "\u654F\u63771"
+    Des: "\u654F\u6377+5"
+    Type: 2
+  - TypeID: 3
+    IconPath: "ui://GameUI/\u667A\u529B1"
+    Name: "\u667A\u529B1"
+    Des: "\u667A\u529B+5"
+    Type: 3
+  - TypeID: 4
+    IconPath: "ui://GameUI/\u529B\u91CF2"
+    Name: "\u529B\u91CF2"
+    Des: "\u56DE\u8840+5"
+    Type: 1
+  - TypeID: 5
+    IconPath: "ui://GameUI/\u654F\u63772"
+    Name: "\u654F\u63772"
+    Des: "\u653B\u51FB\u901F\u5EA6+20"
+    Type: 2
+  - TypeID: 6
+    IconPath: "ui://GameUI/\u667A\u529B2"
+    Name: "\u667A\u529B2"
+    Des: "\u56DE\u84DD+3"
+    Type: 3
+  - TypeID: 7
+    IconPath: "ui://GameUI/\u529B\u91CF3"
+    Name: "\u529B\u91CF3"
+    Des: "\u8840\u91CF\u4E0A\u9650+200"
+    Type: 1
+  - TypeID: 8
+    IconPath: "ui://GameUI/\u654F\u63773"
+    Name: "\u654F\u63773"
+    Des: "\u62A4\u7532+5"
+    Type: 2
+  - TypeID: 9
+    IconPath: "ui://GameUI/\u667A\u529B3"
+    Name: "\u667A\u529B3"
+    Des: "\u9B54\u6CD5\u4E0A\u9650+200"
+    Type: 3
+  - TypeID: 10
+    IconPath: "ui://GameUI/\u529B\u91CF4"
+    Name: "\u529B\u91CF4"
+    Des: "\u9B54\u6CD5\u6297\u6027+10%"
+    Type: 1
+  - TypeID: 11
+    IconPath: "ui://GameUI/\u654F\u63774"
+    Name: "\u654F\u63774"
+    Des: "\u79FB\u52A8\u901F\u5EA6+0.1"
+    Type: 2
+  - TypeID: 12
+    IconPath: "ui://GameUI/\u667A\u529B4"
+    Name: "\u667A\u529B4"
+    Des: "\u6280\u80FD\u5438\u8840+10%"
+    Type: 3
+  - TypeID: 13
+    IconPath: "ui://GameUI/\u529B\u91CF5"
+    Name: "\u529B\u91CF5"
+    Des: "\u529B\u91CF+10"
+    Type: 1
+  - TypeID: 14
+    IconPath: "ui://GameUI/\u654F\u63775"
+    Name: "\u654F\u63775"
+    Des: "\u95EA\u907F+10%"
+    Type: 2
+  - TypeID: 15
+    IconPath: "ui://GameUI/\u667A\u529B5"
+    Name: "\u667A\u529B5"
+    Des: "\u6280\u80FDCD-10%"
+    Type: 3
+  - TypeID: 16
+    IconPath: "ui://GameUI/\u529B\u91CF6"
+    Name: "\u529B\u91CF6"
+    Des: "\u590D\u6D3B\u65F6\u95F4,\u91D1\u5E01,\u7816\u77F3-20%"
+    Type: 1
+  - TypeID: 17
+    IconPath: "ui://GameUI/\u654F\u63776"
+    Name: "\u654F\u63776"
+    Des: "\u654F\u6377+10"
+    Type: 2
+  - TypeID: 18
+    IconPath: "ui://GameUI/\u667A\u529B6"
+    Name: "\u667A\u529B6"
+    Des: "\u65BD\u6CD5\u8DDD\u79BB+1\u7C73"
+    Type: 3
+  - TypeID: 19
+    IconPath: "ui://GameUI/\u529B\u91CF7"
+    Name: "\u529B\u91CF7"
+    Des: "\u7269\u7406\u5438\u8840+8%"
+    Type: 1
+  - TypeID: 20
+    IconPath: "ui://GameUI/\u654F\u63777"
+    Name: "\u654F\u63777"
+    Des: "\u62A4\u7532+10"
+    Type: 2
+  - TypeID: 21
+    IconPath: "ui://GameUI/\u667A\u529B7"
+    Name: "\u667A\u529B7"
+    Des: "\u6280\u80FD\u589E\u5F3A+10%"
+    Type: 3
+  - TypeID: 22
+    IconPath: "ui://GameUI/\u529B\u91CF8"
+    Name: "\u529B\u91CF8"
+    Des: "\u4F24\u5BB3\u53CD\u5F39+5%"
+    Type: 1
+  - TypeID: 23
+    IconPath: "ui://GameUI/\u654F\u63778"
+    Name: "\u654F\u63778"
+    Des: "\u653B\u51FB\u529B+30"
+    Type: 2
+  - TypeID: 24
+    IconPath: "ui://GameUI/\u667A\u529B8"
+    Name: "\u667A\u529B8"
+    Des: "\u667A\u529B+15"
+    Type: 3
+  - TypeID: 25
+    IconPath: "ui://GameUI/\u529B\u91CF9"
+    Name: "\u529B\u91CF9"
+    Des: "\u8840\u91CF\u4E0A\u9650+400"
+    Type: 1
+  - TypeID: 26
+    IconPath: "ui://GameUI/\u654F\u63779"
+    Name: "\u654F\u63779"
+    Des: "\u654F\u6377+15"
+    Type: 2
+  - TypeID: 27
+    IconPath: "ui://GameUI/\u667A\u529B9"
+    Name: "\u667A\u529B9"
+    Des: "\u9B54\u6CD5\u6D88\u8017\u964D\u4F4E25%"
+    Type: 3
+  - TypeID: 28
+    IconPath: "ui://GameUI/\u529B\u91CF10"
+    Name: "\u529B\u91CF10"
+    Des: "\u7269\u7406\u5438\u8840+15%"
+    Type: 1
+  - TypeID: 29
+    IconPath: "ui://GameUI/\u654F\u637710"
+    Name: "\u654F\u637710"
+    Des: "\u79FB\u52A8\u901F\u5EA6+0.2"
+    Type: 2
+  - TypeID: 30
+    IconPath: "ui://GameUI/\u667A\u529B10"
+    Name: "\u667A\u529B10"
+    Des: "\u6280\u80FD\u589E\u5F3A+20%"
+    Type: 3
+  - TypeID: 31
+    IconPath: "ui://GameUI/\u529B\u91CF11"
+    Name: "\u529B\u91CF11"
+    Des: "\u4F24\u5BB3\u53CD\u5F39+10%"
+    Type: 1
+  - TypeID: 32
+    IconPath: "ui://GameUI/\u654F\u637711"
+    Name: "\u654F\u637711"
+    Des: "\u653B\u51FB\u901F\u5EA6+50"
+    Type: 2
+  - TypeID: 33
+    IconPath: "ui://GameUI/\u667A\u529B11"
+    Name: "\u667A\u529B11"
+    Des: "\u56DE\u84DD+10"
+    Type: 3

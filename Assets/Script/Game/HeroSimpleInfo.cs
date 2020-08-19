@@ -29,6 +29,12 @@ public class HeroSimpleInfo
         msg1.CharacterID = characterid;
         MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetCharacterSimpleInfo", msg1);
 
+        main.GetChild("aoshu").asButton.onClick.Add(() => { new AoShuInfo(characterid); });
+        if (characterid <= 0)
+        {
+            main.GetChild("aoshu").visible = false;
+        }
+
     }
 
     //初始化技能信息

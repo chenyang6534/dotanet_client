@@ -1,0 +1,40 @@
+<dependencies>
+    <androidPackages>
+ 
+      <androidPackage spec="androidx.appcompat:appcompat:1.1.0"/>
+
+      <androidPackage spec="com.mintegral.msdk:videojs:13.0.31"/>
+      <androidPackage spec="com.mintegral.msdk:mtgjscommon:13.0.31"/>
+      <androidPackage spec="com.mintegral.msdk:playercommon:13.0.31"/>
+      <androidPackage spec="com.mintegral.msdk:reward:13.0.31"/>
+      <androidPackage spec="com.mintegral.msdk:videocommon:13.0.31"/>
+      <androidPackage spec="com.mintegral.msdk:interstitialvideo:13.0.31"/>
+      <androidPackage spec="com.mintegral.msdk:mtgnative:13.0.31"/>
+      <androidPackage spec="com.mintegral.msdk:nativeex:13.0.31"/>
+      <androidPackage spec="com.mintegral.msdk:appwall:13.0.31"/>
+      <androidPackage spec="com.mintegral.msdk:interactiveads:13.0.31"/>
+      <androidPackage spec="com.mintegral.msdk:mtgbanner:13.0.31"/>
+      <androidPackage spec="com.mintegral.msdk:interstitial:13.0.31"/>
+      <androidPackage spec="com.mintegral.msdk:common:13.0.31"/>
+
+      <!-- It is necessary to add the both codes below if you target CN android-->
+      <!-- <androidPackage spec="com.mintegral.msdk:optimizedata:13.0.31"/> -->
+      <!-- <androidPackage spec="com.mintegral.msdk:mtgdownloads:13.0.31"/> -->
+
+
+      
+  </androidPackages>
+
+   <iosPods>
+       <iosPod name="MintegralAdSDK/BidNativeAd"/>
+       <iosPod name="MintegralAdSDK/RewardVideoAd"/>
+       <iosPod name="MintegralAdSDK/BidRewardVideoAd"/>
+       <iosPod name="MintegralAdSDK/InterstitialVideoAd"/>
+       <iosPod name="MintegralAdSDK/BidInterstitialVideoAd"/>
+       <iosPod name="MintegralAdSDK/InterstitialAd"/>
+       <iosPod name="MintegralAdSDK/InterActiveAd"/>
+       <iosPod name="MintegralAdSDK/BannerAd"/>
+       <iosPod name="MintegralAdSDK/BidBannerAd"/>
+ 
+    </iosPods>
+</dependencies>

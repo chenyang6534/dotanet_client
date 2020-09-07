@@ -152,6 +152,12 @@ public class GameUI : MonoBehaviour {
         Tool.AddClick(LittleChat.GetChild("contentlist").asList, () => {
             ChatUI.SOpenChatBox("zonghe", "", 0);
         });
+        Tool.AddClick(LittleChat.GetChild("tasklist").asList, () =>
+        {
+            new Task();
+        });
+        //默认任务界面
+        LittleChat.GetController("c1").SetSelectedPage("task");
         //LittleChat.GetChild("contentlist").asList.onTouchBegin.Add((EventContext context) =>
         //{
         //    InputEvent inputEvent = (InputEvent)context.data;
@@ -320,6 +326,8 @@ public class GameUI : MonoBehaviour {
         MsgManager.Instance.AddListener("SC_GetGuildRankBattleInfo", new HandleMsg(this.SC_GetGuildRankBattleInfo));
         MsgManager.Instance.AddListener("SC_RedNotice", new HandleMsg(this.SC_RedNotice));
 
+        MsgManager.Instance.AddListener("SC_MainUITask", new HandleMsg(this.SC_MainUITask));
+
     }
     void OnDestroy()
     {
@@ -331,6 +339,8 @@ public class GameUI : MonoBehaviour {
         MsgManager.Instance.RemoveListener("SC_GetBattleHeroInfo");
         MsgManager.Instance.RemoveListener("SC_GetGuildRankBattleInfo");
         MsgManager.Instance.RemoveListener("SC_RedNotice");
+        MsgManager.Instance.RemoveListener("SC_MainUITask");
+        
     }
     //显示所有按钮
     public void ShowAllBtn(bool show)
@@ -396,6 +406,40 @@ public class GameUI : MonoBehaviour {
         }
 
         Debug.Log("AddChatMsg:" + content);
+    }
+
+    //任务SC_MainUITask
+    public bool SC_MainUITask(Protomsg.MsgBase d1)
+    {
+        Debug.Log("SC_MainUITask:");
+        IMessage IMperson = new Protomsg.SC_MainUITask();
+        Protomsg.SC_MainUITask p1 = (Protomsg.SC_MainUITask)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
+        if(LittleChat == null)
+        {
+            return true;
+        }
+        LittleChat.GetChild("tasklist").asList.RemoveChildren(0, -1, true);
+
+        foreach (var item in p1.MainUITask)
+        {
+            
+            var onedropitem = UIPackage.CreateObject("GameUI", "LittleTaskOne").asCom;
+          
+            onedropitem.GetChild("taskname").asTextField.text = item.Name;
+            onedropitem.GetChild("des").asTextField.text = item.Des;
+            if(item.CurCount < item.Count)
+            {
+                onedropitem.GetChild("jindustate").asTextField.text = item.CurCount + "/" + item.Count;
+            }
+            else
+            {
+                onedropitem.GetChild("jindustate").asTextField.text = "已完成!";
+            }
+            
+            LittleChat.GetChild("tasklist").asList.AddChild(onedropitem);
+        }
+        return true;
+        
     }
 
     //红点提示SC_RedNotice

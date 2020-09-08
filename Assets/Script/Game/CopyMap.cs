@@ -53,9 +53,30 @@ public class CopyMap
             Tool.NoticeWindonw("你确定要以[color=#FFFF00]" + p1.BuyOnePrice + Tool.GetPriceTypeName(p1.BuyOnePriceType) + "[/color]的价格购买一次副本次数吗?", () =>
             {
                 Protomsg.CS_BuyCopyMapsCount msg1 = new Protomsg.CS_BuyCopyMapsCount();
+                msg1.IsWatchVedio = false;
                 MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_BuyCopyMapsCount", msg1);
             });
             
+        });
+        //进入
+        main.GetChild("buyvedio").asButton.onClick.Set(() =>
+        {
+            MintegralMgr.ShowVideo(null, (succ) =>
+            {
+                if (succ == true)
+                {
+                    Debug.Log("观看视频成功");
+                    Protomsg.CS_BuyCopyMapsCount msg1 = new Protomsg.CS_BuyCopyMapsCount();
+                    msg1.IsWatchVedio = true;
+                    MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_BuyCopyMapsCount", msg1);
+                }
+                else
+                {
+                    Debug.Log("观看视频失败");
+                }
+            });
+            
+
         });
 
 
@@ -152,6 +173,7 @@ public class CopyMap
         }
         
         mapinfo.GetChild("time").asTextField.text = Tool.Time2String(p1.BossFreshTime);
+        mapinfo.GetChild("watchvedio").visible = false;
 
         //掉落道具
         mapinfo.GetChild("maplist").asList.RemoveChildren(0, -1, true);

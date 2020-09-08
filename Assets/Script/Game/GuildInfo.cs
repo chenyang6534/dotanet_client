@@ -564,16 +564,33 @@ public class GuildInfo
         {
             mapinfo.GetChild("name").asTextField.text = sceneitem.Name;
         }
-        if (p1.BossFreshTime <= 0)
+        mapinfo.GetChild("watchvedio").asButton.onClick.Add(() =>
         {
-            mapinfo.GetChild("time").asTextField.text = "已经刷新";
-        }
-        else
-        {
-            mapinfo.GetChild("time").asTextField.text = Tool.Time2String(p1.BossFreshTime);
-        }
+            MintegralMgr.ShowVideo(null, (succ) =>
+            {
+                if (succ == true)
+                {
+                    Debug.Log("观看视频成功");
+                    if (p1.BossFreshTime <= 0)
+                    {
+                        mapinfo.GetChild("time").asTextField.text = "已刷新";
+                    }
+                    else
+                    {
+                        mapinfo.GetChild("time").asTextField.text = Tool.Time2String(p1.BossFreshTime);
+                    }
+                }
+                else
+                {
+                    Debug.Log("观看视频失败");
+                }
+            });
 
-        
+        });
+
+        mapinfo.GetChild("time").asTextField.text = "未查询";
+
+
 
         //掉落道具
         mapinfo.GetChild("maplist").asList.RemoveChildren(0, -1, true);

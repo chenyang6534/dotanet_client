@@ -280,10 +280,23 @@ public class MyInfo {
                             {
                                 return;
                             }
-                            Tool.NoticeWindonw("你确定要合成道具(" + clientitem.Name + ")到更高等级吗?[color=#ff2222](极品属性会叠加保留)[/color]", () =>
+                            Tool.NoticeWindonw("你确定要观看视频后合成道具(" + clientitem.Name + ")到更高等级吗?[color=#ff2222](极品属性会叠加保留)[/color]", () =>
                             {
                                 //SendDestroyItem(int.Parse(sArray[0]));
-                                SendChangePos(int.Parse(sArray[0]), (int)item.data, int.Parse(sArray[1]), 2);
+                                MintegralMgr.ShowVideo(null, (succ) =>
+                                {
+                                    if (succ == true)
+                                    {
+                                        Debug.Log("观看视频成功");
+                                        //领取奖励
+                                        SendChangePos(int.Parse(sArray[0]), (int)item.data, int.Parse(sArray[1]), 2);
+                                    }
+                                    else
+                                    {
+                                        Debug.Log("观看视频失败");
+                                    }
+                                });
+                                
                             });
                             return;
                         }
@@ -400,9 +413,24 @@ public class MyInfo {
         });
 
         lianhuainfo.GetChild("ok").asButton.onClick.Set(() => {
-            // 1炼化装备 2炼化材料 3辅助装备
-            Protomsg.CS_StartLianHua msg1 = new Protomsg.CS_StartLianHua();
-            MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_StartLianHua", msg1);
+
+            MintegralMgr.ShowVideo(null, (succ) =>
+            {
+                if (succ == true)
+                {
+                    Debug.Log("观看视频成功");
+                    //领取奖励
+                    // 1炼化装备 2炼化材料 3辅助装备
+                    Protomsg.CS_StartLianHua msg1 = new Protomsg.CS_StartLianHua();
+                    MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_StartLianHua", msg1);
+                }
+                else
+                {
+                    Debug.Log("观看视频失败");
+                }
+            });
+
+            
 
         });
 
@@ -892,8 +920,8 @@ public class MyInfo {
         lianhuainfo.GetChild("succ_persent").asTextField.FlushVars();
 
         //炼化需要的时间 以分钟为单位
-        lianhuainfo.GetChild("lianhuades").asTextField.SetVar("p1", p1.LianHuaTime/60 + "");
-        lianhuainfo.GetChild("lianhuades").asTextField.FlushVars();
+        //lianhuainfo.GetChild("lianhuades").asTextField.SetVar("p1", p1.LianHuaTime/60 + "");
+        //lianhuainfo.GetChild("lianhuades").asTextField.FlushVars();
 
 
         Protomsg.ItemOnlyMsg[] allplayer = new Protomsg.ItemOnlyMsg[p1.FuZhuItem.Count];

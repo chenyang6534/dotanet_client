@@ -134,7 +134,11 @@ public class MintegralMgr : MonoBehaviour {
 #else
         if (sp != null)
         {
-            sp(false);
+            sp(true);
+        }
+        if (ep != null)
+        {
+            ep(true);
         }
 #endif
 

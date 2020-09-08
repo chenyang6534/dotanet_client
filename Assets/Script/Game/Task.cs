@@ -128,10 +128,42 @@ public class Task
             //进入
             onedropitem.GetChild("get").asButton.onClick.Add(() =>
             {
-                //领取奖励
-                Protomsg.CS_GetTaskReward msg1 = new Protomsg.CS_GetTaskReward();
-                msg1.ID = item.ID;
-                MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetTaskReward", msg1);
+                new WatchVedioWindow(p1.WatchVedioRewardsStr).SetBtnCallBack((code) => {
+                    if(code == 0)
+                    {
+                        Debug.Log("取消");
+                    }else if(code == 1)
+                    {
+                        Debug.Log("观看视频");
+                        MintegralMgr.ShowVideo(null, (succ) =>
+                        {
+                            if (succ == true)
+                            {
+                                Debug.Log("观看视频成功");
+                                //领取奖励
+                                Protomsg.CS_GetTaskReward msg1 = new Protomsg.CS_GetTaskReward();
+                                msg1.ID = item.ID;
+                                msg1.IsWatchVedio = true;
+                                MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetTaskReward", msg1);
+                            }
+                            else
+                            {
+                                Debug.Log("观看视频失败");
+                            }
+                        });
+                        
+                    }
+                    else if(code == 2)
+                    {
+                        Debug.Log("不看视频");
+                        //领取奖励
+                        Protomsg.CS_GetTaskReward msg1 = new Protomsg.CS_GetTaskReward();
+                        msg1.ID = item.ID;
+                        msg1.IsWatchVedio = false;
+                        MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetTaskReward", msg1);
+                    }
+                });
+                
             });
             if(item.State == 1)
             {

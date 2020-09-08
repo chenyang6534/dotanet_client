@@ -267,26 +267,26 @@ public class LoginUI : MonoBehaviour {
 
 
 
-            //看视频复活
-            MintegralMgr.ShowVideo((succ) => {
-                if (succ == true)
-                {
-                    Debug.Log("开始观看视频1");
-                }
-                else
-                {
-                    Debug.Log("开始观看视频2");
-                }
-            }, (succ) => {
-                if (succ == true)
-                {
-                    Debug.Log("开始观看视频3");
-                }
-                else
-                {
-                    Debug.Log("开始观看视频4");
-                }
-            });
+            ////看视频复活
+            //MintegralMgr.ShowVideo((succ) => {
+            //    if (succ == true)
+            //    {
+            //        Debug.Log("开始观看视频1");
+            //    }
+            //    else
+            //    {
+            //        Debug.Log("开始观看视频2");
+            //    }
+            //}, (succ) => {
+            //    if (succ == true)
+            //    {
+            //        Debug.Log("开始观看视频3");
+            //    }
+            //    else
+            //    {
+            //        Debug.Log("开始观看视频4");
+            //    }
+            //});
 
 
 

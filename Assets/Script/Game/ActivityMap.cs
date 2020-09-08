@@ -21,6 +21,7 @@ public class ActivityMap
         MsgManager.Instance.AddListener("SC_GetEndlessLevelInfo", new HandleMsg(this.SC_GetEndlessLevelInfo));
 
         MsgManager.Instance.AddListener("SC_GetWorldMapsInfo", new HandleMsg(this.SC_GetWorldMapsInfo));
+        MsgManager.Instance.AddListener("SC_GetBossFamilyInfo", new HandleMsg(this.SC_GetBossFamilyInfo));
 
         main = UIPackage.CreateObject("GameUI", "ActivityMap").asCom;
         GRoot.inst.AddChild(main);
@@ -53,6 +54,11 @@ public class ActivityMap
         {
             Protomsg.CS_GetWorldMapsInfo msg = new Protomsg.CS_GetWorldMapsInfo();
             MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetWorldMapsInfo", msg);
+        });
+        main.GetChild("boss").asButton.onClick.Add(() =>
+        {
+            Protomsg.CS_GetBossFamilyInfo msg = new Protomsg.CS_GetBossFamilyInfo();
+            MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetBossFamilyInfo", msg);
         });
     }
 
@@ -205,6 +211,72 @@ public class ActivityMap
         });
         //onedropitem.GetChild("item").asCom.GetChild("icon").asLoader.url = clientitem.IconPath;
 
+
+        return true;
+    }
+    //boss之家 SC_GetBossFamilyInfo
+    public bool SC_GetBossFamilyInfo(Protomsg.MsgBase d1)
+    {
+        Debug.Log("SC_GetBossFamilyInfo:");
+        IMessage IMperson = new Protomsg.SC_GetBossFamilyInfo();
+        Protomsg.SC_GetBossFamilyInfo p1 = (Protomsg.SC_GetBossFamilyInfo)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
+        var item = p1.MapGoInInfo;
+        var clientitem = ExcelManager.Instance.GetSceneManager().GetSceneByID(item.NextSceneID);
+        if (clientitem == null)
+        {
+            return true;
+        }
+        var onedropitem = main.GetChild("bosscom").asCom;
+        
+
+        //onedropitem.GetChild("item").asCom.GetChild("icon").asLoader.url = clientitem.IconPath;
+        onedropitem.GetChild("name").asTextField.text = clientitem.Name;
+        onedropitem.GetChild("guildlevel").asTextField.text = item.NeedLevel + "";
+        onedropitem.GetChild("time").asTextField.text = item.OpenStartTime + "--" + item.OpenEndTime;
+        onedropitem.GetChild("week").asTextField.text = "周" + item.OpenWeekDay;
+        onedropitem.GetChild("pricetype").asLoader.url = Tool.GetPriceTypeIcon(item.PriceType);
+        onedropitem.GetChild("price").asTextField.text = item.Price + "";
+        //进入
+        onedropitem.GetChild("goto").asButton.onClick.Set(() =>
+        {
+            Protomsg.CS_GotoActivityMap msg1 = new Protomsg.CS_GotoActivityMap();
+            msg1.ID = item.ID;
+            MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GotoActivityMap", msg1);
+        });
+
+        //地图信息
+        //掉落道具
+        onedropitem.GetChild("droplist").asList.RemoveChildren(0, -1, true);
+        int[] allplayer = new int[p1.MapInfo.DropItems.Count];
+        p1.MapInfo.DropItems.CopyTo(allplayer, 0);
+        System.Array.Sort(allplayer, (a, b) => {
+
+            if (a > b)
+            {
+                return 1;
+            }
+            else if (a < b)
+            {
+                return -1;
+            }
+            return 0;
+        });
+        foreach (var itemdrop in allplayer)
+        {
+            var clientitemdrop = ExcelManager.Instance.GetItemManager().GetItemByID(itemdrop);
+            if (clientitemdrop == null)
+            {
+                continue;
+            }
+            var onedropitemdrop = UIPackage.CreateObject("GameUI", "sellable").asCom;
+            onedropitemdrop.GetChild("icon").asLoader.url = clientitemdrop.IconPath;
+            onedropitemdrop.GetChild("icon").onClick.Add(() =>
+            {
+                new ItemInfo(itemdrop);
+            });
+            onedropitemdrop.GetChild("level").asTextField.text = "lv.1";
+            onedropitem.GetChild("droplist").asList.AddChild(onedropitemdrop);
+        }
 
         return true;
     }
@@ -366,7 +438,10 @@ public class ActivityMap
         MsgManager.Instance.RemoveListener("SC_GetDuoBaoInfo");
         MsgManager.Instance.RemoveListener("SC_GetEndlessLevelInfo");
         MsgManager.Instance.RemoveListener("SC_GetWorldMapsInfo");
+        MsgManager.Instance.RemoveListener("SC_GetBossFamilyInfo");
         
+
+
 
 
         AudioManager.Am.Play2DSound(AudioManager.Sound_CloseUI);

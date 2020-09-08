@@ -229,7 +229,7 @@ public class HeadInfo{
 
         maininfo.GetChild("moneybtn").asButton.onClick.Add(() =>
         {
-            return;
+            //return;
             if (GameScene.Singleton.GetMyMainUnit().ID == id)
             {
                 //弹出观看视频界面
@@ -251,7 +251,26 @@ public class HeadInfo{
                 teamrequest.GetChild("zhuanshi_btn").onClick.Add(() => {
                     //GameScene.Singleton.gameObject.GetComponent<GoogleAdmob>().UserChoseToWatchAd();
 
+                    //        Protomsg.CS_LookVedioSucc msg1 = new Protomsg.CS_LookVedioSucc();
+                    //        msg1.ID = 1;
+                    //        MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_LookVedioSucc", msg1);
                     
+                    MintegralMgr.ShowVideo(null, (succ) =>
+                    {
+                        if (succ == true)
+                        {
+                            Debug.Log("观看视频成功");
+                            Protomsg.CS_LookVedioSucc msg1 = new Protomsg.CS_LookVedioSucc();
+                            msg1.ID = 1;
+                            MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_LookVedioSucc", msg1);
+                        }
+                        else
+                        {
+                            Debug.Log("开始观看视频4");
+                        }
+                    });
+
+                    teamrequest.Dispose();
 
                 });
             }

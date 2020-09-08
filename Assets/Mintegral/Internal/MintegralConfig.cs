@@ -107,7 +107,8 @@ public class MintegralConfig
 		} else {
 			return 0;
 		}
-	}
+        return 0;
+    }
 
 	public static void setConsentStatusInfoTypeConfig (int statusType)
 	{

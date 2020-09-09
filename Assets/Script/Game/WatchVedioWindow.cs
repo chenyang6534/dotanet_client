@@ -27,6 +27,14 @@ public class WatchVedioWindow
         
         showrewards(rewards);
     }
+    public WatchVedioWindow(string title,  string rewards)
+    {
+
+        init();
+
+        main.GetChild("title").asTextField.text = title;
+        showrewards(rewards);
+    }
     public void init()
     {
         main = UIPackage.CreateObject("GameUI", "watchvediorewards").asCom;

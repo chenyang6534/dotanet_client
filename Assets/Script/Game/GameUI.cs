@@ -328,6 +328,8 @@ public class GameUI : MonoBehaviour {
 
         MsgManager.Instance.AddListener("SC_MainUITask", new HandleMsg(this.SC_MainUITask));
 
+        MsgManager.Instance.AddListener("SC_WatchVedioRewardNotice", new HandleMsg(this.SC_WatchVedioRewardNotice));
+
     }
     void OnDestroy()
     {
@@ -340,7 +342,10 @@ public class GameUI : MonoBehaviour {
         MsgManager.Instance.RemoveListener("SC_GetGuildRankBattleInfo");
         MsgManager.Instance.RemoveListener("SC_RedNotice");
         MsgManager.Instance.RemoveListener("SC_MainUITask");
+        MsgManager.Instance.RemoveListener("SC_WatchVedioRewardNotice");
         
+
+
     }
     //显示所有按钮
     public void ShowAllBtn(bool show)
@@ -406,6 +411,46 @@ public class GameUI : MonoBehaviour {
         }
 
         Debug.Log("AddChatMsg:" + content);
+    }
+    //SC_WatchVedioRewardNotice
+    public bool SC_WatchVedioRewardNotice(Protomsg.MsgBase d1)
+    {
+        Debug.Log("SC_WatchVedioRewardNotice:");
+        IMessage IMperson = new Protomsg.SC_WatchVedioRewardNotice();
+        Protomsg.SC_WatchVedioRewardNotice p1 = (Protomsg.SC_WatchVedioRewardNotice)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
+
+        var watchvedioui = UIPackage.CreateObject("GameUI", "MainVedioBtn").asCom;
+        GRoot.inst.AddChild(watchvedioui);
+        watchvedioui.xy = Tool.GetPosition(0.5f, 0.75f);
+        watchvedioui.GetChild("btn").asButton.onClick.Add(() =>
+        {
+            new WatchVedioWindow(p1.Name, p1.WatchVedioRewardsStr).SetBtnCallBack((code) => {
+                if(code == 1)
+                {
+                    MintegralMgr.ShowVideo(null, (succ) =>
+                    {
+                        if (succ == true)
+                        {
+                            Debug.Log("观看视频成功");
+                            Protomsg.CS_WatchVedioRewardNotice msg1 = new Protomsg.CS_WatchVedioRewardNotice();
+                            msg1.ID = p1.ID;
+                            MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_WatchVedioRewardNotice", msg1);
+                        }
+                        else
+                        {
+                            Debug.Log("观看视频失败");
+                        }
+                    });
+                    
+                }
+                
+            });
+
+            watchvedioui.Dispose();
+        });
+
+        return true;
+
     }
 
     //任务SC_MainUITask

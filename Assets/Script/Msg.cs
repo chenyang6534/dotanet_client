@@ -313,88 +313,92 @@ namespace Protomsg {
             "CVByaWNlVHlwZRgEIAEoBRINCgVQcmljZRgFIAEoBSIdCg9DU19Hb3RvV29y",
             "bGRNYXASCgoCSUQYASABKAUiIAoNQ1NfR2V0TWFwSW5mbxIPCgdTY2VuZUlE",
             "GAEgASgFIkoKDVNDX0dldE1hcEluZm8SDwoHU2NlbmVJRBgBIAEoBRIVCg1C",
-            "b3NzRnJlc2hUaW1lGAIgASgFEhEKCURyb3BJdGVtcxgDIAMoBSIgChJDU19H",
-            "b3RvQWN0aXZpdHlNYXASCgoCSUQYASABKAUiJAoSU0NfR290b0FjdGl2aXR5",
-            "TWFwEg4KBlJlc3VsdBgBIAEoBSIhChNDU19Hb3RvRW5kbGVzc0xldmVsEgoK",
-            "AklEGAEgASgFIiQKFkNTX0dldEVuZGxlc3NMZXZlbEluZm8SCgoCSUQYASAB",
-            "KAUiTQoWU0NfR2V0RW5kbGVzc0xldmVsSW5mbxIRCglOZWVkTGV2ZWwYASAB",
-            "KAUSEQoJUHJpY2VUeXBlGAIgASgFEg0KBVByaWNlGAMgASgFIiIKFENTX0dl",
-            "dEJvc3NGYW1pbHlJbmZvEgoKAklEGAEgASgFInAKFFNDX0dldEJvc3NGYW1p",
-            "bHlJbmZvEi4KC01hcEdvSW5JbmZvGAEgASgLMhkucHJvdG9tc2cuQWN0aXZp",
-            "dHlNYXBJbmZvEigKB01hcEluZm8YAiABKAsyFy5wcm90b21zZy5TQ19HZXRN",
-            "YXBJbmZvIh4KEENTX0dldER1b0Jhb0luZm8SCgoCSUQYASABKAUifAoQU0Nf",
-            "R2V0RHVvQmFvSW5mbxIuCgtNYXBHb0luSW5mbxgBIAEoCzIZLnByb3RvbXNn",
-            "LkFjdGl2aXR5TWFwSW5mbxIoCgdNYXBJbmZvGAIgASgLMhcucHJvdG9tc2cu",
-            "U0NfR2V0TWFwSW5mbxIOCgZNaW51dGUYAyABKAUiIAoSQ1NfR2V0Q29weU1h",
-            "cHNJbmZvEgoKAklEGAEgASgFIjoKE0NTX0J1eUNvcHlNYXBzQ291bnQSDQoF",
-            "Q291bnQYASABKAUSFAoMSXNXYXRjaFZlZGlvGAIgASgIIoABChJTQ19HZXRD",
-            "b3B5TWFwc0luZm8SIwoETWFwcxgBIAMoCzIVLnByb3RvbXNnLkNvcHlNYXBJ",
-            "bmZvEhcKD1JlbWFpblBsYXlUaW1lcxgCIAEoBRIXCg9CdXlPbmVQcmljZVR5",
-            "cGUYAyABKAUSEwoLQnV5T25lUHJpY2UYBCABKAUikwEKC0NvcHlNYXBJbmZv",
-            "EgoKAklEGAEgASgFEhEKCU5lZWRMZXZlbBgCIAEoBRITCgtOZXh0U2NlbmVJ",
-            "RBgDIAEoBRITCgtQbGF5ZXJDb3VudBgEIAEoBRINCgVTdGF0ZRgFIAEoBRIS",
-            "CgpQaVBlaUNvdW50GAYgASgFEhgKEENvc3RDb3B5TWFwVGltZXMYByABKAUi",
-            "JAoPQ1NfQ29weU1hcFBpUGVpEhEKCUNvcHlNYXBJRBgBIAEoBSIlChBDU19D",
-            "b3B5TWFwQ2FuY2VsEhEKCUNvcHlNYXBJRBgBIAEoBSImChBTQ19TaG93UGlQ",
-            "ZWlJbmZvEhIKClBpUGVpU3RhdGUYASABKAUiPAoUQ1NfR2V0QmF0dGxlUmFu",
-            "a0luZm8SEQoJUmFua1N0YXJ0GAEgASgFEhEKCVJhbmtDb3VudBgCIAEoBSIh",
-            "ChNDU19HZXRCYXR0bGVNYXBJbmZvEgoKAklEGAEgASgFInYKFFNDX0dldEJh",
-            "dHRsZVJhbmtJbmZvEi0KCFJhbmtJbmZvGAEgAygLMhsucHJvdG9tc2cuQmF0",
-            "dGxlUmFua09uZUluZm8SLwoKTXlSYW5rSW5mbxgCIAEoCzIbLnByb3RvbXNn",
-            "LkJhdHRsZVJhbmtPbmVJbmZvIkMKE1NDX0dldEJhdHRsZU1hcEluZm8SLAoN",
-            "QmF0dGxlTWFwSW5mbxgBIAEoCzIVLnByb3RvbXNnLkNvcHlNYXBJbmZvImMK",
-            "EUJhdHRsZVJhbmtPbmVJbmZvEhMKC0NoYXJhY3RlcmlkGAEgASgFEgwKBE5h",
-            "bWUYAiABKAkSDgoGVHlwZWlkGAMgASgFEgwKBFJhbmsYBCABKAUSDQoFU2Nv",
-            "cmUYBSABKAUiIwoOQ1NfQmF0dGxlUGlQZWkSEQoJQ29weU1hcElEGAEgASgF",
-            "IiQKD0NTX0JhdHRsZUNhbmNlbBIRCglDb3B5TWFwSUQYASABKAUiJwoUQ1Nf",
-            "R2V0QmF0dGxlSGVyb0luZm8SDwoHU2NlbmVJRBgBIAEoBSKRAQoUU0NfR2V0",
-            "QmF0dGxlSGVyb0luZm8SMQoGR3JvdXAxGAEgAygLMiEucHJvdG9tc2cuQmF0",
-            "dGxlT3ZlclBsYXllck9uZUluZm8SMQoGR3JvdXAyGAIgAygLMiEucHJvdG9t",
-            "c2cuQmF0dGxlT3ZlclBsYXllck9uZUluZm8SEwoLV2lubmVyR3JvdXAYAyAB",
-            "KAUipQEKF0JhdHRsZU92ZXJQbGF5ZXJPbmVJbmZvEhMKC0NoYXJhY3Rlcmlk",
-            "GAEgASgFEgwKBE5hbWUYAiABKAkSDgoGVHlwZWlkGAMgASgFEg0KBVNjb3Jl",
-            "GAQgASgFEhEKCUtpbGxDb3VudBgFIAEoBRISCgpEZWF0aENvdW50GAYgASgF",
-            "Eg0KBUxldmVsGAcgASgFEhIKCkVxdWlwSXRlbXMYCCADKAkiIgoQQ1NfR2V0",
-            "VGFsZW50SW5mbxIOCgZUeXBlaWQYASABKAUiVgoQU0NfR2V0VGFsZW50SW5m",
-            "bxIOCgZUeXBlaWQYASABKAUSFwoPQWN0aXZlTmVlZExldmVsGAIgASgFEhkK",
-            "EUFjdGl2ZU5lZWRJdGVtU3RyGAMgASgJIiEKD0NTX0FjdGl2ZVRhbGVudBIO",
-            "CgZUeXBlaWQYASABKAUiMQoPU0NfQWN0aXZlVGFsZW50Eg4KBlR5cGVpZBgB",
-            "IAEoBRIOCgZJc1N1Y2MYAiABKAUiIAoOQ1NfT3BlblN0b3JhZ2USDgoGVHlw",
-            "ZWlkGAEgASgFIj4KC0l0ZW1Pbmx5TXNnEg4KBlR5cGVJRBgBIAEoBRINCgVM",
-            "ZXZlbBgCIAEoBRIQCghEQkl0ZW1JRBgDIAEoBSJPCg5TQ19PcGVuU3RvcmFn",
-            "ZRIrCgxTdG9yYWdlSXRlbXMYASADKAsyFS5wcm90b21zZy5JdGVtT25seU1z",
-            "ZxIQCghNYXhDb3VudBgCIAEoBSIeCg9DU19TYXZlMlN0b3JhZ2USCwoDUG9z",
-            "GAEgASgFIiQKFUNTX1Rha2VPdXRGcm9tU3RvcmFnZRILCgNQb3MYASABKAUi",
-            "JAoWQ1NfR2V0QmF0dGxlRXhwUmV3YXJkcxIKCgJJRBgBIAEoBSJQChVCYXR0",
-            "bGVSZXdhcmRzUHJvdG9Nc2cSEQoJQmF0dGxlRXhwGAEgASgFEg8KB1Jld2Fy",
-            "ZHMYAiADKAkSEwoLUmV3YXJkTGV2ZWwYAyADKAUiXwoWU0NfR2V0QmF0dGxl",
-            "RXhwUmV3YXJkcxITCgtNeUJhdHRsZUV4cBgBIAEoBRIwCgdSZXdhcmRzGAIg",
-            "AygLMh8ucHJvdG9tc2cuQmF0dGxlUmV3YXJkc1Byb3RvTXNnIisKDFNDX1Jl",
-            "ZE5vdGljZRIMCgRUeXBlGAEgASgFEg0KBUNvdW50GAIgASgFIh4KCkNTX0dl",
-            "dFRhc2sSEAoIVGFza1R5cGUYASABKAUihQEKCk9uZVRhc2tNc2cSCgoCSUQY",
-            "ASABKAUSDAoETmFtZRgCIAEoCRILCgNEZXMYAyABKAkSEgoKUmV3YXJkc1N0",
-            "chgEIAEoCRIQCghDdXJDb3VudBgFIAEoBRINCgVDb3VudBgGIAEoBRINCgVT",
-            "dGF0ZRgHIAEoBRIMCgRTb3J0GAggASgFImMKClNDX0dldFRhc2sSEAoIVGFz",
-            "a1R5cGUYASABKAUSJQoHQWxsVGFzaxgCIAMoCzIULnByb3RvbXNnLk9uZVRh",
-            "c2tNc2cSHAoUV2F0Y2hWZWRpb1Jld2FyZHNTdHIYAyABKAkiNAoQQ1NfR2V0",
-            "VGFza1Jld2FyZBIKCgJJRBgBIAEoBRIUCgxJc1dhdGNoVmVkaW8YAiABKAgi",
-            "OQoNU0NfTWFpblVJVGFzaxIoCgpNYWluVUlUYXNrGAIgAygLMhQucHJvdG9t",
-            "c2cuT25lVGFza01zZyIfChFDU19HZXRMaWFuSHVhSW5mbxIKCgJJRBgBIAEo",
-            "BSK/AQoRU0NfR2V0TGlhbkh1YUluZm8SKgoLTGlhbkh1YUl0ZW0YASABKAsy",
-            "FS5wcm90b21zZy5JdGVtT25seU1zZxIqCgtDYWlMaWFvSXRlbRgCIAEoCzIV",
-            "LnByb3RvbXNnLkl0ZW1Pbmx5TXNnEigKCUZ1Wmh1SXRlbRgDIAMoCzIVLnBy",
-            "b3RvbXNnLkl0ZW1Pbmx5TXNnEhMKC1N1Y2NQZXJjZW50GAQgASgCEhMKC0xp",
-            "YW5IdWFUaW1lGAUgASgFIjAKC0NTX0RyYWdJdGVtEhMKC1NyY0RCSXRlbUlE",
-            "GAEgASgFEgwKBERlc3QYAiABKAUiMgoNQ1NfQ2FuY2VsSXRlbRITCgtTcmNE",
-            "Qkl0ZW1JRBgBIAEoBRIMCgREZXN0GAIgASgFIiYKD0NTX1N0YXJ0TGlhbkh1",
-            "YRITCgtTcmNEQkl0ZW1JRBgBIAEoBSImCg9DU19HZXRBb1NodUluZm8SEwoL",
-            "Q2hhcmFjdGVySUQYASABKAUiXQoPU0NfR2V0QW9TaHVJbmZvEhQKDEFvU2h1",
-            "SW5mb1N0chgBIAEoCRISCgpBb1NodUNvdW50GAIgASgFEhEKCVByaWNlVHlw",
-            "ZRgDIAEoBRINCgVQcmljZRgEIAEoBSIcCg5DU19BY3RpdmVBb1NodRIKCgJJ",
-            "RBgBIAEoBSIgChJDU19HZXRPbmVBb1NodUluZm8SCgoCSUQYASABKAUiWgoS",
-            "U0NfR2V0T25lQW9TaHVJbmZvEgoKAklEGAEgASgFEhcKD1VubG9ja05leHRB",
-            "b1NodRgCIAEoCRIfChdBY3RpdmVOZWVkQW9TaHVGcmFnbWVudBgDIAEoBSIb",
-            "Cg1DU19SZXNldEFvU2h1EgoKAklEGAEgASgFYgZwcm90bzM="));
+            "b3NzRnJlc2hUaW1lGAIgASgFEhEKCURyb3BJdGVtcxgDIAMoBSI2ChJDU19H",
+            "b3RvQWN0aXZpdHlNYXASCgoCSUQYASABKAUSFAoMSXNXYXRjaFZlZGlvGAIg",
+            "ASgIIiQKElNDX0dvdG9BY3Rpdml0eU1hcBIOCgZSZXN1bHQYASABKAUiIQoT",
+            "Q1NfR290b0VuZGxlc3NMZXZlbBIKCgJJRBgBIAEoBSIkChZDU19HZXRFbmRs",
+            "ZXNzTGV2ZWxJbmZvEgoKAklEGAEgASgFIk0KFlNDX0dldEVuZGxlc3NMZXZl",
+            "bEluZm8SEQoJTmVlZExldmVsGAEgASgFEhEKCVByaWNlVHlwZRgCIAEoBRIN",
+            "CgVQcmljZRgDIAEoBSIiChRDU19HZXRCb3NzRmFtaWx5SW5mbxIKCgJJRBgB",
+            "IAEoBSJwChRTQ19HZXRCb3NzRmFtaWx5SW5mbxIuCgtNYXBHb0luSW5mbxgB",
+            "IAEoCzIZLnByb3RvbXNnLkFjdGl2aXR5TWFwSW5mbxIoCgdNYXBJbmZvGAIg",
+            "ASgLMhcucHJvdG9tc2cuU0NfR2V0TWFwSW5mbyIeChBDU19HZXREdW9CYW9J",
+            "bmZvEgoKAklEGAEgASgFInwKEFNDX0dldER1b0Jhb0luZm8SLgoLTWFwR29J",
+            "bkluZm8YASABKAsyGS5wcm90b21zZy5BY3Rpdml0eU1hcEluZm8SKAoHTWFw",
+            "SW5mbxgCIAEoCzIXLnByb3RvbXNnLlNDX0dldE1hcEluZm8SDgoGTWludXRl",
+            "GAMgASgFIiAKEkNTX0dldENvcHlNYXBzSW5mbxIKCgJJRBgBIAEoBSI6ChND",
+            "U19CdXlDb3B5TWFwc0NvdW50Eg0KBUNvdW50GAEgASgFEhQKDElzV2F0Y2hW",
+            "ZWRpbxgCIAEoCCKAAQoSU0NfR2V0Q29weU1hcHNJbmZvEiMKBE1hcHMYASAD",
+            "KAsyFS5wcm90b21zZy5Db3B5TWFwSW5mbxIXCg9SZW1haW5QbGF5VGltZXMY",
+            "AiABKAUSFwoPQnV5T25lUHJpY2VUeXBlGAMgASgFEhMKC0J1eU9uZVByaWNl",
+            "GAQgASgFIpMBCgtDb3B5TWFwSW5mbxIKCgJJRBgBIAEoBRIRCglOZWVkTGV2",
+            "ZWwYAiABKAUSEwoLTmV4dFNjZW5lSUQYAyABKAUSEwoLUGxheWVyQ291bnQY",
+            "BCABKAUSDQoFU3RhdGUYBSABKAUSEgoKUGlQZWlDb3VudBgGIAEoBRIYChBD",
+            "b3N0Q29weU1hcFRpbWVzGAcgASgFIiQKD0NTX0NvcHlNYXBQaVBlaRIRCglD",
+            "b3B5TWFwSUQYASABKAUiJQoQQ1NfQ29weU1hcENhbmNlbBIRCglDb3B5TWFw",
+            "SUQYASABKAUiJgoQU0NfU2hvd1BpUGVpSW5mbxISCgpQaVBlaVN0YXRlGAEg",
+            "ASgFIjwKFENTX0dldEJhdHRsZVJhbmtJbmZvEhEKCVJhbmtTdGFydBgBIAEo",
+            "BRIRCglSYW5rQ291bnQYAiABKAUiIQoTQ1NfR2V0QmF0dGxlTWFwSW5mbxIK",
+            "CgJJRBgBIAEoBSJ2ChRTQ19HZXRCYXR0bGVSYW5rSW5mbxItCghSYW5rSW5m",
+            "bxgBIAMoCzIbLnByb3RvbXNnLkJhdHRsZVJhbmtPbmVJbmZvEi8KCk15UmFu",
+            "a0luZm8YAiABKAsyGy5wcm90b21zZy5CYXR0bGVSYW5rT25lSW5mbyJDChNT",
+            "Q19HZXRCYXR0bGVNYXBJbmZvEiwKDUJhdHRsZU1hcEluZm8YASABKAsyFS5w",
+            "cm90b21zZy5Db3B5TWFwSW5mbyJjChFCYXR0bGVSYW5rT25lSW5mbxITCgtD",
+            "aGFyYWN0ZXJpZBgBIAEoBRIMCgROYW1lGAIgASgJEg4KBlR5cGVpZBgDIAEo",
+            "BRIMCgRSYW5rGAQgASgFEg0KBVNjb3JlGAUgASgFIiMKDkNTX0JhdHRsZVBp",
+            "UGVpEhEKCUNvcHlNYXBJRBgBIAEoBSIkCg9DU19CYXR0bGVDYW5jZWwSEQoJ",
+            "Q29weU1hcElEGAEgASgFIicKFENTX0dldEJhdHRsZUhlcm9JbmZvEg8KB1Nj",
+            "ZW5lSUQYASABKAUikQEKFFNDX0dldEJhdHRsZUhlcm9JbmZvEjEKBkdyb3Vw",
+            "MRgBIAMoCzIhLnByb3RvbXNnLkJhdHRsZU92ZXJQbGF5ZXJPbmVJbmZvEjEK",
+            "Bkdyb3VwMhgCIAMoCzIhLnByb3RvbXNnLkJhdHRsZU92ZXJQbGF5ZXJPbmVJ",
+            "bmZvEhMKC1dpbm5lckdyb3VwGAMgASgFIqUBChdCYXR0bGVPdmVyUGxheWVy",
+            "T25lSW5mbxITCgtDaGFyYWN0ZXJpZBgBIAEoBRIMCgROYW1lGAIgASgJEg4K",
+            "BlR5cGVpZBgDIAEoBRINCgVTY29yZRgEIAEoBRIRCglLaWxsQ291bnQYBSAB",
+            "KAUSEgoKRGVhdGhDb3VudBgGIAEoBRINCgVMZXZlbBgHIAEoBRISCgpFcXVp",
+            "cEl0ZW1zGAggAygJIiIKEENTX0dldFRhbGVudEluZm8SDgoGVHlwZWlkGAEg",
+            "ASgFIlYKEFNDX0dldFRhbGVudEluZm8SDgoGVHlwZWlkGAEgASgFEhcKD0Fj",
+            "dGl2ZU5lZWRMZXZlbBgCIAEoBRIZChFBY3RpdmVOZWVkSXRlbVN0chgDIAEo",
+            "CSIhCg9DU19BY3RpdmVUYWxlbnQSDgoGVHlwZWlkGAEgASgFIjEKD1NDX0Fj",
+            "dGl2ZVRhbGVudBIOCgZUeXBlaWQYASABKAUSDgoGSXNTdWNjGAIgASgFIiAK",
+            "DkNTX09wZW5TdG9yYWdlEg4KBlR5cGVpZBgBIAEoBSI+CgtJdGVtT25seU1z",
+            "ZxIOCgZUeXBlSUQYASABKAUSDQoFTGV2ZWwYAiABKAUSEAoIREJJdGVtSUQY",
+            "AyABKAUiTwoOU0NfT3BlblN0b3JhZ2USKwoMU3RvcmFnZUl0ZW1zGAEgAygL",
+            "MhUucHJvdG9tc2cuSXRlbU9ubHlNc2cSEAoITWF4Q291bnQYAiABKAUiHgoP",
+            "Q1NfU2F2ZTJTdG9yYWdlEgsKA1BvcxgBIAEoBSIkChVDU19UYWtlT3V0RnJv",
+            "bVN0b3JhZ2USCwoDUG9zGAEgASgFIiQKFkNTX0dldEJhdHRsZUV4cFJld2Fy",
+            "ZHMSCgoCSUQYASABKAUiUAoVQmF0dGxlUmV3YXJkc1Byb3RvTXNnEhEKCUJh",
+            "dHRsZUV4cBgBIAEoBRIPCgdSZXdhcmRzGAIgAygJEhMKC1Jld2FyZExldmVs",
+            "GAMgAygFIl8KFlNDX0dldEJhdHRsZUV4cFJld2FyZHMSEwoLTXlCYXR0bGVF",
+            "eHAYASABKAUSMAoHUmV3YXJkcxgCIAMoCzIfLnByb3RvbXNnLkJhdHRsZVJl",
+            "d2FyZHNQcm90b01zZyIrCgxTQ19SZWROb3RpY2USDAoEVHlwZRgBIAEoBRIN",
+            "CgVDb3VudBgCIAEoBSIeCgpDU19HZXRUYXNrEhAKCFRhc2tUeXBlGAEgASgF",
+            "IoUBCgpPbmVUYXNrTXNnEgoKAklEGAEgASgFEgwKBE5hbWUYAiABKAkSCwoD",
+            "RGVzGAMgASgJEhIKClJld2FyZHNTdHIYBCABKAkSEAoIQ3VyQ291bnQYBSAB",
+            "KAUSDQoFQ291bnQYBiABKAUSDQoFU3RhdGUYByABKAUSDAoEU29ydBgIIAEo",
+            "BSJjCgpTQ19HZXRUYXNrEhAKCFRhc2tUeXBlGAEgASgFEiUKB0FsbFRhc2sY",
+            "AiADKAsyFC5wcm90b21zZy5PbmVUYXNrTXNnEhwKFFdhdGNoVmVkaW9SZXdh",
+            "cmRzU3RyGAMgASgJIjQKEENTX0dldFRhc2tSZXdhcmQSCgoCSUQYASABKAUS",
+            "FAoMSXNXYXRjaFZlZGlvGAIgASgIIjkKDVNDX01haW5VSVRhc2sSKAoKTWFp",
+            "blVJVGFzaxgCIAMoCzIULnByb3RvbXNnLk9uZVRhc2tNc2ciHwoRQ1NfR2V0",
+            "TGlhbkh1YUluZm8SCgoCSUQYASABKAUivwEKEVNDX0dldExpYW5IdWFJbmZv",
+            "EioKC0xpYW5IdWFJdGVtGAEgASgLMhUucHJvdG9tc2cuSXRlbU9ubHlNc2cS",
+            "KgoLQ2FpTGlhb0l0ZW0YAiABKAsyFS5wcm90b21zZy5JdGVtT25seU1zZxIo",
+            "CglGdVpodUl0ZW0YAyADKAsyFS5wcm90b21zZy5JdGVtT25seU1zZxITCgtT",
+            "dWNjUGVyY2VudBgEIAEoAhITCgtMaWFuSHVhVGltZRgFIAEoBSIwCgtDU19E",
+            "cmFnSXRlbRITCgtTcmNEQkl0ZW1JRBgBIAEoBRIMCgREZXN0GAIgASgFIjIK",
+            "DUNTX0NhbmNlbEl0ZW0SEwoLU3JjREJJdGVtSUQYASABKAUSDAoERGVzdBgC",
+            "IAEoBSImCg9DU19TdGFydExpYW5IdWESEwoLU3JjREJJdGVtSUQYASABKAUi",
+            "JgoPQ1NfR2V0QW9TaHVJbmZvEhMKC0NoYXJhY3RlcklEGAEgASgFIl0KD1ND",
+            "X0dldEFvU2h1SW5mbxIUCgxBb1NodUluZm9TdHIYASABKAkSEgoKQW9TaHVD",
+            "b3VudBgCIAEoBRIRCglQcmljZVR5cGUYAyABKAUSDQoFUHJpY2UYBCABKAUi",
+            "HAoOQ1NfQWN0aXZlQW9TaHUSCgoCSUQYASABKAUiIAoSQ1NfR2V0T25lQW9T",
+            "aHVJbmZvEgoKAklEGAEgASgFIloKElNDX0dldE9uZUFvU2h1SW5mbxIKCgJJ",
+            "RBgBIAEoBRIXCg9VbmxvY2tOZXh0QW9TaHUYAiABKAkSHwoXQWN0aXZlTmVl",
+            "ZEFvU2h1RnJhZ21lbnQYAyABKAUiGwoNQ1NfUmVzZXRBb1NodRIKCgJJRBgB",
+            "IAEoBSJTChlTQ19XYXRjaFZlZGlvUmV3YXJkTm90aWNlEgoKAklEGAEgASgF",
+            "EhwKFFdhdGNoVmVkaW9SZXdhcmRzU3RyGAIgASgJEgwKBE5hbWUYAyABKAki",
+            "JwoZQ1NfV2F0Y2hWZWRpb1Jld2FyZE5vdGljZRIKCgJJRBgBIAEoBSIhChND",
+            "U19XYXRjaFZlZGlvTm90aWNlEgoKAklEGAEgASgFYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -532,7 +536,7 @@ namespace Protomsg {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GotoWorldMap), global::Protomsg.CS_GotoWorldMap.Parser, new[]{ "ID" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GetMapInfo), global::Protomsg.CS_GetMapInfo.Parser, new[]{ "SceneID" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetMapInfo), global::Protomsg.SC_GetMapInfo.Parser, new[]{ "SceneID", "BossFreshTime", "DropItems" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GotoActivityMap), global::Protomsg.CS_GotoActivityMap.Parser, new[]{ "ID" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GotoActivityMap), global::Protomsg.CS_GotoActivityMap.Parser, new[]{ "ID", "IsWatchVedio" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GotoActivityMap), global::Protomsg.SC_GotoActivityMap.Parser, new[]{ "Result" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GotoEndlessLevel), global::Protomsg.CS_GotoEndlessLevel.Parser, new[]{ "ID" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GetEndlessLevelInfo), global::Protomsg.CS_GetEndlessLevelInfo.Parser, new[]{ "ID" }, null, null, null),
@@ -586,7 +590,10 @@ namespace Protomsg {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_ActiveAoShu), global::Protomsg.CS_ActiveAoShu.Parser, new[]{ "ID" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GetOneAoShuInfo), global::Protomsg.CS_GetOneAoShuInfo.Parser, new[]{ "ID" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetOneAoShuInfo), global::Protomsg.SC_GetOneAoShuInfo.Parser, new[]{ "ID", "UnlockNextAoShu", "ActiveNeedAoShuFragment" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_ResetAoShu), global::Protomsg.CS_ResetAoShu.Parser, new[]{ "ID" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_ResetAoShu), global::Protomsg.CS_ResetAoShu.Parser, new[]{ "ID" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_WatchVedioRewardNotice), global::Protomsg.SC_WatchVedioRewardNotice.Parser, new[]{ "ID", "WatchVedioRewardsStr", "Name" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_WatchVedioRewardNotice), global::Protomsg.CS_WatchVedioRewardNotice.Parser, new[]{ "ID" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_WatchVedioNotice), global::Protomsg.CS_WatchVedioNotice.Parser, new[]{ "ID" }, null, null, null)
           }));
     }
     #endregion
@@ -29511,6 +29518,7 @@ namespace Protomsg {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public CS_GotoActivityMap(CS_GotoActivityMap other) : this() {
       iD_ = other.iD_;
+      isWatchVedio_ = other.isWatchVedio_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -29533,6 +29541,17 @@ namespace Protomsg {
       }
     }
 
+    /// <summary>Field number for the "IsWatchVedio" field.</summary>
+    public const int IsWatchVedioFieldNumber = 2;
+    private bool isWatchVedio_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool IsWatchVedio {
+      get { return isWatchVedio_; }
+      set {
+        isWatchVedio_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as CS_GotoActivityMap);
@@ -29547,6 +29566,7 @@ namespace Protomsg {
         return true;
       }
       if (ID != other.ID) return false;
+      if (IsWatchVedio != other.IsWatchVedio) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -29554,6 +29574,7 @@ namespace Protomsg {
     public override int GetHashCode() {
       int hash = 1;
       if (ID != 0) hash ^= ID.GetHashCode();
+      if (IsWatchVedio != false) hash ^= IsWatchVedio.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -29571,6 +29592,10 @@ namespace Protomsg {
         output.WriteRawTag(8);
         output.WriteInt32(ID);
       }
+      if (IsWatchVedio != false) {
+        output.WriteRawTag(16);
+        output.WriteBool(IsWatchVedio);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -29581,6 +29606,9 @@ namespace Protomsg {
       int size = 0;
       if (ID != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(ID);
+      }
+      if (IsWatchVedio != false) {
+        size += 1 + 1;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -29596,6 +29624,9 @@ namespace Protomsg {
       if (other.ID != 0) {
         ID = other.ID;
       }
+      if (other.IsWatchVedio != false) {
+        IsWatchVedio = other.IsWatchVedio;
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -29609,6 +29640,10 @@ namespace Protomsg {
             break;
           case 8: {
             ID = input.ReadInt32();
+            break;
+          }
+          case 16: {
+            IsWatchVedio = input.ReadBool();
             break;
           }
         }
@@ -38598,6 +38633,472 @@ namespace Protomsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(CS_ResetAoShu other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ID != 0) {
+        ID = other.ID;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            ID = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///激活看视频得奖励提示
+  /// </summary>
+  public sealed partial class SC_WatchVedioRewardNotice : pb::IMessage<SC_WatchVedioRewardNotice> {
+    private static readonly pb::MessageParser<SC_WatchVedioRewardNotice> _parser = new pb::MessageParser<SC_WatchVedioRewardNotice>(() => new SC_WatchVedioRewardNotice());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<SC_WatchVedioRewardNotice> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[189]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_WatchVedioRewardNotice() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_WatchVedioRewardNotice(SC_WatchVedioRewardNotice other) : this() {
+      iD_ = other.iD_;
+      watchVedioRewardsStr_ = other.watchVedioRewardsStr_;
+      name_ = other.name_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_WatchVedioRewardNotice Clone() {
+      return new SC_WatchVedioRewardNotice(this);
+    }
+
+    /// <summary>Field number for the "ID" field.</summary>
+    public const int IDFieldNumber = 1;
+    private int iD_;
+    /// <summary>
+    ///奖励ID
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ID {
+      get { return iD_; }
+      set {
+        iD_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "WatchVedioRewardsStr" field.</summary>
+    public const int WatchVedioRewardsStrFieldNumber = 2;
+    private string watchVedioRewardsStr_ = "";
+    /// <summary>
+    ///领取奖励时看视频得额外奖励
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string WatchVedioRewardsStr {
+      get { return watchVedioRewardsStr_; }
+      set {
+        watchVedioRewardsStr_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Name" field.</summary>
+    public const int NameFieldNumber = 3;
+    private string name_ = "";
+    /// <summary>
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Name {
+      get { return name_; }
+      set {
+        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as SC_WatchVedioRewardNotice);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(SC_WatchVedioRewardNotice other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ID != other.ID) return false;
+      if (WatchVedioRewardsStr != other.WatchVedioRewardsStr) return false;
+      if (Name != other.Name) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ID != 0) hash ^= ID.GetHashCode();
+      if (WatchVedioRewardsStr.Length != 0) hash ^= WatchVedioRewardsStr.GetHashCode();
+      if (Name.Length != 0) hash ^= Name.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (ID != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(ID);
+      }
+      if (WatchVedioRewardsStr.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(WatchVedioRewardsStr);
+      }
+      if (Name.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(Name);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (ID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ID);
+      }
+      if (WatchVedioRewardsStr.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(WatchVedioRewardsStr);
+      }
+      if (Name.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(SC_WatchVedioRewardNotice other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ID != 0) {
+        ID = other.ID;
+      }
+      if (other.WatchVedioRewardsStr.Length != 0) {
+        WatchVedioRewardsStr = other.WatchVedioRewardsStr;
+      }
+      if (other.Name.Length != 0) {
+        Name = other.Name;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            ID = input.ReadInt32();
+            break;
+          }
+          case 18: {
+            WatchVedioRewardsStr = input.ReadString();
+            break;
+          }
+          case 26: {
+            Name = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///成功观看视频
+  /// </summary>
+  public sealed partial class CS_WatchVedioRewardNotice : pb::IMessage<CS_WatchVedioRewardNotice> {
+    private static readonly pb::MessageParser<CS_WatchVedioRewardNotice> _parser = new pb::MessageParser<CS_WatchVedioRewardNotice>(() => new CS_WatchVedioRewardNotice());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CS_WatchVedioRewardNotice> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[190]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_WatchVedioRewardNotice() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_WatchVedioRewardNotice(CS_WatchVedioRewardNotice other) : this() {
+      iD_ = other.iD_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_WatchVedioRewardNotice Clone() {
+      return new CS_WatchVedioRewardNotice(this);
+    }
+
+    /// <summary>Field number for the "ID" field.</summary>
+    public const int IDFieldNumber = 1;
+    private int iD_;
+    /// <summary>
+    ///id
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ID {
+      get { return iD_; }
+      set {
+        iD_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CS_WatchVedioRewardNotice);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CS_WatchVedioRewardNotice other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ID != other.ID) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ID != 0) hash ^= ID.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (ID != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(ID);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (ID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ID);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CS_WatchVedioRewardNotice other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ID != 0) {
+        ID = other.ID;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            ID = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///成功观看视频(无奖励只通知)
+  /// </summary>
+  public sealed partial class CS_WatchVedioNotice : pb::IMessage<CS_WatchVedioNotice> {
+    private static readonly pb::MessageParser<CS_WatchVedioNotice> _parser = new pb::MessageParser<CS_WatchVedioNotice>(() => new CS_WatchVedioNotice());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CS_WatchVedioNotice> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[191]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_WatchVedioNotice() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_WatchVedioNotice(CS_WatchVedioNotice other) : this() {
+      iD_ = other.iD_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_WatchVedioNotice Clone() {
+      return new CS_WatchVedioNotice(this);
+    }
+
+    /// <summary>Field number for the "ID" field.</summary>
+    public const int IDFieldNumber = 1;
+    private int iD_;
+    /// <summary>
+    ///id
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ID {
+      get { return iD_; }
+      set {
+        iD_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CS_WatchVedioNotice);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CS_WatchVedioNotice other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ID != other.ID) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ID != 0) hash ^= ID.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (ID != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(ID);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (ID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ID);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CS_WatchVedioNotice other) {
       if (other == null) {
         return;
       }

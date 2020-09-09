@@ -170,8 +170,29 @@ public class ActivityMap
             onedropitem.GetChild("goto").asButton.onClick.Add(() =>
             {
                 Protomsg.CS_GotoActivityMap msg1 = new Protomsg.CS_GotoActivityMap();
-                msg1.ID = item.ID;
+                msg1.ID = item.ID;//bool IsWatchVedio = 2;
+                msg1.IsWatchVedio = false;
                 MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GotoActivityMap", msg1);
+            });
+            //看视频进入
+            onedropitem.GetChild("vediogoto").asButton.onClick.Add(() =>
+            {
+                MintegralMgr.ShowVideo(null, (succ) =>
+                {
+                    if (succ == true)
+                    {
+                        Debug.Log("观看视频成功");
+                        Protomsg.CS_GotoActivityMap msg1 = new Protomsg.CS_GotoActivityMap();
+                        msg1.ID = item.ID;//bool IsWatchVedio = 2;
+                        msg1.IsWatchVedio = true;
+                        MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GotoActivityMap", msg1);
+                    }
+                    else
+                    {
+                        Debug.Log("观看视频失败");
+                    }
+                });
+                
             });
 
             //地图信息
@@ -384,6 +405,9 @@ public class ActivityMap
                     {
                         mapinfo.GetChild("time").asTextField.text = Tool.Time2String(p1.BossFreshTime);
                     }
+                    //观看视频通知
+                    Protomsg.CS_WatchVedioNotice msg = new Protomsg.CS_WatchVedioNotice();
+                    MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_WatchVedioNotice", msg);
                 }
                 else
                 {

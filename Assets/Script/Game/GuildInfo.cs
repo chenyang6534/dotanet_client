@@ -579,6 +579,9 @@ public class GuildInfo
                     {
                         mapinfo.GetChild("time").asTextField.text = Tool.Time2String(p1.BossFreshTime);
                     }
+                    //观看视频通知
+                    Protomsg.CS_WatchVedioNotice msg = new Protomsg.CS_WatchVedioNotice();
+                    MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_WatchVedioNotice", msg);
                 }
                 else
                 {

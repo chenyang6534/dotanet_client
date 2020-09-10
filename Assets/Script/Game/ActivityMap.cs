@@ -186,6 +186,8 @@ public class ActivityMap
                         msg1.ID = item.ID;//bool IsWatchVedio = 2;
                         msg1.IsWatchVedio = true;
                         MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GotoActivityMap", msg1);
+
+                        UMengManager.Instanse.Event_watch_vedio("进入地图"+ clientitem.Name);
                     }
                     else
                     {
@@ -408,6 +410,7 @@ public class ActivityMap
                     //观看视频通知
                     Protomsg.CS_WatchVedioNotice msg = new Protomsg.CS_WatchVedioNotice();
                     MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_WatchVedioNotice", msg);
+                    UMengManager.Instanse.Event_watch_vedio("查询boss刷新时间" + sceneitem.Name);
                 }
                 else
                 {

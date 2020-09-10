@@ -290,6 +290,8 @@ public class MyInfo {
                                         Debug.Log("观看视频成功");
                                         //领取奖励
                                         SendChangePos(int.Parse(sArray[0]), (int)item.data, int.Parse(sArray[1]), 2);
+
+                                        UMengManager.Instanse.Event_watch_vedio("合成装备");
                                     }
                                     else
                                     {
@@ -423,6 +425,7 @@ public class MyInfo {
                     // 1炼化装备 2炼化材料 3辅助装备
                     Protomsg.CS_StartLianHua msg1 = new Protomsg.CS_StartLianHua();
                     MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_StartLianHua", msg1);
+                    UMengManager.Instanse.Event_watch_vedio("炼化装备");
                 }
                 else
                 {

@@ -252,17 +252,19 @@ public class LoginUI : MonoBehaviour {
     //初始化账号信息
     void InitAccount()
     {
+
         if(SaveDataManager.sData.PhoneNumber != null && SaveDataManager.sData.PhoneNumber.Length > 0)
         {
             mRoot.GetController("c1").selectedIndex = 1;
+            mRoot.GetChild("phonenumber").visible = false;
             mRoot.GetChild("phonenumber").asTextField.text = SaveDataManager.sData.PhoneNumber;
         }
         else
         {
             mRoot.GetController("c1").selectedIndex = 0;
         }
-        
-        
+
+        mRoot.GetChild("login").visible = false;
         mRoot.GetChild("login").asButton.onClick.Set(() => {
 
 
@@ -349,7 +351,7 @@ public class LoginUI : MonoBehaviour {
             //MyKcp.Instance.SendMsg("Login", "CS_MsgQuickLogin", msg1);
             //UnityEngine.Debug.Log("login onClick");
         });
-
+        mRoot.GetChild("changebtn").visible = false;
         mRoot.GetChild("changebtn").asButton.onClick.Set(() => {
             MyKcp.Create(SelectServer.Ip, SelectServer.Port);
             PopPhoneLoginUI(0);
@@ -666,7 +668,7 @@ public class LoginUI : MonoBehaviour {
             PopPhoneLoginUI(1);
         });
         SelectLayer.GetChild("bindphonenuber").visible = false;
-        SelectLayer.GetChild("changephonenumber").visible = true;
+        SelectLayer.GetChild("changephonenumber").visible = false;
 
         SelectLayer.GetChild("startbtn").asButton.onClick.Add(()=> {
 

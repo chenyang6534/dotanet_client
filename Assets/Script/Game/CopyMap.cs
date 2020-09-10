@@ -69,6 +69,7 @@ public class CopyMap
                     Protomsg.CS_BuyCopyMapsCount msg1 = new Protomsg.CS_BuyCopyMapsCount();
                     msg1.IsWatchVedio = true;
                     MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_BuyCopyMapsCount", msg1);
+                    UMengManager.Instanse.Event_watch_vedio("购买副本次数");
                 }
                 else
                 {

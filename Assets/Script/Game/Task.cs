@@ -145,6 +145,8 @@ public class Task
                                 msg1.ID = item.ID;
                                 msg1.IsWatchVedio = true;
                                 MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetTaskReward", msg1);
+
+                                UMengManager.Instanse.Event_watch_vedio("任务领奖"+ item.Name);
                             }
                             else
                             {
@@ -200,7 +202,7 @@ public class Task
                 threedropitem.GetChild("icon").asLoader.url = clientitemone.IconPath;
                 threedropitem.GetChild("icon").onClick.Add(() =>
                 {
-                    new ItemInfo(itemid);
+                    new ItemInfo(itemid,-1, int.Parse(itemlevel));
 
                 });
                 threedropitem.GetChild("level").asTextField.text = "Lv."+itemlevel;

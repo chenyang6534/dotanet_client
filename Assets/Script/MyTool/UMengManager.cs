@@ -99,10 +99,18 @@ public class UMengManager : MonoBehaviour
         GA.Event("buy_store",name);
 #endif
     }
+    //UMengManager.Instanse.Event_lianhua("");
     public void Event_lianhua(string name)
     {
 #if UNITY_ANDROID
         GA.Event("lianhua", name);
+#endif
+    }
+    //观看视频
+    public void Event_watch_vedio(string name)
+    {
+#if UNITY_ANDROID
+        GA.Event("watch_vedio", name);
 #endif
     }
 

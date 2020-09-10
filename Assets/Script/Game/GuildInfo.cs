@@ -582,6 +582,7 @@ public class GuildInfo
                     //观看视频通知
                     Protomsg.CS_WatchVedioNotice msg = new Protomsg.CS_WatchVedioNotice();
                     MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_WatchVedioNotice", msg);
+                    UMengManager.Instanse.Event_watch_vedio("查询boss刷新时间" + sceneitem.Name);
                 }
                 else
                 {

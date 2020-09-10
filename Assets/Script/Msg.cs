@@ -398,7 +398,14 @@ namespace Protomsg {
             "IAEoBSJTChlTQ19XYXRjaFZlZGlvUmV3YXJkTm90aWNlEgoKAklEGAEgASgF",
             "EhwKFFdhdGNoVmVkaW9SZXdhcmRzU3RyGAIgASgJEgwKBE5hbWUYAyABKAki",
             "JwoZQ1NfV2F0Y2hWZWRpb1Jld2FyZE5vdGljZRIKCgJJRBgBIAEoBSIhChND",
-            "U19XYXRjaFZlZGlvTm90aWNlEgoKAklEGAEgASgFYgZwcm90bzM="));
+            "U19XYXRjaFZlZGlvTm90aWNlEgoKAklEGAEgASgFIiUKFENTX0dldFdhdGNo",
+            "VmVkaW9SYW5rEg0KBUNvdW50GAEgASgFImkKFFNDX0dldFdhdGNoVmVkaW9S",
+            "YW5rEigKA0FsbBgBIAMoCzIbLnByb3RvbXNnLk9uZVdhdGNoVmVkaW9SYW5r",
+            "EicKAk15GAIgASgLMhsucHJvdG9tc2cuT25lV2F0Y2hWZWRpb1JhbmsijAEK",
+            "EU9uZVdhdGNoVmVkaW9SYW5rEhMKC0NoYXJhY3RlcmlkGAEgASgFEgwKBE5h",
+            "bWUYAiABKAkSDgoGVHlwZWlkGAMgASgFEhIKClJld2FyZHNTdHIYBCABKAkS",
+            "DQoFQ291bnQYBSABKAUSEwoLU29ydFBlcmNlbnQYBiABKAISDAoEUmFuaxgH",
+            "IAEoBWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -593,7 +600,10 @@ namespace Protomsg {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_ResetAoShu), global::Protomsg.CS_ResetAoShu.Parser, new[]{ "ID" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_WatchVedioRewardNotice), global::Protomsg.SC_WatchVedioRewardNotice.Parser, new[]{ "ID", "WatchVedioRewardsStr", "Name" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_WatchVedioRewardNotice), global::Protomsg.CS_WatchVedioRewardNotice.Parser, new[]{ "ID" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_WatchVedioNotice), global::Protomsg.CS_WatchVedioNotice.Parser, new[]{ "ID" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_WatchVedioNotice), global::Protomsg.CS_WatchVedioNotice.Parser, new[]{ "ID" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GetWatchVedioRank), global::Protomsg.CS_GetWatchVedioRank.Parser, new[]{ "Count" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetWatchVedioRank), global::Protomsg.SC_GetWatchVedioRank.Parser, new[]{ "All", "My" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.OneWatchVedioRank), global::Protomsg.OneWatchVedioRank.Parser, new[]{ "Characterid", "Name", "Typeid", "RewardsStr", "Count", "SortPercent", "Rank" }, null, null, null)
           }));
     }
     #endregion
@@ -39118,6 +39128,610 @@ namespace Protomsg {
             break;
           case 8: {
             ID = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///获取观看视频排名
+  /// </summary>
+  public sealed partial class CS_GetWatchVedioRank : pb::IMessage<CS_GetWatchVedioRank> {
+    private static readonly pb::MessageParser<CS_GetWatchVedioRank> _parser = new pb::MessageParser<CS_GetWatchVedioRank>(() => new CS_GetWatchVedioRank());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CS_GetWatchVedioRank> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[192]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetWatchVedioRank() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetWatchVedioRank(CS_GetWatchVedioRank other) : this() {
+      count_ = other.count_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetWatchVedioRank Clone() {
+      return new CS_GetWatchVedioRank(this);
+    }
+
+    /// <summary>Field number for the "Count" field.</summary>
+    public const int CountFieldNumber = 1;
+    private int count_;
+    /// <summary>
+    ///数量
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Count {
+      get { return count_; }
+      set {
+        count_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CS_GetWatchVedioRank);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CS_GetWatchVedioRank other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Count != other.Count) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Count != 0) hash ^= Count.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Count != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(Count);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Count != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Count);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CS_GetWatchVedioRank other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Count != 0) {
+        Count = other.Count;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Count = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///获取观看视频排名
+  /// </summary>
+  public sealed partial class SC_GetWatchVedioRank : pb::IMessage<SC_GetWatchVedioRank> {
+    private static readonly pb::MessageParser<SC_GetWatchVedioRank> _parser = new pb::MessageParser<SC_GetWatchVedioRank>(() => new SC_GetWatchVedioRank());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<SC_GetWatchVedioRank> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[193]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetWatchVedioRank() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetWatchVedioRank(SC_GetWatchVedioRank other) : this() {
+      all_ = other.all_.Clone();
+      my_ = other.my_ != null ? other.my_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetWatchVedioRank Clone() {
+      return new SC_GetWatchVedioRank(this);
+    }
+
+    /// <summary>Field number for the "All" field.</summary>
+    public const int AllFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::Protomsg.OneWatchVedioRank> _repeated_all_codec
+        = pb::FieldCodec.ForMessage(10, global::Protomsg.OneWatchVedioRank.Parser);
+    private readonly pbc::RepeatedField<global::Protomsg.OneWatchVedioRank> all_ = new pbc::RepeatedField<global::Protomsg.OneWatchVedioRank>();
+    /// <summary>
+    ///排行榜
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::Protomsg.OneWatchVedioRank> All {
+      get { return all_; }
+    }
+
+    /// <summary>Field number for the "My" field.</summary>
+    public const int MyFieldNumber = 2;
+    private global::Protomsg.OneWatchVedioRank my_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Protomsg.OneWatchVedioRank My {
+      get { return my_; }
+      set {
+        my_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as SC_GetWatchVedioRank);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(SC_GetWatchVedioRank other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if(!all_.Equals(other.all_)) return false;
+      if (!object.Equals(My, other.My)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= all_.GetHashCode();
+      if (my_ != null) hash ^= My.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      all_.WriteTo(output, _repeated_all_codec);
+      if (my_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(My);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      size += all_.CalculateSize(_repeated_all_codec);
+      if (my_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(My);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(SC_GetWatchVedioRank other) {
+      if (other == null) {
+        return;
+      }
+      all_.Add(other.all_);
+      if (other.my_ != null) {
+        if (my_ == null) {
+          my_ = new global::Protomsg.OneWatchVedioRank();
+        }
+        My.MergeFrom(other.My);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            all_.AddEntriesFrom(input, _repeated_all_codec);
+            break;
+          }
+          case 18: {
+            if (my_ == null) {
+              my_ = new global::Protomsg.OneWatchVedioRank();
+            }
+            input.ReadMessage(my_);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class OneWatchVedioRank : pb::IMessage<OneWatchVedioRank> {
+    private static readonly pb::MessageParser<OneWatchVedioRank> _parser = new pb::MessageParser<OneWatchVedioRank>(() => new OneWatchVedioRank());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<OneWatchVedioRank> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[194]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public OneWatchVedioRank() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public OneWatchVedioRank(OneWatchVedioRank other) : this() {
+      characterid_ = other.characterid_;
+      name_ = other.name_;
+      typeid_ = other.typeid_;
+      rewardsStr_ = other.rewardsStr_;
+      count_ = other.count_;
+      sortPercent_ = other.sortPercent_;
+      rank_ = other.rank_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public OneWatchVedioRank Clone() {
+      return new OneWatchVedioRank(this);
+    }
+
+    /// <summary>Field number for the "Characterid" field.</summary>
+    public const int CharacteridFieldNumber = 1;
+    private int characterid_;
+    /// <summary>
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Characterid {
+      get { return characterid_; }
+      set {
+        characterid_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Name" field.</summary>
+    public const int NameFieldNumber = 2;
+    private string name_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Name {
+      get { return name_; }
+      set {
+        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Typeid" field.</summary>
+    public const int TypeidFieldNumber = 3;
+    private int typeid_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Typeid {
+      get { return typeid_; }
+      set {
+        typeid_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "RewardsStr" field.</summary>
+    public const int RewardsStrFieldNumber = 4;
+    private string rewardsStr_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string RewardsStr {
+      get { return rewardsStr_; }
+      set {
+        rewardsStr_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Count" field.</summary>
+    public const int CountFieldNumber = 5;
+    private int count_;
+    /// <summary>
+    ///当前次数
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Count {
+      get { return count_; }
+      set {
+        count_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "SortPercent" field.</summary>
+    public const int SortPercentFieldNumber = 6;
+    private float sortPercent_;
+    /// <summary>
+    ///百分比进度
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float SortPercent {
+      get { return sortPercent_; }
+      set {
+        sortPercent_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Rank" field.</summary>
+    public const int RankFieldNumber = 7;
+    private int rank_;
+    /// <summary>
+    ///排名
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Rank {
+      get { return rank_; }
+      set {
+        rank_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as OneWatchVedioRank);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(OneWatchVedioRank other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Characterid != other.Characterid) return false;
+      if (Name != other.Name) return false;
+      if (Typeid != other.Typeid) return false;
+      if (RewardsStr != other.RewardsStr) return false;
+      if (Count != other.Count) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(SortPercent, other.SortPercent)) return false;
+      if (Rank != other.Rank) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Characterid != 0) hash ^= Characterid.GetHashCode();
+      if (Name.Length != 0) hash ^= Name.GetHashCode();
+      if (Typeid != 0) hash ^= Typeid.GetHashCode();
+      if (RewardsStr.Length != 0) hash ^= RewardsStr.GetHashCode();
+      if (Count != 0) hash ^= Count.GetHashCode();
+      if (SortPercent != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(SortPercent);
+      if (Rank != 0) hash ^= Rank.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Characterid != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(Characterid);
+      }
+      if (Name.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Name);
+      }
+      if (Typeid != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(Typeid);
+      }
+      if (RewardsStr.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(RewardsStr);
+      }
+      if (Count != 0) {
+        output.WriteRawTag(40);
+        output.WriteInt32(Count);
+      }
+      if (SortPercent != 0F) {
+        output.WriteRawTag(53);
+        output.WriteFloat(SortPercent);
+      }
+      if (Rank != 0) {
+        output.WriteRawTag(56);
+        output.WriteInt32(Rank);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Characterid != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Characterid);
+      }
+      if (Name.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+      }
+      if (Typeid != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Typeid);
+      }
+      if (RewardsStr.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(RewardsStr);
+      }
+      if (Count != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Count);
+      }
+      if (SortPercent != 0F) {
+        size += 1 + 4;
+      }
+      if (Rank != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Rank);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(OneWatchVedioRank other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Characterid != 0) {
+        Characterid = other.Characterid;
+      }
+      if (other.Name.Length != 0) {
+        Name = other.Name;
+      }
+      if (other.Typeid != 0) {
+        Typeid = other.Typeid;
+      }
+      if (other.RewardsStr.Length != 0) {
+        RewardsStr = other.RewardsStr;
+      }
+      if (other.Count != 0) {
+        Count = other.Count;
+      }
+      if (other.SortPercent != 0F) {
+        SortPercent = other.SortPercent;
+      }
+      if (other.Rank != 0) {
+        Rank = other.Rank;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Characterid = input.ReadInt32();
+            break;
+          }
+          case 18: {
+            Name = input.ReadString();
+            break;
+          }
+          case 24: {
+            Typeid = input.ReadInt32();
+            break;
+          }
+          case 34: {
+            RewardsStr = input.ReadString();
+            break;
+          }
+          case 40: {
+            Count = input.ReadInt32();
+            break;
+          }
+          case 53: {
+            SortPercent = input.ReadFloat();
+            break;
+          }
+          case 56: {
+            Rank = input.ReadInt32();
             break;
           }
         }

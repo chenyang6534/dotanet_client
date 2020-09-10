@@ -103,6 +103,7 @@ public class GameUI : MonoBehaviour {
                     msg1.ReviveType = 3;
                     msg1.LookVideoState = 1;////看视频状态 1开始看 2结束看成功 3结束看失败
                     MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_QuickRevive", msg1);
+                    UMengManager.Instanse.Event_watch_vedio("复活");
                 }
                 else
                 {
@@ -224,22 +225,26 @@ public class GameUI : MonoBehaviour {
             new StoreInfo();
         });
         var isguaji = false;
-        LittleMapCom.GetChild("guaji").asButton.onClick.Add(() =>
+        //LittleMapCom.GetChild("guaji").asButton.onClick.Add(() =>
+        //{
+        //    //挂机操作
+        //    isguaji = !isguaji;
+        //    if (isguaji == true)
+        //    {
+        //        Protomsg.CS_UseAI msg1 = new Protomsg.CS_UseAI();
+        //        MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_UseAI", msg1);
+        //    }
+        //    else
+        //    {
+        //        Protomsg.CS_CancelUseAI msg1 = new Protomsg.CS_CancelUseAI();
+        //        MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_CancelUseAI", msg1);
+        //    }
+        //});
+        LittleMapCom.GetChild("huodong").asButton.onClick.Add(() =>
         {
-            //Protomsg.CS_GotoEndlessLevel msg1 = new Protomsg.CS_GotoEndlessLevel();
-            //MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GotoEndlessLevel", msg1);
-            //挂机操作
-            isguaji = !isguaji;
-            if (isguaji == true)
-            {
-                Protomsg.CS_UseAI msg1 = new Protomsg.CS_UseAI();
-                MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_UseAI", msg1);
-            }
-            else
-            {
-                Protomsg.CS_CancelUseAI msg1 = new Protomsg.CS_CancelUseAI();
-                MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_CancelUseAI", msg1);
-            }
+            //活动
+            new ActivityReward();
+            
         });
         //邮件
         LittleMapCom.GetChild("mail").asButton.onClick.Add(() =>
@@ -363,7 +368,7 @@ public class GameUI : MonoBehaviour {
             LittleMapCom.GetChild("copymap").visible = true;
             LittleMapCom.GetChild("battlebtn").visible = true;
             LittleMapCom.GetChild("task").visible = true;
-            LittleMapCom.GetChild("guaji").visible = true;
+            LittleMapCom.GetChild("huodong").visible = true;
 
         }
         else
@@ -378,7 +383,7 @@ public class GameUI : MonoBehaviour {
             LittleMapCom.GetChild("copymap").visible = false;
             LittleMapCom.GetChild("battlebtn").visible = false;
             LittleMapCom.GetChild("task").visible = false;
-            LittleMapCom.GetChild("guaji").visible = false;
+            LittleMapCom.GetChild("huodong").visible = false;
         }
 
         if (Application.platform != RuntimePlatform.IPhonePlayer &&
@@ -386,7 +391,7 @@ public class GameUI : MonoBehaviour {
             Application.platform != RuntimePlatform.WindowsEditor)
         {
             //LittleMapCom.GetChild("store").visible = false;
-            LittleMapCom.GetChild("guaji").visible = false;
+            LittleMapCom.GetChild("huodong").visible = false;
         }
     }
 
@@ -435,6 +440,7 @@ public class GameUI : MonoBehaviour {
                             Protomsg.CS_WatchVedioRewardNotice msg1 = new Protomsg.CS_WatchVedioRewardNotice();
                             msg1.ID = p1.ID;
                             MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_WatchVedioRewardNotice", msg1);
+                            UMengManager.Instanse.Event_watch_vedio("主动弹出领奖"+ p1.Name);
                         }
                         else
                         {

@@ -26,6 +26,7 @@ public class LoginUI : MonoBehaviour {
     public static string GameLauncherUrl = "https://www.game5868.top:6666";
     public static string GameNotice = "";
     public static string winMachineid = "2";
+    public static string Version = "1.4.0";
     // Use this for initialization
     void Start () {
         Screen.fullScreen = false;
@@ -435,7 +436,7 @@ public class LoginUI : MonoBehaviour {
         }
 
             //获取服务器列表
-            StartCoroutine(Tool.SendGet(GameLauncherUrl + "/getserverlist?Platform="+ platformstr+"&Version=1.0.0", (WWW data) => {
+            StartCoroutine(Tool.SendGet(GameLauncherUrl + "/getserverlist?Platform="+ platformstr+"&Version="+ Version, (WWW data) => {
                 //data.text
 
                 if (data.error != null)
@@ -458,6 +459,11 @@ public class LoginUI : MonoBehaviour {
 
             var serverlist = t2.Servers;
             Debug.Log("-------------len:" + serverlist.Length);
+            if(serverlist.Length <= 0)
+            {
+                Tool.NoticeWords("未找到服务器,请下载最新版本！", null);
+                return;
+            }
             var defaultserver = serverlist[defaultid];
             SelectServer = defaultserver;
             //建立连接

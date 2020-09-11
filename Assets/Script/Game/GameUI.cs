@@ -391,7 +391,7 @@ public class GameUI : MonoBehaviour {
             Application.platform != RuntimePlatform.WindowsEditor)
         {
             //LittleMapCom.GetChild("store").visible = false;
-            LittleMapCom.GetChild("huodong").visible = false;
+            //LittleMapCom.GetChild("huodong").visible = false;
         }
     }
 

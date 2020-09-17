@@ -8,7 +8,7 @@ public class MintegralConfig
 {
 	private static bool isInit = false;
 
-	#if UNITY_IPHONE
+	#if UNITY_IPHONE11
 
 	[DllImport ("__Internal")]
 	private static extern void initApplication (string appId, string apiKey);
@@ -46,65 +46,66 @@ public class MintegralConfig
 		isInit = true;
 		
 		if (Application.platform != RuntimePlatform.OSXEditor) {
-			
-			#if UNITY_IPHONE
+
+#if UNITY_IPHONE11
 
 			initApplication (appId, apiKey);
 
-			#elif UNITY_ANDROID
+#elif UNITY_ANDROID
 
 			_staticObject.Call ("initApplication",appId,apiKey);  
 
-			#endif
-		}
-	}
+#endif
+        }
+    }
 
 	public static void showUserPrivateInfoTipsConfig ()
 	{
 		if (Application.platform != RuntimePlatform.OSXEditor) {
 
-			#if UNITY_IPHONE
+#if UNITY_IPHONE11
 
 			showUserPrivateInfoTips();
 
-			#elif UNITY_ANDROID
+#elif UNITY_ANDROID
 
 			_staticObject.Call ("showUserPrivateInfoTips");  
 
-			#endif
-		}
-	}
+#endif
+        }
+    }
 
 	public static void setUserPrivateInfoTypeConfig (string statusKey, string statusType)
 	{
 		if (Application.platform != RuntimePlatform.OSXEditor) {
 
-			#if UNITY_IPHONE
+#if UNITY_IPHONE11
 
 			setUserPrivateInfoType(statusKey,statusType);
 
-			#elif UNITY_ANDROID
+#elif UNITY_ANDROID
 
 			_staticObject.Call ("setUserPrivateInfoType",statusKey,statusType);  
 
-			#endif
-		}
-	}
+#endif
+        }
+    }
 
 	public static int userPrivateInfoConfig (string statusKey)
 	{
 		if (Application.platform != RuntimePlatform.OSXEditor) {
 
-			#if UNITY_IPHONE
+#if UNITY_IPHONE11
 
 			return getAuthPrivateInfoStatus(statusKey);
 
-			#elif UNITY_ANDROID
+#elif UNITY_ANDROID
 
 			return _staticObject.Call <int> ("getAuthPrivateInfoStatus", statusKey);  
 
-			#endif
-		} else {
+#endif
+        }
+        else {
 			return 0;
 		}
         return 0;
@@ -114,49 +115,49 @@ public class MintegralConfig
 	{
 		if (Application.platform != RuntimePlatform.OSXEditor) {
 
-			#if UNITY_IPHONE
+#if UNITY_IPHONE11
 
 			setConsentStatusInfoType(statusType);
 
-			#elif UNITY_ANDROID
+#elif UNITY_ANDROID
 
 			_staticObject.Call ("setConsentStatusInfoType",statusType);  
 
-			#endif
-		}
-	}
+#endif
+        }
+    }
 
 	public static bool getConsentStatusInfoTypeConfig()
 	{
 		bool ready = false;
 		if (Application.platform != RuntimePlatform.OSXEditor) {
-				
-			#if UNITY_IPHONE
+
+#if UNITY_IPHONE11
 
 				ready = getConsentStatusInfoType ();
 
-			#elif UNITY_ANDROID
+#elif UNITY_ANDROID
 
 				ready =  _staticObject.Call<bool> ("getConsentStatusInfoType");
 
-			#endif
-		}
-		return ready;
+#endif
+        }
+        return ready;
 	}
 
 	public static void setDoNotTrackStatusConfig(int status){
 		if (Application.platform != RuntimePlatform.OSXEditor) {
 
-			#if UNITY_IPHONE
+#if UNITY_IPHONE11
 
 			setDoNotTrackStatusType(status);
 
-			#elif UNITY_ANDROID
+#elif UNITY_ANDROID
 
 			_staticObject.Call ("setDoNotTrackStatusType",status);  
 
-			#endif
-		}
-	}
+#endif
+        }
+    }
 }
 

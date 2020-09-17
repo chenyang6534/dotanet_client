@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 
 
-#if UNITY_IPHONE || UNITY_ANDROID
+#if UNITY_IPHONE11 || UNITY_ANDROID
 
-#if UNITY_IPHONE
+#if UNITY_IPHONE11
 
 using MTGInterActive		= MintegraliOSInterActive;
 using MTGInterstitialVideo	= MintegraliOSInterstitialVideo;

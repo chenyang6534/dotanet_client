@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 
-#if UNITY_IPHONE || UNITY_ANDROID
+#if UNITY_IPHONE11 || UNITY_ANDROID
 public class MintegralManager : MonoBehaviour
 {
   // InterActiveVideo

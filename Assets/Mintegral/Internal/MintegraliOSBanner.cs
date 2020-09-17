@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 using System.Collections.Generic;
 using AOT;
 
-#if UNITY_IPHONE
+#if UNITY_IPHONE11
 
 public class MintegraliOSBanner
 {

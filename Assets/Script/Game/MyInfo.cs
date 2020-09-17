@@ -280,26 +280,41 @@ public class MyInfo {
                             {
                                 return;
                             }
-                            Tool.NoticeWindonw("你确定要观看视频后合成道具(" + clientitem.Name + ")到更高等级吗?[color=#ff2222](极品属性会叠加保留)[/color]", () =>
+                            if(bagequip.Level >= 3)
                             {
-                                //SendDestroyItem(int.Parse(sArray[0]));
-                                MintegralMgr.ShowVideo(null, (succ) =>
+                                Tool.NoticeWindonw("你确定要观看视频后合成道具(" + clientitem.Name + ")到更高等级吗?[color=#ff2222](极品属性会叠加保留)[/color]", () =>
                                 {
-                                    if (succ == true)
+                                    //SendDestroyItem(int.Parse(sArray[0]));
+                                    MintegralMgr.ShowVideo(null, (succ) =>
                                     {
-                                        Debug.Log("观看视频成功");
-                                        //领取奖励
-                                        SendChangePos(int.Parse(sArray[0]), (int)item.data, int.Parse(sArray[1]), 2);
+                                        if (succ == true)
+                                        {
+                                            Debug.Log("观看视频成功");
+                                            //领取奖励
+                                            SendChangePos(int.Parse(sArray[0]), (int)item.data, int.Parse(sArray[1]), 2);
 
-                                        UMengManager.Instanse.Event_watch_vedio("合成装备");
-                                    }
-                                    else
-                                    {
-                                        Debug.Log("观看视频失败");
-                                    }
+                                            UMengManager.Instanse.Event_watch_vedio("合成装备");
+                                        }
+                                        else
+                                        {
+                                            Debug.Log("观看视频失败");
+                                        }
+                                    });
+
+
                                 });
-                                
-                            });
+                            }
+                            else
+                            {
+                                Tool.NoticeWindonw("你确定要合成道具(" + clientitem.Name + ")到更高等级吗?[color=#ff2222](极品属性会叠加保留)[/color]", () =>
+                                {
+                                    //领取奖励
+                                    SendChangePos(int.Parse(sArray[0]), (int)item.data, int.Parse(sArray[1]), 2);
+
+                                    //UMengManager.Instanse.Event_watch_vedio("合成装备");
+                                });
+                            }
+                            
                             return;
                         }
                     }

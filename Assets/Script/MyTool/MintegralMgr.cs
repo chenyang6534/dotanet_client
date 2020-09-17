@@ -22,7 +22,7 @@ public class MintegralMgr : MonoBehaviour {
 #if UNITY_EDITOR
         // Testing UNITY_EDITOR first because the editor also responds to the currently
         // selected platform.
-#elif UNITY_IPHONE || UNITY_ANDROID
+#elif UNITY_IPHONE11 || UNITY_ANDROID
         Mintegral.initMTGSDK(appid, appkey);
         //Mintegral.setConsentStatusInfoType(int GDPR_key);
         string[] rewardVideoUnits = new string[] { adUnit };
@@ -48,7 +48,7 @@ public class MintegralMgr : MonoBehaviour {
 
     }
     // Rewarded Video Events
-#if UNITY_IPHONE || UNITY_ANDROID
+#if UNITY_IPHONE11 || UNITY_ANDROID
     void onRewardedVideoLoadSuccessEvent(string adUnitId)
     {
         
@@ -113,7 +113,7 @@ public class MintegralMgr : MonoBehaviour {
 #endif
     public static void ShowVideo(StartPlayRewardVideoResult sp, EndPlayRewardVideoResult ep)
     {
-#if UNITY_IPHONE || UNITY_ANDROID
+#if UNITY_IPHONE11 || UNITY_ANDROID
         if (Mintegral.isVideoReadyToPlay (adUnit)) {
 
             Mintegral.showRewardedVideo (adUnit);

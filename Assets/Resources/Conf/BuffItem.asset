@@ -1308,3 +1308,19 @@ MonoBehaviour:
     IconPath: "ui://GameUI/\u84DD\u732B\u6B8B\u5F71"
     IconTimeEnable: 1
     IsShowControl: 0
+  - TypeID: 391
+    BodyEffect: 
+    FootEffect: 
+    Enable: 1
+    HeadEffect: 
+    TopBarEffect: 
+    RenderColor: 0
+    OutEffect: 
+    NativeTopBarEffect: 
+    HandsEffect: 
+    FootsEffect: 
+    MaterialEffect: 
+    ModeEnable: 1
+    IconPath: "ui://GameUI/\u8840\u9B54\u7126\u6E34"
+    IconTimeEnable: 1
+    IsShowControl: 0

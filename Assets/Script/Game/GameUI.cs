@@ -348,6 +348,8 @@ public class GameUI : MonoBehaviour {
         MsgManager.Instance.RemoveListener("SC_RedNotice");
         MsgManager.Instance.RemoveListener("SC_MainUITask");
         MsgManager.Instance.RemoveListener("SC_WatchVedioRewardNotice");
+
+        Debug.Log("UI Destroy!!!!");
         
 
 

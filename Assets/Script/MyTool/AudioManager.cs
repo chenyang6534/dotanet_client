@@ -82,6 +82,7 @@ public class AudioManager : MonoBehaviour
     static public string Sound_CloseLittleUI = "sound/menu/chat_close";
     static public string Sound_Click = "sound/menu/browser_click_common";
 
+    
     //播放音效
     public void Play2DSound(string path)
     {
@@ -94,7 +95,8 @@ public class AudioManager : MonoBehaviour
         int index = Random.Range(0, allpath.Length);
         AudioClip clip = Resources.Load<AudioClip>(allpath[index]);
         SoundPlayer.clip = clip;
-        SoundPlayer.PlayOneShot(clip);
+        SoundPlayer.PlayOneShot(clip, 0.5f);
+        
         Debug.Log("Play2DSound:" + path + "   " + SoundPlayer.volume);
     }
 

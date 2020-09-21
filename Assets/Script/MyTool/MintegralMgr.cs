@@ -9,7 +9,7 @@ public class MintegralMgr : MonoBehaviour {
     //正式
     public static string appid = "128757";
     public static string appkey = "b988092f5cf34f454c69e827d01879e1";
-    public static string adUnit = "263234";
+    public static string adUnit = "353429";
 
     public delegate void StartPlayRewardVideoResult(bool issuc);
     public delegate void EndPlayRewardVideoResult(bool issuc);
@@ -18,7 +18,15 @@ public class MintegralMgr : MonoBehaviour {
     //public static string appkey = "7c22942b749fe6a6e361b675e96b3ee9";
     //public static string adUnit = "146874";
     public static EndPlayRewardVideoResult CurRewardVideoPlay = null;
+    public static MintegralMgr Instanse = null;
     void Start () {
+
+        if (Instanse != null)
+        {
+            //防止重复初始化
+            return;
+        }
+        Instanse = this;
 #if UNITY_EDITOR
         // Testing UNITY_EDITOR first because the editor also responds to the currently
         // selected platform.
@@ -42,9 +50,10 @@ public class MintegralMgr : MonoBehaviour {
         MintegralManager.onRewardedVideoEndCardShowSuccessEvent += onRewardedVideoEndCardShowSuccessEvent;
 
         Mintegral.requestRewardedVideo (adUnit);
-        Debug.Log("MintegralMgr Start: ");
+        
         
 #endif
+        Debug.Log("MintegralMgr Start: ");
 
     }
     // Rewarded Video Events

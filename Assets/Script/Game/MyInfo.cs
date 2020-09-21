@@ -1136,6 +1136,11 @@ public class MyInfo {
                 if(onedrop.Length == 2)
                 {
                     Debug.Log("--FreshDropItem--" + onedrop[0]+"   "+ onedrop[1]);
+                    if(itemlist.GetChild(onedrop[0]) != null)
+                    {
+                        Debug.Log("--repeat--" + onedrop[0]);
+                        continue;
+                    }
                     //var typeid = 
                     var clientitem = ExcelManager.Instance.GetItemManager().GetItemByID(int.Parse(onedrop[0]));
                     if (clientitem != null)
@@ -1156,7 +1161,7 @@ public class MyInfo {
                             }
                         });
 
-
+                        onedropitem.name = onedrop[0];
                         itemlist.AddChild(onedropitem);
 
                         Debug.Log("--FreshDropItem:"+ clientitem.IconPath);

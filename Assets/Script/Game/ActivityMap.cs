@@ -255,7 +255,23 @@ public class ActivityMap
         //onedropitem.GetChild("item").asCom.GetChild("icon").asLoader.url = clientitem.IconPath;
         onedropitem.GetChild("name").asTextField.text = clientitem.Name;
         onedropitem.GetChild("guildlevel").asTextField.text = item.NeedLevel + "";
-        onedropitem.GetChild("time").asTextField.text = item.OpenStartTime + "--" + item.OpenEndTime;
+
+        string[] starttime = item.OpenStartTime.Split(';');
+        string[] endtime = item.OpenEndTime.Split(';');
+        string time = "";
+        for (int i = 0; i < starttime.Length && i < endtime.Length; i++)
+        {
+            if(starttime[i].Length <= 0 || endtime[i].Length <= 0)
+            {
+                continue;
+            }
+            time += starttime[i] + "--" + endtime[i];
+            time += "\n";
+
+        }
+        onedropitem.GetChild("time").asTextField.text = time;
+
+        //onedropitem.GetChild("time").asTextField.text = item.OpenStartTime + "--" + item.OpenEndTime;
         onedropitem.GetChild("week").asTextField.text = "周" + item.OpenWeekDay;
         onedropitem.GetChild("pricetype").asLoader.url = Tool.GetPriceTypeIcon(item.PriceType);
         onedropitem.GetChild("price").asTextField.text = item.Price + "";
@@ -324,7 +340,22 @@ public class ActivityMap
         //onedropitem.GetChild("item").asCom.GetChild("icon").asLoader.url = clientitem.IconPath;
         onedropitem.GetChild("name").asTextField.text = clientitem.Name;
         onedropitem.GetChild("guildlevel").asTextField.text = item.NeedLevel + "";
-        onedropitem.GetChild("time").asTextField.text = item.OpenStartTime + "--" + item.OpenEndTime;
+
+        string[] starttime = item.OpenStartTime.Split(';');
+        string[] endtime = item.OpenEndTime.Split(';');
+        string time = "";
+        for(int i = 0;i < starttime.Length && i < endtime.Length; i++)
+        {
+            if (starttime[i].Length <= 0 || endtime[i].Length <= 0)
+            {
+                continue;
+            }
+            time += starttime[i] + "--" + endtime[i];
+            time += "\n";
+            
+        }
+        onedropitem.GetChild("time").asTextField.text = time;
+
         onedropitem.GetChild("week").asTextField.text = "周" + item.OpenWeekDay;
         onedropitem.GetChild("pricetype").asLoader.url = Tool.GetPriceTypeIcon(item.PriceType);
         onedropitem.GetChild("price").asTextField.text = item.Price + "";

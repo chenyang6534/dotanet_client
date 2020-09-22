@@ -848,3 +848,9 @@ MonoBehaviour:
     Name: "\u9AD8\u7EA7\u5965\u6570\u74F6"
     Des: "\u4F7F\u7528\u540E\u76F4\u63A5\u589E\u52A0\u5965\u6570\u70B950/100/200/400/600\u3002[color=#ff2222]5\u7EA7\u624D\u80FD\u51FA\u552E[/color]\u3002"
     ShowLevel: 1
+  - TypeID: 216
+    IconPath: "ui://GameUI/\u9AD8\u7EA7\u5965\u6570\u74F6"
+    SceneItem: 
+    Name: "\u7816\u77FF"
+    Des: "\u83B7\u5F97\u6750\u6599"
+    ShowLevel: 0

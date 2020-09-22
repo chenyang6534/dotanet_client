@@ -460,3 +460,11 @@ MonoBehaviour:
     EndX: 70
     EndY: 70
     Name: "BOSS\u6DF1\u6E0A"
+  - TypeID: 5012
+    ScenePath: Map/Scene1
+    Little_BG: ui://GameUI/little_bg1
+    StartX: 5
+    StartY: 7
+    EndX: 143
+    EndY: 143
+    Name: "\u7816\u77F3\u4E89\u593A\u5730"

@@ -23,6 +23,7 @@ public class ActivityMap
         MsgManager.Instance.AddListener("SC_GetWorldMapsInfo", new HandleMsg(this.SC_GetWorldMapsInfo));
         MsgManager.Instance.AddListener("SC_GetBossFamilyInfo", new HandleMsg(this.SC_GetBossFamilyInfo));
         MsgManager.Instance.AddListener("SC_GetBossShenYuanInfo", new HandleMsg(this.SC_GetBossShenYuanInfo));
+        MsgManager.Instance.AddListener("SC_GetZhuanShiZhengDuoInfo", new HandleMsg(this.SC_GetZhuanShiZhengDuoInfo));
 
         main = UIPackage.CreateObject("GameUI", "ActivityMap").asCom;
         GRoot.inst.AddChild(main);
@@ -65,6 +66,11 @@ public class ActivityMap
         {
             Protomsg.CS_GetBossShenYuanInfo msg = new Protomsg.CS_GetBossShenYuanInfo();
             MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetBossShenYuanInfo", msg);
+        });
+        main.GetChild("zhuanshizhengduo").asButton.onClick.Add(() =>
+        {
+            Protomsg.CS_GetZhuanShiZhengDuoInfo msg = new Protomsg.CS_GetZhuanShiZhengDuoInfo();
+            MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetZhuanShiZhengDuoInfo", msg);
         });
     }
 
@@ -243,6 +249,57 @@ public class ActivityMap
 
         return true;
     }
+
+    //砖石争夺 SC_GetZhuanShiZhengDuoInfo
+    public bool SC_GetZhuanShiZhengDuoInfo(Protomsg.MsgBase d1)
+    {
+        Debug.Log("SC_GetZhuanShiZhengDuoInfo:");
+        IMessage IMperson = new Protomsg.SC_GetZhuanShiZhengDuoInfo();
+        Protomsg.SC_GetZhuanShiZhengDuoInfo p1 = (Protomsg.SC_GetZhuanShiZhengDuoInfo)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
+        var item = p1.MapGoInInfo;
+        var clientitem = ExcelManager.Instance.GetSceneManager().GetSceneByID(item.NextSceneID);
+        if (clientitem == null)
+        {
+            return true;
+        }
+        var onedropitem = main.GetChild("zhuanshizhengduocom").asCom;
+
+
+        //onedropitem.GetChild("item").asCom.GetChild("icon").asLoader.url = clientitem.IconPath;
+        onedropitem.GetChild("name").asTextField.text = clientitem.Name;
+        onedropitem.GetChild("guildlevel").asTextField.text = item.NeedLevel + "";
+
+        string[] starttime = item.OpenStartTime.Split(';');
+        string[] endtime = item.OpenEndTime.Split(';');
+        string time = "";
+        for (int i = 0; i < starttime.Length && i < endtime.Length; i++)
+        {
+            if (starttime[i].Length <= 0 || endtime[i].Length <= 0)
+            {
+                continue;
+            }
+            time += starttime[i] + "--" + endtime[i];
+            time += "\n";
+
+        }
+        onedropitem.GetChild("time").asTextField.text = time;
+
+        //onedropitem.GetChild("time").asTextField.text = item.OpenStartTime + "--" + item.OpenEndTime;
+        onedropitem.GetChild("week").asTextField.text = "周" + item.OpenWeekDay;
+        onedropitem.GetChild("pricetype").asLoader.url = Tool.GetPriceTypeIcon(item.PriceType);
+        onedropitem.GetChild("price").asTextField.text = item.Price + "";
+        //进入
+        onedropitem.GetChild("goto").asButton.onClick.Set(() =>
+        {
+            Protomsg.CS_GotoActivityMap msg1 = new Protomsg.CS_GotoActivityMap();
+            msg1.ID = item.ID;
+            MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GotoActivityMap", msg1);
+        });
+
+
+        return true;
+    }
+
     //boss深渊 SC_GetBossShenYuanInfo
     public bool SC_GetBossShenYuanInfo(Protomsg.MsgBase d1)
     {
@@ -573,7 +630,7 @@ public class ActivityMap
         MsgManager.Instance.RemoveListener("SC_GetWorldMapsInfo");
         MsgManager.Instance.RemoveListener("SC_GetBossFamilyInfo");
         MsgManager.Instance.RemoveListener("SC_GetBossShenYuanInfo");
-
+        MsgManager.Instance.RemoveListener("SC_GetZhuanShiZhengDuoInfo");
         
 
 

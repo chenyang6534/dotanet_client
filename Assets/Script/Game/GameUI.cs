@@ -145,6 +145,10 @@ public class GameUI : MonoBehaviour {
             {
                 Protomsg.CS_GetGuildRankBattleInfo msg1 = new Protomsg.CS_GetGuildRankBattleInfo();
                 MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetGuildRankBattleInfo", msg1);
+            }else if (GameScene.Singleton.m_DataShowType == 3)//砖石争夺
+            {
+                Protomsg.CS_GetZhuanShiZhengDuoRank msg1 = new Protomsg.CS_GetZhuanShiZhengDuoRank();
+                MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetZhuanShiZhengDuoRank", msg1);
             }
         });
 
@@ -335,6 +339,7 @@ public class GameUI : MonoBehaviour {
 
         MsgManager.Instance.AddListener("SC_WatchVedioRewardNotice", new HandleMsg(this.SC_WatchVedioRewardNotice));
 
+        MsgManager.Instance.AddListener("SC_GetZhuanShiZhengDuoRank", new HandleMsg(this.SC_GetZhuanShiZhengDuoRank));
     }
     void OnDestroy()
     {
@@ -348,6 +353,8 @@ public class GameUI : MonoBehaviour {
         MsgManager.Instance.RemoveListener("SC_RedNotice");
         MsgManager.Instance.RemoveListener("SC_MainUITask");
         MsgManager.Instance.RemoveListener("SC_WatchVedioRewardNotice");
+        MsgManager.Instance.RemoveListener("SC_GetZhuanShiZhengDuoRank");
+        
 
         Debug.Log("UI Destroy!!!!");
         
@@ -559,6 +566,121 @@ public class GameUI : MonoBehaviour {
 
         return true;
     }
+
+    //砖石争夺 SC_GetZhuanShiZhengDuoRank
+    public void showrankone(GComponent onedropitem, Protomsg.OneZhuanShiZhengDuoRank item)
+    {
+        if (item == null)
+        {
+            return;
+        }
+
+
+
+        var clientitem = ExcelManager.Instance.GetUnitInfoManager().GetUnitInfoByID(item.Typeid);
+        if (clientitem == null)
+        {
+            return;
+        }
+        onedropitem.GetChild("heroicon").asLoader.url = clientitem.IconPath;
+        onedropitem.GetChild("heroicon").onClick.Add(() =>
+        {
+            new HeroSimpleInfo(item.Characterid);
+        });
+
+        onedropitem.GetChild("name").asTextField.text = item.Name;
+        onedropitem.GetChild("rank").asTextField.text = item.Rank + "";
+        onedropitem.GetChild("score").asTextField.text = "" + item.Count;
+
+        //奖励
+        Debug.Log("rewards:" + item.RewardsStr);
+        onedropitem.GetChild("rewardslist").asList.RemoveChildren(0, -1, true);
+        var itemarr = item.RewardsStr.Split(';');
+        foreach (var item2 in itemarr)
+        {
+            Debug.Log("item2:" + item2);
+            var itemdata = item2.Split(':');
+            if (itemdata.Length <= 2)
+            {
+                continue;
+            }
+            var itemid = int.Parse(itemdata[0]);
+            var itemcount = int.Parse(itemdata[1]);
+            var itemlevel = itemdata[2];
+
+            var clientitemone = ExcelManager.Instance.GetItemManager().GetItemByID(itemid);
+            if (clientitemone == null)
+            {
+                continue;
+            }
+
+            var threedropitem = UIPackage.CreateObject("GameUI", "sellable").asCom;
+            threedropitem.GetChild("icon").asLoader.url = clientitemone.IconPath;
+            threedropitem.GetChild("icon").onClick.Add(() =>
+            {
+                new ItemInfo(itemid, -1, int.Parse(itemlevel));
+
+            });
+            threedropitem.GetChild("level").asTextField.text = "Lv." + itemlevel;
+            if (clientitemone.ShowLevel == 1)
+            {
+                threedropitem.GetChild("level").visible = true;
+            }
+            else
+            {
+                threedropitem.GetChild("level").visible = false;
+            }
+            threedropitem.GetChild("count").asTextField.text = itemcount + "";
+            if (itemcount <= 1)
+            {
+                threedropitem.GetChild("count").visible = false;
+            }
+            else
+            {
+                threedropitem.GetChild("count").visible = true;
+            }
+            onedropitem.GetChild("rewardslist").asList.AddChild(threedropitem);
+        }
+    }
+
+    //获取副本信息
+    public bool SC_GetZhuanShiZhengDuoRank(Protomsg.MsgBase d1)
+    {
+        Debug.Log("SC_GetZhuanShiZhengDuoRank:");
+        IMessage IMperson = new Protomsg.SC_GetZhuanShiZhengDuoRank();
+        Protomsg.SC_GetZhuanShiZhengDuoRank p1 = (Protomsg.SC_GetZhuanShiZhengDuoRank)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
+        //main.GetChild("vediopage").asCom.GetChild("rankllist").asList.RemoveChildren(0, -1, true);
+
+        var mapinfo = UIPackage.CreateObject("GameUI", "ZhuanShiZhengDuoRank").asCom;
+        GRoot.inst.AddChild(mapinfo);
+        mapinfo.xy = Tool.GetPosition(0.5f, 0.5f);
+        mapinfo.GetChild("close").asButton.onClick.Add(() =>
+        {
+            mapinfo.Dispose();
+        });
+
+
+        //掉落道具
+        mapinfo.GetChild("rankllist").asList.RemoveChildren(0, -1, true);
+
+        //遍历
+        foreach (var item in p1.All)
+        {
+            Debug.Log("all:" + item.Name);
+            var onedropitem = UIPackage.CreateObject("GameUI", "VedioPageOne").asCom;
+
+            showrankone(onedropitem, item);
+
+
+            mapinfo.GetChild("rankllist").asList.AddChild(onedropitem);
+
+        }
+
+        showrankone(mapinfo.GetChild("my").asCom, p1.My);
+
+        return true;
+    }
+
 
     public bool SC_GetGuildRankBattleInfo(Protomsg.MsgBase d1)
     {

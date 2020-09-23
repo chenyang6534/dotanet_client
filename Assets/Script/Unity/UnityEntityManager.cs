@@ -171,22 +171,37 @@ public class UnityEntityManager  {
         {
             return false;
         }
+
+        if(my.CharacterID > 0 && target.CharacterID > 0)
+        {
+            //同一个玩家控制的单位一定不是敌人
+            if (my.CharacterID == target.CharacterID)
+            {
+                return false;
+            }
+            //场景中所有玩家互为敌人
+            if (GameScene.Singleton.IsEnemyAllPlayer == 1)
+            {
+                return true;
+            }
+
+            //同一小组的不能成为敌人
+            if (target.GroupID > 0 && target.GroupID == my.GroupID)
+            {
+                return false;
+            }
+            //不同小组一定是敌人
+            if (target.GroupID > 0 && my.GroupID > 0 && target.GroupID != my.GroupID)
+            {
+                return true;
+            }
+            //同一个公会的不能成为敌人
+            if (target.GuildID > 0 && target.GuildID == my.GuildID)
+            {
+                return false;
+            }
+        }
         
-        //同一小组的不能成为敌人
-        if (target.GroupID > 0 && target.GroupID == my.GroupID)
-        {
-            return false;
-        }
-        //不同小组一定是敌人
-        if (target.GroupID > 0 && my.GroupID > 0 && target.GroupID != my.GroupID)
-        {
-            return true;
-        }
-        //同一个公会的不能成为敌人
-        if (target.GuildID > 0 && target.GuildID == my.GuildID)
-        {
-            return false;
-        }
 
         //攻击模式(1:和平模式 2:组队模式 3:全体模式 4:阵营模式(玩家,NPC) 5:行会模式)
         if (my.AttackMode == 1)

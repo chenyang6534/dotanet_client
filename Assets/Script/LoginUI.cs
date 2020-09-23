@@ -25,7 +25,7 @@ public class LoginUI : MonoBehaviour {
     //public static string GameLauncherUrl = "http://119.23.8.72:6666";
     public static string GameLauncherUrl = "https://www.game5868.top:6666";
     public static string GameNotice = "";
-    public static string winMachineid = "2";
+    public static string winMachineid = "3";
     public static string Version = "1.4.0";
     // Use this for initialization
     void Start () {

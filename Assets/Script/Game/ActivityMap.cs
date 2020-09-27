@@ -189,7 +189,7 @@ public class ActivityMap
             //看视频进入
             onedropitem.GetChild("vediogoto").asButton.onClick.Add(() =>
             {
-                MintegralMgr.ShowVideo(null, (succ) =>
+                TTadMgr.Instanse.ShowVideo((succ, IsMoneyReplaceVedio) =>
                 {
                     if (succ == true)
                     {
@@ -197,9 +197,17 @@ public class ActivityMap
                         Protomsg.CS_GotoActivityMap msg1 = new Protomsg.CS_GotoActivityMap();
                         msg1.ID = item.ID;//bool IsWatchVedio = 2;
                         msg1.IsWatchVedio = true;
+                        msg1.IsMoneyReplaceVedio = IsMoneyReplaceVedio;
                         MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GotoActivityMap", msg1);
-
-                        UMengManager.Instanse.Event_watch_vedio("进入地图"+ clientitem.Name);
+                        if(IsMoneyReplaceVedio == false)
+                        {
+                            UMengManager.Instanse.Event_watch_vedio("进入地图" + clientitem.Name);
+                        }
+                        else
+                        {
+                            UMengManager.Instanse.Event_watch_vedio_moneyreplace("进入地图" + clientitem.Name); 
+                        }
+                        
                     }
                     else
                     {
@@ -539,7 +547,7 @@ public class ActivityMap
 
         mapinfo.GetChild("watchvedio").asButton.onClick.Add(() =>
         {
-            MintegralMgr.ShowVideo(null, (succ) =>
+            TTadMgr.Instanse.ShowVideo((succ, IsMoneyReplaceVedio) =>
             {
                 if (succ == true)
                 {
@@ -554,8 +562,17 @@ public class ActivityMap
                     }
                     //观看视频通知
                     Protomsg.CS_WatchVedioNotice msg = new Protomsg.CS_WatchVedioNotice();
+                    msg.IsMoneyReplaceVedio = IsMoneyReplaceVedio;
                     MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_WatchVedioNotice", msg);
-                    UMengManager.Instanse.Event_watch_vedio("查询boss刷新时间" + sceneitem.Name);
+                    if(IsMoneyReplaceVedio == false)
+                    {
+                        UMengManager.Instanse.Event_watch_vedio("查询boss刷新时间" + sceneitem.Name);
+                    }
+                    else
+                    {
+                        UMengManager.Instanse.Event_watch_vedio_moneyreplace("查询boss刷新时间" + sceneitem.Name);
+                    }
+
                 }
                 else
                 {

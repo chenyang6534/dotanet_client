@@ -57,11 +57,13 @@ public class MyInfo {
         Protomsg.CS_SystemHuiShouItem msg1 = new Protomsg.CS_SystemHuiShouItem();
         msg1.SrcPos = srcpos;
         MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_SystemHuiShouItem", msg1);
-        
+
     }
 
+    
+
     //发送交换位置
-    public void SendChangePos(int srcpos,int destpos, int srctype, int desttype)
+    public void SendChangePos(int srcpos,int destpos, int srctype, int desttype,bool IsWatchVedio,bool IsMoneyReplaceVedio)
     {
         
 
@@ -70,6 +72,8 @@ public class MyInfo {
         msg1.DestPos = destpos;
         msg1.SrcType = srctype;
         msg1.DestType = desttype;
+        msg1.IsWatchVedio = IsWatchVedio;
+        msg1.IsMoneyReplaceVedio = IsMoneyReplaceVedio;
         MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_ChangeItemPos", msg1);
 
         Thread t = new Thread(new ThreadStart(GetUnitInfo));//心跳
@@ -160,7 +164,7 @@ public class MyInfo {
                         return;
                     }
 
-                    SendChangePos(int.Parse(sArray[0]), (int)item.data, int.Parse(sArray[1]), 1);
+                    SendChangePos(int.Parse(sArray[0]), (int)item.data, int.Parse(sArray[1]), 1, false, false);
                 });
 
                 item.onClick.Add(() => {
@@ -280,20 +284,27 @@ public class MyInfo {
                             {
                                 return;
                             }
-                            if(bagequip.Level >= 3)
+                            if(bagequip.Level >= GameScene.Singleton.SvConf.UpgradeItemNeedWatchVedioLevel)
                             {
                                 Tool.NoticeWindonw("你确定要观看视频后合成道具(" + clientitem.Name + ")到更高等级吗?[color=#ff2222](极品属性会叠加保留)[/color]", () =>
                                 {
                                     //SendDestroyItem(int.Parse(sArray[0]));
-                                    MintegralMgr.ShowVideo(null, (succ) =>
+                                    TTadMgr.Instanse.ShowVideo((succ, IsMoneyReplaceVedio) =>
                                     {
                                         if (succ == true)
                                         {
                                             Debug.Log("观看视频成功");
                                             //领取奖励
-                                            SendChangePos(int.Parse(sArray[0]), (int)item.data, int.Parse(sArray[1]), 2);
-
-                                            UMengManager.Instanse.Event_watch_vedio("合成装备");
+                                            SendChangePos(int.Parse(sArray[0]), (int)item.data, int.Parse(sArray[1]), 2,true,IsMoneyReplaceVedio);
+                                            if (IsMoneyReplaceVedio == false)
+                                            {
+                                                UMengManager.Instanse.Event_watch_vedio("合成装备");
+                                            }
+                                            else
+                                            {
+                                                UMengManager.Instanse.Event_watch_vedio_moneyreplace("合成装备");
+                                            }
+                                            
                                         }
                                         else
                                         {
@@ -309,7 +320,7 @@ public class MyInfo {
                                 Tool.NoticeWindonw("你确定要合成道具(" + clientitem.Name + ")到更高等级吗?[color=#ff2222](极品属性会叠加保留)[/color]", () =>
                                 {
                                     //领取奖励
-                                    SendChangePos(int.Parse(sArray[0]), (int)item.data, int.Parse(sArray[1]), 2);
+                                    SendChangePos(int.Parse(sArray[0]), (int)item.data, int.Parse(sArray[1]), 2,false,false);
 
                                     //UMengManager.Instanse.Event_watch_vedio("合成装备");
                                 });
@@ -318,7 +329,7 @@ public class MyInfo {
                             return;
                         }
                     }
-                    SendChangePos(int.Parse(sArray[0]), (int)item.data, int.Parse(sArray[1]), 2);
+                    SendChangePos(int.Parse(sArray[0]), (int)item.data, int.Parse(sArray[1]), 2, false, false);
                 });
 
                 item.onClick.Add(() => {
@@ -431,7 +442,7 @@ public class MyInfo {
 
         lianhuainfo.GetChild("ok").asButton.onClick.Set(() => {
 
-            MintegralMgr.ShowVideo(null, (succ) =>
+            TTadMgr.Instanse.ShowVideo((succ, IsMoneyReplaceVedio) =>
             {
                 if (succ == true)
                 {
@@ -439,8 +450,17 @@ public class MyInfo {
                     //领取奖励
                     // 1炼化装备 2炼化材料 3辅助装备
                     Protomsg.CS_StartLianHua msg1 = new Protomsg.CS_StartLianHua();
+                    msg1.IsMoneyReplaceVedio = IsMoneyReplaceVedio;
                     MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_StartLianHua", msg1);
-                    UMengManager.Instanse.Event_watch_vedio("炼化装备");
+                    if(IsMoneyReplaceVedio == false)
+                    {
+                        UMengManager.Instanse.Event_watch_vedio("炼化装备");
+                    }
+                    else
+                    {
+                        UMengManager.Instanse.Event_watch_vedio_moneyreplace("炼化装备");
+                    }
+
                 }
                 else
                 {

@@ -113,6 +113,21 @@ public class UMengManager : MonoBehaviour
         GA.Event("watch_vedio", name);
 #endif
     }
+    //用砖石代替观看视频
+    public void Event_watch_vedio_moneyreplace(string name)
+    {
+#if UNITY_ANDROID
+        GA.Event("watch_vedio_moneyreplace", name);
+#endif
+    }
+
+    //观看视频
+    public void Event_watch_vedio_loadfaild(string name)
+    {
+#if UNITY_ANDROID
+        GA.Event("watch_vedio_loadfaild", name);
+#endif
+    }
 
     // Use this for initialization  
     void Init()

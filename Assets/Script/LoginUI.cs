@@ -361,12 +361,12 @@ public class LoginUI : MonoBehaviour {
 
         //TTadMgr
         mRoot.GetChild("test1").asButton.onClick.Set(() => {
-            TTadMgr.Instanse.LoadRewardAd();
+            //TTadMgr.Instanse.LoadRewardAd();
 
         });
         mRoot.GetChild("test2").asButton.onClick.Set(() => {
 
-            TTadMgr.Instanse.ShowRewardAd();
+            //TTadMgr.Instanse.ShowRewardAd();
         });
 
         mRoot.GetChild("youkelogin").asButton.onClick.Set(() => {

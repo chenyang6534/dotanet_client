@@ -61,15 +61,24 @@ public class CopyMap
         //进入
         main.GetChild("buyvedio").asButton.onClick.Set(() =>
         {
-            MintegralMgr.ShowVideo(null, (succ) =>
+            TTadMgr.Instanse.ShowVideo((succ, IsMoneyReplaceVedio) =>
             {
                 if (succ == true)
                 {
                     Debug.Log("观看视频成功");
                     Protomsg.CS_BuyCopyMapsCount msg1 = new Protomsg.CS_BuyCopyMapsCount();
                     msg1.IsWatchVedio = true;
+                    msg1.IsMoneyReplaceVedio = IsMoneyReplaceVedio;
                     MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_BuyCopyMapsCount", msg1);
-                    UMengManager.Instanse.Event_watch_vedio("购买副本次数");
+                    if(IsMoneyReplaceVedio == false)
+                    {
+                        UMengManager.Instanse.Event_watch_vedio("购买副本次数");
+                    }
+                    else
+                    {
+                        UMengManager.Instanse.Event_watch_vedio_moneyreplace("购买副本次数");
+                    }
+
                 }
                 else
                 {

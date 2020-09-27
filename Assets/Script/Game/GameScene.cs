@@ -23,6 +23,7 @@ public class GameScene : MonoBehaviour {
     public int m_DataShowType;////数据显示类型 0不显示 1公会战数据 2竞技场数据
     public int m_SceneID;
     public int IsEnemyAllPlayer;//是否所有的玩家都是敌人 1是(互相残杀) 0否
+    public Protomsg.ServerConfig SvConf;//服务器配置信息
     public string m_ScenePath;
 
     public int m_MaxFrame = 0;//当前收到的逻辑帧数据 帧号
@@ -128,6 +129,7 @@ public class GameScene : MonoBehaviour {
         m_ScenePath = p1.Name;
         m_ServerMaxLevel = p1.ServerMaxLevel;
         IsEnemyAllPlayer = p1.IsEnemyAllPlayer;
+        SvConf = p1.SvConf;
         m_GameServerStartTime = Tool.GetTime() - 1.0f/p1.LogicFps* p1.CurFrame;
         Debug.Log("starttime:"+ m_GameServerStartTime+ " LogicFps: "+ p1.LogicFps+"  curframe:"+m_CurFrame+"  time:"+ Time.realtimeSinceStartup);
 

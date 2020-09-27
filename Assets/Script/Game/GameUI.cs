@@ -94,38 +94,38 @@ public class GameUI : MonoBehaviour {
             UMengManager.Instanse.Event_click_masonryrevive();
         });
         DieUI.GetChild("lookvideo").visible = false;
-        DieUI.GetChild("lookvideo").asButton.onClick.Add(() => {
-            //看视频复活
-            MintegralMgr.ShowVideo((succ) => {
-                if(succ == true)
-                {
-                    Protomsg.CS_QuickRevive msg1 = new Protomsg.CS_QuickRevive();
-                    msg1.ReviveType = 3;
-                    msg1.LookVideoState = 1;////看视频状态 1开始看 2结束看成功 3结束看失败
-                    MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_QuickRevive", msg1);
-                    UMengManager.Instanse.Event_watch_vedio("复活");
-                }
-                else
-                {
-                    Tool.NoticeWords("观看失败！观看视频太过频繁,请稍后再试！", null);
-                }
-            }, (succ) => {
-                if(succ == true)
-                {
-                    Protomsg.CS_QuickRevive msg1 = new Protomsg.CS_QuickRevive();
-                    msg1.ReviveType = 3;
-                    msg1.LookVideoState = 2;////看视频状态 1开始看 2结束看成功 3结束看失败
-                    MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_QuickRevive", msg1);
-                }
-                else
-                {
-                    Protomsg.CS_QuickRevive msg1 = new Protomsg.CS_QuickRevive();
-                    msg1.ReviveType = 3;
-                    msg1.LookVideoState = 3;////看视频状态 1开始看 2结束看成功 3结束看失败
-                    MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_QuickRevive", msg1);
-                }
-            });
-        });
+        //DieUI.GetChild("lookvideo").asButton.onClick.Add(() => {
+        //    //看视频复活
+        //    MintegralMgr.ShowVideo((succ) => {
+        //        if(succ == true)
+        //        {
+        //            Protomsg.CS_QuickRevive msg1 = new Protomsg.CS_QuickRevive();
+        //            msg1.ReviveType = 3;
+        //            msg1.LookVideoState = 1;////看视频状态 1开始看 2结束看成功 3结束看失败
+        //            MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_QuickRevive", msg1);
+        //            UMengManager.Instanse.Event_watch_vedio("复活");
+        //        }
+        //        else
+        //        {
+        //            Tool.NoticeWords("观看失败！观看视频太过频繁,请稍后再试！", null);
+        //        }
+        //    }, (succ) => {
+        //        if(succ == true)
+        //        {
+        //            Protomsg.CS_QuickRevive msg1 = new Protomsg.CS_QuickRevive();
+        //            msg1.ReviveType = 3;
+        //            msg1.LookVideoState = 2;////看视频状态 1开始看 2结束看成功 3结束看失败
+        //            MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_QuickRevive", msg1);
+        //        }
+        //        else
+        //        {
+        //            Protomsg.CS_QuickRevive msg1 = new Protomsg.CS_QuickRevive();
+        //            msg1.ReviveType = 3;
+        //            msg1.LookVideoState = 3;////看视频状态 1开始看 2结束看成功 3结束看失败
+        //            MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_QuickRevive", msg1);
+        //        }
+        //    });
+        //});
 
 
         //显示隐藏组队界面按钮
@@ -441,15 +441,24 @@ public class GameUI : MonoBehaviour {
             new WatchVedioWindow(p1.Name, p1.WatchVedioRewardsStr).SetBtnCallBack((code) => {
                 if(code == 1)
                 {
-                    MintegralMgr.ShowVideo(null, (succ) =>
+                    TTadMgr.Instanse.ShowVideo((succ, IsMoneyReplaceVedio) =>
                     {
                         if (succ == true)
                         {
                             Debug.Log("观看视频成功");
                             Protomsg.CS_WatchVedioRewardNotice msg1 = new Protomsg.CS_WatchVedioRewardNotice();
                             msg1.ID = p1.ID;
+                            msg1.IsMoneyReplaceVedio = IsMoneyReplaceVedio;
                             MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_WatchVedioRewardNotice", msg1);
-                            UMengManager.Instanse.Event_watch_vedio("主动弹出领奖"+ p1.Name);
+                            if(IsMoneyReplaceVedio == false)
+                            {
+                                UMengManager.Instanse.Event_watch_vedio("主动弹出领奖" + p1.Name);
+                            }
+                            else
+                            {
+                                UMengManager.Instanse.Event_watch_vedio_moneyreplace("主动弹出领奖" + p1.Name);
+                            }
+
                         }
                         else
                         {

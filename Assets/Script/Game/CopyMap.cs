@@ -120,6 +120,63 @@ public class CopyMap
             onedropitem.GetChild("needpipeicount").asTextField.SetVar("p1", item.CostCopyMapTimes + "");
             onedropitem.GetChild("needpipeicount").asTextField.FlushVars();
 
+
+            //单刷
+            onedropitem.GetChild("vediogoto").asButton.onClick.Add(() =>
+            {
+                if(p1.RemainPlayTimes < item.CostCopyMapTimes)
+                {
+                    //点数不够
+                    var noticewords = ExcelManager.Instance.GetNoticeWordsManager().GetNoticeWordsByID(44);
+                    if(noticewords != null)
+                    {
+                        Tool.NoticeWords(noticewords.Words, null);
+                    }
+                    
+                    return;
+                }
+                if(GameScene.Singleton.m_MyMainUnit != null && GameScene.Singleton.m_MyMainUnit.Level < item.SingleBrushLevel)
+                {
+                    //单刷等级不够
+                    Tool.NoticeWords("等级不足"+item.SingleBrushLevel+"级,无法单人挑战！", null);
+                    return;
+                }
+
+                Tool.NoticeWindonw("你确定要观看完整视频进行单人挑战副本吗?", () =>
+                {
+                    TTadMgr.Instanse.ShowVideo((succ, IsMoneyReplaceVedio) =>
+                    {
+                        if (succ == true)
+                        {
+                            Debug.Log("观看视频成功");
+                            Protomsg.CS_SingleBrushCopyMap msg1 = new Protomsg.CS_SingleBrushCopyMap();
+                            msg1.CopyMapID = item.ID;
+                            msg1.IsMoneyReplaceVedio = IsMoneyReplaceVedio;
+                            MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_SingleBrushCopyMap", msg1);
+                            if (IsMoneyReplaceVedio == false)
+                            {
+                                UMengManager.Instanse.Event_watch_vedio("单刷副本" + clientitem.Name);
+                            }
+                            else
+                            {
+                                UMengManager.Instanse.Event_watch_vedio_moneyreplace("单刷副本" + clientitem.Name);
+                            }
+                            //销毁副本UI
+                            Destroy();
+
+                        }
+                        else
+                        {
+                            Debug.Log("观看视频失败");
+                        }
+                    });
+                });
+
+                
+
+                
+            });
+
             //进入
             onedropitem.GetChild("pipei").asButton.onClick.Add(() =>
             {

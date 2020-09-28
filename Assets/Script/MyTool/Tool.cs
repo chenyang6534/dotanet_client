@@ -66,6 +66,10 @@ public static class Tool {
         {
             return "ui://GameUI/jingzuan";
         }
+        else if (pricetype == 10002)
+        {
+            return "ui://GameUI/novedio";
+        }
         else 
         {
             return "ui://GameUI/jingzuan";
@@ -81,6 +85,10 @@ public static class Tool {
         else if (pricetype == 10001)
         {
             return "砖石";
+        }
+        else if (pricetype == 10002)
+        {
+            return "免视频砖";
         }
         else
         {

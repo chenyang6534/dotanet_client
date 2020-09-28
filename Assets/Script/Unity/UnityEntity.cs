@@ -44,6 +44,7 @@ public class UnityEntity {
     public int ItemEnable;//能否使用主动道具 (比如 被眩晕和禁用道具不能使用主动道具) 1:可以 2:不可以
     public int RemainWatchVedioCountToday;//今天剩余观看视频次数
     public int WatchVedioAddDiamond;//观看视频能获得的砖石数
+    public int RemainNoWatchVedioCount;//剩余免看视频次数
     public UnityEntity(Protomsg.UnitDatas data, GameScene scene)
     {
         //m_AllWords = new Dictionary<WordsInfo, WordsInfo>();
@@ -80,6 +81,7 @@ public class UnityEntity {
         ItemEnable = data.ItemEnable;
         RemainWatchVedioCountToday = data.RemainWatchVedioCountToday;
         WatchVedioAddDiamond = data.WatchVedioAddDiamond;
+        RemainNoWatchVedioCount = data.RemainNoWatchVedioCount;
         CharacterID = data.Characterid;
 
         X = data.X;
@@ -367,6 +369,7 @@ public class UnityEntity {
             ItemEnable += data.ItemEnable;
             RemainWatchVedioCountToday += data.RemainWatchVedioCountToday;
             WatchVedioAddDiamond += data.WatchVedioAddDiamond;
+            RemainNoWatchVedioCount += data.RemainNoWatchVedioCount;
             //if( data.HP != 0)
             //{
             //    Debug.Log("hp:" + HP + "  maxhp:" + MaxHP);

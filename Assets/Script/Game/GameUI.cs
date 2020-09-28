@@ -441,7 +441,7 @@ public class GameUI : MonoBehaviour {
             new WatchVedioWindow(p1.Name, p1.WatchVedioRewardsStr).SetBtnCallBack((code) => {
                 if(code == 1)
                 {
-                    TTadMgr.Instanse.ShowVideo((succ, IsMoneyReplaceVedio) =>
+                    TTadMgr.Instanse.ShowVideo((succ, IsMoneyReplaceVedio, useitem) =>
                     {
                         if (succ == true)
                         {
@@ -450,14 +450,19 @@ public class GameUI : MonoBehaviour {
                             msg1.ID = p1.ID;
                             msg1.IsMoneyReplaceVedio = IsMoneyReplaceVedio;
                             MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_WatchVedioRewardNotice", msg1);
-                            if(IsMoneyReplaceVedio == false)
+                            //统计相关
+                            if (useitem == false)
                             {
-                                UMengManager.Instanse.Event_watch_vedio("主动弹出领奖" + p1.Name);
+                                if (IsMoneyReplaceVedio == false)
+                                {
+                                    UMengManager.Instanse.Event_watch_vedio("主动弹出领奖" + p1.Name);
+                                }
+                                else
+                                {
+                                    UMengManager.Instanse.Event_watch_vedio_moneyreplace("主动弹出领奖" + p1.Name);
+                                }
                             }
-                            else
-                            {
-                                UMengManager.Instanse.Event_watch_vedio_moneyreplace("主动弹出领奖" + p1.Name);
-                            }
+                            
 
                         }
                         else

@@ -135,7 +135,7 @@ public class Task
                     }else if(code == 1)
                     {
                         Debug.Log("观看视频");
-                        TTadMgr.Instanse.ShowVideo((succ, IsMoneyReplaceVedio) =>
+                        TTadMgr.Instanse.ShowVideo((succ, IsMoneyReplaceVedio, useitem) =>
                         {
                             if (succ == true)
                             {
@@ -146,14 +146,19 @@ public class Task
                                 msg1.IsWatchVedio = true;
                                 msg1.IsMoneyReplaceVedio = IsMoneyReplaceVedio;
                                 MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetTaskReward", msg1);
-                                if(IsMoneyReplaceVedio == false)
+                                //统计相关
+                                if (useitem == false)
                                 {
-                                    UMengManager.Instanse.Event_watch_vedio("任务领奖" + item.Name);
+                                    if (IsMoneyReplaceVedio == false)
+                                    {
+                                        UMengManager.Instanse.Event_watch_vedio("任务领奖" + item.Name);
+                                    }
+                                    else
+                                    {
+                                        UMengManager.Instanse.Event_watch_vedio_moneyreplace("任务领奖" + item.Name);
+                                    }
                                 }
-                                else
-                                {
-                                    UMengManager.Instanse.Event_watch_vedio_moneyreplace("任务领奖" + item.Name);
-                                }
+                                
 
                             }
                             else

@@ -240,6 +240,10 @@ public class HeadInfo{
                 teamrequest.GetChild("close").onClick.Add(() => {
                     teamrequest.Dispose();
                 });
+
+                teamrequest.GetChild("zhuanshivalue").asTextField.text = GameScene.Singleton.GetMyMainUnit().Diamond+"";
+                teamrequest.GetChild("goldvalue").asTextField.text = GameScene.Singleton.GetMyMainUnit().Gold + "";
+                teamrequest.GetChild("vediovalue").asTextField.text = GameScene.Singleton.GetMyMainUnit().RemainNoWatchVedioCount + "";
                 //teamrequest.GetChild("gold_btn").onClick.Add(() => {
                 //    GameScene.Singleton.gameObject.GetComponent<GoogleAdmob>().UserChoseToWatchAd();
 
@@ -255,7 +259,7 @@ public class HeadInfo{
                     //        msg1.ID = 1;
                     //        MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_LookVedioSucc", msg1);
 
-                    TTadMgr.Instanse.ShowVideo((succ, IsMoneyReplaceVedio) =>
+                    TTadMgr.Instanse.ShowVideo((succ, IsMoneyReplaceVedio, useitem) =>
                     {
                         if (succ == true)
                         {
@@ -264,14 +268,19 @@ public class HeadInfo{
                             msg1.ID = 1;
                             msg1.IsMoneyReplaceVedio = IsMoneyReplaceVedio;
                             MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_LookVedioSucc", msg1);
-                            if(IsMoneyReplaceVedio == false)
+                            //统计相关
+                            if (useitem == false)
                             {
-                                UMengManager.Instanse.Event_watch_vedio("购买砖石");
+                                if (IsMoneyReplaceVedio == false)
+                                {
+                                    UMengManager.Instanse.Event_watch_vedio("购买砖石");
+                                }
+                                else
+                                {
+                                    UMengManager.Instanse.Event_watch_vedio_moneyreplace("购买砖石");
+                                }
                             }
-                            else
-                            {
-                                UMengManager.Instanse.Event_watch_vedio_moneyreplace("购买砖石");
-                            }
+                            
 
                         }
                         else

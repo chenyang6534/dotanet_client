@@ -566,7 +566,7 @@ public class GuildInfo
         }
         mapinfo.GetChild("watchvedio").asButton.onClick.Add(() =>
         {
-            TTadMgr.Instanse.ShowVideo((succ, IsMoneyReplaceVedio) =>
+            TTadMgr.Instanse.ShowVideo((succ, IsMoneyReplaceVedio, useitem) =>
             {
                 if (succ == true)
                 {
@@ -583,14 +583,19 @@ public class GuildInfo
                     Protomsg.CS_WatchVedioNotice msg = new Protomsg.CS_WatchVedioNotice();
                     msg.IsMoneyReplaceVedio = IsMoneyReplaceVedio;
                     MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_WatchVedioNotice", msg);
-                    if (IsMoneyReplaceVedio == false)
+                    //统计相关
+                    if (useitem == false)
                     {
-                        UMengManager.Instanse.Event_watch_vedio("查询boss刷新时间" + sceneitem.Name);
+                        if (IsMoneyReplaceVedio == false)
+                        {
+                            UMengManager.Instanse.Event_watch_vedio("查询boss刷新时间" + sceneitem.Name);
+                        }
+                        else
+                        {
+                            UMengManager.Instanse.Event_watch_vedio_moneyreplace("查询boss刷新时间" + sceneitem.Name);
+                        }
                     }
-                    else
-                    {
-                        UMengManager.Instanse.Event_watch_vedio_moneyreplace("查询boss刷新时间" + sceneitem.Name);
-                    }
+                    
                 }
                 else
                 {

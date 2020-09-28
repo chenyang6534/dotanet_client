@@ -61,7 +61,7 @@ public class CopyMap
         //进入
         main.GetChild("buyvedio").asButton.onClick.Set(() =>
         {
-            TTadMgr.Instanse.ShowVideo((succ, IsMoneyReplaceVedio) =>
+            TTadMgr.Instanse.ShowVideo((succ, IsMoneyReplaceVedio, useitem) =>
             {
                 if (succ == true)
                 {
@@ -70,14 +70,19 @@ public class CopyMap
                     msg1.IsWatchVedio = true;
                     msg1.IsMoneyReplaceVedio = IsMoneyReplaceVedio;
                     MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_BuyCopyMapsCount", msg1);
-                    if(IsMoneyReplaceVedio == false)
+                    //统计相关
+                    if (useitem == false)
                     {
-                        UMengManager.Instanse.Event_watch_vedio("购买副本次数");
+                        if (IsMoneyReplaceVedio == false)
+                        {
+                            UMengManager.Instanse.Event_watch_vedio("购买副本次数");
+                        }
+                        else
+                        {
+                            UMengManager.Instanse.Event_watch_vedio_moneyreplace("购买副本次数");
+                        }
                     }
-                    else
-                    {
-                        UMengManager.Instanse.Event_watch_vedio_moneyreplace("购买副本次数");
-                    }
+                    
 
                 }
                 else
@@ -144,7 +149,7 @@ public class CopyMap
 
                 Tool.NoticeWindonw("你确定要观看完整视频进行单人挑战副本吗?", () =>
                 {
-                    TTadMgr.Instanse.ShowVideo((succ, IsMoneyReplaceVedio) =>
+                    TTadMgr.Instanse.ShowVideo((succ, IsMoneyReplaceVedio, useitem) =>
                     {
                         if (succ == true)
                         {
@@ -153,14 +158,19 @@ public class CopyMap
                             msg1.CopyMapID = item.ID;
                             msg1.IsMoneyReplaceVedio = IsMoneyReplaceVedio;
                             MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_SingleBrushCopyMap", msg1);
-                            if (IsMoneyReplaceVedio == false)
+                            //统计相关
+                            if (useitem == false)
                             {
-                                UMengManager.Instanse.Event_watch_vedio("单刷副本" + clientitem.Name);
+                                if (IsMoneyReplaceVedio == false)
+                                {
+                                    UMengManager.Instanse.Event_watch_vedio("单刷副本" + clientitem.Name);
+                                }
+                                else
+                                {
+                                    UMengManager.Instanse.Event_watch_vedio_moneyreplace("单刷副本" + clientitem.Name);
+                                }
                             }
-                            else
-                            {
-                                UMengManager.Instanse.Event_watch_vedio_moneyreplace("单刷副本" + clientitem.Name);
-                            }
+                            
                             //销毁副本UI
                             Destroy();
 

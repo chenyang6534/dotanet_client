@@ -20,6 +20,7 @@ public class MyEditor : Editor
     ,"Map/CreateUnits/CreateUnits400","Map/CreateUnits/CreateUnits401","Map/CreateUnits/CreateUnits402"
     ,"Map/CreateUnits/CreateUnits500","Map/CreateUnits/CreateUnits501","Map/CreateUnits/CreateUnits502"
     ,"Map/CreateUnits/CreateUnits600","Map/CreateUnits/CreateUnits601","Map/CreateUnits/CreateUnits602"
+            ,"Map/CreateUnits/CreateUnits701","Map/CreateUnits/CreateUnits801"
     ,"Map/CreateUnits/CreateUnitsGuild1","Map/CreateUnits/CreateUnitsGuild2","Map/CreateUnits/CreateUnitsGuild3"
     ,"Map/CreateUnits/CreateUnitsGuild4","Map/CreateUnits/CreateUnitsGuild5","Map/CreateUnits/CreateUnitsGuild6"
     ,"Map/CreateUnits/CreateUnitsGuild7","Map/CreateUnits/CreateUnitsGuild8","Map/CreateUnits/CreateUnitsGuild9"

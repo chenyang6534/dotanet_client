@@ -180,6 +180,22 @@ MonoBehaviour:
     EndX: 143
     EndY: 143
     Name: "\u4E16\u754C7-3"
+  - TypeID: 701
+    ScenePath: Map/Scene1
+    Little_BG: ui://GameUI/little_bg1
+    StartX: 5
+    StartY: 7
+    EndX: 143
+    EndY: 143
+    Name: "\u4E16\u754C8-1"
+  - TypeID: 801
+    ScenePath: Map/Scene1
+    Little_BG: ui://GameUI/little_bg1
+    StartX: 5
+    StartY: 7
+    EndX: 143
+    EndY: 143
+    Name: "\u4E16\u754C9-1"
   - TypeID: 1000
     ScenePath: Map/Scene1
     Little_BG: ui://GameUI/little_bg1

@@ -431,7 +431,12 @@ namespace Protomsg {
             "bmdEdW9SYW5rIn0KF09uZVpodWFuU2hpWmhlbmdEdW9SYW5rEhMKC0NoYXJh",
             "Y3RlcmlkGAEgASgFEgwKBE5hbWUYAiABKAkSDgoGVHlwZWlkGAMgASgFEhIK",
             "ClJld2FyZHNTdHIYBCABKAkSDQoFQ291bnQYBSABKAUSDAoEUmFuaxgGIAEo",
-            "BWIGcHJvdG8z"));
+            "BSIlChRDU19HZXRMdWNrRHJhd1VJRGF0YRINCgVDb3VudBgBIAEoBSJ1ChRT",
+            "Q19HZXRMdWNrRHJhd1VJRGF0YRImCgdSZXdhcmRzGAEgAygLMhUucHJvdG9t",
+            "c2cuTWFpbFJld2FyZHMSEQoJUHJpY2VUeXBlGAIgASgFEg0KBVByaWNlGAMg",
+            "ASgFEhMKC1RlbkRpc2NvdW50GAQgASgCIh8KDkNTX0dldEx1Y2tEcmF3Eg0K",
+            "BUNvdW50GAEgASgFIjgKDlNDX0dldEx1Y2tEcmF3EiYKB1Jld2FyZHMYASAD",
+            "KAsyFS5wcm90b21zZy5NYWlsUmV3YXJkc2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -640,7 +645,11 @@ namespace Protomsg {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.OneWatchVedioRank), global::Protomsg.OneWatchVedioRank.Parser, new[]{ "Characterid", "Name", "Typeid", "RewardsStr", "Count", "SortPercent", "Rank" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GetZhuanShiZhengDuoRank), global::Protomsg.CS_GetZhuanShiZhengDuoRank.Parser, new[]{ "Count" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetZhuanShiZhengDuoRank), global::Protomsg.SC_GetZhuanShiZhengDuoRank.Parser, new[]{ "All", "My" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.OneZhuanShiZhengDuoRank), global::Protomsg.OneZhuanShiZhengDuoRank.Parser, new[]{ "Characterid", "Name", "Typeid", "RewardsStr", "Count", "Rank" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.OneZhuanShiZhengDuoRank), global::Protomsg.OneZhuanShiZhengDuoRank.Parser, new[]{ "Characterid", "Name", "Typeid", "RewardsStr", "Count", "Rank" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GetLuckDrawUIData), global::Protomsg.CS_GetLuckDrawUIData.Parser, new[]{ "Count" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetLuckDrawUIData), global::Protomsg.SC_GetLuckDrawUIData.Parser, new[]{ "Rewards", "PriceType", "Price", "TenDiscount" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GetLuckDraw), global::Protomsg.CS_GetLuckDraw.Parser, new[]{ "Count" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetLuckDraw), global::Protomsg.SC_GetLuckDraw.Parser, new[]{ "Rewards" }, null, null, null)
           }));
     }
     #endregion
@@ -41899,6 +41908,620 @@ namespace Protomsg {
           }
           case 48: {
             Rank = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///获取抽奖物品
+  /// </summary>
+  public sealed partial class CS_GetLuckDrawUIData : pb::IMessage<CS_GetLuckDrawUIData> {
+    private static readonly pb::MessageParser<CS_GetLuckDrawUIData> _parser = new pb::MessageParser<CS_GetLuckDrawUIData>(() => new CS_GetLuckDrawUIData());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CS_GetLuckDrawUIData> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[206]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetLuckDrawUIData() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetLuckDrawUIData(CS_GetLuckDrawUIData other) : this() {
+      count_ = other.count_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetLuckDrawUIData Clone() {
+      return new CS_GetLuckDrawUIData(this);
+    }
+
+    /// <summary>Field number for the "Count" field.</summary>
+    public const int CountFieldNumber = 1;
+    private int count_;
+    /// <summary>
+    ///数量
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Count {
+      get { return count_; }
+      set {
+        count_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CS_GetLuckDrawUIData);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CS_GetLuckDrawUIData other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Count != other.Count) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Count != 0) hash ^= Count.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Count != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(Count);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Count != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Count);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CS_GetLuckDrawUIData other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Count != 0) {
+        Count = other.Count;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Count = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class SC_GetLuckDrawUIData : pb::IMessage<SC_GetLuckDrawUIData> {
+    private static readonly pb::MessageParser<SC_GetLuckDrawUIData> _parser = new pb::MessageParser<SC_GetLuckDrawUIData>(() => new SC_GetLuckDrawUIData());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<SC_GetLuckDrawUIData> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[207]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetLuckDrawUIData() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetLuckDrawUIData(SC_GetLuckDrawUIData other) : this() {
+      rewards_ = other.rewards_.Clone();
+      priceType_ = other.priceType_;
+      price_ = other.price_;
+      tenDiscount_ = other.tenDiscount_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetLuckDrawUIData Clone() {
+      return new SC_GetLuckDrawUIData(this);
+    }
+
+    /// <summary>Field number for the "Rewards" field.</summary>
+    public const int RewardsFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::Protomsg.MailRewards> _repeated_rewards_codec
+        = pb::FieldCodec.ForMessage(10, global::Protomsg.MailRewards.Parser);
+    private readonly pbc::RepeatedField<global::Protomsg.MailRewards> rewards_ = new pbc::RepeatedField<global::Protomsg.MailRewards>();
+    /// <summary>
+    ///奖池内容
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::Protomsg.MailRewards> Rewards {
+      get { return rewards_; }
+    }
+
+    /// <summary>Field number for the "PriceType" field.</summary>
+    public const int PriceTypeFieldNumber = 2;
+    private int priceType_;
+    /// <summary>
+    ///价格类型 1金币 2砖石
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int PriceType {
+      get { return priceType_; }
+      set {
+        priceType_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Price" field.</summary>
+    public const int PriceFieldNumber = 3;
+    private int price_;
+    /// <summary>
+    ///价格
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Price {
+      get { return price_; }
+      set {
+        price_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "TenDiscount" field.</summary>
+    public const int TenDiscountFieldNumber = 4;
+    private float tenDiscount_;
+    /// <summary>
+    ///10连抽折扣
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float TenDiscount {
+      get { return tenDiscount_; }
+      set {
+        tenDiscount_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as SC_GetLuckDrawUIData);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(SC_GetLuckDrawUIData other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if(!rewards_.Equals(other.rewards_)) return false;
+      if (PriceType != other.PriceType) return false;
+      if (Price != other.Price) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(TenDiscount, other.TenDiscount)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= rewards_.GetHashCode();
+      if (PriceType != 0) hash ^= PriceType.GetHashCode();
+      if (Price != 0) hash ^= Price.GetHashCode();
+      if (TenDiscount != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(TenDiscount);
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      rewards_.WriteTo(output, _repeated_rewards_codec);
+      if (PriceType != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(PriceType);
+      }
+      if (Price != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(Price);
+      }
+      if (TenDiscount != 0F) {
+        output.WriteRawTag(37);
+        output.WriteFloat(TenDiscount);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      size += rewards_.CalculateSize(_repeated_rewards_codec);
+      if (PriceType != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(PriceType);
+      }
+      if (Price != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Price);
+      }
+      if (TenDiscount != 0F) {
+        size += 1 + 4;
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(SC_GetLuckDrawUIData other) {
+      if (other == null) {
+        return;
+      }
+      rewards_.Add(other.rewards_);
+      if (other.PriceType != 0) {
+        PriceType = other.PriceType;
+      }
+      if (other.Price != 0) {
+        Price = other.Price;
+      }
+      if (other.TenDiscount != 0F) {
+        TenDiscount = other.TenDiscount;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            rewards_.AddEntriesFrom(input, _repeated_rewards_codec);
+            break;
+          }
+          case 16: {
+            PriceType = input.ReadInt32();
+            break;
+          }
+          case 24: {
+            Price = input.ReadInt32();
+            break;
+          }
+          case 37: {
+            TenDiscount = input.ReadFloat();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///抽奖
+  /// </summary>
+  public sealed partial class CS_GetLuckDraw : pb::IMessage<CS_GetLuckDraw> {
+    private static readonly pb::MessageParser<CS_GetLuckDraw> _parser = new pb::MessageParser<CS_GetLuckDraw>(() => new CS_GetLuckDraw());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CS_GetLuckDraw> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[208]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetLuckDraw() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetLuckDraw(CS_GetLuckDraw other) : this() {
+      count_ = other.count_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetLuckDraw Clone() {
+      return new CS_GetLuckDraw(this);
+    }
+
+    /// <summary>Field number for the "Count" field.</summary>
+    public const int CountFieldNumber = 1;
+    private int count_;
+    /// <summary>
+    ///抽奖次数
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Count {
+      get { return count_; }
+      set {
+        count_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CS_GetLuckDraw);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CS_GetLuckDraw other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Count != other.Count) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Count != 0) hash ^= Count.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Count != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(Count);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Count != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Count);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CS_GetLuckDraw other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Count != 0) {
+        Count = other.Count;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Count = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///抽奖获得的道具
+  /// </summary>
+  public sealed partial class SC_GetLuckDraw : pb::IMessage<SC_GetLuckDraw> {
+    private static readonly pb::MessageParser<SC_GetLuckDraw> _parser = new pb::MessageParser<SC_GetLuckDraw>(() => new SC_GetLuckDraw());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<SC_GetLuckDraw> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[209]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetLuckDraw() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetLuckDraw(SC_GetLuckDraw other) : this() {
+      rewards_ = other.rewards_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetLuckDraw Clone() {
+      return new SC_GetLuckDraw(this);
+    }
+
+    /// <summary>Field number for the "Rewards" field.</summary>
+    public const int RewardsFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::Protomsg.MailRewards> _repeated_rewards_codec
+        = pb::FieldCodec.ForMessage(10, global::Protomsg.MailRewards.Parser);
+    private readonly pbc::RepeatedField<global::Protomsg.MailRewards> rewards_ = new pbc::RepeatedField<global::Protomsg.MailRewards>();
+    /// <summary>
+    ///奖励内容
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::Protomsg.MailRewards> Rewards {
+      get { return rewards_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as SC_GetLuckDraw);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(SC_GetLuckDraw other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if(!rewards_.Equals(other.rewards_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= rewards_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      rewards_.WriteTo(output, _repeated_rewards_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      size += rewards_.CalculateSize(_repeated_rewards_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(SC_GetLuckDraw other) {
+      if (other == null) {
+        return;
+      }
+      rewards_.Add(other.rewards_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            rewards_.AddEntriesFrom(input, _repeated_rewards_codec);
             break;
           }
         }

@@ -1011,7 +1011,7 @@ public class LoginUI : MonoBehaviour {
     {
         if (Input.touchCount > 0)
         {
-            Debug.Log("login update Input.touchCount:" + Input.touchCount);
+            //Debug.Log("login update Input.touchCount:" + Input.touchCount);
         }
         //Debug.Log("update:");
         MsgManager.Instance.UpdateMessage();
@@ -1022,7 +1022,7 @@ public class LoginUI : MonoBehaviour {
     {
         if (Input.touchCount > 0)
         {
-            Debug.Log("login lateupdate Input.touchCount:" + Input.touchCount);
+            //Debug.Log("login lateupdate Input.touchCount:" + Input.touchCount);
         }
     }
 

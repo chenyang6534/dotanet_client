@@ -15,7 +15,8 @@ public class ActivityReward
     {
 
         MsgManager.Instance.AddListener("SC_GetWatchVedioRank", new HandleMsg(this.SC_GetWatchVedioRank));
-
+        MsgManager.Instance.AddListener("SC_GetLuckDrawUIData", new HandleMsg(this.SC_GetLuckDrawUIData));
+        MsgManager.Instance.AddListener("SC_GetLuckDraw", new HandleMsg(this.SC_GetLuckDraw));
 
         main = UIPackage.CreateObject("GameUI", "ActivityReward").asCom;
         GRoot.inst.AddChild(main);
@@ -29,8 +30,39 @@ public class ActivityReward
         msg1.Count = 20;
         MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetWatchVedioRank", msg1);
 
+        main.GetChild("vedio").asButton.onClick.Add(() =>
+        {
+            Protomsg.CS_GetWatchVedioRank msg = new Protomsg.CS_GetWatchVedioRank();
+            msg.Count = 20;
+            MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetWatchVedioRank", msg);
+        });
+        main.GetChild("luckdraw").asButton.onClick.Add(() =>
+        {
+            Protomsg.CS_GetLuckDrawUIData msg = new Protomsg.CS_GetLuckDrawUIData();
+            MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetLuckDrawUIData", msg);
+        });
 
-       
+        init();
+
+    }
+
+    public void init()
+    {
+        main.GetChild("luckdrawpage").asCom.GetChild("rankbtn").onClick.Set(() => {
+            //排行奖励
+        });
+        main.GetChild("luckdrawpage").asCom.GetChild("onebtn").onClick.Set(() => {
+            //单抽
+            Protomsg.CS_GetLuckDraw msg = new Protomsg.CS_GetLuckDraw();
+            msg.Count = 1;
+            MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetLuckDraw", msg);
+        });
+        main.GetChild("luckdrawpage").asCom.GetChild("tenbtn").onClick.Set(() => {
+            //十连抽
+            Protomsg.CS_GetLuckDraw msg = new Protomsg.CS_GetLuckDraw();
+            msg.Count = 10;
+            MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_GetLuckDraw", msg);
+        });
     }
   
     public void showrankone(GComponent onedropitem,Protomsg.OneWatchVedioRank item)
@@ -109,7 +141,7 @@ public class ActivityReward
         }
     }
 
-    //获取副本信息
+    //
     public bool SC_GetWatchVedioRank(Protomsg.MsgBase d1)
     {
         Debug.Log("SC_GetWatchVedioRank:");
@@ -134,13 +166,78 @@ public class ActivityReward
 
         return true;
     }
-    
-    
+
+    public bool SC_GetLuckDrawUIData(Protomsg.MsgBase d1)
+    {
+        Debug.Log("SC_GetLuckDrawUIData:");
+        IMessage IMperson = new Protomsg.SC_GetLuckDrawUIData();
+        Protomsg.SC_GetLuckDrawUIData p2 = (Protomsg.SC_GetLuckDrawUIData)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
+
+
+        //价格
+        main.GetChild("luckdrawpage").asCom.GetChild("pricetype").asLoader.url = Tool.GetPriceTypeIcon(p2.PriceType);
+        main.GetChild("luckdrawpage").asCom.GetChild("price").asTextField.text = p2.Price + "";
+
+        main.GetChild("luckdrawpage").asCom.GetChild("tenpricetype").asLoader.url = Tool.GetPriceTypeIcon(p2.PriceType);
+        main.GetChild("luckdrawpage").asCom.GetChild("tenprice").asTextField.text = Convert.ToInt32(p2.Price*10*p2.TenDiscount) + "";
+
+
+        var list = main.GetChild("luckdrawpage").asCom.GetChild("itemlist").asList;
+        list.RemoveChildren(0, -1, true);
+
+        foreach (var p1 in p2.Rewards)
+        {
+            var teamrequest = UIPackage.CreateObject("GameUI", "Reward").asCom;
+            list.AddChild(teamrequest);
+            teamrequest.onClick.Add(() => {
+                new ItemInfo(p1.ItemType, p1.ItemDBID, p1.Level);
+            });
+            var clientitem = ExcelManager.Instance.GetItemManager().GetItemByID(p1.ItemType);
+            if (clientitem != null)
+            {
+                teamrequest.GetChild("icon").asLoader.url = clientitem.IconPath;
+                if (clientitem.ShowLevel == 1)
+                {
+                    teamrequest.GetChild("level").visible = true;
+                    teamrequest.GetChild("count").asTextField.text = "";
+                }
+                else
+                {
+                    teamrequest.GetChild("level").visible = false;
+                    teamrequest.GetChild("count").asTextField.text = p1.Count + "";
+                }
+            }
+            //if (p1.Count <= 1)
+            //{
+            //    teamrequest.GetChild("count").asTextField.text = "";
+            //}
+            //else
+            //{
+            //    teamrequest.GetChild("count").asTextField.text = p1.Count + "";
+            //}
+
+            teamrequest.GetChild("level").asTextField.text = "Lv." + p1.Level + "";
+        }
+        return true;
+    }
+    public bool SC_GetLuckDraw(Protomsg.MsgBase d1)
+    {
+        Debug.Log("SC_GetLuckDraw:");
+        IMessage IMperson = new Protomsg.SC_GetLuckDraw();
+        Protomsg.SC_GetLuckDraw p1 = (Protomsg.SC_GetLuckDraw)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
+        Protomsg.MailRewards[] allplayer = new Protomsg.MailRewards[p1.Rewards.Count];
+        p1.Rewards.CopyTo(allplayer, 0);
+        new GetRewardListNotice(allplayer);
+
+        return true;
+    }
 
     //
     public void Destroy()
     {
         MsgManager.Instance.RemoveListener("SC_GetWatchVedioRank");
+        MsgManager.Instance.RemoveListener("SC_GetLuckDrawUIData");
+        MsgManager.Instance.RemoveListener("SC_GetLuckDraw");
 
         AudioManager.Am.Play2DSound(AudioManager.Sound_CloseUI);
         if (main != null)

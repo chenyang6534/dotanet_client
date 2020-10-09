@@ -95,7 +95,7 @@ namespace cocosocket4unity
                    {
                        break;                         
                    }
-				Thread.Sleep(0);
+				Thread.Sleep(1);
                 end = DateTime.Now;
                }
            }

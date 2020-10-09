@@ -80,8 +80,8 @@ namespace cocosocket4unity
       }
       private void Received(IAsyncResult ar)
       {
-            
-            
+            //UnityEngine.Debug.Log("----IAsyncResult---------222:" + ar);
+
             UdpClient client = (UdpClient)ar.AsyncState;
           try
           {

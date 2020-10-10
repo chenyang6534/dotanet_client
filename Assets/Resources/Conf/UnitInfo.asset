@@ -74,7 +74,7 @@ MonoBehaviour:
     Des: 
     Attack_Range: "\u8FD1\u6218"
     AttributePrimary: 2
-    Skills_ID: 25,26,27,28
+    Skills_ID: 25,26,196,28
   - TypeID: 10
     HeroName: "\u5C0F\u5A1C\u8FE6"
     IconPath: "ui://GameUI/\u5A1C\u8FE6"
@@ -116,7 +116,7 @@ MonoBehaviour:
     Des: 
     Attack_Range: "\u8FDC\u7A0B"
     AttributePrimary: 2
-    Skills_ID: 50,51,52,53
+    Skills_ID: 50,51,52,197
   - TypeID: 16
     HeroName: "\u706B\u67AA"
     IconPath: "ui://GameUI/\u706B\u67AA"

@@ -441,7 +441,7 @@ public class GameUI : MonoBehaviour {
             new WatchVedioWindow(p1.Name, p1.WatchVedioRewardsStr).SetBtnCallBack((code) => {
                 if(code == 1)
                 {
-                    TTadMgr.Instanse.ShowVideo((succ, IsMoneyReplaceVedio, useitem) =>
+                    GoogleAdmob.Instanse.ShowVideo((succ, IsMoneyReplaceVedio, useitem) =>
                     {
                         if (succ == true)
                         {

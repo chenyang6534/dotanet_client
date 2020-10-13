@@ -189,7 +189,7 @@ public class ActivityMap
             //看视频进入
             onedropitem.GetChild("vediogoto").asButton.onClick.Add(() =>
             {
-                TTadMgr.Instanse.ShowVideo((succ, IsMoneyReplaceVedio, useitem) =>
+                GoogleAdmob.Instanse.ShowVideo((succ, IsMoneyReplaceVedio, useitem) =>
                 {
                     if (succ == true)
                     {
@@ -551,7 +551,7 @@ public class ActivityMap
 
         mapinfo.GetChild("watchvedio").asButton.onClick.Add(() =>
         {
-            TTadMgr.Instanse.ShowVideo((succ, IsMoneyReplaceVedio, useitem) =>
+            GoogleAdmob.Instanse.ShowVideo((succ, IsMoneyReplaceVedio, useitem) =>
             {
                 if (succ == true)
                 {

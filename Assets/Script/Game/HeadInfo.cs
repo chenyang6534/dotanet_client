@@ -259,7 +259,7 @@ public class HeadInfo{
                     //        msg1.ID = 1;
                     //        MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_LookVedioSucc", msg1);
 
-                    TTadMgr.Instanse.ShowVideo((succ, IsMoneyReplaceVedio, useitem) =>
+                    GoogleAdmob.Instanse.ShowVideo((succ, IsMoneyReplaceVedio, useitem) =>
                     {
                         if (succ == true)
                         {

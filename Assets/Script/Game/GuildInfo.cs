@@ -566,7 +566,7 @@ public class GuildInfo
         }
         mapinfo.GetChild("watchvedio").asButton.onClick.Add(() =>
         {
-            TTadMgr.Instanse.ShowVideo((succ, IsMoneyReplaceVedio, useitem) =>
+            GoogleAdmob.Instanse.ShowVideo((succ, IsMoneyReplaceVedio, useitem) =>
             {
                 if (succ == true)
                 {

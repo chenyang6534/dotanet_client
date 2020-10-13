@@ -135,7 +135,7 @@ public class Task
                     }else if(code == 1)
                     {
                         Debug.Log("观看视频");
-                        TTadMgr.Instanse.ShowVideo((succ, IsMoneyReplaceVedio, useitem) =>
+                        GoogleAdmob.Instanse.ShowVideo((succ, IsMoneyReplaceVedio, useitem) =>
                         {
                             if (succ == true)
                             {

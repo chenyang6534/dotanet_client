@@ -26,7 +26,7 @@ public class LoginUI : MonoBehaviour {
     public static string GameLauncherUrl = "https://www.game5868.top:6666";
     public static string GameNotice = "";
     public static string winMachineid = "3";
-    public static string Version = "1.4.0";
+    public static string Version = "1.5.0";
     // Use this for initialization
     void Start () {
         Screen.fullScreen = false;
@@ -448,7 +448,7 @@ public class LoginUI : MonoBehaviour {
             //获取服务器列表
             StartCoroutine(Tool.SendGet(GameLauncherUrl + "/getserverlist?Platform="+ platformstr+"&Version="+ Version, (WWW data) => {
                 //data.text
-
+                Debug.Log("getserver-----:");
                 if (data.error != null)
                 {
                     Debug.Log("获取失败:" + data.error);

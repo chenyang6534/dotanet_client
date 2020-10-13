@@ -61,7 +61,7 @@ public class CopyMap
         //进入
         main.GetChild("buyvedio").asButton.onClick.Set(() =>
         {
-            TTadMgr.Instanse.ShowVideo((succ, IsMoneyReplaceVedio, useitem) =>
+            GoogleAdmob.Instanse.ShowVideo((succ, IsMoneyReplaceVedio, useitem) =>
             {
                 if (succ == true)
                 {
@@ -149,7 +149,7 @@ public class CopyMap
 
                 Tool.NoticeWindonw("你确定要观看完整视频进行单人挑战副本吗?", () =>
                 {
-                    TTadMgr.Instanse.ShowVideo((succ, IsMoneyReplaceVedio, useitem) =>
+                    GoogleAdmob.Instanse.ShowVideo((succ, IsMoneyReplaceVedio, useitem) =>
                     {
                         if (succ == true)
                         {

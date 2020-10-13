@@ -289,7 +289,7 @@ public class MyInfo {
                                 Tool.NoticeWindonw("你确定要观看视频后合成道具(" + clientitem.Name + ")到更高等级吗?[color=#ff2222](极品属性会叠加保留)[/color]", () =>
                                 {
                                     //SendDestroyItem(int.Parse(sArray[0]));
-                                    TTadMgr.Instanse.ShowVideo((succ, IsMoneyReplaceVedio, useitem) =>
+                                    GoogleAdmob.Instanse.ShowVideo((succ, IsMoneyReplaceVedio, useitem) =>
                                     {
                                         if (succ == true)
                                         {
@@ -447,7 +447,7 @@ public class MyInfo {
 
         lianhuainfo.GetChild("ok").asButton.onClick.Set(() => {
 
-            TTadMgr.Instanse.ShowVideo((succ, IsMoneyReplaceVedio, useitem) =>
+            GoogleAdmob.Instanse.ShowVideo((succ, IsMoneyReplaceVedio, useitem) =>
             {
                 if (succ == true)
                 {

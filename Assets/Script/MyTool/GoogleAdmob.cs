@@ -36,10 +36,11 @@ public class GoogleAdmob : MonoBehaviour
         string adUnitId = "ca-app-pub-3940256099942544/5224354917";
 #elif UNITY_IPHONE
         //string adUnitId = "ca-app-pub-3940256099942544/1712485313";//测试
-        string adUnitId = "ca-app-pub-3664269345038379/6857936057";//正式ca-app-pub-3664269345038379/6857936057
-        Debug.Log("    正式ca-app-pub-3664269345038379/6857936057");
+        //string adUnitId = "ca-app-pub-3664269345038379/6857936057";//正式ca-app-pub-3664269345038379/6857936057
+        string adUnitId = "ca-app-pub-3664269345038379/8895145951";
+        Debug.Log("    正式ca-app-pub-3664269345038379/8895145951");
 #else
-            string adUnitId = "unexpected_platform";
+        string adUnitId = "unexpected_platform";
 #endif
 
         this.rewardedAd = new RewardedAd(adUnitId);

@@ -258,6 +258,8 @@ public class UnityEntity {
             endv.y = angle2;
 
             this.TargetRotation = endv;
+
+            //Debug.Log("11---TargetRotation:" + endv);
             //m_Mode.transform.rotation.eulerAngles.y
 
             //m_Mode.transform.DORotate(endv, t);
@@ -267,6 +269,7 @@ public class UnityEntity {
     public void UpdateDirection(float dt)
     {
         float sub = this.TargetRotation.y - m_Mode.transform.rotation.eulerAngles.y;
+        //Debug.Log("sub:" + sub + " this.TargetRotation.y:" + this.TargetRotation.y + " m_Mode.transform.rotation.eulerAngles.y:" + m_Mode.transform.rotation.eulerAngles.y);
         if(RotateSpeed * dt > Math.Abs(sub))
         {
             m_Mode.transform.Rotate(new Vector3(0.0f, sub, 0.0f));
@@ -274,8 +277,12 @@ public class UnityEntity {
         else
         {
             m_Mode.transform.Rotate(new Vector3(0.0f, sub / Math.Abs(sub) * RotateSpeed * dt, 0.0f));
+            //Debug.Log("22---TargetRotation:" + m_Mode.transform.rotation);
+            //Debug.Log("RotateSpeed:" + RotateSpeed+"  dt:"+dt+ "  Math.Abs(sub):"+ Math.Abs(sub)+ "this.TargetRotation.y:"+ this.TargetRotation.y+ " m_Mode.transform.rotation.eulerAngles.y:"+ m_Mode.transform.rotation.eulerAngles.y);
         }
+
         
+
 
 
     }
@@ -331,14 +338,14 @@ public class UnityEntity {
             DirectionX += data.DirectionX;
             DirectionY += data.DirectionY;
             var dir = new Vector3(DirectionX, 0, DirectionY);
-            //if(data.DirectionX != 0 || data.DirectionY != 0)
-            //{
-            //    if(UnitType == 1)
-            //    {
-            //        Debug.Log("----direction:" + DirectionX + "  " + DirectionY);
-            //    }
-            //}
-            
+            if (data.DirectionX != 0 || data.DirectionY != 0)
+            {
+                if (UnitType == 1)
+                {
+                    Debug.Log("----direction:" + DirectionX + "  " + DirectionY);
+                }
+            }
+
             //var dir = new Vector3(1, 0, 1);
             if (dir != Vector3.zero)
             {

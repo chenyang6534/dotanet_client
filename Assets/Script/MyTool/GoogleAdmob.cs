@@ -35,8 +35,9 @@ public class GoogleAdmob : MonoBehaviour
 #if UNITY_ANDROID
         string adUnitId = "ca-app-pub-3940256099942544/5224354917";
 #elif UNITY_IPHONE
-        string adUnitId = "ca-app-pub-3940256099942544/1712485313";//测试
-        //string adUnitId = "ca-app-pub-3664269345038379/6857936057";//正式
+        //string adUnitId = "ca-app-pub-3940256099942544/1712485313";//测试
+        string adUnitId = "ca-app-pub-3664269345038379/6857936057";//正式ca-app-pub-3664269345038379/6857936057
+        Debug.Log("    正式ca-app-pub-3664269345038379/6857936057");
 #else
             string adUnitId = "unexpected_platform";
 #endif
@@ -197,12 +198,14 @@ public class GoogleAdmob : MonoBehaviour
     }
     public void ShowVideo(EndPlayRewardVideoResult ep)
     {
+        Debug.Log("ShowVideo");
         if (WatchVedioState == 0)
         {
             WatchVedioState = 1;
             GoogleAdmob.CurRewardVideoPlay = ep;
             Protomsg.CS_UseWatchVedioItem msg1 = new Protomsg.CS_UseWatchVedioItem();
             MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_UseWatchVedioItem", msg1);
+            Debug.Log("CS_UseWatchVedioItem");
         }
 
 

@@ -113,11 +113,12 @@ public static class Tool {
        
     }
     public delegate void HandleHttpResponse(WWW data);
+    public delegate void HandleHttpResponseFaild(WWW data);
     public static IEnumerator SendGet(string _url, HandleHttpResponse fun)
     {
         WWW getData = new WWW(_url);
         yield return getData;
-        if(fun != null)
+        if (fun != null)
         {
             fun(getData);
         }
@@ -125,11 +126,19 @@ public static class Tool {
         if (getData.error != null)
         {
             Debug.Log(getData.error);
+            //SendGet(_url, fun);
+            Debug.Log("111111111111111");
+            yield return new WaitForSeconds(5);
+            Debug.Log("22222222222");
+            AudioManager.Am.StartCoroutine(SendGet( _url,  fun));
+            Debug.Log("3333333333333");
         }
         else
         {
             Debug.Log(getData.text);
         }
+
+        
     }
     public static IEnumerator SendPost(string _url, WWWForm _wForm, HandleHttpResponse fun)
     {

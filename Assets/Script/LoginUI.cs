@@ -438,11 +438,14 @@ public class LoginUI : MonoBehaviour {
 
         }));
 
-        var platformstr = "Android";
+        var platformstr = "IOS";
         if (Application.platform == RuntimePlatform.WindowsPlayer ||
             Application.platform == RuntimePlatform.WindowsEditor)
         {
             platformstr = "Win32";
+        }else if(Application.platform == RuntimePlatform.IPhonePlayer)
+        {
+            platformstr = "IOS";
         }
 
             //获取服务器列表
@@ -892,8 +895,7 @@ public class LoginUI : MonoBehaviour {
 
 
         //if (Application.platform == RuntimePlatform.Android)
-        if (Application.platform == RuntimePlatform.IPhonePlayer ||
-            Application.platform == RuntimePlatform.WindowsPlayer ||
+        if (Application.platform == RuntimePlatform.WindowsPlayer ||
             Application.platform == RuntimePlatform.WindowsEditor)
         {
             mRoot.GetChild("gmset").visible = true;

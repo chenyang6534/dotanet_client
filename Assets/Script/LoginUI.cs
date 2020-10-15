@@ -125,6 +125,15 @@ public class LoginUI : MonoBehaviour {
         public ServerListInfo[] Servers;
         public int Code;
         public string UpdateUrl;
+        public ManageServer[] ManageServers;
+    }
+
+    [Serializable]
+    public class ManageServer
+    {
+        public int ID;
+        public string Path;
+        public string Name;
     }
 
     private int YanZhengMaRemainTime = 60;
@@ -899,6 +908,12 @@ public class LoginUI : MonoBehaviour {
         if (Application.platform == RuntimePlatform.WindowsPlayer ||
             Application.platform == RuntimePlatform.WindowsEditor)
         {
+
+            
+
+
+
+
             mRoot.GetChild("gmset").visible = true;
             mRoot.GetChild("gmset").asButton.onClick.Add(() => {
                 //打开gm窗口
@@ -909,58 +924,93 @@ public class LoginUI : MonoBehaviour {
                 {
                     gmtool.Dispose();
                 });
-                //开服
-                gmtool.GetChild("opengame").asButton.onClick.Add(() =>
-                {
-                    Tool.NoticeWindonw("你确定要打开服务器吗?", () =>
-                    {
-                        //获取服务器列表
-                        StartCoroutine(Tool.SendGet(GameLauncherUrl + "/startgame", (WWW data) => {
-                            //data.text
-                            if (data.error != null)
-                            {
-                                Tool.NoticeWords("打开失败:" + data.error, null);
-                                return;
-                            }
-                            Tool.NoticeWords("开服服务器返回:" + data.text, null);
-                        }));
-                    });
-                    
-                });
-                //关服
-                gmtool.GetChild("closegame").asButton.onClick.Add(() =>
-                {
-                    Tool.NoticeWindonw("你确定要关闭服务器吗?", () =>
-                    {
-                        //获取服务器列表
-                        StartCoroutine(Tool.SendGet(GameLauncherUrl + "/endgame", (WWW data) => {
-                            //data.text
-                            if (data.error != null)
-                            {
-                                Tool.NoticeWords("关服失败:" + data.error, null);
-                                return;
-                            }
-                            Tool.NoticeWords("关服服务器返回:" + data.text, null);
-                        }));
-                    });
-                    
-                });
+                gmtool.GetChild("auctionlist").asList.RemoveChildren(0, -1, true);
 
-                //刷新人数
-                gmtool.GetChild("freshplayercount").asButton.onClick.Add(() =>
-                {
-                    //获取服务器列表
-                    StartCoroutine(Tool.SendGet("http://119.23.8.72:9999/sd", (WWW data) => {
-                        //data.text
-                        if (data.error != null)
+
+                StartCoroutine(Tool.SendGet(GameLauncherUrl + "/getmanageservers", (WWW data1) => {
+                    //data.text
+
+                    if (data1.error != null)
+                    {
+                        Debug.Log("获取失败:" + data1.error);
+                        return;
+                    }
+                    Debug.Log("服务器群:" + data1.text);
+                    if (data1.text != null && data1.text.Length > 0)
+                    {
+                        var t2 = JsonUtility.FromJson<ServerListInfoArr>(data1.text);
+                        foreach (var item in t2.ManageServers)
                         {
-                            Tool.NoticeWords("刷新人数失败:" + data.error, null);
-                            return;
+                            var onedropitem = UIPackage.CreateObject("GameUI", "GMone").asCom;
+
+                            onedropitem.GetChild("name").asTextField.text = item.Name + ":" + item.ID;
+
+                            //开服
+                            onedropitem.GetChild("opengame").asButton.onClick.Add(() =>
+                            {
+                                Tool.NoticeWindonw("你确定要打开服务器吗?", () =>
+                                {
+                                    //获取服务器列表
+                                    StartCoroutine(Tool.SendGet(GameLauncherUrl + "/startgame?ID="+item.ID, (WWW data) => {
+                                        //data.text
+                                        if (data.error != null)
+                                        {
+                                            Tool.NoticeWords("打开失败:" + data.error, null);
+                                            return;
+                                        }
+                                        Tool.NoticeWords("开服服务器返回:" + data.text, null);
+                                    }));
+                                });
+
+                            });
+                            //关服
+                            onedropitem.GetChild("closegame").asButton.onClick.Add(() =>
+                            {
+                                Tool.NoticeWindonw("你确定要关闭服务器吗?", () =>
+                                {
+                                    //获取服务器列表
+                                    StartCoroutine(Tool.SendGet(GameLauncherUrl + "/endgame?ID=" + item.ID, (WWW data) => {
+                                        //data.text
+                                        if (data.error != null)
+                                        {
+                                            Tool.NoticeWords("关服失败:" + data.error, null);
+                                            return;
+                                        }
+                                        Tool.NoticeWords("关服服务器返回:" + data.text, null);
+                                    }));
+                                });
+
+                            });
+
+                            //刷新人数
+                            onedropitem.GetChild("freshplayercount").asButton.onClick.Add(() =>
+                            {
+                                //获取服务器列表
+                                //StartCoroutine(Tool.SendGet("http://119.23.8.72:9999/sd", (WWW data) => {
+                                //    //data.text
+                                //    if (data.error != null)
+                                //    {
+                                //        Tool.NoticeWords("刷新人数失败:" + data.error, null);
+                                //        return;
+                                //    }
+                                //    onedropitem.GetChild("score").asTextField.text = data.text;
+                                //    Tool.NoticeWords("刷新人数服务器返回:" + data.text, null);
+                                //}));
+                            });
+
+
+                            gmtool.GetChild("auctionlist").asList.AddChild(onedropitem);
                         }
-                        gmtool.GetChild("playercount").asTextField.text = data.text;
-                        Tool.NoticeWords("刷新人数服务器返回:" + data.text, null);
-                    }));
-                });
+                    }
+
+                }));
+
+
+
+
+
+
+                
 
                 //修改公告
                 gmtool.GetChild("editnotice").asButton.onClick.Add(() =>

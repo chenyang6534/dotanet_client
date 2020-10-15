@@ -4,8 +4,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Advertisements;
 
-public class GoogleAdmob : MonoBehaviour
+public class GoogleAdmob : MonoBehaviour,IUnityAdsListener
 {
     private RewardedAd rewardedAd;
     // Use this for initialization
@@ -15,6 +16,10 @@ public class GoogleAdmob : MonoBehaviour
     public static EndPlayRewardVideoResult CurRewardVideoPlay = null;
     //private AdNative adNative;
     //private RewardVideoAd rewardAd;
+
+    public string UnityADId = "3863860";
+    public string UnityADPlacementId = "rewardedVideo";
+    public bool UnityADtestMode = false;//测试模式
 
     public string loaderrormsg;
     void Start()
@@ -27,7 +32,46 @@ public class GoogleAdmob : MonoBehaviour
         MsgManager.Instance.AddListener("SC_UseWatchVedioItem", new HandleMsg(this.SC_UseWatchVedioItem));
         this.CreateAndLoadRewardedAd();
 
+        InitUnitAd();
+
         Instanse = this;
+    }
+    //初始化unity广告
+    void InitUnitAd()
+    {
+        Advertisement.Initialize(UnityADId, UnityADtestMode);
+        Advertisement.AddListener(this);
+    }
+    public void OnUnityAdsReady(string placementId)
+    {
+        Debug.Log("OnUnityAdsReady");
+    }
+
+    public void OnUnityAdsDidError(string message)
+    {
+        Debug.Log("OnUnityAdsDidError:"+message);
+    }
+
+    public void OnUnityAdsDidStart(string placementId)
+    {
+        Debug.Log("OnUnityAdsDidStart");
+    }
+
+    public void OnUnityAdsDidFinish(string placementId, ShowResult showResult)
+    {
+        Debug.Log("OnUnityAdsDidFinish:"+ showResult);
+        if(showResult == ShowResult.Finished)
+        {
+            if (GoogleAdmob.CurRewardVideoPlay != null)
+            {
+                GoogleAdmob.CurRewardVideoPlay(true, false, false);
+            }
+        }
+        else
+        {
+
+        }
+        
     }
 
     public void CreateAndLoadRewardedAd()
@@ -147,22 +191,35 @@ public class GoogleAdmob : MonoBehaviour
         if (this.rewardedAd.IsLoaded() == false)
         {
             Debug.Log("请先加载广告");
-            UMengManager.Instanse.Event_watch_vedio(this.loaderrormsg);
-            new NoVedioNotice(this.loaderrormsg, (code) =>
-            {
-                if (code == 1)//是
-                {
-                    if (ep != null)
-                    {
-                        ep(true, true, false);
-                    }
-                }
-                else//否
-                {
-
-                }
-            });
             this.CreateAndLoadRewardedAd();
+
+
+
+            //显示unity广告
+            if(Advertisement.isInitialized && Advertisement.IsReady(UnityADPlacementId))
+            {
+                Advertisement.Show(UnityADPlacementId);
+                GoogleAdmob.CurRewardVideoPlay = ep;
+            }
+            else
+            {
+                UMengManager.Instanse.Event_watch_vedio(this.loaderrormsg);
+                new NoVedioNotice(this.loaderrormsg, (code) =>
+                {
+                    if (code == 1)//是
+                    {
+                        if (ep != null)
+                        {
+                            ep(true, true, false);
+                        }
+                    }
+                    else//否
+                    {
+
+                    }
+                });
+            }
+            
 
             //TTadMgr.Instanse.LoadRewardAd();
             return;
@@ -218,4 +275,6 @@ public class GoogleAdmob : MonoBehaviour
     {
 
     }
+
+    
 }

@@ -22,8 +22,10 @@ public class LoginUI : MonoBehaviour {
 
     protected double m_LastQuickLoginTime;
 
-    //public static string GameLauncherUrl = "http://119.23.8.72:6666";
-    public static string GameLauncherUrl = "https://www.game5868.top:6666";
+    //public static string GameLauncherUrl = "http://119.23.8.72:6666";//119.23.8.72
+    public static string Url = "https://www.game5868.top";
+    public static string GameLauncherUrl = Url+":6666";
+    public static string GameServerPlayerCount = "http://www.game5868.top:9999"; //查询玩家数量
     public static string GameNotice = "";
     public static string winMachineid = "3";
     public static string Version = "1.5.0";
@@ -986,16 +988,17 @@ public class LoginUI : MonoBehaviour {
                             onedropitem.GetChild("freshplayercount").asButton.onClick.Add(() =>
                             {
                                 //获取服务器列表
-                                //StartCoroutine(Tool.SendGet("http://119.23.8.72:9999/sd", (WWW data) => {
-                                //    //data.text
-                                //    if (data.error != null)
-                                //    {
-                                //        Tool.NoticeWords("刷新人数失败:" + data.error, null);
-                                //        return;
-                                //    }
-                                //    onedropitem.GetChild("score").asTextField.text = data.text;
-                                //    Tool.NoticeWords("刷新人数服务器返回:" + data.text, null);
-                                //}));
+                                StartCoroutine(Tool.SendGet(GameServerPlayerCount+"/sd" + item.ID, (WWW data) =>
+                                {
+                                    //data.text
+                                    if (data.error != null)
+                                    {
+                                        Tool.NoticeWords("刷新人数失败:" + data.error, null);
+                                        return;
+                                    }
+                                    onedropitem.GetChild("score").asTextField.text = data.text;
+                                    Tool.NoticeWords("刷新人数服务器返回:" + data.text, null);
+                                }));
                             });
 
 

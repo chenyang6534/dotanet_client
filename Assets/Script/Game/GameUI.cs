@@ -74,6 +74,14 @@ public class GameUI : MonoBehaviour {
         TargetHeadInfo.IsMy = false;
         LittleMapCom = mainUI.GetChild("littlemap").asCom;
 
+        
+        LittleMapCom.GetChild("chongzhi").asButton.onClick.Set(() =>
+        {
+            Debug.Log("chongzhiclick:");
+            new ChongChongChong();
+        });
+
+
         mainUI.GetChild("pipeinoticeword").visible = false;
 
         //死亡界面
@@ -1943,12 +1951,26 @@ public class GameUI : MonoBehaviour {
         }
     }
 
+    void updateshowchong()
+    {
+        if(GameScene.Singleton == null || GameScene.Singleton.SvConf == null || GameScene.Singleton.SvConf.IsCanPay == false)
+        {
+            LittleMapCom.GetChild("chongzhi").visible = false;
+        }
+        else
+        {
+            LittleMapCom.GetChild("chongzhi").visible = true;
+        }
+        LittleMapCom.GetChild("chongzhi").visible = true;
+    }
+
     // Update is called once per frame
     void Update () {
         //if(Input.touchCount > 0)
         //{
         //    Debug.Log("update Input.touchCount:" + Input.touchCount);
         //}
+        updateshowchong();
         updatefps();
         var showtimestr = Tool.GetShowTime(GameScene.Singleton.TimeHourDiffer, GameScene.Singleton.TimeMinuteDiffer, GameScene.Singleton.TimeSecondDiffer);
         gPing.text = showtimestr + " ping:" + MyKcp.PingValue+"  fps:"+ _FPS;

@@ -122,6 +122,7 @@ namespace cocosocket4unity
             //client.SetConv(121106);
             //UnityEngine.Debug.Log("111HeartThread:" + Tool.getMemory(this));
             UnityEngine.Debug.Log("Create111:");
+            //ip = "www.game5868.top";
             _instance.Connect(ip, port);
             UnityEngine.Debug.Log("Create222:");
             _instance.Start();

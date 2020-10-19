@@ -53,7 +53,10 @@ public class ChongChongChong
         onedropitem.GetChild("onebtn").asButton.onClick.Add(() =>
         {
             //充
-
+            Protomsg.CS_DoChongChongChong msg1 = new Protomsg.CS_DoChongChongChong();
+            msg1.ID = item.ID;
+            MyKcp.Instance.SendMsg(GameScene.Singleton.m_ServerName, "CS_DoChongChongChong", msg1);
+            Debug.Log("CS_DoChongChongChong:" + item.ID);
         });
 
         //奖励
@@ -132,8 +135,12 @@ public class ChongChongChong
 
         if(p1.Code == 1)//成功
         {
-
-        }else
+            //打开连接
+            Debug.Log("SC_BuyChongChongChong:");
+            Application.OpenURL(p1.DataUrl);
+            Debug.Log("SC_BuyChongChongChong:"+ p1.DataUrl);
+        }
+        else
         {
             Debug.Log("SC_BuyChongChongChong failed:" + p1.DataUrl);
         }

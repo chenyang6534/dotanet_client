@@ -448,8 +448,8 @@ namespace Protomsg {
             "b25nIkMKEk9uZUNob25nQ2hvbmdDaG9uZxIKCgJJRBgBIAEoBRISCgpSZXdh",
             "cmRzU3RyGAIgASgJEg0KBU1vbmV5GAMgASgFIiIKFENTX0RvQ2hvbmdDaG9u",
             "Z0Nob25nEgoKAklEGAEgASgFIkIKFVNDX0J1eUNob25nQ2hvbmdDaG9uZxIK",
-            "CgJJRBgBIAEoBRIPCgdEYXRhVXJsGAIgASgJEgwKBENvZGUYAyABKAViBnBy",
-            "b3RvMw=="));
+            "CgJJRBgBIAEoBRIPCgdEYXRhVXJsGAIgASgJEgwKBENvZGUYAyABKAUiHAoK",
+            "U0NfTG9nSW5mbxIOCgZMb2dNc2cYASABKAliBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -670,7 +670,8 @@ namespace Protomsg {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetChongChongChong), global::Protomsg.SC_GetChongChongChong.Parser, new[]{ "All" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.OneChongChongChong), global::Protomsg.OneChongChongChong.Parser, new[]{ "ID", "RewardsStr", "Money" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_DoChongChongChong), global::Protomsg.CS_DoChongChongChong.Parser, new[]{ "ID" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_BuyChongChongChong), global::Protomsg.SC_BuyChongChongChong.Parser, new[]{ "ID", "DataUrl", "Code" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_BuyChongChongChong), global::Protomsg.SC_BuyChongChongChong.Parser, new[]{ "ID", "DataUrl", "Code" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_LogInfo), global::Protomsg.SC_LogInfo.Parser, new[]{ "LogMsg" }, null, null, null)
           }));
     }
     #endregion
@@ -43928,6 +43929,140 @@ namespace Protomsg {
           }
           case 24: {
             Code = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///客户端发给服务器的调试信息
+  /// </summary>
+  public sealed partial class SC_LogInfo : pb::IMessage<SC_LogInfo> {
+    private static readonly pb::MessageParser<SC_LogInfo> _parser = new pb::MessageParser<SC_LogInfo>(() => new SC_LogInfo());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<SC_LogInfo> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[218]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_LogInfo() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_LogInfo(SC_LogInfo other) : this() {
+      logMsg_ = other.logMsg_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_LogInfo Clone() {
+      return new SC_LogInfo(this);
+    }
+
+    /// <summary>Field number for the "LogMsg" field.</summary>
+    public const int LogMsgFieldNumber = 1;
+    private string logMsg_ = "";
+    /// <summary>
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string LogMsg {
+      get { return logMsg_; }
+      set {
+        logMsg_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as SC_LogInfo);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(SC_LogInfo other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (LogMsg != other.LogMsg) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (LogMsg.Length != 0) hash ^= LogMsg.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (LogMsg.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(LogMsg);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (LogMsg.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(LogMsg);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(SC_LogInfo other) {
+      if (other == null) {
+        return;
+      }
+      if (other.LogMsg.Length != 0) {
+        LogMsg = other.LogMsg;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            LogMsg = input.ReadString();
             break;
           }
         }

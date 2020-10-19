@@ -672,6 +672,13 @@ public class LoginUI : MonoBehaviour {
         SelectLayer.xy = logicScreenPos;
         SelectLayer.visible = false;
     }
+
+    public static void SendLog(string str)
+    {
+        Protomsg.SC_LogInfo msg1 = new Protomsg.SC_LogInfo();
+        msg1.LogMsg = str;
+        MyKcp.Instance.SendMsg("Login", "SC_LogInfo", msg1);
+    }
    
     //显示选择英雄界面
     public void showSelectHero()
@@ -679,14 +686,16 @@ public class LoginUI : MonoBehaviour {
         Vector2 screenPos = new Vector2(Screen.width / 2, Screen.height / 2);
         Vector2 logicScreenPos = GRoot.inst.GlobalToLocal(screenPos);
         SelectLayer.visible = true;
-
+        LoginUI.SendLog("showSelectHero:" + "111111111111111");
         //---设置默认选择英雄
         if (SaveDataManager.sData.SelectHeroTypeID <= 0)
         {
             SaveDataManager.sData.SelectHeroTypeID = ttopenherotypeids[0];
         }
+        LoginUI.SendLog("showSelectHero:" + "SelectHeroTypeID:"+ SaveDataManager.sData.SelectHeroTypeID);
 
         freshSelectHero();
+        LoginUI.SendLog("showSelectHero:" + "2222222222");
         SelectLayer.GetChild("bindphonenuber").asButton.onClick.Add(() =>
         {
 
@@ -698,6 +707,8 @@ public class LoginUI : MonoBehaviour {
 
             PopPhoneLoginUI(1);
         });
+
+        LoginUI.SendLog("showSelectHero:" + "3333333333");
         SelectLayer.GetChild("bindphonenuber").visible = false;
         SelectLayer.GetChild("changephonenumber").visible = false;
 
@@ -813,23 +824,26 @@ public class LoginUI : MonoBehaviour {
 
     public bool Logined(Protomsg.MsgBase d1)
     {
+        LoginUI.SendLog("SC_Logined:");
         Google.Protobuf.IMessage IMperson = new Protomsg.SC_Logined();
         Protomsg.SC_Logined p1 = (Protomsg.SC_Logined)IMperson.Descriptor.Parser.ParseFrom(d1.Datas);
         UID = p1.Uid;
         if(p1.Code != 1)
         {
+            LoginUI.SendLog("SC_Logined:"+ "login fail");
             Tool.NoticeWords("登录失败！请2秒钟后重试", null);
             Debug.Log("login fail");
         }
         else
         {
-            
+            LoginUI.SendLog("SC_Logined:" + "login succ");
             Protomsg.CS_SelectCharacter msg1 = new Protomsg.CS_SelectCharacter();
             msg1.SelectCharacter = new Protomsg.CharacterBaseDatas();
             Debug.Log("Logined:" + p1.Characters);
             initOpenHeros(p1.Characters);
+            LoginUI.SendLog("SC_Logined:" + "initOpenHeros");
             showSelectHero();
-            
+            LoginUI.SendLog("SC_Logined:" + "showSelectHero");
         }
         
         return false; //中断解析数据

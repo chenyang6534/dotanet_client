@@ -1015,6 +1015,23 @@ public class LoginUI : MonoBehaviour {
                                 }));
                             });
 
+                            //exchangepaystate 
+                            onedropitem.GetChild("exchangepaystate").asButton.onClick.Add(() =>
+                            {
+                                //获取服务器列表
+                                StartCoroutine(Tool.SendGet(GameServerPlayerCount + "/exchangepaystate" + item.ID, (WWW data) =>
+                                {
+                                    //data.text
+                                    if (data.error != null)
+                                    {
+                                        Tool.NoticeWords("切换支付失败:" + data.error, null);
+                                        return;
+                                    }
+                                    //onedropitem.GetChild("score").asTextField.text = data.text;
+                                    Tool.NoticeWords("当前支付状态:" + data.text, null);
+                                }));
+                            });
+
 
                             gmtool.GetChild("auctionlist").asList.AddChild(onedropitem);
                         }

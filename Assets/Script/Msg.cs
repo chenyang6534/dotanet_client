@@ -443,13 +443,19 @@ namespace Protomsg {
             "ayJ1Cg9PbmVMdWNrRHJhd1JhbmsSEwoLQ2hhcmFjdGVyaWQYASABKAUSDAoE",
             "TmFtZRgCIAEoCRIOCgZUeXBlaWQYAyABKAUSEgoKUmV3YXJkc1N0chgEIAEo",
             "CRINCgVDb3VudBgFIAEoBRIMCgRSYW5rGAYgASgFIiYKFUNTX0dldENob25n",
-            "Q2hvbmdDaG9uZxINCgVDb3VudBgBIAEoBSJCChVTQ19HZXRDaG9uZ0Nob25n",
+            "Q2hvbmdDaG9uZxINCgVDb3VudBgBIAEoBSJeChVTQ19HZXRDaG9uZ0Nob25n",
             "Q2hvbmcSKQoDQWxsGAEgAygLMhwucHJvdG9tc2cuT25lQ2hvbmdDaG9uZ0No",
-            "b25nIkMKEk9uZUNob25nQ2hvbmdDaG9uZxIKCgJJRBgBIAEoBRISCgpSZXdh",
-            "cmRzU3RyGAIgASgJEg0KBU1vbmV5GAMgASgFIiIKFENTX0RvQ2hvbmdDaG9u",
-            "Z0Nob25nEgoKAklEGAEgASgFIkIKFVNDX0J1eUNob25nQ2hvbmdDaG9uZxIK",
-            "CgJJRBgBIAEoBRIPCgdEYXRhVXJsGAIgASgJEgwKBENvZGUYAyABKAUiHAoK",
-            "U0NfTG9nSW5mbxIOCgZMb2dNc2cYASABKAliBnByb3RvMw=="));
+            "b25nEhoKEkZpcnN0UGF5UmV3YXJkc1N0chgCIAEoCSJDChJPbmVDaG9uZ0No",
+            "b25nQ2hvbmcSCgoCSUQYASABKAUSEgoKUmV3YXJkc1N0chgCIAEoCRINCgVN",
+            "b25leRgDIAEoBSIiChRDU19Eb0Nob25nQ2hvbmdDaG9uZxIKCgJJRBgBIAEo",
+            "BSJCChVTQ19CdXlDaG9uZ0Nob25nQ2hvbmcSCgoCSUQYASABKAUSDwoHRGF0",
+            "YVVybBgCIAEoCRIMCgRDb2RlGAMgASgFIhwKClNDX0xvZ0luZm8SDgoGTG9n",
+            "TXNnGAEgASgJIiAKD0NTX0dldE1vbnRoQ2FyZBINCgVDb3VudBgBIAEoBSI2",
+            "Cg9TQ19HZXRNb250aENhcmQSIwoDQWxsGAEgAygLMhYucHJvdG9tc2cuT25l",
+            "TW9udGhDYXJkImcKDE9uZU1vbnRoQ2FyZBIKCgJJRBgBIAEoBRISCgpSZXdh",
+            "cmRzU3RyGAIgASgJEg0KBU1vbmV5GAMgASgFEhMKC1JlbWFpbkNvdW50GAQg",
+            "ASgFEhMKC0NhbkdldFRvZGF5GAUgASgIIiMKFUNTX0dldE1vbnRoQ2FyZFJl",
+            "d2FyZBIKCgJJRBgBIAEoBWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -667,11 +673,15 @@ namespace Protomsg {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetLuckDrawRank), global::Protomsg.SC_GetLuckDrawRank.Parser, new[]{ "All", "My" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.OneLuckDrawRank), global::Protomsg.OneLuckDrawRank.Parser, new[]{ "Characterid", "Name", "Typeid", "RewardsStr", "Count", "Rank" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GetChongChongChong), global::Protomsg.CS_GetChongChongChong.Parser, new[]{ "Count" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetChongChongChong), global::Protomsg.SC_GetChongChongChong.Parser, new[]{ "All" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetChongChongChong), global::Protomsg.SC_GetChongChongChong.Parser, new[]{ "All", "FirstPayRewardsStr" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.OneChongChongChong), global::Protomsg.OneChongChongChong.Parser, new[]{ "ID", "RewardsStr", "Money" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_DoChongChongChong), global::Protomsg.CS_DoChongChongChong.Parser, new[]{ "ID" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_BuyChongChongChong), global::Protomsg.SC_BuyChongChongChong.Parser, new[]{ "ID", "DataUrl", "Code" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_LogInfo), global::Protomsg.SC_LogInfo.Parser, new[]{ "LogMsg" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_LogInfo), global::Protomsg.SC_LogInfo.Parser, new[]{ "LogMsg" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GetMonthCard), global::Protomsg.CS_GetMonthCard.Parser, new[]{ "Count" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.SC_GetMonthCard), global::Protomsg.SC_GetMonthCard.Parser, new[]{ "All" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.OneMonthCard), global::Protomsg.OneMonthCard.Parser, new[]{ "ID", "RewardsStr", "Money", "RemainCount", "CanGetToday" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protomsg.CS_GetMonthCardReward), global::Protomsg.CS_GetMonthCardReward.Parser, new[]{ "ID" }, null, null, null)
           }));
     }
     #endregion
@@ -43320,6 +43330,7 @@ namespace Protomsg {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public SC_GetChongChongChong(SC_GetChongChongChong other) : this() {
       all_ = other.all_.Clone();
+      firstPayRewardsStr_ = other.firstPayRewardsStr_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -43341,6 +43352,20 @@ namespace Protomsg {
       get { return all_; }
     }
 
+    /// <summary>Field number for the "FirstPayRewardsStr" field.</summary>
+    public const int FirstPayRewardsStrFieldNumber = 2;
+    private string firstPayRewardsStr_ = "";
+    /// <summary>
+    ///首次充值额外奖励
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string FirstPayRewardsStr {
+      get { return firstPayRewardsStr_; }
+      set {
+        firstPayRewardsStr_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as SC_GetChongChongChong);
@@ -43355,6 +43380,7 @@ namespace Protomsg {
         return true;
       }
       if(!all_.Equals(other.all_)) return false;
+      if (FirstPayRewardsStr != other.FirstPayRewardsStr) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -43362,6 +43388,7 @@ namespace Protomsg {
     public override int GetHashCode() {
       int hash = 1;
       hash ^= all_.GetHashCode();
+      if (FirstPayRewardsStr.Length != 0) hash ^= FirstPayRewardsStr.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -43376,6 +43403,10 @@ namespace Protomsg {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       all_.WriteTo(output, _repeated_all_codec);
+      if (FirstPayRewardsStr.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(FirstPayRewardsStr);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -43385,6 +43416,9 @@ namespace Protomsg {
     public int CalculateSize() {
       int size = 0;
       size += all_.CalculateSize(_repeated_all_codec);
+      if (FirstPayRewardsStr.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(FirstPayRewardsStr);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -43397,6 +43431,9 @@ namespace Protomsg {
         return;
       }
       all_.Add(other.all_);
+      if (other.FirstPayRewardsStr.Length != 0) {
+        FirstPayRewardsStr = other.FirstPayRewardsStr;
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -43410,6 +43447,10 @@ namespace Protomsg {
             break;
           case 10: {
             all_.AddEntriesFrom(input, _repeated_all_codec);
+            break;
+          }
+          case 18: {
+            FirstPayRewardsStr = input.ReadString();
             break;
           }
         }
@@ -44063,6 +44104,653 @@ namespace Protomsg {
             break;
           case 10: {
             LogMsg = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///月卡
+  ///获取月卡数据
+  /// </summary>
+  public sealed partial class CS_GetMonthCard : pb::IMessage<CS_GetMonthCard> {
+    private static readonly pb::MessageParser<CS_GetMonthCard> _parser = new pb::MessageParser<CS_GetMonthCard>(() => new CS_GetMonthCard());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CS_GetMonthCard> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[219]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetMonthCard() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetMonthCard(CS_GetMonthCard other) : this() {
+      count_ = other.count_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetMonthCard Clone() {
+      return new CS_GetMonthCard(this);
+    }
+
+    /// <summary>Field number for the "Count" field.</summary>
+    public const int CountFieldNumber = 1;
+    private int count_;
+    /// <summary>
+    ///数量
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Count {
+      get { return count_; }
+      set {
+        count_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CS_GetMonthCard);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CS_GetMonthCard other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Count != other.Count) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Count != 0) hash ^= Count.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Count != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(Count);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Count != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Count);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CS_GetMonthCard other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Count != 0) {
+        Count = other.Count;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Count = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///获取月卡数据
+  /// </summary>
+  public sealed partial class SC_GetMonthCard : pb::IMessage<SC_GetMonthCard> {
+    private static readonly pb::MessageParser<SC_GetMonthCard> _parser = new pb::MessageParser<SC_GetMonthCard>(() => new SC_GetMonthCard());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<SC_GetMonthCard> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[220]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetMonthCard() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetMonthCard(SC_GetMonthCard other) : this() {
+      all_ = other.all_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SC_GetMonthCard Clone() {
+      return new SC_GetMonthCard(this);
+    }
+
+    /// <summary>Field number for the "All" field.</summary>
+    public const int AllFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::Protomsg.OneMonthCard> _repeated_all_codec
+        = pb::FieldCodec.ForMessage(10, global::Protomsg.OneMonthCard.Parser);
+    private readonly pbc::RepeatedField<global::Protomsg.OneMonthCard> all_ = new pbc::RepeatedField<global::Protomsg.OneMonthCard>();
+    /// <summary>
+    ///排行榜
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::Protomsg.OneMonthCard> All {
+      get { return all_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as SC_GetMonthCard);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(SC_GetMonthCard other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if(!all_.Equals(other.all_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= all_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      all_.WriteTo(output, _repeated_all_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      size += all_.CalculateSize(_repeated_all_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(SC_GetMonthCard other) {
+      if (other == null) {
+        return;
+      }
+      all_.Add(other.all_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            all_.AddEntriesFrom(input, _repeated_all_codec);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class OneMonthCard : pb::IMessage<OneMonthCard> {
+    private static readonly pb::MessageParser<OneMonthCard> _parser = new pb::MessageParser<OneMonthCard>(() => new OneMonthCard());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<OneMonthCard> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[221]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public OneMonthCard() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public OneMonthCard(OneMonthCard other) : this() {
+      iD_ = other.iD_;
+      rewardsStr_ = other.rewardsStr_;
+      money_ = other.money_;
+      remainCount_ = other.remainCount_;
+      canGetToday_ = other.canGetToday_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public OneMonthCard Clone() {
+      return new OneMonthCard(this);
+    }
+
+    /// <summary>Field number for the "ID" field.</summary>
+    public const int IDFieldNumber = 1;
+    private int iD_;
+    /// <summary>
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ID {
+      get { return iD_; }
+      set {
+        iD_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "RewardsStr" field.</summary>
+    public const int RewardsStrFieldNumber = 2;
+    private string rewardsStr_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string RewardsStr {
+      get { return rewardsStr_; }
+      set {
+        rewardsStr_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Money" field.</summary>
+    public const int MoneyFieldNumber = 3;
+    private int money_;
+    /// <summary>
+    ///当前次数
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Money {
+      get { return money_; }
+      set {
+        money_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "RemainCount" field.</summary>
+    public const int RemainCountFieldNumber = 4;
+    private int remainCount_;
+    /// <summary>
+    ///剩余次数
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int RemainCount {
+      get { return remainCount_; }
+      set {
+        remainCount_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "CanGetToday" field.</summary>
+    public const int CanGetTodayFieldNumber = 5;
+    private bool canGetToday_;
+    /// <summary>
+    ///今日是否可以领取
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool CanGetToday {
+      get { return canGetToday_; }
+      set {
+        canGetToday_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as OneMonthCard);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(OneMonthCard other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ID != other.ID) return false;
+      if (RewardsStr != other.RewardsStr) return false;
+      if (Money != other.Money) return false;
+      if (RemainCount != other.RemainCount) return false;
+      if (CanGetToday != other.CanGetToday) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ID != 0) hash ^= ID.GetHashCode();
+      if (RewardsStr.Length != 0) hash ^= RewardsStr.GetHashCode();
+      if (Money != 0) hash ^= Money.GetHashCode();
+      if (RemainCount != 0) hash ^= RemainCount.GetHashCode();
+      if (CanGetToday != false) hash ^= CanGetToday.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (ID != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(ID);
+      }
+      if (RewardsStr.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(RewardsStr);
+      }
+      if (Money != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(Money);
+      }
+      if (RemainCount != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(RemainCount);
+      }
+      if (CanGetToday != false) {
+        output.WriteRawTag(40);
+        output.WriteBool(CanGetToday);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (ID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ID);
+      }
+      if (RewardsStr.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(RewardsStr);
+      }
+      if (Money != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Money);
+      }
+      if (RemainCount != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(RemainCount);
+      }
+      if (CanGetToday != false) {
+        size += 1 + 1;
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(OneMonthCard other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ID != 0) {
+        ID = other.ID;
+      }
+      if (other.RewardsStr.Length != 0) {
+        RewardsStr = other.RewardsStr;
+      }
+      if (other.Money != 0) {
+        Money = other.Money;
+      }
+      if (other.RemainCount != 0) {
+        RemainCount = other.RemainCount;
+      }
+      if (other.CanGetToday != false) {
+        CanGetToday = other.CanGetToday;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            ID = input.ReadInt32();
+            break;
+          }
+          case 18: {
+            RewardsStr = input.ReadString();
+            break;
+          }
+          case 24: {
+            Money = input.ReadInt32();
+            break;
+          }
+          case 32: {
+            RemainCount = input.ReadInt32();
+            break;
+          }
+          case 40: {
+            CanGetToday = input.ReadBool();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class CS_GetMonthCardReward : pb::IMessage<CS_GetMonthCardReward> {
+    private static readonly pb::MessageParser<CS_GetMonthCardReward> _parser = new pb::MessageParser<CS_GetMonthCardReward>(() => new CS_GetMonthCardReward());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CS_GetMonthCardReward> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protomsg.MsgReflection.Descriptor.MessageTypes[222]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetMonthCardReward() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetMonthCardReward(CS_GetMonthCardReward other) : this() {
+      iD_ = other.iD_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CS_GetMonthCardReward Clone() {
+      return new CS_GetMonthCardReward(this);
+    }
+
+    /// <summary>Field number for the "ID" field.</summary>
+    public const int IDFieldNumber = 1;
+    private int iD_;
+    /// <summary>
+    ///数量
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ID {
+      get { return iD_; }
+      set {
+        iD_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CS_GetMonthCardReward);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CS_GetMonthCardReward other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ID != other.ID) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ID != 0) hash ^= ID.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (ID != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(ID);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (ID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ID);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CS_GetMonthCardReward other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ID != 0) {
+        ID = other.ID;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            ID = input.ReadInt32();
             break;
           }
         }

@@ -1961,7 +1961,7 @@ public class GameUI : MonoBehaviour {
         {
             LittleMapCom.GetChild("chongzhi").visible = true;
         }
-        LittleMapCom.GetChild("chongzhi").visible = true;
+        //LittleMapCom.GetChild("chongzhi").visible = true;
     }
 
     // Update is called once per frame

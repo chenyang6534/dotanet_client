@@ -8,6 +8,7 @@ public class SaveData
     public int SelectHeroTypeID;
     public string PhoneNumber;
     public string Password;
+    public string LastLoginServerName;//上次选择登陆服务器名字
 }
 
 

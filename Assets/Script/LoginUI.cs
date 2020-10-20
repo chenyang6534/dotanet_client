@@ -5,6 +5,8 @@ using cocosocket4unity;
 using FairyGUI;
 using UnityEngine.SceneManagement;
 using System;
+using System.Net;
+using System.Net.Sockets;
 
 public class LoginUI : MonoBehaviour {
     public static int UID;
@@ -30,6 +32,15 @@ public class LoginUI : MonoBehaviour {
     public static string winMachineid = "3";
     public static string Version = "1.5.0";
     // Use this for initialization
+
+    //测试tcp
+    void testtcp()
+    {
+
+        TcpClient client = new TcpClient();
+        client.Connect(IPAddress.Parse("192.168.0.13"), 10001);
+    }
+
     void Start () {
         Screen.fullScreen = false;
         m_LastQuickLoginTime = 0;
@@ -365,6 +376,7 @@ public class LoginUI : MonoBehaviour {
         });
         mRoot.GetChild("changebtn").visible = false;
         mRoot.GetChild("changebtn").asButton.onClick.Set(() => {
+
             MyKcp.Create(SelectServer.Ip, SelectServer.Port);
             PopPhoneLoginUI(0);
             
@@ -481,32 +493,56 @@ public class LoginUI : MonoBehaviour {
                 //ServerListInfo[] allServerList = { new ServerListInfo("删档测试服", "119.23.8.72", 1118) };
                 //ServerListInfo[] allServerList = { new ServerListInfo("本地服", "127.0.0.1", 1118), new ServerListInfo("外网", "119.23.8.72", 1118) };
 
-            var serverlist = t2.Servers;
-            Debug.Log("-------------len:" + serverlist.Length);
-            if(serverlist.Length <= 0)
-            {
-                Tool.NoticeWords("未找到服务器,请下载最新版本！", null);
-                return;
-            }
-            var defaultserver = serverlist[defaultid];
-            SelectServer = defaultserver;
-            //建立连接
-            //MyKcp.Create(defaultserver.ip, defaultserver.port);
-            //
-            string[] names = new string[serverlist.Length];
-            string[] values = new string[serverlist.Length];
-            for (var i = 0; i < serverlist.Length; i++)
-            {
-                names[i] = serverlist[i].Name;
-                values[i] = "" + i;
-            }
-            GComboBox combo = mRoot.GetChild("server").asComboBox;
-            combo.items = names;
-            combo.values = values;
-            combo.selectedIndex = defaultid;
-            combo.onChanged.Add(() => {
-                SelectServer = serverlist[combo.selectedIndex];
-            });
+                var serverlist = t2.Servers;
+                Debug.Log("-------------len:" + serverlist.Length);
+                if(serverlist.Length <= 0)
+                {
+                    Tool.NoticeWords("未找到服务器,请下载最新版本！", null);
+                    return;
+                }
+                var defaultserver = serverlist[defaultid];
+                SelectServer = defaultserver;
+
+                Debug.Log("SaveDataManager.sData.LastLoginServerName:" + SaveDataManager.sData.LastLoginServerName);
+                //检查是否是上次登陆的服务器
+                var keyindex = 0;
+                foreach (var item in serverlist)
+                {
+                    Debug.Log("item:" + item.Name);
+                    
+                    if (item.Name.Equals(SaveDataManager.sData.LastLoginServerName))
+                    {
+                        Debug.Log("11item:" + item.Name);
+                        SelectServer = item;
+                        defaultid = keyindex;
+                        break;
+                    }
+                    keyindex++;
+                }
+                SaveDataManager.sData.LastLoginServerName = SelectServer.Name;
+                SaveDataManager.Save();
+
+
+                //建立连接
+                //MyKcp.Create(defaultserver.ip, defaultserver.port);
+                //
+                string[] names = new string[serverlist.Length];
+                string[] values = new string[serverlist.Length];
+                for (var i = 0; i < serverlist.Length; i++)
+                {
+                    names[i] = serverlist[i].Name;
+                    values[i] = "" + i;
+                }
+                GComboBox combo = mRoot.GetChild("server").asComboBox;
+                combo.items = names;
+                combo.values = values;
+                combo.selectedIndex = defaultid;
+                combo.onChanged.Add(() => {
+                    SelectServer = serverlist[combo.selectedIndex];
+                    SaveDataManager.sData.LastLoginServerName = SelectServer.Name;
+                    SaveDataManager.Save();
+                    Debug.Log("11SaveDataManager.sData.LastLoginServerName:" + SaveDataManager.sData.LastLoginServerName);
+                });
         }));
 
         //Debug.Log("-------------InitServerList:" + jsonstr);

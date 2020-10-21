@@ -101,7 +101,7 @@ namespace cocosocket4unity
         }
 
         public static double m_LastQuickLoginTime = 0;
-        public static void Create(String ip,int port)
+        public static void Create(IPAddress ip,int port)
         {
             //this.Stop();
             //Thread.Sleep(1000);

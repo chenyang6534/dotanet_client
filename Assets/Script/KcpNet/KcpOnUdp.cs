@@ -35,19 +35,21 @@ namespace cocosocket4unity
       }
       public KcpOnUdp(int port)
       {
+            
             client = new UdpClient(port);
             kcp = new Kcp(121106, this, null);
             this.received = new LinkedList<ByteBuf>();
             this.sendList = new LinkedList<ByteBuf>();
-      }
+            UnityEngine.Debug.Log("-------------KcpOnUdp:" + port);
+        }
       /// <summary>
       /// 连接到地址
       /// </summary>
-      public void Connect(string host,int port)
+      public void Connect(IPAddress host,int port)
       { 
           if(host!=null)
           { 
-             serverAddr=new IPEndPoint(IPAddress.Parse(host),port);
+             serverAddr=new IPEndPoint(host,port);
           }
           //mode setting
           kcp.NoDelay(nodelay, interval, resend, nc);
@@ -57,7 +59,11 @@ namespace cocosocket4unity
           {
               if(serverAddr!=null)
               {
-                  this.client.Connect(serverAddr);
+                    UnityEngine.Debug.Log("-------------11connect:" + serverAddr);
+                    UnityEngine.Debug.Log("-------------22connect:" + serverAddr.AddressFamily);
+                    UnityEngine.Debug.Log("-------------33connect:" + serverAddr.Address);
+                    client = new UdpClient(serverAddr.AddressFamily);
+                    this.client.Connect(serverAddr);
               }
               client.BeginReceive(Received, client);
           }

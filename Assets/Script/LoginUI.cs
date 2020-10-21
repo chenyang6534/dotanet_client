@@ -37,11 +37,69 @@ public class LoginUI : MonoBehaviour {
     void testtcp()
     {
 
-        TcpClient client = new TcpClient();
-        client.Connect(IPAddress.Parse("192.168.0.13"), 10001);
+        //TcpClient client = new TcpClient();
+        //client.Connect(IPAddress.Parse("192.168.0.13"), 10001);
+        IPAddress[] address = Dns.GetHostAddresses("www.game5868.top");
+        //IPAddress[] address = Dns.GetHostAddresses("119.23.8.72");
+        Debug.Log("-----------11-----------");
+        foreach (var info in address)
+        {
+            Debug.Log(info);
+        }
+        Debug.Log("-----------22-----------");
+        if (address[0].AddressFamily == AddressFamily.InterNetworkV6)
+        {
+            Debug.Log("ipv6-------------------:");
+            //var socket = new Socket(AddressFamily.InterNetworkV6, SocketType.Stream, ProtocolType.Tcp);
+            //socket.Connect()
+        }
+        else
+        {
+            Debug.Log("ipv4-------------------:");
+        }
+
+        //------------------
+        TcpClient client = new TcpClient(address[0].AddressFamily);
+        try
+        {
+            
+            client.Connect(address, 1119);//同步方法，连接成功、抛出异常、服务器不存在等之前程序会被阻塞
+        }
+        catch (Exception ex)
+        {
+            Debug.Log("tcp客户端连接异常：" + ex.Message);
+            
+        }
+        Debug.Log("tcp客户端连接成功：");
+        UdpClient udpclient = new UdpClient(address[0].AddressFamily);
+        try
+        {
+            udpclient.Connect(address[0], 1118);//同步方法，连接成功、抛出异常、服务器不存在等之前程序会被阻塞
+        }
+        catch (Exception ex)
+        {
+            Debug.Log("udp客户端连接异常：" + ex.Message);
+        }
+        Debug.Log("udp客户端连接成功：");
+
+    }
+
+    IPAddress GetIpAddress(string host)
+    {
+        IPAddress[] address = Dns.GetHostAddresses(host);
+        foreach (var info in address)
+        {
+            Debug.Log(info);
+        }
+        Debug.Log("aaaaaaaaaaaaaaaaaaaa");
+        Debug.Log(address[0]);
+        //return IPAddress.Parse("2001:2:0:1baa::7717:848");
+        return address[0];
     }
 
     void Start () {
+
+        //testtcp();
         Screen.fullScreen = false;
         m_LastQuickLoginTime = 0;
         SaveDataManager.SetFileName(winMachineid);
@@ -322,7 +380,8 @@ public class LoginUI : MonoBehaviour {
             }
             UMengManager.Instanse.Event_click_loginbtn();
             m_LastQuickLoginTime = Tool.GetTime();
-            MyKcp.Create(SelectServer.Ip, SelectServer.Port);
+            //MyKcp.Create(SelectServer.Ip, SelectServer.Port);
+            MyKcp.Create(GetIpAddress(SelectServer.Ip), SelectServer.Port);
 
             //有账号
             if (SaveDataManager.sData.PhoneNumber != null && SaveDataManager.sData.PhoneNumber.Length > 0)
@@ -377,7 +436,8 @@ public class LoginUI : MonoBehaviour {
         mRoot.GetChild("changebtn").visible = false;
         mRoot.GetChild("changebtn").asButton.onClick.Set(() => {
 
-            MyKcp.Create(SelectServer.Ip, SelectServer.Port);
+            //MyKcp.Create(SelectServer.Ip, SelectServer.Port);
+            MyKcp.Create(GetIpAddress(SelectServer.Ip), SelectServer.Port);
             PopPhoneLoginUI(0);
             
         });
@@ -401,8 +461,9 @@ public class LoginUI : MonoBehaviour {
             }
             UMengManager.Instanse.Event_click_loginbtn();
             m_LastQuickLoginTime = Tool.GetTime();
-            MyKcp.Create(SelectServer.Ip, SelectServer.Port);
-            
+            //MyKcp.Create(SelectServer.Ip, SelectServer.Port);
+            MyKcp.Create(GetIpAddress(SelectServer.Ip), SelectServer.Port);
+
             Protomsg.CS_MsgQuickLogin msg1 = new Protomsg.CS_MsgQuickLogin();
             Environment.GetCommandLineArgs();
             msg1.Machineid = SystemInfo.deviceUniqueIdentifier;

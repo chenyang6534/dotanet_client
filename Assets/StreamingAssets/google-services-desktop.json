@@ -1,0 +1,37 @@
+{
+  "client": [
+    {
+      "services": {
+        "appinvite_service": {
+          "status": 1
+        }, 
+        "analytics_service": {
+          "status": 0
+        }
+      }, 
+      "oauth_client": [
+        {
+          "client_id": "777600185118-8assaam044c20l0klfk0uvs4uphbvgkk.apps.googleusercontent.com"
+        }
+      ], 
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBu_FeiXSxNPw33uXvudQ36QQ0sTQB00Y"
+        }
+      ], 
+      "client_info": {
+        "mobilesdk_app_id": "1:777600185118:ios:a89d456a6b6486fd004f0f", 
+        "android_client_info": {
+          "package_name": "com.MobaRpg.dotaNet"
+        }
+      }
+    }
+  ], 
+  "configuration_version": "1", 
+  "project_info": {
+    "storage_bucket": "klqp-76d79.appspot.com", 
+    "project_id": "klqp-76d79", 
+    "firebase_url": "https://klqp-76d79.firebaseio.com", 
+    "project_number": "777600185118"
+  }
+}

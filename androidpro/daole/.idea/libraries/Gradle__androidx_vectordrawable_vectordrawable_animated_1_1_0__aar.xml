@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: androidx.vectordrawable.vectordrawable-animated-1.1.0:@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/androidx.vectordrawable.vectordrawable-animated-1.1.0.aar/5d1c81ef1292c61ea88523e49e68f72e/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/androidx.vectordrawable.vectordrawable-animated-1.1.0.aar/5d1c81ef1292c61ea88523e49e68f72e/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

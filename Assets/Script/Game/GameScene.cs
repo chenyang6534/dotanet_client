@@ -61,6 +61,8 @@ public class GameScene : MonoBehaviour {
 
     void Init()
     {
+
+        Firebase.Analytics.FirebaseAnalytics.LogEvent(Firebase.Analytics.FirebaseAnalytics.EventLogin);
         NextAutoAttackTime = 10000;
 
         m_LogicDelayTime = 0.05f;//延时0.02s

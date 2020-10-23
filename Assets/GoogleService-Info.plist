@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>777600185118-8assaam044c20l0klfk0uvs4uphbvgkk.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.777600185118-8assaam044c20l0klfk0uvs4uphbvgkk</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBBu_FeiXSxNPw33uXvudQ36QQ0sTQB00Y</string>
+	<key>GCM_SENDER_ID</key>
+	<string>777600185118</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.MobaRpg.dotaNet</string>
+	<key>PROJECT_ID</key>
+	<string>klqp-76d79</string>
+	<key>STORAGE_BUCKET</key>
+	<string>klqp-76d79.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:777600185118:ios:a89d456a6b6486fd004f0f</string>
+	<key>DATABASE_URL</key>
+	<string>https://klqp-76d79.firebaseio.com</string>
+</dict>
+</plist>

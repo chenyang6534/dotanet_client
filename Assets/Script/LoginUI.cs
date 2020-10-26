@@ -125,6 +125,8 @@ public class LoginUI : MonoBehaviour {
         mRoot = GetComponent<UIPanel>().ui;
         ToolManager();
 
+        InitServerControl();
+
 
         //打开gm窗口
         mLineUp = UIPackage.CreateObject("GameUI", "LineUp").asCom;
@@ -171,6 +173,45 @@ public class LoginUI : MonoBehaviour {
         MsgManager.Instance.AddListener("SC_GetLineUpFrontCount", new HandleMsg(this.SC_GetLineUpFrontCount));
 
 
+    }
+    //初始化服务器控制器
+    public int LeftClick = 0;
+    public int RightClick = 0;
+    public double m_LastClickTime = Tool.GetTime();
+    public void InitServerControl()
+    {
+        mRoot.GetChild("left").asButton.onClick.Set(() => {
+            
+            Debug.Log("left click");
+            if(Tool.GetTime()-m_LastClickTime >= 2)
+            {
+                LeftClick = 0;
+                RightClick = 0;
+            }
+            m_LastClickTime = Tool.GetTime();
+            LeftClick++;
+            if (LeftClick == 5 && RightClick == 5)
+            {
+                mRoot.GetChild("gmset").visible = true;
+            }
+
+        });
+        mRoot.GetChild("right").asButton.onClick.Set(() => {
+
+            Debug.Log("right click");
+            if (Tool.GetTime() - m_LastClickTime >= 2)
+            {
+                LeftClick = 0;
+                RightClick = 0;
+            }
+            m_LastClickTime = Tool.GetTime();
+            RightClick++;
+            if(LeftClick == 5 && RightClick == 5)
+            {
+                mRoot.GetChild("gmset").visible = true;
+            }
+
+        });
     }
 
     [Serializable]
@@ -1014,12 +1055,13 @@ public class LoginUI : MonoBehaviour {
     void ToolManager()
     {
         Debug.Log("platform:" + Application.platform);
-        mRoot.GetChild("gmset").visible = false;
+        //mRoot.GetChild("gmset").visible = false;
 
 
         //if (Application.platform == RuntimePlatform.Android)
-        if (Application.platform == RuntimePlatform.WindowsPlayer ||
-            Application.platform == RuntimePlatform.WindowsEditor)
+        //if (Application.platform == RuntimePlatform.WindowsPlayer ||
+        //    Application.platform == RuntimePlatform.WindowsEditor)
+        if(true)
         {
 
             
@@ -1027,7 +1069,7 @@ public class LoginUI : MonoBehaviour {
 
 
 
-            mRoot.GetChild("gmset").visible = true;
+            mRoot.GetChild("gmset").visible = false;
             mRoot.GetChild("gmset").asButton.onClick.Add(() => {
                 //打开gm窗口
                 var gmtool = UIPackage.CreateObject("GameUI", "GMTool").asCom;

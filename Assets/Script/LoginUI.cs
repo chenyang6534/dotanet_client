@@ -27,7 +27,7 @@ public class LoginUI : MonoBehaviour {
     //public static string GameLauncherUrl = "http://119.23.8.72:6666";//119.23.8.72
     public static string Url = "https://www.game5868.top";
     public static string GameLauncherUrl = Url+":6666";
-    public static string GameServerPlayerCount = "http://www.game5868.top:9999"; //查询玩家数量
+    public static string GameServerPlayerCount = "http://119.23.8.72:9999"; //查询玩家数量
     public static string GameNotice = "";
     public static string winMachineid = "3";
     public static string Version = "1.5.0";
